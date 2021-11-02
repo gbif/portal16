@@ -264,6 +264,10 @@ router.get('/tools/dataValidator/extensions.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/extensions/extensions.nunjucks');
 });
 
+router.get('/tools/dataValidator/myValidations.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/dataValidator/myValidations/myValidations.nunjucks');
+});
+
 router.get('/tools/dataRepository.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/dataRepository/dataRepository.template.nunjucks');
 });

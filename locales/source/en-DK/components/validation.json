@@ -121,7 +121,8 @@
       "about": "About",
       "darwinCoreExtensions": "Darwin core extensions",
       "metaData": "Meta data",
-      "summary": "Summary"
+      "summary": "Summary",
+      "myValidations": "Validation reports"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
@@ -146,11 +147,11 @@
         "QUEUED": "Extraction queued"
       },
       "VALIDATOR_VERBATIM_TO_INTERPRETED": {
-        "RUNNING": "Interpreting data",
-        "FINISHED": "Data interpreted",
-        "PENDING": "Interpret data",
-        "FAILED": "Interpretation failed",
-        "QUEUED": "Interpretation queued"
+        "RUNNING": "Validating data",
+        "FINISHED": "Data validated",
+        "PENDING": "Validate data",
+        "FAILED": "Validation failed",
+        "QUEUED": "Validation queued"
       },
       "VALIDATOR_INTERPRETED_TO_INDEX": {
         "RUNNING": "Indexing data",

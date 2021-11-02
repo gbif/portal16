@@ -682,6 +682,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'dataValidatorAboutCtrl',
             controllerAs: 'dataValidatorAbout'
         })
+        .state('myValidations', {
+            parent: 'dataValidator',
+            url: '/my-validations',
+            templateUrl: '/api/template/tools/dataValidator/myValidations.html?v=' + BUILD_VERSION,
+            controller: 'myValidationsCtrl',
+            controllerAs: 'vm'
+        })
         // .state('dataValidatorExtensions', {
         //     parent: 'dataValidator',
         //     url: '/extensions/:jobid?',
@@ -700,13 +707,14 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
-        .state('dataValidatorExtensionsKey', {
-            parent: 'dataValidatorKey',
-            url: '/extensions',
-            templateUrl: '/api/template/tools/dataValidator/extensions.html?v=' + BUILD_VERSION,
-            controller: 'dwcExtensionsCtrl',
-            controllerAs: 'vm'
-        })
+
+        // .state('dataValidatorExtensionsKey', {
+        //     parent: 'dataValidatorKey',
+        //     url: '/extensions',
+        //     templateUrl: '/api/template/tools/dataValidator/extensions.html?v=' + BUILD_VERSION,
+        //     controller: 'dwcExtensionsCtrl',
+        //     controllerAs: 'vm'
+        // })
         // .state('dataValidatorAboutKey', {
         //     parent: 'dataValidatorKey',
         //     url: '/about',

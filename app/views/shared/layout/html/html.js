@@ -409,6 +409,7 @@ require('../../../pages/health/health.ctrl');
 
 require('../../../pages/tools/dataValidator/dataValidator.ctrl');
 require('../../../pages/tools/dataValidator/dataValidatorKey.ctrl');
+require('../../../pages/tools/dataValidator/myValidations/myValidations.ctrl');
 
 require('../../../pages/tools/dataValidator/document/dataValidatorDocument.ctrl');
 require('../../../pages/tools/dataValidator/about/dataValidatorAbout.ctrl');

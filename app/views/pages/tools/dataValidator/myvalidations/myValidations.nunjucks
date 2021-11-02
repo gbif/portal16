@@ -1,0 +1,53 @@
+<div class="horizontal-stripe light-background">
+    <div class="container--narrow">
+        <section>
+            <div>
+                <div>
+                    <div ng-repeat="result in vm.validations.results">
+                        <div class="card m-b-05 searchCard">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <h3 class="searchCard__headline derivedDataset__cardHeader">
+                                       <!-- <a href="" ui-sref="derivedDatasetKey({prefix: result.doi.split('/')[0], suffix: result.doi.split('/')[1]})">{{result.title}}</a> -->
+                                       <a href="" ng-href="{{vm.localePrefix +  'tools/data-validator/'+ result.key}}">{{result.file}}</a>
+                                    </h3>
+
+                                     <span class="small discreet--very dataValidator__resultDate">
+                                        {{ result.created | momentFormat:'LL' }} 
+                                    </span>
+                                    
+                                </div>
+                            </div>
+                            <div class="card__stripe">
+                                <div class="card__content clearfix">
+                                <p class="m-t-0" ng-if="result.metrics.indexeable === true" >
+                <span class="issue-bullet__approved">●</span>
+
+                 <span  translate="validation.indexeable"></span>
+                </p>
+                <p  class="m-t-0" ng-if="result.metrics.indexeable !== true" ><span class="issue-bullet__error">●</span> <span  translate="validation.notIndexeable"></span></p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <uib-pagination
+                            total-items="vm.validations.count"
+                            ng-model="derivedDataset.currentPage"
+                            max-size="derivedDataset.maxSize"
+                            items-per-page="derivedDataset.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="derivedDataset.pageChanged()"
+                            ng-show="vm.validations.count > derivedDataset.limit">
+                    </uib-pagination>
+                </div>
+                <div class="emptyInfo" ng-if="vm.validations.count == 0">
+                    <h3>No results</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

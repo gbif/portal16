@@ -52,9 +52,11 @@
                                                 <div class="col-xs-12">
                                                     <dt translate="validation.fileType.title"></dt>
                                                     <dd class="dataValidator__clickable-links">
-                                                        <a ng-click="resultPerResource.showDescription = (resultPerResource.showDescription === undefined) ? true : !resultPerResource.showDescription">{{ (vm.dwcextensions[resultPerResource.rowType]) ? vm.dwcextensions[resultPerResource.rowType].title : resultPerResource.rowType}}</a>
-
-                                                        <div class="discreet--very small" ng-show="resultPerResource.showDescription">{{ vm.dwcextensions[resultPerResource.rowType].description }}</div>
+                                                        <a ng-click="resultPerResource.showDescription = (resultPerResource.showDescription === undefined) ? true : !resultPerResource.showDescription">{{ (vm.dwcextensions[resultPerResource.rowType]) ? vm.dwcextensions[resultPerResource.rowType].title : resultPerResource.rowType}}</a> <a ng-if="vm.dwcextensions[resultPerResource.rowType].url" ng-href="{{vm.dwcextensions[resultPerResource.rowType].url}}"><span class="gb-icon-link" /></a>
+                    
+                                                        <div class="discreet--very small" ng-show="resultPerResource.showDescription">{{ vm.dwcextensions[resultPerResource.rowType].description }} 
+                                                        
+                                                        </div>
 
                                                     </dd>
                                                     <br>
