@@ -4,6 +4,9 @@
     "figures": "Figures"
   },
   "species": {
+    "literature": {
+      "introText": "[GBIF-relevant](/faq?question=literature-relevance) literature explicitly focused on taxon"
+    },
     "distribution": {
       "presentIn": "{status} in {country}",
       "presentInNonCountry": "{status} in {location}",
@@ -18,6 +21,7 @@
       "treatment": "Treatment",
       "metrics": "Metrics",
       "referenceTaxon": "Reference taxon",
+      "literature": "Literature",
       "verbatim": "Verbatim"
     },
     "invasives": {

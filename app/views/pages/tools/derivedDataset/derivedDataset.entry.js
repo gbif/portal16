@@ -14,16 +14,27 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
     vm.uploads;
     vm.localePrefix = gb.locale === 'en' ? '/' : gb.locale + '/';
 
+    vm.getToken = function() {
+        return vm.token ? Promise.resolve() : $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
+        .success(function(data, status) {
+            vm.token = data.token;
+        })
+        .error(function(data, status) {
+            
+        });
+    };
     vm.search = function() {
         // TODO add headers when backend is ready
-        $http({
-            method: 'get',
-            url: env.dataApi + 'derivedDataset/user/' + vm.username
-           // headers: {Authorization: 'Bearer ' + User.getAuthToken()}
-        }).then(function(res) {
-            vm.uploads = res.data;
-        }).catch(function(err) {
-            vm.uploads = err.data;
+        vm.getToken().then(function() {
+            $http({
+                method: 'get',
+                url: env.dataApi + 'derivedDataset/user/' + vm.username,
+                headers: {Authorization: 'Bearer ' + vm.token}
+            }).then(function(res) {
+                vm.uploads = res.data;
+            }).catch(function(err) {
+                vm.uploads = err.data;
+            });
         });
     };
     function updateUser() {

@@ -75,6 +75,12 @@
         {% include "../treatments/treatments.nunjucks" %}
 
     </div>
+
+    <div ng-if="speciesKey2.$state.is('speciesKeyLiterature')" class="container--desktop m-t-1">
+        
+        {% include "../literature/literature.template.nunjucks" %}
+
+    </div>
 <div class="container--desktop">
     {% include "../metrics/metrics.nunjucks" %}
 </div>

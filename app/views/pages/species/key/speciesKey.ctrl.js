@@ -15,6 +15,7 @@ require('./directives/typeSpecimen.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
+require('./literature/literature.ctrl.js');
 
 angular.module('portal').controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
@@ -40,11 +41,13 @@ function speciesKey2Ctrl(
     suggestEndpoints,
     SpeciesTreatment,
     SpeciesTreatments,
+    ResourceSearch,
     constantKeys,
     Page,
     PublisherExtended,
     MapCapabilities,
     BUILD_VERSION,
+    LOCALE,
     $translate,
     $mdMedia
 ) {
@@ -57,7 +60,7 @@ function speciesKey2Ctrl(
     vm.backboneKey = constantKeys.dataset.backbone;
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
-
+    var literatureLimit = 25;
     vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
     vm.species = Species.get({id: vm.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
@@ -73,6 +76,13 @@ function speciesKey2Ctrl(
         media_type: 'stillImage',
         limit: 20
     });
+    
+    ResourceSearch.query({gbifTaxonKey: vm.key, contentType: 'literature', limit: literatureLimit, locale: LOCALE}, function(data) {
+        vm.literature = data;
+    }, function() {
+        // TODO handle request error
+    });
+
     SpeciesMedia.get({
         id: vm.key,
         media_type: 'stillImage',

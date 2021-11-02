@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "Derived dataset DOI",
             "paperDoi": "DOI of paper",
             "litSource": "Journal",
+            "gbifTaxonKey": "Scientific name",
             "litPublisher": "Journal publisher"
+        },
+        "helpText": {
+          "gbifTaxonKey": "Note: Applying this filter will exclude papers not explicitly focused on (a) specific taxon/taxa"
         }
     }
 }

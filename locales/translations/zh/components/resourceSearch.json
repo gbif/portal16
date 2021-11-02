@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "派生的数据集DOI",
             "paperDoi": "数字对象标识符",
             "litSource": "期刊",
+            "gbifTaxonKey": "学名",
             "litPublisher": "期刊发布者"
+        },
+        "helpText": {
+            "gbifTaxonKey": "注意：应用此筛选程序将排除未明确聚焦于(一个)特定分类单元/分类群的论文"
         }
     }
 }

@@ -56,7 +56,7 @@
       "noIdentifier": "Aucun identifiant de média fourni",
       "noPlaybackSupport": "Votre navigateur ne supporte pas le format requis pour lire ce média.",
       "takeMeThere": "Essayez la version sur le site de l'éditeur",
-      "notWorkingTryPublishers": "",
+      "notWorkingTryPublishers": "La lecture des médias ne fonctionne pas comme prévu ?",
       "download": "Télécharger le média",
       "byRightsHolder": "par {RIGHTSHOLDER}",
       "licensedUnder": "sous licence {{LICENSE}}",
@@ -91,7 +91,7 @@
     },
     "occurrence": "Une occurrence",
     "inLanguage": "En {LANGUAGE_TRANSLATED}",
-    "sequenced": "",
+    "sequenced": "Séquencé",
     "treatment": "Traitement",
     "cluster": {
       "current": "",
@@ -99,7 +99,7 @@
       "similarBecause": "",
       "matchedRecord": "",
       "noMatches": "",
-      "explainer": ""
+      "explainer": "Il s'agit d'une fonctionnalité expérimentale qui met en évidence les éventuels doublons et/ou occurrences connexes."
     }
   },
   "interpretationRemarks": {

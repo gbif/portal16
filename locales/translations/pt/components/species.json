@@ -4,6 +4,9 @@
     "figures": "Figuras"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "{status} em {country}",
       "presentInNonCountry": "{status} em {location}",
@@ -18,6 +21,7 @@
       "treatment": "Tratamento",
       "metrics": "Métricas",
       "referenceTaxon": "Táxon de referência",
+      "literature": "Bibliografia",
       "verbatim": "Original"
     },
     "invasives": {

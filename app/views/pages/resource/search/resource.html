@@ -43,6 +43,8 @@
 
         <div ng-if="resource.state.query.contentType == 'project'" filter-enum filter-config="resource.filters.contractCountry" filter-state="resource.state"></div>
 
+        <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.taxonKey" filter-state="resource.state"></div>
+
         <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.dataset" filter-state="resource.state"></div>
 
         <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.publisher" filter-state="resource.state"></div>

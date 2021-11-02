@@ -4,6 +4,9 @@
     "figures": "圖片"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "出現於 {country} 的 {status}",
       "presentInNonCountry": "出現於 {location} 的 {status}",
@@ -18,6 +21,7 @@
       "treatment": "分類處理",
       "metrics": "指標",
       "referenceTaxon": "參考分類群",
+      "literature": "文獻",
       "verbatim": "字面的"
     },
     "invasives": {

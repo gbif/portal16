@@ -1,0 +1,36 @@
+<section class="">
+    <div class="container--narrow">
+        <div class="row">
+            <div class="col-xs-12 ng-cloak" ng-if="!speciesKey2.literature.$resolved">
+                <div class="emptyInfo">
+                    <h3 class="uppercase-first" translate="phrases.loading">Loading</h3>
+                    <span class="loading"></span>
+                </div>
+            </div>
+            <div class="col-xs-12 ng-cloak" ng-if="speciesKey2.literature.count > 0 || speciesKey2.literature.count > 0">
+                <div>
+                  <span class="gb-icon-info"></span>
+                  <div style="display: inline-block" ng-bind-html="'species.literature.introText' | translate | md2html"></div>
+                </div>
+                
+                <div class="card-header clearfix">
+                  <span class="card-header" tx="search.nResults" tx-nr="speciesKey2.literature.count"></span>
+                  <a class="gb-icon-filters pull-right inherit noUnderline m-r-05"
+                      ui-sref="resourceSearchList({contentType: 'literature', gbifTaxonKey: speciesKey2.key})"></a>
+                </div>
+                <div>
+                    <div ng-if="speciesKey2.literature.count > 0">
+                        <ng-include src="'/api/template/search/literatureResult.html?v=' +  portal.BUILD_VERSION+'&locale='+speciesKey2.locale"
+                                    ng-repeat="result in speciesKey2.literature.results" ></ng-include>
+                        <div ng-if="speciesKey2.literature.count > speciesKey2.limit" class="text-center m-t-1">
+                            <a ui-sref="resourceSearchList({contentType: 'literature', countriesOfCoverage: speciesKey2.countryCode})" class="gb-button--discreet" translate="countryKey.viewAllN" translate-values="{NUMBER_FORMATTED: (speciesKey2.literature.count | localNumber)}"></a>
+                        </div>
+                    </div>
+                    <div class="emptyInfo" ng-if="speciesKey2.literature.count == 0">
+                        <h3 translate="countryKey.noPublications">No publications</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

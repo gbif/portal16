@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "DOI del conjunto de datos derivado",
             "paperDoi": "DOI",
             "litSource": "",
+            "gbifTaxonKey": "Nombre científico",
             "litPublisher": ""
+        },
+        "helpText": {
+            "gbifTaxonKey": "Nota: La aplicación de este filtro excluirá los trabajos que no se centren explícitamente en un taxón/taxa específico"
         }
     }
 }

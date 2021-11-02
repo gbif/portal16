@@ -34,6 +34,9 @@ describe('scientificName formatter', function() {
     it('simply italicizes informal names of ranks lower than family', function() {
         expect(sciName.formatName(mockNames.Linum_cf_prostratum)).toEqual('<i>Linum cf. prostratum Weigend 7324 </i>');
     });
+    it('can format named hybrids', function() {
+        expect(sciName.formatName(mockNames.Asplenium_X_alternifolium_subsp_alternifolium)).toEqual('<i>Asplenium ×alternifolium subsp. alternifolium </i>Wulfen');
+    });
 });
 
 

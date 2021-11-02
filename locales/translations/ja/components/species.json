@@ -4,6 +4,9 @@
     "figures": "図"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "{country} に{status}",
       "presentInNonCountry": "{location} に{status}",
@@ -18,6 +21,7 @@
       "treatment": "処理",
       "metrics": "メトリクス",
       "referenceTaxon": "文献の分類群",
+      "literature": "文献",
       "verbatim": "オリジナルのまま"
     },
     "invasives": {

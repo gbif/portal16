@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "衍生資料集的數位物件識別碼",
             "paperDoi": "DOI",
             "litSource": "期刊",
+            "gbifTaxonKey": "學名",
             "litPublisher": "期刊出版者"
+        },
+        "helpText": {
+            "gbifTaxonKey": "注意：套用此篩選條件將排除非明確專注於特定分類群的論文發表"
         }
     }
 }

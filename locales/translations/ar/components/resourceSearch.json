@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "",
             "paperDoi": "مُعرِّف رقمي",
             "litSource": "مجلة",
+            "gbifTaxonKey": "الاسم العلمي",
             "litPublisher": "ناشر المجلة"
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
         }
     }
 }
