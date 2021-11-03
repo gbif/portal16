@@ -34,7 +34,7 @@ function myValidationsCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessio
                 method: 'get',
                 url: env.dataApi + 'validation',
                 headers: {Authorization: 'Bearer ' + vm.token},
-                params: {limit: vm.limit, offset: vm.offset}
+                params: {limit: vm.limit, offset: vm.offset, sortBy: 'created:DESC'}
             }).then(function(res) {
                 vm.validations = res.data;
             }).catch(function(err) {

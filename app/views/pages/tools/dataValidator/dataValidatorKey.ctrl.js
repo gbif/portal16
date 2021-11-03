@@ -239,9 +239,14 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
             }), function(s) {
                 return s.relatedData;
             });
+            var emlGbifSchemaIssueSamples = _.map(_.filter(resourceResult.issues, function(i) {
+                return i.issue === 'EML_GBIF_SCHEMA';
+            }), function(s) {
+                return _.get(s, 'samples[0]');
+            });
 
             resourceResult.issues = _.filter(resourceResult.issues, function(i) {
-                return i.issue !== 'DUPLICATED_TERM' && i.issue !== 'UNKNOWN_TERM';
+                return i.issue !== 'DUPLICATED_TERM' && i.issue !== 'UNKNOWN_TERM' && i.issue !== 'EML_GBIF_SCHEMA';
             });
 
             if (unknownTermIssueSamples && unknownTermIssueSamples.length > 0) {
@@ -258,6 +263,15 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
                     issue: 'DUPLICATED_TERM',
                     issueCategory: 'RESOURCE_STRUCTURE',
                     relatedData: duplicatedTermIssuesSamples
+
+                });
+            }
+
+            if (emlGbifSchemaIssueSamples && emlGbifSchemaIssueSamples.length > 0) {
+                resourceResult.issues.push({
+                    issue: 'EML_GBIF_SCHEMA',
+                    issueCategory: 'RESOURCE_STRUCTURE',
+                    samples: emlGbifSchemaIssueSamples
 
                 });
             }

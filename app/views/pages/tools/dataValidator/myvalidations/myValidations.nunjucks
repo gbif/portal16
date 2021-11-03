@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="card__stripe">
-                                <div class="card__content clearfix">
+                                <div class="card__content clearfix" ng-if="result.status !== 'RUNNING'">
                                 <p class="m-t-0" ng-if="result.metrics.indexeable === true" >
                                 <span class="issue-bullet__approved">●</span>
 
@@ -38,6 +38,17 @@
                                 </p>
                                 <p  class="m-t-0" ng-if="result.metrics.indexeable !== true" ><span class="issue-bullet__error">●</span> <span  translate="validation.notIndexeable"></span></p>
                                    
+                                </div>
+                                <div class="card__content clearfix" ng-if="result.status === 'RUNNING'">
+                                <div layout="row" layout-align="start center">
+                                 <div layout="column" >
+                                    <div class="dataValidator__pulse dataValidator__circle" ></div>
+                                 </div>
+                                 <div layout="column" >
+                                 <span  translate="validation.status.RUNNING"></span> 
+                                 </div>
+                                </div>
+                                    
                                 </div>
                             </div>
                         </div>

@@ -122,9 +122,9 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     };
 
 
-if ($sessionStorage.gbifRunningValidatonJob) {
+/* if ($sessionStorage.gbifRunningValidatonJob) {
         $state.go('dataValidatorKey', {jobid: $sessionStorage.gbifRunningValidatonJob});
-    }
+    } */
 
 
     function handleValidationSubmitResponse(data) {

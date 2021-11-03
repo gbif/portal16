@@ -68,8 +68,8 @@
                             </form>
                             </div>
                         </div>
-                        <div class="m-t-1" ng-if="vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING'" layout="row">
-                           <span flex></span><md-progress-circular></md-progress-circular><span flex></span>
+                        <div class="m-t-1" ng-if="vm.progress" layout="row">
+                           <span flex></span><md-progress-circular md-mode="determinate" value="{{vm.progress}}"></md-progress-circular><span flex></span>
                         </div>
 
                     </div>

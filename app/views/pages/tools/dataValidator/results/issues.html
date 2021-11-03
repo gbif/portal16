@@ -82,7 +82,7 @@
                    >
                 <thead>
                 <tr>
-                <th>recordId</th>
+                <th ng-if="issueBlock.issue !== 'EML_GBIF_SCHEMA'">recordId</th>
                     <th ng-repeat="(key, val) in issueBlock.samples[0].relatedData">
                         {{ key }}
                     </th>
@@ -90,7 +90,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="row in issueBlock.samples">
-                   <td>{{row.recordId}} </td>
+                   <td ng-if="issueBlock.issue !== 'EML_GBIF_SCHEMA'">{{row.recordId}} </td>
                     <td ng-repeat="(key, val) in row.relatedData" class="table-cell--wide">
                         {{ val }}
                     </td>
