@@ -8,12 +8,18 @@ angular
     .controller('derivedDatasetCtrl', derivedDatasetCtrl);
 
 /** @ngInject */
-function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $state, env) {
+function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $stateParams, $state, env) {
     var vm = this;
     vm.$state = $state;
     vm.uploads;
     vm.localePrefix = gb.locale === 'en' ? '/' : gb.locale + '/';
-
+    function updatePaginationCounts() {
+        vm.offset = parseInt($stateParams.offset) || 0;
+        vm.maxSize = 5;
+        vm.limit = parseInt($stateParams.limit) || 20;
+        vm.currentPage = Math.floor(vm.offset / vm.limit) + 1;
+    }
+    updatePaginationCounts();
     vm.getToken = function() {
         return vm.token ? Promise.resolve() : $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
         .success(function(data, status) {
@@ -29,7 +35,8 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
             $http({
                 method: 'get',
                 url: env.dataApi + 'derivedDataset/user/' + vm.username,
-                headers: {Authorization: 'Bearer ' + vm.token}
+                headers: {Authorization: 'Bearer ' + vm.token},
+                params: {limit: vm.limit, offset: vm.offset}
             }).then(function(res) {
                 vm.uploads = res.data;
             }).catch(function(err) {
@@ -71,6 +78,11 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
             vm.search();
         }
     });
+
+    vm.pageChanged = function() {
+        vm.offset = (vm.currentPage - 1) * vm.limit;
+        $state.go($state.current, {limit: vm.limit, offset: vm.offset}, {inherit: true, notify: true, reload: true});
+    };
 }
 
 module.exports = derivedDatasetCtrl;

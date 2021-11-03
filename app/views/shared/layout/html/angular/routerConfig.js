@@ -695,10 +695,10 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('myValidations', {
             parent: 'dataValidator',
-            url: '/my-validations',
+            url: '/my-validations?offset&limit',
             templateUrl: '/api/template/tools/dataValidator/myValidations.html?v=' + BUILD_VERSION,
             controller: 'myValidationsCtrl',
-            controllerAs: 'vm'
+            controllerAs: 'myValidations'
         })
         // .state('dataValidatorExtensions', {
         //     parent: 'dataValidator',
@@ -780,7 +780,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('derivedDataset', {
             parent: 'localization',
-            url: '/derived-dataset',
+            url: '/derived-dataset?offset&limit',
             views: {
                 main: {
                     templateUrl: '/api/template/tools/derivedDataset.html?v=' + BUILD_VERSION,
