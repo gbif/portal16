@@ -14,6 +14,7 @@
     "failedSearch": "Enten har serveren problemer eller også er dine filtre ugyldige. Prøv igen og raporter det gerne hvis problemet fortsætter",
     "noImages": "Ingen observationer med billeder",
     "imageLicenseInfo": "Være opmærksom på, at licenser anvendt på billeder kan afvige fra observationens licens",
+    "combinedMediaTypeInfo": "",
     "showMoreImages": "Flere",
     "default": "Standard",
     "custom": "Brugerdefineret",
