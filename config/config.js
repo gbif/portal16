@@ -57,7 +57,7 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-const localEnvironmentPostFix = '';//'-uat';
+const localEnvironmentPostFix = '-uat'; // e.g. '-uat';
 let config = {
     local: {
         env: 'dev',
@@ -102,6 +102,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://localhost:9000', // 'http://blast.gbif-dev.org',
         graphQL: `http://graphql.gbif${localEnvironmentPostFix}.org/graphql`,
+        reactComponents: `//react-components.gbif${localEnvironmentPostFix}.org/lib/gbif-react-components.js`,
         healthUpdateFrequency: 240000
     },
 
@@ -144,6 +145,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-dev.org/graphql',
+        reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -189,6 +191,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-staging.org/graphql',
+        reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -231,6 +234,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-uat.org/graphql',
+        reactComponents: '//react-components.gbif-uat.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -273,6 +277,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-staging.org/graphql',
+        reactComponents: '//react-components.gbif-staging.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -314,7 +319,8 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
-        graphQL: 'http://graphql.gbif-staging.org/graphql',
+        graphQL: 'http://graphql.gbif.org/graphql',
+        reactComponents: '//react-components.gbif.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -357,6 +363,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-dev.org/graphql',
+        reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     }
 };
