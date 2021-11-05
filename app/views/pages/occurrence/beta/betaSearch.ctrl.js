@@ -31,7 +31,7 @@ function betaSearchCtrl() {
 
     ReactDOM.render(
       React.createElement(gbifReactComponents.OccurrenceSearch, {
-        style: {height: 'calc(100vh - 3.571428571425rem)'},
+        style: {height: 'calc(100vh - 86px)'},
         theme: siteTheme,
         config: siteConfig
       }),
