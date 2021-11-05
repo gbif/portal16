@@ -10,6 +10,6 @@
 
 <script
     type="text/javascript"
-    src="https://react-components.gbif.org/lib/gbif-react-components.js?v=e388910f1570c9769625c8a64b1aeb08"
+    src="{$ reactLibraryUrl $}"
 ></script>
 {% endblock %}
