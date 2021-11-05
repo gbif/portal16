@@ -14,7 +14,7 @@
     "failedSearch": "Tus filtros pueden ser incorrectos o el servidor puede tener problemas. Por favor, inténtalo de nuevo y reporta el problema si continúa",
     "noImages": "No existen registros de presencia con imágenes",
     "imageLicenseInfo": "Ten en cuenta que las licencias aplicadas a las imágenes pueden ser diferentes a las aplicadas a los registros de presencia",
-    "combinedMediaTypeInfo": "",
+    "combinedMediaTypeInfo": "Tenga en cuenta que el filtro 'Tipo de medio' para vídeo o audio no funciona mientras esté en la vista de galería",
     "showMoreImages": "Más",
     "default": "Por defecto",
     "custom": "Personalizar",
