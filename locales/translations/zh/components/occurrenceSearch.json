@@ -14,7 +14,7 @@
     "failedSearch": "您的筛选可能无效或者服务器出现问题。请再尝试，若仍有问题请报告问题。",
     "noImages": "不带图片的出现记录",
     "imageLicenseInfo": "请注意，此图片的授权可能与出现记录的授权不同。",
-    "combinedMediaTypeInfo": "",
+    "combinedMediaTypeInfo": "请注意，视频或音频的“媒体类型”过滤器在相册视图中不起作用",
     "showMoreImages": "更多",
     "default": "默认",
     "custom": "自定义",
