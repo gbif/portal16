@@ -654,7 +654,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('health', {
             parent: 'localization',
-            url: '/health',
+            url: '/system-health',
             views: {
                 main: {
                     templateUrl: '/templates/pages/health/health.html?v=' + BUILD_VERSION,

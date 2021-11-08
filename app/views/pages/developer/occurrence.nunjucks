@@ -826,7 +826,7 @@
                             given user can only have <b style="font-weight: bold;">1</b> download.
                         </li>
                     </ul>
-                    <p>The number of user downloads currently in progress can be seen on the <a href="../../health">System Health</a> page.
+                    <p>The number of user downloads currently in progress can be seen on the <a href="../../system-health">System Health</a> page.
                         Your own downloads can be seen on your <a href="../../user/download">My Downloads</a> page.</p>
                 </div>
             </section>
