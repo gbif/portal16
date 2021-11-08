@@ -14,7 +14,7 @@
     "failedSearch": "Vos filtres semblent être invalides ou les serveurs présentent des problèmes. Veuillez réessayer et signaler le problème, s'il persiste",
     "noImages": "Aucune occurrence avec images",
     "imageLicenseInfo": "Soyez conscients que les licences attribuées aux images peuvent différer de celles attribuées aux occurrences",
-    "combinedMediaTypeInfo": "",
+    "combinedMediaTypeInfo": "Notez que le filtre 'Type de média' pour la vidéo ou l'audio ne fonctionne pas en mode galerie",
     "showMoreImages": "Plus",
     "default": "Par défaut",
     "custom": "Personnalisé",
