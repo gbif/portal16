@@ -149,8 +149,12 @@ function getSimpleQuery(predicate) {
         }
     }
     // serialize query to occurrence site search string
-    let queryString = _.join(_.flattenDeep(attachPredicatesAsParams(predicate)), '&');
-    return queryString;
+    try {
+      let queryString = _.join(_.flattenDeep(attachPredicatesAsParams(predicate)), '&');
+      return queryString;
+    } catch (err) {
+      return false;
+    }
 }
 
 function attachPredicatesAsParams(predicate) {
