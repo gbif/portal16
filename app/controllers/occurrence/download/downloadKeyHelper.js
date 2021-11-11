@@ -131,7 +131,7 @@ function addSyntheticTypes(predicate) {
 function getSimpleQuery(predicate) {
     if (!predicate) {
         throw new Error('failed to parse predicate');
-    } else if (['or', 'not'].indexOf(predicate.type) !== -1 || predicate._maxDepth > 3) {
+    } else if (['or', 'not', 'isNull', 'isNotNull'].indexOf(predicate.type) !== -1 || predicate._maxDepth > 3) {
         return false;
     } else if (predicate.type === 'and') {
         // validate that elements have different childkeys and none of them are MIXED and have OR or leaf type
