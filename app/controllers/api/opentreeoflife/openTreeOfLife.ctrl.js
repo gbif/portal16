@@ -86,9 +86,8 @@ router.get('/otl/newick', cors(), async function (req, res) {
         });
         return res.status(200).json(treeResponse);
     } catch (err) {
-        if (err.statusCode !== 200) {
-            throw err;
-        }
+            let status = err.statusCode || 500;
+            res.status(status).send(_.get(err, 'error.message', ''));
     }
 });
 
