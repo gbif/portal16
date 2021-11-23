@@ -14,7 +14,7 @@
 
         <div class="stickyNav__actions">
             <a href="" class="stickyNav__actions__action gb-icon-heartbeat stickyNav__actions__action--notification ng-cloak" ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0" ng-class="{'is-info': nav.notifications.severity == 'INFO'}"></a>
-            <a href="" class="stickyNav__actions__action gb-icon-heartbeat" ng-href="{{ portal.urlPrefix }}/health" ng-if="!nav.notifications || nav.notifications.count == 0"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-heartbeat" ng-href="{{ portal.urlPrefix }}/system-health" ng-if="!nav.notifications || nav.notifications.count == 0"></a>
             {% if (gb.locales.locales | length) > 1 %}
                 <a href="" class="stickyNav__actions__action gb-icon-translate" ng-click="nav.toggleLanguage()"></a>
             {% endif %}

@@ -76,6 +76,9 @@
             <div class="small discreet" ng-if="occGallery.occurrenceState.query.license">
                 <p translate="occurrenceSearch.imageLicenseInfo"></p>
             </div>
+            <div class="small discreet" ng-if="occGallery.occurrenceState.query.media_type">
+                <p translate="occurrenceSearch.combinedMediaTypeInfo">The gallery cannot be combined with queries for video or audio</p>
+            </div>
             <div class="imageGallery rtl-supported">
                 <a class="imageGallery__img" ng-repeat="image in occGallery.results" ui-sref="occurrenceKey({key:image.key})" dir="auto">
                     <img ng-src="{{occGallery.imageCache}}x260/{{image._images[0].identifier | encodeURIComponent}}"

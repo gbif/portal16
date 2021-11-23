@@ -138,7 +138,7 @@
                 </div>
                 <div>
                     <dt translate="validation.fileSize"></dt>
-                    <dd >{{ vm.fileSize }} mb
+                    <dd >{{ vm.fileSize }}
 
                     </dd>
                 </div> 

@@ -47,17 +47,20 @@ module.exports = function(app, config) {
                         `'self'`,
                         `'unsafe-inline'`,
                         `'unsafe-eval'`,
+                        `*.gbif.org`,
+                        `*.gbif-uat.org`,
+                        `*.gbif-dev.org`,
+                        `*.gbif-staging.org`,
                         '*.google-analytics.com',
                         'api.mapbox.com',
                         'unpkg.com/react@17/umd/react.production.min.js',
-                        'unpkg.com/react-dom@17/umd/react-dom.production.min.js',
-                        'cdn.jsdelivr.net/gh/gbif/gbif-web@latest/packages/react-components/dist/gbif-react-components.js'
+                        'unpkg.com/react-dom@17/umd/react-dom.production.min.js'
                       ],
                     styleSrc: [
                         `'self'`,
                         `'unsafe-inline'`,
                         '*.googleapis.com',
-                        'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css',
+                        'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/*.css',
                         'api.mapbox.com',
                         'maxcdn.bootstrapcdn.com'],
                     mediaSrc: ['*'],

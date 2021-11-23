@@ -57,6 +57,7 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
+const localEnvironmentPostFix = '-dev'; // e.g. '-uat';
 let config = {
     local: {
         env: 'dev',
@@ -68,13 +69,13 @@ let config = {
         port: port || 3000,
         serverProtocol: 'http:',
         apidocs: apidocs,
-        managementToolsSite: '//registry.gbif.org/',
-        dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
-        dataApi: dataApi || '//api.gbif-dev.org/v1/',
-        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        basemapTileApi: basemapTileApi || '//tile.gbif.org',
-        identityApi: identityApi || '//api.gbif-dev.org/v1/',
-        analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
+        managementToolsSite: `//registry.gbif${localEnvironmentPostFix}.org/`,
+        dataApiV2: dataApiV2 || `//api.gbif${localEnvironmentPostFix}.org/v2/`,
+        dataApi: dataApi || `//api.gbif${localEnvironmentPostFix}.org/v1/`,
+        tileApi: tileApi || `//api.gbif${localEnvironmentPostFix}.org/v1/map/density/tile.png`,
+        basemapTileApi: basemapTileApi || `//tile.gbif${localEnvironmentPostFix}.org`,
+        identityApi: identityApi || `//api.gbif${localEnvironmentPostFix}.org/v1/`,
+        analyticsImg: analyticsImg || `www.gbif${localEnvironmentPostFix}.org/sites/default/files/gbif_analytics/`,
         // domain: 'http://www.gbif.org:7000',
         domain: 'http://localhost:3000',
         topDomain: 'localhost:3000',
@@ -86,8 +87,8 @@ let config = {
         verification: verification || (rootPath + '/app/models/verification/sample'),
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
-        registry: registry || 'https://registry.gbif.org',
+        elasticContentful: elasticContentful || `http://cms-search.gbif${localEnvironmentPostFix}.org:9200/`,
+        registry: registry || `https://registry.gbif${localEnvironmentPostFix}.org`,
         oozie: oozie || '//c5master1-vh.gbif.org:11000/oozie/v2/',
         yarnResourceManager: yarnResourceManager || '//c5master2-vh.gbif.org:8088/ws/v1/',
         elk: elk || '//private-logs.gbif.org:5601/',
@@ -100,7 +101,8 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://localhost:9000', // 'http://blast.gbif-dev.org',
-        graphQL: 'http://graphql.gbif.org/graphql',
+        graphQL: `http://graphql.gbif${localEnvironmentPostFix}.org/graphql`,
+        reactComponents: `//react-components.gbif${localEnvironmentPostFix}.org/lib/gbif-react-components.js`,
         healthUpdateFrequency: 240000
     },
 
@@ -143,6 +145,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-dev.org/graphql',
+        reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -188,6 +191,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-staging.org/graphql',
+        reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -230,6 +234,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-uat.org/graphql',
+        reactComponents: '//react-components.gbif-uat.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -272,6 +277,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-staging.org/graphql',
+        reactComponents: '//react-components.gbif-staging.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -313,7 +319,8 @@ let config = {
         fbAppId: 1534726343485342,
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
-        graphQL: 'http://graphql.gbif-staging.org/graphql',
+        graphQL: 'http://graphql.gbif.org/graphql',
+        reactComponents: '//react-components.gbif.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     },
 
@@ -356,6 +363,7 @@ let config = {
         userAgent: userAgent,
         blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-dev.org/graphql',
+        reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
     }
 };

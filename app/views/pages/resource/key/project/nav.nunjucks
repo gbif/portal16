@@ -5,13 +5,11 @@
                 <a href="#about" class="trigger" >{$ __('resource.about') $}</a>
             </li>
 
-            {% if main.fields.news | isNotEmpty or main.fields.events | isNotEmpty %}
             <li class="tab" ng-class="{isActive: projectKey.hash == 'news'}">
                 <a href="#news" class="trigger" >{$ __('cms.project.newsAndEvents') $}</a>
             </li>
-            {% endif %}
 
-            <li class="tab ng-cloak" ng-class="{isActive: projectKey.hash == 'datasets'}" ng-if="projectKey.datasets.count > 0">
+            <li class="tab ng-cloak" ng-class="{isActive: projectKey.hash == 'datasets'}">
                 <a href="#datasets" class="trigger" >{$ __('resource.datasets') $}</a>
             </li>
 

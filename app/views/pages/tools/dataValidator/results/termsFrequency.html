@@ -20,7 +20,7 @@
             <td>
                 {{ k.rawIndexed | localNumber:gb.locale }}
             </td>
-            <td ng-if="k.interpretedIndexed || k.interpretedIndexed === 0">
+         <!--   <td ng-if="k.interpretedIndexed || k.interpretedIndexed === 0">
 
                 <span class="termFrequencyStats__circle">
                     <round-progress
@@ -35,7 +35,8 @@
                 <span class="termFrequencyStats__percentage">{{ k.interpretedIndexed / resultPerResource.indexedCount | formatAsPercentage}}%</span>
 
             </td>
-            <td ng-if="!k.interpretedIndexed && k.interpretedIndexed !== 0">
+            <td ng-if="!k.interpretedIndexed && k.interpretedIndexed !== 0"> -->
+            <td >
 
                 <span class="termFrequencyStats__circle">
                     <round-progress

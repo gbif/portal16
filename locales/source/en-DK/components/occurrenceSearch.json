@@ -14,6 +14,7 @@
     "failedSearch": "Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues",
     "noImages": "No occurrences with images",
     "imageLicenseInfo": "Be aware that licenses applied to images may differ from those applied to occurrence records",
+    "combinedMediaTypeInfo": "Be aware that the gallery view cannot be combined with filter for video or audio",
     "showMoreImages": "More",
     "default": "Default",
     "custom": "Custom",

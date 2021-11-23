@@ -49,7 +49,7 @@ function getNotifications(status, __) {
             title: __('healthSummary.notifications.' + healthSeverity + '.title'),
             summary: __('healthSummary.notifications.' + healthSeverity + '.summary'),
             severity: _.get(status, 'health.severity'),
-            url: '/health'
+            url: '/system-health'
         });
     }
     let results = {

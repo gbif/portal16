@@ -175,7 +175,13 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
         var data = responseData.metrics;
         vm.steps = _.get(data, 'stepTypes', []);
         vm.file = _.get(responseData, 'file');
-        vm.fileSize = !_.isNaN(_.get(responseData, 'fileSize')) ? (Number(_.get(responseData, 'fileSize')) / 1000000).toFixed(1) : undefined;
+        if (!_.isNaN(_.get(responseData, 'fileSize'))) {
+            if (Number(_.get(responseData, 'fileSize')) < 100000 ) {
+                vm.fileSize = (Number(_.get(responseData, 'fileSize')) / 1000).toFixed(0) + ' kb';
+            } else if (Number(_.get(responseData, 'fileSize')) >= 100000 ) {
+                vm.fileSize = ((Number(_.get(responseData, 'fileSize')) / 1000000).toFixed(1)) + ' mb';
+            }
+        }        
         data.files.sort(function(a, b) {
             if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
                 return -1;
