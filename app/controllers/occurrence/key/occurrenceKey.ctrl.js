@@ -84,7 +84,8 @@ function renderPage(req, res, next, occurrence) {
                 _meta: {
                     title: 'Occurrence Detail ' + req.params.key,
                     hasTools: true,
-                    imageCacheUrl: imageCacheUrl
+                    imageCacheUrl: imageCacheUrl,
+                    onlyNoFollow: true
                 }
             };
             helper.renderPage(req, res, next, contentItem, 'pages/occurrence/key/occurrenceKey');

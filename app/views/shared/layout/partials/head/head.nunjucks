@@ -37,6 +37,10 @@
     <meta name="robots" content="noindex nofollow">
 {% endif %}
 
+{% if _meta.onlyNoFollow %}
+    <meta name="robots" content="nofollow">
+{% endif %}
+
 <meta charset="UTF-8">
 
 <!-- If IE use the latest rendering engine -->
