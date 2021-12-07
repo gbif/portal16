@@ -22,6 +22,11 @@ Disallow: /grscicoll/person/search
 Disallow: /*/grscicoll/person/search
 crawl-delay: 0.1
 
+User-agent: Twitterbot
+Allow: /occurrence/
+Disallow: /*/occurrence/
+Disallow: /*/occurrence/search
+
 Sitemap: {$ DOMAIN $}/sitemap.xml
 Sitemap: {$ DOMAIN $}/sitemap-dataset.xml
 Sitemap: {$ DOMAIN $}/sitemap-publisher.xml
