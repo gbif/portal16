@@ -3,14 +3,14 @@
         "title": "Notify GBIF about use of occurrence data download in a publication (or similar)",
         "form": {
             "title": "Title",
-            "titlePlaceholder": "",
+            "titlePlaceholder": "Title/name of publication/product in which the data is used",
             "authors": "Author(s)",
-            "authorsPlaceholder": "",
+            "authorsPlaceholder": "Author(s) of the publication/product",
             "link": "URL",
-            "linkPlaceholder": "",
+            "linkPlaceholder": "Link/DOI to publication/product, if available online",
             "date": "Date",
             "comments": "Comments",
-            "commentsPlaceholder": "",
+            "commentsPlaceholder": "Additional information about publication/product (especially if not a traditional journal article)",
             "submit": "Submit",
             "saveFailure": "An error occurred while saving the form. Please try again.",
             "saveSuccess": "Thank you for notifying us. We will link the download to the publication/product described. Please remember to cite the download according to the instructions on the download page. You may now close this popup."
