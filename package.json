@@ -146,6 +146,7 @@
     "moment-timezone": "^0.5.14",
     "ng-file-upload": "^12.2.13",
     "ngstorage": "^0.3.11",
+    "nodemailer": "^6.7.2",
     "normalize-url": "^2.0.1",
     "nouislider": "leongersen/noUiSlider.git#772dc921563f56ab8c5dc145068f64b6acef5df1",
     "nouislider-angular": "^2.6.0",
@@ -190,7 +191,6 @@
     "xml2js": "^0.4.19",
     "yargs": "^6.6.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/gbif/portal16"
@@ -203,8 +203,14 @@
   ],
   "license": "Apache 2.0",
   "nodemonConfig": {
-    "ignore": ["app/views/"],
-    "watch": ["app.js", "config/", "app/"],
+    "ignore": [
+      "app/views/"
+    ],
+    "watch": [
+      "app.js",
+      "config/",
+      "app/"
+    ],
     "delay": 2500
   },
   "engines": {

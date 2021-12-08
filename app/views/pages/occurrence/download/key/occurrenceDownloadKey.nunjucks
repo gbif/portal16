@@ -213,7 +213,9 @@
                                                 </div>
                                             </div>
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">
-                                                <a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: " translate="downloadKey.tellUs"></a>
+                                                <a href="" class="gb-button--flat text-uppercase" ng-click="downloadKey.showUsageFormModal()" translate="downloadKey.tellUs"></a>
+
+                                                <!--<a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: " translate="downloadKey.tellUs"></a>-->
                                                 {% if download.record.status !== 'FILE_ERASED' %}
                                                     <a href="" ng-click="downloadKey.postponeDeletion()" ng-if="downloadKey.willBeDeletedSoon" class="gb-button--flat text-uppercase" translate="downloadKey.postpone"></a>
                                                     <a href="" ng-click="downloadKey.deleteDownload()" ng-if="!downloadKey.readyForDeletion" class="gb-button--flat text-error text-uppercase" translate="downloadKey.deleteDownload"></a>
@@ -318,5 +320,82 @@
             </div>
         </div>
     </article>
+
+    <script type="text/ng-template" id="usageForm.html">
+        <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="downloadUsage.cancel()"></a>
+        <div class="gb-modal-header" dir="auto">
+            <span class="modal-title body-text" id="modal-title" translate="downloadUsage.title"></span>
+        </div>
+        <div class="gb-modal-body rtl-supported" id="modal-body">
+            <div class="gb-modal-body__content horizontal-stripe white-background">
+                                     <div class="text-success" ng-if="downloadUsage.state == 'SUCCESS'" translate="downloadUsage.form.saveSuccess" >
+                                     </div>
+
+                                                   <form ng-if="downloadUsage.state == 'ENTER' || downloadUsage.state == 'FAILED'" name="downloadUsage.form" novalidate>
+                                      
+                                                        <div class="form-group">
+                                                            <label for="publicationTitle">{$
+                                                                __('downloadUsage.form.title') $}<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="downloadUsage.usage.title"
+                                                                   id="publicationTitle" placeholder="Publication title"
+                                                                   required="">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="authors">{$
+                                                                __('downloadUsage.form.authors') $}<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="downloadUsage.usage.authors"
+                                                                   id="authors" placeholder="Authors"
+                                                                   required="">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="Link">{$
+                                                                __('downloadUsage.form.link') $}<span
+                                                                        ></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="downloadUsage.usage.link"
+                                                                   id="Link" placeholder="Link/DOI to publication/product, if available online"
+                                                                   >
+                                                        </div>
+                                                
+                                                        <div class="form-group">
+                                                            <label for="Date">{$
+                                                                __('downloadUsage.form.date') $}<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="date" class="form-control"
+                                                                   ng-model="downloadUsage.usage.date"
+                                                                   id="Date" 
+                                                                   >
+                                                        </div>
+                                                   
+                                                    
+
+                                              
+                                                        <div class="form-group">
+                                                            <label for="usageComments">{$
+                                                                __('downloadUsage.form.comments') $}</label>
+                                                    <textarea id="usageComments" class="form-control" rows="3"
+                                                      ng-model="downloadUsage.usage.comments"
+                                                      placeholder="Additional comments if any"></textarea>
+                                                        </div>
+                                                    
+                                            <div >
+                                                        <button ng-disabled="!downloadUsage.form.$valid" type="submit"
+                                                                ng-click="downloadUsage.reportUsage(downloadUsage.usage)"
+                                                                class="btn btn-default flat" translate="downloadUsage.form.submit">
+                                                        </button>
+                                                        <div class="text-error" ng-if="downloadUsage.state == 'FAILED'" translate="downloadUsage.form.saveFailure">
+                                                           
+                                                        </div>
+                                            </div>
+                                    </form>
+            </div>
+        </div>
+    </script>
+
 
 {% endblock %}

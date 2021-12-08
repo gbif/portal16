@@ -1,0 +1,16 @@
+{
+    "downloadUsage": {
+        "title": "Tell us about use of this download",
+        "form": {
+            "title": "Title",
+            "authors": "Authors",
+            "link": "Link",
+            "date": "Date",
+            "comments": "Comments",
+            "submit": "Submit",
+            "saveFailure": "This isn't good. We couldn't save your usage report.",
+            "saveSuccess": "Thank you for notifying us. You may close this popup"
+
+        }
+    }
+}
