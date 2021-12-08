@@ -3,10 +3,14 @@
         "title": "Tell us about use of this download",
         "form": {
             "title": "Title",
+            "titlePlaceholder": "PLaceholder for Title",
             "authors": "Authors",
+            "authorsPlaceholder": "PLaceholder for Authors",
             "link": "Link",
+            "linkPlaceholder": "PLaceholder for Link",
             "date": "Date",
             "comments": "Comments",
+            "commentsPlaceholder": "PLaceholder for Comments",
             "submit": "Submit",
             "saveFailure": "This isn't good. We couldn't save your usage report.",
             "saveSuccess": "Thank you for notifying us. You may close this popup"

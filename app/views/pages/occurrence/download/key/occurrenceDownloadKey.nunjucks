@@ -339,7 +339,7 @@
                                                                         class="form-required"></span></label>
                                                             <input type="text" class="form-control"
                                                                    ng-model="downloadUsage.usage.title"
-                                                                   id="publicationTitle" placeholder="Publication title"
+                                                                   id="publicationTitle" placeholder="{{ 'downloadUsage.form.titlePlaceholder' | translate }}"
                                                                    required="">
                                                         </div>
 
@@ -349,7 +349,7 @@
                                                                         class="form-required"></span></label>
                                                             <input type="text" class="form-control"
                                                                    ng-model="downloadUsage.usage.authors"
-                                                                   id="authors" placeholder="Authors"
+                                                                   id="authors" placeholder="{{ 'downloadUsage.form.authorsPlaceholder' | translate }}"
                                                                    required="">
                                                         </div>
                                                         <div class="form-group">
@@ -358,7 +358,7 @@
                                                                         ></span></label>
                                                             <input type="text" class="form-control"
                                                                    ng-model="downloadUsage.usage.link"
-                                                                   id="Link" placeholder="Link/DOI to publication/product, if available online"
+                                                                   id="Link" placeholder="{{ 'downloadUsage.form.linkPlaceholder' | translate }}"
                                                                    >
                                                         </div>
                                                 
@@ -380,7 +380,7 @@
                                                                 __('downloadUsage.form.comments') $}</label>
                                                     <textarea id="usageComments" class="form-control" rows="3"
                                                       ng-model="downloadUsage.usage.comments"
-                                                      placeholder="Additional comments if any"></textarea>
+                                                      placeholder="{{ 'downloadUsage.form.commentsPlaceholder' | translate }}"></textarea>
                                                         </div>
                                                     
                                             <div >

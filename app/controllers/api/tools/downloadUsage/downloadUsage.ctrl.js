@@ -33,13 +33,12 @@ const removeLineBreaks = (txt) =>
     txt ? txt.replace(/(\r\n|\n|\r)/gm, ' ') : '';
 
 const sendMail = async (data, user) => {
-    console.log('ENV ' + env);
     let envPrefix = env === 'prod' ? '' : `[${env.toUpperCase()}] `;
     let mailOptions = {
         from: `"${envPrefix}GBIF portal" <${config.sender}>`, // sender address
         to: config.recipient, // list of receivers
         subject: `${envPrefix}GBIF Download usage`, // Subject line
-        text: `username: ${user.userName}\nemail: ${
+        text: `download: ${data.key}\nusername: ${user.userName}\nemail: ${
             user.email
         }\ntitle: ${removeLineBreaks(data.title)}\nauthors: ${removeLineBreaks(
             data.authors

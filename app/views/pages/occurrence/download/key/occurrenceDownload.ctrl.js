@@ -131,7 +131,7 @@ function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $loc
             resolve: {
                 options: function() {
                     return {
-                        
+                            key: vm.key 
                         };
                 }
             } 
@@ -151,9 +151,9 @@ angular.module('portal').controller('infoModalInstanceCtrl', function($uibModalI
     };
 });
 
-angular.module('portal').controller('usageFormModalInstanceCtrl', function($uibModalInstance, $http) {
+angular.module('portal').controller('usageFormModalInstanceCtrl', function($uibModalInstance, options, $http) {
     var $ctrl = this;
-    $ctrl.usage = {};
+    $ctrl.usage = {key: options.key};
     $ctrl.state = 'ENTER';
     $ctrl.reportUsage = function() {
         $http.post('/api/tools/download-usage', this.usage, {}).then(function(response) {
