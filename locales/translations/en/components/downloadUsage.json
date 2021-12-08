@@ -1,14 +1,14 @@
 {
     "downloadUsage": {
-        "title": "",
+        "title": "Notify GBIF about use of occurrence data download in a publication (or similar)",
         "form": {
             "title": "Title",
-            "authors": "",
-            "link": "",
+            "authors": "Author(s)",
+            "link": "URL",
             "date": "Date",
             "comments": "Comments",
             "submit": "Submit",
-            "saveFailure": "",
+            "saveFailure": "An error occurred while saving the form. Please try again.",
             "saveSuccess": ""
         }
     }
