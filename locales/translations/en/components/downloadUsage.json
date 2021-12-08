@@ -1,0 +1,15 @@
+{
+    "downloadUsage": {
+        "title": "",
+        "form": {
+            "title": "Title",
+            "authors": "",
+            "link": "",
+            "date": "Date",
+            "comments": "Comments",
+            "submit": "Submit",
+            "saveFailure": "",
+            "saveSuccess": ""
+        }
+    }
+}
