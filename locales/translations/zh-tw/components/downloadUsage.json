@@ -1,0 +1,19 @@
+{
+    "downloadUsage": {
+        "title": "",
+        "form": {
+            "title": "標題",
+            "titlePlaceholder": "",
+            "authors": "",
+            "authorsPlaceholder": "",
+            "link": "",
+            "linkPlaceholder": "",
+            "date": "日期",
+            "comments": "評論",
+            "commentsPlaceholder": "",
+            "submit": "送出",
+            "saveFailure": "",
+            "saveSuccess": ""
+        }
+    }
+}
