@@ -17,7 +17,7 @@ function faqCtrl($sce, $rootScope, NAV_EVENTS, LOCALE, Page, $state, $stateParam
     vm.q = $stateParams.q;
     Page.drawer(false);
     vm.faqItem = ResourceItem.get({contentType: 'article', urlAlias: '/faq', locale: LOCALE});
-    vm.answers = ResourceSearch.query({q: vm.q, contentType: 'help', limit: vm.limit, offset: vm.offset, locale: LOCALE});
+    vm.answers = ResourceSearch.query({q: vm.q, contentType: 'help', limit: vm.limit, offset: vm.offset, locale: LOCALE, searchable: true});
 
     vm.search = function() {
         vm.answer = undefined;
