@@ -37,6 +37,9 @@ describe('scientificName formatter', function() {
     it('can format named hybrids', function() {
         expect(sciName.formatName(mockNames.Asplenium_X_alternifolium_subsp_alternifolium)).toEqual('<i>Asplenium ×alternifolium subsp. alternifolium </i>Wulfen');
     });
+    it('can format named hybrids that has Author in the scientificName field', function() {
+        expect(sciName.formatName(mockNames.Clematis_X_jackmanii)).toEqual('<i>Clematis ×jackmanii </i>T.Moore');
+    });
 });
 
 

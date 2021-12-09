@@ -191,7 +191,7 @@ function formatName(name) {
             n += add(name.genusOrAbove);
         }
     } else if (name.type == 'HYBRID' || name.notho) {
-        n += '<i>' + add(name.scientificName) + '</i>';
+        n += '<i>' + add(name.canonicalNameWithMarker || name.scientificName) + '</i>';
     } else if (name.type == 'CANDIDATUS') {
         let candName = name.genusOrAbove;
         if (name.specificEpithet) {
