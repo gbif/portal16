@@ -1,0 +1,19 @@
+{
+    "downloadUsage": {
+        "title": "",
+        "form": {
+            "title": "عنوان",
+            "titlePlaceholder": "",
+            "authors": "",
+            "authorsPlaceholder": "",
+            "link": "",
+            "linkPlaceholder": "",
+            "date": "",
+            "comments": "",
+            "commentsPlaceholder": "",
+            "submit": "",
+            "saveFailure": "",
+            "saveSuccess": ""
+        }
+    }
+}
