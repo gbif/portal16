@@ -1,12 +1,12 @@
 {
     "downloadUsage": {
-        "title": "",
+        "title": "Notifier GBIF à propos de l'utilisation dans une publication (ou similaire) de données d'occurrence téléchargées depuis GBIF.",
         "form": {
             "title": "Titre",
-            "titlePlaceholder": "",
-            "authors": "",
-            "authorsPlaceholder": "",
-            "link": "",
+            "titlePlaceholder": "Titre/nom de la publication/produit dans lequel les données sont utilisées",
+            "authors": "Auteur·e(s)",
+            "authorsPlaceholder": "Auteur·e(s) de la publication/produit",
+            "link": "URL",
             "linkPlaceholder": "",
             "date": "Date ",
             "comments": "Commentaires",
