@@ -117,10 +117,3 @@ gulp.task('ieStyle', function() {
         .pipe(g.postcss(ieProcessors))
         .pipe(gulp.dest(path.join(config.paths.dist, 'css/base/ie')));
 });
-
-gulp.task('styles-reload', function(callback) {
-    runSequence(
-        ['stylus-reload'],
-        ['ieStyle'],
-        callback);
-});
