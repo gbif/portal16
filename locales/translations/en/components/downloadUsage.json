@@ -1,6 +1,6 @@
 {
     "downloadUsage": {
-        "title": "Notify GBIF about use of occurrence data download in a publication (or similar)",
+        "title": "Notify GBIF about use of occurrence data in a publication (or similar)",
         "form": {
             "title": "Title",
             "titlePlaceholder": "Title/name of publication/product in which the data is used",
