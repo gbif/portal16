@@ -1,0 +1,19 @@
+{
+    "downloadUsage": {
+        "title": "GBIF über die Verwendung eines Occurrence-Daten-Downloads in einer Publikation o.ä. benachrichtigen",
+        "form": {
+            "title": "Titel",
+            "titlePlaceholder": "Titel/Name der Publikation/des Produkts, in dem die Daten verwendet werden",
+            "authors": "Autor(en)",
+            "authorsPlaceholder": "Autor(en) der Publikation/des Produkts",
+            "link": "URL",
+            "linkPlaceholder": "Link/DOI zu Publikation/Produkt, wenn online verfügbar",
+            "date": "Datum",
+            "comments": "Kommentar",
+            "commentsPlaceholder": "Zusätzliche Informationen über Publikation/Produkt (insbesondere wenn ein nicht-traditioneller Journalartikel)",
+            "submit": "Senden",
+            "saveFailure": "Beim Speichern des Formulars ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+            "saveSuccess": "Vielen Dank für Ihre Benachrichtigung. Wir werden den Download mit der beschriebenen Publikation/Produkt verknüpfen. Bitte denken Sie daran, den Download gemäß den Anweisungen auf der Downloadseite zu zitieren. Sie können nun dieses Popup schließen."
+        }
+    }
+}

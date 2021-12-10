@@ -1,0 +1,19 @@
+{
+    "downloadUsage": {
+        "title": "",
+        "form": {
+            "title": "Título",
+            "titlePlaceholder": "",
+            "authors": "",
+            "authorsPlaceholder": "",
+            "link": "",
+            "linkPlaceholder": "",
+            "date": "Data",
+            "comments": "Comentários",
+            "commentsPlaceholder": "",
+            "submit": "Enviar",
+            "saveFailure": "",
+            "saveSuccess": ""
+        }
+    }
+}
