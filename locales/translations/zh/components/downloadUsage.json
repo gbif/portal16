@@ -1,19 +1,19 @@
 {
     "downloadUsage": {
-        "title": "",
+        "title": "通知GBIF在出版物(或类似)中使用发生数据下载",
         "form": {
             "title": "标题",
-            "titlePlaceholder": "",
-            "authors": "",
-            "authorsPlaceholder": "",
-            "link": "",
-            "linkPlaceholder": "",
+            "titlePlaceholder": "使用数据的出版物/产品的标题/名称",
+            "authors": "作者",
+            "authorsPlaceholder": "出版物/产品的作者",
+            "link": "网址",
+            "linkPlaceholder": "链接/DOI 到出版物/产品，如果在线可用",
             "date": "日期",
             "comments": "评论",
-            "commentsPlaceholder": "",
+            "commentsPlaceholder": "关于出版物/产品的附加信息(特别是如果不是传统的期刊文章)",
             "submit": "提交",
-            "saveFailure": "",
-            "saveSuccess": ""
+            "saveFailure": "保存表单时发生错误。请再试一次。",
+            "saveSuccess": "感谢您通知我们。我们会将下载链接到所描述的出版物/产品。请记住根据下载页面上的说明引用下载内容。您现在可以关闭此弹出窗口。"
         }
     }
 }
