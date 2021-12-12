@@ -4,8 +4,8 @@
         "form": {
             "title": "Título",
             "titlePlaceholder": "",
-            "authors": "",
-            "authorsPlaceholder": "",
+            "authors": "Autor(es)",
+            "authorsPlaceholder": "Autor(es) de la publicación o producto",
             "link": "",
             "linkPlaceholder": "",
             "date": "Fecha",
