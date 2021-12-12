@@ -5,7 +5,7 @@
             "title": "Titre",
             "titlePlaceholder": "Titre/nom de la publication/produit dans lequel les données sont utilisées",
             "authors": "Auteur·e(s)",
-            "authorsPlaceholder": "Auteur·e(s) de la publication/produit",
+            "authorsPlaceholder": "Auteur·e(s) de la publication/du produit",
             "link": "URL",
             "linkPlaceholder": "Lien/DOI de la publication/produit, si disponible en ligne",
             "date": "Date ",
