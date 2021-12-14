@@ -8,7 +8,7 @@ let express = require('express'),
 let nodemailer;
 let transporter;
 
-try {
+try {    
 nodemailer = require('nodemailer');
 transporter = nodemailer.createTransport({
     host: config.host, // 'smtp.gbif.org',
@@ -29,6 +29,7 @@ module.exports = function (app) {
 
 router.post('/', auth.isAuthenticated(), async (req, res) => {
     if (env === 'staging') {
+        // for some reason we are not able to require nodemailer on staging - for now disabled
         res.sendStatus(501);
     } else {
         try {
