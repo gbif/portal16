@@ -5,9 +5,12 @@ let express = require('express'),
     config = rootRequire('config/credentials').downloadUsage,
     log = rootRequire('config/log'),
     router = express.Router({caseSensitive: true});
-const nodemailer = require('nodemailer');
+let nodemailer;
+let transporter;
 
-let transporter = nodemailer.createTransport({
+try {
+nodemailer = require('nodemailer');
+transporter = nodemailer.createTransport({
     host: config.host, // 'smtp.gbif.org',
     port: config.port, //25,
     secure: false, 
@@ -15,18 +18,26 @@ let transporter = nodemailer.createTransport({
         user: config.sender,
     },
 });
+} catch (error) {
+    log.error(error);
+}
+
 
 module.exports = function (app) {
     app.use('/api/tools/download-usage', router);
 };
 
 router.post('/', auth.isAuthenticated(), async (req, res) => {
-    try {
-        await sendMail(req.body, req.user);
-        res.sendStatus(201);
-    } catch (error) {
-        log.error(error);
-        res.sendStatus(400);
+    if (env === 'staging') {
+        res.sendStatus(501);
+    } else {
+        try {
+            await sendMail(req.body, req.user);
+            res.sendStatus(201);
+        } catch (error) {
+            log.error(error);
+            res.sendStatus(400);
+        }
     }
 });
 const removeLineBreaks = (txt) =>
