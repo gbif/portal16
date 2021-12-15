@@ -126,7 +126,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
         $state.go('dataValidatorKey', {jobid: $sessionStorage.gbifRunningValidatonJob});
     } */
 
-
+/* 
     function handleValidationSubmitResponse(data) {
         if ((data.status !== 'FAILED' ) && data.jobId) {
             vm.jobId = data.jobId;
@@ -136,7 +136,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
             delete $sessionStorage.gbifRunningValidatonJob;
             handleFailedJob(data);
         }
-    }
+    } */
 
 
     vm.handleDrop = function(e) {

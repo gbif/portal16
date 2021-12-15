@@ -139,11 +139,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
                     $state.go('dataValidatorKey', {jobid: vm.jobId});
                 }
             }, 1000);
-        } else if (data.status === 'FAILED') {
-            delete $sessionStorage.gbifRunningValidatonJob;
-            handleFailedJob(data);
-           // handleValidationResult(data);
-        } else if (data.status === 'FINISHED') {
+        } else if (data.status === 'FINISHED' || data.status === 'FAILED') {
             delete $sessionStorage.gbifRunningValidatonJob;
 
             var port = ($location.port() !== 80 && $location.port() !== 443) ? ':' + $location.port() : '';
@@ -397,13 +393,13 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
     }
 
 
-    function handleFailedJob(data) {
+/*     function handleFailedJob(data) {
         vm.file = _.get(data, 'file');
         vm.fileSize = !_.isNaN(_.get(data, 'fileSize')) ? (Number(_.get(data, 'fileSize')) / 1000000).toFixed(1) : undefined;
         vm.jobStatus = data.status;
         vm.errorCode = _.get(data, 'result.errorCode');
         vm.errorMessage = _.get(data, 'result.errorMessage');
-    }
+    } */
 
 
     vm.attachTabListener = function() {

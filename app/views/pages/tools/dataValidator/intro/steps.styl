@@ -7,9 +7,9 @@
     font-weight: bold
     }
 .step-failed {
-    color: red
+    color: white
     font-size: 12
-    font-weight: bold
+    font-weight: 900
     }
 
 .stepper-wrapper {
@@ -66,6 +66,10 @@
 
 .stepper-item.completed .step-counter {
   background-color: #4bb543;
+}
+
+.stepper-item.failed .step-counter {
+  background-color: tomato;
 }
 
 .stepper-item.completed::after {

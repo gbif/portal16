@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "The license can not be parsed, is not supported by GBIF or is simply missing",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Record not uniquely identified",
       "UNREADABLE_SECTION_ERROR": "Unreadable section error",
+      "UNHANDLED_ERROR": "Unhandled error",
       "NoIssuesFound": "No issues found"
     },
     "fileFormat": {
