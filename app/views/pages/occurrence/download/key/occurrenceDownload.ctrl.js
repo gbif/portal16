@@ -9,7 +9,7 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage, $uibModal) {
     var vm = this;
     vm.HUMAN = true;
     vm.hasClipboard = _.get(navigator, 'clipboard.writeText');
@@ -119,6 +119,28 @@ function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $loc
                 });
         }
     };
+
+    vm.showUsageFormModal = function() {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'usageForm.html',
+            controller: 'usageFormModalInstanceCtrl',
+            controllerAs: 'downloadUsage',
+            resolve: {
+                options: function() {
+                    return {
+                            key: vm.key 
+                        };
+                }
+            } 
+        });
+        modalInstance.result.then(function (options) {
+          }, function () {
+            // user clicked cancel
+          });
+    };
 }
 
 angular.module('portal').controller('infoModalInstanceCtrl', function($uibModalInstance) {
@@ -126,6 +148,23 @@ angular.module('portal').controller('infoModalInstanceCtrl', function($uibModalI
 
     $ctrl.ok = function() {
         $uibModalInstance.close();
+    };
+});
+
+angular.module('portal').controller('usageFormModalInstanceCtrl', function($uibModalInstance, options, $http) {
+    var $ctrl = this;
+    $ctrl.usage = {key: options.key};
+    $ctrl.state = 'ENTER';
+    $ctrl.reportUsage = function() {
+        $http.post('/api/tools/download-usage', this.usage, {}).then(function(response) {
+            $ctrl.state = 'SUCCESS';
+        }, function() {
+            $ctrl.state = 'FAILED';
+        });
+    };
+
+    $ctrl.cancel = function() {
+        $uibModalInstance.dismiss('cancel');
     };
 });
 

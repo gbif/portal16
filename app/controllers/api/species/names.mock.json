@@ -137,5 +137,20 @@
   "canonicalNameWithMarker": "Asplenium ×alternifolium subsp. alternifolium",
   "canonicalNameComplete": "Asplenium ×alternifolium subsp. alternifolium",
   "rankMarker": "subsp."
-  }
+  },
+  "Clematis_X_jackmanii": {
+    "key": 17321405,
+    "scientificName": "Clematis ×jackmanii T.Moore",
+    "type": "SCIENTIFIC",
+    "genusOrAbove": "Clematis",
+    "specificEpithet": "jackmanii",
+    "notho": "SPECIFIC",
+    "authorship": "T.Moore",
+    "parsed": true,
+    "parsedPartially": false,
+    "canonicalName": "Clematis jackmanii",
+    "canonicalNameWithMarker": "Clematis ×jackmanii",
+    "canonicalNameComplete": "Clematis ×jackmanii T.Moore",
+    "rankMarker": "sp."
+    }
 }

@@ -103,7 +103,8 @@ function builder(locale, folder, keepEmptyStrings) {
         getFile(locale, `./${folder}/${locale}/components/trends`),
         getFile(locale, `./${folder}/${locale}/components/eoi`),
         getFile(locale, `./${folder}/${locale}/components/intervals`),
-        getFile(locale, `./${folder}/${locale}/components/phrases`)
+        getFile(locale, `./${folder}/${locale}/components/phrases`),
+        getFile(locale, `./${folder}/${locale}/components/downloadUsage`)
     );
     if (!keepEmptyStrings) {
         removeEmptyStrings(translations);

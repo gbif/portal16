@@ -1,0 +1,19 @@
+{
+    "downloadUsage": {
+        "title": "Notifier GBIF à propos de l'utilisation dans une publication (ou similaire) de données d'occurrence téléchargées depuis GBIF.",
+        "form": {
+            "title": "Titre",
+            "titlePlaceholder": "Titre/nom de la publication/du produit dans lequel les données sont utilisées",
+            "authors": "Auteur·e(s)",
+            "authorsPlaceholder": "Auteur·e(s) de la publication/du produit",
+            "link": "URL",
+            "linkPlaceholder": "Lien/DOI de la publication/du produit, si disponible en ligne",
+            "date": "Date ",
+            "comments": "Commentaires",
+            "commentsPlaceholder": "Informations complémentaires sur la publication/le produit (surtout si ce n'est pas un article de journal traditionnel)",
+            "submit": "Soumettre",
+            "saveFailure": "Une erreur s'est produite lors de l'enregistrement du formulaire. Veuillez réessayer.",
+            "saveSuccess": "Nous vous remercions de nous avoir informé. Nous lierons le téléchargement à la publication/produit décrite. N'oubliez pas de mentionner le téléchargement selon les instructions de la page de téléchargement. Vous pouvez maintenant fermer cette fenêtre popup."
+        }
+    }
+}

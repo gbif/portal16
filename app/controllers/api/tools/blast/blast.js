@@ -2,10 +2,11 @@
 let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     scientificName = require('../../species/scientificName.ctrl'),
     request = rootRequire('app/helpers/request'),
+    bluebird = require('bluebird'),
     _ = require('lodash');
 
-async function blast(seq) {
-    let url = apiConfig.blast.url + '/blast';
+async function blast(seq, verbose = false) {
+    let url = apiConfig.blast.url + `/blast${verbose ? '?verbose=true' : ''}`;
     let response = await request({
         method: 'POST',
         url: url,
@@ -15,6 +16,9 @@ async function blast(seq) {
     if (response.body.matchType) {
         try {
             let decorated = await decorateWithGBIFspecies(response.body);
+            if (verbose && response.body.alternatives) {
+                await decorateAlternatives(response.body.alternatives);
+            }
             return decorated;
         } catch (err) {
             return response.body;
@@ -42,6 +46,17 @@ async function decorateWithGBIFspecies(e) {
         }
     } else {
         return e;
+    }
+}
+
+async function decorateAlternatives(alternatives) {
+    if (!alternatives || alternatives.length < 1) {
+        return;
+    } else {
+        // Limit to 25 concurrent requests
+        const promises = await bluebird.map(alternatives, decorateWithGBIFspecies, {concurrency: 25});
+        await Promise.allSettled(promises);
+        return alternatives;
     }
 }
 
