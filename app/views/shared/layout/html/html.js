@@ -293,6 +293,7 @@ require('./angular/index.filters');
 require('./angular/occurrence.resource');
 require('./angular/dataset.resource');
 require('./angular/lifeStage.resource');
+require('./angular/establishmentMeans.resource');
 require('./angular/gadm.resource');
 require('./angular/redlist.resource');
 require('./angular/cites.resource');

@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, EstablishmentMeans, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
   var vm = this;
   $translate('occurrenceSearch.title').then(function (title) {
     Page.setTitle(title);
@@ -81,7 +81,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     }
   };
 
-  vm.filters.establishmentMeans = {
+/*   vm.filters.establishmentMeans = {
     titleTranslation: 'filterNames.establishmentMeans',
     queryKey: 'establishment_means',
     filter: OccurrenceFilter,
@@ -93,7 +93,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
       hasFacets: true,
       facetKey: 'ESTABLISHMENT_MEANS'
     }
-  };
+  }; */
 
   vm.filters.continent = {
     titleTranslation: 'filterNames.continent',
@@ -643,6 +643,31 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     search: {
       isSearchable: true,
       suggestEndpoint: suggestEndpoints.lifeStage,
+      suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: function(item) {
+        return $filter('vocabularyLabel')(item);
+      },
+      suggestShortName: 'name',
+      suggestKey: 'name',
+      defaultParams: {limit: 20}
+    }
+  };
+
+  vm.filters.establishmentMeans = {
+    titleTranslation: 'filterNames.establishmentMeans',
+    queryKey: 'establishment_means',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: EstablishmentMeans,
+      expandedTitle: 'name'
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'ESTABLISHMENT_MEANS'
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.establishmentMeans,
       suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
       suggestTitle: function(item) {
         return $filter('vocabularyLabel')(item);

@@ -28,6 +28,7 @@ angular
         publisher: env.dataApi + 'organization/suggest',
         gadm: env.dataApi + 'geocode/gadm/search',
         lifeStage: env.dataApi + 'vocabularies/LifeStage/concepts',
+        establishmentMeans: env.dataApi + 'vocabularies/EstablishmentMeans/concepts',
         // These does not exist yet
         programme: env.dataApi + 'occurrence/search/programme',
         projectId: env.dataApi + 'occurrence/search/projectId',
