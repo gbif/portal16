@@ -1,9 +1,9 @@
 {
     "downloadUsage": {
-        "title": "",
+        "title": "Notificar a GBIF sobre el uso de los registros biológicos en una publicación (o similar)",
         "form": {
             "title": "Título",
-            "titlePlaceholder": "",
+            "titlePlaceholder": "Título/nombre de la publicación/producto en el que se utilizan los datos",
             "authors": "Autor(es)",
             "authorsPlaceholder": "Autor(es) de la publicación o producto",
             "link": "",
