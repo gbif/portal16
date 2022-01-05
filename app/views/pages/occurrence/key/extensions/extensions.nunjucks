@@ -31,7 +31,13 @@
                                             {% for extension in occurrence.verbatim.extensions[name] %}
                                                 <tr dir="auto">
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                        {$ shorten.compactTableCell(extension[term]) $}
+                                                        {% if term == 'http://rs.gbif.org/terms/dna_sequence' or term == 'http://rs.gbif.org/terms/pcr_primer_forward' or term == 'http://rs.gbif.org/terms/pcr_primer_reverse' %}
+                                                            <td style="min-width:20em">
+                                                                <sequence seq="{$ extension[term] $}" limit="200"></sequence>
+                                                            </td>
+                                                        {% else %}
+                                                            {$ shorten.compactTableCell(extension[term]) $}
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </tr>
                                             {% endfor %}
@@ -39,7 +45,13 @@
                                             {% for extension in occurrence.verbatim.extensions[name] | limit(3) %}
                                                 <tr dir="auto">
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                        {$ shorten.compactTableCell(extension[term]) $}
+                                                        {% if term == 'http://rs.gbif.org/terms/dna_sequence' or term == 'http://rs.gbif.org/terms/pcr_primer_forward' or term == 'http://rs.gbif.org/terms/pcr_primer_reverse' %}
+                                                            <td style="min-width:20em">
+                                                                <sequence seq="{$ extension[term] $}" limit="200"></sequence>
+                                                            </td>
+                                                        {% else %}
+                                                            {$ shorten.compactTableCell(extension[term]) $}
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </tr>
                                             {% endfor %}
@@ -47,7 +59,13 @@
                                             {% for extension in occurrence.verbatim.extensions[name] | slice(3) %}
                                                 <tr dir="auto" class="is-collapsable ng-cloak">
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                        {$ shorten.compactTableCell(extension[term]) $}
+                                                        {% if term == 'http://rs.gbif.org/terms/dna_sequence' or term == 'http://rs.gbif.org/terms/pcr_primer_forward' or term == 'http://rs.gbif.org/terms/pcr_primer_reverse' %}
+                                                            <td style="min-width:20em">
+                                                                <sequence seq="{$ extension[term] $}" limit="200"></sequence>
+                                                            </td>
+                                                        {% else %}
+                                                            {$ shorten.compactTableCell(extension[term]) $}
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </tr>
                                             {% endfor %}

@@ -76,8 +76,9 @@
                         <td class="table-cell--widder">
                             <span ng-bind-html="species.formattedClassification"></span>
                         </td>
-                        <td class="table-cell">
-                            <span>{{ species.sequence }}</span>
+                        <td class="table-cell" style="min-width:20em">
+                           <!-- <span>{{ species.sequence }}</span> -->
+                           <sequence seq="{{ species.sequence }}" limit="50"></sequence>
                         </td>
                     </tr>
                     </tbody>

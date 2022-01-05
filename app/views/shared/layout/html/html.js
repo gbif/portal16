@@ -425,6 +425,8 @@ require('../../../pages/publisher/key/publisherKey.ctrl');
 require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');
 require('../../../pages/species/search/list/speciesList.ctrl');
+require('../../../pages/species/key/directives/sequence.directive.js');
+
 
 // require('../../../components/map/basic/gbmap.directive');
 require('../../../components/map/mapWidget/mapWidget.directive');// TODO decide on a map
