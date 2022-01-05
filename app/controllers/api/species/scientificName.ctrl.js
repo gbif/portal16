@@ -163,7 +163,8 @@ function formatName(name) {
     if (!name.notho && (name.type == 'SCIENTIFIC' || name.type == 'CULTIVAR' || name.type == 'DOUBTFUL')) {
         if (name.rankMarker && ranks.indexOf(rankMarkerMap[name.rankMarker]) > FAMILY_RANK_INDEX) {
             if ((name.genusOrAbove || name.specificEpithet) && name.scientificName.indexOf('×') === -1) {
-                n += '<i>' + add(name.genusOrAbove) + add(name.specificEpithet) + '</i>';
+                let infraGeneric = name.infraGeneric ? '(' + name.infraGeneric + ') ' : '';
+                n += '<i>' + add(name.genusOrAbove) + infraGeneric + add(name.specificEpithet) + '</i>';
             } else if (name.scientificName.indexOf('×') > -1 && name.canonicalNameWithMarker) {
                 n += '<i>' + add(name.canonicalNameWithMarker) + '</i>';
             }
