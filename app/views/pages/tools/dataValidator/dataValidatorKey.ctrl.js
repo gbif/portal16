@@ -61,7 +61,7 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
         vm.getToken().then(function() {
             $http({
                 method: 'GET',
-                url: vm.dataApi + 'validation/' + jobid,
+                url: vm.dataApi + 'validation/' + jobid + '?nonse=' + Math.random(),
                 headers: {'Authorization': 'Bearer ' + vm.token}
             })
             .success(function(data) {
