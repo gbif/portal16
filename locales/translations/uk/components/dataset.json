@@ -79,7 +79,7 @@
     "eventDescription": "Опис події",
     "siblingEvents": "Споріднені події",
     "childEvents": "Дочірні події",
-    "events": "",
+    "events": "Заходи",
     "occurrenceCount": "Кількість знахідок",
     "inDataset": "В",
     "samplingArticleLink": "Детальніше про події вибірок на GBIF.org"

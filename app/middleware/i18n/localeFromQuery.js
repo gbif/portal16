@@ -4,8 +4,8 @@
  It also sets the locale of the i18n framework for handling translations.
  */
 
-let localeConfig = rootRequire('config/locales');
-let config = rootRequire('config/config');
+let localeConfig = require('../../../config/locales');
+let config = require('../../../config/config');
 
 // Given a list of possible locales it detects if it is in a given URL. returns the locale or undefined if not present.
 // e.g. getLocaleFromUrl('/da/blogposts/123', ['da', 'en']) -> 'da'

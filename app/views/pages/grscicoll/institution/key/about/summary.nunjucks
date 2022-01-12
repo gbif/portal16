@@ -11,6 +11,16 @@
 				<dt class="col-md-4 col-xs-12" translate="institution.code"></dt>
 				<dd class="col-md-8 col-xs-12">{{institutionKey.institution.code}}</dd>
 			</div>
+      <div class="row" ng-if="institutionKey.institution.alternativeCodes">
+				<dt class="col-md-4 col-xs-12" translate="institution.alternativeCodes"></dt>
+				<dd class="col-md-8 col-xs-12">
+          <ul class="inline-bullet-list">
+						<li ng-repeat="alternativeCode in institutionKey.institution.alternativeCodes">
+							{{alternativeCode.code}} <span class="discreet--very">{{alternativeCode.description}}</span>
+						</li>
+					</ul>
+        </dd>
+			</div>
 			<div class="row">
 				<dt class="col-md-4 col-xs-12" translate="institution.statusOfInstitution"></dt>
 				<dd class="col-md-8 col-xs-12" translate="institution.isActive.{{institutionKey.institution.active}}"></dd>

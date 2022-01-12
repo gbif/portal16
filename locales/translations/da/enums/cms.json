@@ -12,11 +12,11 @@
         "relevance": "Relevans",
         "language": "Sprog",
         "year": "",
-        "datasetKey": "",
+        "datasetKey": "Datasæt",
         "publishingOrg": "Udgiver",
         "peerReview": "",
         "openAccess": "",
-        "gbifDownloadKey": ""
+        "gbifDownloadKey": "Download key"
       },
       "contentType": {
         "event": "Arrangement",
@@ -77,6 +77,8 @@
           "MARINE": "Marine",
           "PHYLOGENETICS": "Fylogenetik",
           "SPECIES_DISTRIBUTIONS": "Arts-distributioner",
+          "INFRASTRUCTURE": "",
+          "DNA": "",
           "TAXONOMY": "Taksonomi"
         },
         "purposes": {

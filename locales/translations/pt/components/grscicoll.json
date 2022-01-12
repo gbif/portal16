@@ -2,24 +2,25 @@
   "collection": {
     "search": {
       "title": "Coleções",
-      "description": "** Coleções institucionais ** são aquelas que foram formalmente incluídas em uma instituição e recebem algum nível de apoio institucional.\n\n** Coleções de Projecto ** são aquelas colhidas por um investigador associado a uma instituição que pode não ter sido formalmente incluída em suas coleções. Coleções de projectos podem eventualmente tornar-se parte das Coleções Institucionais ou permanecer sob a gestão e controlo de investigadores individuais.\n\n** Coleções Pessoais ** estão sob o controlo de um investigador individual e não estão formalmente associadas ou incluídas em uma instituição. Eles podem ser propriedade pessoal de um colecionador particular ou não ter um dono."
+      "description": "**Coleções Institucionais** são aquelas que foram formalmente integradas numa instituição e recebem algum nível de apoio institucional.\n\n**Coleções do Projeto** são aquelas colhidas por um investigador associado a uma instituição que pode não ser formalmente acedidas entre das suas coleções institucionais. Coleções de projetos podem eventualmente tornar-se parte das Coleções Institucionais ou permanecer sob a gestão e o controle dos investigadores individuais.\n\n**Coleções Pessoais** estão sob o controle de um investigador individual e não estão formalmente associados ou acedidas através de uma instituição. Podem ser propriedade pessoal de um colector privado ou estarem órfãs."
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": ""
+      "summary": "Sumário",
+      "homepage": "Página inicial",
+      "metrics": "Métricas"
     },
     "headerTitle": "Coleção",
     "description": "Descrição",
     "institutionName": "Nome da instituição",
     "code": "Código",
+    "alternativeCodes": "",
     "statusOfCollection": "Estado da coleção",
     "personalCollection": "Coleção pessoal",
     "isPersonalCollection": {
       "true": "Sim",
       "false": "Não"
     },
-    "accessionStatus": "Status de ingestão",
+    "accessionStatus": "Status de acessão",
     "contentTypes": "Tipos de conteúdo",
     "preservationTypes": "Tipos de Preservação",
     "homepage": "Página inicial",
@@ -37,18 +38,19 @@
   "institution": {
     "title": "Instituição",
     "search": {
-      "title": "Instituição",
-      "description": "**Instituição** refere-se a qualquer instituição ou organização que possui e gere coleções científicas. Isso inclui herbaria, museus, zoos, jardins botânicos, bio bancos, entre outros. Uma instituição pode conter múltiplas coleções, caso em que essas devem ser inseridas individualmente através de **Coleções institucionais/projectos**  e ligadas à instituição-mãe.\n\nDevido à integração de vários conjuntos de dados antigos, e para evitar duplicações de *CódigoInstitucional**, <IH> foi anexado a todos os códigos do Index Herbariorum Herbarium."
+      "title": "Instituições",
+      "description": "**Instituição** refere-se a qualquer instituição ou organização que possui e gere coleções científicas. Isso inclui herbaria, museus, zoos, jardins botânicos, biobancos, entre outros. Uma instituição pode conter múltiplas coleções, e nesse caso essas devem ser inseridas individualmente através de **Coleções institucionais/projectos**  e ligadas à instituição-mãe."
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": ""
+      "summary": "Sumário",
+      "homepage": "Página inicial",
+      "metrics": "Métricas"
     },
     "headerTitle": "Instituição",
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "Código da instituição",
+    "alternativeCodes": "",
     "statusOfInstitution": "Estado da instituição",
     "additionalNames": "Nomes adicionais",
     "description": "Descrição",
@@ -90,6 +92,8 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "Sugerir uma alteração",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "Sobre",
       "institutions": "Instituições",

@@ -9,7 +9,7 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['verbatimScientificName', 'preferedKingdom', 'matchType', 'confidence', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'occurrenceId']">
+                            ng-repeat="col in ['verbatimScientificName', 'preferedKingdom', 'matchType', 'confidence', 'scientificName', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'occurrenceId', 'canonicalName', 'authorship']">
                             <a href=""
                                ng-click="speciesLookup.state.sortType = col; speciesLookup.state.sortReverse = !speciesLookup.state.sortReverse">
                                 <span class="inline-block">
@@ -79,6 +79,12 @@
 
                         <td class="table-cell--widder">
                             <span>{{ species.occurrenceId }}</span>
+                        </td>
+                        <td class="table-cell--widder">
+                            <span>{{ species.canonicalName }}</span>
+                        </td>
+                        <td class="table-cell--widder">
+                            <span>{{ species.authorship }}</span>
                         </td>
 
                         <!-- <td class="table-cell--wide">

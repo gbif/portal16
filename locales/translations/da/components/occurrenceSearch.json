@@ -1,6 +1,6 @@
 {
   "occurrenceSearch": {
-    "title": "",
+    "title": "Søg i observationer",
     "table": "Tabel",
     "gallery": "Galleri",
     "map": "Kort",
@@ -14,6 +14,7 @@
     "failedSearch": "Enten har serveren problemer eller også er dine filtre ugyldige. Prøv igen og raporter det gerne hvis problemet fortsætter",
     "noImages": "Ingen observationer med billeder",
     "imageLicenseInfo": "Være opmærksom på, at licenser anvendt på billeder kan afvige fra observationens licens",
+    "combinedMediaTypeInfo": "",
     "showMoreImages": "Flere",
     "default": "Standard",
     "custom": "Brugerdefineret",
@@ -30,6 +31,9 @@
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "Din søgnings URL overstiger 2.000 karakterer og vil derfor muligvis ikke fungere i alle browsere. Til store og/eller komplicerede søgninger kan det anbefales, at du anvender download API'et.",
     "didYouMean": "Din søgning matcher {RANK, select, Kingdom {et}, other {en}} {RANK}: '{NAME}'. Vil du begrænse din søgning til denne takson?",
-    "clickToUseAcceptedTaxon": ""
+    "clickToUseAcceptedTaxon": "",
+    "helpText": {
+      "continent": ""
+    }
   }
 }

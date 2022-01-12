@@ -14,6 +14,7 @@
     "failedSearch": "Tus filtros pueden ser incorrectos o el servidor puede tener problemas. Por favor, inténtalo de nuevo y reporta el problema si continúa",
     "noImages": "No existen registros de presencia con imágenes",
     "imageLicenseInfo": "Ten en cuenta que las licencias aplicadas a las imágenes pueden ser diferentes a las aplicadas a los registros de presencia",
+    "combinedMediaTypeInfo": "Tenga en cuenta que el filtro 'Tipo de medio' para vídeo o audio no funciona mientras esté en la vista de galería",
     "showMoreImages": "Más",
     "default": "Por defecto",
     "custom": "Personalizar",
@@ -30,6 +31,9 @@
     "polygonSimplifiedToFewerPoints": "El polígono se ha simplificado: el número de puntos se ha reducido",
     "largeQueryLengthWarning": "La URL de su consulta excede los 2.000 caracteres y puede que no funcione correctamente en todos los navegadores. Para consultas grandes y/o complicadas, por favor considere el uso de la API de descarga.",
     "didYouMean": "Su búsqueda coincide con un {RANK}: '{NAME}'. ¿Desea limitar su búsqueda solo a este taxón?",
-    "clickToUseAcceptedTaxon": "Haga clic para buscar por el nombre aceptado del taxón. Probablemente verá más datos ya que esto incluye datos para todos los sinónimos."
+    "clickToUseAcceptedTaxon": "Haga clic para buscar por el nombre aceptado del taxón. Probablemente verá más datos ya que esto incluye datos para todos los sinónimos.",
+    "helpText": {
+      "continent": ""
+    }
   }
 }

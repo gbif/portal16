@@ -12,7 +12,7 @@ let knownFilters =
     ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher',
      'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey',
      'gbifDownloadKey', 'gbifDerivedDatasetDoi', 'publisher', 'source', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 
-     'projectId', 'programmeId', 'doi', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias'];
+     'projectId', 'programmeId', 'doi', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias', 'gbifTaxonKey'];
 let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
 
 let client = new elasticsearch.Client({
@@ -249,6 +249,19 @@ function buildQuery(query) {
         //         'query': body.query
         //     }
         // };
+    }
+
+    // sort evnets by date no matter what. as in https://github.com/gbif/portal-feedback/issues/3816
+    if (query.contentType == 'event') {
+      body.sort = [
+          {
+              'start': {
+                  'order': showPastEvents ? 'desc' : 'asc',
+                  'missing': '_last',
+                  'unmapped_type': 'date'
+              }
+          }
+      ];
     }
 
     searchParams.body = body;

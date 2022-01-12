@@ -47,17 +47,20 @@ module.exports = function(app, config) {
                         `'self'`,
                         `'unsafe-inline'`,
                         `'unsafe-eval'`,
+                        `*.gbif.org`,
+                        `*.gbif-uat.org`,
+                        `*.gbif-dev.org`,
+                        `*.gbif-staging.org`,
                         '*.google-analytics.com',
                         'api.mapbox.com',
                         'unpkg.com/react@17/umd/react.production.min.js',
-                        'unpkg.com/react-dom@17/umd/react-dom.production.min.js',
-                        'cdn.jsdelivr.net/gh/gbif/gbif-web@latest/packages/react-components/dist/gbif-react-components.js'
+                        'unpkg.com/react-dom@17/umd/react-dom.production.min.js'
                       ],
                     styleSrc: [
                         `'self'`,
                         `'unsafe-inline'`,
                         '*.googleapis.com',
-                        'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/1.12.0/mapbox-gl.min.css',
+                        'cdnjs.cloudflare.com/ajax/libs/mapbox-gl/*.css',
                         'api.mapbox.com',
                         'maxcdn.bootstrapcdn.com'],
                     mediaSrc: ['*'],
@@ -66,6 +69,9 @@ module.exports = function(app, config) {
                         'blob:'
                     ],
                     upgradeInsecureRequests: []
+                    // frameAncestors: [ // This leads to conflicting statements in Helmet. Looks like we should either go with frameAncestors or x-frame-options
+                    //   'https://www.onezoom.org'
+                    // ]
                   }
 
           },
@@ -133,7 +139,8 @@ module.exports = function(app, config) {
     app.use(function(req, res, next) {
         if (req.path.substr(-1) == '/' && req.path.length > 1) {
             let query = req.url.slice(req.path.length);
-            res.redirect(302, res.locals.gb.locales.urlPrefix + req.path.slice(0, -1) + query);
+            let redirectPath = res.locals.gb.locales.urlPrefix + req.path.slice(0, -1) + query;
+            res.redirect(302, config.domain + redirectPath);
         } else {
             next();
         }

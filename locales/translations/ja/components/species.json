@@ -4,6 +4,9 @@
     "figures": "図"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "{country} に{status}",
       "presentInNonCountry": "{location} に{status}",
@@ -18,10 +21,11 @@
       "treatment": "処理",
       "metrics": "メトリクス",
       "referenceTaxon": "文献の分類群",
+      "literature": "文献",
       "verbatim": "オリジナルのまま"
     },
     "invasives": {
-      "nInvadedCountries": "次の場所で侵入生物として記録されています {NUMBER_FORMATED} {NUMBER, select, 1{国または島} other{国または島}}",
+      "nInvadedCountries": "次の場所で侵入生物として記録されています {NUMBER_FORMATED} {NUMBER, plural, one{国または島} other{国または島}}",
       "invasiveIn": "次の場所で侵入生物として記録されています。",
       "accordingTo": "～によると",
       "occurrenceCount": "GBIFにおけるオカレンス",
@@ -44,7 +48,7 @@
     "value": "値",
     "classification": "分類",
     "sourcePlural": "{NUMBER, plural, 1{データソース} other{データソース}}",
-    "nMoreDatasets": "{NUMBER} さらに {NUMBER, select, 1{データセット} other{データセット}}",
+    "nMoreDatasets": "{NUMBER} さらに {NUMBER, plural, one{データセット} other{データセット}}",
     "acceptedName": "受け入れられている名前",
     "synonym": "シノニム",
     "description": "説明",
@@ -62,13 +66,14 @@
     "iucnStatus": "IUCNステータス",
     "references": "引用文献",
     "source": "参照元",
+    "typeSpecimens": "",
     "inLanguage": "（{language}）",
     "publishedIn": "出典",
     "tradeRestrictions": "国際取引の制限",
     "basionym": "バソニム",
-    "nVernacularNames": "{NUMBER, select, 1{コモンネームまたは和名} other{コモンネームまたは和名}}",
+    "nVernacularNames": "{NUMBER, plural, one{コモンネームまたは和名} other{コモンネームまたは和名}}",
     "nameUsagesApplied": "GBIF のオカレンスに適用された名前の使用法",
-    "appearsIn": "{NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{データセット} other{データセット}} に出現:",
+    "appearsIn": "{NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, plural, one{データセット} other{データセット}} に出現:",
     "viewOccurrences": "オカレンスデータを閲覧する",
     "seeAlso": "こちらもご参照ください",
     "viewInGbifBackbone": "GBIF バックボーンを閲覧する",

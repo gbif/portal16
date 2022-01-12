@@ -4,7 +4,7 @@
         "systemLoad": "システム・ロード",
         "messages": "メッセージ",
         "version": "バージョン",
-        "releaseNotes": "",
+        "releaseNotes": "リリースノート",
         "nInQueue": "キューに {NUMBER}",
         "status": {
             "OPERATIONAL": "稼働中",

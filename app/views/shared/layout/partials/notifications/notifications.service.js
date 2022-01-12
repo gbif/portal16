@@ -60,7 +60,7 @@
                     };
                     var notification = new Notification(title, options);
                     notification.onclick = function() {
-                        window.open($window.location.origin + '/health');
+                        window.open($window.location.origin + '/system-health');
                     };
                 }
 

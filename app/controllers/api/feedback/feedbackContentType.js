@@ -1,10 +1,11 @@
 'use strict';
 let Occurrence = require('../../../models/gbifdata/gbifdata').Occurrence,
     Node = require('../../../models/gbifdata/gbifdata').Node,
-    request = rootRequire('app/helpers/request'),
+    // request = rootRequire('app/helpers/request'),
     getAnnotations = require('../../../models/gbifdata/occurrence/occurrenceAnnotate'),
     localeFromQuery = require('../../../middleware/i18n/localeFromQuery'),
     locales = require('../../../../config/config').locales,
+    user = require('../user/user.model'),
     _ = require('lodash');
 
 function getFeedbackContentType(path, cb) {
@@ -36,7 +37,7 @@ async function parseOccurrence(path) {
     let occurrenceKey,
         contentType = {};
 
-    occurrenceKey = path.match(/[0-9]+$/)[0];
+        occurrenceKey = path.match(/[0-9]+$/)[0];
 
     // get occurrence, dataset and pubisher based on occurrence key
     let occurrence = await Occurrence.get(occurrenceKey,
@@ -48,6 +49,10 @@ async function parseOccurrence(path) {
     // get endorsing node as node managers want to be cc'ed
     let node = await Node.get(occurrence.publisher.endorsingNodeKey, {});
     contentType.ccContacts = getContacts(_.get(node, 'record.contacts', []));
+    const mention = await getGithubHandlesToMention({node});
+    if (mention.length > 0) {
+      contentType.mention = mention;
+    }
     // has custom annotation system?
     occurrence.record._installationKey = occurrence.dataset.installationKey;
     contentType.annotation = getAnnotations(occurrence.record);
@@ -74,47 +79,52 @@ async function parseOccurrence(path) {
     // add related keys to allow data providers to search for issues related to them
     contentType.datasetKey = occurrence.record.datasetKey;
     contentType.publishingOrgKey = occurrence.record.publishingOrgKey;
+    contentType.publishingCountry = occurrence.record.publishingCountry;
+
+    if (occurrence.record.networkKeys && occurrence.record.networkKeys.length > 0) {
+      contentType.networkKeys = occurrence.record.networkKeys;
+    }
 
     return contentType;
 }
 
 // yet another awful hack to fit Annosys in.
-async function getComments(config) {
-    let options = {
-        url: config.commentsUrl,
-        json: true,
-        maxAttempts: 1
-    };
+// async function getComments(config) {
+//     let options = {
+//         url: config.commentsUrl,
+//         json: true,
+//         maxAttempts: 1
+//     };
 
-    let response = await request(options);
-    if (response.statusCode == 200 && _.get(response, 'body.' + config.commentsCountField, 0) > 0) {
-        let comments = {
-            results: response.body[config.commentsListField],
-            count: response.body[config.commentsCountField],
-            url: config.allCommentsUrl
-        };
+//     let response = await request(options);
+//     if (response.statusCode == 200 && _.get(response, 'body.' + config.commentsCountField, 0) > 0) {
+//         let comments = {
+//             results: response.body[config.commentsListField],
+//             count: response.body[config.commentsCountField],
+//             url: config.allCommentsUrl
+//         };
 
-        comments.results = _.map(_.slice(comments.results, 0, 5), function(comment) {
-            let item = {
-                title: comment[config.commentTitle],
-                createdAt: comment[config.commentCreated]
-            };
-            let commentUrl = config.commentUrlTemplate;
-            for (let i = 0; i < config.keys.length; i++) {
-                let key = config.keys[i];
-                let val = comment[key] || '';
-                commentUrl = commentUrl.replace('{{' + key + '}}', val);
-            }
-            item.url = commentUrl;
-            return item;
-        });
-        return comments;
-    }
-    return {
-        count: 0,
-        comments: []
-    };
-}
+//         comments.results = _.map(_.slice(comments.results, 0, 5), function(comment) {
+//             let item = {
+//                 title: comment[config.commentTitle],
+//                 createdAt: comment[config.commentCreated]
+//             };
+//             let commentUrl = config.commentUrlTemplate;
+//             for (let i = 0; i < config.keys.length; i++) {
+//                 let key = config.keys[i];
+//                 let val = comment[key] || '';
+//                 commentUrl = commentUrl.replace('{{' + key + '}}', val);
+//             }
+//             item.url = commentUrl;
+//             return item;
+//         });
+//         return comments;
+//     }
+//     return {
+//         count: 0,
+//         comments: []
+//     };
+// }
 
 function getContacts(contacts) {
     let adminContacts = contacts.filter(function(contact) {
@@ -142,6 +152,32 @@ function getContacts(contacts) {
     } else {
         return;
     }
+}
+
+async function getGithubHandlesToMention({node}) {
+  const nodeStaffEmails = _.get(node, 'record.contacts', [])
+      .filter(function(contact) {
+        return (contact.type === 'NODE_MANAGER' || contact.type === 'NODE_STAFF') && !_.isEmpty(contact.email);
+      })
+      .map(function(contact) {
+        return contact.email[0];
+      });
+  const githubHandles = await Promise.all(nodeStaffEmails.map(getGithubHandleFromEmail));
+  const mention = githubHandles.filter(function(name) {
+    return name;
+  });
+  return mention;
+}
+
+async function getGithubHandleFromEmail(email) {
+  try {
+    const gbifUser = await user.getByUserName(email);
+    const clientUser = user.getClientUser(gbifUser);
+    return clientUser.githubUserName;
+  } catch (err) {
+    // ignore errors - user just won't be mentioned.
+    return;
+  }
 }
 
 module.exports = {

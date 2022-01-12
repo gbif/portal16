@@ -12,6 +12,10 @@
 
                 <h1 dir="auto" scientific-name key="{{ speciesKey2.key }}" name="{{speciesKey2.species.scientificName}}" ng-class="{'text-error': speciesKey2.species.deleted}">{{speciesKey2.species.scientificName}}</h1>
                 <p class="text-error" ng-if="speciesKey2.species.deleted"><span gb-help="why-do-some-taxa-show-as-being-deleted-what-does-this-mean"><span translate="phrases.deletedOnDate" translate-values="{DATE: (speciesKey2.species.deleted | momentFormat:'LL')}"></span></span></p>
+                
+                <div class="article-header__highlights header-sources" ng-if="speciesKey2.species.accordingTo">
+                    <span class="discreet--very">{{'species.invasives.accordingTo' | translate}}:</span> <span dir="auto" class="source" ng-bind-html="speciesKey2.species.accordingTo | parseUrlFilter:'_blank':'inherit' "></span>
+                </div>
 
                 <div class="article-header__highlights header-sources"
                      ng-if="!speciesKey2.speciesTreatment.citation && (speciesKey2.species.publishedIn || (speciesKey2.sourceTaxonDataset.$resolved && speciesKey2.sourceTaxonDataset))">

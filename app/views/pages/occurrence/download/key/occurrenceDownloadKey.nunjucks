@@ -2,13 +2,16 @@
 
 {% import "./predicate.macro.nunjucks" as predicate %}
 
+{% set citationString %}GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download {% if download.record.doi %} https://doi.org/{$ download.record.doi $}{% elif gb.locales.url %}{$ gb.locales.domain $}{$ gb.locales.url $}{% endif %}{% endset %}
+
 {% block page %}
     <script>
         var gb = gb || {};
         gb.downloadKey = {
             key: '{$ download.record.key $}',
             doi: '{$ download.record.doi $}',
-            status: '{$ download.record.status $}'
+            status: '{$ download.record.status $}',
+            citationString: "{$ citationString $}"
         };
     </script>
     <article class="wrapper-horizontal-stripes downloadKey"
@@ -96,17 +99,49 @@
             {% endif %}
         </div>
 
-        <div class="horizontal-stripe light-background">
+        <div class="horizontal-stripe light-background p-t-05">
             <div class="container--normal">
                 <section>
                     <h3 class="card-header">
+                        <span translate="phrases.pleaseCiteAs">Please cite as</span>
+                    </h3>
+                    <div class="card card--spaced">
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <div style="font-family: monospace;">
+                            {$ citationString $}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <a href="" role="button" class="gb-button"
+                                    ng-if="downloadKey.hasClipboard" 
+                                    ng-click="downloadKey.toClipboard()"
+                                    translate="phrases.copy">Copy</a>
+                          {% if download.record.doi %}
+                            {% if download.record.status === 'FILE_ERASED' or download.record.status === 'SUCCEEDED' %}
+                              <a href="https://data.crosscite.org/application/x-bibtex/{$ download.record.doi $}" class="gb-button">
+                                <span class="gb-icon-file-download"></span>
+                                BibTex
+                              </a>
+                              <a href="https://data.crosscite.org/application/x-research-info-systems/{$ download.record.doi $}" class="gb-button">
+                                <span class="gb-icon-file-download"></span>
+                                RIS
+                              </a>
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <h3 class="card-header m-t-1">
                         <span translate="downloadKey.filterApplied" translate-values="{DATE: '{$ download.record.created | formatDate(gb.locales.current) $}' }">&nbsp;</span>
                         {% if download.isSimple %}
                             <a href="/occurrence/search?{$ download.isSimple $}"
                                class="pull-right inherit discreet p-r-1">{$ __('downloadKey.rerunQuery') $}</a>
                         {% endif %}
                     </h3>
-                    <div class="card  card--spaced">
+                    <div class="card card--spaced">
                         {% if download.record.status === 'PREPARING' or download.record.status === 'RUNNING' %}
                         <div class="card__stripe rtl-supported">
                             <div class="card__content card__content--warning--large">
@@ -134,12 +169,6 @@
                                 <div class="card__stripe">
                                     <div class="card__content">
                                         <dl class="inline">
-                                            <div>
-                                                <dt>{$ __('downloadKey.citation') $}</dt>
-                                                <dd dir="ltr">
-                                                    GBIF.org ({$ download.record.created | formatDate('en', 'DD MMMM YYYY') $}) GBIF Occurrence Download {% if download.record.doi %} https://doi.org/{$ download.record.doi $}{% elif gb.locales.url %}{$ gb.locales.domain $}{$ gb.locales.url $}{% endif %}
-                                                </dd>
-                                            </div>
                                             {% if download.record.license %}
                                             <div>
                                                 <dt>{$ __('downloadKey.license') $}</dt>
@@ -184,7 +213,9 @@
                                                 </div>
                                             </div>
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">
-                                                <a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: " translate="downloadKey.tellUs"></a>
+                                                <a href="" class="gb-button--flat text-uppercase" ng-click="downloadKey.showUsageFormModal()" translate="downloadKey.tellUs"></a>
+
+                                                <!--<a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: " translate="downloadKey.tellUs"></a>-->
                                                 {% if download.record.status !== 'FILE_ERASED' %}
                                                     <a href="" ng-click="downloadKey.postponeDeletion()" ng-if="downloadKey.willBeDeletedSoon" class="gb-button--flat text-uppercase" translate="downloadKey.postpone"></a>
                                                     <a href="" ng-click="downloadKey.deleteDownload()" ng-if="!downloadKey.readyForDeletion" class="gb-button--flat text-error text-uppercase" translate="downloadKey.deleteDownload"></a>
@@ -289,5 +320,82 @@
             </div>
         </div>
     </article>
+
+    <script type="text/ng-template" id="usageForm.html">
+        <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="downloadUsage.cancel()"></a>
+        <div class="gb-modal-header" dir="auto">
+            <span class="modal-title body-text" id="modal-title" translate="downloadUsage.title"></span>
+        </div>
+        <div class="gb-modal-body rtl-supported" id="modal-body">
+            <div class="gb-modal-body__content horizontal-stripe white-background">
+                                     <div class="text-success" ng-if="downloadUsage.state == 'SUCCESS'" translate="downloadUsage.form.saveSuccess" >
+                                     </div>
+
+                                                   <form ng-if="downloadUsage.state == 'ENTER' || downloadUsage.state == 'FAILED'" name="downloadUsage.form" novalidate>
+                                      
+                                                        <div class="form-group">
+                                                            <label for="publicationTitle">{$
+                                                                __('downloadUsage.form.title') $}<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="downloadUsage.usage.title"
+                                                                   id="publicationTitle" placeholder="{{ 'downloadUsage.form.titlePlaceholder' | translate }}"
+                                                                   required="">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="authors">{$
+                                                                __('downloadUsage.form.authors') $}<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="downloadUsage.usage.authors"
+                                                                   id="authors" placeholder="{{ 'downloadUsage.form.authorsPlaceholder' | translate }}"
+                                                                   required="">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="Link">{$
+                                                                __('downloadUsage.form.link') $}<span
+                                                                        ></span></label>
+                                                            <input type="text" class="form-control"
+                                                                   ng-model="downloadUsage.usage.link"
+                                                                   id="Link" placeholder="{{ 'downloadUsage.form.linkPlaceholder' | translate }}"
+                                                                   >
+                                                        </div>
+                                                
+                                                        <div class="form-group">
+                                                            <label for="Date">{$
+                                                                __('downloadUsage.form.date') $}<span
+                                                                        class="form-required"></span></label>
+                                                            <input type="date" class="form-control"
+                                                                   ng-model="downloadUsage.usage.date"
+                                                                   id="Date" 
+                                                                   >
+                                                        </div>
+                                                   
+                                                    
+
+                                              
+                                                        <div class="form-group">
+                                                            <label for="usageComments">{$
+                                                                __('downloadUsage.form.comments') $}</label>
+                                                    <textarea id="usageComments" class="form-control" rows="3"
+                                                      ng-model="downloadUsage.usage.comments"
+                                                      placeholder="{{ 'downloadUsage.form.commentsPlaceholder' | translate }}"></textarea>
+                                                        </div>
+                                                    
+                                            <div >
+                                                        <button ng-disabled="!downloadUsage.form.$valid" type="submit"
+                                                                ng-click="downloadUsage.reportUsage(downloadUsage.usage)"
+                                                                class="btn btn-default flat" translate="downloadUsage.form.submit">
+                                                        </button>
+                                                        <div class="text-error" ng-if="downloadUsage.state == 'FAILED'" translate="downloadUsage.form.saveFailure">
+                                                           
+                                                        </div>
+                                            </div>
+                                    </form>
+            </div>
+        </div>
+    </script>
+
 
 {% endblock %}

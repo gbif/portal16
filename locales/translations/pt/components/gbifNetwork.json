@@ -1,6 +1,6 @@
 {
   "gbifNetwork": {
-    "gbifNetwork": "",
+    "gbifNetwork": "A rede GBIF",
     "title": "Diretório",
     "contact": "Contato",
     "voting_participant": {
@@ -28,11 +28,11 @@
     "gbif_secretariat": "Secretariado do GBIF",
     "membershipType": "Associação",
     "name": "Nome",
-    "endorsedDataPublisher": "Deu aval a {NUMBER_FORMATTED} {NUMBER, select, one{publicador} other{publicadores}} de dados ",
-    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participante} other{participantes}}",
-    "dataset": "{NUMBER, select, one{conjunto de dados} other{conjuntos de dados}}",
+    "endorsedDataPublisher": "Endossou {NUMBER_FORMATTED} {NUMBER, plural, one{publicador de dados} other{publicadores de dados}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, one{participante} other{participantes}}",
+    "dataset": "{NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
     "datasets": "Conjuntos de dados",
-    "regionalRepresentative": "{NUMBER, select, one{representante} other{representantes}}",
+    "regionalRepresentative": "{NUMBER, plural, one{representante} other{representantes}}",
     "participation": {
       "nonCountryParticipants": "Organizações participantes",
       "gbifAffiliates": "Afiliados do GBIF"
@@ -44,8 +44,8 @@
     "publishers": "Publicadores",
     "memberSince": "Membro desde",
     "participant": "Participante",
-    "pPublishers": "{NUMBER, select, 1{publicador} other{publicadores}}",
-    "pOccurrence": "{NUMBER, select, 1{ocorrência} other{ocorrências}}",
+    "pPublishers": "{NUMBER, plural, one{publicador} other{publicadores}}",
+    "pOccurrence": "{NUMBER, plural, one{ocorrência} other{ocorrências}}",
     "occurrenceDatasets": "Conjuntos de dados de ocorrência",
     "occurrences": "Ocorrências"
   }

@@ -13,6 +13,7 @@
     "description": "Description",
     "institutionName": "Institution name",
     "code": "Code",
+    "alternativeCodes": "Alternative codes",
     "statusOfCollection": "Status of collection",
     "personalCollection": "Personal collection",
     "isPersonalCollection": {
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "Index Herbariorum ID",
     "numberSpecimens": "Number of specimens",
     "code": "Institution code",
+    "alternativeCodes": "Alternative codes",
     "statusOfInstitution": "Status of Institution",
     "additionalNames": "Additional names",
     "description": "Description",
@@ -90,6 +92,8 @@
   "grscicoll": {
     "title": "GRSciColl",
     "suggestChange": "Suggest a change",
+    "suggestNewCollection": "Suggest a new collection",
+    "suggestNewInstitution": "Suggest a new institution",
     "tabs": {
       "about": "About",
       "institutions": "Institutions",

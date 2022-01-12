@@ -104,7 +104,7 @@
                     {% endif %}
                 </dl>
                 {% if occurrence.record.media.length > 0 %}
-                <div>
+                <div class="btn-circle-container">
                     {% if occurrence.media.image.length > 0 %}
                         <a ng-href="#occurrencePage_media" class="btn-circle-md"><i class="gb-icon-camera"></i><div class="btn-circle-md__count">{$ occurrence.media.image.length $}</div></a>
                     {% endif %}
@@ -115,7 +115,11 @@
                         <a ng-href="#occurrencePage_media" class="btn-circle-md"><i class="gb-icon-audio"></i><div class="btn-circle-md__count">{$ occurrence.media.sound.length $}</div></a>
                     {% endif %}
                 </div>
+                <a ng-if="occurrenceKey.iiifManifestUri" target="_blank" href="{{occurrenceKey.iiifManifestUri}}"> 
+                        <img height="32px" src="/img/iiif.png">
+                    </a>
                 {% endif %}
+                
             </div>
             <div>
                 <dl class="inline">
@@ -170,6 +174,7 @@
                     {% endif %}
 
                 </dl>
+                    
             </div>
         </div>
     </div>

@@ -35,10 +35,10 @@
           "Nodes guidance": "Guia para Nós"
         },
         "projectGrantType": {
-          "REGIONAL": "Prémio regional",
-          "SMALL": "Pequeno prémio",
-          "NATIONAL": "Prémio nacional",
-          "DATA_USE": "",
+          "REGIONAL": "Subvenção regional de mobilização de dados de biodiversidade",
+          "SMALL": "Subvenção institucional de mobilização de dados de biodiversidade",
+          "NATIONAL": "Subvenção nacional de mobilização de dados de biodiversidade",
+          "DATA_USE": "Subvenção de uso de dados",
           "undefined": "Não especificado"
         },
         "projectStatus": {
@@ -77,6 +77,8 @@
           "MARINE": "Marinha",
           "PHYLOGENETICS": "Filogenética",
           "SPECIES_DISTRIBUTIONS": "Distribuições de espécies",
+          "INFRASTRUCTURE": "",
+          "DNA": "",
           "TAXONOMY": "Taxonomia"
         },
         "purposes": {

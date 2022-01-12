@@ -162,7 +162,8 @@ function setTokenCookie(res, token) {
     let options = {
         maxAge: day * 7,
         secure: isNotDevBuild,
-        httpOnly: false
+        httpOnly: false,
+        // sameSite: isNotDevBuild
     };
     res.cookie('token', token, options);
 }

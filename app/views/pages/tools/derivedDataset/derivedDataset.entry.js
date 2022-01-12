@@ -8,19 +8,33 @@ angular
     .controller('derivedDatasetCtrl', derivedDatasetCtrl);
 
 /** @ngInject */
-function derivedDatasetCtrl(User, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $state, DerivedDatasetSearch) {
+function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $state, env) {
     var vm = this;
     vm.$state = $state;
     vm.uploads;
+    vm.localePrefix = gb.locale === 'en' ? '/' : gb.locale + '/';
 
-
+    vm.getToken = function() {
+        return vm.token ? Promise.resolve() : $http({url: '/api/token', method: 'GET', headers: {'Authorization': 'Bearer ' + User.getAuthToken()}})
+        .success(function(data, status) {
+            vm.token = data.token;
+        })
+        .error(function(data, status) {
+            
+        });
+    };
     vm.search = function() {
-        // TODO: replace this mock dataset key with userName
-        // var datasetKey = 'b89a7f02-021d-4e7a-b19f-575d10578a6d';
-        vm.uploads = DerivedDatasetSearch.query({username: vm.username}, function(res) {
-            // console.log(res);
-        }, function(err) {
-            // console.log(err);
+        // TODO add headers when backend is ready
+        vm.getToken().then(function() {
+            $http({
+                method: 'get',
+                url: env.dataApi + 'derivedDataset/user/' + vm.username,
+                headers: {Authorization: 'Bearer ' + vm.token}
+            }).then(function(res) {
+                vm.uploads = res.data;
+            }).catch(function(err) {
+                vm.uploads = err.data;
+            });
         });
     };
     function updateUser() {

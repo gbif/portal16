@@ -57,7 +57,7 @@ function resourceListCtrl(hotkeys, ResourceFilter, ResourceSearch, env, BUILD_VE
     vm.faqData = {};
     var searchFaq = function() {
         if (vm.faqData.$cancelRequest) vm.faqData.$cancelRequest();
-        var q = _.assign({}, vm.state.query, {contentType: 'help', limit: 5});
+        var q = _.assign({}, vm.state.query, {contentType: 'help', limit: 5, searchable: true});
         vm.faqData = ResourceSearch.query(q);
     };
     searchFaq();

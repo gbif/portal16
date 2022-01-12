@@ -10,7 +10,7 @@
       "news": "Nyheder",
       "invasives": "",
       "more": "",
-      "projects": ""
+      "projects": "Projekter"
     },
     "memberSince": "Medlem siden",
     "dataFrom": "Data fra {TRANSLATED_COUNTRY}",
@@ -29,8 +29,8 @@
     "countryNamingDisclaimer": "Navne på lande og områder er baseret på [ISO 3166-1-standarden](https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "",
-      "datasets": "",
-      "publishers": "",
+      "datasets": "Datasæt",
+      "publishers": "Forlæggere",
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "",
       "publishedDatasets": "",

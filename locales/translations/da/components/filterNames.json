@@ -61,7 +61,7 @@
     "nameType": "Navne type",
     "origin": "Oprindelse",
     "networkKey": "",
-    "programme": "",
+    "programme": "Program",
     "verbatimScientificName": "",
     "taxonId": "",
     "organismQuantity": "",
@@ -74,6 +74,7 @@
     "gadmGid": "",
     "lifeStage": "",
     "dwcaExtension": "",
-    "isInCluster": ""
+    "isInCluster": "",
+    "iucnRedListCategory": ""
   }
 }

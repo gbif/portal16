@@ -1,8 +1,8 @@
 <div ng-if="!occCustomDownload.hash || occCustomDownload.hash === 'create'">
-  <div class="horizontal-stripe light-background p-t-0">
+  <div class="horizontal-stripe light-background p-t-0 seperator">
     
     <div class="container--normal ng-cloak" ng-if="!occCustomDownload.hasUser">
-      <div class="m-t-1 text-center">
+      <div class="m-t-1 text-center" translate="customDownload.redirectNotice">
         It looks like you you have been directed here from another site. To download you need to login or register first.
       </div>
     </div>
@@ -13,7 +13,7 @@
       <section ng-if="occCustomDownload.hasUser">
         <div class="card-header-flex">
           <h3 class="card-header-flex__item">
-            <span xtranslate="downloadKey.filterApplied">Filter</span>
+            <span translate="occurrenceSearch.currentFilter">Current filter</span>
           </h3>
           <div class="card-header-flex__spacer"></div>
           <div class="switch-group card-header-flex__item">
@@ -37,7 +37,7 @@
                   <ng-include src="'/api/occurrence/downloadRequest.html?locale=' + portal.LOCALE + '&' + occCustomDownload.getSerializedQuery()" onload="occCustomDownload.predicateLoaded = true"></ng-include>
                 </div>
                 <div ng-if="occCustomDownload.invalidInput">
-                  <div class="text-error">Invalid filter</div>
+                  <div class="text-error" translate="customDownload.invalidFilter">Invalid filter</div>
                   <pre>
 {{ occCustomDownload.input }}</pre>
                 </div>
@@ -46,10 +46,10 @@
             <div ng-if="occCustomDownload.inEditMode">
               <div>
                 <div class="clearfix seperator--b">
-                  <a href="" ng-click="occCustomDownload.prettify()" class="pull-right gb-button--flat text-uppercase" xtranslate="filters.add">Reformat</a>
+                  <a href="" ng-click="occCustomDownload.prettify()" class="pull-right gb-button--flat text-uppercase" translate="customDownload.reformat">Reformat</a>
                 </div>
                 <div style="position: relative;">
-                  <span ng-if="occCustomDownload.invalidInput" class="badge--error badge" style="position: absolute; right: 1rem; top: 1rem;">Invalid JSON</span>
+                  <span ng-if="occCustomDownload.invalidInput" class="badge--error badge" style="position: absolute; right: 1rem; top: 1rem;" translate="customDownload.invalidJson">Invalid JSON</span>
                   <textarea ng-change="occCustomDownload.invalidInput = false" placeholder="Enter your filter predicate" class="textarea--noBorder--vertical" ng-model="occCustomDownload.input"></textarea>
                 </div>
               </div>
@@ -58,7 +58,7 @@
         </div>
         <a  ng-if="occCustomDownload.inEditMode" 
             ng-href="{{portal.urlPrefix}}/developer/occurrence#download" 
-            class="gb-button gb-button--brand m-t-1">Read the documentation</a>
+            class="gb-button gb-button--brand m-t-1" translate="customDownload.seeDocumentation">Read the documentation</a>
       </section>
 
       <section class="m-t-1 ng-cloak" ng-if="!occCustomDownload.inEditMode && occCustomDownload.hasUser && !occCustomDownload.invalidInput">

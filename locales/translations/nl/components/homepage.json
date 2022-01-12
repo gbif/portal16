@@ -1,0 +1,29 @@
+{
+    "homepage": {
+        "counts": {
+            "occurrences": "",
+            "datasets": "",
+            "publishers": "",
+            "literature": ""
+        },
+        "aboutGbifCountry": "",
+        "summary": "",
+        "whatIsGbif": "",
+        "featureTypes": {
+            "event": "",
+            "news": "",
+            "resource": "",
+            "dataUse": "",
+            "project": "",
+            "programme": "",
+            "document": "",
+            "tool": "",
+            "literature": "",
+            "treatment": "",
+            "blog": "",
+            "guidance": "",
+            "data": "",
+            "video": ""
+        }
+    }
+}

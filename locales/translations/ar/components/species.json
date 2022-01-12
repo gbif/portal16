@@ -4,6 +4,9 @@
     "figures": "أرقام"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "{status} في {country}",
       "presentInNonCountry": "{status} في {location}",
@@ -18,6 +21,7 @@
       "treatment": "معالجة",
       "metrics": "مقاييس",
       "referenceTaxon": "وحدة تصنيفية مرجعية",
+      "literature": "مراجع",
       "verbatim": "حرفي"
     },
     "invasives": {
@@ -62,6 +66,7 @@
     "iucnStatus": "الحالة وفق الاتحاد الدولي لحماية الطبيعة",
     "references": "مراجع",
     "source": "مصدر",
+    "typeSpecimens": "",
     "inLanguage": "في {language}",
     "publishedIn": "تم نشره في",
     "tradeRestrictions": "القيود التجارية",

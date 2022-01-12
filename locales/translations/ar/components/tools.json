@@ -62,18 +62,18 @@
         "machineVision": {
             "tabs": {
                 "demo": "عرض توضيحي ",
-                "statement": ""
+                "statement": "حول"
             }
         },
         "derivedDataset": {
-            "title": "",
-            "titleField": "",
+            "title": "مجموعة البيانات المشتقة",
+            "titleField": "عنوان",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
-            "datasetKey": "",
-            "occurrenceCount": "",
-            "submit": "",
+            "datasetKey": "مفتاح مجموعة البيانات",
+            "occurrenceCount": "عدد التكرار",
+            "submit": "تسليم",
             "pleaseFill": "",
             "loginToCreate": "",
             "myDatasets": "",

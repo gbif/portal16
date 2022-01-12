@@ -17,7 +17,7 @@
     "dataAboutCountry": "資料關於 {TRANSLATED_COUNTRY}",
     "publishingTrends": "發布趨勢",
     "noDataPublishingActivity": "無資料發布活動",
-    "noInstitutionsHavePublished": "此國家內的無任何機構透過 GBIF 發布資料",
+    "noInstitutionsHavePublished": "此國家或地區內無任何機構透過 GBIF 發布資料",
     "trendsAboutCountry": "關於{TRANSLATED_COUNTRY} 的趨勢",
     "nFrom": "{NUMBER_FORMATTED} 來自",
     "nAbout": "{NUMBER_FORMATTED} 關於",

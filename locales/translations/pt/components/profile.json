@@ -4,14 +4,14 @@
       "failed": {
         "FACEBOOK": "Não foi possível ligar ao Facebook",
         "GITHUB": "Não foi possível ligar ao Github",
-        "GOOGLE": ""
+        "GOOGLE": "Não foi possível ligar-se ao Google"
       }
     },
     "login": {
       "failed": {
         "FACEBOOK": "Não foi iniciar sessão no Facebook",
         "GITHUB": "Não foi iniciar sessão no Github",
-        "GOOGLE": ""
+        "GOOGLE": "Não é possível iniciar sessão com o Google"
       }
     },
     "error": {
@@ -78,7 +78,7 @@
     "stopEditing": "Interromper a edição",
     "firstName": "Primeiro nome",
     "lastName": "Último nome",
-    "language": "Idioma",
+    "language": "Língua",
     "save": "Guardar",
     "currentPassword": "Palavra-passe atual",
     "invalidProfileUpdate": "Atualização do perfil inválido",
@@ -89,6 +89,6 @@
     "verficationLinkSent": "Foi-lhe enviado um e-mail com um link de verificação para confirmar que este é o seu endereço de email. Bem-vindo ao GBIF",
     "resetPasswordRequest": "Pedido de reposição da palavra-passe",
     "resetPasswordMessage": "Enviamos-lhe um e-mail para redefinir a sua palavra-passe.",
-    "derivedDatasets": ""
+    "derivedDatasets": "Dados Derivados"
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /**
  *   Rather than manage one giant configuration file responsible
  *   for creating multiple tasks, each task has been broken out into
@@ -7,10 +8,10 @@
  */
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     path = require('path'),
     config = require('./config/build'),
-    runSequence = require('run-sequence'),
+    runSequence = require('gulp4-run-sequence'),
     browserSync = require('browser-sync'),
     requireDir = require('require-dir');
 
@@ -34,7 +35,7 @@ requireDir('./gulp/tasks', {
 // });
 
 gulp.task('prod', function (callback) {
-    runSequence(
+    return runSequence(
         ['clean-all'],
         ['env-constants'],
         ['assets'],
@@ -56,31 +57,22 @@ gulp.task('prod', function (callback) {
         callback);
 });
 
-gulp.task('test-drive-development', [], function (callback) {
-    runSequence(
-        ['test-server-continuously', 'test-client-continuously', 'dev'],
-        callback);
-});//TODO add development task
+gulp.task('test', gulp.series('test-client', 'test-server'));
 
-gulp.task('test', ['test-client', 'test-server']);
+gulp.task('watch', function () {
+  gulp.watch([
+    path.join(config.paths.src, '/**/*.styl'),
+    path.join(config.paths.src, '/**/*.less'),
+    path.join(config.paths.src, '/**/*.css')
+  ], gulp.series('stylus-reload', 'ieStyle'));
 
-gulp.task('watch', ['browser-sync'], function () {
-    gulp.watch([
-        path.join(config.paths.src, '/**/*.styl'),
-        path.join(config.paths.src, '/**/*.less'),
-        path.join(config.paths.src, '/**/*.css')
-    ], ['styles-reload']);
+  //, 'dataRepo', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home' //removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
+  gulp.watch(config.js.client.watch, gulp.series('scripts-reload', 'client-lint'));
 
-    //gulp.watch([config.js.client.watch], ['scripts-reload'/*, 'client-lint'*/]); //, 'dataRepo', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home'//removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
-
-    gulp.watch([config.js.client.watch], ['client-lint', 'scripts-reload']).on('change', browserSync.reload);
-
-    gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], ['templates']).on('change', browserSync.reload);
-
-    //browserSync.watch('app/views/**/*.nunjucks').on('change', browserSync.reload);
+  gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], gulp.series('templates'));
 });
 
-gulp.task('dev', [], function (callback) {
+gulp.task('dev', function (callback) {
     runSequence(
         ['clean-all'],
         // ['revision'],
@@ -92,4 +84,4 @@ gulp.task('dev', [], function (callback) {
         callback);
 });
 
-gulp.task('default', [config.buildType]);
+gulp.task('default', gulp.task(config.buildType));

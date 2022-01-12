@@ -109,7 +109,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
 
     vm.dataset.$promise.then(function() {
         Page.setTitle(vm.dataset.title);
-        vm.isMediatedByPlazi = constantKeys.publisher.PLAZI === vm.dataset.publishingOrganizationKey;
+        vm.isMediatedByPublisher = constantKeys.treatmentPublishers.indexOf(vm.dataset.publishingOrganizationKey) > -1;
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
         vm.installation = Installation.get({id: vm.dataset.installationKey});
         vm.installation.$promise.then(function() {

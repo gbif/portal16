@@ -58,54 +58,54 @@ function logActivity() {
   }
 }
 
-let failingURLs = [
-  // '/v1/occurrence/search/?datasetKey=3b8c5ed8-b6c2-4264-ac52-a9d772d69e9f&limit=0&facet=eventId&facetLimit=11&facetOffset=0'
-];
+// let failingURLs = [
+//   // '/v1/occurrence/search/?datasetKey=3b8c5ed8-b6c2-4264-ac52-a9d772d69e9f&limit=0&facet=eventId&facetLimit=11&facetOffset=0'
+// ];
 
-let failingURLSubstrings = [
-  // '/v1/species'
-];
+// let failingURLSubstrings = [
+//   // '/v1/species'
+// ];
 
-function failingWrapper(options) {
-  const path = url.parse(options.url).path;
-  console.log(path);
-  let requestAgent = requestAgents.standard;
-  // eslint-disable-next-line prefer-rest-params
-  let callbackIfAny = typeof arguments[1] === 'function' ? arguments[1] : undefined;
+// function failingWrapper(options) {
+//   const path = url.parse(options.url).path;
+//   console.log(path);
+//   let requestAgent = requestAgents.standard;
+//   // eslint-disable-next-line prefer-rest-params
+//   let callbackIfAny = typeof arguments[1] === 'function' ? arguments[1] : undefined;
 
-  let failUrlMatch = _.find(failingURLs, function(e) {
-    return path === e;
-  });
-  let failUrlPartMatch = _.find(failingURLSubstrings, function(e) {
-    return path.startsWith(e);
-  });
+//   let failUrlMatch = _.find(failingURLs, function(e) {
+//     return path === e;
+//   });
+//   let failUrlPartMatch = _.find(failingURLSubstrings, function(e) {
+//     return path.startsWith(e);
+//   });
 
-  let shouldFail = (failUrlMatch || failUrlPartMatch);
+//   let shouldFail = (failUrlMatch || failUrlPartMatch);
 
-  // eslint-disable-next-line prefer-rest-params
-  return requestAgent(arguments[0])
-    .then(function(response) {
-      if (shouldFail) {
-        if (callbackIfAny) {
-          callbackIfAny(new Error('Failed on purpose in request wrapper. This should only happen when running locally'));
-          return;
-        }
-        throw new Error('Failed on purpose in request wrapper. This should only happen when running locally');
-      }
-      if (callbackIfAny) {
-        callbackIfAny(null, response, response.body);
-      } else {
-        return response;
-      }
-    })
-    .catch(function(err) {
-      if (callbackIfAny) {
-        callbackIfAny(err);
-      } else {
-        throw err;
-      }
-    });
-}
+//   // eslint-disable-next-line prefer-rest-params
+//   return requestAgent(arguments[0])
+//     .then(function(response) {
+//       if (shouldFail) {
+//         if (callbackIfAny) {
+//           callbackIfAny(new Error('Failed on purpose in request wrapper. This should only happen when running locally'));
+//           return;
+//         }
+//         throw new Error('Failed on purpose in request wrapper. This should only happen when running locally');
+//       }
+//       if (callbackIfAny) {
+//         callbackIfAny(null, response, response.body);
+//       } else {
+//         return response;
+//       }
+//     })
+//     .catch(function(err) {
+//       if (callbackIfAny) {
+//         callbackIfAny(err);
+//       } else {
+//         throw err;
+//       }
+//     });
+// }
 
 let requestWrapper = wrapper;
 

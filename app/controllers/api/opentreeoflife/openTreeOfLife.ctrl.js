@@ -2,11 +2,13 @@
 let express = require('express'),
     router = express.Router(),
     request = require('request-promise'),
+    https = require('https'),
     cors = require('cors'),
     _ = require('lodash'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../config/log');
 
+const agent = new https.Agent({rejectUnauthorized: false});
 
 module.exports = function(app) {
     app.use('/api', router);
@@ -25,7 +27,8 @@ router.get('/otl/ottid', cors(), function(req, res) {
         timeout: 30000,
         method: 'POST',
         json: {'names': [canonicalName], 'do_approximate_matching': false},
-        fullResponse: true
+        fullResponse: true,
+        agent: agent
     };
     return request(baseRequest)
         .then(function(response) {
@@ -67,7 +70,8 @@ router.get('/otl/newick', cors(), async function (req, res) {
         timeout: 90000,
         method: 'POST',
         json: {'ott_id': ottid, 'include_lineage': true},
-        fullResponse: true
+        fullResponse: true,
+        agent: agent
     };
     try {
         if (!nodeid) {
@@ -77,13 +81,13 @@ router.get('/otl/newick', cors(), async function (req, res) {
         const treeResponse = await request({
             method: 'POST',
             url: apiConfig.openTreeOfLife.url + '/tree_of_life/subtree',
-            json: {'node_id': nodeid}
+            json: {'node_id': nodeid},
+            agent: agent
         });
         return res.status(200).json(treeResponse);
     } catch (err) {
-        if (err.statusCode !== 200) {
-            throw err;
-        }
+            let status = err.statusCode || 500;
+            res.status(status).send(_.get(err, 'error.message', ''));
     }
 });
 

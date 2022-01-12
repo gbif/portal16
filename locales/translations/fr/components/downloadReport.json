@@ -38,20 +38,20 @@
     "title": "Options de téléchargement",
     "content": {
       "rawData": "Données brutes",
-      "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
-      "estimatedSize": ""
+      "interpretedData": "Données interprétées",
+      "images": "Multimedia",
+      "coordinates": "Coordonnées",
+      "fileFormat": "Format",
+      "estimatedSize": "Taille estimée des données"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "CSV délimité par des tabulations"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (si disponible)",
+      "yesLinks": "✔ (liens)",
+      "no": "✘"
     }
   }
 }

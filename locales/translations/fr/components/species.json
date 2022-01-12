@@ -4,6 +4,9 @@
     "figures": "Figures"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "Présent en {country}",
       "presentInNonCountry": "Présent à/en {location}",
@@ -18,6 +21,7 @@
       "treatment": "Traitement",
       "metrics": "Statistiques",
       "referenceTaxon": "Taxon de référence",
+      "literature": "Littérature",
       "verbatim": "Original"
     },
     "invasives": {
@@ -62,6 +66,7 @@
     "iucnStatus": "Statut UICN",
     "references": "Références",
     "source": "Source",
+    "typeSpecimens": "Spécimens type",
     "inLanguage": "En {language}",
     "publishedIn": "Publié dans",
     "tradeRestrictions": "Restrictions commerciales",

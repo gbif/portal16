@@ -38,20 +38,20 @@
     "title": "下载选项",
     "content": {
       "rawData": "原始数据",
-      "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
-      "estimatedSize": ""
+      "interpretedData": "解释数据",
+      "images": "多媒体",
+      "coordinates": "坐标",
+      "fileFormat": "格式",
+      "estimatedSize": "估计数据大小"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "标签分隔的 CSV"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (如果可用)",
+      "yesLinks": "✔ (链接)",
+      "no": "✘"
     }
   }
 }

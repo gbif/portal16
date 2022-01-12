@@ -14,6 +14,7 @@
     "failedSearch": "الفلاتر الخاصة بك قد تكون غير صالحة أو أن برامج تخدبم البيانات قد يكون لديها مشكلات. الرجاء المحاولة مرة أخرى والإبلاغ عن المشكلة إذا استمرت",
     "noImages": "لا توجد تكرارات ذات صور",
     "imageLicenseInfo": "إعلم بأن التراخيص المطبقة على الصور قد تختلف عن تلك المطبقة على سجلات التكرار",
+    "combinedMediaTypeInfo": "",
     "showMoreImages": "المزيد",
     "default": "الإفتراضي",
     "custom": "مُخصص",
@@ -30,6 +31,9 @@
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "عنوان URL لتساؤلك تجاوز 2000 محرف وقد لا يعمل بشكل صحيح في كافة المتصفحات. لأجل التساؤلات الكبيرة و/أو المعقدة، يرجى النظر في استخدام API للتنزيل.",
     "didYouMean": "يتطابق بحثك مع {RANK}: '{NAME}'. هل ترغب في الحد من بحثك على هذه الوحدة التصنيفية فقط؟",
-    "clickToUseAcceptedTaxon": ""
+    "clickToUseAcceptedTaxon": "",
+    "helpText": {
+      "continent": ""
+    }
   }
 }

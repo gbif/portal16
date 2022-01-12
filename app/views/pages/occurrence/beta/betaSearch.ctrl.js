@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 'use strict';
 
-var angular = require('angular'),
-  _ = require('lodash');
+var angular = require('angular');
 
 angular
   .module('portal')
@@ -32,7 +31,7 @@ function betaSearchCtrl() {
 
     ReactDOM.render(
       React.createElement(gbifReactComponents.OccurrenceSearch, {
-        style: {height: 'calc(100vh - 3.571428571425rem)'},
+        style: {height: 'calc(100vh - 86px)'},
         theme: siteTheme,
         config: siteConfig
       }),

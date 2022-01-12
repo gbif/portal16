@@ -4,6 +4,9 @@
     "figures": "图片"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "{status} 在 {country}",
       "presentInNonCountry": "{status} 在 {location}",
@@ -18,6 +21,7 @@
       "treatment": "治疗",
       "metrics": "指标",
       "referenceTaxon": "参考分类",
+      "literature": "文献",
       "verbatim": "逐字的"
     },
     "invasives": {
@@ -62,6 +66,7 @@
     "iucnStatus": "IUCN状态",
     "references": "参考文献",
     "source": "来源",
+    "typeSpecimens": "模式标本",
     "inLanguage": "在 {language} 中",
     "publishedIn": "已发布",
     "tradeRestrictions": "贸易限制",
@@ -83,6 +88,6 @@
     "taxa": "分类群",
     "mediatedThrough": "通过调解",
     "taxonIdentifiers": "分类群识别码",
-    "whyDoubtful": ""
+    "whyDoubtful": "什么时候分类单元是“可疑的”？"
   }
 }

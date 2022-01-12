@@ -77,6 +77,8 @@
           "MARINE": "Marine",
           "PHYLOGENETICS": "Phylogenetics",
           "SPECIES_DISTRIBUTIONS": "Species distributions",
+          "INFRASTRUCTURE": "Infrastructure",
+          "DNA": "DNA",
           "TAXONOMY": "Taxonomy"
         },
         "purposes": {
@@ -93,7 +95,7 @@
           "generic": "Generic",
           "book_section": "Book section",
           "conference_proceedings": "Conference proceedings",
-          "working_paper": "Working paper",
+          "working_paper": "Preprint",
           "report": "Report",
           "web_page": "Web page",
           "thesis": "Thesis",

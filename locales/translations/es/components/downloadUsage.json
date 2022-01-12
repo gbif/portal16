@@ -1,0 +1,19 @@
+{
+    "downloadUsage": {
+        "title": "Notificar a GBIF sobre el uso de los registros biológicos en una publicación (o similar)",
+        "form": {
+            "title": "Título",
+            "titlePlaceholder": "Título/nombre de la publicación/producto en el que se utilizan los datos",
+            "authors": "Autor(es)",
+            "authorsPlaceholder": "Autor(es) de la publicación o producto",
+            "link": "URL",
+            "linkPlaceholder": "Enlace/DOI a la publicación/producto, si está disponible en línea",
+            "date": "Fecha",
+            "comments": "Comentarios",
+            "commentsPlaceholder": "Información adicional sobre la publicación/producto (especialmente si no es un artículo de revista tradicional)",
+            "submit": "Enviar",
+            "saveFailure": "Se ha producido un error al guardar el formulario. Por favor, inténtelo de nuevo.",
+            "saveSuccess": "Gracias por avisarnos. Vincularemos la descarga a la publicación/producto descrito. Por favor, recuerde citar la descarga según las instrucciones de la página de descarga. Ahora puede cerrar esta ventana emergente."
+        }
+    }
+}

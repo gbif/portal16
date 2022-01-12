@@ -14,6 +14,7 @@
     "description": "Descrição",
     "endorsedBy": "Aprovado por",
     "pendingEndorsementBy": "Aval pendente por",
+    "endorsementWithheld": "",
     "installations": "Instalações",
     "contacts": "Contatos",
     "administrativeContact": "Contato administrativo",

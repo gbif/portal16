@@ -1,9 +1,12 @@
 {
   "treatment": {
-    "distribution": "",
+    "distribution": "Distribution",
     "figures": ""
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "Forekommer i {country}",
       "presentInNonCountry": "Forekommer i {location}",
@@ -11,13 +14,14 @@
       "establishmentMeans": "",
       "distributionPlural": "Udbredelse",
       "PRESENT": "",
-      "ABSENT": ""
+      "ABSENT": "Fraværende"
     },
     "tabs": {
       "overview": "Oversigt",
       "treatment": "",
       "metrics": "Metrisk",
       "referenceTaxon": "Reference takson",
+      "literature": "Litteratur",
       "verbatim": "Original"
     },
     "invasives": {
@@ -31,7 +35,7 @@
       "isInvasive_no": ""
     },
     "treatment": {
-      "distribution": "",
+      "distribution": "Distribution",
       "figures": ""
     },
     "as": "Som",
@@ -62,6 +66,7 @@
     "iucnStatus": "IUCN status",
     "references": "Referencer",
     "source": "Kilde",
+    "typeSpecimens": "",
     "inLanguage": "På {language}",
     "publishedIn": "Publiceret i",
     "tradeRestrictions": "Handelsristriktioner",

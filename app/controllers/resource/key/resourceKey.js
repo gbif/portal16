@@ -7,8 +7,7 @@ let _ = require('lodash'),
     moment = require('moment'),
     querystring = require('querystring'),
     contentfulLocaleMap = rootRequire('config/config').contentfulLocaleMap,
-    credentials = rootRequire('config/credentials').contentful.gbif,
-    log = rootRequire('config/log');
+    credentials = rootRequire('config/credentials').contentful.gbif;
 
 module.exports = {
     getSlug: getSlug,
@@ -88,9 +87,9 @@ async function getParticipant(directoryId, depth, isPreview, locale) {
     return first;
 }
 
-async function getByAlias(urlAlias, depth, isPreview, locale) {
+async function getByAlias(urlAlias, depth, isPreview, locale, type) {
     let query = {
-        'content_type': 'article',
+        'content_type': type ? type : 'article',
         'fields.urlAlias': urlAlias
     };
     return getFirst(query, depth, isPreview, locale);

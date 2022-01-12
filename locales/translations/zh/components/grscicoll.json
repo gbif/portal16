@@ -5,14 +5,15 @@
       "description": "**机构馆藏** 是已正式被加入机构并获得相当程度支持的馆藏。\n\n**项目馆藏**是由机构内的研究员收集，但可能还未被正式纳入的馆藏。项目馆藏最终可能成为机构馆藏的一部分或仍由个别研究员管控。\n\n**私人馆藏**是由个别研究员管控，并没有正式加入相关机构的馆藏。它们可能是私人财产或不属于任何个人。"
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": ""
+      "summary": "概要",
+      "homepage": "首页",
+      "metrics": "指标"
     },
     "headerTitle": "馆藏",
     "description": "描述",
     "institutionName": "机构名称",
     "code": "代码",
+    "alternativeCodes": "替代代码",
     "statusOfCollection": "馆藏状态",
     "personalCollection": "个人收藏",
     "isPersonalCollection": {
@@ -41,19 +42,20 @@
       "description": "**机构** 是指用于并管理科学馆藏的任何机构或组织。包括草本植物、博物館、动物园、植物园、生物库等。一个机构可以包含多种馆藏，也就是说这些馆藏应在 **机构／项目馆藏** 中单独输入，并与其上层机构关联。\n\n由于整合多个旧的数据集，为避免 **机构代码** 重复，所有植物标本馆索引代码会附加 <IH> 。"
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": ""
+      "summary": "概要",
+      "homepage": "首页",
+      "metrics": "指标"
     },
     "headerTitle": "机构",
-    "indexHerbariorumIdentifier": "",
-    "numberSpecimens": "",
+    "indexHerbariorumIdentifier": "索引植物标本馆 ID",
+    "numberSpecimens": "标本数",
     "code": "机构代码",
+    "alternativeCodes": "替代代码",
     "statusOfInstitution": "机构状态",
     "additionalNames": "其他名称",
     "description": "描述",
     "homepage": "首页",
-    "foundingDate": "",
+    "foundingDate": "建立日期",
     "geographicDescription": "地理描述",
     "taxonomicDescription": "分类描述",
     "citesPermitNumber": "引用许可数量",
@@ -85,26 +87,28 @@
     "primaryInstitution": "一级机构名称",
     "primaryCollection": "主要馆藏名称",
     "affiliateInstitutions": "其他附属机构",
-    "affiliateCollections": ""
+    "affiliateCollections": "额外的附属收藏"
   },
   "grscicoll": {
     "title": "",
     "suggestChange": "建议更改",
+    "suggestNewCollection": "推荐一个新的收藏",
+    "suggestNewInstitution": "推荐一个新机构",
     "tabs": {
       "about": "关于",
       "institutions": "机构",
       "collections": "集合",
-      "people": ""
+      "people": "工作人员"
     },
     "contact": {
-      "phone": "",
+      "phone": "电话号码",
       "email": "电子邮件",
-      "fax": "",
+      "fax": "传真号",
       "mailingAddress": "邮寄地址",
       "physicalAddress": "住址",
       "contacts": "联系人",
       "address": "地址",
-      "province": "",
+      "province": "州/省",
       "postalCode": "邮政编码:",
       "city": "城市/乡镇",
       "country": "国家"

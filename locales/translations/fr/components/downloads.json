@@ -21,7 +21,7 @@
     "cancelled": "Annulé",
     "cancel": "Annuler",
     "download": "Télécharger",
-    "records": "",
+    "records": "Enregistrements",
     "occurrences": "Occurrences",
     "largeQueryMessage": "Filtre très grand. Voir le téléchargement pour plus de détails.",
     "date": "Date ",
@@ -69,10 +69,20 @@
       "and": "Et",
       "or": "Ou",
       "not": "Non",
-      "isNotNull": "Est défini"
+      "isNotNull": "Est défini",
+      "isNull": "N'est pas défini"
     }
   },
   "myDownloads": {
     "title": "Mes téléchargements"
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }

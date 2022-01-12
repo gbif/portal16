@@ -108,7 +108,7 @@ function dateRange(start, end, showHours, locale) {
     // always if all day event, then ignore time a day
     if (start === end || !end) {
         // if same date and time or no enddate then show just start date
-        if (showHours) return startDate.format('LL') + ' ' +startDate.format('HH:mm');
+        if (showHours) return startDate.format('LL') + ' ' + startDate.format('HH:mm');
         return startDate.format('LL');
     } else if (showHours && startDate.format('D MMMM YYYY') === endDate.format('D MMMM YYYY')) {
         // if not an all day event, then show full date and time in interval

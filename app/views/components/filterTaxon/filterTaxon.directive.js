@@ -191,7 +191,7 @@ function filterTaxonDirective(BUILD_VERSION) {
            vm.query.push(taxon.acceptedKey);
            getFullResource(taxon.acceptedKey);
            vm.apply();
-        }
+        };
 
         vm.uncheckAll = function() {
             vm.query = [];

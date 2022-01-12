@@ -5,14 +5,15 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "Resumé",
       "homepage": "",
-      "metrics": ""
+      "metrics": "Grafer"
     },
     "headerTitle": "",
-    "description": "",
+    "description": "Beskriveslse",
     "institutionName": "",
     "code": "",
+    "alternativeCodes": "",
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
@@ -28,7 +29,7 @@
     "identifiers": "",
     "collectionMailingAddress": "",
     "status": "",
-    "name": "",
+    "name": "Navn",
     "isActive": {
       "true": "",
       "false": ""
@@ -41,17 +42,18 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "Resumé",
       "homepage": "",
-      "metrics": ""
+      "metrics": "Grafer"
     },
     "headerTitle": "",
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "",
+    "alternativeCodes": "",
     "statusOfInstitution": "",
     "additionalNames": "",
-    "description": "",
+    "description": "Beskriveslse",
     "homepage": "",
     "foundingDate": "",
     "geographicDescription": "",
@@ -75,8 +77,8 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Fornavn",
+    "lastName": "Efternavn",
     "fullName": "",
     "position": "",
     "affiliations": "",
@@ -90,24 +92,26 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
-      "about": "",
+      "about": "Om",
       "institutions": "",
       "collections": "",
       "people": ""
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "E-mail",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
+      "contacts": "Kontakter",
       "address": "",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Land"
     }
   }
 }

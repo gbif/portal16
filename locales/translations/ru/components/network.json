@@ -6,7 +6,7 @@
       "homepage": "Главная",
       "metrics": "Показатели",
       "datasets": "Сеть",
-      "publishers": ""
+      "publishers": "Организации"
     },
     "registeredDate": "Зарегистрировано {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} участвующих {NUMBER, select, 1{набор данных} other{наборов данных}}",

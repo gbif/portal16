@@ -12,7 +12,7 @@
             "description": "Este recurso experimental destaca possíveis duplicadas e/ou ocorrências relacionadas."
         },
         "occurrenceStatus": {
-            "description": "\"Ausente\" é aplicado a um registo de ocorrência quando uma pesquisa de um táxon, em um momento e localidade específicos, não encontra nenhum espécime",
+            "description": "\"Ausente\" é aplicado a um registo de ocorrência quando uma inventário de um taxon, num momento e localidade específicos, não encontra espécimes",
             "options": {
                 "yes": "Presente",
                 "no": "Ausente",
@@ -37,7 +37,7 @@
             "geojson": "GeoJSON",
             "range": "Intervalo",
             "noFiltersAdded": "Sem filtros de área adicionados",
-            "wktPlaceholder": "WKT ou GeoJSON — multipolygons não são suportados",
+            "wktPlaceholder": "WKT ou GeoJSON",
             "invalidTextInput": "WKT ou GeoJSON inválido",
             "tooLarge": "Geometria muito grande",
             "tooLargeSuggestion": "Tente usar uma caixa delimitadora e em alternativa filtrar localmente",

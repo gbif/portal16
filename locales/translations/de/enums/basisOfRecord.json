@@ -1,0 +1,14 @@
+{
+  "basisOfRecord": {
+    "PRESERVED_SPECIMEN": "Konserviertes Sammlungsobjekt",
+    "FOSSIL_SPECIMEN": "Fossiles Sammlungsobjekt",
+    "LIVING_SPECIMEN": "Lebendes Exemplar",
+    "OBSERVATION": "Beobachtung",
+    "HUMAN_OBSERVATION": "Menschliche Beobachtung",
+    "MACHINE_OBSERVATION": "Maschinelle Beobachtung",
+    "MATERIAL_SAMPLE": "Materialprobe",
+    "LITERATURE": "Literatur",
+    "UNKNOWN": "Unbekannt",
+    "undefined": "Unbekannt"
+  }
+}

@@ -6,10 +6,10 @@
       "homepage": "Página inicial",
       "metrics": "Métricas",
       "datasets": "Rede",
-      "publishers": ""
+      "publishers": "Publicadores"
     },
     "registeredDate": "Registado {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} participando {NUMBER, select, 1{conjunto de dados} other{conjuntos de dados}}",
-    "nParticipatingPublishers": ""
+    "nParticipatingDatasets": "{NUMBER_FORMATED} participando em {NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
+    "nParticipatingPublishers": "{NUMBER_FORMATED} {NUMBER, plural, one{publicador} other{publicadores}} participante"
   }
 }

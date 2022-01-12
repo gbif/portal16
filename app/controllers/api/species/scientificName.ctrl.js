@@ -3,7 +3,7 @@ let express = require('express'),
     router = express.Router(),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     ranks = require('../../../models/enums/allEnums').rank,
-    request = rootRequire('app/helpers/request'),
+    request = require('../../../helpers/request'),
     cors = require('cors'),
     Q = require('q');
 
@@ -160,11 +160,11 @@ async function getParsedName(speciesKey) {
 
 function formatName(name) {
     let n = '';
-
-    if (name.type == 'SCIENTIFIC' || name.type == 'CULTIVAR' || name.type == 'DOUBTFUL') {
+    if (!name.notho && (name.type == 'SCIENTIFIC' || name.type == 'CULTIVAR' || name.type == 'DOUBTFUL')) {
         if (name.rankMarker && ranks.indexOf(rankMarkerMap[name.rankMarker]) > FAMILY_RANK_INDEX) {
             if ((name.genusOrAbove || name.specificEpithet) && name.scientificName.indexOf('×') === -1) {
-                n += '<i>' + add(name.genusOrAbove) + add(name.specificEpithet) + '</i>';
+                let infraGeneric = name.infraGeneric ? '(' + name.infraGeneric + ') ' : '';
+                n += '<i>' + add(name.genusOrAbove) + infraGeneric + add(name.specificEpithet) + '</i>';
             } else if (name.scientificName.indexOf('×') > -1 && name.canonicalNameWithMarker) {
                 n += '<i>' + add(name.canonicalNameWithMarker) + '</i>';
             }
@@ -191,8 +191,8 @@ function formatName(name) {
         } else {
             n += add(name.genusOrAbove);
         }
-    } else if (name.type == 'HYBRID') {
-        n += '<i>' + add(name.scientificName) + '</i>';
+    } else if (name.type == 'HYBRID' || name.notho) {
+        n += '<i>' + add(name.canonicalNameWithMarker || name.scientificName) + '</i>';
     } else if (name.type == 'CANDIDATUS') {
         let candName = name.genusOrAbove;
         if (name.specificEpithet) {

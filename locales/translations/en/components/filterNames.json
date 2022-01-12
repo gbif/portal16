@@ -2,7 +2,7 @@
   "filterNames": {
     "occurrenceStatus": "Occurrence status",
     "month": "Month",
-    "catalogNumber": "Catalog number",
+    "catalogNumber": "Catalogue number",
     "year": "Year",
     "country": "Country or area",
     "continent": "Continent",
@@ -21,7 +21,7 @@
     "eventId": "Event ID",
     "samplingProtocol": "Sampling protocol",
     "location": "Location",
-    "coordinateUncertaintyInMeters": "Coordinate uncertainty in meters",
+    "coordinateUncertaintyInMeters": "Coordinate uncertainty in metres",
     "hasGeospatialIssue": "Has geospatial issue",
     "basisOfRecord": "Basis of record",
     "issue": "Issues and flags",
@@ -31,7 +31,7 @@
     "stateProvince": "State province",
     "publishingCountry": "Publishing country or area",
     "institutionCode": "Institution code",
-    "license": "License",
+    "license": "Licence",
     "organismId": "Organism id",
     "depth": "Depth",
     "occurrenceId": "Occurrence id",
@@ -74,6 +74,7 @@
     "gadmGid": "Administrative areas (gadm.org)",
     "lifeStage": "Life stage",
     "dwcaExtension": "DWCA extension",
-    "isInCluster": "Is in cluster"
+    "isInCluster": "Is in cluster",
+    "iucnRedListCategory": "IUCN Red List Category"
   }
 }

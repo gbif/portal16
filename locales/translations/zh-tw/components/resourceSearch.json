@@ -6,7 +6,7 @@
         "searchForNewsEventsDocuments": "搜尋新聞、活動，文件或其他更多項目。如果您想搜尋物種出現紀錄，試著以出現記錄搜索。",
         "occurrenceSearch": "出現紀錄搜尋",
         "subscribeToCalendar": "訂閱至行事曆",
-        "suggestEvent": "",
+        "suggestEvent": "提供活動訊息",
         "citationExplainer": "閱讀更多關於如何發現文獻，並連結至 GBIF 資料的資訊。",
         "types": {
             "events": "事件",
@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "衍生資料集的數位物件識別碼",
             "paperDoi": "DOI",
             "litSource": "期刊",
-            "litPublisher": "期刊發布者"
+            "gbifTaxonKey": "學名",
+            "litPublisher": "期刊出版者"
+        },
+        "helpText": {
+            "gbifTaxonKey": "注意：套用此篩選條件將排除非明確專注於特定分類群的論文發表"
         }
     }
 }

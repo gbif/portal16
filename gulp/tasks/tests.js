@@ -24,9 +24,9 @@ gulp.task('test-server', function() {
     // TODO Test if there are residues across runs (globals or such that would compromise tests)
 });
 
-gulp.task('test-server-continuously', ['test-server'], function() {
+gulp.task('test-server-continuously', gulp.series('test-server', function() {
     gulp.watch(config.js.server.paths, ['test-server']);
-});
+}));
 
 
 /**

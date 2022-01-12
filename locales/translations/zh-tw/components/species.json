@@ -4,6 +4,9 @@
     "figures": "圖片"
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "出現於 {country} 的 {status}",
       "presentInNonCountry": "出現於 {location} 的 {status}",
@@ -18,6 +21,7 @@
       "treatment": "分類處理",
       "metrics": "指標",
       "referenceTaxon": "參考分類群",
+      "literature": "文獻",
       "verbatim": "字面的"
     },
     "invasives": {
@@ -38,7 +42,7 @@
     "in": "在",
     "origin": "來源",
     "issues": "議題",
-    "citation": "引用",
+    "citation": "引用條目（請見[引用準則](/citation-guidelines#occDataDownload)了解如何引用物種出現紀錄）",
     "remarks": "註記",
     "term": "名稱",
     "value": "數值",
@@ -62,13 +66,14 @@
     "iucnStatus": "IUCN 狀態",
     "references": "參考資料",
     "source": "來源",
+    "typeSpecimens": "模式標本",
     "inLanguage": "以 {language}",
     "publishedIn": "發布於",
     "tradeRestrictions": "貿易限制",
     "basionym": "基礎名",
     "nVernacularNames": "{NUMBER, select,1{普通名} other {普通名}}",
     "nameUsagesApplied": "名稱使用應用於 GBIF 的出現紀錄資料",
-    "appearsIn": "出現於 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED} {NUMBER, select, 1{資料集} other{資料集}}：",
+    "appearsIn": "出現於 {NUMBER_FORMATTED} {DATASET_TYPE_TRANSLATED}{NUMBER, plural, one{資料集} other{資料集}}:",
     "viewOccurrences": "查看出現紀錄",
     "seeAlso": "您也可以參考：",
     "viewInGbifBackbone": "查看 GBIF 骨幹",

@@ -35,9 +35,9 @@
           "Nodes guidance": "ノードガイダンス"
         },
         "projectGrantType": {
-          "REGIONAL": "地域の助成金",
-          "SMALL": "小規模の助成金",
-          "NATIONAL": "国の助成金",
+          "REGIONAL": "地域の生物多様性データ収集のための助成金",
+          "SMALL": "小規模の生物多様性データ収集のための助成金",
+          "NATIONAL": "国の生物多様性データ収集のための助成金",
           "DATA_USE": "",
           "undefined": "情報なし"
         },
@@ -77,6 +77,8 @@
           "MARINE": "海産",
           "PHYLOGENETICS": "系統学",
           "SPECIES_DISTRIBUTIONS": "種分布",
+          "INFRASTRUCTURE": "",
+          "DNA": "",
           "TAXONOMY": "分類群"
         },
         "purposes": {

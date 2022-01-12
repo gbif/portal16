@@ -44,7 +44,7 @@
     "publishers": "出版者",
     "memberSince": "～以来のメンバー",
     "participant": "参加団体",
-    "pPublishers": "{NUMBER, select, 1{出版者} other{出版者}}",
+    "pPublishers": "{NUMBER, plural, one{出版者} other{出版者}}",
     "pOccurrence": "{NUMBER, select, 1{オカレンス} other{オカレンス}}",
     "occurrenceDatasets": "オカレンスデータセット",
     "occurrences": "オカレンス"

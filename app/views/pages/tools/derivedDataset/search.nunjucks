@@ -8,7 +8,8 @@
                             <div class="card__stripe">
                                 <div class="card__content">
                                     <h3 class="searchCard__headline derivedDataset__cardHeader">
-                                        <a href="" ui-sref="derivedDatasetKey({prefix: result.doi.split('/')[0], suffix: result.doi.split('/')[1]})">{{result.title}}</a>
+                                       <!-- <a href="" ui-sref="derivedDatasetKey({prefix: result.doi.split('/')[0], suffix: result.doi.split('/')[1]})">{{result.title}}</a> -->
+                                       <a href="" ng-href="{{derivedDataset.localePrefix +  'derivedDataset/'+ result.doi}}">{{result.title}}</a>
                                     </h3>
                                     
                                     <a class="searchCard__headline derivedDataset__editlink" ui-sref="derivedDatasetUpload({record: result})" >edit</a>

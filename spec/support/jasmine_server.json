@@ -1,7 +1,6 @@
 {
   "spec_dir": "",
   "spec_files": [
-    "./app.spec.js",
     "./app/controllers/**/*.spec.js",
     "./app/errors/**/*.spec.js",
     "./app/models/**/*.spec.js",

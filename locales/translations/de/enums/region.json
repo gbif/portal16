@@ -1,0 +1,12 @@
+{
+  "region": {
+    "GLOBAL": "",
+    "AFRICA": "Afrika",
+    "ASIA": "Asien",
+    "EUROPE": "",
+    "LATIN_AMERICA": "",
+    "NORTH_AMERICA": "Nordamerika",
+    "OCEANIA": "Ozeanien",
+    "ANTARCTICA": "Antarktis"
+  }
+}

@@ -5,8 +5,8 @@
     "sourceUrl": "",
     "headlineDatasets": "",
     "headlineOccurrences": "",
-    "title": "",
-    "description": "",
+    "title": "عنوان",
+    "description": "توضیحات",
     "originalDownloadDOI": ""
   },
   "downloadKey": {
@@ -69,10 +69,20 @@
       "and": "",
       "or": "",
       "not": "",
-      "isNotNull": ""
+      "isNotNull": "",
+      "isNull": ""
     }
   },
   "myDownloads": {
     "title": ""
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }

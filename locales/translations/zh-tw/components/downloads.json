@@ -1,6 +1,6 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{紀錄} other{紀錄}}來自此資料集",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{筆紀錄} other{筆紀錄}}來自此資料集",
     "derivedDataset": "衍生的資料集",
     "sourceUrl": "下載衍生的資料集",
     "headlineDatasets": "衍生資料集中 {NUMBER_FORMATED} 個{NUMBER, plural, one{資料集} other{資料集}}的紀錄",
@@ -69,10 +69,20 @@
       "and": "和",
       "or": "或",
       "not": "非",
-      "isNotNull": "已定義"
+      "isNotNull": "已定義",
+      "isNull": "未定義"
     }
   },
   "myDownloads": {
     "title": "我的下載"
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
   }
 }

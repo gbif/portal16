@@ -3,7 +3,7 @@
 const blast = require('../tools/blast/blast');
 const _ = require('lodash');
 const pattern = /^[CAGTcagt]+$/;
-const markers = ['ITS', 'COI'];
+const markers = ['ITS', 'COI', '16S'];
 
 async function query(query) {
     if (query.length < 150) {

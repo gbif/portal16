@@ -14,15 +14,16 @@
             "news": "Notícias",
             "resource": "Recurso",
             "dataUse": "Uso dos dados",
-            "project": "Projecto",
+            "project": "Projeto",
             "programme": "Programa",
             "document": "Documento",
             "tool": "Ferramenta",
             "literature": "Literatura",
             "treatment": "Taxonomia",
-            "blog": "Blog de dados",
+            "blog": "Blog",
             "guidance": "Orientação",
-            "data": "Dados"
+            "data": "Dados",
+            "video": "Vídeo"
         }
     }
 }

@@ -6,7 +6,7 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/health', function(req, res, next) {
+router.get('/system-health', function(req, res, next) {
     helper.renderPage(req, res, next, {
         _meta: {
             title: res.__('healthSummary.systemHealth'),

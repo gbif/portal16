@@ -10,10 +10,11 @@
     "searchAllFields": "Pesquisar todos os campos",
     "description": "Pesquisar ocorrências no Global Biodiversity Information Facility. Acesso livre e aberto a Dados de Biodiversidade.",
     "nWithCoordinates": "{NUMBER_FORMATED} com coordenadas",
-    "nWithImages": "{NUMBER_FORMATED} com {NUMBER, select, 1{imagem} other{imagens}}",
+    "nWithImages": "{NUMBER_FORMATED} com {NUMBER, plural, one{imagem} other{imagens}}",
     "failedSearch": "Os seus filtros podem ser inválidos ou existem problemas nos servidores. Por favor tente outra vez e relate um problema se este continuar",
     "noImages": "Nenhuma ocorrência com imagens",
     "imageLicenseInfo": "Tenha presente de que as licenças aplicadas às imagens podem ser diferentes das aplicadas aos registos",
+    "combinedMediaTypeInfo": "",
     "showMoreImages": "Mais",
     "default": "Predefinição",
     "custom": "Personalizado",
@@ -25,11 +26,14 @@
     "done": "Concluído",
     "yesCorrectSuggestion": "Sim",
     "noWrongSuggestion": "Não",
-    "errorUserThrottled": "Seu acesso está temporariamente restringido.",
-    "polygonSimplifiedToFewerDecimals": "",
-    "polygonSimplifiedToFewerPoints": "",
+    "errorUserThrottled": "O seu acesso está temporariamente restringido.",
+    "polygonSimplifiedToFewerDecimals": "O polígono foi simplificado: número de casas decimais reduzido",
+    "polygonSimplifiedToFewerPoints": "O polígono foi simplificado: número de pontos reduzido",
     "largeQueryLengthWarning": "A URL da sua consulta excede 2.000 caracteres e pode não funcionar corretamente em todos os navegadores. Para consultas grandes e/ou complicadas, por favor considere usar a API de download.",
-    "didYouMean": "Sua busca corresponde a {RANK}: '{NAME}'. Gostaria de limitá-la a apenas esse táxon?",
-    "clickToUseAcceptedTaxon": "Clique para procurar pelo nome aceite do taxon. Provavelmente verá mais dados, uma vez que estes incluem dados para todos os sinónimos."
+    "didYouMean": "A sua pesquisa corresponde a {RANK}: '{NAME}'. Gostaria de limitá-la a apenas esse taxon?",
+    "clickToUseAcceptedTaxon": "Clique para procurar pelo nome aceite do taxon. Provavelmente verá mais dados, uma vez que estes incluem dados para todos os sinónimos.",
+    "helpText": {
+      "continent": ""
+    }
   }
 }

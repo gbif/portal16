@@ -26,7 +26,7 @@
     "largeQueryMessage": "Very large filter. See the download for details.",
     "date": "Date",
     "show": "Show",
-    "license": "License",
+    "license": "Licence",
     "readMore": "Read more",
     "titleMissing": "Dataset title missing",
     "underProcessing": "Under processing",
@@ -69,10 +69,20 @@
       "and": "And",
       "or": "Or",
       "not": "Not",
-      "isNotNull": "Is defined"
+      "isNotNull": "Is defined",
+      "isNull": "Is not defined"
     }
   },
   "myDownloads": {
     "title": "My downloads"
+  },
+  "customDownload": {
+    "invalidFilter": "invalid filter",
+    "seeDocumentation": "Read the documentation",
+    "reformat": "Reformat",
+    "invalidJson": "Invalid JSON",
+    "title": "Create new download",
+    "invalidUrlPredicate": "The predicate in the URL is invalid",
+    "redirectNotice": "It looks like you you have been directed here from another site. To download you need to login or register first."
   }
 }

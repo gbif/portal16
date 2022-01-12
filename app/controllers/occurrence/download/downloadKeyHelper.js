@@ -26,6 +26,9 @@ function addChildKeys(predicate) {
         if (predicate.type == 'isNotNull') {
             predicate.key = predicate.parameter;
         }
+        if (predicate.type == 'isNull') {
+          predicate.key = predicate.parameter;
+      }
         predicate._childKeys = predicate.key;
     } else if (predicate.predicate) {
         let child = addChildKeys(predicate.predicate);
@@ -128,7 +131,7 @@ function addSyntheticTypes(predicate) {
 function getSimpleQuery(predicate) {
     if (!predicate) {
         throw new Error('failed to parse predicate');
-    } else if (['or', 'not'].indexOf(predicate.type) !== -1 || predicate._maxDepth > 3) {
+    } else if (['or', 'not', 'isNull', 'isNotNull'].indexOf(predicate.type) !== -1 || predicate._maxDepth > 3) {
         return false;
     } else if (predicate.type === 'and') {
         // validate that elements have different childkeys and none of them are MIXED and have OR or leaf type
@@ -136,6 +139,7 @@ function getSimpleQuery(predicate) {
             if (p.type === 'and') return true;
             if (p.type === 'not') return true;
             if (p.type === 'isNotNull') return true;
+            if (p.type === 'isNull') return true;
             if (p._childKeys === 'MIXED') return true;
             return false;
             // return p.type == 'and' || p.type == 'not' || p._childKeys == 'MIXED'; // only leafs and OR queries of a single TYPE allowed
@@ -145,8 +149,12 @@ function getSimpleQuery(predicate) {
         }
     }
     // serialize query to occurrence site search string
-    let queryString = _.join(_.flattenDeep(attachPredicatesAsParams(predicate)), '&');
-    return queryString;
+    try {
+      let queryString = _.join(_.flattenDeep(attachPredicatesAsParams(predicate)), '&');
+      return queryString;
+    } catch (err) {
+      return false;
+    }
 }
 
 function attachPredicatesAsParams(predicate) {
@@ -172,6 +180,15 @@ function attachPredicatesAsParams(predicate) {
             queryList.push(predicate.key.toLowerCase() + '=' + encodeURIComponent(val));
         } else if (!_.isUndefined(predicate.geometry)) {
             queryList.push('geometry=' + encodeURIComponent(predicate.geometry));
+        } else if (!_.isUndefined(predicate.key) && !_.isUndefined(predicate.values)) {
+            predicate.values.forEach(function(value) {
+                if (_.isObjectLike(value)) {
+                  throw new Error('failed to parse predicate');
+                }
+                queryList.push(predicate.key.toLowerCase() + '=' + encodeURIComponent(value));
+            });
+        } else {
+            throw new Error('failed to parse predicate');
         }
     }
     return queryList;
@@ -219,6 +236,8 @@ function resolveEnum(predicate, config, __mf) {
         }
     } else if (predicate.type == 'isNotNull') {
         predicate.value = 'isNotNull';
+    } else if (predicate.type == 'isNull') {
+        predicate.value = 'isNull';
     } else if (predicate.type == 'in') {
         predicate.values = predicate.values.map(function(e) {
             return __mf(config.valueTranslation + e);

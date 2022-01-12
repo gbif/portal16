@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 let sciName = require('./scientificName.ctrl'),
@@ -32,6 +33,15 @@ describe('scientificName formatter', function() {
     });
     it('simply italicizes informal names of ranks lower than family', function() {
         expect(sciName.formatName(mockNames.Linum_cf_prostratum)).toEqual('<i>Linum cf. prostratum Weigend 7324 </i>');
+    });
+    it('can format named hybrids', function() {
+        expect(sciName.formatName(mockNames.Asplenium_X_alternifolium_subsp_alternifolium)).toEqual('<i>Asplenium ×alternifolium subsp. alternifolium </i>Wulfen');
+    });
+    it('can format named hybrids that has Author in the scientificName field', function() {
+        expect(sciName.formatName(mockNames.Clematis_X_jackmanii)).toEqual('<i>Clematis ×jackmanii </i>T.Moore');
+    });
+    it('can format species names with infrageneric name parts', function() {
+        expect(sciName.formatName(mockNames.Sabethes_Peytonulus_shannoni)).toEqual('<i>Sabethes (Peytonulus) shannoni </i>(Lane & Cerqueira, 1942)');
     });
 });
 

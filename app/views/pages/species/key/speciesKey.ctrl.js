@@ -10,11 +10,11 @@ require('./directives/nameUsages.directive.js');
 require('./directives/treatment.directive.js');
 require('./directives/wikidataIdentifiers.directive.js');
 require('./directives/distributions.directive.js');
-
-// require('./directives/typeSpecimen.directive.js');
+require('./directives/typeSpecimen.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
+require('./literature/literature.ctrl.js');
 
 angular.module('portal').controller('speciesKey2Ctrl', speciesKey2Ctrl);
 
@@ -40,11 +40,13 @@ function speciesKey2Ctrl(
     suggestEndpoints,
     SpeciesTreatment,
     SpeciesTreatments,
+    ResourceSearch,
     constantKeys,
     Page,
     PublisherExtended,
     MapCapabilities,
     BUILD_VERSION,
+    LOCALE,
     $translate,
     $mdMedia
 ) {
@@ -57,7 +59,7 @@ function speciesKey2Ctrl(
     vm.backboneKey = constantKeys.dataset.backbone;
     vm.$state = $state;
     vm.BUILD_VERSION = BUILD_VERSION;
-
+    var literatureLimit = 25;
     vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
     vm.species = Species.get({id: vm.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
@@ -73,6 +75,13 @@ function speciesKey2Ctrl(
         media_type: 'stillImage',
         limit: 20
     });
+    
+    ResourceSearch.query({gbifTaxonKey: vm.key, contentType: 'literature', limit: literatureLimit, locale: LOCALE}, function(data) {
+        vm.literature = data;
+    }, function() {
+        // TODO handle request error
+    });
+
     SpeciesMedia.get({
         id: vm.key,
         media_type: 'stillImage',
@@ -122,6 +131,23 @@ function speciesKey2Ctrl(
                     vm.species.bibliographicCitation =
                         vm.verbatim[
                             'http://purl.org/dc/terms/bibliographicCitation'
+                        ];
+                }
+                if (vm.verbatim[
+                    'http://rs.tdwg.org/dwc/terms/datasetName'
+                ]) {
+                    // see https://github.com/gbif/portal-feedback/issues/3560
+                    vm.species.datasetName =
+                        vm.verbatim[
+                            'http://rs.tdwg.org/dwc/terms/datasetName'
+                        ];
+                }
+                if (vm.verbatim[
+                    'http://rs.tdwg.org/dwc/terms/datasetID'
+                ]) {
+                    vm.species.datasetID =
+                        vm.verbatim[
+                            'http://rs.tdwg.org/dwc/terms/datasetID'
                         ];
                 }
             });

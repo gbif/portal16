@@ -18,8 +18,8 @@
     "filters": "筛选标签",
     "simple": "简单搜索",
     "advanced": "高级选项",
-    "backbone": "",
-    "allChecklists": "",
+    "backbone": "骨干",
+    "allChecklists": "所有清单",
     "allResultTypes": "全部",
     "suggestions": "建议",
     "header": {

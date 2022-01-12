@@ -2,7 +2,7 @@
   "occurrence": {
     "tabs": {
       "details": "Detalhes",
-      "cluster": ""
+      "cluster": "Agrupamento"
     },
     "typeOf": "{TYPE} de {NAME}",
     "coordinates": "Coordenadas",
@@ -56,7 +56,7 @@
       "noIdentifier": "Nenhum identificador de média fornecido",
       "noPlaybackSupport": "O seu navegador não suporta o formato necessário para reproduzor este média.",
       "takeMeThere": "Tente a versão no site do publicador",
-      "notWorkingTryPublishers": "",
+      "notWorkingTryPublishers": "Reprodução de média não funciona como esperado?",
       "download": "Descarregar média",
       "byRightsHolder": "por {RIGHTSHOLDER}",
       "licensedUnder": "Licenciado sob {{LICENSE}}",
@@ -91,15 +91,15 @@
     },
     "occurrence": "Ocorrência",
     "inLanguage": "Em {LANGUAGE_TRANSLATED}",
-    "sequenced": "",
-    "treatment": "",
+    "sequenced": "Sequenciado",
+    "treatment": "Tratamento",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "Atual",
+      "relatedOccurrences": "Ocorrências relacionadas",
+      "similarBecause": "Semelhante porque",
+      "matchedRecord": "Registo correspondente",
+      "noMatches": "Sem relações candidatas",
+      "explainer": "Este é um recurso experimental que destaca possíveis ocorrências duplicadas e/ou relacionadas."
     }
   },
   "interpretationRemarks": {

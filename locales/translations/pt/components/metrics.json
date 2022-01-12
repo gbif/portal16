@@ -42,7 +42,7 @@
     "noRankedAbove": "A checklist não tem taxa classificados acima da Espécie.",
     "taxonomicOccDistribution": "Distribuição taxonómica das ocorrências",
     "groupByX": "Agrupar por {TYPE}",
-    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, select, 1{outro ou desconhecido} other{outros ou desconhecidos}}",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, plural, 1{outro ou desconhecido} other{outros ou desconhecidos}}",
     "unknownRank": "{RANK} desconhecido",
     "vernacularNames": "Nomes comuns",
     "majorRanksPlural": {

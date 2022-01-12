@@ -92,7 +92,7 @@
                                     <li role="menuitem" ng-if="datasetKey.occurrences.count > 0">
                                         <a ui-sref="occurrenceSearchDownload({dataset_key: datasetKey.key})"><span translate="dataset.processedOccurrences"></span> <span class="small text-brand-color" translate="dataset.recommended"></span></a>
                                     </li>
-                                    <li role="menuitem" ng-if="datasetKey.dataset.license != 'unspecified' && datasetKey.originalArchive.url"><a href="{{ datasetKey.originalArchive.url }}"><span translate="dataset.originalArchive"></span> <span class="discreet--very small" translate="endpointType.{{ datasetKey.originalArchive.type }}"></span></a></li>
+                                    <li role="menuitem" ng-if="datasetKey.dataset.license != 'unspecified' && datasetKey.originalArchive.url"><a href="{{ datasetKey.originalArchive.url }}" target="_blank" rel="noopener noreferrer"><span translate="dataset.originalArchive"></span> <span class="discreet--very small" translate="endpointType.{{ datasetKey.originalArchive.type }}"></span></a></li>
                                     <li role="menuitem"><a ng-href="{{ portal.dataApi }}dataset/{{ datasetKey.key }}/document"><span translate="dataset.annotatedEml"></span> <span class="discreet--very small" translate="endpointType.EML"></span></a></li>
                                 </ul>
                             </li>

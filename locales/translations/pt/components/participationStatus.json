@@ -12,7 +12,7 @@
             "VOTING": "Participante Votante do GBIF da {REGION}",
             "ASSOCIATE": "Participante Associado do GBIF da {REGION}",
             "OBSERVER": "Um Participante Observador do GBIF da {REGION}",
-            "AFFILIATE": "Participante Afiliado do GBIF da {REGION}",
+            "AFFILIATE": "Participante Afiliado da {REGION}",
             "FORMER": "Ex-Participante do GBIF da {REGION}",
             "undefined": "Desconhecido"
         },
@@ -22,7 +22,7 @@
                     "VOTING": "Organização participante votante do GBIF da {REGION}",
                     "ASSOCIATE": "Organização participante associada do GBIF da {REGION}",
                     "OBSERVER": "Organização participante observadora do GBIF da {REGION}",
-                    "AFFILIATE": "Organização participante afiliada do GBIF da {REGION}",
+                    "AFFILIATE": "Organização participante afiliada da {REGION}",
                     "FORMER": "Organização ex-participante do GBIF da {REGION}",
                     "undefined": "Desconhecido"
                 },

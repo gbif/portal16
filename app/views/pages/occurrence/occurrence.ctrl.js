@@ -97,6 +97,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
 
   vm.filters.continent = {
     titleTranslation: 'filterNames.continent',
+    helpText: 'occurrenceSearch.helpText.continent',
     queryKey: 'continent',
     filter: OccurrenceFilter,
     enumTranslationPath: 'continent.',
@@ -557,6 +558,20 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     }
   };
 
+  vm.filters.iucnRedListCategory = {
+    titleTranslation: 'filterNames.iucnRedListCategory',
+    queryKey: 'iucn_red_list_category',
+    filter: OccurrenceFilter,
+    enumTranslationPath: 'iucnRedListCategory.',
+    showAll: true,
+    enums: enums.iucnRedListCategory,
+    reversible: true,
+    facets: {
+      hasFacets: true,
+      facetKey: 'IUCN_RED_LIST_CATEGORY'
+    }
+  };
+
   vm.filters.protocol = {
     titleTranslation: 'filterNames.protocol',
     queryKey: 'protocol',
@@ -735,7 +750,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
         return item.name + ' - ' + item.id;
       },
       suggestShortName: 'name',
-      suggestKey: 'id'
+      suggestKey: 'id',
+      defaultParams: {limit: 100}
     }
   };
 
@@ -780,7 +796,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
   vm.filters.coordinateUncertaintyInMeters = {
     titleTranslation: 'filterNames.coordinateUncertaintyInMeters',
     intervalTranslation: 'intervals.coordinateUncertaintyInMeters.',
-    queryKey: 'coordinateUncertaintyInMeters',
+    queryKey: 'coordinate_uncertainty_in_meters',
     filter: OccurrenceFilter,
     range: {
       'min': [0, 1],
@@ -857,14 +873,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
 
   vm.search = function () {
     vm.occurrenceState.query.q = vm.freeTextQuery;
-    $state.go('.', vm.occurrenceState.query, { inherit: false, notify: true, reload: true });
+    $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
   };
 
   vm.updateSearch = function () {
     vm.occurrenceState.query.offset = undefined;
     vm.occurrenceState.query.limit = undefined;
     vm.occurrenceState.query.q = vm.freeTextQuery;
-    $state.go($state.current, vm.occurrenceState.query, { inherit: false, notify: false, reload: false });
+    $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: false, reload: false});
   };
   vm.searchOnEnter = function (event) {
     if (event.which === 13) {
@@ -919,7 +935,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     vm.occurrenceState.query.taxon_key = $filter('unique')(vm.occurrenceState.query.taxon_key);
     vm.occurrenceState.query.offset = undefined;
     vm.occurrenceState.query.limit = undefined;
-    $state.go($state.current, vm.occurrenceState.query, { inherit: false, notify: true, reload: true });
+    $state.go($state.current, vm.occurrenceState.query, {inherit: false, notify: true, reload: true});
   };
 
   vm.getUrlSize = function () {
@@ -930,6 +946,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     return vm.occurrenceState.query.q;
   }, function () {
     vm.freeTextQuery = vm.occurrenceState.query.q;
+  });
+
+  $scope.$watch(function () {
+    return vm.freeTextQuery;
+  }, function (newVal, oldVal) {
+    if (newVal !== oldVal) {
+       vm.occurrenceState.query.q = vm.freeTextQuery;
+    }
   });
 }
 

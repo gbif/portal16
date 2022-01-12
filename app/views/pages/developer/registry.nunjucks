@@ -121,14 +121,13 @@
                 <div class="container--fluid">
                     <h3>Dataset Search</h3>
                     <p>The dataset search API provides search services for datasets.</p>
-                    <p>There is currently <a href="https://github.com/gbif/registry/issues/165">an issue</a> with search, making it unreliable for retrieving all datasets by paging through all the results.  Use this service for free-text search, and the dataset list API (above) for retrieving all matching datasets.</p>
 
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false) $}
                         <tbody>
-                        {$ trowS(url="/search", respLink=apiBase+"dataset/search?q=plant&amp;publishingCountry=AR", paging=true, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","hostingCountry","continent","networkKey","hl","facet","facetMincount","facetMultiselect"], description="Full text search across all datasets. Results are ordered by relevance.") $}
+                        {$ trowS(url="/search", respLink=apiBase+"dataset/search?q=plant&amp;publishingCountry=AR", paging=true, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","projectId","hostingCountry","continent","networkKey","hl","facet","facetMincount","facetMultiselect"], description="Full text search across all datasets. Results are ordered by relevance.") $}
                         {$ trowS(url="/search/export", respLink=apiBase+"dataset/search/export?q=plant&amp;publishingCountry=CR", paging=false, params=["q","country","type","subtype","license","keyword","publishingOrg","hostingOrg","endorsingNodeKey","decade","publishingCountry","hostingCountry","continent","networkKey","format"], description="Export the entire search results to TSV or CSV file") $}
-                        {$ trowS(url="/suggest", respLink=apiBase+"dataset/suggest?q=Amazon&amp;type=OCCURRENCE", params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","project_id"], description="Search that returns up to 20 matching datasets. Results are ordered by relevance.")
+                        {$ trowS(url="/suggest", respLink=apiBase+"dataset/suggest?q=Amazon&amp;type=OCCURRENCE", params=["q","country","type","subtype","keyword","publishingOrg","hostingOrg","decade","publishingCountry","continent","projectId"], description="Search that returns up to 20 matching datasets. Results are ordered by relevance.")
                         $}
                         </tbody>
                     </table>
@@ -381,15 +380,19 @@
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
                             {$ trowCol(url="/{UUID}", method="DELETE", auth=true, description="Deletes the collection. The collection entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="Lists all contacts for the collection") $}
-                            {$ trowCol(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the collection. The UUID key of the contact must be passed in the body.") $}
-                            {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the collection the contact with key {UUID}") $}
+                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="(Deprecated) Lists all contacts for the collection") $}
+                            {$ trowCol(url="/{UUID}/contact", method="POST", auth=true, description="(Deprecated) Adds a contact to the collection. The UUID key of the contact must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="(Deprecated) Deletes the contact with key {UUID} from the collection") $}
+                            {$ trowCol(url="/{UUID}/contactPerson", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contactPerson", description="Lists all contacts for the collection") $}
+                            {$ trowCol(url="/{UUID}/contactPerson", method="POST", auth=true, description="Adds a contact to the collection. The contact must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/contactPerson/{ID}", method="PUT", auth=true, description="Updates the contact with key {ID} of the collection. The updated contact must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/contactPerson/{ID}", method="DELETE", auth=true, description="Deletes the contact with key {ID} from the collection") $}
                             {$ trowCol(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/identifier", description="Lists the identifiers of the collection") $}
                             {$ trowCol(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new collection identifier") $}
-                            {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the collection the identifier with ID {ID}") $}
+                            {$ trowCol(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes the identifier with ID {ID} from the collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a collection") $}
                             {$ trowCol(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the collection") $}
-                            {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the collection the tag with ID {ID}") $}
+                            {$ trowCol(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the tag with ID {ID} from the collection") $}
                             {$ trowCol(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/machineTag", description="Lists all machine tags for a collection") $}
                             {$ trowCol(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a collection machine tag") $}
                             {$ trowCol(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the collection machine tag with machine tag identifier {ID}") $}
@@ -428,15 +431,19 @@
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
                             {$ trowInst(url="/{UUID}", method="DELETE", auth=true, description="Deletes the institution. The institution entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="Lists all contacts for the institution") $}
-                            {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
-                            {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="Deletes from the institution the contact with key {UUID}") $}
+                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="(Deprecated) Lists all contacts for the institution") $}
+                            {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="(Deprecated) Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="(Deprecated) Deletes the contact with key {UUID} from the institution") $}
+                            {$ trowInst(url="/{UUID}/contactPerson", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contactPerson", description="Lists all contacts for the institution") $}
+                            {$ trowInst(url="/{UUID}/contactPerson", method="POST", auth=true, description="Adds a contact to the institution. The contact must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/contactPerson/{ID}", method="PUT", auth=true, description="Updates the contact with key {ID} of the institution. The updated contact must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/contactPerson/{ID}", method="DELETE", auth=true, description="Deletes the contact with key {ID} from the institution") $}
                             {$ trowInst(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/identifier", description="Lists the identifiers of the institution") $}
                             {$ trowInst(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new institution identifier") $}
-                            {$ trowInst(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the institution the identifier with ID {ID}") $}
+                            {$ trowInst(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes the identifier with ID {ID} from the institution") $}
                             {$ trowInst(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a institution") $}
                             {$ trowInst(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the institution") $}
-                            {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the institution the tag with ID {ID}") $}
+                            {$ trowInst(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes the tag with ID {ID} from the institution") $}
                             {$ trowInst(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/machineTag", description="Lists all machine tags for a institution") $}
                             {$ trowInst(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a institution machine tag") $}
                             {$ trowInst(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the institution machine tag with machine tag identifier {ID}") $}
@@ -464,6 +471,8 @@
                     <section id="person" class="white-background page--developer__anchor">
                         <h4>Person</h4>
                         <p>
+                            NOTE: this API is deprecated and replaced with the contactPerson endpoints of collections and institutions (see above).
+
                             This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Person.java">person</a> entity.
                             A person can be associated with a primary <a href="#collection">collection</a> and a primary <a href="#institution">institution</a>.
                             As mentioned before, a person can also be a contact in the <a href="#collection">collection</a> and <a href="#institution">institution</a> entities.
@@ -615,7 +624,7 @@
             {$ api.paramArticle(apiName="Registry", addSearchParams=true, apiBase=apiBase, params={
             "q": "Simple search parameter. The value for this parameter can be a simple word or a phrase. Wildcards can be added to the simple word parameters only, e.g. q=*puma*",
             "country": "Filters by country given as a ISO 639-1 (2 letter) country code. Not yet implemented for use with dataset search, but will eventually search on the countries within the geospatial coverage of the dataset.  Country codes are listed in our <a href='"+apiBase+"enumeration/country'>Country enum</a>.",
-            "project_id": "Filter or facet based on the <a href='"+apiBase+"dataset/search?project_id=AA003-AA003311F'>project ID</a> of a given dataset. A dataset can have a project id if it is the result of a project. multiple datasets can have the same project id.",
+            "projectId": "Filter or facet based on the <a href='"+apiBase+"dataset/search?project_id=AA003-AA003311F'>project ID</a> of a given dataset. A dataset can have a project id if it is the result of a project. multiple datasets can have the same project id.",
             "type": "For datasets, filters by dataset type as given in our <a href='"+apiBase+"enumeration/basic/DatasetType'>DatasetType enum</a>. For metadata documents, filters by the metadata type as given in our <a href='"+apiBase+"enumeration/basic/MetadataType'>MetadataType enum</a>",
             "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
             "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier type as given in our <a href='"+apiBase+"enumeration/basic/IdentifierType'>IdentifierType enum</a>",

@@ -4,9 +4,7 @@ const express = require('express'),
     router = express.Router(),
     helper = rootRequire('app/models/util/util'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
-    directory = require('../api/directory/directory.model'),
     _ = require('lodash'),
-    json2md = require('json2md'),
     log = rootRequire('config/log');
 
 module.exports = (app) => {

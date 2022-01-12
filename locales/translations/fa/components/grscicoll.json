@@ -5,7 +5,7 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "خلاصه",
       "homepage": "",
       "metrics": ""
     },
@@ -13,6 +13,7 @@
     "description": "توضیحات",
     "institutionName": "",
     "code": "",
+    "alternativeCodes": "",
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
@@ -41,7 +42,7 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "خلاصه",
       "homepage": "",
       "metrics": ""
     },
@@ -49,6 +50,7 @@
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "",
     "code": "",
+    "alternativeCodes": "",
     "statusOfInstitution": "",
     "additionalNames": "",
     "description": "توضیحات",
@@ -90,6 +92,8 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
     "tabs": {
       "about": "درباره",
       "institutions": "",

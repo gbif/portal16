@@ -3,7 +3,7 @@
     "searchTitle": "",
     "tabs": {
       "aboutPublisher": "Om",
-      "metrics": "",
+      "metrics": "Grafer",
       "publishersHomepage": "Hjemmeside"
     },
     "joinedAgo": "Registreret for {TIME_AGO}",
@@ -14,6 +14,7 @@
     "description": "Beskriveslse",
     "endorsedBy": "Godkendt af",
     "pendingEndorsementBy": "Afventer godkendelse fra",
+    "endorsementWithheld": "",
     "installations": "Installationer",
     "contacts": "Kontakter",
     "administrativeContact": "Administrativ kontakt",

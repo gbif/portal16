@@ -1,7 +1,7 @@
 'use strict';
 
 var angular = require('angular'),
-moment = require('moment'),
+    moment = require('moment'),
     _ = require('lodash');
 
 angular
@@ -9,9 +9,11 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage) {
+function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage, $uibModal) {
     var vm = this;
     vm.HUMAN = true;
+    vm.hasClipboard = _.get(navigator, 'clipboard.writeText');
+    vm.citationString = gb.downloadKey.citationString;
     vm.maxSize = 5;
     vm.doi = _.get(gb, 'downloadKey.doi', '').replace(/^.*(10\.)/, '10.');
     vm.key = gb.downloadKey.key;
@@ -48,6 +50,16 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootSc
         }, function(err) {
             // TODO tell user the download failed to be cancelled
         });
+    };
+
+    vm.toClipboard = function() {
+      navigator.clipboard.writeText(vm.citationString).then(function() {
+        /* clipboard successfully set */
+        toastService.info({message: 'Copied'});
+      }, function() {
+        /* clipboard write failed */
+        toastService.error({message: 'Failed - please select the text manually instead'});
+      });
     };
 
     function getDownload() {
@@ -107,6 +119,28 @@ function occurrenceDownloadKeyCtrl($timeout, $scope, $window, $location, $rootSc
                 });
         }
     };
+
+    vm.showUsageFormModal = function() {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'usageForm.html',
+            controller: 'usageFormModalInstanceCtrl',
+            controllerAs: 'downloadUsage',
+            resolve: {
+                options: function() {
+                    return {
+                            key: vm.key 
+                        };
+                }
+            } 
+        });
+        modalInstance.result.then(function (options) {
+          }, function () {
+            // user clicked cancel
+          });
+    };
 }
 
 angular.module('portal').controller('infoModalInstanceCtrl', function($uibModalInstance) {
@@ -114,6 +148,23 @@ angular.module('portal').controller('infoModalInstanceCtrl', function($uibModalI
 
     $ctrl.ok = function() {
         $uibModalInstance.close();
+    };
+});
+
+angular.module('portal').controller('usageFormModalInstanceCtrl', function($uibModalInstance, options, $http) {
+    var $ctrl = this;
+    $ctrl.usage = {key: options.key};
+    $ctrl.state = 'ENTER';
+    $ctrl.reportUsage = function() {
+        $http.post('/api/tools/download-usage', this.usage, {}).then(function(response) {
+            $ctrl.state = 'SUCCESS';
+        }, function() {
+            $ctrl.state = 'FAILED';
+        });
+    };
+
+    $ctrl.cancel = function() {
+        $uibModalInstance.dismiss('cancel');
     };
 });
 

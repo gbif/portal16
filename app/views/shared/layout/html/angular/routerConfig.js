@@ -72,7 +72,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('occurrenceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&identified_by&recorded_by_id&identified_by_id&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry&event_id&parent_event_id&sampling_protocol&installation_key&network_key&programme&project_id&verbatim_scientific_name&taxon_id&organism_quantity&organism_quantity_type&sample_size_unit&sample_size_value&relative_organism_quantity&institution_key&collection_key&coordinateUncertaintyInMeters&occurrence_status&gadm_gid&hosting_organization_key&life_stage&is_in_cluster&dwca_extension',
+            url: '/occurrence?q&basis_of_record&catalog_number&collection_code&continent&country&dataset_key&decimal_latitude&decimal_longitude&depth&elevation&event_date&has_coordinate&has_geospatial_issue&institution_code&issue&last_interpreted&media_type&month&occurrence_id&publishing_country&publishing_org&recorded_by&identified_by&recorded_by_id&identified_by_id&record_number&scientific_name&taxon_key&kingdom_key&phylum_key&class_key&order_key&family_key&genus_key&sub_genus_key&species_key&year&establishment_means&type_status&organism_id&locality&water_body&state_province&protocol&license&repatriated&{advanced:bool}&geometry&event_id&parent_event_id&sampling_protocol&installation_key&network_key&programme&project_id&verbatim_scientific_name&taxon_id&organism_quantity&organism_quantity_type&sample_size_unit&sample_size_value&relative_organism_quantity&institution_key&collection_key&coordinate_uncertainty_in_meters&occurrence_status&gadm_gid&hosting_organization_key&life_stage&is_in_cluster&dwca_extension&iucn_red_list_category',
             params: {
                 advanced: {
                     value: false,
@@ -308,6 +308,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
+        .state('speciesKeyLiterature', {
+          parent: 'speciesKey',
+          url: '/literature',
+          views: {
+              main: {
+                  templateUrl: '/api/template/species/key.html?v=' + BUILD_VERSION,
+                  controller: 'speciesKey2Ctrl',
+                  controllerAs: 'speciesKey2'
+              }
+          }
+        })
         .state('publisherSearch', {
             parent: 'localization',
             url: '/publisher?offset&limit&q&country',
@@ -351,7 +362,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('resourceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source&doi&gbifDerivedDatasetDoi',
+            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source&doi&gbifDerivedDatasetDoi&gbifTaxonKey',
             views: {
                 main: {
                     templateUrl: '/templates/pages/resource/search/resource.html?v=' + BUILD_VERSION,
@@ -643,7 +654,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('health', {
             parent: 'localization',
-            url: '/health',
+            url: '/system-health',
             views: {
                 main: {
                     templateUrl: '/templates/pages/health/health.html?v=' + BUILD_VERSION,
@@ -786,17 +797,6 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             templateUrl: '/api/template/tools/derivedDataset/about.html?v=' + BUILD_VERSION,
             controller: 'derivedDatasetAboutCtrl',
             controllerAs: 'derivedDatasetAbout'
-        })
-        .state('derivedDatasetKey', {
-            parent: 'localization',
-            url: '/derivedDataset/:prefix/:suffix',
-            views: {
-                main: {
-                    templateUrl: '/templates/pages/derivedDataset/derivedDataset.html?v=' + BUILD_VERSION,
-                    controller: 'derivedDatasetKeyCtrl',
-                    controllerAs: 'derivedDatasetKey'
-                }
-            }
         })
     ;
 

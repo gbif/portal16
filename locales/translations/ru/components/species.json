@@ -1,9 +1,12 @@
 {
   "treatment": {
-    "distribution": "",
+    "distribution": "Распространение",
     "figures": ""
   },
   "species": {
+    "literature": {
+      "introText": ""
+    },
     "distribution": {
       "presentIn": "Обитает в {country}",
       "presentInNonCountry": "Обитает в {location}",
@@ -11,13 +14,14 @@
       "establishmentMeans": "",
       "distributionPlural": "Распространение",
       "PRESENT": "",
-      "ABSENT": ""
+      "ABSENT": "Отсутствует"
     },
     "tabs": {
       "overview": "Обзор",
       "treatment": "",
       "metrics": "Показатели",
       "referenceTaxon": "Референсный таксон",
+      "literature": "Литературные данные",
       "verbatim": "По первоисточнику"
     },
     "invasives": {
@@ -27,11 +31,11 @@
       "occurrenceCount": "Находки вида в GBIF",
       "seeAllCountries": "Показать все",
       "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive_yes": "Да",
+      "isInvasive_no": "Нет"
     },
     "treatment": {
-      "distribution": "",
+      "distribution": "Распространение",
       "figures": ""
     },
     "as": "В качестве",
@@ -62,6 +66,7 @@
     "iucnStatus": "Охранный статус",
     "references": "Ссылки",
     "source": "Источник",
+    "typeSpecimens": "",
     "inLanguage": "{language} язык",
     "publishedIn": "Опубликовано в",
     "tradeRestrictions": "Торговые ограничения",

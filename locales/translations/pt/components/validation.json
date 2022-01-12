@@ -25,7 +25,7 @@
       "TITLE_MISSING_OR_TOO_SHORT": "O título do conjunto de dados não existe ou é muito curto",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "O criador do recurso está faltando ou está incompleto",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "A descrição do conjunto de dados está ausente ou é muito curta",
-      "LICENSE_MISSING_OR_UNKNOWN": "A licença não pode ser verificada, não é suportada pelo GBIF ou está faltando",
+      "LICENSE_MISSING_OR_UNKNOWN": "A licença não pode ser processada, não é suportada pelo GBIF ou está em falta",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registo não identificado de forma única",
       "UNREADABLE_SECTION_ERROR": "Erro de seção ilegível",
       "NoIssuesFound": "Não há problemas encontrados"

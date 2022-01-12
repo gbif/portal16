@@ -4,7 +4,8 @@
     <script>
         var gb = gb || {};
         gb.derivedDataset = {
-            doi: '{$ derivedDataset.doi $}'
+            doi: '{$ derivedDataset.doi $}',
+            citationString: "{$ derivedDataset.citation $}"
         };
     </script>
     <article  class="wrapper-horizontal-stripes derivedDatasetKey"
@@ -78,7 +79,37 @@
         <div class="horizontal-stripe light-background">
             <div class="container--normal">
                 <section>
+                    <h3 class="card-header">
+                        <span translate="phrases.pleaseCiteAs">Please cite as</span>
+                    </h3>
                     <div class="card card--spaced">
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <div style="font-family: monospace;">
+                            {$ derivedDataset.citation $}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card__stripe">
+                        <div class="card__content">
+                          <a href="" role="button" class="gb-button"
+                                    ng-if="derivedDatasetKey.hasClipboard" 
+                                    ng-click="derivedDatasetKey.toClipboard()"
+                                    translate="phrases.copy">Copy</a>
+                          {% if derivedDataset.doi %}
+                            <a href="https://data.crosscite.org/application/x-bibtex/{$ derivedDataset.doi $}" class="gb-button">
+                              <span class="gb-icon-file-download"></span>
+                              BibTex
+                            </a>
+                            <a href="https://data.crosscite.org/application/x-research-info-systems/{$ derivedDataset.doi $}" class="gb-button">
+                              <span class="gb-icon-file-download"></span>
+                              RIS
+                            </a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card--spaced m-t-1">
                         <div class="card__stripe">
                             <div class="card__content">
                                 <dl class="inline">
@@ -92,7 +123,7 @@
                                     <div>
                                         <dt>{$ __('derivedDatasetKey.description') $}</dt>
                                         <dd dir="ltr">
-                                            {$ derivedDataset.description $}
+                                            {$ derivedDataset.description | renderMarkdown | sanitize | safe $}
                                         </dd>
                                     </div>
                                     {% endif %}
@@ -104,12 +135,6 @@
                                         </dd>
                                     </div>
                                     {% endif %}
-                                    <div>
-                                        <dt>{$ __('downloadKey.citation') $}</dt>
-                                        <dd dir="ltr">
-                                            {$ derivedDataset.citation $}
-                                        </dd>
-                                    </div>
                                     <div>
                                         <dt>{$ __('downloadKey.constituentDatasets') $}</dt>
                                         <dd class="ng-cloak">
@@ -145,7 +170,9 @@
                                                         {$ dataset.datasetTitle or '[' + __('downloadKey.titleMissing')+ ']' $}
                                                     </div>
                                                     <span dir="ltr" class="meta meta--hoverOnly">{$ dataset.datasetDoi $}</span>
+                                                    {% if dataset.numberRecords > 0 %}
                                                     <span class="meta--right meta--hoverOnly" tx="derivedDatasetKey.nRecordsAtTime" tx-nr="{$ dataset.numberRecords $}"></span>
+                                                    {% endif %}
                                                 </a>
                                             </li>
                                         {% endfor %}

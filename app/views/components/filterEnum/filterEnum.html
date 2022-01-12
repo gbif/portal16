@@ -83,6 +83,10 @@
 
         </div>
 
+        <div ng-if="vm.filterConfig.expanded && vm.filterConfig.helpText" class="is-padded p-t-05 p-b-05">
+          <div translate="{{vm.filterConfig.helpText}}"></div>
+        </div>
+
         <div class="site-drawer__bar"
              ng-if="vm.filterConfig.expanded && vm.query.length > 0 && !vm.filterConfig.singleSelect">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">

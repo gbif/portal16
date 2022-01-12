@@ -1,6 +1,6 @@
 {
   "map": {
-    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{座標ありのレコード} other{座標ありのレコード}}",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, plural, one{座標ありのレコード} other{座標ありのレコード}}",
     "noOccurrencesWithCoordinates": "座標ありのレコードはありません",
     "clickToSearchArea": "クリックして地域を検索",
     "generatedDateAgo": "{DATE_AGO} に作成",

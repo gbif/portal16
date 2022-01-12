@@ -170,7 +170,7 @@ function derivedDatasetUploadCtrl(
             }
             data.relatedDatasets = relatedDatasets
                     .filter(function (dataset) {
-                        return _.get(dataset, 'key') && _.get(dataset, 'val');
+                        return _.get(dataset, 'key') && _.get(dataset, 'val') && !isNaN(dataset.val);
                     })
                     .reduce(function (acc, cur) {
                         acc[cur.key] = cur.val;

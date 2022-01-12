@@ -1,6 +1,6 @@
 {
     "resourceSearch": {
-        "title": "",
+        "title": "Поиск материалов",
         "upcoming": "Предстоящие",
         "past": "Прошедшие",
         "searchForNewsEventsDocuments": "Здесь Вы можете найти новости, информацию о мероприятиях, разнообразные документы и многое другое. Для поиска информации о находках видов перейдите в соответствующий раздел.",
@@ -38,7 +38,11 @@
             "gbifDerivedDatasetDoi": "",
             "paperDoi": "",
             "litSource": "Журнал",
+            "gbifTaxonKey": "Латинское название",
             "litPublisher": "Издательство"
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
         }
     }
 }

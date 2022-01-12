@@ -4,6 +4,7 @@ let express = require('express'),
     _ = require('lodash'),
     Q = require('q'),
     griisPublisherKey = rootRequire('config/config').publicConstantKeys.publisher.GRIIS,
+    treatmentPublishers = rootRequire('config/config').publicConstantKeys.treatmentPublishers,
     iucnDatasetKey = rootRequire('config/config').publicConstantKeys.dataset.iucn,
     request = rootRequire('app/helpers/request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
@@ -164,11 +165,14 @@ async function getTreatments(key) {
         throw response;
     }
     // filter on plazi (could be subtype TREATMENT if that was modelled)
-    let plaziDatasets = _.filter(response.body.results, {'publishingOrganizationKey': '7ce8aef0-9e92-11dc-8738-b8a03c50a862'});
+    // let treatmentDatasets = _.filter(response.body.results, {'publishingOrganizationKey': '7ce8aef0-9e92-11dc-8738-b8a03c50a862'});
+    let treatmentDatasets = response.body.results.filter(function(x) {
+      return treatmentPublishers.indexOf(x.publishingOrganizationKey) > -1;
+    });
 
     // for each of these datasets look for the related species within those datasets.
-    for (let i = 0; i < plaziDatasets.length; i++) {
-        let e = plaziDatasets[i];
+    for (let i = 0; i < treatmentDatasets.length; i++) {
+        let e = treatmentDatasets[i];
         let related = await request({
             url: apiConfig.taxon.url + key + '/related?datasetKey=' + e.key,
             timeout: 30000,
@@ -187,7 +191,7 @@ async function getTreatments(key) {
     }
 
     // treaments are only those related species that have links to treatment bank
-    let treatments = _.filter(plaziDatasets, function(e) {
+    let treatments = _.filter(treatmentDatasets, function(e) {
         return _.has(e, '_relatedTaxon.references');
     });
 

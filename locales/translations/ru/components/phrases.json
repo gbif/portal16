@@ -1,5 +1,7 @@
 {
   "phrases": {
+    "pleaseCiteAs": "",
+    "copy": "",
     "contactHelpdesk": "Связаться со службой поддержки",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "Глобальная информационная система о биологическом разнообразии. Свободный и открытый доступ данным о биологическом разнообразии.",
@@ -20,7 +22,7 @@
     "changeLanguage": "Сменить язык",
     "noData": "Нет данных",
     "payloadTooLarge": "",
-    "readMore": "",
+    "readMore": "Читать далее",
     "share": "",
     "loginRequiredDueToSpam": ""
   }

@@ -166,6 +166,7 @@
                         "license",
                         "locality",
                         "mediaType",
+                        "modified",
                         "month",
                         "networkKey",
                         "occurrenceId",
@@ -455,6 +456,7 @@
             "license": "The type license applied to the dataset or record.",
             "locality": "The specific description of the place.",
             "mediaType": "The kind of multimedia associated with an occurrence as defined in our <a href='"+apidocs+"/vocabulary/MediaType.html'>MediaType enum</a>",
+            "modified": "The most recent date-time on which the resource was changed, according to the publisher",
             "month": "The month of the year, starting with 1 for January. Supports <a href='/developer/summary#common'>range queries</a>.",
             "networkKey": "The GBIF Network to which the occurrence belongs.",
             "occurrenceId": "A single globally unique identifier for the occurrence record as provided by the publisher.",
@@ -574,7 +576,7 @@
                         </tr>
                         <tr>
                             <td>and</td>
-                            <td>logical AND(conjuction)</td>
+                            <td>logical AND (conjuction)</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -595,7 +597,7 @@
                         </tr>
                         <tr>
                             <td>or</td>
-                            <td>logical OR(disjunction)</td>
+                            <td>logical OR (disjunction)</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -644,7 +646,7 @@
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"lessThanOrEquals",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;"key":"ALTITUDE",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"key":"ELEVATION",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"1000"<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
@@ -680,7 +682,7 @@
                                     &nbsp;&nbsp;"predicate":<br/>
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"greaterThanOrEquals",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;"key":"ALTITUDE",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"key":"ELEVATION",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"value":"1000"<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
@@ -750,7 +752,7 @@
                         </tr>
                         <tr>
                             <td>like</td>
-                            <td>search for a pattern</td>
+                            <td>search for a pattern, <code>?</code> matches one character, <code>*</code> matches zero or more characters</td>
                             <td>
                                 <code class="block">
                                     {<br/>
@@ -760,7 +762,7 @@
                                     &nbsp;&nbsp;{<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"type":"like",<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"PAPS5-560%"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"PAPS5-560*"<br/>
                                     &nbsp;&nbsp;}<br/>
                                     }
                                 </code>
@@ -824,7 +826,7 @@
                             given user can only have <b style="font-weight: bold;">1</b> download.
                         </li>
                     </ul>
-                    <p>The number of user downloads currently in progress can be seen on the <a href="../../health">System Health</a> page.
+                    <p>The number of user downloads currently in progress can be seen on the <a href="../../system-health">System Health</a> page.
                         Your own downloads can be seen on your <a href="../../user/download">My Downloads</a> page.</p>
                 </div>
             </section>

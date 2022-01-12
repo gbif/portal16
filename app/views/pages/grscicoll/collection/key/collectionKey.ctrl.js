@@ -36,6 +36,14 @@ function collectionKeyCtrl(Page, $state, $stateParams, CollectionKey, Occurrence
             if (irnIdentifier) {
               vm.irn = irnIdentifier.identifier.substr(12);
             }
+
+            data.identifiers.forEach(function(x) {
+              if (x.identifier.indexOf('http') !== 0) {
+                if (x.type === 'ROR') {
+                  x.identifier = 'https://ror.org/' + x.identifier;
+                }
+              }
+            });
         })
         .catch(function(err) {
 

@@ -14,6 +14,7 @@
     "failedSearch": "Возможно, Ваши настройки фильтров ошибочны или на серверах возникли проблемы. Повторите попытку и сообщите о проблеме, если она повторится",
     "noImages": "Нет находок видов с изображениями",
     "imageLicenseInfo": "Имейте в виду, что лицензии на использование изображений могут отличаться от тех, которые применяются к записям о находках видов",
+    "combinedMediaTypeInfo": "",
     "showMoreImages": "Больше",
     "default": "По умолчанию",
     "custom": "Пользовательский поиск",
@@ -30,6 +31,9 @@
     "polygonSimplifiedToFewerPoints": "",
     "largeQueryLengthWarning": "",
     "didYouMean": "",
-    "clickToUseAcceptedTaxon": ""
+    "clickToUseAcceptedTaxon": "",
+    "helpText": {
+      "continent": ""
+    }
   }
 }

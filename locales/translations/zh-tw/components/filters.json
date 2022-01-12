@@ -12,7 +12,7 @@
             "description": "這個實驗中的功能標註可能重覆或相關的物種出現紀錄。"
         },
         "occurrenceStatus": {
-            "description": "\"未出現\"適用於紀錄在特定時間及地點執行分類群調查且未發現任何標本出現。",
+            "description": "當一針對特定分類群在給定時間及地點的調查沒有產生任何標本，即標示為「未出現」。",
             "options": {
                 "yes": "出現",
                 "no": "未出現",
@@ -37,7 +37,7 @@
             "geojson": "GeoJSON 格式",
             "range": "範圍",
             "noFiltersAdded": "未加入區域的篩選",
-            "wktPlaceholder": "WKT 或 GeoJSON 格式—不支援多重多邊形",
+            "wktPlaceholder": "WKT 或 GeoJSON 格式",
             "invalidTextInput": "無效的 WKT 或 GeoJSON 格式",
             "tooLarge": "幾何形狀過大",
             "tooLargeSuggestion": "嘗試使用定界框，然後進行區域篩選。",

@@ -7,6 +7,7 @@ let express = require('express'),
     _ = require('lodash'),
     datasetAuth = require('./datasetAuth'),
     utils = rootRequire('app/helpers/utils'),
+    treatmentPublishers = rootRequire('config/config').publicConstantKeys.treatmentPublishers,
     contributors = rootRequire('app/controllers/dataset/key/contributors/contributors'),
     auth = require('../../../auth/auth.service'),
     md = require('markdown-it')({html: true, linkify: false, typographer: false, breaks: true}),
@@ -82,7 +83,7 @@ async function getDataset(key) {
     dataset._computedValues.bibliography = bibliography.getBibliography(dataset.bibliographicCitations);
 
     // TODO treatment specific hack until API catch up
-    if (dataset.publishingOrganizationKey === '7ce8aef0-9e92-11dc-8738-b8a03c50a862') {
+    if (treatmentPublishers.indexOf(dataset.publishingOrganizationKey) > -1) {
         dataset.subtype = 'TREATMENT_ARTICLE';
     }
     return dataset;

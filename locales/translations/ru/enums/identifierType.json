@@ -8,13 +8,15 @@
       "UUID": "",
       "FTP": "",
       "URI": "",
-      "UNKNOWN": "",
+      "UNKNOWN": "Неизвестно",
       "GBIF_PORTAL": "",
       "GBIF_NODE": "",
       "GBIF_PARTICIPANT": "",
       "GRBIO_ID": "",
       "GRBIO_URI": "",
       "GRSCICOLL_URI": "",
+      "ROR": "",
+      "GRID": "",
       "GRSCICOLL_ID": ""
     }
   }

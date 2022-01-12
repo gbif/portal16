@@ -117,14 +117,18 @@ const expandConfig = {
         type: 'ENUM',
         translationPath: 'basisOfRecord.'
     },
+    IUCN_RED_LIST_CATEGORY: {
+      type: 'ENUM',
+      translationPath: 'iucnRedListCategory.'
+  },
     KINGDOM_KEY: {
         type: 'KEY',
         endpoint: apiConfig.taxon.url,
         fromKey: 'scientificName'
     },
     VERBATIM_RECORD: {
-    type: 'TEMPLATE',
-    templatedEndpoint: apiConfig.occurrence.url + '{{key}}/verbatim',
-    fromKey: 'key'
+        type: 'TEMPLATE',
+        templatedEndpoint: apiConfig.occurrence.url + '{{key}}/verbatim',
+        fromKey: 'key'
     }
 };

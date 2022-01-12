@@ -79,7 +79,7 @@
     "eventDescription": "وصف الحادثة",
     "siblingEvents": "أحداث فرعية",
     "childEvents": "أحداث تابعة",
-    "events": "",
+    "events": "أحداث",
     "occurrenceCount": "عدد التكرار",
     "inDataset": "في",
     "samplingArticleLink": "المزيد عن أحداث أخذ العينات في موقع GBIF.org"

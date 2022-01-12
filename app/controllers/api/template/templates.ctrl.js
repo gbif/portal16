@@ -161,6 +161,10 @@ router.get('/species/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/species/key/speciesKey.template.nunjucks');
 });
 
+router.get('/species/key/literature.html', function(req, res, next) {
+  helper.renderPage(req, res, next, {}, 'pages/species/key/literature/literature.template.nunjucks');
+});
+
 router.get('/dataset/key.html', function(req, res, next) {
     helper.renderPage(req, res, next, {
         kibanaIndex: env.kibanaIndex,
@@ -290,10 +294,6 @@ router.get('/tools/derivedDataset/upload.html', function(req, res, next) {
 
 router.get('/tools/derivedDataset/about.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/about/derivedDatasetAbout.template.nunjucks');
-});
-
-router.get('/derivedDataset/key.html', function(req, res, next) {
-    helper.renderPage(req, res, next, {}, 'pages/derivedDataset/key/derivedDatasetKey.nunjucks');
 });
 
 router.get('/search/sequenceResult.html', function(req, res, next) {

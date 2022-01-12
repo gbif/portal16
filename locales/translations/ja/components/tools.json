@@ -62,18 +62,18 @@
         "machineVision": {
             "tabs": {
                 "demo": "デモ",
-                "statement": ""
+                "statement": "・・・について"
             }
         },
         "derivedDataset": {
-            "title": "",
-            "titleField": "",
+            "title": "得られたデータセット",
+            "titleField": "タイトル",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
-            "datasetKey": "",
-            "occurrenceCount": "",
-            "submit": "",
+            "datasetKey": "データセットキー",
+            "occurrenceCount": "オカレンスのカウント",
+            "submit": "送信",
             "pleaseFill": "",
             "loginToCreate": "",
             "myDatasets": "",

@@ -4,7 +4,8 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     querystring = require('querystring'),
     request = rootRequire('app/helpers/request'),
     acceptLanguageParser = require('accept-language-parser'),
-    langs = require('langs');
+    langs = require('langs'),
+    preferredSource = require('./preferredSource.json');
 
 module.exports = {
     getVernacularName: getVernacularName,
@@ -25,8 +26,17 @@ async function getVernacularName(speciesKey, reqAcceptLanguage) {
     let requestedLanguages = _.map(acceptLanguageParser.parse(reqAcceptLanguage), 'code');
     let matched2Letter = acceptLanguageParser.pick(availableLanguageCodes, reqAcceptLanguage);
     if (matched2Letter && requestedLanguages.includes(matched2Letter)) {
+        const preferredNameSource = await getPreferredVernacularNameSource(speciesKey, matched2Letter);
+        let preferredName;
+        if (preferredNameSource) {
+            try {
+                preferredName = _.find(names.results, (n) => n.sourceTaxonKey === preferredNameSource);
+            } catch (error) {
+                console.log(error); // the name should always exist in the result
+            }   
+        }
         let matched3Letter = _.get(langs.where('1', matched2Letter), '3');
-        return uniqueNames[matched3Letter];
+        return preferredName || uniqueNames[matched3Letter];
     }
 }
 
@@ -90,4 +100,24 @@ async function getVernacularNames(speciesKey) {
         throw response;
     }
     return response.body;
+}
+
+async function getPreferredVernacularNameSource(speciesKey, lang) {
+    if (preferredSource[lang]) {
+        let baseRequest = {
+            url: apiConfig.taxon.url + speciesKey + '/related?datasetKey=' + preferredSource[lang],
+            headers: {
+                'Accept-Language': lang
+              },
+            timeout: 30000,
+            method: 'GET',
+            json: true,
+            fullResponse: true
+        };
+        let response = await request(baseRequest);        
+        const vernacularName = _.get(response, 'body.results[0].vernacularName');
+        return vernacularName ? _.get(response, 'body.results[0].key') : null;
+    } else {
+        return null;
+    }
 }

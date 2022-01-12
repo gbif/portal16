@@ -121,5 +121,52 @@
   "canonicalNameWithMarker": "Euryarchaeota",
   "canonicalNameComplete": "Euryarchaeota",
   "rankMarker": "phyl."
-}
+},
+"Asplenium_X_alternifolium_subsp_alternifolium": {
+  "key": 19801297,
+  "scientificName": "Asplenium ×alternifolium subsp. alternifolium",
+  "type": "SCIENTIFIC",
+  "genusOrAbove": "Asplenium",
+  "specificEpithet": "alternifolium",
+  "infraSpecificEpithet": "alternifolium",
+  "notho": "SPECIFIC",
+  "authorship": "Wulfen",
+  "parsed": true,
+  "parsedPartially": false,
+  "canonicalName": "Asplenium alternifolium alternifolium",
+  "canonicalNameWithMarker": "Asplenium ×alternifolium subsp. alternifolium",
+  "canonicalNameComplete": "Asplenium ×alternifolium subsp. alternifolium",
+  "rankMarker": "subsp."
+  },
+  "Clematis_X_jackmanii": {
+    "key": 17321405,
+    "scientificName": "Clematis ×jackmanii T.Moore",
+    "type": "SCIENTIFIC",
+    "genusOrAbove": "Clematis",
+    "specificEpithet": "jackmanii",
+    "notho": "SPECIFIC",
+    "authorship": "T.Moore",
+    "parsed": true,
+    "parsedPartially": false,
+    "canonicalName": "Clematis jackmanii",
+    "canonicalNameWithMarker": "Clematis ×jackmanii",
+    "canonicalNameComplete": "Clematis ×jackmanii T.Moore",
+    "rankMarker": "sp."
+    },
+    "Sabethes_Peytonulus_shannoni" : {
+      "key": 65205952,
+      "scientificName": "Sabethes (Peytonulus) shannoni (Lane & Cerqueira 1942)",
+      "type": "SCIENTIFIC",
+      "genusOrAbove": "Sabethes",
+      "infraGeneric": "Peytonulus",
+      "specificEpithet": "shannoni",
+      "bracketAuthorship": "Lane & Cerqueira",
+      "bracketYear": "1942",
+      "parsed": true,
+      "parsedPartially": false,
+      "canonicalName": "Sabethes shannoni",
+      "canonicalNameWithMarker": "Sabethes shannoni",
+      "canonicalNameComplete": "Sabethes shannoni (Lane & Cerqueira, 1942)",
+      "rankMarker": "sp."
+      }
 }
