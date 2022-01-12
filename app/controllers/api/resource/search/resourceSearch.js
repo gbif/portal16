@@ -251,7 +251,7 @@ function buildQuery(query) {
         // };
     }
 
-    // sort evnets by date no matter what
+    // sort evnets by date no matter what. as in https://github.com/gbif/portal-feedback/issues/3816
     if (query.contentType == 'event') {
       body.sort = [
           {
