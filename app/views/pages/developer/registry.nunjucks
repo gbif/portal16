@@ -375,7 +375,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection"], description="Lists all collections")$}
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection","masterSourceType"], description="Lists all collections")$}
                             {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
@@ -413,6 +413,10 @@
                             {$ trowCol(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards a collection change suggestion") $}
                             {$ trowCol(url="/export", resp="Export in CSV or TSV format", params=["format","q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection"], description="Collections export")$}
+                            {$ trowCol(url="/import", method="POST", resp="UUID", auth=true, description="Imports a collection from a dataset. The body must contain the datasetKey and the collectionCode.") $}
+                            {$ trowCol(url="/{UUID}/masterSourceMetadata", method="GET", resp="Master source metadata of the entity", respLink=apiBase+"grscicoll/collection/cea43020-d501-452c-b18c-e180870630cd/masterSourceMetadata", description="Returns the master source of the entity") $}
+                            {$ trowCol(url="/{UUID}/masterSourceMetadata", method="POST", auth=true, description="Adds a master source metadata to the collection. The metadata must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/masterSourceMetadata", method="DELETE", auth=true, description="Deletes the master source metadata from the collection") $}
                             </tbody>
                         </table>
                     </section>
@@ -426,7 +430,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline"], description="Lists all institutions")$}
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline","masterSourceType"], description="Lists all institutions")$}
                             {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
@@ -465,6 +469,10 @@
                             {$ trowInst(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards an institution change suggestion") $}
                             {$ trowInst(url="/export", resp="Institution Export", resp="Export in CSV or TSV format", params=["format","q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline"], description="Institutions export")$}
+                            {$ trowInst(url="/import", method="POST", resp="UUID", auth=true, description="Imports an institution from an organization. The body must contain the organizationKey and the institutionCode.") $}
+                            {$ trowInst(url="/{UUID}/masterSourceMetadata", method="GET", resp="Master source metadata of the entity", respLink=apiBase+"grscicoll/institution/a73c63c0-6c66-46ce-93d7-341c5c7a56c1/masterSourceMetadata", description="Returns the master source of the entity") $}
+                            {$ trowInst(url="/{UUID}/masterSourceMetadata", method="POST", auth=true, description="Adds a master source metadata to the institution. The metadata must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/masterSourceMetadata", method="DELETE", auth=true, description="Deletes the master source metadata from the institution") $}
                             </tbody>
                         </table>
                     </section>
@@ -686,7 +694,8 @@
             "accessionStatus": "Accesion status of a GrSciColl collection",
             "personalCollection": "Flag for personal GRSciColl collections",
             "format": "Format of an export: TSV(default) or CSV",
-            "replacedBy": "UUID of the replacement of a GRSciColl institution or collection"
+            "replacedBy": "UUID of the replacement of a GRSciColl institution or collection",
+            "masterSourceType": "The master source type of a GRSciColl institution or collection(GRSCICOLL, GBIF_REGISTRY, IH)"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
