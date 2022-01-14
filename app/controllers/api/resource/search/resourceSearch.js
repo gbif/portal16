@@ -251,6 +251,19 @@ function buildQuery(query) {
         // };
     }
 
+    // sort evnets by date no matter what. as in https://github.com/gbif/portal-feedback/issues/3816
+    if (query.contentType == 'event') {
+      body.sort = [
+          {
+              'start': {
+                  'order': showPastEvents ? 'desc' : 'asc',
+                  'missing': '_last',
+                  'unmapped_type': 'date'
+              }
+          }
+      ];
+    }
+
     searchParams.body = body;
     searchParams.index = 'content';
     searchParams.body.indices_boost = [

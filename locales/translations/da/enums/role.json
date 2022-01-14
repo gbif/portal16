@@ -57,6 +57,7 @@
     "SCIENCE_COMMITTEE_MEMBER": "Videnskabudvalgsmedlem",
     "TEMPORARY_DELEGATE": "Midlertidig delegate",
     "TEMPORARY_HEAD_OF_DELEGATION": "Midlertidig formand for delegationen",
-    "ALTERNATE_HEAD_OF_DELEGATION": ""
+    "ALTERNATE_HEAD_OF_DELEGATION": "",
+    "HEAD_OF_DELEGATION_ADMINISTRATIVE_CONTACT": ""
   }
 }
