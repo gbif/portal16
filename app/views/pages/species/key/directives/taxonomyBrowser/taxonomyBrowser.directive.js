@@ -67,7 +67,7 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 eventCategory: 'species',
                 eventAction: 'taxonomyBrowser'
             };
-            if (ga) {
+            if (typeof ga === 'function') {
               ga('send', trackingData);
             }
             

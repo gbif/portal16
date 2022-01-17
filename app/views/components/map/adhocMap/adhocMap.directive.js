@@ -282,7 +282,7 @@ function adhocMapDirective(BUILD_VERSION) {
                 eventCategory: 'adhocMap',
                 eventAction: 'exploreArea'
             };
-            if (ga) {
+            if (typeof ga === 'function') {
               ga('send', trackingData);
             }
 
