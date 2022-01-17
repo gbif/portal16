@@ -467,7 +467,9 @@ function mapWidgetDirective(BUILD_VERSION) {
                     window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
                 }
             };
-            ga('send', trackingData);
+            if (ga) {
+              ga('send', trackingData);
+            }
 
             window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
             // vm.activeControl = vm.controls.OCCURRENCES;

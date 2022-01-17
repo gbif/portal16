@@ -99,7 +99,7 @@ function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $
         }
     });
 
-    // ga('send', 'pageview');
+    // ga('send', 'pageview'); // if adding, then make sure ga is present first
     var termsValue = $cookies.get('userAcceptance');
     var attachAnalytics = false;
     var hasAcceptedTerms = false;

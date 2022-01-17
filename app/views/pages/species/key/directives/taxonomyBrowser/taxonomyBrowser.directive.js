@@ -67,7 +67,9 @@ function taxonomyBrowserDirective(BUILD_VERSION) {
                 eventCategory: 'species',
                 eventAction: 'taxonomyBrowser'
             };
-            ga('send', trackingData);
+            if (ga) {
+              ga('send', trackingData);
+            }
             
             // go to state
             vm.$state.go(vm.$state.current, {speciesKey: key}, {reload: true});
