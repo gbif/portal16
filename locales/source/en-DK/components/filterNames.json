@@ -73,6 +73,7 @@
     "institutionKey" : "Institution",
     "gadmGid" : "GADM",
     "lifeStage" : "Life stage",
+    "pathWay" : "Pathway",
     "dwcaExtension" : "DWCA extension",
     "isInCluster" : "Is in cluster",
     "iucnRedListCategory" : "IUCN red list category"

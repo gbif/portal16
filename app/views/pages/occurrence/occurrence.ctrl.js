@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, EstablishmentMeans, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, EstablishmentMeans, PathWay, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
   var vm = this;
   $translate('occurrenceSearch.title').then(function (title) {
     Page.setTitle(title);
@@ -668,6 +668,31 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Esta
     search: {
       isSearchable: true,
       suggestEndpoint: suggestEndpoints.establishmentMeans,
+      suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: function(item) {
+        return $filter('vocabularyLabel')(item);
+      },
+      suggestShortName: 'name',
+      suggestKey: 'name',
+      defaultParams: {limit: 20}
+    }
+  };
+
+  vm.filters.pathWay = {
+    titleTranslation: 'filterNames.pathWay',
+    queryKey: 'pathway',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: PathWay,
+      expandedTitle: 'name'
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'PATHWAY'
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.pathWay,
       suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
       suggestTitle: function(item) {
         return $filter('vocabularyLabel')(item);
