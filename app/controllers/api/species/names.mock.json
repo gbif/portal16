@@ -152,5 +152,21 @@
     "canonicalNameWithMarker": "Clematis ×jackmanii",
     "canonicalNameComplete": "Clematis ×jackmanii T.Moore",
     "rankMarker": "sp."
-    }
+    },
+    "Sabethes_Peytonulus_shannoni" : {
+      "key": 65205952,
+      "scientificName": "Sabethes (Peytonulus) shannoni (Lane & Cerqueira 1942)",
+      "type": "SCIENTIFIC",
+      "genusOrAbove": "Sabethes",
+      "infraGeneric": "Peytonulus",
+      "specificEpithet": "shannoni",
+      "bracketAuthorship": "Lane & Cerqueira",
+      "bracketYear": "1942",
+      "parsed": true,
+      "parsedPartially": false,
+      "canonicalName": "Sabethes shannoni",
+      "canonicalNameWithMarker": "Sabethes shannoni",
+      "canonicalNameComplete": "Sabethes shannoni (Lane & Cerqueira, 1942)",
+      "rankMarker": "sp."
+      }
 }

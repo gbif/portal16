@@ -99,7 +99,7 @@ function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $
         }
     });
 
-    // ga('send', 'pageview');
+    // ga('send', 'pageview'); // if adding, then make sure ga is present first
     var termsValue = $cookies.get('userAcceptance');
     var attachAnalytics = false;
     var hasAcceptedTerms = false;
@@ -426,6 +426,8 @@ require('../../../pages/publisher/key/publisherKey.ctrl');
 require('../../../pages/species/search/species.ctrl');
 require('../../../pages/species/search/table/speciesTable.ctrl');
 require('../../../pages/species/search/list/speciesList.ctrl');
+require('../../../pages/species/key/directives/sequence.directive.js');
+
 
 // require('../../../components/map/basic/gbmap.directive');
 require('../../../components/map/mapWidget/mapWidget.directive');// TODO decide on a map

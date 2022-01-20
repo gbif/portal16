@@ -69,7 +69,9 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
         if (action) trackingData.eventAction = action;
         if (label) trackingData.eventLabel = label;
         if (intValue) trackingData.eventValue = intValue;
-        ga('send', trackingData);
+        if (typeof ga === 'function') {
+          ga('send', trackingData);
+        }
     };
 }
 

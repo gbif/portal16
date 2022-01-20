@@ -129,6 +129,8 @@
                                 <span class="gb-icon-file-download"></span>
                                 RIS
                               </a>
+
+                              <a href="" class="gb-button--flat text-uppercase" ng-if="downloadKey.profile" ng-click="downloadKey.showUsageFormModal()" translate="downloadKey.tellUs"></a>
                             {% endif %}
                           {% endif %}
                         </div>
@@ -203,6 +205,7 @@
                                     </div>
                                 </div>
                                 {% if download.record.status === 'SUCCEEDED' and download.record.eraseAfter %}
+                                
                                 <div class="card__stripe card__stripe--light ng-cloak" ng-if="downloadKey.isUsersDownload">
                                     <div class="card__content discreet">
                                         <div class="card">
@@ -213,7 +216,7 @@
                                                 </div>
                                             </div>
                                             <div class="card__stripe card__stripe--actions ng-cloak" ng-if="downloadKey.download">
-                                                <a href="" class="gb-button--flat text-uppercase" ng-click="downloadKey.showUsageFormModal()" translate="downloadKey.tellUs"></a>
+                                                
 
                                                 <!--<a class="gb-button--flat text-uppercase" ng-href="mailto:communication@gbif.org?subject=Usage of download {{ downloadKey.key }}&body=Download {{ portal.env.domain }}/occurrence/download/{{ downloadKey.key }} has been used and cited in: " translate="downloadKey.tellUs"></a>-->
                                                 {% if download.record.status !== 'FILE_ERASED' %}

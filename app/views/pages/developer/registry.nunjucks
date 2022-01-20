@@ -375,7 +375,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country"], description="Lists all collections")$}
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection","masterSourceType"], description="Lists all collections")$}
                             {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
@@ -396,7 +396,7 @@
                             {$ trowCol(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/machineTag", description="Lists all machine tags for a collection") $}
                             {$ trowCol(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a collection machine tag") $}
                             {$ trowCol(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the collection machine tag with machine tag identifier {ID}") $}
-                            {$ trowCol(url="/deleted", resp="Deleted Collections List", respLink=apiBase+"grscicoll/collection/deleted", paging=true, description="Lists the deleted collections") $}
+                            {$ trowCol(url="/deleted", resp="Deleted Collections List", respLink=apiBase+"grscicoll/collection/deleted", paging=true, description="Lists the deleted collections",params=["replacedBy"]) $}
                             {$ trowCol(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/collection/suggest?q=col", paging=false, description="Search that returns up to 20 matching collections. Results are ordered by relevance") $}
                             {$ trowCol(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/comment", description="Lists all comments for a collection") $}
                             {$ trowCol(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a collection comment") $}
@@ -412,6 +412,11 @@
                             {$ trowCol(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards a collection change suggestion") $}
+                            {$ trowCol(url="/export", resp="Export in CSV or TSV format", params=["format","q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection","masterSourceType"], description="Collections export")$}
+                            {$ trowCol(url="/import", method="POST", resp="UUID", auth=true, description="Imports a collection from a dataset. The body must contain the datasetKey and the collectionCode.") $}
+                            {$ trowCol(url="/{UUID}/masterSourceMetadata", method="GET", resp="Master source metadata of the entity", respLink=apiBase+"grscicoll/collection/cea43020-d501-452c-b18c-e180870630cd/masterSourceMetadata", description="Returns the master source of the entity") $}
+                            {$ trowCol(url="/{UUID}/masterSourceMetadata", method="POST", auth=true, description="Adds a master source metadata to the collection. The metadata must be passed in the body.") $}
+                            {$ trowCol(url="/{UUID}/masterSourceMetadata", method="DELETE", auth=true, description="Deletes the master source metadata from the collection") $}
                             </tbody>
                         </table>
                     </section>
@@ -425,7 +430,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country"], description="Lists all institutions")$}
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline","masterSourceType"], description="Lists all institutions")$}
                             {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
@@ -446,7 +451,7 @@
                             {$ trowInst(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/machineTag", description="Lists all machine tags for a institution") $}
                             {$ trowInst(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a institution machine tag") $}
                             {$ trowInst(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the institution machine tag with machine tag identifier {ID}") $}
-                            {$ trowInst(url="/deleted", resp="Deleted Institutions List", respLink=apiBase+"grscicoll/institution/deleted", paging=true, description="Lists the deleted institutions") $}
+                            {$ trowInst(url="/deleted", resp="Deleted Institutions List", respLink=apiBase+"grscicoll/institution/deleted", paging=true, description="Lists the deleted institutions", params=["replacedBy"]) $}
                             {$ trowInst(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/institution/suggest?q=bio", paging=false, description="Search that returns up to 20 matching institutions. Results are ordered by relevance") $}
                             {$ trowInst(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/comment", description="Lists all comments for an institution") $}
                             {$ trowInst(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add an institution comment") $}
@@ -463,6 +468,11 @@
                             {$ trowInst(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards an institution change suggestion") $}
+                            {$ trowInst(url="/export", resp="Institution Export", resp="Export in CSV or TSV format", params=["format","q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline","masterSourceType"], description="Institutions export")$}
+                            {$ trowInst(url="/import", method="POST", resp="UUID", auth=true, description="Imports an institution from an organization. The body must contain the organizationKey and the institutionCode.") $}
+                            {$ trowInst(url="/{UUID}/masterSourceMetadata", method="GET", resp="Master source metadata of the entity", respLink=apiBase+"grscicoll/institution/a73c63c0-6c66-46ce-93d7-341c5c7a56c1/masterSourceMetadata", description="Returns the master source of the entity") $}
+                            {$ trowInst(url="/{UUID}/masterSourceMetadata", method="POST", auth=true, description="Adds a master source metadata to the institution. The metadata must be passed in the body.") $}
+                            {$ trowInst(url="/{UUID}/masterSourceMetadata", method="DELETE", auth=true, description="Deletes the master source metadata from the institution") $}
                             </tbody>
                         </table>
                     </section>
@@ -627,8 +637,8 @@
             "identifier": "The value for this parameter can be a simple string or integer, e.g. identifier=120",
             "identifierType": "Used in combination with the identifier parameter to filter identifiers by identifier type as given in our <a href='"+apiBase+"enumeration/basic/IdentifierType'>IdentifierType enum</a>",
             "installationType": "Filters installations by their type. The possible types is defined in our <a href='"+apiBase+"enumeration/basic/InstallationType'>InstallationType enum</a>",
-            "isEndorsed": "Filters organizations by whether they are endorsed or not.",
-            "machineTagNamespace": "Filters for entities with a machine tag in the specified namespace.",
+            "isEndorsed": "Filters organizations by whether they are endorsed or not",
+            "machineTagNamespace": "Filters for entities with a machine tag in the specified namespace",
             "machineTagName": "Filters for entities with a machine tag with the specified name (use in combination with the machineTagNamespace parameter).",
             "machineTagValue": "Filters for entities with a machine tag with the specified value (use in combination with the machineTagNamespace and machineTagName parameters).",
             "subtype": "Not yet implemented, but will eventually allow filtering of datasets by their dataset subtype as given in our <a href='"+apiBase+"enumeration/basic/DatasetSubtype'>DatasetSubtype enum</a>.",
@@ -643,11 +653,11 @@
             "publishingCountry": "Filters datasets by their owning organization's country given as a ISO 639-1 (2 letter) country code",
             "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
             "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
-            "contact": "Filters collections and institutions whose contacts contain the person key specified.",
-            "institution":"Filters collections by the institution key specified.",
-            "primaryInstitution":"Filters persons by the primary institution key specified.",
-            "primaryCollection":"Filters persons by the primary collection key specified.",
-            "code":"Code of a GrSciColl institution or collection.",
+            "contact": "Filters collections and institutions whose contacts contain the person key specified",
+            "institution":"Filters collections by the institution key specified",
+            "primaryInstitution":"Filters persons by the primary institution key specified",
+            "primaryCollection":"Filters persons by the primary collection key specified",
+            "code":"Code of a GrSciColl institution or collection",
             "name":"Name of a GrSciColl institution or collection",
             "alternativeCode":"Alternative code of a GrSciColl institution or collection",
             "format": "Export format, accepts TSV(default) and CSV",
@@ -674,7 +684,18 @@
             "collectionEntityKey": "Key of the institution, collection or person being modified",
             "createdBy": "User who did the change in a GRSciColl audit log",
             "dateFrom": "Filters GRSciColl audit logs after a specific date (format yyyy-MM-dd)",
-            "dateTo": "Filters GRSciColl audit logs until a specific date (format yyyy-MM-dd)"
+            "dateTo": "Filters GRSciColl audit logs until a specific date (format yyyy-MM-dd)",
+            "active": "Active status of a GrSciColl institution or collection",
+            "type": "Type of a GrSciColl institution",
+            "institutionalGovernance": "Instutional governance of a GrSciColl institution",
+            "discipline": "Discipline of a GrSciColl institution. Accepts multiple values, e.g.: discipline=ARCHAEOLOGY_PREHISTORIC&discipline=ARCHAEOLOGY_HISTORIC",
+            "contentType": "Content type of a GrSciColl collection. Accepts multiple values, e.g.: contentType=PALEONTOLOGICAL_OTHER&contentType=EARTH_PLANETARY_MINERALS",
+            "preservationType": "Preservation type of a GrSciColl collection. Accepts multiple values, e.g.: preservationType=SAMPLE_CRYOPRESERVED&preservationType=SAMPLE_FLUID_PRESERVED",
+            "accessionStatus": "Accesion status of a GrSciColl collection",
+            "personalCollection": "Flag for personal GRSciColl collections",
+            "format": "Format of an export: TSV(default) or CSV",
+            "replacedBy": "UUID of the replacement of a GRSciColl institution or collection",
+            "masterSourceType": "The master source type of a GRSciColl institution or collection(GRSCICOLL, GBIF_REGISTRY, IH)"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">

@@ -40,6 +40,9 @@ describe('scientificName formatter', function() {
     it('can format named hybrids that has Author in the scientificName field', function() {
         expect(sciName.formatName(mockNames.Clematis_X_jackmanii)).toEqual('<i>Clematis ×jackmanii </i>T.Moore');
     });
+    it('can format species names with infrageneric name parts', function() {
+        expect(sciName.formatName(mockNames.Sabethes_Peytonulus_shannoni)).toEqual('<i>Sabethes (Peytonulus) shannoni </i>(Lane & Cerqueira, 1942)');
+    });
 });
 
 

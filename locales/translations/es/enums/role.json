@@ -57,6 +57,7 @@
     "SCIENCE_COMMITTEE_MEMBER": "Miembro del Comité de Ciencia",
     "TEMPORARY_DELEGATE": "Delegado temporal",
     "TEMPORARY_HEAD_OF_DELEGATION": "Jefe temporal de delegación",
-    "ALTERNATE_HEAD_OF_DELEGATION": "Jefe de Delegación suplente"
+    "ALTERNATE_HEAD_OF_DELEGATION": "Jefe de Delegación suplente",
+    "HEAD_OF_DELEGATION_ADMINISTRATIVE_CONTACT": "Contacto administrativo jefe de  la delegación"
   }
 }

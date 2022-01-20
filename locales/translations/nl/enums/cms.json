@@ -82,7 +82,7 @@
           "TAXONOMY": ""
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "",
+          "CAPACITY_ENHANCEMENT": "Capaciteitsverbetering",
           "DATA_ACCESS": "",
           "DATA_ANALYSIS": "",
           "DATA_CURATION_QUALITY": "",
@@ -112,7 +112,7 @@
           "bill": ""
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Biodiversiteit kennis experts",
           "DATA_HOLDERS": "",
           "DATA_USERS": "",
           "DECISION_MAKERS": "",

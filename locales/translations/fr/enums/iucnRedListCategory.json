@@ -1,12 +1,13 @@
 {
   "iucnRedListCategory": {
-    "LC": "",
-    "VU": "Vulnérable",
-    "NT": "",
-    "DD": "",
-    "EN": "En danger",
+    "EX": "Éteint (EX)",
+    "EW": "Éteint à l'état sauvage (EW)",
     "CR": "",
-    "EX": "Éteint",
-    "EW": ""
+    "EN": "En danger (EN)",
+    "VU": "Vulnérable (VU)",
+    "NT": "Quasi menacé (NT)",
+    "LC": "Préoccupation mineure (LC)",
+    "DD": "Données insuffisantes (DD)",
+    "NE": "Non Évalué (NE)"
   }
 }

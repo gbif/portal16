@@ -1,12 +1,13 @@
 {
   "iucnRedListCategory": {
-    "LC": "",
-    "VU": "Vulnerável",
-    "NT": "",
-    "DD": "",
-    "EN": "Em perigo",
+    "EX": "",
+    "EW": "",
     "CR": "",
-    "EX": "Extinto",
-    "EW": ""
+    "EN": "",
+    "VU": "",
+    "NT": "",
+    "LC": "",
+    "DD": "",
+    "NE": ""
   }
 }

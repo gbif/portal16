@@ -6,7 +6,8 @@
                 <ul>
                     <li ng-repeat="occ in vm.specimen " class="card--references__item">
                         <div>
-                            <span style="font-weight: bold" translate="typeStatus.{{occ.typeStatus}}">{{occ.typeStatus}}:</span>
+                           <!-- <span style="font-weight: bold" translate="typeStatus.{{occ.typeStatus}}">{{occ.typeStatus}}:</span>-->
+                           <span style="font-weight: bold" translate="occurrence.typeOf" translate-values="{TYPE: occ.typeStatus, NAME: (occ.typifiedName || occ.scientificName) }">{{occ.typeStatus}}:</span>
                             <span ng-show="occ.recordedBy">
                                 {{occ.recordedBy}}<span ng-show="occ.year"> ({{occ.year}})</span><span ng-show="occ.country"> {{occ.country}}</span>.
                             </span>
@@ -20,6 +21,7 @@
                                     {{occ.occurrenceID}}
                                 </span>
                             </a>
+                            <sequence data="occ" limit="200"></sequence>
                             <div class="small">
                                 <span translate="species.source">Sourcex</span>: <a ng-href="/dataset/{{occ.datasetKey}}">{{occ._datasetKey.title}}</a>
                             </div>

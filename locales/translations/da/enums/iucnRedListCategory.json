@@ -1,12 +1,13 @@
 {
   "iucnRedListCategory": {
-    "LC": "",
-    "VU": "Sårbar",
-    "NT": "",
-    "DD": "",
-    "EN": "Truet",
+    "EX": "",
+    "EW": "",
     "CR": "",
-    "EX": "Uddød",
-    "EW": ""
+    "EN": "",
+    "VU": "",
+    "NT": "",
+    "LC": "",
+    "DD": "",
+    "NE": ""
   }
 }
