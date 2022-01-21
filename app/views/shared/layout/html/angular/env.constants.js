@@ -29,7 +29,8 @@ angular
         gadm: env.dataApi + 'geocode/gadm/search',
         lifeStage: env.dataApi + 'vocabularies/LifeStage/concepts',
         establishmentMeans: env.dataApi + 'vocabularies/EstablishmentMeans/concepts',
-        pathWay: env.dataApi + 'vocabularies/PathWay/concepts',
+        pathway: env.dataApi + 'vocabularies/Pathway/concepts',
+        degreeOfEstablishment: env.dataApi + 'vocabularies/DegreeOfEstablishment/concepts',
         // These does not exist yet
         programme: env.dataApi + 'occurrence/search/programme',
         projectId: env.dataApi + 'occurrence/search/projectId',

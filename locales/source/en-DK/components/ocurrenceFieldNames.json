@@ -82,6 +82,8 @@
     "reproductiveCondition": "Reproductive condition",
     "behavior": "Behavior",
     "establishmentMeans": "Establishment means",
+    "degreeOfEstablishment": "Degree of establishment",
+    "pathway": "Pathway",
     "occurrenceStatus": "Occurrence status",
     "preparations": "Preparations",
     "disposition": "Disposition",

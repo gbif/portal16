@@ -7,8 +7,8 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('PathWay', function($resource, env) {
-            return $resource(env.dataApi + 'vocabularies/PathWay/concepts/:id', null, {
+        .factory('Pathway', function($resource, env) {
+            return $resource(env.dataApi + 'vocabularies/Pathway/concepts/:id', null, {
                     'query': {
                         method: 'GET',
                         isArray: false
@@ -16,8 +16,8 @@ var angular = require('angular');
                 }
             );
         })
-        .factory('PathWaySearch', function($resource, env) {
-            return $resource(env.dataApi + 'vocabularies/PathWay/concepts', null, {
+        .factory('PathwaySearch', function($resource, env) {
+            return $resource(env.dataApi + 'vocabularies/Pathway/concepts', null, {
                     'query': {
                         method: 'GET',
                         isArray: false,
