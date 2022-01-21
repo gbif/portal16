@@ -67,6 +67,14 @@
                                         </li>
                                     {% endfor %}
                                     </ul>
+                                {% elif term.simpleName == "lifeStage" %}
+                                  <span concept vocabulary="LifeStage" name="{$ occurrence.record.lifeStage $}"></span>
+                                {% elif term.simpleName == "establishmentMeans" %}
+                                  <span concept vocabulary="EstablishmentMeans" name="{$ occurrence.record.establishmentMeans $}"></span>
+                                {% elif term.simpleName == "degreeOfEstablishment" %}
+                                  <span concept vocabulary="DegreeOfEstablishment" name="{$ occurrence.record.degreeOfEstablishment $}"></span>
+                                {% elif term.simpleName == "pathway" %}
+                                  <span concept vocabulary="Pathway" name="{$ occurrence.record.pathway $}"></span>
                                 {% else %}
                                     {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                                 {% endif %}

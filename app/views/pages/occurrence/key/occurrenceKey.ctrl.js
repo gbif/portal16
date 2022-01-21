@@ -4,6 +4,8 @@ var angular = require('angular'),
     _ = require('lodash'),
     globeCreator = require('../../../components/map/basic/globe');
 
+require('../../../components/vocabulary/concept.directive');
+
 angular
     .module('portal')
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
