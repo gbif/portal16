@@ -65,6 +65,10 @@ angular
             'media_type',
             'license',
             'protocol',
+            'lifeStage',
+            'establishmentMeans',
+            'pathway',
+            'degreeOfEstablishment',
             'publishing_org'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function(facet) {
