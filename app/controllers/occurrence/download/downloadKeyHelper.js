@@ -170,8 +170,6 @@ function attachPredicatesAsParams(predicate) {
         });
         queryList.push(queries);
     } else {
-      console.log(predicate); 
-
         if (predicate.key === 'BASIS_OF_RECORD') {
           const values = predicate.values || [predicate.value];
           if (_.difference(values, validBasisOfRecords).length > 0) {
