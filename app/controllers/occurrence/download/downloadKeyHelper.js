@@ -4,6 +4,7 @@ let _ = require('lodash'),
     Q = require('q'),
     request = rootRequire('app/helpers/request'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
+    validBasisOfRecords = require('../../../models/enums/basic/basisOfRecord.json'),
     authOperations = require('../../auth/gbifAuthRequest'),
     helper = rootRequire('app/models/util/util'),
     intervalTypes = ['YEAR', 'EVENT_DATE', 'ELEVATION', 'DEPTH'];
@@ -169,6 +170,15 @@ function attachPredicatesAsParams(predicate) {
         });
         queryList.push(queries);
     } else {
+      console.log(predicate); 
+
+        if (predicate.key === 'BASIS_OF_RECORD') {
+          const values = predicate.values || [predicate.value];
+          if (_.difference(values, validBasisOfRecords).length > 0) {
+            throw new Error('failed to parse predicate');
+          }
+        }
+
         if (!_.isUndefined(predicate.key) && !_.isUndefined(predicate.value)) {
             let val = predicate.value;
             if (predicate.type === 'greaterThanOrEquals') {
