@@ -133,6 +133,8 @@
     "verbatimLocality": "Verbatim locality",
     "verbatimElevation": "Verbatim elevation",
     "verbatimDepth": "Verbatim depth",
+    "verbatimIdentification": "Verbatim identification",
+    "verticalDatum": "Vertical datum",
     "minimumDistanceAboveSurfaceInMeters": "Minimum distance above surface in metres",
     "maximumDistanceAboveSurfaceInMeters": "Maximum distance above surface in metres",
     "location": "Location",
