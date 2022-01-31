@@ -50,7 +50,7 @@
             <div class="container--desktop">
                 <div class="home__counts">
                     <article class="article-box article-box--stats">
-                        <a ng-href="{{ portal.urlPrefix }}/occurrence/search?occurrence_status=PRESENT" class="inherit noUnderline">
+                        <a ng-href="{{ portal.urlPrefix }}/occurrence/search?occurrence_status=present" class="inherit noUnderline">
                             <h3 class="discreet">{$ __('homepage.counts.occurrences') $}</h3>
                             <div count="{{ portal.dataApi }}occurrence/search?occurrence_status=PRESENT">1.000,000,000</div>
                         </a>
