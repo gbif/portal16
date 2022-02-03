@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+var _ = require('lodash');
 
 angular
     .module('portal')
@@ -71,11 +72,14 @@ function filterSuggestDirective(BUILD_VERSION) {
         vm.getSuggestions = function(val) {
             // if search enabled and
             if (vm.filterConfig.search && vm.filterConfig.search.isSearchable && vm.filterConfig.search.suggestEndpoint) {
+                var defaultParams = vm.filterConfig.search.defaultParams;
+                if (typeof defaultParams === 'function') {
+                  defaultParams = defaultParams();
+                }
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
-                    params: {
+                    params: _.assign({limit: 10}, defaultParams, {
                         q: val.toLowerCase(),
-                        limit: 10
-                    }
+                    })
                 }).then(function(response) {
                     return response.data;
                 });

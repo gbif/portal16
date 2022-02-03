@@ -131,7 +131,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.recordedBy
+      suggestEndpoint: suggestEndpoints.recordedBy,
+      defaultParams: {limit: 50}
     },
     facets: {
       facetKey: 'RECORDED_BY'
@@ -214,7 +215,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, LifeStage, Occu
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.catalogNumber
+      suggestEndpoint: suggestEndpoints.catalogNumber,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,

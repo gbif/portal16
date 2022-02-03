@@ -282,7 +282,9 @@ function adhocMapDirective(BUILD_VERSION) {
                 eventCategory: 'adhocMap',
                 eventAction: 'exploreArea'
             };
-            ga('send', trackingData);
+            if (typeof ga === 'function') {
+              ga('send', trackingData);
+            }
 
             if (vm.occurrenceRequest && vm.occurrenceRequest.$cancelRequest) vm.occurrenceRequest.$cancelRequest();
 

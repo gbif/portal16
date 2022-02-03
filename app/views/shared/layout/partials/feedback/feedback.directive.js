@@ -147,7 +147,9 @@ function feedbackDirective(BUILD_VERSION) {
             if (action) trackingData.eventAction = action;
             if (label) trackingData.eventLabel = label;
             if (intValue) trackingData.eventValue = intValue;
-            ga('send', trackingData);
+            if (typeof ga === 'function') {
+              ga('send', trackingData);
+            }
         };
     }
 }
