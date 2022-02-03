@@ -114,7 +114,8 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
                 alert('Auth failed, please use ?basic=xxxxxxxxxx for testing :-)');
             }
             $timeout(function() {
-                handleFailedJob(response.data);
+                handleWSError(response.data, response.status);
+                // handleFailedJob(response.data);
             });
         }, function(evt) {
             vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -145,6 +146,9 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
 
     function handleWSError(data, status) {
         vm.hasError = true;
+        if (data && typeof data === 'string') {
+            vm.errorMessage = data;
+        }
         switch (status) {
             case 415:
                 vm.hasApi415Error = true;
@@ -166,9 +170,13 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     }
 
     function handleFailedJob(data) {
-        vm.jobStatus = data.status;
-        vm.errorCode = _.get(data, 'result.errorCode');
-        vm.errorMessage = _.get(data, 'result.errorMessage');
+        if (typeof data === 'string') {
+            vm.errorMessage = _.get(data, 'result.errorMessage');
+        } else {
+            vm.jobStatus = data.status;
+            vm.errorCode = _.get(data, 'result.errorCode');
+            vm.errorMessage = _.get(data, 'result.errorMessage');
+        }    
     }
 
 
