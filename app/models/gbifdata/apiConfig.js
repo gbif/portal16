@@ -236,6 +236,10 @@ let apiConfig = {
     },
     graphQL: {
       url: baseConfig.graphQL
+    },
+    validator: {
+        url: baseUrl + 'validation',
+        canonical: baseUrl + 'validation'
     }
 };
 

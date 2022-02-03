@@ -58,64 +58,65 @@
               <span gb-help="issueHelp.{{issueBlock.issue}}" gb-help-options="{isCms: false}" class="pull-right"></span>
 
 
-                <table ng-if="issueBlock.sample" class="table table-bordered table-striped m-t-1"
+                <table ng-if="!issueBlock.samples || issueBlock.samples.length ===0" class="table table-bordered table-striped m-t-1"
                    >
                 <thead>
                 <tr>
-                    <th ng-repeat="issueLine in issueBlock.headers">
-                        {{ issueLine }}
+                   <th ng-repeat="(key, val) in issueBlock">
+                        {{ key }}
                     </th>
 
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="issueSample in issueBlock.sample">
-                    <td ng-repeat="issueLine in issueBlock.headers" class="table-cell--wide">
-                        {{ issueSample.allData[issueLine] }}
+                <tr >
+                    <td ng-repeat="(key, val) in issueBlock" class="table-cell--wide">
+                        {{ val }}
                     </td>
 
                 </tr>
                 </tbody>
             </table>
 
-            <table ng-if="issueBlock.issue !== 'UNKNOWN_TERM' && issueBlock.issue !== 'DUPLICATED_TERM' && !(issueBlock.sample || issueBlock.sample.length ===0)" class="table table-bordered table-striped m-t-1"
+            <table ng-if="issueBlock.issue !== 'UNKNOWN_TERM' && issueBlock.issue !== 'DUPLICATED_TERM' && issueBlock.samples && issueBlock.samples.length > 0" class="table table-bordered table-striped m-t-1"
                    >
                 <thead>
                 <tr>
-                    <th ng-repeat="(key, val) in issueBlock">
+                <th ng-if="issueBlock.issue !== 'EML_GBIF_SCHEMA'">recordId</th>
+                    <th ng-repeat="(key, val) in issueBlock.samples[0].relatedData">
                         {{ key }}
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td ng-repeat="(key, val) in issueBlock" class="table-cell--wide">
+                <tr ng-repeat="row in issueBlock.samples">
+                   <td ng-if="issueBlock.issue !== 'EML_GBIF_SCHEMA'">{{row.recordId}} </td>
+                    <td ng-repeat="(key, val) in row.relatedData" class="table-cell--wide">
                         {{ val }}
                     </td>
                 </tr>
                 </tbody>
             </table>
 
-            <table ng-if="!(issueBlock.sample || issueBlock.sample.length ===0) && (issueBlock.issue === 'UNKNOWN_TERM' ||  issueBlock.issue === 'DUPLICATED_TERM')" class="table table-bordered table-striped m-t-1"
+         <!--   <table ng-if="!(issueBlock.samples || issueBlock.samples.length ===0) " class="table table-bordered table-striped m-t-1"
                    >
                 <thead>
                 <tr >
-                    <th ng-repeat="(key, val) in issueBlock.relatedData[0]">
+                    <th ng-repeat="(key, val) in issueBlock">
                         {{ key }}
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="row in issueBlock.relatedData">
-                    <td ng-repeat="(key, val) in row" class="table-cell--wide">
+                <tr ng-repeat="row in issueBlock.samples">
+                    <td ng-repeat="(key, val) in row.relatedData" class="table-cell--wide">
                     <span ng-if="key !== 'rowType'">{{ val }}</span>
                     <a ng-href="{{portal.urlPrefix}}/tools/data-validator/{{vm.jobid}}/extensions#{{vm.dwcextensions[val].title | spaceToHyphen}}" ng-if="key === 'rowType'">{{ vm.dwcextensions[val].title}}</a>
-
 
                     </td>
                 </tr>
                 </tbody>
-            </table>
+            </table> -->
             </div>
         </div>
 

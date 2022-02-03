@@ -1,4 +1,4 @@
-<div class="submenu-wrapper white-background ng-cloak" id="submenuWrapper" ng-if="vm.jobStatus==='FINISHED' || vm.jobStatus==='FAILED' || (vm.jobStatus==='RUNNING' && vm.validationResults)">
+<div class="submenu-wrapper white-background ng-cloak" id="submenuWrapper" ng-if="vm.jobStatus==='QUEUED' || vm.jobStatus==='FINISHED' || vm.jobStatus==='FAILED' || (vm.jobStatus==='RUNNING' && vm.validationResults)">
     <div id="validationResults">
         <section class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">
@@ -52,9 +52,11 @@
                                                 <div class="col-xs-12">
                                                     <dt translate="validation.fileType.title"></dt>
                                                     <dd class="dataValidator__clickable-links">
-                                                        <a ng-click="resultPerResource.showDescription = (resultPerResource.showDescription === undefined) ? true : !resultPerResource.showDescription">{{ (vm.dwcextensions[resultPerResource.rowType]) ? vm.dwcextensions[resultPerResource.rowType].title : resultPerResource.rowType}}</a>
-
-                                                        <div class="discreet--very small" ng-show="resultPerResource.showDescription">{{ vm.dwcextensions[resultPerResource.rowType].description }}</div>
+                                                        <a ng-click="resultPerResource.showDescription = (resultPerResource.showDescription === undefined) ? true : !resultPerResource.showDescription">{{ (vm.dwcextensions[resultPerResource.rowType]) ? vm.dwcextensions[resultPerResource.rowType].title : resultPerResource.rowType}}</a> <a ng-if="vm.dwcextensions[resultPerResource.rowType].url" ng-href="{{vm.dwcextensions[resultPerResource.rowType].url}}"><span class="gb-icon-link" /></a>
+                    
+                                                        <div class="discreet--very small" ng-show="resultPerResource.showDescription">{{ vm.dwcextensions[resultPerResource.rowType].description }} 
+                                                        
+                                                        </div>
 
                                                     </dd>
                                                     <br>
@@ -68,17 +70,17 @@
                                                 <div class="col-xs-6">
                                                     <dt translate="validation.numberOfLines"></dt>
                                                     <dd>
-                                                        {{ resultPerResource.numberOfLinesWithData  | localNumber:gb.locale }}
+                                                        {{ resultPerResource.count  | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
 
-                                                <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['dwc:year']">
-                                                    <dt translate="validation.interpretedCounts.date"></dt>
+                                               <div class="col-xs-6" ng-if="resultPerResource.indexedCount || resultPerResource.indexedCount === 0">
+                                                    <dt translate="validation.interpretedCounts.indexed"></dt>
                                                     <dd>
-                                                        {{ resultPerResource.interpretedValueCounts['dwc:year'] | localNumber:gb.locale }}
+                                                        {{ resultPerResource.indexedCount | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
-
+{# 
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
                                                     <dt translate="validation.interpretedCounts.taxon"></dt>
                                                     <dd>
@@ -91,7 +93,7 @@
                                                     <dd>
                                                         {{ resultPerResource.interpretedValueCounts['dwc:decimalLatitude'] | localNumber:gb.locale }}
                                                     </dd>
-                                                </div>
+                                                </div> #}
                                             </dl>
                                             </div>
                                             {#<table>#}
@@ -121,8 +123,8 @@
                                         </div>
                                         </div>
 
-                                        <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="resultPerResource.termsFrequency && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'"></a>
-                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.termsFrequency  && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'">
+                                        <a href="" id="{{ resultPerResource.fileName+'-TermsFrequency'}}" ng-if="resultPerResource.terms  && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR'"></a>
+                                        <div class="anchor-block--tabs" id="{{ resultPerResource.fileName+'-TermsFrequencyBlock'}}" ng-if="resultPerResource.terms && resultPerResource.fileType !== 'METADATA' && resultPerResource.fileType !== 'META_DESCRIPTOR' && resultPerResource.count !== 0">
                                             {% include('../results/termsFrequency.html') %}
                                         {#<ng-include#}
                                                 {#src="'/api/template/tools/dataValidator/results/termsFrequency.html?v=' + vm.BUILD_VERSION"  ></ng-include>#}

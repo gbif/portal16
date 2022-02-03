@@ -1,0 +1,77 @@
+<div class="horizontal-stripe light-background">
+    <div class="container--narrow">
+        <section>
+            <div>
+                <div>
+                    <div ng-repeat="result in myValidations.validations.results">
+                        <div class="card m-b-05 searchCard">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                <div layout="row">
+                                    <div layout="column">
+                                    <h3 class="searchCard__headline myValidations__cardHeader">
+                                       <!-- <a href="" ui-sref="myValidationsKey({prefix: result.doi.split('/')[0], suffix: result.doi.split('/')[1]})">{{result.title}}</a> -->
+                                       <a href="" ng-href="{{myValidations.localePrefix +  'tools/data-validator/'+ result.key}}">{{result.file}}</a>
+                                    </h3>
+                                    </div>
+                                    <div layout="column" flex>
+                                
+                                    </div>
+                                    <div layout="column">
+                                        <span class="small discreet--very dataValidator__resultDate">
+                                        {{ result.created | momentFormat:'LL' }} 
+                                    </span>
+                                    </div>
+                                </div>
+                                    
+
+                                     
+                                    
+                                </div>
+                            </div>
+                            <div class="card__stripe">
+                                <div class="card__content clearfix" ng-if="result.status !== 'RUNNING'">
+                                <p class="m-t-0" ng-if="result.metrics.indexeable === true" >
+                                <span class="issue-bullet__approved">●</span>
+
+                                <span  translate="validation.indexeable"></span>
+                                </p>
+                                <p  class="m-t-0" ng-if="result.metrics.indexeable !== true" ><span class="issue-bullet__error">●</span> <span  translate="validation.notIndexeable"></span></p>
+                                   
+                                </div>
+                                <div class="card__content clearfix" ng-if="result.status === 'RUNNING'">
+                                <div layout="row" layout-align="start center">
+                                 <div layout="column" >
+                                    <div class="dataValidator__pulse dataValidator__circle" ></div>
+                                 </div>
+                                 <div layout="column" >
+                                 <span  translate="validation.status.RUNNING"></span> 
+                                 </div>
+                                </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div ng-if="myValidations.validations && myValidations.validations.count > myValidations.limit">
+
+                    <uib-pagination
+                            total-items="myValidations.validations.count"
+                            ng-model="myValidations.currentPage"
+                            max-size="myValidations.maxSize"
+                            items-per-page="myValidations.limit"
+                            class="pagination-sm"
+                            boundary-link-numbers="false"
+                            rotate="false"
+                            ng-change="myValidations.pageChanged()"
+                            ng-show="myValidations.validations.count > myValidations.limit">
+                    </uib-pagination>
+                    </div>
+                </div>
+                <div class="emptyInfo" ng-if="myValidations.validations.count == 0">
+                    <h3>No results</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

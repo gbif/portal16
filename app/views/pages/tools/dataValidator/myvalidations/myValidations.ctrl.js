@@ -1,17 +1,15 @@
 'use strict';
 
-require('./upload/derivedDatasetUpload.ctrl');
-require('./about/derivedDatasetAbout.ctrl');
-require('./derivedDataset.resource');
+
 angular
     .module('portal')
-    .controller('derivedDatasetCtrl', derivedDatasetCtrl);
+    .controller('myValidationsCtrl', myValidationsCtrl);
 
 /** @ngInject */
-function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $stateParams, $state, env) {
+function myValidationsCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $stateParams, $state, env) {
     var vm = this;
     vm.$state = $state;
-    vm.uploads;
+    vm.validations;
     vm.localePrefix = gb.locale === 'en' ? '/' : gb.locale + '/';
     function updatePaginationCounts() {
         vm.offset = parseInt($stateParams.offset) || 0;
@@ -26,7 +24,7 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
             vm.token = data.token;
         })
         .error(function(data, status) {
-            
+           // handleWSError(data, status);
         });
     };
     vm.search = function() {
@@ -34,13 +32,13 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
         vm.getToken().then(function() {
             $http({
                 method: 'get',
-                url: env.dataApi + 'derivedDataset/user/' + vm.username,
+                url: env.dataApi + 'validation',
                 headers: {Authorization: 'Bearer ' + vm.token},
-                params: {limit: vm.limit, offset: vm.offset}
+                params: {limit: vm.limit, offset: vm.offset, sortBy: 'created:DESC'}
             }).then(function(res) {
-                vm.uploads = res.data;
+                vm.validations = res.data;
             }).catch(function(err) {
-                vm.uploads = err.data;
+                vm.validations = err.data;
             });
         });
     };
@@ -52,7 +50,7 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
         if (vm.isLoggedIn) {
             vm.search();
         } else {
-            vm.uploads = undefined;
+            vm.validations = undefined;
         }
     }
     updateUser();
@@ -74,7 +72,7 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
     $scope.$watch(function() {
         return $state.$current.name;
     }, function(newVal, oldVal) {
-        if (newVal === 'derivedDataset' && oldVal !== 'derivedDataset') {
+        if (newVal === 'myValidations' && oldVal !== 'myValidations') {
             vm.search();
         }
     });
@@ -85,4 +83,4 @@ function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessi
     };
 }
 
-module.exports = derivedDatasetCtrl;
+module.exports = myValidationsCtrl;

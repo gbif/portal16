@@ -27,6 +27,7 @@
                             </div>
                         </div>
                     </div>
+            <div ng-if="derivedDataset.uploads && derivedDataset.uploads.count > derivedDataset.limit">
 
                     <uib-pagination
                             total-items="derivedDataset.uploads.count"
@@ -39,6 +40,7 @@
                             ng-change="derivedDataset.pageChanged()"
                             ng-show="derivedDataset.uploads.count > derivedDataset.limit">
                     </uib-pagination>
+            </div>
                 </div>
                 <div class="emptyInfo" ng-if="derivedDataset.uploads.count == 0">
                     <h3>No results</h3>

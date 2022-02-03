@@ -46,6 +46,7 @@
     
     &__fileLocationText {
         margin-left : 40px
+        margin-right: 28px
     }
     
     &__logoImg > img {
@@ -116,7 +117,18 @@
             line-height 1em
             text-align center
         }
-    
+
+        &__pulse {
+              animation: pulse-animation 2s infinite;
+        }
+        &__circle {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 1px 1px #0000001a;
+            background: #9bbb7f;
+            margin-right: 4px
+            }
 }
 
 
@@ -137,4 +149,13 @@
         margin-left 6px;
     }
 
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
 }

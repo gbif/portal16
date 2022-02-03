@@ -35,7 +35,9 @@ router.get('/basic', function(req, res, next) {
                     return res.status(404).json({message: 'Something went wrong, please try again.'});
                 }
             })
-            .catch(function() {
+            .catch(function(err) {
+                console.log(Object.keys(err))
+                console.log(err.statusCode)
                 // TODO it should never happen that a username that just logged in can now not be found again log error
                 return res.status(404).json({message: 'Something went wrong, please try again.'});
             });

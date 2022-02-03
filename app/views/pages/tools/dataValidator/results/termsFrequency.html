@@ -1,64 +1,80 @@
-<h3 translate="validation.termsFrequency.title" ></h3>
-<div>
-    <table class="table table-bordered table-striped" ng-if="resultPerResource.termsFrequency" >
+<h3 translate="validation.termsFrequency.title" ng-if="resultPerResource.terms && resultPerResource.terms.length > 0" ></h3>
+<div ng-if="resultPerResource.terms && resultPerResource.terms.length > 0">
+    <!-- CORE -->
+    <table class="table table-bordered table-striped"  >
         <thead>
         <tr>
             <th translate="validation.termsFrequency.term"></th>
             <th translate="validation.termsFrequency.count"></th>
             <th translate="validation.termsFrequency.percentage"></th>
-            <th translate="validation.termsFrequency.interpreted" ng-if="resultPerResource.interpretedValueCounts"> </th>
+            <th translate="validation.termsFrequency.interpreted" ng-if="resultPerResource.indexedCount || resultPerResource.indexedCount === 0"> </th> 
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="k in resultPerResource.termsFrequency">
-            <td ng-class="{'dataValidator__unknownTerm' : (vm.unknownTermMap[k.key] === true  || (k.key.indexOf('http://unknown.org/') > -1 && k.key !== 'http://unknown.org/ARCHIVE_RECORD_ID')) }" >
-                <span ng-class="{'dataValidator__idField' : resultPerResource.idTerm === k.key}">{{(resultPerResource.idTerm === k.key && k.key === 'http://unknown.org/ARCHIVE_RECORD_ID') ? 'recordID' : k.key }} </span>
-                <a ng-href="http://rs.tdwg.org/dwc/terms/index.htm#{{k.key.split(':')[1]}}" target="_blank" ng-if="k.key.split(':')[0] === 'dwc'"><span class="gb-icon-link"></span></a>
-                <a ng-href="http://rs.tdwg.org/dwc/terms/index.htm#{{k.key}}" target="_blank" ng-if="k.key.split(':')[0] === 'dcterms'"><span class="gb-icon-link"></span></a>
-                <span class="dataValidator__idField" ng-if="resultPerResource.idTerm === k.key">({{'validation.uniqueIdentifier' | translate}})</span>
+        <tr ng-repeat="k in resultPerResource.terms">
+            <td ng-class="{'dataValidator__unknownTerm' : (vm.unknownTermMap[k.term] === true  || (k.term.indexOf('http://unknown.org/') > -1 && k.term !== 'http://unknown.org/ARCHIVE_RECORD_ID')) }" >
+                <span ng-class="{'dataValidator__idField' : resultPerResource.idTerm === k.term}">{{(resultPerResource.idTerm === k.term && k.term === 'http://unknown.org/ARCHIVE_RECORD_ID') ? 'recordID' : k.term }} </span>
+                <a ng-href="{{k.term}}" target="_blank" ><span class="gb-icon-link"></span></a>
+                <span class="dataValidator__idField" ng-if="resultPerResource.idTerm === k.term">({{'validation.uniqueIdentifier' | translate}})</span>
             </td>
             <td>
-                {{ k.count | localNumber:gb.locale }}
+                {{ k.rawIndexed | localNumber:gb.locale }}
             </td>
-            <td>
-
-      <!--<span>{{ k.percentage }}%</span>-->
+         <!--   <td ng-if="k.interpretedIndexed || k.interpretedIndexed === 0">
 
                 <span class="termFrequencyStats__circle">
                     <round-progress
                             max="100"
-                            current="k.count / resultPerResource.numberOfLinesWithData | formatAsPercentage"
+                            current="k.interpretedIndexed / resultPerResource.indexedCount | formatAsPercentage"
                             bgcolor="#dbefef"
                             color="#71b171"
                             responsive="true">
                     </round-progress>
 
                 </span>
-                <span class="termFrequencyStats__percentage">{{ k.count / resultPerResource.numberOfLinesWithData | formatAsPercentage}}%</span>
+                <span class="termFrequencyStats__percentage">{{ k.interpretedIndexed / resultPerResource.indexedCount | formatAsPercentage}}%</span>
 
             </td>
+            <td ng-if="!k.interpretedIndexed && k.interpretedIndexed !== 0"> -->
+            <td >
 
+                <span class="termFrequencyStats__circle">
+                    <round-progress
+                            max="100"
+                            current="(k.rawIndexed / resultPerResource.count) | formatAsPercentage"
+                            bgcolor="#dbefef"
+                            color="#71b171"
+                            responsive="true">
+                    </round-progress>
 
-            <td ng-if="resultPerResource.interpretedValueCounts">
+                </span>
+                <span class="termFrequencyStats__percentage">{{ k.rawIndexed / resultPerResource.count | formatAsPercentage}}%</span>
 
-            <span ng-if="resultPerResource.interpretedValueCounts[k.key]"> {{ resultPerResource.interpretedValueCounts[k.key] | localNumber:gb.locale}}</span>
             </td>
-
-            <!--<div class="termFrequencyStats__circle">-->
-                    <!--<round-progress-->
-                            <!--max="100"-->
-                            <!--current="k.percentage"-->
-                            <!--bgcolor="#dbefef"-->
-                            <!--color="#71b171"-->
-                            <!--responsive="true">-->
-                    <!--</round-progress>-->
-                <!--</div>-->
-                <!--<div class="termFrequencyStats__percentage">-->
-                    <!--<span>{{ k.percentage }}%</span>-->
-
-                <!--</div>-->
-
+            <td ng-if="resultPerResource.indexedCount || resultPerResource.indexedCount === 0">{{ k.interpretedIndexed | localNumber:gb.locale }}</td>
         </tr>
         </tbody>
     </table>
+
+    <!-- EXTENSIONS -->
+     <!--   <table class="table table-bordered table-striped" ng-if="resultPerResource.extensionTerms" >
+        <thead>
+        <tr>
+            <th translate="validation.termsFrequency.term"></th>
+            <th translate="validation.termsFrequency.count"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in resultPerResource.extensionTerms">
+            <td ng-class="{'dataValidator__unknownTerm' : (vm.unknownTermMap[row[0]] === true  || (row[0].indexOf('http://unknown.org/') > -1 && row[0] !== 'http://unknown.org/ARCHIVE_RECORD_ID')) }" >
+                <span ng-class="{'dataValidator__idField' : resultPerResource.idTerm === row[0]}">{{(resultPerResource.idTerm === k.row[0] && row[0] === 'http://unknown.org/ARCHIVE_RECORD_ID') ? 'recordID' : row[0]}} </span>
+                <a ng-href="{{row[0]}}" target="_blank" ><span class="gb-icon-link"></span></a>
+                <span class="dataValidator__idField" ng-if="resultPerResource.idTerm === row[0]">({{'validation.uniqueIdentifier' | translate}})</span>
+            </td>
+            <td>
+                {{ row[1] | localNumber:gb.locale }}
+            </td>
+        </tr>
+        </tbody>
+    </table> -->
 </div>

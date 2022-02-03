@@ -1,19 +1,20 @@
 <div class="container-fluid card">
-    <div class="row card__content" ng-if="vm.jobStatus ==='RUNNING' || vm.jobStatus ==='ACCEPTED' || vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING' || vm.jobStatus ==='CONTACTING_SERVER'"
+    
+    <div class="row card__content" ng-if="vm.jobStatus ==='QUEUED' || vm.jobStatus ==='RUNNING' || vm.jobStatus ==='ACCEPTED' || vm.jobStatus ==='SUBMITTED' || vm.jobStatus ==='FETCHING' || vm.jobStatus ==='CONTACTING_SERVER'"
     >
         <div class="col-xs-12">
 
         <div layout="row">
         <span flex></span>
         <div>
-            <h2 class="m-t-0" translate="validation.status.title"></h2>
             <dl class="inline" ng-if="vm.jobId">
 
                 <div>
-                    <dt translate="validation.jobId"></dt>
-                    <dd >{{ vm.jobId }}
+                    <dt translate="validation.validatingFile"></dt>
+                    <dd >{{ vm.file }}
 
                     </dd>
+                    
                 </div>
                 <div>
                     <dt translate="validation.started">started</dt>
@@ -23,14 +24,17 @@
                 </div>
             </dl>
 
+            
 
-            <div layout="row"><span  translate="validation.status.{{ vm.jobStatus }}"></span> <span class="m-l-1"><md-progress-circular md-diameter="18px"></md-progress-circular></span> </div>
+            <!-- <div layout="row"><span  translate="validation.status.{{ vm.jobStatus }}"></span> <span class="m-l-1"><md-progress-circular md-diameter="18px"></md-progress-circular></span> </div> -->
         </div>
             <span flex></span>
         </div>
     </div>
 </div>
 
+    <div class="row card__content" layout="row" ng-if="vm.jobStatus === 'FAILED'"><span flex></span><span  translate="validation.status.{{ vm.jobStatus }}"></span> <span flex></span> </div>
+    
     <div class="row card__content" ng-if="vm.jobStatus==='FINISHED'">
         <div class="col-xs-12 col-sm-6 col-md-8">
             <div >
@@ -120,17 +124,30 @@
                     {#</dd>#}
                 {#</div>#}
                 <div>
+                    <dt translate="validation.fileName"></dt>
+                    <dd >
+                    {{vm.file}}
+
+                    </dd>
+                </div>
+                <div>
                     <dt translate="validation.fileFormat.title"></dt>
                     <dd translate="validation.fileFormat.{{ vm.validationResults.summary.fileFormat }}">
 
                     </dd>
                 </div>
                 <div>
+                    <dt translate="validation.fileSize"></dt>
+                    <dd >{{ vm.fileSize }}
+
+                    </dd>
+                </div> 
+               <!-- <div>
                     <dt translate="validation.receivedMediaType"></dt>
                     <dd >{{ vm.validationResults.summary.receivedMediaType }}
 
                     </dd>
-                </div>
+                </div> -->
                 <div>
                     <dt translate="validation.coreRowType">Core row type</dt>
                     <dd >
@@ -150,6 +167,9 @@
             <div class="card__content--warning p-l-05 m-t-1" ng-if="vm.validationResults.summary.receivedMediaType.indexOf('zip') > -1 && vm.validationResults.summary.fileFormat !== 'DWCA'">Please notice that the supplied file was a zipped archive, but was not interpreted as a Darwin Core Archive due to lacking / unparsable MetaData</div>
         </div>
     </div>
+
     <p  ng-if="vm.jobStatus==='FINISHED'" class="discreet--very smaller dataValidator__fileLocationText"><span translate="validation.reportLocation"></span> <span ng-bind-html="vm.jobUrl | linky"></span>
         <span translate="validation.reportGenerated"></span> <span>{{ vm.generatedDateFormatted }}</span> <span translate="validation.reportDeletion"></span></p>
+            <validation-steps ng-if="vm.steps" steps="vm.steps" status="vm.jobStatus"></validation-steps>
+
 </div>

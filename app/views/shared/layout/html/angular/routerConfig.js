@@ -693,6 +693,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'dataValidatorAboutCtrl',
             controllerAs: 'dataValidatorAbout'
         })
+        .state('myValidations', {
+            parent: 'dataValidator',
+            url: '/my-validations?offset&limit',
+            templateUrl: '/api/template/tools/dataValidator/myValidations.html?v=' + BUILD_VERSION,
+            controller: 'myValidationsCtrl',
+            controllerAs: 'myValidations'
+        })
         // .state('dataValidatorExtensions', {
         //     parent: 'dataValidator',
         //     url: '/extensions/:jobid?',
@@ -711,13 +718,14 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
                 }
             }
         })
-        .state('dataValidatorExtensionsKey', {
-            parent: 'dataValidatorKey',
-            url: '/extensions',
-            templateUrl: '/api/template/tools/dataValidator/extensions.html?v=' + BUILD_VERSION,
-            controller: 'dwcExtensionsCtrl',
-            controllerAs: 'vm'
-        })
+
+        // .state('dataValidatorExtensionsKey', {
+        //     parent: 'dataValidatorKey',
+        //     url: '/extensions',
+        //     templateUrl: '/api/template/tools/dataValidator/extensions.html?v=' + BUILD_VERSION,
+        //     controller: 'dwcExtensionsCtrl',
+        //     controllerAs: 'vm'
+        // })
         // .state('dataValidatorAboutKey', {
         //     parent: 'dataValidatorKey',
         //     url: '/about',
@@ -772,7 +780,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         })
         .state('derivedDataset', {
             parent: 'localization',
-            url: '/derived-dataset',
+            url: '/derived-dataset?offset&limit',
             views: {
                 main: {
                     templateUrl: '/api/template/tools/derivedDataset.html?v=' + BUILD_VERSION,
