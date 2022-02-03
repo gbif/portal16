@@ -95,6 +95,7 @@
     "CONTINENT_INVALID": "Uninterpretable continent values found.",
     "VERNACULAR_NAME_INVALID": "At least one vernacular name extension record attached to this name usage is invalid.",
     "DESCRIPTION_INVALID": "At least one description extension record attached to this name usage is invalid.",
-    "REFERENCES_URI_INVALID": "An invalid uri is given for dc:references."
+    "REFERENCES_URI_INVALID": "An invalid uri is given for dc:references.",
+    "UNHANDLED_ERROR": ""
   }
 }
