@@ -134,11 +134,11 @@
         "QUEUED": "Upload queued"
       },
       "VALIDATOR_VALIDATE_ARCHIVE": {
-        "RUNNING": "Validating archive",
-        "FINISHED": "Archive validated",
-        "PENDING": "Validate archive",
-        "FAILED": "Validation failed",
-        "QUEUED": "Validation queued"
+        "RUNNING": "Verifying archive format",
+        "FINISHED": "Archive format verified",
+        "PENDING": "Verify archive format",
+        "FAILED": "Failed to verify archive format",
+        "QUEUED": "Archive verification queued"
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "Extracting data",
@@ -148,26 +148,26 @@
         "QUEUED": "Extraction queued"
       },
       "VALIDATOR_VERBATIM_TO_INTERPRETED": {
-        "RUNNING": "Validating data",
-        "FINISHED": "Data validated",
-        "PENDING": "Validate data",
-        "FAILED": "Validation failed",
-        "QUEUED": "Validation queued"
+        "RUNNING": "Interpreting data",
+        "FINISHED": "Data interpreted",
+        "PENDING": "Interpret data",
+        "FAILED": "Data interpretation failed",
+        "QUEUED": "Data interpretation queued"
       },
       "VALIDATOR_INTERPRETED_TO_INDEX": {
-        "RUNNING": "Indexing data",
-        "FINISHED": "Data indexed",
-        "PENDING": "Index data",
-        "FAILED": "Indexing failed",
-        "QUEUED": "Indexing queued"
+        "RUNNING": "Indexing for previews",
+        "FINISHED": "Indexed for previews",
+        "PENDING": "Index for previews",
+        "FAILED": "Indexing for previews failed",
+        "QUEUED": "Indexing for previews queued"
 
       },
       "VALIDATOR_COLLECT_METRICS": {
-        "RUNNING": "Collecting metrics",
-        "FINISHED": "Metrics collected",
-        "PENDING": "Collect metrics",
-        "FAILED": "Metrics failed",
-        "QUEUED": "Metrics queued"
+        "RUNNING": "Generating summary",
+        "FINISHED": "Summaries generated ",
+        "PENDING": "Generate summary",
+        "FAILED": "Summary generation failed",
+        "QUEUED": "Summary generation queued"
 
       }
     },
