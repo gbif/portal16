@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "無法處理授權，GBIF 不支援或授權不存在",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "非唯一識別的記錄",
       "UNREADABLE_SECTION_ERROR": "部分錯誤無法讀取",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "描述標籤"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "檔案大小限制： 100 mb",
     "receivedMediaType": "媒體類型",
     "uniqueIdentifier": "唯一識別碼",
@@ -79,6 +81,7 @@
       "interpreted": "已解析"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "已解析的日期數",
       "taxon": "已解析的分類群列數",
       "location": "已解析的座標數"
@@ -119,7 +122,54 @@
       "about": "關於",
       "darwinCoreExtensions": "達爾文核心延伸集",
       "metaData": "詮釋資料",
-      "summary": "總結"
-    }
+      "summary": "總結",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
