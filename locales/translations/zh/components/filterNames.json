@@ -73,6 +73,8 @@
     "institutionKey": "机构",
     "gadmGid": "全球行政区划数据库 GID",
     "lifeStage": "生活期",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "DWCA 扩展",
     "isInCluster": "在集群中",
     "iucnRedListCategory": ""
