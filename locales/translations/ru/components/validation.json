@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "Лицензия не может быть проанализирована, не поддерживается GBIF или просто отсутствует",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Запись не идентифицирована однозначно",
       "UNREADABLE_SECTION_ERROR": "Ошибка чтения раздела",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "Проблемы не найдены"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "Мета-дескриптор"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "Максимальный размер файла: 100 mb",
     "receivedMediaType": "Тип медиа-файла",
     "uniqueIdentifier": "Уникальный идентификатор",
@@ -79,6 +81,7 @@
       "interpreted": "Интерпретировано"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "Число интерпретированных дат",
       "taxon": "Число строк с интерпретированным таксоном",
       "location": "Число интерпретированных координат"
@@ -119,7 +122,54 @@
       "about": "Описание",
       "darwinCoreExtensions": "Расширения Darwin Core",
       "metaData": "Мета данные",
-      "summary": "Краткое описание"
-    }
+      "summary": "Краткое описание",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
