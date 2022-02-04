@@ -73,6 +73,8 @@
     "institutionKey": "مؤسسة",
     "gadmGid": "قاعدة البيانات العالمية للمناطق الادارية والخرائط (gadm.org) ",
     "lifeStage": "مرحلة الحياة",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "لاحقة DWCA",
     "isInCluster": "",
     "iucnRedListCategory": ""
