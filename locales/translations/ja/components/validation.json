@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "ライセンスを解析できません。GBIFでサポートされていないライセンスであるか、ライセンス情報そのものが見つかりません。",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "レコードが一意ではありません。",
       "UNREADABLE_SECTION_ERROR": "読み取りができないセクションのエラー",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "問題は見つかりませんでした。"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "メタ記述子"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "ファイル サイズの制限: 100MB",
     "receivedMediaType": "メディアの種類",
     "uniqueIdentifier": "一意識別子",
@@ -79,6 +81,7 @@
       "interpreted": "解釈された"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "日付が解釈できたデータの件数",
       "taxon": "分類群が解釈できたデータの件数",
       "location": "座標が解釈できたデータの件数"
@@ -119,7 +122,54 @@
       "about": "GBIFデータ検証とは",
       "darwinCoreExtensions": "ダーウィン コア拡張モジュール",
       "metaData": "メタデータ",
-      "summary": "概要"
-    }
+      "summary": "概要",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
