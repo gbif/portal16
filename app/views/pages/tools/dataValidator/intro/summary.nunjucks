@@ -33,7 +33,7 @@
     </div>
 </div>
 
-    <div class="row card__content" layout="row" ng-if="vm.jobStatus === 'FAILED'"><span flex></span><span  translate="validation.status.{{ vm.jobStatus }}"></span> <span flex></span> </div>
+    <div class="row card__content" layout="row" ng-if="vm.jobStatus === 'FAILED'"><span flex></span><span class="emptyInfo--small" translate="validation.status.{{ vm.jobStatus }}"></span> <span flex></span> </div>
     
     <div class="row card__content" ng-if="vm.jobStatus==='FINISHED'">
         <div class="col-xs-12 col-sm-6 col-md-8">

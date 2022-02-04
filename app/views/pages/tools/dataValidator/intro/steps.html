@@ -8,6 +8,7 @@
         <md-progress-circular ng-if="step.status && step.status === 'RUNNING'" md-diameter="14px">
         </div>
         <div class="step-name" translate="validation.steps.{{step.stepType}}.{{step.status}}"></div>
+        <span class="step-name" ng-if="step.status === 'FAILED' && step.message">{{step.message}}</span>
 
       </div>
     </div>
