@@ -95,6 +95,7 @@
     "CONTINENT_INVALID": "Знайдено значення для континенту, які неможливо проінтерпретувати.",
     "VERNACULAR_NAME_INVALID": "Принаймні один запис розширення vernacular name, що пов'язаний з використання цієї назви є недійсним.",
     "DESCRIPTION_INVALID": "Принаймні один запис розширення description, що пов'язаний з використання цієї назви є недійсним.",
-    "REFERENCES_URI_INVALID": "Для dc:references наведено неправильний uri."
+    "REFERENCES_URI_INVALID": "Для dc:references наведено неправильний uri.",
+    "UNHANDLED_ERROR": ""
   }
 }
