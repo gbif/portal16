@@ -7,8 +7,10 @@
     "HUMAN_OBSERVATION": "人類觀察",
     "MACHINE_OBSERVATION": "機器觀察",
     "MATERIAL_SAMPLE": "材料樣品",
+    "MATERIAL_CITATION": "",
     "LITERATURE": "文獻",
     "UNKNOWN": "未知",
+    "OCCURRENCE": "出現",
     "undefined": "未知"
   }
 }
