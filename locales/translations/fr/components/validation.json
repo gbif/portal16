@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "La licence ne peut pas être analysée, n’est pas pris en charge par le GBIF ou est simplement absente",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Enregistrement non-identifié de manière unique",
       "UNREADABLE_SECTION_ERROR": "Erreur de section non-lisible",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "Aucun problème trouvé"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "Descripteur de Meta"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "Taille maximale du fichier : 100 Mo",
     "receivedMediaType": "Type de média",
     "uniqueIdentifier": "Identifiant unique",
@@ -79,6 +81,7 @@
       "interpreted": "Interprété"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "Nombre de dates interprétées",
       "taxon": "Nombre de lignes avec des taxons interprétés",
       "location": "Nombre de coordonnées interprétées"
@@ -119,7 +122,54 @@
       "about": "À propos",
       "darwinCoreExtensions": "Extensions Darwin Core",
       "metaData": "Métadonnées",
-      "summary": "Résumé"
-    }
+      "summary": "Résumé",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
