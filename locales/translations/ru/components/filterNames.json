@@ -73,6 +73,8 @@
     "institutionKey": "Организация",
     "gadmGid": "",
     "lifeStage": "Стадия жизненного цикла",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "",
     "isInCluster": "",
     "iucnRedListCategory": ""
