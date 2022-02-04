@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "La licencia no puede ser analizada, no es compatible con GBIF o simplemente falta",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registro no identificado de forma única",
       "UNREADABLE_SECTION_ERROR": "Error de sección ilegible",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "No se han encontrado problemas"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "Meta descriptor"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "Límite de tamaño del archivo: 100 mb",
     "receivedMediaType": "Tipo de medio",
     "uniqueIdentifier": "Identificador único",
@@ -79,6 +81,7 @@
       "interpreted": "Interpretado"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "Número de fechas interpretadas",
       "taxon": "Número de filas con taxonomía interpretada",
       "location": "Número de coordenadas interpretadas"
@@ -119,7 +122,54 @@
       "about": "Acerca de",
       "darwinCoreExtensions": "Extensiones de Darwin Core",
       "metaData": "Metadatos",
-      "summary": "Resumen"
-    }
+      "summary": "Resumen",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
