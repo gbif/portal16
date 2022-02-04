@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": ""
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": ""
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "",
     "receivedMediaType": "",
     "uniqueIdentifier": "",
@@ -79,6 +81,7 @@
       "interpreted": ""
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "",
       "taxon": "",
       "location": ""
@@ -119,7 +122,54 @@
       "about": "درباره",
       "darwinCoreExtensions": "",
       "metaData": "",
-      "summary": "خلاصه"
-    }
+      "summary": "خلاصه",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
