@@ -7,8 +7,10 @@
     "HUMAN_OBSERVATION": "Спостереження людиною",
     "MACHINE_OBSERVATION": "Автоматизоване спостереження",
     "MATERIAL_SAMPLE": "Проба матеріалу",
+    "MATERIAL_CITATION": "",
     "LITERATURE": "Літературні дані",
     "UNKNOWN": "Невідомо",
+    "OCCURRENCE": "Знахідка",
     "undefined": "Невідомо"
   }
 }
