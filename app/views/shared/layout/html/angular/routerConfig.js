@@ -511,6 +511,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'userDownloadsCtrl',
             controllerAs: 'userDownloads'
         })
+        .state('userValidations', {
+            parent: 'user',
+            url: '/validations?offset&limit',
+            templateUrl: '/api/template/tools/dataValidator/myValidations.html?v=' + BUILD_VERSION,
+            controller: 'myValidationsCtrl',
+            controllerAs: 'myValidations'
+        })
         .state('userSettings', {
             parent: 'user',
             url: '/settings',

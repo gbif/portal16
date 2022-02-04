@@ -52,7 +52,8 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
             });
         }, function(response) {
             $timeout(function() {
-                handleFailedJob(response.data);
+                handleWSError(response.data, response.status);
+                // handleFailedJob(response.data);
             });
         }, function(evt) {
             vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
