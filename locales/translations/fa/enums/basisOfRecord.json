@@ -7,8 +7,10 @@
     "HUMAN_OBSERVATION": "",
     "MACHINE_OBSERVATION": "",
     "MATERIAL_SAMPLE": "",
+    "MATERIAL_CITATION": "",
     "LITERATURE": "",
     "UNKNOWN": "ناشناس",
+    "OCCURRENCE": "",
     "undefined": "ناشناس"
   }
 }
