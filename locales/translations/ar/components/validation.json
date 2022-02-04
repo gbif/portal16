@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "لا يمكن تحليل الرخصة، أو أنها غير مدعومة من قبل المرفق العالمي لمعلومات التنوع الحيوي أو أنها ببساطة مفقودة",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "السجل ليس معرفا بشكل مميز",
       "UNREADABLE_SECTION_ERROR": "خطأ في القسم غير مقروء",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "لا توجد مشاكل"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "واصف التعريف"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "حدود حجم الملف: 100 ميغابايت",
     "receivedMediaType": "نوع الوسائط",
     "uniqueIdentifier": "معرف متميز",
@@ -79,6 +81,7 @@
       "interpreted": "فسرت"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "عدد  النواريخ التي تم تأويلها",
       "taxon": "عدد السطور  مع الوحدات التصنيفية المفسرة",
       "location": "عدد الاحداثيات المفسرة"
@@ -119,7 +122,54 @@
       "about": "حول",
       "darwinCoreExtensions": "ملحقات داروين الاساسية",
       "metaData": "بيانات وصفية",
-      "summary": "مُلخّص"
-    }
+      "summary": "مُلخّص",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
