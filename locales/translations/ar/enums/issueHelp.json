@@ -95,6 +95,7 @@
     "CONTINENT_INVALID": "تم العثور على قيم قارة غير قابلة للتغسير",
     "VERNACULAR_NAME_INVALID": "اسم عامي دارج واحد  على الاقل ذو سجل اضافي  ومرفق مع استخدام هذا الاسم غير صالح",
     "DESCRIPTION_INVALID": "توصيف واحد على الأقل ذو سجل ملحق ومرفق مع استخدام هذا الاسم غير صالح",
-    "REFERENCES_URI_INVALID": "عنوان uri غير صالح قد أُعطِى لـ dc:references."
+    "REFERENCES_URI_INVALID": "عنوان uri غير صالح قد أُعطِى لـ dc:references.",
+    "UNHANDLED_ERROR": ""
   }
 }
