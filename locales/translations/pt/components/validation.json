@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "A licença não pode ser processada, não é suportada pelo GBIF ou está em falta",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registo não identificado de forma única",
       "UNREADABLE_SECTION_ERROR": "Erro de seção ilegível",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "Não há problemas encontrados"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "Meta Descrição"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "Limite de tamanho do ficheiro: 100 mb",
     "receivedMediaType": "Tipo de média",
     "uniqueIdentifier": "Identificador único",
@@ -79,6 +81,7 @@
       "interpreted": "Interpretado"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "Número de datas interpretadas",
       "taxon": "Número de linhas com táxon interpretado",
       "location": "Número de coordenadas interpretadas"
@@ -119,7 +122,54 @@
       "about": "Sobre",
       "darwinCoreExtensions": "Extensões Darwin Core",
       "metaData": "Metadados",
-      "summary": "Sumário"
-    }
+      "summary": "Sumário",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }
