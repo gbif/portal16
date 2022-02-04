@@ -73,6 +73,8 @@
     "institutionKey": "",
     "gadmGid": "",
     "lifeStage": "",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "",
     "isInCluster": "",
     "iucnRedListCategory": ""
