@@ -7,8 +7,10 @@
     "HUMAN_OBSERVATION": "Menneskelig observation",
     "MACHINE_OBSERVATION": "Maskinel observation",
     "MATERIAL_SAMPLE": "Materiale prøve",
+    "MATERIAL_CITATION": "",
     "LITERATURE": "Litteratur",
     "UNKNOWN": "Ukendt",
+    "OCCURRENCE": "",
     "undefined": "Ukendt"
   }
 }
