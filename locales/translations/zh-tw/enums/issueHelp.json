@@ -95,6 +95,7 @@
     "CONTINENT_INVALID": "找到無法解釋的大陸數值。",
     "VERNACULAR_NAME_INVALID": "至少有一個附加到此名稱使用的普通名延伸集紀錄為無效。",
     "DESCRIPTION_INVALID": "至少有一個附加到此名稱使用的描述延伸集紀錄為無效。",
-    "REFERENCES_URI_INVALID": "給定 dc: 參考資料的 url 無效。"
+    "REFERENCES_URI_INVALID": "給定 dc: 參考資料的 url 無效。",
+    "UNHANDLED_ERROR": ""
   }
 }

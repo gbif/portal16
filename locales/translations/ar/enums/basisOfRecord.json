@@ -7,8 +7,10 @@
     "HUMAN_OBSERVATION": "ملاحظة بشرية",
     "MACHINE_OBSERVATION": "ملاحظة آلية",
     "MATERIAL_SAMPLE": "عينة مادية",
+    "MATERIAL_CITATION": "",
     "LITERATURE": "مراجع",
     "UNKNOWN": "غير معروف",
+    "OCCURRENCE": "تكرار",
     "undefined": "غير محدد"
   }
 }

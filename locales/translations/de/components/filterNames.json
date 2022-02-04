@@ -73,6 +73,8 @@
     "institutionKey": "Institution",
     "gadmGid": "Verwaltungsbereiche (gadm.org)",
     "lifeStage": "Lebensstadium",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "DWCA-Erweiterung",
     "isInCluster": "Ist Teil eines Clusters",
     "iucnRedListCategory": "Kategorie in der Roten Liste gefährdeter Arten"

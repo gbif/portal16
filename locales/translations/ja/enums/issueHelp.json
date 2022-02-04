@@ -95,6 +95,7 @@
     "CONTINENT_INVALID": "大陸の値が解釈できません。",
     "VERNACULAR_NAME_INVALID": "この名前の使用法に紐付けされているコモンネームまたは和名の拡張レコードのうち少なくとも１つは無効です。",
     "DESCRIPTION_INVALID": "この名前の使用法に紐付けされている説明拡張レコードのうち少なくとも１つは無効です。",
-    "REFERENCES_URI_INVALID": "dc:referencesに無効なURLが入力されています。"
+    "REFERENCES_URI_INVALID": "dc:referencesに無効なURLが入力されています。",
+    "UNHANDLED_ERROR": ""
   }
 }

@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "许可证无法解析，GBIF不支持或仅丢失",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "未唯一标识的记录",
       "UNREADABLE_SECTION_ERROR": "不可读部分错误",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "没有发现资源"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "元描述符"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "文件大小限制：100 mb",
     "receivedMediaType": "媒体类型",
     "uniqueIdentifier": "唯一标识符",
@@ -79,6 +81,7 @@
       "interpreted": "解释"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "说明日期数",
       "taxon": "已解析的分类群列数",
       "location": "已解析的坐标数"
@@ -119,7 +122,54 @@
       "about": "关于",
       "darwinCoreExtensions": "达尔文核心扩展",
       "metaData": "元数据",
-      "summary": "总结"
-    }
+      "summary": "总结",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }

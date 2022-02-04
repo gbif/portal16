@@ -73,6 +73,8 @@
     "institutionKey": "Instituição",
     "gadmGid": "Áreas administrativas (gadm.org)",
     "lifeStage": "Estágio de desenvolvimento",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "Extensão DWCA",
     "isInCluster": "Está em cluster",
     "iucnRedListCategory": ""

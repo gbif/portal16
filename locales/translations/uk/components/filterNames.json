@@ -73,6 +73,8 @@
     "institutionKey": "Установа",
     "gadmGid": "Адміністративний поділ (gadm.org)",
     "lifeStage": "Життєва стадія",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "Розширення DWCA",
     "isInCluster": "",
     "iucnRedListCategory": ""

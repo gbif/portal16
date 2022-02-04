@@ -28,6 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "Ліцензія не може бути проаналізована, не підтримується GBIF або ж просто відсутня",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Запис не ідентифіковано як унікальний",
       "UNREADABLE_SECTION_ERROR": "Помилка зчитування розділу",
+      "UNHANDLED_ERROR": "",
       "NoIssuesFound": "Проблем не знайдено"
     },
     "fileFormat": {
@@ -53,6 +54,7 @@
         "title": "Мета-дескриптор"
       }
     },
+    "fileSize": "",
     "fileSizeLimit": "Максимальний розмір файлу: 100 МБ",
     "receivedMediaType": "Тип медіа-файлу",
     "uniqueIdentifier": "Унікальний ідентифікатор",
@@ -79,6 +81,7 @@
       "interpreted": "Проінтерпретовано"
     },
     "interpretedCounts": {
+      "indexed": "",
       "date": "Кількість інтерпретованих дат",
       "taxon": "Кількість рядків з інтерпретованим таксоном",
       "location": "Кількість проінтерпретованих координат"
@@ -119,7 +122,54 @@
       "about": "Опис",
       "darwinCoreExtensions": "Розширення Darwin Core",
       "metaData": "Мета-дані",
-      "summary": "Підсумок"
-    }
+      "summary": "Підсумок",
+      "myValidations": ""
+    },
+    "steps": {
+      "VALIDATOR_UPLOAD_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VALIDATE_ARCHIVE": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_DWCA_TO_VERBATIM": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_VERBATIM_TO_INTERPRETED": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_INTERPRETED_TO_INDEX": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      },
+      "VALIDATOR_COLLECT_METRICS": {
+        "RUNNING": "",
+        "FINISHED": "",
+        "PENDING": "",
+        "FAILED": "",
+        "QUEUED": ""
+      }
+    },
+    "validatingFile": "",
+    "fileName": ""
   }
 }

@@ -7,8 +7,10 @@
     "HUMAN_OBSERVATION": "Observation humaine",
     "MACHINE_OBSERVATION": "Observation faite par une machine",
     "MATERIAL_SAMPLE": "Matériel échantillonné",
+    "MATERIAL_CITATION": "",
     "LITERATURE": "Littérature",
     "UNKNOWN": "Inconnu",
+    "OCCURRENCE": "Occurrence",
     "undefined": "Inconnu"
   }
 }

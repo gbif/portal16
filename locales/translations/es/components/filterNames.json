@@ -73,6 +73,8 @@
     "institutionKey": "Institución",
     "gadmGid": "GID GADM ",
     "lifeStage": "Etapa de vida",
+    "pathway": "",
+    "degreeOfEstablishment": "",
     "dwcaExtension": "Extensión DWCA",
     "isInCluster": "Está en cluster",
     "iucnRedListCategory": ""

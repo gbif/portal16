@@ -95,6 +95,7 @@
     "CONTINENT_INVALID": "Обнаружены неинтерпретируемые значения для континента.",
     "VERNACULAR_NAME_INVALID": "Как минимум одна запись расширения vernacular name extension связанная с этим названием неверная.",
     "DESCRIPTION_INVALID": "Как минимум одна запись расширения description связанная с этим названием неверная.",
-    "REFERENCES_URI_INVALID": "Недопустимый uri задан для dc:references."
+    "REFERENCES_URI_INVALID": "Недопустимый uri задан для dc:references.",
+    "UNHANDLED_ERROR": ""
   }
 }
