@@ -95,6 +95,7 @@
     "CONTINENT_INVALID": "",
     "VERNACULAR_NAME_INVALID": "",
     "DESCRIPTION_INVALID": "",
-    "REFERENCES_URI_INVALID": "Un uri inválido es dado para dc:references."
+    "REFERENCES_URI_INVALID": "Un uri inválido es dado para dc:references.",
+    "UNHANDLED_ERROR": ""
   }
 }
