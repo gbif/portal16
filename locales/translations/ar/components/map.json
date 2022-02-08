@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "مجموعة زرقاء",
       "ORANGE_CLUSTER": "مجموعة برتقالية"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "الملف الهندسي كبير جدا على أن تتم معالجته بواسطة واجهة برمجة تطبيق البيانات."
     }
