@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "Groupe bleu",
       "ORANGE_CLUSTER": "Groupe orange"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "Le fichier de géométrie est trop volumineux pour être traités par les données API."
     }

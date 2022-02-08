@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "Синий кластер",
       "ORANGE_CLUSTER": "Оранжевый кластер"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "Файл геометрии слишком большой для обработки API."
     }

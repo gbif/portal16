@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "Blå klynge",
       "ORANGE_CLUSTER": "Orange klynge"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "Geometrien er for stor til at blive processeret af API'en."
     }
