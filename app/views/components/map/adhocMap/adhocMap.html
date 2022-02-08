@@ -3,18 +3,26 @@
         <div class="mapWidget__mapArea"></div>
         <div class="mapWidget__progress"></div>
         <div class="mapWidget__mapButtons">
-            <a href="" ng-click="vm.zoomIn()">+</a>
-            <a href="" ng-click="vm.zoomOut()">-</a>
+            <a href="" ng-click="vm.zoomIn()"
+               tooltip-placement="right" uib-tooltip="{{ 'map.tooltips.zoomIn' | translate }}">+</a>
+            <a href="" ng-click="vm.zoomOut()"
+               tooltip-placement="right" uib-tooltip="{{ 'map.tooltips.zoomOut' | translate }}">-</a>
             <a href="" class="gb-icon-select smallIcon" ng-click="vm.enableClickGeometry()"
-               ng-class="{'is-active': vm.clickQueryActive }"></a>
-            <a href="" class="gb-icon-format-paint smallIcon" ng-click="vm.toggleStyle()" tooltip="Toggle map styling"></a>
+               ng-class="{'is-active': vm.clickQueryActive }"
+               tooltip-placement="right" uib-tooltip="{{ 'map.tooltips.searchArea' | translate }}"></a>
+            <a href="" class="gb-icon-format-paint smallIcon" ng-click="vm.toggleStyle()" 
+               tooltip-placement="right" uib-tooltip="{{ 'map.tooltips.toggleStyle' | translate }}"></a>
         </div>
         <div class="mapWidget__drawButtons" ng-if="!vm.noDrawing">
             <a href="" class="gb-icon-rectangle smallIcon" ng-click="vm.enableRectangleDraw()"
-               ng-class="{'is-active': vm.rectangleDrawActive }"></a>
+               ng-class="{'is-active': vm.rectangleDrawActive }"
+               tooltip-placement="left" uib-tooltip="{{ 'map.tooltips.addRectangleFilter' | translate }}"></a>
             <a href="" class="gb-icon-polygon smallIcon" ng-click="vm.enablePolygonDraw()"
-               ng-class="{'is-active': vm.polygonDrawActive }"></a>
-            <a href="" class="gb-icon-trash smallIcon" ng-click="vm.enableDeleteMode()" ng-class="{'is-active': vm.deleteMode}"></a>
+               ng-class="{'is-active': vm.polygonDrawActive }"
+               tooltip-placement="left" uib-tooltip="{{ 'map.tooltips.addPolygonFilter' | translate }}"></a>
+            <a href="" class="gb-icon-trash smallIcon" ng-click="vm.enableDeleteMode()" 
+               ng-class="{'is-active': vm.deleteMode}"
+               tooltip-placement="left" uib-tooltip="{{ 'map.tooltips.removeGeometryFilter' | translate }}"></a>
         </div>
         <div class="mapWidget__info">
             <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
