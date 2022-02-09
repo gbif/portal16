@@ -83,7 +83,7 @@
         "HUMAN_OBSERVATION": "رصدت في موقع غير معروف",
         "MACHINE_OBSERVATION": "تم رصدها في موقع غير معروف",
         "MATERIAL_SAMPLE": "تم جمعها في موقع غير معروف",
-        "MATERIAL_CITATION": "تم تسجيلها في موقع غير معروف",
+        "MATERIAL_CITATION": "تم تسجيلها في موقع مجهول",
         "OCCURRENCE": "تم تسجيلها في موقع غير معروف",
         "OBSERVATION": "تم رصدها في موقع غير معروف",
         "LITERATURE": "تم تسجيلها في موقع غير معروف",
