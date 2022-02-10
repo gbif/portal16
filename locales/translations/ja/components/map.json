@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "青クラスター",
       "ORANGE_CLUSTER": "オレンジクラスター"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "ジオメトリファイルが大きすぎるためデータ API で処理ができません。"
     }

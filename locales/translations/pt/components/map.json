@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "Azulado",
       "ORANGE_CLUSTER": "Alaranjado"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "A geometria deste ficheiro é demasiado grande para ser processada pelo API de dados."
     }

@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "Blue cluster",
       "ORANGE_CLUSTER": "Orange cluster"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "The geometry file is too large to be processed by the data API."
     }

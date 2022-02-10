@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "藍色集群",
       "ORANGE_CLUSTER": "橙色集群"
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": "此幾何檔案過大，資料 API 無法處理。"
     }

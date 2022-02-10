@@ -50,6 +50,15 @@
       "BLUE_CLUSTER": "",
       "ORANGE_CLUSTER": ""
     },
+    "tooltips": {
+      "toggleStyle": "",
+      "searchArea": "",
+      "addRectangleFilter": "",
+      "addPolygonFilter": "",
+      "removeGeometryFilter": "",
+      "zoomIn": "",
+      "zoomOut": ""
+    },
     "errors": {
       "413": ""
     }
