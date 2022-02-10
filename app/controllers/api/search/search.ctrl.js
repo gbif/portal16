@@ -52,10 +52,16 @@ async function search(query, preferedLocale, __) {
     let country = Country.query(query, preferedLocale);
 
     let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants, faq, sequences]);
+    let datasetsResponse = values[2];
+    let datasetUuidMatches = datasetsResponse.results.filter(function(x) {
+      return x.key === query.trim() || x.title === query.trim();
+    });
+
     let response = {
         speciesMatches: values[0],
         species: values[1],
-        datasets: values[2],
+        datasets: datasetsResponse,
+        datasetUuidMatches: datasetUuidMatches,
         publishers: values[3],
         resources: values[4],
         country: values[5],
