@@ -1,12 +1,56 @@
-<div>
-    <div href="" class="inherit contactsCard__name">
+<div class="rtl-supported">
+    <div href="" class="inherit contactsCard__name" name="contact_{{vm.contact._id}}">
         <div>
-            <a href="" ui-sref="grscicollPersonKey({key:vm.person.key})">{{ vm.person.firstName }} {{ vm.person.lastName }}</a>
+            <div dir="auto" ng-if="vm.contact.firstName || vm.contact.lastName || vm.contact.surname">{{ vm.contact.title }} {{ vm.contact.firstName }} {{ vm.contact.lastName }} {{ vm.contact.surname }}</div>
+            <div dir="auto" ng-if="!vm.contact.firstName && !vm.contact.lastName && !vm.contact.surname">{{ vm.contact.organization || vm.contact.title || vm.contact.name }}</div>
         </div>
     </div>
     <div class="small discreet">
-        <div ng-if="vm.person.position">{{ vm.person.position }}</div>
-        <div ng-if="vm.person.phone">{{ vm.person.phone }}</div>
-        <div ng-if="vm.person.email"><a ng-href="mailto:{{ vm.person.email }}">{{ vm.person.email }}</a></div>
+        <div ng-if="vm.contact.roles.length > 0">
+            <ul class="inline-bullet-list">
+                <li ng-repeat="role in vm.getRoles(vm.contact.roles)">
+                    <span translate="role.{{role}}"></span>
+                </li>
+            </ul>
+        </div>
+        <ul class="inline-bullet-list" ng-if="vm.getAsArray(vm.contact.position).length > 0">
+            <li dir="auto" ng-repeat="position in vm.contact.position">{{position}}</li>
+        </ul>
+        <div ng-if="(vm.contact.organization || vm.contact.institutionName) && (vm.contact.firstName || vm.contact.lastName || vm.contact.surname)" dir="auto">{{ vm.contact.organization || vm.contact.institutionName}}</div>
+        <div class="whiteSpace-preLine" ng-repeat="addressLine in vm.getAsArray(vm.contact.address)" ng-bind="addressLine" dir="auto"></div>
+        <div dir="ltr">{{ vm.contact.city }} {{ vm.contact.postalCode }}</div>
+        <div>{{ vm.contact.province }}</div>
+        <div ng-if="vm.contact.country" translate="country.{{vm.contact.country}}"></div>
+        <div>
+            <ul class="inline-bullet-list" ng-if="vm.contact.email">
+                <li ng-repeat="email in vm.getAsArray(vm.contact.email)">
+                    <a ng-href="mailto:{{ email }}" dir="ltr">{{ email }}</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="inline-bullet-list" ng-if="vm.contact.phone">
+                <li ng-repeat="phone in vm.getAsArray(vm.contact.phone)" ng-if="phone">
+                    <a ng-href="tel:{{ phone }}" dir="ltr">{{ phone }}</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="inline-bullet-list" ng-if="vm.contact.homepage">
+                <li ng-repeat="homepage in vm.getAsArray(vm.contact.homepage)" ng-if="homepage">
+                    <a ng-href="{{ homepage }}" class="breakAll" dir="ltr">{{ homepage }}</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="inline-bullet-list">
+                <li ng-repeat="userId in vm.getAsArray(vm.contact.userId)" ng-if="userId" dir="ltr">
+                    <a ng-href="{{ userId }}" class="breakAll"><img src="/img/orcid_16x16.gif" class="orcid-small" ng-if="vm.isOrcid(userId)">{{ userId }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="discreet--very" ng-if="!vm.contact.country && !vm.contact.city && !vm.contact.address && !vm.contact.email">
+            No contact details
+        </div>
     </div>
 </div>
