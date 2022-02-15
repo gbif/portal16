@@ -54,7 +54,7 @@
             "dontSeeYourIpt": "IPTが見えない？ [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") にあなたの所在地の緯度・経度をお送りください。"
         },
         "dataRepository": {
-            "title": ""
+            "title": "データリポジトリ"
         },
         "sequenceId": {
             "title": "配列ID"
@@ -68,31 +68,31 @@
         "derivedDataset": {
             "title": "得られたデータセット",
             "titleField": "タイトル",
-            "sourceUrl": "",
-            "originalDownloadDOI": "",
-            "registrationDate": "",
+            "sourceUrl": "得られたデータセットにアクセスできるURL",
+            "originalDownloadDOI": "元のダウンロード DOI",
+            "registrationDate": "登録日",
             "datasetKey": "データセットキー",
             "occurrenceCount": "オカレンスのカウント",
             "submit": "送信",
-            "pleaseFill": "",
-            "loginToCreate": "",
-            "myDatasets": "",
-            "register": "",
-            "about": "",
-            "optionalDescription": "",
-            "registerNew": "",
-            "editDataset": "",
-            "editFailed": "",
-            "registrationFailed": "",
-            "registrationCompleted": "",
-            "editCompleted": "",
-            "newRegistration": "",
-            "goToDataset": "",
-            "yourDerivedDatasets": "",
-            "backToEdit": "",
-            "mintingDoi": "",
-            "attachCsvLabel": "",
-            "orEnterLabel": ""
+            "pleaseFill": "フォームを送信するには、すべての必須項目を入力してください。",
+            "loginToCreate": "ログインして派生データセットを作成",
+            "myDatasets": "派生データセット",
+            "register": "登録",
+            "about": "派生データセットについて",
+            "optionalDescription": "オプションの説明",
+            "registerNew": "新しい派生データセットを登録",
+            "editDataset": "派生データセットを編集",
+            "editFailed": "編集に失敗しました",
+            "registrationFailed": "登録に失敗しました。",
+            "registrationCompleted": "登録が完了しました",
+            "editCompleted": "編集が完了しました",
+            "newRegistration": "新規登録",
+            "goToDataset": "データセットへ移動",
+            "yourDerivedDatasets": "派生データセット",
+            "backToEdit": "編集に戻る",
+            "mintingDoi": "DOI作成中 - これは長くはかからないはずです。",
+            "attachCsvLabel": "データセットキーとオカレンス件数が含まれたCSVを添付",
+            "orEnterLabel": "または、データセットキー/DOIおよびオカレンス件数をここに入力する"
         }
     }
 }
