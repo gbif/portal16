@@ -38,20 +38,20 @@
     "title": "ダウンロードのオプション",
     "content": {
       "rawData": "生データ",
-      "interpretedData": "",
+      "interpretedData": "解釈されたデータ",
       "images": "マルチメディア",
       "coordinates": "座標",
       "fileFormat": "フォーマット",
-      "estimatedSize": ""
+      "estimatedSize": "推定データサイズ"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "タブ区切りの CSV"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (利用可能な場合)",
+      "yesLinks": "✔ (リンク)",
+      "no": "✘"
     }
   }
 }
