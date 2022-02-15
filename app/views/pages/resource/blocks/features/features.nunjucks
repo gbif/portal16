@@ -1,0 +1,37 @@
+<div class="horizontal-stripe {$ main.fields.backgroundColour $}-background p-0">
+  <div class="container--desktop">
+    <div class="block_features">
+      {% if main.fields.title and not main.fields.hideTitle %}
+      <h2 class="block__header">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
+      {% endif %}
+      {% if main.fields.description %}
+      <div class="block__description">
+        {$ main.fields.description | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+      </div>
+      {% endif %}
+      <div class="block_features__list block_features__list--{$ main.fields.maxPerRow $}">
+        
+        {% for featureId in main.fields.features %}
+            {% set feature = resolved.Entry[featureId.sys.id] %}
+            {% set featureType = resolved.Entry[featureId.sys.id].sys.contentType.sys.id %}
+
+            {% if featureType == "News" %}
+              {% include "./types/news.nunjucks" %}
+            {% endif %}
+            {% if featureType == "DataUse" %}
+              {% include "./types/dataUse.nunjucks" %}
+            {% endif %}
+            {% if featureType == "Event" %}
+              {% include "./types/event.nunjucks" %}
+            {% endif %}
+            {% if featureType == "feature" %}
+              {% include "./types/feature.nunjucks" %}
+            {% endif %}
+
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+

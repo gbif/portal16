@@ -125,7 +125,7 @@ function prose(req, res, next, type, template, redirectToSlug) {
 
     redirectToSlug = redirectToSlug !== false;
     // search for items with that id. search is used instead of entry get as search allow for includes of assets etc
-    resource.searchContentful(entry, 2, preview, res.locals.gb.locales.current)
+    resource.searchContentful(entry, 4, preview, res.locals.gb.locales.current)
         .then(function(results) {
             // check if there is any results. if not, then the item do not exists
             if (results.total == 0) {

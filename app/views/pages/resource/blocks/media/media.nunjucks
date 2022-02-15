@@ -1,0 +1,43 @@
+{% set image = resolved.Asset[main.fields.primaryImage.sys.id].fields %}
+
+<section class="horizontal-stripe {$ main.fields.backgroundColour $}-background p-0">
+  <div class="container--desktop">
+    <article class="block_media {% if main.fields.reverse %} block-reverse{% endif %}">
+      {% if main.fields.title and not main.fields.hideTitle %}
+      <h2 class="block__header">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
+      {% endif %}
+      <div class="block_media__content">
+        <div class="block_media__mediaArea {% if main.fields.roundImage %} block__imageArea--rounded {% endif %}">
+          <img src="{$ _meta.imageCache $}{% if main.fields.roundImage %}480x480/{% endif %}http:{$ image.file.url | encodeURI $}">
+        </div>
+        <div class="block_media__textArea">
+          <div class="block_media__textContent">
+            {% if main.fields.subtitle %}
+            <h3 class="h2 block_media__textContent__title">
+              {$ main.fields.subtitle | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+            </h3>
+            {% endif %}
+            <div class="block_slide__textContent__body">
+              {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+            </div>
+            {% if main.fields.callToAction %}
+            <div class="block__actions">
+              {% for ctaId in main.fields.callToAction %}
+                <div class="block__action">
+                  {% set cta = resolved.Entry[ctaId.sys.id] %}
+                  {% if "https://player.vimeo.com" in cta.fields.url %}
+                    <span video-modal source="'{$ cta.fields.url $}'"><a href="">{$ cta.fields.label $}</a></span>
+                  {% else %}
+                  <a href="{$ cta.fields.url $}">{$ cta.fields.label $}</a>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+            {% endif %}
+            
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

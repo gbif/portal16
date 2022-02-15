@@ -1,0 +1,118 @@
+.block_features {
+  padding-bottom: 64px
+  &__list {
+    margin 0 (-($halfGutter / 2))
+    display flex
+    flex-wrap wrap
+    justify-content center
+  }
+  &__item {
+    margin ($halfGutter/ 2)
+    flex 0 1 360px;
+    &__imageArea {
+      text-align: center;
+      position: relative;
+      a {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    &__type {
+      position: absolute;
+      margin: 16px;
+      background: rgba(0,0,0,.33);
+      padding: 4px 8px;
+      color: #fff;
+      bottom: 0;
+      right: 0;
+      font-size: 14px;
+      line-height 1.5em;
+      display: block;
+    }
+    &__title {
+      margin: 16px 0;
+      font-size: 18px;
+      color: #575757;
+      line-height: 1.8em
+      font-weight: normal;
+    }
+    &__date {
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    &__description {
+      font-size: 16px;
+      line-height: 1.8em;
+      color: #4B5348;
+
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
++isAbove(650px) {
+  .block_features {
+    &__list {
+      justify-content left
+    }
+    &__item {
+      flex 0 1 auto
+      width "calc(100% / 2 - %s)" % ($halfGutter)
+      &__description {
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+}
+
++isAbove(900px) {
+  .block_features {
+    &__item {
+      flex 0 1 auto
+      &__description {
+        -webkit-line-clamp: 3;
+      }
+    }
+  }
+  .block_features__list--2 {
+    article {
+      width "calc(100% / 2 - %s)" % ($halfGutter)
+    }
+  }
+  .block_features__list--3 {
+    article {
+      width "calc(100% / 3 - %s)" % ($halfGutter)
+    }
+  }
+  .block_features__list--4 {
+    article {
+      width "calc(100% / 4 - %s)" % ($halfGutter)
+    }
+  }
+  .block_features__list-- {
+    article {
+      width "calc(100% / 4 - %s)" % ($halfGutter)
+    }
+  }
+}
+
++isAbove(1000px) {
+  .block_features {
+    &__item {
+      &__description {
+        -webkit-line-clamp: 4;
+      }
+    }
+  }
+}

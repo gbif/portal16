@@ -12,8 +12,8 @@ let gulpif = require('gulp-if');
 let g = require('gulp-load-plugins')();
 
 gulp.task('scripts-reload', function() {
-    return buildScripts()
-        .pipe(browserSync.stream());
+    return buildScripts();
+        // .pipe(browserSync.stream());
 });
 
 gulp.task('scripts', function() {

@@ -1,0 +1,31 @@
+{% set image = resolved.Asset[feature.fields.primaryImage.sys.id].fields %}
+
+<article class="card card--spaced--very card--flexible block_features__item hoverBox">
+  {% if feature.fields.primaryImage %}
+  <div class="block_features__item__imageArea">
+    <a href="{$ gb.locales.urlPrefix + '/event/' + feature.sys.id $}"></a>
+    <img src="{$ _meta.imageCache $}500x400/http:{$ image.file.url | encodeURI $}"
+        alt="" class="block_features__item__image">
+    <span class="block_features__item__type">{$ __("homepage.featureTypes.event" ) $}</span>
+  </div>
+  {% endif %}
+  <div class="card__stripe--expandable inherit">
+    <div class="card__content">
+      <h4 class="block_features__item__title">
+        <a href="{$ gb.locales.urlPrefix + '/event/' + feature.sys.id $}" class="inherit">{$ feature.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+      </h4>
+      <div class="block_features__item__date">
+        <div><span class="gb-icon-calendar"></span>
+            {$ feature.fields.start | dateRange(feature.fields.end, false, gb.locales.current) $}
+        </div>
+        {% if not feature.fields.allDayEvent %}
+        <div>
+            <span class="gb-icon-clock"></span>{$ feature.fields.start | timeRange(feature.fields.end, gb.locales.current) $}
+            <span> UTC {$ feature.fields.start | utcOffset() $}</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="block_features__item__description">{$ feature.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
+    </div>
+  </div>
+</article>

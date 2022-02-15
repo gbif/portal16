@@ -1,5 +1,5 @@
 <div>
-    <article class="wrapper-horizontal-stripes">
+    <div class="wrapper-horizontal-stripes">
         {% for blockId in main.fields.blocks %}
           {% set main = resolved.Entry[blockId.sys.id] %}
           {% set type = resolved.Entry[blockId.sys.id].sys.contentType.sys.id %}
@@ -13,8 +13,20 @@
           {% endif %}
 
           {% if type == "featureBlock" %}
-            {% include "./blocks/features.nunjucks" %}
+            {% include "../../blocks/features/features.nunjucks" %}
+          {% endif %}
+
+          {% if type == "carouselBlock" %}
+            {% include "../../blocks/carousel/carousel.nunjucks" %}
+          {% endif %}
+
+          {% if type == "mediaBlock" %}
+            {% include "../../blocks/media/media.nunjucks" %}
+          {% endif %}
+
+          {% if type == "counts" %}
+            {% include "../../blocks/counts/counts.nunjucks" %}
           {% endif %}
         {% endfor %}
-    </article>
+    </div>
 </div>

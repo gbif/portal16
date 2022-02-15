@@ -1,0 +1,34 @@
+<div class="horizontal-stripe white-background block_counts">
+    <div class="container--desktop">
+        <div class="block_counts__list">
+            <div class="block_counts__item">
+                <a ng-href="{{ portal.urlPrefix }}/occurrence/search?occurrence_status=PRESENT" class="inherit noUnderline">
+                    <img src="/img/counts_mock.svg" />
+                    <div count="{{ portal.dataApi }}occurrence/search?occurrence_status=PRESENT">1.000,000,000</div>
+                    <h3 class="discreet">{$ __('homepage.counts.occurrences') $}</h3>
+                </a>
+            </div>
+            <div class="block_counts__item">
+                <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
+                    <img src="/img/counts_mock.svg" />
+                    <div count="{{ portal.dataApi }}dataset/search">40,000</div>
+                    <h3 class="discreet">{$ __('homepage.counts.datasets') $}</h3>
+                </a>
+            </div>
+            <div class="block_counts__item">
+                <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
+                    <img src="/img/counts_mock.svg" />
+                    <div count="/api/publisher/count" >1,300</div>
+                    <h3 class="discreet">{$ __('homepage.counts.publishers') $}</h3>
+                </a>
+            </div>
+            <div class="block_counts__item">
+                <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType=journal&relevance=GBIF_USED&peerReview=true" class="inherit noUnderline">
+                    <img src="/img/counts_mock.svg" />
+                    <div count="/api/resource/search?contentType=literature&literatureType=journal&relevance=GBIF_USED&peerReview=true&limit=0">3,450</div>
+                    <h3 class="discreet">{$ __('homepage.counts.literature') $}</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 .site-footer {
     .site-footer__upper {
-        background $navBar_background
+        background #686A68
         border-top 1px solid $stripeBorderColor
     }
     &__menu {
@@ -30,9 +30,10 @@
         }
     }
     &__lower {
+      padding: 16px
         color white
         border-top $navBar_borderWidth solid $navBar_borderColor
-        background black
+        background #414141
         text-align center
         img {
             width 300px
@@ -40,13 +41,22 @@
             padding 20px
         }
     }
+    &__bottom {
+      background: #222222;
+      img {
+        height: 40px;
+      }
+    }
     &__social {
         display inline-block
         >a {
             display inline-block
             background white
-            color black
+            color #414141
             margin 10px
+            font-size: 16px
+            width: 32px;
+            height: 32px;
         }
     }
 }

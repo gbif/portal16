@@ -1,0 +1,53 @@
+.block {
+  &__header {
+    font-size: 36px;
+    padding: 32px 0;
+    padding-left: 32px;
+    margin: 0;
+    &__small {
+      font-size: 16px;
+    }
+  }
+
+  &__description {
+    margin: 16px 32px 80px 32px;
+    padding: 16px;
+    max-width: 100%;
+    width: 480px;
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  &__actions {
+    margin: 0 -16px;
+    margin-top: 64px;
+  }
+
+  &__action {
+    display: inline-block;
+    margin: 0 16px;
+  }
+  &__imageArea {
+    &--rounded {
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
++isAbove(768px) {
+  .block {
+    &__header {
+      padding-top: 64px
+    }
+  }
+}
+
++isAbove(1000px) {
+  .block {
+    &__header {
+      padding-top: 96px
+    }
+  }
+}

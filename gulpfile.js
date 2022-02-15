@@ -67,7 +67,7 @@ gulp.task('watch', function () {
   ], gulp.series('stylus-reload', 'ieStyle'));
 
   //, 'dataRepo', 'speciesLookup', 'dataValidator', 'ipt', 'observationTrends', 'home' //removed because they are slow to wait for. If you are developing this add again. Not ideal, but it seem to slow things down quite a bit
-  gulp.watch(config.js.client.watch, gulp.series('scripts-reload', 'client-lint'));
+  gulp.watch(config.js.client.watch, gulp.series('scripts-reload', 'home', 'client-lint'));
 
   gulp.watch([path.join(config.paths.src, '/**/*.{html,nunjucks}')], gulp.series('templates'));
 });
