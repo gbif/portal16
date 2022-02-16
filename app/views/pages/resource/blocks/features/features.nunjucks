@@ -4,9 +4,9 @@
       {% if main.fields.title and not main.fields.hideTitle %}
       <h2 class="block__header">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
       {% endif %}
-      {% if main.fields.description %}
+      {% if main.fields.body %}
       <div class="block__description">
-        {$ main.fields.description | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+        {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
       </div>
       {% endif %}
       <div class="block_features__list block_features__list--{$ main.fields.maxPerRow $}">
