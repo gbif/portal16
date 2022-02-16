@@ -82,11 +82,11 @@ module.exports = {
             query: ['blueHeat.point'],
             type: 'POINT'
         },
-        {
-          name: 'GREEN_POINT',
-          query: ['green.point'],
-          type: 'POINT'
-        },
+        // {
+        //   name: 'GREEN_POINT',
+        //   query: ['green.point'],
+        //   type: 'POINT'
+        // },
         {
             name: 'ORANGE_HEAT',
             query: ['orangeHeat.point'],
