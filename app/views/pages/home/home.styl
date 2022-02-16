@@ -15,46 +15,43 @@ $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
         color white
         position relative
         &__hero-text {
-            padding vrBlock(4) 0
+            padding vrBlock(8) 16px
+        }
+        &__name {
+          font-size: 18px;
         }
         h1 {
             max-width 700px
-            margin-top 0
+            margin-top 2rem
             margin-bottom vrBlock(1)
         }
     }
     .search-box {
         max-width 700px
     }
-    &__searchFilters {
-        background darken($navBar_background_color, 10)
-        display flex
+    &__actions {
+        background #282C2780
+        display inline-flex
         overflow auto
-        max-width 700px
         color white
+        max-width: 100%
         a {
-            flex 1 0 auto
-            padding 7px
-            padding-bottom 3px
+            flex 0 0 auto
+            padding 10px 24px
+            padding-bottom 8px
             border-bottom 2px solid transparent
             text-align center
-            font-size 12px
-            text-transform uppercase
-            &:hover {
-                border-bottom 2px solid darken($navBar_background_color, 20)
-            }
+            font-size 14px
         }
     }
-    &__quicklinks {
-        //max-width 400px
+    &__searchContainer {
+      max-width 700px
+    }
+    &__searchFilters {
         a {
-            display inline-block
-            margin 5px 2px 0 0
+            text-transform uppercase
         }
     }
-    //&__news {
-    //    padding-top vrBlock(2)
-    //}
 }
 
 //LAPTOPS
