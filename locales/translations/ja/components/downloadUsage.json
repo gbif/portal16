@@ -1,12 +1,12 @@
 {
     "downloadUsage": {
-        "title": "",
+        "title": "出版物（または類似のもの）でのオカレンスデータ使用についてGBIFに通知する",
         "form": {
             "title": "タイトル",
-            "titlePlaceholder": "",
-            "authors": "",
-            "authorsPlaceholder": "",
-            "link": "",
+            "titlePlaceholder": "データ利用した出版物/成果物のタイトル/名前",
+            "authors": "著者",
+            "authorsPlaceholder": "出版物/成果物の著者",
+            "link": "URL",
             "linkPlaceholder": "",
             "date": "日付",
             "comments": "コメント",
