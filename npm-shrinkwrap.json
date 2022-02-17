@@ -1557,9 +1557,9 @@
       "integrity": "sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU="
     },
     "angular": {
-      "version": "1.5.8",
-      "resolved": "https://registry.npmjs.org/angular/-/angular-1.5.8.tgz",
-      "integrity": "sha1-klpTkrjCEtCVctxEbbfgEmTglMs="
+      "version": "1.8.0",
+      "resolved": "https://registry.npmjs.org/angular/-/angular-1.8.0.tgz",
+      "integrity": "sha512-VdaMx+Qk0Skla7B5gw77a8hzlcOakwF8mjlW13DpIWIDlfqwAbSSLfd8N/qZnzEmQF4jC4iofInd3gE7vL8ZZg=="
     },
     "angular-animate": {
       "version": "1.5.8",
@@ -1630,6 +1630,13 @@
       "integrity": "sha1-BWc+s3GYb8Ee3BUfWQKZ1+DEYig=",
       "requires": {
         "angular": ">=1.2.26 <=1.6"
+      },
+      "dependencies": {
+        "angular": {
+          "version": "1.6.10",
+          "resolved": "https://registry.npmjs.org/angular/-/angular-1.6.10.tgz",
+          "integrity": "sha512-PCZ5/hVdvPQiYyH0VwsPjrErPHRcITnaXxhksceOXgtJeesKHLA7KDu4X/yvcAi+1zdGgGF+9pDxkJvghXI9Wg=="
+        }
       }
     },
     "angular-translate-interpolation-messageformat": {
@@ -1647,6 +1654,13 @@
           "integrity": "sha1-BWc+s3GYb8Ee3BUfWQKZ1+DEYig=",
           "requires": {
             "angular": ">=1.2.26 <=1.6"
+          },
+          "dependencies": {
+            "angular": {
+              "version": "1.6.10",
+              "resolved": "https://registry.npmjs.org/angular/-/angular-1.6.10.tgz",
+              "integrity": "sha512-PCZ5/hVdvPQiYyH0VwsPjrErPHRcITnaXxhksceOXgtJeesKHLA7KDu4X/yvcAi+1zdGgGF+9pDxkJvghXI9Wg=="
+            }
           }
         },
         "async": {
@@ -14754,7 +14768,7 @@
     },
     "nouislider": {
       "version": "git+ssh://git@github.com/leongersen/noUiSlider.git#772dc921563f56ab8c5dc145068f64b6acef5df1",
-      "from": "nouislider@leongersen/noUiSlider.git#772dc921563f56ab8c5dc145068f64b6acef5df1"
+      "from": "leongersen/noUiSlider.git#772dc921563f56ab8c5dc145068f64b6acef5df1"
     },
     "nouislider-angular": {
       "version": "2.6.2",
