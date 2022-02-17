@@ -58,11 +58,12 @@
                 </div>
             </div>
         </div>
-        <div ng-if="institutionKey.institution.contacts.length > 0">
-            <h4 class="card-header--bold m-t-1" translate="grscicoll.contact.contacts" translate-values="{ NUMBER: institutionKey.institution.contacts.length + 1}">Contacts</h4>
+        <div ng-if="institutionKey.institution.contactPersons.length > 0">
+            <h4 class="card-header--bold m-t-1" translate="grscicoll.contact.contacts" translate-values="{ NUMBER: institutionKey.institution.contactPersons.length + 1}">Contacts</h4>
             <div class="contactsCard card card--spaced">
-                <grscicollperson person="contact" ng-repeat="contact in institutionKey.institution.contacts"></grscicollperson>
+                <grscicollperson contact-info="contact" ng-repeat="contact in institutionKey.institution.contactPersons"></grscicollperson>
             </div>
         </div>
+
     </div>
 </section>

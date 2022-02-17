@@ -17,7 +17,6 @@ module.exports = function(app) {
 router.get('/grscicoll', render);
 router.get('/grscicoll/collection/search', render);
 router.get('/grscicoll/institution/search', render);
-router.get('/grscicoll/person/search', render);
 
 router.get('/grscicoll/collection/:key/metrics', renderCollection);
 router.get('/grscicoll/collection/:key', renderCollection);
@@ -55,26 +54,6 @@ function renderInstitution(req, res, next) {
                 title: institution.name,
                 description: institution.description
             }}, 'pages/grscicoll/institution/key/seo.nunjucks');
-        })
-        .catch(function(err) {
-            if (err.statusCode === '404') return next();
-            next(err);
-        });
-}
-
-router.get('/grscicoll/person/:key', renderPerson);
-function renderPerson(req, res, next) {
-    let personKey = req.params.key;
-    if (!utils.isGuid(personKey)) {
-        next();
-        return;
-    }
-    getData(apiConfig.grscicollPerson.url + personKey)
-        .then(function(person) {
-            helper.renderPage(req, res, next, {person, _meta: {
-                title: `${person.firstName} ${person.lastName}`,
-                description: person.position
-            }}, 'pages/grscicoll/person/key/seo.nunjucks');
         })
         .catch(function(err) {
             if (err.statusCode === '404') return next();

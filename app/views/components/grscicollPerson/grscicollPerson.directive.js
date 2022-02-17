@@ -1,6 +1,7 @@
 'use strict';
 
-var angular = require('angular');
+var angular = require('angular'),
+    _ = require('lodash');
 
 angular
     .module('portal')
@@ -12,7 +13,7 @@ function grscicollPersonDirective(BUILD_VERSION) {
         restrict: 'E',
         templateUrl: '/templates/components/grscicollPerson/grscicollPerson.html?v=' + BUILD_VERSION,
         scope: {
-            person: '='
+          contactInfo: '='
         },
         controller: grscicollPersonCtrl,
         controllerAs: 'vm',
@@ -24,10 +25,21 @@ function grscicollPersonDirective(BUILD_VERSION) {
     /** @ngInject */
     function grscicollPersonCtrl() {
         var vm = this;
-        vm.person = vm.person;
+        vm.contact = vm.contactInfo;
 
         vm.getAsArray = function(value) {
             return angular.isArray(value) ? value : [value];
+        };
+
+        vm.getRoles = function(roles) {
+            var r = vm.getAsArray(roles);
+            return _.map(r, function(e) {
+                return _.isString(e) ? e : e.role;
+            });
+        };
+
+        vm.isOrcid = function(userId) {
+            return userId.indexOf('orcid.org') != -1;
         };
     }
 }
