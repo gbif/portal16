@@ -4,6 +4,15 @@ $home_overlay_color_from = rgba(0, 0, 0, $home_overlay_opacity)
 $home_overlay_color_to = rgba(0, 0, 0, 0)
 $dark_overlay_color = rgba(0, 0, 0, $dark_overlay_opacity)
 
+.rtl {
+  .home {
+    &__header {
+      > div {
+        background-image linear-gradient(to left, $home_overlay_color_from, $home_overlay_color_to)
+      }
+    }
+  }
+}
 .home {
     &__header {
         background-color $navBar_background_color// $olivine
