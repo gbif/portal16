@@ -1,6 +1,6 @@
 <section class="horizontal-stripe {$ main.fields.backgroundColour $}-background p-0">
   <div class="container--desktop">
-    <div class="block_carousel">
+    <div class="block_carousel" dir="auto">
       {% if main.fields.title and not main.fields.hideTitle %}
       <h2 class="block__header">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
       {% endif %}
@@ -28,12 +28,12 @@
                 <div class="block_slide__content">
                   <div class="block_slide__imageArea {% if feature.fields.roundImage %} block__imageArea--rounded {% endif %}">
                     <img src="{$ _meta.imageCache $}{% if feature.fields.roundImage %}480x480/{% endif %}http:{$ image.file.url | encodeURI $}">
-                    <div class="block_slide__imageArea__caption">
+                    <div class="block_slide__imageArea__caption" dir="auto">
                       {$ image.description | sanitizeTrusted(gb.locales.urlPrefix) | safe $}
                     </div>
                   </div>
                   <div>
-                    <div class="block_slide__textContent">
+                    <div class="block_slide__textContent" dir="auto">
                       <h3 class="h2 block_slide__textContent__title">
                         <div>
                           {$ feature.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}

@@ -4,13 +4,13 @@
   <div class="container--desktop">
     <article class="block_media {% if main.fields.reverse %} block-reverse{% endif %}">
       {% if main.fields.title and not main.fields.hideTitle %}
-      <h2 class="block__header">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
+      <h2 class="block__header" dir="auto">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
       {% endif %}
       <div class="block_media__content">
         <div class="block_media__mediaArea {% if main.fields.roundImage %} block__imageArea--rounded {% endif %}">
           <img src="{$ _meta.imageCache $}{% if main.fields.roundImage %}480x480/{% endif %}http:{$ image.file.url | encodeURI $}">
         </div>
-        <div class="block_media__textArea">
+        <div class="block_media__textArea" dir="auto">
           <div class="block_media__textContent">
             {% if main.fields.subtitle %}
             <h3 class="h2 block_media__textContent__title">
