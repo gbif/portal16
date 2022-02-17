@@ -12,7 +12,7 @@
     </div>
   {% endif %}
   <div class="card__stripe--expandable inherit">
-    <div class="card__content">
+    <div class="card__content" dir="auto">
       <h4 class="block_features__item__title">
         <a href="{$ feature.fields.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ feature.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
       </h4>

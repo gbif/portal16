@@ -10,7 +10,7 @@
     <span class="block_features__item__type">{$ __("homepage.featureTypes.news" ) $}</span>
   </div>
   {% endif %}
-  <div class="card__stripe--expandable inherit">
+  <div class="card__stripe--expandable inherit" dir="auto">
     <div class="card__content">
       <h4 class="block_features__item__title">
         <a href="{$ gb.locales.urlPrefix + '/news/' + feature.sys.id $}" class="inherit">{$ feature.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
