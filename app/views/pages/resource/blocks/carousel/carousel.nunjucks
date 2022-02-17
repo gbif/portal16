@@ -22,6 +22,7 @@
             {% set feature = resolved.Entry[featureId.sys.id] %}
             {% set featureType = resolved.Entry[featureId.sys.id].sys.contentType.sys.id %}
             {% set image = resolved.Asset[feature.fields.primaryImage.sys.id].fields %}
+            {% set body = feature.fields.body | default(feature.fields.comment) | default(feature.fields.description) %}
 
             <uib-slide template-url="carouselslide.html" index="{$ loop.index0 $}">
               <article class="block_slide {% if loop.index0 > 0 %}ng-cloak{% endif %}">
@@ -46,7 +47,7 @@
                         {% endif %}
                       </h3>
                       <div class="block_slide__textContent__body">
-                        {$ feature.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+                        {$ body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                       </div>
                       {% if feature.fields.callToAction %}
                       <div class="block__actions">
