@@ -129,9 +129,9 @@ async function getById(id, depth, isPreview, locale) {
 }
 
 async function getHomePage(isPreview, locale) {
-    let homepages = await searchContentful({content_type: 'homePage'}, 3, isPreview, locale),
-        first = decorateFirst(homepages);
-    return first;
+    let results = await searchContentful({content_type: 'homePage'}, 5, isPreview, locale);
+    let contentItem = getFirstContentItem(results);
+    return contentItem;
 }
 
 function getFirstContentItem(result) {

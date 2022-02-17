@@ -25,7 +25,6 @@
         </div>
         {% endif %}
       </div>
-      <div class="block_features__item__description">{$ feature.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
     </div>
   </div>
 </article>
