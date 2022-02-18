@@ -8,28 +8,28 @@
         <div class="block_counts__list">
             <div class="block_counts__item">
                 <a ng-href="{{ portal.urlPrefix }}/occurrence/search?occurrence_status=PRESENT" class="inherit noUnderline">
-                    <img src="http:{$ occurrenceImage.file.url $}" />
+                    <img src="https:{$ occurrenceImage.file.url $}" />
                     <div count="{{ portal.dataApi }}occurrence/search?occurrence_status=PRESENT">1.900,000,000</div>
                     <h3 class="discreet">{$ __('homepage.counts.occurrences') $}</h3>
                 </a>
             </div>
             <div class="block_counts__item">
                 <a ng-href="{{ portal.urlPrefix }}/dataset/search" class="inherit noUnderline">
-                    <img src="http:{$ datasetImage.file.url $}" />
+                    <img src="https:{$ datasetImage.file.url $}" />
                     <div count="{{ portal.dataApi }}dataset/search">60,000</div>
                     <h3 class="discreet">{$ __('homepage.counts.datasets') $}</h3>
                 </a>
             </div>
             <div class="block_counts__item">
                 <a ng-href="{{ portal.urlPrefix }}/publisher/search" class="inherit noUnderline">
-                    <img src="http:{$ publisherImage.file.url $}" />
+                    <img src="https:{$ publisherImage.file.url $}" />
                     <div count="/api/publisher/count" >1,700</div>
                     <h3 class="discreet">{$ __('homepage.counts.publishers') $}</h3>
                 </a>
             </div>
             <div class="block_counts__item">
                 <a ng-href="{{ portal.urlPrefix }}/resource/search?contentType=literature&literatureType=journal&relevance=GBIF_USED&peerReview=true" class="inherit noUnderline">
-                    <img src="http:{$ literatureImage.file.url $}" />
+                    <img src="https:{$ literatureImage.file.url $}" />
                     <div count="/api/resource/search?contentType=literature&literatureType=journal&relevance=GBIF_USED&peerReview=true&limit=0">6,000</div>
                     <h3 class="discreet">{$ __('homepage.counts.literature') $}</h3>
                 </a>
