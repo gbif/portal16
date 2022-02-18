@@ -200,7 +200,7 @@ let tests = [
         url:
             config.serverProtocol +
             apiConfig.image.url +
-            encodeURIComponent('https://rs.gbif.org/style/logo.svg') +
+            encodeURIComponent('http://rs.gbif.org/style/logo.svg') +
             '?cachebust={NOW}',
         component: 'IMAGE_CACHE',
         severity: severity.WARNING,

@@ -16,18 +16,18 @@ module.exports = onComplete;
 
 function onComplete() {
     let start = Date.now();
-    return new Promise(function(resolve) {
+    return new Promise(function(resolve, reject) {
         function check() {
             if (status.health && status.messages && status.load) {
                 resolve(function() {
                     return status;
                 });
             } else {
-                if (Date.now() - start > 10000) { // milliseconds - how long to wait before returning an error after server is restartet
-                    // reject('Server did not resolve the health within set timeout after startup');
-                    resolve(function() {
-                        return status;
-                    });
+                if (Date.now() - start > 90000) { // milliseconds - how long to wait before returning an error after server is restartet
+                    reject('Server did not resolve the health within set timeout after startup');
+                    // resolve(function() {
+                    //     return status;
+                    // });
                 } else {
                     setTimeout(check, 2000);
                 }
