@@ -196,16 +196,16 @@ let tests = [
     //     severity: severity.WARNING,
     //     message: 'There has been more than 50 errors on occurrence search in the last 5 minutes'
     // },
-    {
-        url:
-            config.serverProtocol +
-            apiConfig.image.url +
-            encodeURIComponent('http://rs.gbif.org/style/logo.svg') +
-            '?cachebust={NOW}',
-        component: 'IMAGE_CACHE',
-        severity: severity.WARNING,
-        message: 'Image cache should return 200 for an image'
-    }
+    // {
+    //     url:
+    //         config.serverProtocol +
+    //         apiConfig.image.url +
+    //         encodeURIComponent('http://rs.gbif.org/style/logo.svg') +
+    //         '?cachebust={NOW}',
+    //     component: 'IMAGE_CACHE',
+    //     severity: severity.WARNING,
+    //     message: 'Image cache should return 200 for an image'
+    // }
 ];
 
 module.exports = tests;
