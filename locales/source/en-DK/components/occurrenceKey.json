@@ -21,7 +21,8 @@
     "gbifTaxonInterpretation": "GBIF Taxon interpretation",
     "aboutTheDataset": "About the dataset",
     "noLocationInformation": "There is no location information published for this record",
-    "deletedMessage": "This record in the GBIF index has been removed, but the last version is shown below as provided by the publisher. \n\nRecords are removed from the index when they are no longer seen in the published dataset. This may happen if the publisher removes a record, an entire dataset, or if new local identifiers are assigned to records.",
+    "deletedMessage": "This record in the GBIF index has been removed, but the last version is shown below as provided by the publisher.",
+    "deletedDescription": "Records are removed from the index when they are no longer seen in the published dataset. This may happen if the publisher removes a record, an entire dataset, or if new local identifiers are assigned to records.",
     "subMenu": {
       "diagnostics": "Diagnostics",
       "menu": "Menu",

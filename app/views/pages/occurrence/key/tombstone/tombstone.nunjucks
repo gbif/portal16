@@ -18,8 +18,11 @@
                       <h1 class="text-center" dir="auto">
                         {$ __('occurrence.occurrence') $} {$ occurrence.key $}
                       </h1>
-                      <p class="text-error" style="max-width: 100%; width: 800px; margin: auto;" ng-bind-html="'occurrence.deletedMessage' | translate | md2html">
+                      <p class="text-error" style="max-width: 100%; width: 800px; margin: auto; margin-bottom: 10px">
                         {$ __('occurrence.deletedMessage') $}
+                      </p>
+                      <p style="max-width: 100%; width: 800px; margin: auto;">
+                        {$ __('occurrence.deletedDescription') $}
                       </p>
                   </header>
               </div>
