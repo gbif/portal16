@@ -16103,6 +16103,11 @@
       "resolved": "https://registry.npmjs.org/preserve/-/preserve-0.2.0.tgz",
       "integrity": "sha1-gV7R9uvGWSb4ZbMQwHE7yzMVzks="
     },
+    "prettify-xml": {
+      "version": "1.2.0",
+      "resolved": "https://registry.npmjs.org/prettify-xml/-/prettify-xml-1.2.0.tgz",
+      "integrity": "sha1-Rtzx7oqNi3PbMLfgbvJtyc8/bxg="
+    },
     "pretty-bytes": {
       "version": "3.0.1",
       "resolved": "https://registry.npmjs.org/pretty-bytes/-/pretty-bytes-3.0.1.tgz",

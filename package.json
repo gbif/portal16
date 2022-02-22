@@ -163,6 +163,7 @@
     "passport-orcid": "0.0.2",
     "phantomjs-prebuilt": "^2.1.7",
     "postcss-unmq": "^1.0.2",
+    "prettify-xml": "^1.2.0",
     "proj4": "^2.4.3",
     "pseudoloc": "^1.1.0",
     "q": "^1.5.1",

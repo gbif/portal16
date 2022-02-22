@@ -1,0 +1,32 @@
+{% extends "../../../../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+  <script>
+        var gb = gb || {};
+    </script>
+    <div>
+      <section class="horizontal-stripe article-header white-background seperator--b">
+          <div class="container--desktop">
+              <div class="row">
+                  <header class="col-xs-12 text-center">
+                      <nav class="article-header__category article-header__category">
+                          <span class="article-header__category__upper"><a
+                                      ui-sref="occurrenceSearchTable()"
+                                      href="{$ gb.locales.urlPrefix $}/occurrence/search">{$ __('occurrence.occurrence') $}</a></span>
+                      </nav>
+
+                      <h1 class="text-center" dir="auto">
+                        {$ __('occurrence.occurrence') $} {$ occurrence.key $}
+                      </h1>
+                      <p class="text-error" style="max-width: 100%; width: 800px; margin: auto;" ng-bind-html="'occurrence.deletedMessage' | translate | md2html">
+                        {$ __('occurrence.deletedMessage') $}
+                      </p>
+                  </header>
+              </div>
+          </div>
+      </section>
+      <section class="horizontal-stripe article-header light-background">
+        <pre style="width: 1200px; max-width: 100%; margin: 0 auto; padding: 32px;"><code>{$ occurrence.formattedFragment $}</code></pre>
+      </section>
+    </div>
+{% endblock %}

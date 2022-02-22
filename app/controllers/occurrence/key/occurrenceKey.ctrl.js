@@ -6,7 +6,9 @@ let express = require('express'),
     querystring = require('querystring'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     utils = rootRequire('app/helpers/utils'),
-    router = express.Router({caseSensitive: true});
+    router = express.Router({caseSensitive: true}),
+    prettifyXml = require('prettify-xml');
+
 
 module.exports = function(app) {
     app.use('/', router);
@@ -27,18 +29,61 @@ router.get('/occurrence/:datasetKey/:occurrenceId', function(req, res, next) {
 
 router.get('/occurrence/:key(\\d+).:ext?', render);
 router.get('/occurrence/:key(\\d+)/cluster.:ext?', render);
-
-function render(req, res, next) {
-    let key = req.params.key;
-    occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
-        renderPage(req, res, next, occurrence);
-    }).catch(function(err) {
-        if (err.type == 'NOT_FOUND') {
-            next();
-        } else {
-            next(err);
+router.get('/occurrence/:key(\\d+)/fragment.:ext?', async function(req, res, next) {
+  let key = req.params.key;
+  try {
+    //if the occurrence exists, then redirect to the main page instead
+    await occurrenceKey.getOccurrenceModel(key, res.__);
+    res.redirect(302, res.locals.gb.locales.urlPrefix + `/occurrence/${key}`);
+  } catch (err) {
+    if (err.type == 'NOT_FOUND') {
+      // else show the tombstone page
+      try {
+        let fragment = await getOccurrenceFragment({key});
+        let isJson = false;
+        let formattedFragment = fragment;
+        if (typeof fragment === 'object') {
+          isJson = true;
+          formattedFragment = JSON.stringify(fragment, null, 2); 
         }
-    });
+        if (!isJson) {
+          try {
+            // try to parse as xml
+            const options = {indent: 2, newline: '\n'};
+            formattedFragment = prettifyXml(fragment, options);
+          } catch (jsonParseError) {
+            isJson = false;
+          }
+        }
+        renderTompstone(req, res, next, {fragment, key, isJson, formattedFragment});
+      } catch (ignore) {
+        next();
+      }
+    } else {
+      next(err);
+    }
+  }
+});
+
+async function render(req, res, next) {
+    let key = req.params.key;
+    try {
+      let occurrence = await occurrenceKey.getOccurrenceModel(key, res.__);
+      renderPage(req, res, next, occurrence);
+    } catch (err) {
+      if (err.type == 'NOT_FOUND') {
+        try {
+          //if not found but the fragment exists, then redirect to a tombstone page
+          await getOccurrenceFragment({key});
+          console.log('redirect to fragment');
+          res.redirect(302, res.locals.gb.locales.urlPrefix + `/occurrence/${key}/fragment`);
+        } catch (ignore) {
+          next();
+        }
+      } else {
+        next(err);
+      }
+    }
 }
 router.get('/api/template/occurrence/:key(\\d+)', function(req, res, next) {
     let key = req.params.key;
@@ -115,6 +160,23 @@ function renderContent(req, res, next, occurrence) {
     }
 }
 
+function renderTompstone(req, res, next, occurrence) {
+  try {
+    let contentItem = {
+      occurrence: occurrence,
+      _meta: {
+        title: 'Occurrence not found',
+        hasTools: true,
+        imageCacheUrl: imageCacheUrl,
+        onlyNoFollow: true
+      }
+    };
+    helper.renderPage(req, res, next, contentItem, 'pages/occurrence/key/tombstone/tombstone');
+  } catch (e) {
+    next(e);
+  }
+}
+
 async function occurrenceSearchFirst(query) {
     let baseRequest = {
         url: apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query),
@@ -132,6 +194,20 @@ async function occurrenceSearchFirst(query) {
 async function getByDatasetOccurrenceId(datasetKey, occurrenceId) {
   let baseRequest = {
       url: apiConfig.occurrence.url + datasetKey + '/' + occurrenceId,
+      method: 'GET',
+      json: true,
+      fullResponse: true
+  };
+  let response = await request(baseRequest);
+  if (response.statusCode != 200) {
+      throw response;
+  }
+  return response.body;
+}
+
+async function getOccurrenceFragment({key}) {
+  let baseRequest = {
+      url: apiConfig.occurrence.url + `${key}/fragment`,
       method: 'GET',
       json: true,
       fullResponse: true
