@@ -109,6 +109,11 @@ function adhocMapDirective(BUILD_VERSION) {
                 baseMap: {style: 'gbif-geyser-en'},
                 overlay: [{style: 'scaled.circles', mode: 'GEO_CENTROID'}],
                 background: '#e0e0e0'
+            },
+            PURPLE_YELLOW_OSM: {
+              baseMap: {style: 'osm-bright-en'},
+              overlay: [{style: 'purpleYellow.poly', bin: 'hex', hexPerTile: 15}],
+              background: '#e0e0e0'
             }
         };
         vm.styleOptions = Object.keys(vm.styles);
@@ -122,8 +127,8 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.yearRange = {};
 
         $scope.create = function(element) {
-            var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'SQUARE_DOTS')] || vm.styles.CLASSIC;
-            vm.style = _.get(vm.mapStyle, 'suggested', 'SQUARE_DOTS');
+            var suggestedStyle = vm.styles[_.get(vm.mapStyle, 'suggested', 'SPOTTY')] || vm.styles.CLASSIC;
+            vm.style = _.get(vm.mapStyle, 'suggested', 'SPOTTY');
             vm.widgetContextStyle = {
                 background: suggestedStyle.background
             };
@@ -153,7 +158,7 @@ function adhocMapDirective(BUILD_VERSION) {
         };
 
         vm.toggleStyle = function() {
-            vm.style = vm.style === 'SPOTTY' ? 'SQUARE_DOTS' : 'SPOTTY';
+            vm.style = vm.style === 'SPOTTY' ? 'PURPLE_YELLOW_OSM' : 'SPOTTY';
             vm.setStyle(vm.style);
         };
 
