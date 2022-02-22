@@ -21,6 +21,7 @@
     "gbifTaxonInterpretation": "GBIF分類群の解釈",
     "aboutTheDataset": "データセットについて",
     "noLocationInformation": "このレコードは位置情報を公開していません。",
+    "deletedMessage": "",
     "subMenu": {
       "diagnostics": "データ解釈の結果",
       "menu": "メニュー",
