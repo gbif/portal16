@@ -22,6 +22,7 @@
     "aboutTheDataset": "About the dataset",
     "noLocationInformation": "There is no location information published for this record",
     "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "Diagnostics",
       "menu": "Menu",
