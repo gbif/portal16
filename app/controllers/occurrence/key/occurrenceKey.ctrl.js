@@ -34,7 +34,7 @@ router.get('/occurrence/:key(\\d+)/fragment.:ext?', async function(req, res, nex
   try {
     //if the occurrence exists, then redirect to the main page instead
     await occurrenceKey.getOccurrenceModel(key, res.__);
-    res.redirect(302, res.locals.gb.locales.urlPrefix + `/occurrence/${key}`);
+    res.redirect(303, res.locals.gb.locales.urlPrefix + `/occurrence/${key}`);
   } catch (err) {
     if (err.type == 'NOT_FOUND') {
       // else show the tombstone page
@@ -76,7 +76,7 @@ async function render(req, res, next) {
           //if not found but the fragment exists, then redirect to a tombstone page
           await getOccurrenceFragment({key});
           console.log('redirect to fragment');
-          res.redirect(302, res.locals.gb.locales.urlPrefix + `/occurrence/${key}/fragment`);
+          res.redirect(303, res.locals.gb.locales.urlPrefix + `/occurrence/${key}/fragment`);
         } catch (ignore) {
           next();
         }
