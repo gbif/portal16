@@ -22,6 +22,7 @@
     "aboutTheDataset": "Sobre el conjunto de datos",
     "noLocationInformation": "No hay información de la ubicación publicada en este registro",
     "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "Diagnósticos",
       "menu": "Menú",
