@@ -112,8 +112,13 @@ function adhocMapDirective(BUILD_VERSION) {
             },
             PURPLE_YELLOW_OSM: {
               baseMap: {style: 'osm-bright-en'},
-              overlay: [{style: 'purpleYellow.poly', bin: 'hex', hexPerTile: 15}],
+              overlay: [{style: 'purpleYellow.poly', bin: 'hex', hexPerTile: 10}],
               background: '#e0e0e0'
+            },
+            SPOTTY_NATURAL: {
+              baseMap: {style: 'gbif-natural-en'},
+              overlay: [{style: 'scaled.circles', mode: 'GEO_CENTROID'}],
+              background: '#b9d4ee'
             }
         };
         vm.styleOptions = Object.keys(vm.styles);
@@ -158,7 +163,7 @@ function adhocMapDirective(BUILD_VERSION) {
         };
 
         vm.toggleStyle = function() {
-            vm.style = vm.style === 'SPOTTY' ? 'PURPLE_YELLOW_OSM' : 'SPOTTY';
+            vm.style = vm.style === 'SPOTTY' ? 'SPOTTY_NATURAL' : 'SPOTTY';
             vm.setStyle(vm.style);
         };
 
