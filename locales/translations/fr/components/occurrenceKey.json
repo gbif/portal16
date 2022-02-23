@@ -22,7 +22,7 @@
     "aboutTheDataset": "À propos du jeu de données",
     "noLocationInformation": "Il n’y a aucune information de localisation publiée pour cet enregistrement",
     "deletedMessage": "",
-    "deletedDescription": "",
+    "deletedDescription": "Les enregistrements qui ne sont plus dans un jeu de données publié sont supprimés de l'index GBIF. Les éditeurs peuvent parfois avoir des raisons de supprimer des enregistrements individuels ou un jeu de données entier ou d'attribuer de nouveaux identifiants locaux.",
     "subMenu": {
       "diagnostics": "Diagnostic",
       "menu": "Menu",
