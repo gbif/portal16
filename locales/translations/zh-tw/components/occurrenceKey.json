@@ -21,6 +21,8 @@
     "gbifTaxonInterpretation": "GBIF 分類群解析",
     "aboutTheDataset": "關於資料集",
     "noLocationInformation": "此發布紀錄內容無地點資訊",
+    "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "診斷訊息",
       "menu": "選單",

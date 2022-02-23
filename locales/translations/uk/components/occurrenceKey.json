@@ -21,6 +21,8 @@
     "gbifTaxonInterpretation": "Інтерпретація таксона у GBIF",
     "aboutTheDataset": "Опис набору даних",
     "noLocationInformation": "Інформація про місцезнаходження для цього запису відсутня.",
+    "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "Діагностика",
       "menu": "Меню",

@@ -21,6 +21,8 @@
     "gbifTaxonInterpretation": "Interpretação do táxon do GBIF",
     "aboutTheDataset": "Sobre o conjunto de dados",
     "noLocationInformation": "Não há nenhuma informação de localidade publicada para este registo",
+    "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "Diagnóstico",
       "menu": "Menu",

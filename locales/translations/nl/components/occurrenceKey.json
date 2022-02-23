@@ -21,6 +21,8 @@
     "gbifTaxonInterpretation": "",
     "aboutTheDataset": "",
     "noLocationInformation": "",
+    "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "",
       "menu": "",

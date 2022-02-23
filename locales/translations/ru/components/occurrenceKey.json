@@ -21,6 +21,8 @@
     "gbifTaxonInterpretation": "По таксономии GBIF",
     "aboutTheDataset": "О наборе данных",
     "noLocationInformation": "Для этой записи не опубликована информация о местонахождении",
+    "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "Исходные значения",
       "menu": "Меню",

@@ -21,6 +21,8 @@
     "gbifTaxonInterpretation": "Interprétation de taxon par GBIF",
     "aboutTheDataset": "À propos du jeu de données",
     "noLocationInformation": "Il n’y a aucune information de localisation publiée pour cet enregistrement",
+    "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "Diagnostic",
       "menu": "Menu",

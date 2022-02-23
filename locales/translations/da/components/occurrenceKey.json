@@ -21,6 +21,8 @@
     "gbifTaxonInterpretation": "GBIF Takson fortolkning",
     "aboutTheDataset": "Om datasættet",
     "noLocationInformation": "Der er ingen lokation for denne observation",
+    "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "Diagnostik",
       "menu": "Menu",
