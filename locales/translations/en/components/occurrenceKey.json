@@ -21,6 +21,7 @@
     "gbifTaxonInterpretation": "GBIF Taxon interpretation",
     "aboutTheDataset": "About the dataset",
     "noLocationInformation": "There is no location information published for this record",
+    "deletedMessage": "",
     "subMenu": {
       "diagnostics": "Diagnostics",
       "menu": "Menu",
