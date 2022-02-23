@@ -22,6 +22,7 @@
     "aboutTheDataset": "حول مجموعة البيانات",
     "noLocationInformation": "لا تتوفر معلومات عن الموقع منشورة لهذا السجل",
     "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "التشخيصات",
       "menu": "القائمة",

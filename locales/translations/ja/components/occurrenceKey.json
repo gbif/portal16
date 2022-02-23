@@ -22,6 +22,7 @@
     "aboutTheDataset": "データセットについて",
     "noLocationInformation": "このレコードは位置情報を公開していません。",
     "deletedMessage": "",
+    "deletedDescription": "",
     "subMenu": {
       "diagnostics": "データ解釈の結果",
       "menu": "メニュー",
