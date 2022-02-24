@@ -22,7 +22,7 @@
     "aboutTheDataset": "Sobre el conjunto de datos",
     "noLocationInformation": "No hay información de la ubicación publicada en este registro",
     "deletedMessage": "",
-    "deletedDescription": "",
+    "deletedDescription": "Los registros que ya no están en un conjunto de datos publicado se eliminan del índice GBIF. Los editores, a veces, pueden tener razones para eliminar registros individuales o un conjunto de datos completo o asignar nuevos identificadores locales.",
     "subMenu": {
       "diagnostics": "Diagnósticos",
       "menu": "Menú",
