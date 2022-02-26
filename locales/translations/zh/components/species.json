@@ -5,7 +5,7 @@
   },
   "species": {
     "literature": {
-      "introText": ""
+      "introText": "[GBIF-relevant](/常见问题解答?问题=文献-相关性)文献明确地集中于分类单元"
     },
     "distribution": {
       "presentIn": "{status} 在 {country}",
