@@ -10,7 +10,7 @@
             <div>
                 <h3 translate="dataset.description"></h3>
                 <div ng-bind-html="portal.trustAsHtml(datasetKey.dataset.description)"></div>
-                <div ng-if="datasetKey.ebirdKey === datasetKey.key && datasetKey.publishingCountries.facets[0].counts.length > 1">
+                <div ng-if="datasetKey.publishingCountries.facets[0].counts.length > 1">
                     <h4 translate="dataset.publishingCountriesAreas">Publishing countries and areas</h4>
                     <div>
                         <ul class="list-chips">

@@ -101,9 +101,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
 
     // if this dataset is ebird then show a list of publishing countries - relates to https://github.com/gbif/portal16/issues/641.
     // It has been decided to hardcode a special rule for ebird. An easy generic way would be to always get publishing countries and show the list if larger than 1
-    if (vm.ebirdKey === vm.key) {
-        vm.publishingCountries = OccurrenceSearch.query({dataset_key: vm.key, facet: 'publishing_country', limit: 0, facetLimit: 1000});
-    }
+    vm.publishingCountries = OccurrenceSearch.query({dataset_key: vm.key, facet: 'publishing_country', limit: 0, facetLimit: 1000});
 
     vm.rootElements = SpeciesRoot.get({key: vm.key, limit: 2});
 
