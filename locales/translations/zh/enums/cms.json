@@ -77,8 +77,8 @@
           "MARINE": "海洋",
           "PHYLOGENETICS": "系统发育",
           "SPECIES_DISTRIBUTIONS": "物种分布",
-          "INFRASTRUCTURE": "",
-          "DNA": "",
+          "INFRASTRUCTURE": "基础设施",
+          "DNA": "脱氧核糖核酸",
           "TAXONOMY": "分类学"
         },
         "purposes": {

@@ -77,12 +77,12 @@
     "title": "我的下载"
   },
   "customDownload": {
-    "invalidFilter": "",
-    "seeDocumentation": "",
-    "reformat": "",
-    "invalidJson": "",
-    "title": "",
-    "invalidUrlPredicate": "",
-    "redirectNotice": ""
+    "invalidFilter": "无效过滤器",
+    "seeDocumentation": "阅读文档",
+    "reformat": "重新格式化",
+    "invalidJson": "无效的JSON",
+    "title": "创建新的下载",
+    "invalidUrlPredicate": "URL中的谓词无效",
+    "redirectNotice": "看起来您是从另一个站点被引导到这里的。 要下载，您需要先登录或注册。"
   }
 }

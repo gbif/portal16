@@ -54,7 +54,7 @@
             "dontSeeYourIpt": "没有看到您的IPT？发送邮件到helpdesk@gbif.org（ [GBIF] 帮助台，请求 \"将 IPT 添加到地图\") 您的坐标。"
         },
         "dataRepository": {
-            "title": ""
+            "title": "数据存储库"
         },
         "sequenceId": {
             "title": "序列 ID"
