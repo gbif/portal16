@@ -104,6 +104,22 @@
   .block_slide {
     &__imageArea {
       display: block;
+      position: relative;
+      &__caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 12px;
+        background: white;
+        border-radius: 4px;
+        border: 1px solid #eee;
+        display: none;
+      }
+      &:hover {
+        .block_slide__imageArea__caption {
+          display: block;
+        }
+      }
     }
   }
 }
