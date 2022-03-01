@@ -1,4 +1,4 @@
-<div class="horizontal-stripe white-background">
+<div class="horizontal-stripe {$ main.fields.backgroundColour | default("white") $}-background">
     <div class="container--narrow">
         {% if main.fields.title and not main.fields.hideTitle %}
         <h2>{$ main.fields.title $}</h2>
