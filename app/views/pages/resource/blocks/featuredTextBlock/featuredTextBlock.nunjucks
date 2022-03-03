@@ -1,0 +1,42 @@
+{% set image = resolved.Asset[main.fields.primaryImage.sys.id].fields %}
+
+<section class="featured_text_block__background horizontal-stripe {$ main.fields.backgroundColour $}-background" {% if image %} style="background-image: url('{$ _meta.imageCache $}http:{$ image.file.url | encodeURI $}'); {% if main.fields.style %} {$ main.fields.style $} {% endif %}" {% endif %}>
+  <div class="container--desktop">
+    <div class="featured_text_block {% if main.fields.reverse %} block-reverse{% endif %}">
+      {% if main.fields.title and not main.fields.hideTitle %}
+      <h2 class="block__header" dir="auto">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
+      {% endif %}
+      <div class="container--narrow">
+        <div class="featured_text_block__content">
+          <div class="featured_text_block__textArea" dir="auto">
+            <div class="featured_text_block__textContent">
+              {% if main.fields.subtitle %}
+              <h3 class="h2 featured_text_block__textContent__title">
+                {$ main.fields.subtitle | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+              </h3>
+              {% endif %}
+              <div class="block_slide__textContent__body">
+                {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+              </div>
+              {% if main.fields.callToAction %}
+              <div class="block__actions">
+                {% for ctaId in main.fields.callToAction %}
+                  <div class="block__action">
+                    {% set cta = resolved.Entry[ctaId.sys.id] %}
+                    {% if "https://player.vimeo.com" in cta.fields.url %}
+                      <span video-modal source="'{$ cta.fields.url $}'"><a href="">{$ cta.fields.label $}</a></span>
+                    {% else %}
+                    <a href="{$ cta.fields.url $}">{$ cta.fields.label $}</a>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

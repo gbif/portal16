@@ -27,6 +27,10 @@
           {% if type == "counts" %}
             {% include "../../blocks/counts/counts.nunjucks" %}
           {% endif %}
+
+          {% if type == "featuredTextBlock" %}
+            {% include "../../blocks/featuredTextBlock/featuredTextBlock.nunjucks" %}
+          {% endif %}
         {% endfor %}
     </div>
 </div>
