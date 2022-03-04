@@ -12,17 +12,17 @@
       "STORAGE_RECORDED": "记录的存储",
       "STORAGE_VACUUM": "存储真空",
       "SAMPLE_CRYOPRESERVED": "样品冷冻保存",
-      "SAMPLE_DRIED": "",
-      "SAMPLE_EMBEDDED": "",
-      "SAMPLE_FLUID_PRESERVED": "",
-      "SAMPLE_PINNED": "",
-      "SAMPLE_PRESSED": "",
-      "SAMPLE_SKELETONIZED": "",
-      "SAMPLE_SLIDE_MOUNT": "",
-      "SAMPLE_SURFACE_COATING": "",
-      "SAMPLE_TANNED": "",
-      "SAMPLE_WAX_BLOCK": "",
-      "SAMPLE_OTHER": ""
+      "SAMPLE_DRIED": "干燥的样本",
+      "SAMPLE_EMBEDDED": "嵌入的样本",
+      "SAMPLE_FLUID_PRESERVED": "保存的样本液",
+      "SAMPLE_PINNED": "固定的样本",
+      "SAMPLE_PRESSED": "按压的样本",
+      "SAMPLE_SKELETONIZED": "骨骼化的样本",
+      "SAMPLE_SLIDE_MOUNT": "样品载玻片架",
+      "SAMPLE_SURFACE_COATING": "样品表面涂层",
+      "SAMPLE_TANNED": "鞣制的样本",
+      "SAMPLE_WAX_BLOCK": "样本蜡块",
+      "SAMPLE_OTHER": "其他样本"
     }
   }
 }
