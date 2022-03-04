@@ -263,6 +263,9 @@ module.exports = function(nunjucksConfiguration) {
             if (data.startsWith('urn:lsid:')) {
                 return 'http://lsid.info/' + data;
             }
+            if (data.startsWith('avibase-')) {
+              return 'https://avibase.bsc-eoc.org/species.jsp?avibaseid=' + data.substring(8);
+          }
             return false;
         });
     })();
