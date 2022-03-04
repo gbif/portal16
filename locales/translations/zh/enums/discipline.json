@@ -1,14 +1,14 @@
 {
   "enum": {
     "discipline": {
-      "ARCHAEOLOGY": "",
-      "ARCHAEOLOGY_PREHISTORIC": "",
-      "ARCHAEOLOGY_HISTORIC": "",
-      "ARCHAEOLOGY_UNDERWATER": "",
-      "ANTHROPOLOGY": "",
-      "ANTHROPOLOGY_BIOLOGICAL": "",
-      "ANTHROPOLOGY_CULTURAL": "",
-      "ANTHROPOLOGY_LINGUISTIC": "",
+      "ARCHAEOLOGY": "考古学",
+      "ARCHAEOLOGY_PREHISTORIC": "史前考古",
+      "ARCHAEOLOGY_HISTORIC": "考古学历史",
+      "ARCHAEOLOGY_UNDERWATER": "水下考古",
+      "ANTHROPOLOGY": "人类学",
+      "ANTHROPOLOGY_BIOLOGICAL": "人类学生物学",
+      "ANTHROPOLOGY_CULTURAL": "文化人类学",
+      "ANTHROPOLOGY_LINGUISTIC": "人类学语言学",
       "SPACE": "",
       "SPACE_ASTRONOMY": "",
       "SPACE_ASTROPHYSICS": "",
