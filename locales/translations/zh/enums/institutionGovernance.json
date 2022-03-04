@@ -1,17 +1,17 @@
 {
   "enum": {
     "institutionGovernance": {
-      "ACADEMIC_FEDERAL": "",
-      "ACADEMIC_FOR_PROFIT": "",
-      "ACADEMIC_LOCAL": "",
-      "ACADEMIC_NON_PROFIT": "",
-      "ACADEMIC_STATE": "",
-      "FEDERAL": "",
-      "FOR_PROFIT": "",
-      "LOCAL": "",
-      "NON_PROFIT": "",
+      "ACADEMIC_FEDERAL": "学术性联邦",
+      "ACADEMIC_FOR_PROFIT": "以营利为目的的学术",
+      "ACADEMIC_LOCAL": "地方学术",
+      "ACADEMIC_NON_PROFIT": "学术性非营利机构",
+      "ACADEMIC_STATE": "学术状态",
+      "FEDERAL": "联邦的",
+      "FOR_PROFIT": "盈利",
+      "LOCAL": "当地的",
+      "NON_PROFIT": "非盈利性",
       "OTHER": "其他",
-      "STATE": ""
+      "STATE": "状态"
     }
   }
 }
