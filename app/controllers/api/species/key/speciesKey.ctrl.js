@@ -352,29 +352,35 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
   });
     if (species.length > 0 && invadedCountry) {
         // get verbatim species view
-        let verbatimSpecies = await getVerbatim(species[0].key);
-        let profiles = _.get(verbatimSpecies, 'extensions["http://rs.gbif.org/terms/1.0/SpeciesProfile"]', []);
-        let invasiveInfo = _.find(profiles, function(x) {
-            return x['http://rs.gbif.org/terms/1.0/isInvasive'];
-        });
-        let isInvasive = false;
-        if (invasiveInfo) {
-            isInvasive = isInvasiveString(invasiveInfo['http://rs.gbif.org/terms/1.0/isInvasive']);
-        }
+        try {
+          let verbatimSpecies = await getVerbatim(species[0].key);
+          let profiles = _.get(verbatimSpecies, 'extensions["http://rs.gbif.org/terms/1.0/SpeciesProfile"]', []);
+          let invasiveInfo = _.find(profiles, function(x) {
+              return x['http://rs.gbif.org/terms/1.0/isInvasive'];
+          });
+          let isInvasive = false;
+          if (invasiveInfo) {
+              isInvasive = isInvasiveString(invasiveInfo['http://rs.gbif.org/terms/1.0/isInvasive']);
+          }
 
-        let isSubCountry = !!subCountry; // invadedCountry.length > 10;
-        invadedCountry = invadedCountry.substring(8, 10).toUpperCase();
-        // compose result obj with the properties we need for displaying the list - no need to send full species and dataaset obj.
-        return {
-            invadedCountry: invadedCountry,
-            isSubCountry: isSubCountry,
-            datasetKey: dataset.key,
-            dataset: dataset.title,
-            scientificName: species[0].scientificName,
-            nubKey: species[0].nubKey,
-            taxonKey: species[0].key,
-            isInvasive: isInvasive
-        };
+          let isSubCountry = !!subCountry; // invadedCountry.length > 10;
+          invadedCountry = invadedCountry.substring(8, 10).toUpperCase();
+          // compose result obj with the properties we need for displaying the list - no need to send full species and dataaset obj.
+          return {
+              invadedCountry: invadedCountry,
+              isSubCountry: isSubCountry,
+              datasetKey: dataset.key,
+              dataset: dataset.title,
+              scientificName: species[0].scientificName,
+              nubKey: species[0].nubKey,
+              taxonKey: species[0].key,
+              isInvasive: isInvasive
+          };
+        } catch (err) {
+            log.error(err);
+            // log error, but continue, it might be that the other in the list will show. This has happened in the past if the APIs are in a bad state due to broken indexing.
+            return undefined;
+        }
     } else {
         return undefined; // TODO ask thomas why he returns this above - i don't see how this would ever be the case
     }
