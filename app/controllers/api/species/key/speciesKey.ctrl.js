@@ -343,6 +343,10 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
     let invadedCountry = dataset.keywords.find(function(keyword) {
         return keyword.startsWith('country_');
     });
+    // Consider multiple keywords. This allows the publisher to add 2 keywords. 
+    // One for the country and another for the territory. 
+    // That means that we can still search for all datasets about a country, 
+    // while still have the information that it is about a subset
     let subCountry = dataset.keywords.find(function(keyword) {
       return keyword.startsWith('country_') && keyword.length > 10;
   });
