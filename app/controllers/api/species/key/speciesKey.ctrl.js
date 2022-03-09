@@ -470,7 +470,8 @@ async function getPublisher(key) {
     return response.body;
 }
 
-function isInvasiveString(str) {
-    return str === 'invasive' || str === 'true' || str === 'yes' || str === 'Invasive' || str === 'True' || str === 'Yes';
+function isInvasiveString(strVerbatim) {
+    let str = (strVerbatim + '').toLowerCase().trim();
+    return str === 'invasive' || str === 'true' || str === 'yes';
 }
 
