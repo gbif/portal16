@@ -343,6 +343,9 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
     let invadedCountry = dataset.keywords.find(function(keyword) {
         return keyword.startsWith('country_');
     });
+    let subCountry = dataset.keywords.find(function(keyword) {
+      return keyword.startsWith('country_') && keyword.length > 10;
+  });
     if (species.length > 0 && invadedCountry) {
         // get verbatim species view
         let verbatimSpecies = await getVerbatim(species[0].key);
@@ -355,7 +358,7 @@ async function getInvasiveSpeciesInfo(taxonKey, dataset) {
             isInvasive = isInvasiveString(invasiveInfo['http://rs.gbif.org/terms/1.0/isInvasive']);
         }
 
-        let isSubCountry = invadedCountry.length > 10;
+        let isSubCountry = !!subCountry; // invadedCountry.length > 10;
         invadedCountry = invadedCountry.substring(8, 10).toUpperCase();
         // compose result obj with the properties we need for displaying the list - no need to send full species and dataaset obj.
         return {
