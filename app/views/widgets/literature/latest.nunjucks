@@ -144,7 +144,7 @@
   <div class="feed">
     <header>
       <h1>
-        <a class="button" href="https://www.gbif.org/resource/search?{$ query $}" target="_blank">{$ data.count $} citations</a>
+        <a class="button" href="https://www.gbif.org/resource/search?{$ query $}" target="_parent">{$ data.count $} citations</a>
       </h1>
     </header>
     <main>
@@ -152,12 +152,12 @@
         <div class="item">
           <h3 class="searchCard__headline" dir="auto">
             {% if result.identifiers.doi %}
-            <a href="https://doi.org/{$ result.identifiers.doi $}">
+            <a href="https://doi.org/{$ result.identifiers.doi $}" target="_parent">
                 {$ result.title $}
                 <span class="gb-icon-link"></span>
             </a>
             {% elif result.websites[0] %}
-            <a href="{$ result.websites[0] $}">
+            <a href="{$ result.websites[0] $}" target="_parent">
                 {$ result.title $}
                 <span class="gb-icon-link"></span>
             </a>
@@ -197,7 +197,7 @@
       {% endfor %}
       {% if data.count > data.limit %}
       <div class="more">
-        <a href="https://www.gbif.org/resource/search?{$ query $}" target="_blank">See all</a>
+        <a href="https://www.gbif.org/resource/search?{$ query $}" target="_parent">See all</a>
       </div>
       {% endif %}
       {% if data.count == 0 %}
@@ -205,7 +205,7 @@
       {% endif %}
     </main>
     <footer>
-      <a href="https://www.gbif.org/resource/search?{$ query $}" target="_blank">
+      <a href="https://www.gbif.org/resource/search?{$ query $}" target="_parent">
       <svg class="svg" viewBox="90 239.1 539.7 523.9" xmlns="http://www.w3.org/2000/svg">
         <path class="gbif-logo-svg" d="M325.5,495.4c0-89.7,43.8-167.4,174.2-167.4C499.6,417.9,440.5,495.4,325.5,495.4"></path>
         <path class="gbif-logo-svg" d="M534.3,731c24.4,0,43.2-3.5,62.4-10.5c0-71-42.4-121.8-117.2-158.4c-57.2-28.7-127.7-43.6-192.1-43.6
