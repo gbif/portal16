@@ -144,7 +144,7 @@
   <div class="feed">
     <header>
       <h1>
-        <a class="button" href="https://www.gbif.org/resource/search?{$ query $}" target="_parent">{$ data.count $} citations</a>
+        <a class="button" href="https://www.gbif.org/resource/search?{$ query $}" target="_parent">{$ data.count $} citation{% if not (data.count == 1) %}s{% endif %}</a>
       </h1>
     </header>
     <main>
