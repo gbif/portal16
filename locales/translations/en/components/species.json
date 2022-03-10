@@ -25,7 +25,7 @@
       "verbatim": "Verbatim"
     },
     "invasives": {
-      "nInvadedCountries": "Recorded as invasive in {NUMBER_FORMATED} {NUMBER, plural, one{country or island} other{countries or islands}}",
+      "nInvadedCountries": "Recorded as introduced in {NUMBER_FORMATED} {NUMBER, plural, one{country or island} other{countries or islands}}",
       "invasiveIn": "Recorded as introduced in",
       "accordingTo": "According to",
       "occurrenceCount": "Occurrences in GBIF",
