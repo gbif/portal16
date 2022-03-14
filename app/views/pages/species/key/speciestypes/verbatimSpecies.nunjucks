@@ -1,5 +1,5 @@
 <div ng-if="!speciesKey2.isNub && speciesKey2.$state.is('speciesKeyVerbatim') && speciesKey2.dwcextensions.$resolved" class="horizontal-stripe">
-        <div class="container--desktop">
+        <div class="container--desktop" ng-if="speciesKey2.hasVerbatim">
             <div class="card">
                 <div class="card__content card__content--warning">
                     <p translate="species.verbatimListingMsg"></p>

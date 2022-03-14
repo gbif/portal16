@@ -121,6 +121,7 @@ function speciesKey2Ctrl(
         if (!vm.isNub) {
             vm.verbatim = SpeciesVerbatim.get({id: vm.key});
             vm.verbatim.$promise.then(function () {
+                vm.hasVerbatim = true;
                 vm.verbatimHasExtensions =
                     Object.keys(vm.verbatim.extensions).length > 0;
                 if (
@@ -159,7 +160,16 @@ function speciesKey2Ctrl(
             vm.speciesTreatment.$promise.catch(function () {
                 vm.hasTreatment = false;
             });
-            vm.verbatim.$promise.catch(vm.nonCriticalErrorHandler);
+            vm.verbatim.$promise.catch(function(err) {
+                if (err.status === 404) {
+                    vm.hasVerbatim = false;
+                    $state.go('speciesKey',
+                    {speciesKey: vm.key},
+                    {inherit: false, notify: true, reload: false});
+                } else {
+                    vm.nonCriticalErrorHandler(err);
+                }
+            });
 
             vm.dwcextensions = DwcExtension.get();
             vm.dwcextensions.$promise.catch(vm.nonCriticalErrorHandler);
