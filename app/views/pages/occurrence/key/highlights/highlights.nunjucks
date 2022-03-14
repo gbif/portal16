@@ -30,7 +30,7 @@
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.appliedName' ) $}</dt>
                             <dd dir="auto">
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.taxonKey $} })">
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })">
                                     {$ occurrence.record.scientificName $}
                                 </a>
                             </dd>
@@ -38,7 +38,7 @@
                         <div>
                             <dt>{$ __('ocurrenceFieldNames.acceptedName' ) $}</dt>
                             <dd dir="auto">
-                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.species.key $} })">
+                                <a ui-sref="speciesKey({ speciesKey:{$ occurrence.record.acceptedTaxonKey $} })">
                                     {$ occurrence.species.accepted $}
                                 </a>
                             </dd>
