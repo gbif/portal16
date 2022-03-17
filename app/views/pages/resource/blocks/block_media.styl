@@ -1,6 +1,6 @@
 .block {
   &__header {
-    font-size: 32px;
+    font-size: 24px;
     line-height: 1.3em;
     font-weight: 500;
     padding: 64px 16px;
@@ -22,6 +22,7 @@
   &__actions {
     margin: 0 -16px;
     margin-top: 64px;
+    font-weight: 500;
   }
 
   &__action {
@@ -41,14 +42,21 @@
   .block {
     &__header {
       padding-top: 96px
+      font-size: 28px;
+    }
+    &__actions {
+      margin-top: 32px;
     }
   }
 }
 
-// +isAbove(1000px) {
-//   .block {
-//     &__header {
-//       padding-top: 96px
-//     }
-//   }
-// }
++isAbove(1000px) {
+  .block {
+    &__header {
+      font-size: 32px;
+    }
+    &__actions {
+      margin-top: 64px;
+    }
+  }
+}

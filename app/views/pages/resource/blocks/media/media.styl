@@ -1,7 +1,7 @@
 .block_media {
   &__content {
     padding-bottom: 64px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.8em;
     &__mediaArea {
       text-align: center
@@ -14,8 +14,19 @@
       }
     }
   }
+  &__textContent {
+    max-width: 480px;
+    margin: auto;
+  }
 }
 
++isBelow(768px) {
+  .block_media {
+    &__mediaArea  {
+      text-align: center;
+    }
+  }
+}
 +isAbove(768px) {
   .block_media {
     &__content {
@@ -29,12 +40,23 @@
         }
       }
     }
+    &__textContent {
+      margin: inherit;
+    }
   }
   .block-reverse {
     &.block_media {
       .block_media__content {
         flex-direction: row-reverse;
       }
+    }
+  }
+}
+
++isAbove(1000px) {
+  .block_media {
+    &__content {
+      line-height: 1.6em;
     }
   }
 }
