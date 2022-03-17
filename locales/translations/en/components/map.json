@@ -52,13 +52,13 @@
       "ORANGE_CLUSTER": "Orange cluster"
     },
     "tooltips": {
-      "toggleStyle": "",
-      "searchArea": "",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
-      "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "toggleStyle": "Toggle map style",
+      "searchArea": "Search area",
+      "addRectangleFilter": "Draw rectangle and add as filter",
+      "addPolygonFilter": "Draw area and add as filter",
+      "removeGeometryFilter": "Remove geometry filter",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out"
     },
     "errors": {
       "413": "The geometry file is too large to be processed by the data API."
