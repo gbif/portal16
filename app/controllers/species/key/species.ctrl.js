@@ -72,10 +72,13 @@ function renderSpeciesPage(req, res, next) {
 }
 
 router.get('/species/first', function(req, res, next) {
+    let target = req.query.target;
+    let redirectToBackbone = target === 'backbone';
     if (req.query.sourceId) {
         speciesBySourceId(req.query).then(function(resp) {
             if (resp.results && resp.results.length === 1) {
-                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + resp.results[0].key);
+                let redirectKey = redirectToBackbone ? resp.results[0].nubKey : resp.results[0].key;
+                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + redirectKey);
             } else {
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
             }
@@ -92,7 +95,8 @@ router.get('/species/first', function(req, res, next) {
         }
         speciesSearchFirst(req.query).then(function(resp) {
             if (resp.count == 1) {
-                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + resp.results[0].key);
+                let redirectKey = redirectToBackbone ? resp.results[0].nubKey : resp.results[0].key;
+                res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + redirectKey);
             } else {
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
             }
