@@ -77,7 +77,7 @@ router.get('/species/first', function(req, res, next) {
     if (req.query.sourceId) {
         speciesBySourceId(req.query).then(function(resp) {
             if (resp.results && resp.results.length === 1) {
-                let redirectKey = redirectToBackbone ? resp.results[0].nubKey : resp.results[0].key;
+                let redirectKey = redirectToBackbone && resp.results[0].nubKey ? resp.results[0].nubKey : resp.results[0].key;
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + redirectKey);
             } else {
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
@@ -95,7 +95,7 @@ router.get('/species/first', function(req, res, next) {
         }
         speciesSearchFirst(req.query).then(function(resp) {
             if (resp.count == 1) {
-                let redirectKey = redirectToBackbone ? resp.results[0].nubKey : resp.results[0].key;
+                let redirectKey = redirectToBackbone && resp.results[0].nubKey ? resp.results[0].nubKey : resp.results[0].key;
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/' + redirectKey);
             } else {
                 res.redirect(302, res.locals.gb.locales.urlPrefix + '/species/search?' + querystring.stringify(req.query));
