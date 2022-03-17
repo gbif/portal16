@@ -1,7 +1,7 @@
 .block_features {
   padding-bottom: 64px
   &__list {
-    margin 0 (-($halfGutter / 2))
+    margin -($halfGutter/2) -($halfGutter / 2)
     display flex
     flex-wrap wrap
     justify-content center
@@ -116,6 +116,9 @@
 
 +isAbove(1000px) {
   .block_features {
+    &__list {
+      margin: -($halfGutter/2) ($halfGutter*2);
+    }
     &__item {
       &__description {
         -webkit-line-clamp: 4;
