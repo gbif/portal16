@@ -14,7 +14,7 @@ angular
     .controller('dataValidatorKeyCtrl', dataValidatorKeyCtrl);
 
 /** @ngInject */
-function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env, LOCALE_MAPPINGS, LOCALE) {
+function dataValidatorKeyCtrl($http, $scope, User, AUTH_EVENTS, $stateParams, $state, $timeout, DwcExtension, Remarks, $location, $sessionStorage, validatorFeedbackService, env, LOCALE_MAPPINGS, LOCALE) {
     var vm = this;
     vm.moment = moment;
     vm.dataApi = env.dataApi;
@@ -34,6 +34,22 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
         });
     });
 
+    function updateAccess() {
+        var user = $sessionStorage.user;
+      //  vm.isRepoUser = User.hasRole(USER_ROLES.REPOSITORY_USER);
+        vm.isLoggedIn = !!user;
+            vm.hasApi401Error = false;
+            vm.hasError = false;
+            vm.getValidationResults(vm.jobid);       
+    }
+   
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
+        updateAccess();
+    });
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
+        updateAccess();
+    });
+
     $http.get(
         vm.dataApi + 'validator/evaluation/nonindexable'
 
@@ -49,21 +65,22 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
             vm.token = data.token;
         })
         .error(function(data, status) {
-            handleWSError(data, status);
+            // let the validation endpoint decide if Auth is needed
+           // handleWSError(data, status);
         });
     };
 
     vm.getValidationResults = function(jobid) {
-        /* $http.get(
-            vm.dataApi + 'validator/jobserver/status/' + jobid, {params: {nonse: Math.random()}}
-
-        ) */
-        vm.getToken().then(function() {
-            $http({
+        // let the validation endpoint decide if Auth is needed
+        vm.getToken().finally(function() {
+            var conf = {
                 method: 'GET',
-                url: vm.dataApi + 'validation/' + jobid + '?nonse=' + Math.random(),
-                headers: {'Authorization': 'Bearer ' + vm.token}
-            })
+                url: vm.dataApi + 'validation/' + jobid + '?nonse=' + Math.random()      
+            };
+            if (vm.token) {
+                conf.headers = {'Authorization': 'Bearer ' + vm.token};
+            }
+            $http(conf)
             .success(function(data) {
                 vm.startTimestamp = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().fromNow();
                 vm.generatedDateFormatted = moment(data.created).locale(_.get(LOCALE_MAPPINGS, 'moment.' + LOCALE, 'en')).local().format('MMMM Do YYYY, h:mm a');
@@ -386,6 +403,12 @@ function dataValidatorKeyCtrl($http, User, $stateParams, $state, $timeout, DwcEx
                 break;
             case 400:
                 vm.hasApi400Error = true;
+                break;
+            case 401:
+                vm.hasApi401Error = true;
+                break;
+            case 403:
+                vm.hasApi401Error = true;
                 break;
             default:
                 vm.hasApiCriticalError = true;

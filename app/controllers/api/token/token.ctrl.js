@@ -18,6 +18,9 @@ module.exports = function(app) {
 router.get('/token', auth.appendUser(), async function(req, res) {
    // return res.json({token: signToken(req.user)}); // works, but let us rather take it from the API
    try {
+    if (!req.user) {
+        throw new Error('forbidden');
+    }
     const user = userModel.getClientUser(req.user);
     let options = {
         method: 'GET',
@@ -32,12 +35,12 @@ router.get('/token', auth.appendUser(), async function(req, res) {
     // return response.body;
 } catch (err) {
     let status =
-            err.message === 'not found'
-                ? 404
+            err.message === 'forbidden'
+                ? 401
                 : err.statusCode
                 ? err.statusCode
                 : 500;
-        if (status !== 404) {
+        if (status !== 404 && status !== 401) {
             log.error(err);
         }
         res.sendStatus(status);

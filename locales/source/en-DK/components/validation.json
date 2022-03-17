@@ -67,6 +67,7 @@
     "fileHasNoIssues": "No issues found in the file",
     "error": "Error",
     "errors": {
+      "401": "You must be logged in to see this page",
       "400": "The file could not be processed, or it may be missing if you provided a URL.",
       "404": "The validation job ID was not found. If you believe this is an error, please report it.",
       "413": "The file is too large, to be processed by the data validator.",

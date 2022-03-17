@@ -28,8 +28,8 @@
                         <h3 ng-if="vm.hasApi404Error" translate="validation.errors.404"></h3>
                         <h3 ng-if="vm.hasApi400Error" translate="validation.errors.400"></h3>
                         <h3 ng-if="vm.hasApi415Error" translate="validation.errors.415"></h3>
-
-                        <button  class="md-raised md-primary md-button md-ink-ripple"
+                        <h3 ng-if="vm.hasApi401Error" translate="validation.errors.401"></h3>
+                        <button ng-if="!vm.hasApi401Error"  class="md-raised md-primary md-button md-ink-ripple"
                                 ng-click="vm.$state.go('dataValidator', {}, {reload: true})" translate="validation.backToValidator">
                         </button>
 

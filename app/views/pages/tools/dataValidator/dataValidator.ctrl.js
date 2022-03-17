@@ -5,7 +5,6 @@ var fixedUtil = require('../../dataset/key/main/submenu');
 require('../../../components/fileUpload/fileUpload.directive');
 require('./feedback.service');
 require('./intro/steps.directive');
-var _ = require('lodash');
 
 angular
     .module('portal')
@@ -27,28 +26,30 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
             vm.token = data.token;
         })
         .error(function(data, status) {
-            handleWSError(data, status);
+           handleWSError(data, status);
         });
     };
 
     vm.handleUploadFile = function(params) {
         // start upload
-        vm.uploadProcess = vm.getToken().then(function() {
-            return Upload.upload({
+        
+        vm.uploadProcess = vm.getToken().finally(function() {
+            var conf = {
                 url: vm.dataApi + 'validation',
-                headers: {'Authorization': 'Bearer ' + vm.token},
                 data: {
                     file: params.files
                 },
                 arrayKey: ''
-            });
+            };
+            if (vm.token) {
+                conf.headers = {'Authorization': 'Bearer ' + vm.token};
+            }
+            return Upload.upload(conf);
         });
 
         vm.uploadProcess.then(function(response) {
             $timeout(function() {
                 $state.go('dataValidatorKey', {jobid: response.data.key});
-                // vm.state = vm.states.UPLOADED;
-                // vm.result = response.data;
             });
         }, function(response) {
             $timeout(function() {
@@ -92,16 +93,18 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     }; */
 
     vm.handleFileUrl = function(params) {
-        vm.uploadProcess = vm.getToken().then(function() {
-            return Upload.upload({
-            url: vm.dataApi + 'validation/url', // '/api/validation/url',
-           // headers: {'Authorization': 'Bearer ' + User.getAuthToken()}, // only for html5
-           headers: {'Authorization': 'Bearer ' + vm.token},
-           data: {
-                fileUrl: params.fileUrl
-            },
-            arrayKey: ''
-        });
+        vm.uploadProcess = vm.getToken().finally(function() {
+            var conf = {
+               url: vm.dataApi + 'validation/url', // '/api/validation/url',               
+               data: {
+                    fileUrl: params.fileUrl
+                },
+                arrayKey: ''
+            };
+            if (vm.token) {
+                conf.headers = {'Authorization': 'Bearer ' + vm.token};
+            }
+            return Upload.upload(conf);
     });
 
         vm.uploadProcess.then(function(response) {
@@ -163,23 +166,16 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
             case 400:
                 vm.hasApi400Error = true;
                 break;
+            case 401:
+                vm.hasApi401Error = true;
+                break;
+            case 403:
+                vm.hasApi401Error = true;
+                break;
             default:
                 vm.hasApiCriticalError = true;
         }
-        // vm.hasApiCriticalError = true;
-      //  alert("error")
     }
-
-    function handleFailedJob(data) {
-        if (typeof data === 'string') {
-            vm.errorMessage = _.get(data, 'result.errorMessage');
-        } else {
-            vm.jobStatus = data.status;
-            vm.errorCode = _.get(data, 'result.errorCode');
-            vm.errorMessage = _.get(data, 'result.errorMessage');
-        }    
-    }
-
 
     vm.attachTabListener = function() {
         fixedUtil.updateTabs();
