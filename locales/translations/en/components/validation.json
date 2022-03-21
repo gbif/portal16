@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "The licence can not be parsed, is not supported by GBIF or is simply missing",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Record not uniquely identified",
       "UNREADABLE_SECTION_ERROR": "Unreadable section error",
-      "UNHANDLED_ERROR": "",
+      "UNHANDLED_ERROR": "Unhandled error",
       "NoIssuesFound": "No issues found"
     },
     "fileFormat": {
@@ -54,7 +54,7 @@
         "title": "Meta descriptor"
       }
     },
-    "fileSize": "",
+    "fileSize": "File size",
     "fileSizeLimit": "File size limit: 100 mb",
     "receivedMediaType": "Media Type",
     "uniqueIdentifier": "Unique identifier",
@@ -67,6 +67,7 @@
     "fileHasNoIssues": "No issues found in the file",
     "error": "Error",
     "errors": {
+      "401": "You must be logged in to see this page",
       "400": "The file could not be processed, or it may be missing if you provided a URL.",
       "404": "The validation job ID was not found. If you believe this is an error, please report it.",
       "413": "The file is too large, to be processed by the data validator.",
@@ -81,7 +82,7 @@
       "interpreted": "Interpreted"
     },
     "interpretedCounts": {
-      "indexed": "",
+      "indexed": "Number of records indexed",
       "date": "Number of interpreted dates",
       "taxon": "Number of rows with interpreted taxon",
       "location": "Number of interpreted coordinates"
@@ -123,13 +124,13 @@
       "darwinCoreExtensions": "Darwin core extensions",
       "metaData": "Meta data",
       "summary": "Summary",
-      "myValidations": ""
+      "myValidations": "Validation reports"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
+        "RUNNING": "Uploading archive",
+        "FINISHED": "Archive uploaded",
+        "PENDING": "Upload archive",
         "FAILED": "",
         "QUEUED": ""
       },
