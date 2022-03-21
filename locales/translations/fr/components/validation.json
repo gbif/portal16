@@ -67,7 +67,7 @@
     "fileHasNoIssues": "Aucun problème dans le fichier",
     "error": "Erreur",
     "errors": {
-      "401": "",
+      "401": "Vous devez être connecté·e pour voir cette page",
       "400": "Le fichier n’a pas pu être traité, ou il peut être manquant si vous aviez fourni une URL.",
       "404": "L’ID du travail de validation n’a pas été trouvé. Si vous croyez que c’est une erreur, veuillez le signaler.",
       "413": "Le fichier est trop volumineux, pour être traité par le programme de validation de données.",
