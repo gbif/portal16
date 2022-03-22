@@ -52,13 +52,13 @@
       "ORANGE_CLUSTER": "橙色群集"
     },
     "tooltips": {
-      "toggleStyle": "",
-      "searchArea": "",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
-      "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "toggleStyle": "切换地图类型",
+      "searchArea": "搜索范围",
+      "addRectangleFilter": "绘制矩形并添加为过滤器",
+      "addPolygonFilter": "绘制区域并添加为过滤器",
+      "removeGeometryFilter": "移除几何图形过滤器",
+      "zoomIn": "放大显示",
+      "zoomOut": "缩小"
     },
     "errors": {
       "413": "几何文件太大, 无法由数据 API 处理。"
