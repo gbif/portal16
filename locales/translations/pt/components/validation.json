@@ -67,6 +67,7 @@
     "fileHasNoIssues": "Nenhum problema encontrado no ficheiro",
     "error": "Erro",
     "errors": {
+      "401": "",
       "400": "O ficheiro não pode ser processado, ou pode estar perdido se forneceste um URL.",
       "404": "A ID do trabalho de validação não foi encontrada. Se acreditas ser um erro, por favor relate-o.",
       "413": "O ficheiro é muito grande, para ser processado pelo validador de dados.",

@@ -67,6 +67,7 @@
     "fileHasNoIssues": "No se encontraron problemas en el archivo",
     "error": "Error",
     "errors": {
+      "401": "Tienes que iniciar sesión para ver esta página",
       "400": "El archivo no se pudo procesar, o puede estar perdido si ingresó una dirección URL.",
       "404": "No se encontró el identificador del trabajo de validación. Si considera que esto es un error, por favor, repórtelo.",
       "413": "El archivo es demasiado grande, para ser procesado por el validador de datos.",
