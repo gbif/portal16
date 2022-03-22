@@ -58,10 +58,10 @@
                 </div>
             </div>
         </div>
-        <div ng-if="collectionKey.collection.contacts.length > 0">
-            <h4 class="card-header--bold m-t-1" translate="grscicoll.contact.contacts" translate-values="{ NUMBER: collectionKey.collection.contacts.length + 1}">Contacts</h4>
+        <div ng-if="collectionKey.collection.contactPersons.length > 0">
+            <h4 class="card-header--bold m-t-1" translate="grscicoll.contact.contacts" translate-values="{ NUMBER: collectionKey.collection.contactPersons.length + 1}">Contacts</h4>
             <div class="contactsCard card card--spaced">
-                <grscicollperson person="contact" ng-repeat="contact in collectionKey.collection.contacts"></grscicollperson>
+                <grscicollperson contact-info="contact" ng-repeat="contact in collectionKey.collection.contactPersons"></grscicollperson>
             </div>
         </div>
     </div>
