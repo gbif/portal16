@@ -124,13 +124,13 @@
       "darwinCoreExtensions": "达尔文核心扩展",
       "metaData": "元数据",
       "summary": "总结",
-      "myValidations": ""
+      "myValidations": "验证报告"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
+        "RUNNING": "上传档案",
+        "FINISHED": "已上传的档案",
+        "PENDING": "上载档案",
         "FAILED": "",
         "QUEUED": ""
       },
