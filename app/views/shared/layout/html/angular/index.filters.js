@@ -210,6 +210,16 @@
                 });
             };
         })
+        .filter('visibleRoles', function() {
+          return function(arr) {
+              return arr.filter(function(role) {
+                var roleString = typeof role === 'string' ? role : role.role;
+                  return [
+                      'HEAD_OF_DELEGATION_ADMINISTRATIVE_CONTACT'
+                      ].indexOf(roleString) === -1;
+              });
+          };
+      })
         .filter('httpParamSerializer', function($httpParamSerializer) {
             return function(obj) {
                 var query = angular.copy(obj);
