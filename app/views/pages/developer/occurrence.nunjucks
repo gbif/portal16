@@ -521,9 +521,10 @@
                     <pre><code style="white-space: nowrap">curl --include --user userName:PASSWORD --header "Content-Type: application/json" --data @query.json {$ apiBase $}occurrence/download/request</code></pre>
                     </p>
                     <p>
-                        A download ID is returned. This gives the status, and once ready, the download link:
-                        <pre><code style="white-space: nowrap">curl -Ss {$ apiBase $}occurrence/download/0000022-170829143010713 | jq .</code></pre>
+                        A download ID is returned. This shows the download information, including the download link and DOI once the download is ready:
+                        <pre><code style="white-space: nowrap">curl -Ss {$ apiBase $}occurrence/download/0001005-130906152512535 | jq .</code></pre>
                         (<code>| jq .</code> is optional, but formats the JSON nicely.)
+                        <pre><code style="white-space: nowrap">curl --location --remote-name {$ apiBase $}occurrence/download/request/0001005-130906152512535.zip</code></pre>
                     </p>
 
                     <p>
