@@ -813,6 +813,17 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'derivedDatasetAboutCtrl',
             controllerAs: 'derivedDatasetAbout'
         })
+        .state('occurrenceSnapshots', {
+            parent: 'localization',
+            url: '/occurrence-snapshots?offset&limit',
+            views: {
+                main: {
+                    templateUrl: '/api/template/occurrenceSnapshots/index.html?v=' + BUILD_VERSION,
+                    controller: 'occurrenceSnapshotsCtrl',
+                    controllerAs: 'vm'
+                }
+            }
+        })
     ;
 
     // if unknown route then go to server instead of redirecting to home: $urlRouterProvider.otherwise('/');

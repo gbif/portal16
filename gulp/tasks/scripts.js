@@ -42,6 +42,9 @@ function buildScripts() {
 gulp.task('derivedDataset', function() {
     return build('./app/views/pages/tools/derivedDataset/derivedDataset.entry.js', 'pages/derivedDataset.js');
 });
+gulp.task('occurrenceSnapshots', function() {
+    return build('./app/views/pages/tools/occurrenceSnapshots/occurrenceSnapshots.entry.js', 'pages/occurrenceSnapshots.js');
+});
 gulp.task('dataRepo', function() {
     return build('./app/views/pages/tools/dataRepository/dataRepository.entry.js', 'pages/dataRepository.js');
 });
