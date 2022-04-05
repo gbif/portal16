@@ -93,6 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": ""
+        },
+        "occurrenceSnapshots": {
+            "title": ""
         }
     }
 }
