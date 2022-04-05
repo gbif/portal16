@@ -162,6 +162,7 @@ function getOccurrenceModel(occurrenceKey, __) {
         //     });
         occurrence.record.recordedByID = occurrence.record.recordedByIDs;
         occurrence.record.identifiedByID = occurrence.record.identifiedByIDs;
+        occurrence.record.typeStatusArray = occurrence.record.typeStatus ? occurrence.record.typeStatus.split('|') : [];
         //tmp end
        
         occurrence.highlights = highlight(occurrence);
