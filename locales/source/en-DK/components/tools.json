@@ -93,6 +93,9 @@
             "mintingDoi": "Minting DOI - this shouldn't take long.",
             "attachCsvLabel": "Attach csv with dataset keys and occurrence counts",
             "orEnterLabel": "Or enter datasets and occurrence counts here"
+        },
+        "occurrenceSnapshots": {
+            "title": "Occurrence snapshots"
         }
     }
 }

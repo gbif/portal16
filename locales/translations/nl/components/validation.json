@@ -67,7 +67,7 @@
     "fileHasNoIssues": "",
     "error": "",
     "errors": {
-      "401": "",
+      "401": "Je moet ingelogd zijn om deze pagina te kunnen zien",
       "400": "",
       "404": "",
       "413": "",

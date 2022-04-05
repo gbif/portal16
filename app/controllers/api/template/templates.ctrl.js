@@ -300,6 +300,10 @@ router.get('/tools/derivedDataset/about.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/derivedDataset/about/derivedDatasetAbout.template.nunjucks');
 });
 
+router.get('/occurrenceSnapshots/index.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/tools/occurrenceSnapshots/occurrenceSnapshots.template.nunjucks');
+});
+
 router.get('/search/sequenceResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/tools/sequenceMatching/sequenceSearchResult');
 });
