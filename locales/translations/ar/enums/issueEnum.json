@@ -22,6 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "المعرّفات البديلة غير صالحة",
     "BACKBONE_MATCH_NONE": "لا يمكن مطابقته مع قاعدة المرفق العالمي لمعلومات التنوع الحيوي",
     "BACKBONE_MATCH_FUZZY": "مطابقة مبهمة مع قاعدة المرفق العالمي لمعلومات التنوع الحيوي ",
+    "BACKBONE_MATCH_AGGREGATE": "",
     "ACCEPTED_NAME_MISSING": "مرادف يفتقر إلى اسم مقبول",
     "ACCEPTED_NAME_NOT_UNIQUE": "الاسم المقبول غير فريد",
     "PARENT_NAME_NOT_UNIQUE": "الاسم الأساسي غير فريد",
