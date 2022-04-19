@@ -45,7 +45,7 @@
       "estimatedSize": "Estimated data size"
     },
     "fileFormats": {
-      "tabCsv": "Tab-delimited CSV"
+      "tabCsv": "Tab-delimited CSV (for use in Excel, etc.)"
     },
     "tableValues": {
       "yes": "✔",
