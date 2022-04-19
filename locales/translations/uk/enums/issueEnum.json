@@ -22,6 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "Альтернативні ідентифікатори недійсні",
     "BACKBONE_MATCH_NONE": "Не може бути співвіднесено з опорною таксономією GBIF",
     "BACKBONE_MATCH_FUZZY": "Нечітка відповідність опорній таксономії GBIF",
+    "BACKBONE_MATCH_AGGREGATE": "",
     "ACCEPTED_NAME_MISSING": "Для синоніму відсутня прийнята назва",
     "ACCEPTED_NAME_NOT_UNIQUE": "Прийнята назва не унікальна",
     "PARENT_NAME_NOT_UNIQUE": "Назва таксону вищого рангу не унікальна",
