@@ -22,6 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "Identifiants alternatifs non valides",
     "BACKBONE_MATCH_NONE": "Aucune correspondance dans le squelette taxonomique de GBIF",
     "BACKBONE_MATCH_FUZZY": "Correspondance approximative au squelette taxonomique de GBIF",
+    "BACKBONE_MATCH_AGGREGATE": "",
     "ACCEPTED_NAME_MISSING": "Synonyme en manque d'un nom accepté",
     "ACCEPTED_NAME_NOT_UNIQUE": "Nom accepté non unique",
     "PARENT_NAME_NOT_UNIQUE": "Nom du parent non unique",
