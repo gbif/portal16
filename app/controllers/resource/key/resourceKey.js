@@ -31,6 +31,7 @@ function searchContentful(query, depth, isPreview, locale) {
     let accessToken = isPreview ? credentials.preview_access_token : credentials.access_token,
         api = isPreview ? 'http://preview.contentful.com' : 'http://cdn.contentful.com',
         space = credentials.space,
+        environment = credentials.environment || 'master',
         validLocale = contentfulLocaleMap[locale],
         composedQuery = {
             'access_token': accessToken,
@@ -45,7 +46,7 @@ function searchContentful(query, depth, isPreview, locale) {
         } else {
             composedQuery['sys.id'] = query;
         }
-        requestPath = urljoin(api, 'spaces', space, 'entries', '?' + querystring.stringify(composedQuery));
+        requestPath = urljoin(api, 'spaces', space, 'environments', environment, 'entries', '?' + querystring.stringify(composedQuery));
     let proseRequest = {
         url: requestPath,
         fullResponse: false,
