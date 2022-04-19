@@ -22,6 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "代替識別子が無効です。",
     "BACKBONE_MATCH_NONE": "GBIFバックボーンと一致しませんでした。",
     "BACKBONE_MATCH_FUZZY": "GBIFバックボーンあいまい検索",
+    "BACKBONE_MATCH_AGGREGATE": "",
     "ACCEPTED_NAME_MISSING": "シノニムに対して受け入れられた名前の情報がありません。",
     "ACCEPTED_NAME_NOT_UNIQUE": "受け入れられた名前が一意ではありません。",
     "PARENT_NAME_NOT_UNIQUE": "親階層の名前が一意ではありません。",
