@@ -22,7 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "替代标识符无效",
     "BACKBONE_MATCH_NONE": "无法与 GBIF 主干匹配",
     "BACKBONE_MATCH_FUZZY": "模糊的 GBIF 主干配对",
-    "BACKBONE_MATCH_AGGREGATE": "",
+    "BACKBONE_MATCH_AGGREGATE": "GBIF主干网匹配总计",
     "ACCEPTED_NAME_MISSING": "同义词缺少可接受的名称",
     "ACCEPTED_NAME_NOT_UNIQUE": "接受的名称不是唯一的",
     "PARENT_NAME_NOT_UNIQUE": "父名称不唯一",
