@@ -33,7 +33,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     vm.handleUploadFile = function(params) {
         // start upload
         
-        vm.uploadProcess = vm.getToken().finally(function() {
+        vm.uploadProcess = vm.getToken().then(function() {
             var conf = {
                 url: vm.dataApi + 'validation',
                 data: {
@@ -93,7 +93,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     }; */
 
     vm.handleFileUrl = function(params) {
-        vm.uploadProcess = vm.getToken().finally(function() {
+        vm.uploadProcess = vm.getToken().then(function() {
             var conf = {
                url: vm.dataApi + 'validation/url', // '/api/validation/url',               
                data: {

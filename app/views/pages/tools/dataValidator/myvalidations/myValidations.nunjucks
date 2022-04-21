@@ -11,7 +11,7 @@
                                     <div layout="column">
                                     <h3 class="searchCard__headline myValidations__cardHeader">
                                        <!-- <a href="" ui-sref="myValidationsKey({prefix: result.doi.split('/')[0], suffix: result.doi.split('/')[1]})">{{result.title}}</a> -->
-                                       <a href="" ng-href="{{myValidations.localePrefix +  'tools/data-validator/'+ result.key}}">{{result.file}}</a>
+                                       <a href="" ng-href="{{'/'+ myValidations.localePrefix +  'tools/data-validator/'+ result.key}}">{{result.file}}</a>
                                     </h3>
                                     </div>
                                     <div layout="column" flex>
