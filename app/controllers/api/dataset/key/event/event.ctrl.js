@@ -76,7 +76,7 @@ async function getDatasetEvents(datasetKey, limit, offset, optParentEventID) {
         limit: limit - 1,
         offset: offset,
         endOfRecords: results.length < limit,
-        results: results
+        results: results.slice(0, limit - 1)
     };
 }
 
