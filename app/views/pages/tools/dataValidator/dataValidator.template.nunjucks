@@ -46,7 +46,7 @@
                                 </div>
                                 <p class="ng-cloak" translate="validation.or"></p>
                             </div>
-                            <p class="speciesLookup__dropArea ng-cloak text-uppercase" droppable drop="vm.handleDrop">{{'validation.dropHere' | translate}}</p>
+                            <div class="dataValidator__dropArea ng-cloak text-uppercase" ngf-drag-over-class="'dataValidator__dropArea__dragOver'"  ngf-drop="vm.handleDrop($files)">{{'validation.dropHere' | translate}}</div>
                             <div class="text-center m-t-2 ng-cloak" ng-if="vm.error">
                                 <p>Cannot read file</p>
                                 <span class="badge badge--error ng-cloak">{{ vm.error }}</span>
