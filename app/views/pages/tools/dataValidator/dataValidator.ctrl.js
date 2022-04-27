@@ -2,7 +2,9 @@
 
 var fixedUtil = require('../../dataset/key/main/submenu');
 
-require('../../../components/fileUpload/fileUpload.directive');
+// require('../../../components/fileUpload/fileUpload.directive');
+require('ng-file-upload');
+
 require('./feedback.service');
 require('./intro/steps.directive');
 
@@ -124,6 +126,7 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
         }, function(evt) {
             vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
+        return vm.uploadProcess;
     };
 
 
@@ -144,9 +147,58 @@ function dataValidatorCtrl($scope, $timeout, $http, $state, $sessionStorage, Use
     } */
 
 
-    vm.handleDrop = function(e) {
-        vm.handleUploadFile(e.dataTransfer);
-    };
+   vm.handleDrop = function(files) {
+    vm.uploadProcess = vm.getToken().then(function() {
+        var conf = {
+            url: vm.dataApi + 'validation',
+            data: {
+                file: files //e.dataTransfer.files.item(0)
+            },
+            arrayKey: ''
+        };
+        if (vm.token) {
+            conf.headers = {'Authorization': 'Bearer ' + vm.token};
+        }
+        return Upload.upload(conf);
+    });
+
+    vm.uploadProcess.then(function(response) {
+        $timeout(function() {
+            $state.go('dataValidatorKey', {jobid: response.data.key});
+        });
+    }, function(response) {
+        $timeout(function() {
+            handleWSError(response.data, response.status);
+            // handleFailedJob(response.data);
+        });
+    }, function(evt) {
+        vm.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+    });
+    }; 
+
+ /*    vm.handleDrop = function(e) {
+        var formData = new FormData();
+        formData.append('file', e.dataTransfer.files[0]);
+        vm.getToken().then(function() {
+            return $http({
+                url: vm.dataApi + 'validation',
+                method: 'POST',
+                data: formData,
+                headers: {'Authorization': 'Bearer ' + vm.token, 'Content-Type': 'multipart/form-data'}
+            });
+        })
+        .then(function(response) {
+            $timeout(function() {
+                $state.go('dataValidatorKey', {jobid: response.data.key});
+            });
+        })
+        .catch(function(response) {
+            $timeout(function() {
+                handleWSError(response.data, response.status);
+                // handleFailedJob(response.data);
+            });
+        });
+    }; */
 
     function handleWSError(data, status) {
         vm.hasError = true;
