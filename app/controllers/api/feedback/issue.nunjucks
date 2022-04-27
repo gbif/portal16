@@ -5,7 +5,7 @@
 -----
 
 {% if __githubUserName %}Github user: @{$ __githubUserName $}{% endif %}
-{% if __user %}User: [See in registry]({$ __domain $}/api/feedback/user/{$ __user $}){% endif %}
+{% if __user %}User: [See in registry]({$ __domain $}/api/feedback/user/{$ __user $}) - [Send email]({$ __domain $}/api/feedback/user/mailto/{$ __user $}){% endif %}
 {% if __agent %}System: {$ __agent $}{% endif %}
 {% if __referer %}Referer: {$ __referer | safe $}{% endif %}
 {% if width %}Window size: width {$ width $} - height {$ height $}{% endif %}

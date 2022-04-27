@@ -102,6 +102,9 @@ function createIssue(req, data, cb) {
 
     let user = encrypt.encryptJSON({
         userName: req.user.userName,
+        email: req.user.email,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
         date: new Date()
     });
     let githubUserName = _.get(req.user, 'systemSettings["auth.github.username"]');
@@ -191,5 +194,29 @@ router.get('/user/:user', auth.isAuthenticated(), function(req, res) {
             res.sendStatus(500);
         }
     }
+});
+
+router.get('/user/mailto/:user', auth.isAuthenticated(), function(req, res) {
+  auth.setNoCache(res);
+  if (!req.user.email.endsWith('@gbif.org')) {
+      res.sendStatus(403); // this test doesn't matter much as the registry requires a login to show the data anyhow
+  } else {
+      let userCode = req.params.user;
+      try {
+          let referer = req.headers.referer;
+          let issueNr = referer.substr(referer.lastIndexOf('/') + 1);
+          let user = encrypt.decryptJSON(userCode);
+          let body = `There has been activity on your issue: ${referer}.
+          
+          You need a Github account to participate in the discussion.
+          Did you know you can link your Github user profile to GBIF?
+          
+          Thanks,
+          GBIF Helpdesk`;
+          res.redirect(302, 'mailto:' + user.email + '?subject=RE: GBIF issue ' + issueNr + '&body=' + encodeURIComponent(body));
+      } catch (err) {
+          res.sendStatus(500);
+      }
+  }
 });
 
