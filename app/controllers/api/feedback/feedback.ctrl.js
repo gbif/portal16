@@ -205,7 +205,14 @@ router.get('/user/mailto/:user', auth.isAuthenticated(), function(req, res) {
       try {
           let referer = req.headers.referer;
           let user = encrypt.decryptJSON(userCode);
-          res.redirect(302, 'mailto:' + user.email + '?subject=hej&body=' + referer);
+          let body = `There has been activity on your issue: ${referer}.
+          
+          You need a Github account to participate in the discussion.
+          Did you know you can link your Github user profile to GBIF?
+          
+          Thanks,
+          GBIF Helpdesk`;
+          res.redirect(302, 'mailto:' + user.email + '?subject=RE:' + referer + '&body=' + encodeURIComponent(body));
       } catch (err) {
           res.sendStatus(500);
       }
