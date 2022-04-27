@@ -204,6 +204,7 @@ router.get('/user/mailto/:user', auth.isAuthenticated(), function(req, res) {
       let userCode = req.params.user;
       try {
           let referer = req.headers.referer;
+          let issueNr = referer.substr(referer.lastIndexOf('/') + 1);
           let user = encrypt.decryptJSON(userCode);
           let body = `There has been activity on your issue: ${referer}.
           
@@ -212,7 +213,7 @@ router.get('/user/mailto/:user', auth.isAuthenticated(), function(req, res) {
           
           Thanks,
           GBIF Helpdesk`;
-          res.redirect(302, 'mailto:' + user.email + '?subject=RE:' + referer + '&body=' + encodeURIComponent(body));
+          res.redirect(302, 'mailto:' + user.email + '?subject=RE: GBIF issue ' + issueNr + '&body=' + encodeURIComponent(body));
       } catch (err) {
           res.sendStatus(500);
       }
