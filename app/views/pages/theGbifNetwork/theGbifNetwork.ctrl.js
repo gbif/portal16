@@ -242,7 +242,7 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
             .then(function(response) {
                 // duplicate some counts for sorting.
                 response.forEach(function(r) {
-                    ['occurrenceFromCount', 'datasetFromCount'].forEach(function(c) {
+                    ['occurrenceFromCount', 'occurrenceHostedByCount', 'datasetFromCount'].forEach(function(c) {
                         if (r.counts.hasOwnProperty(c)) {
                             r[c + 'Sort'] = r.counts[c];
                         }

@@ -169,7 +169,8 @@ theGbifNetwork.getCountryDataCount = (country, facetMap) => {
 
 theGbifNetwork.getOapDataCount = (participant) => {
     let occurrenceFromCount = 0,
-        datasetFromCount = 0;
+        datasetFromCount = 0,
+        occurrenceHostedByCount = 0;
     return theGbifNetwork.getNodes(participant.id)
         .then((nodes) => {
             let publishers = [];
@@ -199,11 +200,16 @@ theGbifNetwork.getOapDataCount = (participant) => {
 
             // add up both dataset and occurrence count.
             publishers.forEach((pub) => {
-                let url = dataApi.occurrenceSearch.url + '?publishingOrg=' + pub.key;
-                tasks.push(helper.getApiDataPromise(url, options)
+               // let url = dataApi.occurrenceSearch.url + '?publishingOrg=' + pub.key;
+                tasks.push(helper.getApiDataPromise(dataApi.occurrenceSearch.url + '?publishingOrg=' + pub.key, options)
                     .then((result) => {
                         occurrenceFromCount += result.count;
-                        url = dataApi.datasetSearch.url + '?publishingOrg=' + pub.key;
+                        let url = dataApi.occurrenceSearch.url + '?hosting_organization_key=' + pub.key;
+                        return helper.getApiDataPromise(url, options);
+                    })
+                    .then((result) => {
+                        occurrenceHostedByCount += result.count;
+                        let url = dataApi.datasetSearch.url + '?publishingOrg=' + pub.key;
                         return helper.getApiDataPromise(url, options);
                     })
                     .then((result) => {
@@ -215,7 +221,8 @@ theGbifNetwork.getOapDataCount = (participant) => {
                 .then(() => {
                     participant.counts = {
                         'occurrenceFromCount': occurrenceFromCount,
-                        'datasetFromCount': datasetFromCount
+                        'datasetFromCount': datasetFromCount,
+                        'occurrenceHostedByCount': occurrenceHostedByCount
                     };
                     return participant;
                 });
