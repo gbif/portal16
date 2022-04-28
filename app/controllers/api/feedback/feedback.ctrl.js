@@ -204,7 +204,11 @@ router.get('/user/mailto/:user', auth.isAuthenticated(), function(req, res) {
       let userCode = req.params.user;
       try {
           let referer = req.headers.referer;
-          let issueNr = referer.substr(referer.lastIndexOf('/') + 1);
+          if (!referer) {
+            res.status(500);
+            res.send('No referer present. Perhaps you copy pasted the link or opened it in a new tab.');
+          }
+          let issueNr = referer.substring(referer.lastIndexOf('/') + 1);
           let user = encrypt.decryptJSON(userCode);
           let body = `There has been activity on the message you logged via the GBIF feedback system: ${referer}.
           
