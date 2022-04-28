@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, plural, one{出版者} other{出版者}}",
     "pOccurrence": "{NUMBER, select, 1{オカレンス} other{オカレンス}}",
     "occurrenceDatasets": "オカレンスデータセット",
-    "occurrences": "オカレンス"
+    "occurrences": "オカレンス",
+    "occurrencesHostedBy": ""
   }
 }
