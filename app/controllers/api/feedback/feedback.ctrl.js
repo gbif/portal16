@@ -206,7 +206,7 @@ router.get('/user/mailto/:user', auth.isAuthenticated(), function(req, res) {
           let referer = req.headers.referer;
           let issueNr = referer.substr(referer.lastIndexOf('/') + 1);
           let user = encrypt.decryptJSON(userCode);
-          let body = `There has been activity on your issue: ${referer}.
+          let body = `There has been activity on the message you logged via the GBIF feedback system: ${referer}.
           
           You need a Github account to participate in the discussion.
           Did you know you can link your Github user profile to GBIF?
