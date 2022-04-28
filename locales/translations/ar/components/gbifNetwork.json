@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, plural,1{ناشر}other{ناشرون}} ",
     "pOccurrence": "{NUMBER, plural, 1{تكرار}other{تكرارات}}",
     "occurrenceDatasets": "مجموعات بيانات التكرار",
-    "occurrences": "التكرارات"
+    "occurrences": "التكرارات",
+    "occurrencesHostedBy": ""
   }
 }
