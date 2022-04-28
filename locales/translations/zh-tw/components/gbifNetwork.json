@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, select, 1{發布者} other{發布者}}",
     "pOccurrence": "{NUMBER, select, 1{出現紀錄} other{出現紀錄}}",
     "occurrenceDatasets": "出現記錄資料集",
-    "occurrences": "出現紀錄"
+    "occurrences": "出現紀錄",
+    "occurrencesHostedBy": ""
   }
 }

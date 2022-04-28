@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, plural, 1{发布者} other{发布者}}",
     "pOccurrence": "{NUMBER, plural, 1{出现记录} other{出现记录}}",
     "occurrenceDatasets": "出现记录数据集",
-    "occurrences": "出现记录"
+    "occurrences": "出现记录",
+    "occurrencesHostedBy": ""
   }
 }

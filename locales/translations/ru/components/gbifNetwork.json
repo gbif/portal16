@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, select, 1{публикатор} other{публикаторов}}",
     "pOccurrence": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
     "occurrenceDatasets": "Наборы данных о находках видов",
-    "occurrences": "Находки"
+    "occurrences": "Находки",
+    "occurrencesHostedBy": ""
   }
 }
