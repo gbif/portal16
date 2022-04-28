@@ -48,6 +48,6 @@
     "pOccurrence": "{NUMBER, plural, one{occurrence} other{occurrences}}",
     "occurrenceDatasets": "Occurrence datasets",
     "occurrences": "Occurrences",
-    "occurrencesHostedBy": ""
+    "occurrencesHostedBy": "Hosted occurrences"
   }
 }
