@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, select, 1{forlægger} other{forlæggere}}",
     "pOccurrence": "{NUMBER, select, 1{observation} other{observationer}}",
     "occurrenceDatasets": "",
-    "occurrences": "Observationer"
+    "occurrences": "Observationer",
+    "occurrencesHostedBy": ""
   }
 }
