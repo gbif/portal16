@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, select, 1{Fournisseur de données} other{fournisseurs de données}}",
     "pOccurrence": "{NUMBER, select, 1{Occurrence} other{Evénements}}",
     "occurrenceDatasets": "Jeu de données d'occurrences",
-    "occurrences": "Occurrences"
+    "occurrences": "Occurrences",
+    "occurrencesHostedBy": ""
   }
 }
