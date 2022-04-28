@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, plural, \n0 {видавців}\none {видавець} \nfew {видавці} \nmany {видавців} \nother {видавців}\n}",
     "pOccurrence": "{NUMBER, plural, \n0 {знахідок}\none {знахідка} \nfew {знахідки} \nmany {знахідок} \nother {знахідок}\n}",
     "occurrenceDatasets": "Набори даних про знахідки",
-    "occurrences": "Знахідки"
+    "occurrences": "Знахідки",
+    "occurrencesHostedBy": ""
   }
 }
