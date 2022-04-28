@@ -47,6 +47,7 @@
     "pPublishers": "{NUMBER, plural, one{publicador} other{publicadores}}",
     "pOccurrence": "{NUMBER, plural, one{ocorrência} other{ocorrências}}",
     "occurrenceDatasets": "Conjuntos de dados de ocorrência",
-    "occurrences": "Ocorrências"
+    "occurrences": "Ocorrências",
+    "occurrencesHostedBy": ""
   }
 }
