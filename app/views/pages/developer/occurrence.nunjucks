@@ -575,6 +575,21 @@
                                     &nbsp;&nbsp;}<br/>
                                     }
                                 </code>
+                                <br/>or<br/>
+                                <code class="block">
+                                    {<br/>
+                                    &nbsp;&nbsp;"creator":"userName",<br/>
+                                    &nbsp;&nbsp;"notificationAddresses": ["userName@example.org"],<br/>
+                                    &nbsp;&nbsp;"predicate":<br/>
+                                    &nbsp;&nbsp;{<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"type":"equals",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"key":"CATALOG_NUMBER",<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"value":"Ax1"<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"matchCase":"true"<br/>
+                                    &nbsp;&nbsp;}<br/>
+                                    }
+                                </code>
+                                <br/>(<code>matchCase</code> is optional, default is <code>false</code>.)
                             </td>
                         </tr>
                         <tr>
