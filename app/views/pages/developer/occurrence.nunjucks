@@ -723,6 +723,7 @@
                                     &nbsp;&nbsp;}<br/>
                                     }
                                 </code>
+                                <br/><code>matchCase</code> can be added if required.
                             </td>
                         </tr>
                         <tr>
@@ -804,6 +805,7 @@
                                     &nbsp;&nbsp;}<br/>
                                     }
                                 </code>
+                                <br/><code>matchCase</code> can be added if required.
                             </td>
                         </tr>
                         <tr>
