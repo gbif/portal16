@@ -23,7 +23,7 @@
                 <td class="table-cell">
                     <span>
                         <a href="https://www.gbif.org">GBIF.org</a> ({{
-                        snapshot.created | momentFormat:"DD MMMM YYYY" }}) GBIF
+                        snapshot.created | momentFormatEnglish:"DD MMMM YYYY" }}) GBIF
                         Occurrence Data
                         <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }}</a></span>
                 </td>

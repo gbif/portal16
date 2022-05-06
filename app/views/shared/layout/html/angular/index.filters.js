@@ -100,8 +100,8 @@
             };
         })
         .filter('momentFormat', function(LOCALE, LOCALE_MAPPINGS) {
-            moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
             return function(date, format) {
+                moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
                 if (!date) return '';
                 if (format === 'LL') {
                     date = date.substr(0, 10);
@@ -109,6 +109,16 @@
                 return moment(date).format(format || 'LLLL');
             };
         })
+        .filter('momentFormatEnglish', function(LOCALE_MAPPINGS) {
+          return function(date, format) {
+              moment.locale(LOCALE_MAPPINGS.moment['en']);
+              if (!date) return '';
+              if (format === 'LL') {
+                  date = date.substr(0, 10);
+              }
+              return moment(date).format(format || 'LLLL');
+          };
+      })
         .filter('momentFromNow', function(LOCALE, LOCALE_MAPPINGS) {
             moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
             return function(date, format) {
