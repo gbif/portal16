@@ -20,7 +20,7 @@
                     <tbody>
                     <tr ng-repeat="snapshot in vm.snapshots | startFrom:vm.snapshotsPagination.currentPage*vm.snapshotsPagination.pageSize-vm.snapshotsPagination.pageSize | limitTo:vm.snapshotsPagination.pageSize">
                          <td class="table-cell--narrow">
-                            <span>{{ snapshot.created.split("T")[0] }}</span>
+                            <span>{{ snapshot.created | momentFormat:"DD MMMM YYYY" }}</span>
                         </td>
                         <td class="table-cell--narrow">
                             <span translate="downloadFormat.{{ snapshot.request.format }}">{{ snapshot.request.format }}</span>

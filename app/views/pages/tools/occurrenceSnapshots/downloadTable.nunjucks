@@ -20,13 +20,14 @@
                     <tbody>
                     <tr ng-repeat="snapshot in vm.downloads | startFrom:vm.downloadsPagination.currentPage*vm.downloadsPagination.pageSize-vm.downloadsPagination.pageSize | limitTo:vm.downloadsPagination.pageSize">
                          <td class="table-cell--narrow">
-                            <span>{{ snapshot.created.split("T")[0] }}</span>
+                            <span>{{ snapshot.created | momentFormat:"DD MMMM YYYY" }}</span>
                         </td>
                         <td class="table-cell--narrow">
                             <span translate="downloadFormat.{{ snapshot.request.format }}">{{ snapshot.request.format }}</span>
                         </td>
                         <td class="table-cell">
-                         <span><a href="https://www.gbif.org>GBIF.org</a> ({{ snapshot.created.split("T")[0].split("-")[2] }} {{ snapshot.created.split("T")[0].split("-")[1] }} {{ snapshot.created.split("T")[0].split("-")[0] }}) GBIF Occurrence Data <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }}</a></span>
+                         <span>
+                           <a href="https://www.gbif.org">GBIF.org</a> ({{ snapshot.created | momentFormat:"DD MMMM YYYY" }}) GBIF Occurrence Data <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }}</a></span>
                         </td>
                     </tr>
                     </tbody>
