@@ -6,7 +6,7 @@
                     <thead>
                     <tr>
                         <th
-                            ng-repeat="col in ['Date', 'Format', 'Doi']">
+                            ng-repeat="col in ['Date', 'Format', 'DOI']">
                                
                                 <span class="inline-block">
                                     {{ col }} 
