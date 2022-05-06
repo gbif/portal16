@@ -7,14 +7,8 @@
            
                 GBIF makes data available on the <a href="https://planetarycomputer.microsoft.com/dataset/gbif" >Microsoft Planetary Computer (Azure)</a>, as an <a href="https://registry.opendata.aws/gbif/">Amazon AWS Open Dataset</a> and on a public Google GCS bucket (gs://public-datasets-gbif/occurrence).
 
-When using cloud-based snapshots, we always recommend creating a <a href="https://www.gbif.org/citation-guidelines#derivedDatasets">Derived Dataset citation</a> for the records that you use. When referring to the full dataset, the citation format is:
-
-<blockquote>
-  <p>GBIF Occurrence Data https://doi.org/10.15468/xxxxx <code>[DD MM YYYY]</code></p>
-</blockquote>
-
-The following table provides the DOIs for each month:
-           
+When using cloud-based snapshots, we always recommend creating a <a href="https://www.gbif.org/citation-guidelines#derivedDatasets">Derived Dataset citation</a> for the records that you use. When referring to the full dataset, please use the appropriate citation found below.
+          
                {% include "./downloadTable.nunjucks" %}                    
 
         </section>
