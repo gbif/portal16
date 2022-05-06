@@ -2,13 +2,10 @@
     <div class="container--desktop">
         <div class="row">
             <header class="col-xs-12 text-center">
-
                 <h1 class="text-center">
                     <span >Occurrence Snapshots</span>
                 </h1>
-                <div class="article-header__intro">Periodic exports of GBIF occurrence data
-
-</div>
+                <div class="article-header__intro">Periodic exports of GBIF occurrence data</div>
             </header>
         </div>
     </div>
