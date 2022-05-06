@@ -26,7 +26,7 @@
                             <span translate="downloadFormat.{{ snapshot.request.format }}">{{ snapshot.request.format }}</span>
                         </td>
                         <td class="table-cell">
-                         <span>GBIF Occurrence Data <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }} {{ snapshot.created.split("T")[0].split("-")[2] }} {{ snapshot.created.split("T")[0].split("-")[1] }} {{ snapshot.created.split("T")[0].split("-")[0] }}</a></span>
+                         <span>GBIF Occurrence Data <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }}</a> {{ snapshot.created.split("T")[0].split("-")[2] }} ({{ snapshot.created.split("T")[0].split("-")[1] }} {{ snapshot.created.split("T")[0].split("-")[0] }})</span>
                         </td>
                     </tr>
                     </tbody>
