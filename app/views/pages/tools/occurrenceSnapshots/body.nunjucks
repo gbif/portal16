@@ -14,7 +14,7 @@ When using cloud-based snapshots, we always recommend creating a <a href="https:
         </section>
         <section class="horizontal-stripe white-background p-1">
            <h2 id="Monthly-snapshot-datasets">Monthly snapshot datasets</h2>
-           The monthly exports of GBIF are listed below.
+           The monthly exports of GBIF are listed below, available in various formats. Please see the citation on each page.
             {% include "./snapshotTable.nunjucks" %}
         </section>
     </div>
