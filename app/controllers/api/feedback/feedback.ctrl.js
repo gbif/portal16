@@ -217,7 +217,7 @@ router.get('/user/mailto/:user', auth.isAuthenticated(), function(req, res) {
           
           Thanks,
           GBIF Helpdesk`;
-          res.redirect(302, 'mailto:' + user.email + '?subject=RE: GBIF issue ' + issueNr + '&body=' + encodeURIComponent(body));
+          res.redirect(302, 'mailto:' + user.email + '?subject=GBIF Feedback system - ticket ' + issueNr + '&body=' + encodeURIComponent(body));
       } catch (err) {
           res.sendStatus(500);
       }
