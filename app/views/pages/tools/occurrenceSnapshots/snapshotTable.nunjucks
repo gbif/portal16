@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="table-container overflow-auto">
     <div ng-if="vm.loading">
     <ng-include src="'/templates/components/loader/loader.html'"></ng-include>
 </div>

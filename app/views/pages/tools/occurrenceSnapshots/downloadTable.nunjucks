@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="table-container overflow-auto" >
     <div ng-if="vm.loading">
         <ng-include
             src="'/templates/components/loader/loader.html'"
@@ -20,7 +20,7 @@
                 <td class="table-cell--narrow">
                     <span translate="downloadFormat.{{ snapshot.request.format }}">{{ snapshot.request.format }}</span>
                 </td>
-                <td class="table-cell">
+                <td class="table-cell--widder">
                     <span>
                         <a href="https://www.gbif.org">GBIF.org</a> ({{
                         snapshot.created | momentFormatEnglish:"DD MMMM YYYY" }}) GBIF
