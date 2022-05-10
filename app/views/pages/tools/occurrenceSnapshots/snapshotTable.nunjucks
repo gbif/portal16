@@ -5,7 +5,7 @@
     <table ng-if="!vm.loading" class="table search-table">
         <thead>
           <tr>
-              <th ng-repeat="col in ['Date', 'Format', 'DOI']">
+              <th ng-repeat="col in ['Date', 'Format', 'Citation']">
                   <span class="inline-block">
                       {{ col }}         
                   </span>
@@ -14,14 +14,19 @@
         </thead>
         <tbody>
           <tr ng-repeat="snapshot in vm.snapshots | startFrom:vm.snapshotsPagination.currentPage*vm.snapshotsPagination.pageSize-vm.snapshotsPagination.pageSize | limitTo:vm.snapshotsPagination.pageSize">
-                <td class="table-cell--narrow">
+              <td class="table-cell--narrow">
                   <span>{{ snapshot.created | momentFormat:"DD MMMM YYYY" }}</span>
               </td>
               <td class="table-cell--narrow">
                   <span translate="downloadFormat.{{ snapshot.request.format }}">{{ snapshot.request.format }}</span>
               </td>
               <td class="table-cell--widder">
-                <span> <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }}</a></span>
+                  <span>
+                      <a href="https://www.gbif.org">GBIF.org</a> ({{
+                      snapshot.created | momentFormatEnglish:"DD MMMM YYYY" }}) GBIF
+                      Occurrence Download
+                      <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }}</a>
+                  </span>
               </td>
           </tr>
         </tbody>
