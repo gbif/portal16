@@ -1,0 +1,8 @@
+{% set componentType = main.fields.componentType %}
+<div class="horizontal-stripe {$ main.fields.backgroundColour | default("white") $}-background">
+    <div class="container--narrow">
+        {% if componentType == "hostedPortalForm" %}
+         <hosted-portal-form />
+        {% endif %}
+    </div>
+</div>

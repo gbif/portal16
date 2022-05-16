@@ -1,0 +1,254 @@
+<div class="m-t-1">
+    <div>
+        <form name="vm.hpform">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">
+                            1. Primary contact for this application
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                    <div layout="row">
+                        <md-input-container flex="50">
+                            <label>Name</label>
+                            <input
+                                type="text"
+                                required
+                                name="name"
+                                ng-model="vm.form.name"
+                            />
+                            <div ng-messages="vm.hpform.name.$error">
+                                <div ng-message="required">
+                                    This is required.
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex="50">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                required
+                                name="email"
+                                ng-model="vm.form.email"
+                            />
+                            <div ng-messages="vm.hpform.email.$error">
+                                <div ng-message="email">
+                                    Please provide a valid email
+                                </div>
+                                <div ng-message="required">
+                                    This is required.
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">2. Hosted portal name </span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                    <div layout="row">
+                        <md-input-container flex="50">
+                            <label>Name</label>
+                            <input
+                                type="text"
+                                required
+                                name="name"
+                                ng-model="vm.form.hpname"
+                            />
+                            <div ng-messages="vm.hpform.name.$error">
+                                <div ng-message="required">
+                                    This is required.
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </md-card-content>
+            </md-card>
+
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">3. Type of application</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                  <md-radio-group ng-model="vm.form.type" ng-change="vm.typeChanged(vm.for.type)">
+                    <md-radio-button value="node" class="md-primary" ><span>A GBIF Participant node</span></md-radio-button>
+                    <md-radio-button value="publisher" class="md-primary" ><span>A GBIF data publisher </span></md-radio-button>
+                    <md-radio-button value="other" class="md-primary" ><span>A group or network of GBIF data publishers</span></md-radio-button>
+                  </md-radio-group>
+                </md-card-content>
+            </md-card>
+
+            <md-card ng-if="vm.form.type == 'node'">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">3. a. Applications from GBIF Participant nodes</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                  <md-radio-group ng-model="vm.form.type_contact">
+                    <md-radio-button value="node_manager" class="md-primary" ><span>I am the Node Manager</span></md-radio-button>
+                    <md-radio-button value="node_mananger_approved" class="md-primary" ><span>I have an approvement from my GBIF Node manager</span></md-radio-button>
+                  </md-radio-group>
+                </md-card-content>
+            </md-card>
+
+            <md-card ng-if="vm.form.type == 'publisher'">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">3. b. Applications from GBIF data publishers</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                  <md-radio-group ng-model="vm.form.type_contact">
+                    <md-radio-button value="discussing_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application. Please state which node:</span></md-radio-button>
+                    <md-radio-button value="no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
+                  </md-radio-group>
+                </md-card-content>
+            </md-card>
+
+            <md-card ng-if="vm.form.type == 'other'">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">3. c. Applications from groups or networks of GBIF data publishers</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                  <md-radio-group ng-model="vm.form.type_contact">
+                    <md-radio-button value="discussing_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application. Please state which node:</span></md-radio-button>
+                    <md-radio-button value="no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
+                  </md-radio-group>
+                </md-card-content>
+            </md-card>
+
+            <div xng-if="vm.form.type_contact">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">4. Description of the data scope for the proposed portal</span>
+                            <span class="md-subhead">
+                              Note that hosted portals can only display occurrence records that are already shared on GBIF.org and organized to the GBIF backbone taxonomy.<br />
+                              Briefly describe the scope of the occurrence data that you would like to display on a GBIF hosted portal, including, for example, the geographic, taxonomic and temporal scope or other parameters. Approximately how many datasets and records currently available from GBIF.org meet this scope? Please include links to GBIF.org searches as appropriate.
+                            </span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <div layout="row">
+                              <md-input-container flex="100">
+                                <label>Description of the data scope for the proposed portal</label>
+                                <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                            </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">5. User group and needs</span>
+                            <span class="md-subhead">
+                              Have you identified a group of users for the portal? How would you describe their needs? Please also explain how you have identified the user group and their needs. If the portal is replacing an existing website, please provide a link if available and explain why you think a hosted portal would be a better solution. 
+                            </span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <div layout="row">
+                              <md-input-container flex="100">
+                                <label>Description of the user group</label>
+                                <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                            </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">6. Timelines</span>
+                            <span class="md-subhead">
+                              Are there any timelines you need to keep with regards to the deployment, promotion and ongoing use of the portal?
+                            </span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <div layout="row">
+                              <md-input-container flex="100">
+                                <label>Description of timelines</label>
+                                <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                            </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card>
+                  <md-card-title>
+                      <md-card-title-text>
+                          <span class="md-headline">7. Languages</span>
+                          <span class="md-subhead">
+                            What languages would you like your hosted portal to be available in? Please note that you will need to translate your own content and menu, and may need to contribute translations for common elements such as data search components for languages other than English if they are not already available.
+                          </span>
+                      </md-card-title-text>
+                  </md-card-title>
+                  <md-card-content>
+                      <div layout="row">
+                            <md-input-container flex="100">
+                              <label>Languages</label>
+                              <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                          </md-input-container>
+                      </div>
+                  </md-card-content>
+              </md-card>
+              <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">8. Level of experience with related tools and languages</span>
+                        <span class="md-subhead">
+                          We will be managing the hosted portals in GitHub. You will need to author content using Markdown and YAML. This is not difficult and we can direct you to documentation and provide support in getting started if needed. Please state your level of experience with these:
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                  <md-radio-group ng-model="vm.form.experience">
+                    <md-radio-button value="has_experience" class="md-primary" ><span>I am comfortable with using GitHub, Markdown and YAML to author web content</span></md-radio-button>
+                    <md-radio-button value="some_experience" class="md-primary" ><span>I have some experience but would like some help to get started</span></md-radio-button>
+                    <md-radio-button value="no_experience" class="md-primary" ><span>I have never used GitHub, Markdown or YAML to author web content</span></md-radio-button>
+                  </md-radio-group>
+                </md-card-content>
+            </md-card>
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Terms</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                  <md-checkbox ng-model="eoi.state.notExisting" class="md-primary m-b-0" > <span>
+                    I have read the service agreement and data processor agreement and that you accept these terms and conditions for the hosted portal you plan to launch.
+                  </span></md-checkbox>
+                </md-card-content>
+            </md-card>
+            </div>
+
+            <button ng-disabled="!vm.hpform.$valid" type="submit"
+                    ng-click="vm.createSuggestion(vm.form)"
+                    class="btn btn-default flat">{$
+                __('tools.suggestDataset.form.submit') $}
+            </button>
+            <div class="text-error" ng-if="vm.state == 'FAILED'" translate="tools.suggestDataset.form.saveFailure">
+                {$ translations.failure | safe $}
+            </div>
+        </form>
+    </div>
+</div>

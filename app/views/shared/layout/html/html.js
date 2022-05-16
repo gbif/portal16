@@ -471,6 +471,9 @@ require('../../../components/filterDate/filterDate.directive');
 
 require('../../../components/focusMe/focusMe.directive');
 
+// page components that can be managed through Contentful
+require('../../../components/pageComponents/hostedPortalForm/hostedPortalForm.directive');
+
 require('./angular/translate');
 
 var isIE = require('./ieDetection.js')();

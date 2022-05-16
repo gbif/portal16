@@ -31,6 +31,10 @@
           {% if type == "featuredTextBlock" %}
             {% include "../../blocks/featuredTextBlock/featuredTextBlock.nunjucks" %}
           {% endif %}
+
+          {% if type == "customComponentBlock" %}
+            {% include "../../blocks/custom.nunjucks" %}
+          {% endif %}
         {% endfor %}
     </div>
 </div>
