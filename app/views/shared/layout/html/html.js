@@ -159,7 +159,8 @@ function configBlock($sceDelegateProvider, $localStorageProvider, $sessionStorag
       // Allow same origin resource loads.
       'self',
       // Allow loading from our assets domain. **.
-      'https://player.vimeo.com/**'
+      'https://*.vimeo.com/**',
+      'https://vimeo.com/**'
     ]);
     
     // localStorageServiceProvider

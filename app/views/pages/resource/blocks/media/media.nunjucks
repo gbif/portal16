@@ -25,7 +25,7 @@
               {% for ctaId in main.fields.callToAction %}
                 <div class="block__action">
                   {% set cta = resolved.Entry[ctaId.sys.id] %}
-                  {% if "https://player.vimeo.com" in cta.fields.url %}
+                  {% if "vimeo.com" in cta.fields.url %}
                     <span video-modal source="'{$ cta.fields.url $}'"><a href="">{$ cta.fields.label $}</a></span>
                   {% else %}
                   <a href="{$ cta.fields.url $}">{$ cta.fields.label $}</a>
