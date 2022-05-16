@@ -2,9 +2,7 @@
     <div class="site-content__page light-background">
         <div>
             <article class="wrapper-horizontal-stripes">
-                {% include "./header.nunjucks" %}
-               
-                        {% include "./body.nunjucks" %}
+                {% include "./header.nunjucks" %} {% include "./body.nunjucks" %}
             </article>
         </div>
     </div>

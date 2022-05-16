@@ -48,6 +48,6 @@
     "submit": "Submit",
     "seeAllComments": "See all",
     "recommendMail": "We recommend sending a mail to",
-    "pleaseLogin": "Please login to leave feedback. Alternatively you can use [Github](https://github.com/gbif/portal-feedback/issues).\nWhy? Unfortunately we are seeing lots of spam advertisement in our feedback system if we do not require users to login."
+    "pleaseLogin": "Please login to leave feedback. Alternatively you can use [Github](https://github.com/gbif/portal-feedback/issues) or [helpdesk@gbif.org](mailto:helpdesk@gbif.org).\n\nWhy? Unfortunately we are seeing lots of spam advertisement in our feedback system if we do not require users to login."
   }
 }

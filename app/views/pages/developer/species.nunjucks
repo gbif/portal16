@@ -241,7 +241,8 @@
             "isExtinct": "Filters by extinction status (a boolean, e.g. isExtinct=true)",
             "habitat": "Filters by the habitat. Currently only 3 major biomes are accepted in our <a
                     href='"+apidocs+"/vocabulary/Habitat.html'>Habitat enum</a>",
-            "threat": "Not yet implemented, but will eventually allow for filtering by a threat status enum",
+            "threat": "Filters by the taxonomic threat status as given in our <a
+                    href='"+apidocs+"/vocabulary/ThreatStatus.html'>ThreatStatus enum</a>",
             "nameType": "Filters by the name type as given in our <a href='"+apidocs+"/vocabulary/NameType.html'
                                                                     >NameType enum</a>",
             "nomenclaturalStatus": "Not yet implemented, but will eventually allow for filtering by a nomenclatural

@@ -348,7 +348,7 @@
                         <p><code>https://api.gbif.org/v2/map/occurrence/density/capabilities.json?{params}</code></p>
                         <p>where <code>params</code> is the same as for the tile URL query.</p>
 
-                        <p>An query for <code><a href="https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=3759969">https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=3759969&</a></code>
+                        <p>An query for <code><a href="https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=3759969">https://api.gbif.org/v2/map/occurrence/density/capabilities.json?taxonKey=3759969</a></code>
                         gives this result:<p>
  <pre><code>{
   "minLat": -34,
@@ -368,12 +368,10 @@
             <section id="preview" class="white-background page--developer__anchor">
                 <div class="container--fluid">
                     <div class="row">
-                        <h3>Preview</h3>
-                        <p>A preview tool is in development.  Meanwhile, look at the <a href="https://tile.gbif.org/ui/">base map examples</a>,
-                        <a href="https://api.gbif.org/v2/map/demo.html">raster style demos</a>, <a href="http://api.gbif.org/v2/map/debug/">MapboxGL demo</a>
+                        <h3>Other resources</h3>
+                        <p>You can look at the <a href="https://tile.gbif.org/ui/">base map examples</a>,
+                        <a href="https://api.gbif.org/v2/map/demo.html">raster style demos</a>
                         and <a href="https://api.gbif.org/v2/map/debug/ol/">OpenLayers-based toolbox</a> for examples.</p>
-
-                        <!--p>The old <a href="v1-maps">Version 1 maps</a> documentation is also available.</p-->
                     </div>
                 </div>
             </section>

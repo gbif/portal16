@@ -90,18 +90,15 @@
                         You can sign up to the <a href="https://lists.gbif.org/mailman/listinfo/api-users"
                                                   >GBIF API users mailing list</a> to post your
                         questions,
-                        and to keep informed about the API. We will announce new versions, and scheduled maintenance
+                        and to keep informed about the API. We will announce new versions and scheduled maintenance
                         downtimes before they happen.
                     </p>
                     <p>
-                        You can also post questions to the <a href="https://discourse.gbif.org/">GBIF Community Forum</a>.
+                        You can also post questions to the <a href="https://discourse.gbif.org/">GBIF Community Forum</a>
+                        or using the feedback button at the top of the page.
                     </p>
                     <p>
-                        We welcome any example uses of the API to guest feature on the <a
-                                href="https://data-blog.gbif.org/">GBIF data blog</a>.
-                    </p>
-                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a>,
-                        or using the feedback button at the top of the page.
+                        Bug reports should also be submitted using the feedback button at the top of the page.
                     </p>
                 </div>
             </section>
@@ -214,21 +211,17 @@
                         <li>The API is stable – this means we won't rename or remove any REST resources or response
                             properties to ensure
                             backwards compatibility, but we might add new resources to the API. Any additions will be
-                            announced via the API
-                            mailing list.
+                            announced via the API mailing list.
                         </li>
                         <li>Any bug fixes or additions will result in minor version changes which are not reflected in
-                            the API URL, only
-                            in the documentation and our Java client code.
+                            the API URL, only in the documentation and our Java client code.
                         </li>
                         <li>If and when the need for breaking changes arises we will document our intent here and on the
-                            mailing list,
-                            and give considerable warning before moving to a future v2.
+                            mailing list, and give considerable warning before moving to a future v2.
                         </li>
                         <li>The base URL includes the version as appropriate.</li>
                     </ol>
-                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a>
-                    </p>
+                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a>. (For questions and help see <a href="#communication>above</a>.)</p>
                 </div>
             </section>
         </div>
