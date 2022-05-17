@@ -1,11 +1,9 @@
 'use strict';
 
-const { V4MAPPED } = require('dns');
-
 let express = require('express'),
     nunjucks = require('nunjucks'),
     github = require('octonode'),
-    credentials = rootRequire('config/credentials').suggestDataset,
+    credentials = rootRequire('config/credentials').hostedPortals,
     log = rootRequire('config/log'),
     fs = require('fs'),
     _ = require('lodash'),
@@ -25,12 +23,12 @@ router.post('/', function(req, res) {
             error: 'form data missing'
         });
     } else {
-        createIssue(req.body.form, req, function(err, data) {
+        createIssue(formData, req, function(err, data) {
             if (err) {
                 log.error('Could not write feedback to Github issue: ' + err);
                 res.status(400);
                 res.json({
-                    error: 'could not write to github for some reason'
+                    error: 'Unable to save the form. Please report this error.'
                 });
             } else {
                 res.json({
@@ -61,31 +59,35 @@ function createIssue(data, req, cb) {
     let ghrepo = client.repo(credentials.repository);
 
     try {
-        description = getDescription(data);
+        data.participantTitle = data.participant.participantTitle;
+        data.participantCountry = data.participant.country;
+        delete data.participant;
+        description = getDescription({form: data, formString: JSON.stringify(data, null, 2)});
+        // description = getDescription({form: data, formString: 'line\ntwo'});
         labels = getLabels(data);
     } catch (err) {
         cb(err);
         return;
     }
 
-    console.log(data, description);
-    cb(null, data);
-    // ghrepo.issue({
-    //     'title': data.title,
-    //     'body': description,
-    //     'labels': labels
-    // }, function(err, data) {
-    //     if (err) {
-    //         cb(err);
-    //     } else {
-    //         cb(null, data);
-    //     }
-    // });
+    // console.log(description);
+    // cb(null, data);
+    ghrepo.issue({
+        'title': data.portal_name,
+        'body': description,
+        'labels': labels
+    }, function(err, data) {
+        if (err) {
+            cb(err);
+        } else {
+            cb(null, data);
+        }
+    });
 }
 
 
 function getLabels() {
-    let labels = ['Needs validation'];
+    let labels = ['Needs review'];
     // additional logic for tagging suggestions can go here. F.x. based on license or region.
     return _.uniq(labels);
 }

@@ -18,7 +18,7 @@
                                 type="text"
                                 required
                                 name="name"
-                                ng-model="vm.form.name"
+                                ng-model="vm.form.person_name"
                             />
                             <div ng-messages="vm.hpform.name.$error">
                                 <div ng-message="required">
@@ -61,7 +61,7 @@
                                 type="text"
                                 required
                                 name="name"
-                                ng-model="vm.form.hpname"
+                                ng-model="vm.form.portal_name"
                             />
                             <div ng-messages="vm.hpform.name.$error">
                                 <div ng-message="required">
@@ -81,15 +81,44 @@
                 </md-card-title>
 
                 <md-card-content>
-                  <md-radio-group ng-model="vm.form.type" ng-change="vm.typeChanged(vm.for.type)">
+                  <md-radio-group ng-model="vm.form.type" ng-change="vm.typeChanged(vm.for.type)" required>
                     <md-radio-button value="node" class="md-primary" ><span>A GBIF Participant node</span></md-radio-button>
+                    <div style="margin-left: 25px">
+                      <md-radio-group ng-model="vm.form.type_contact" ng-disabled="vm.form.type != 'node'">
+                        <md-radio-button value="I_am_the_node_manager" class="md-primary" ><span>I am the Node Manager</span></md-radio-button>
+                        <md-radio-button value="the_node_mananger_has_approved" class="md-primary" ><span>I have an approvement from my GBIF Node manager</span></md-radio-button>
+                      </md-radio-group>
+                    </div>
                     <md-radio-button value="publisher" class="md-primary" ><span>A GBIF data publisher </span></md-radio-button>
+                    <div style="margin-left: 25px">
+                      <md-radio-group ng-model="vm.form.type_contact" ng-disabled="vm.form.type != 'publisher'">
+                        <md-radio-button value="publisher_in_contact_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application.</span></md-radio-button>
+                        <md-radio-button value="publisher_no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
+                      </md-radio-group>
+                    </div>
                     <md-radio-button value="other" class="md-primary" ><span>A group or network of GBIF data publishers</span></md-radio-button>
+                    <div style="margin-left: 25px">
+                      <md-radio-group ng-model="vm.form.type_contact" ng-disabled="vm.form.type != 'other'">
+                        <md-radio-button value="network_in_contact_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application.</span></md-radio-button>
+                        <md-radio-button value="network_no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
+                      </md-radio-group>
+                    </div>
                   </md-radio-group>
+                  <div layout="column">
+                      <p>Please select which participant country this application relates to. Please see the <a href="/the-gbif-network">list of participants</a> for contact information</p>
+                      <md-input-container flex="50">
+                          <label translate="eoi.clickToSelect">Click to select</label>
+                          <md-select name="participantNode" ng-model="vm.form.participant" ng-required="vm.form.type_contact !== 'network_no_node_contacted' && vm.form.type_contact !== 'publisher_no_node_contacted'">
+                            <md-option ng-repeat="participant in vm.participantCountries" ng-value="participant.key">
+                                {{participant.participantTitle}}
+                            </md-option>
+                          </md-select>
+                      </md-input-container>
+                  </div>
                 </md-card-content>
             </md-card>
 
-            <md-card ng-if="vm.form.type == 'node'">
+            <!-- <md-card ng-if="vm.form.type == 'node'">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">3. a. Applications from GBIF Participant nodes</span>
@@ -102,9 +131,9 @@
                     <md-radio-button value="node_mananger_approved" class="md-primary" ><span>I have an approvement from my GBIF Node manager</span></md-radio-button>
                   </md-radio-group>
                 </md-card-content>
-            </md-card>
+            </md-card> -->
 
-            <md-card ng-if="vm.form.type == 'publisher'">
+            <!-- <md-card ng-if="vm.form.type == 'publisher'">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">3. b. Applications from GBIF data publishers</span>
@@ -117,9 +146,9 @@
                     <md-radio-button value="no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
                   </md-radio-group>
                 </md-card-content>
-            </md-card>
+            </md-card> -->
 
-            <md-card ng-if="vm.form.type == 'other'">
+            <!-- <md-card ng-if="vm.form.type == 'other'">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">3. c. Applications from groups or networks of GBIF data publishers</span>
@@ -132,7 +161,7 @@
                     <md-radio-button value="no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
                   </md-radio-group>
                 </md-card-content>
-            </md-card>
+            </md-card> -->
 
             <div xng-if="vm.form.type_contact">
                 <md-card>
@@ -149,7 +178,7 @@
                         <div layout="row">
                               <md-input-container flex="100">
                                 <label>Description of the data scope for the proposed portal</label>
-                                <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                                <textarea required ng-model="vm.form.data_scope" rows="5" md-select-on-focus name="organizationDescription"></textarea>
                             </md-input-container>
                         </div>
                     </md-card-content>
@@ -167,7 +196,7 @@
                         <div layout="row">
                               <md-input-container flex="100">
                                 <label>Description of the user group</label>
-                                <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                                <textarea required ng-model="vm.form.user_group" rows="5" md-select-on-focus name="organizationDescription"></textarea>
                             </md-input-container>
                         </div>
                     </md-card-content>
@@ -185,7 +214,7 @@
                         <div layout="row">
                               <md-input-container flex="100">
                                 <label>Description of timelines</label>
-                                <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                                <textarea required ng-model="vm.form.timelines" rows="5" md-select-on-focus name="organizationDescription"></textarea>
                             </md-input-container>
                         </div>
                     </md-card-content>
@@ -203,7 +232,7 @@
                       <div layout="row">
                             <md-input-container flex="100">
                               <label>Languages</label>
-                              <textarea required ng-model="eoi.form.comments.expectedDataContent" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                              <textarea required ng-model="vm.form.languages" rows="5" md-select-on-focus name="organizationDescription"></textarea>
                           </md-input-container>
                       </div>
                   </md-card-content>
@@ -219,10 +248,10 @@
                 </md-card-title>
 
                 <md-card-content>
-                  <md-radio-group ng-model="vm.form.experience">
-                    <md-radio-button value="has_experience" class="md-primary" ><span>I am comfortable with using GitHub, Markdown and YAML to author web content</span></md-radio-button>
-                    <md-radio-button value="some_experience" class="md-primary" ><span>I have some experience but would like some help to get started</span></md-radio-button>
-                    <md-radio-button value="no_experience" class="md-primary" ><span>I have never used GitHub, Markdown or YAML to author web content</span></md-radio-button>
+                  <md-radio-group ng-model="vm.form.experience" required>
+                    <md-radio-button value="has_plenty_experience" class="md-primary" ><span>I am comfortable with using GitHub, Markdown and YAML to author web content</span></md-radio-button>
+                    <md-radio-button value="has_limited_experience" class="md-primary" ><span>I have some experience but would like some help to get started</span></md-radio-button>
+                    <md-radio-button value="has_no_experience" class="md-primary" ><span>I have never used GitHub, Markdown or YAML to author web content</span></md-radio-button>
                   </md-radio-group>
                 </md-card-content>
             </md-card>
@@ -234,7 +263,7 @@
                 </md-card-title>
 
                 <md-card-content>
-                  <md-checkbox ng-model="eoi.state.notExisting" class="md-primary m-b-0" > <span>
+                  <md-checkbox ng-model="vm.form.terms_accepted" class="md-primary m-b-0" required><span>
                     I have read the service agreement and data processor agreement and that you accept these terms and conditions for the hosted portal you plan to launch.
                   </span></md-checkbox>
                 </md-card-content>

@@ -23,10 +23,20 @@ function hostedPortalFormDirective() {
     return directive;
 
     /** @ngInject */
-    function hostedPortalFormCtrl($http) {
+    function hostedPortalFormCtrl($http, Node) {
         var vm = this;
         vm.loading = true;
         vm.form = {};
+
+        Node.query({identifierType: 'GBIF_PARTICIPANT', limit: 500}).$promise
+            .then(function(data) {
+              vm.participantCountries = _.sortBy(_.filter(data.results, function(e) {
+                if (e.participationStatus === 'OBSERVER' || e.participationStatus === 'FORMER') return false;
+                if (e.type !== 'COUNTRY') return false;
+                return true;
+              }), 'participantTitle');
+              vm.participantCountriesMap = _.keyBy(vm.participantCountries, 'key');
+            });
         // $http({
         //     method: 'get',
         //     url: '/api/species/' + vm.key + '/hostedPortalForm'
@@ -39,7 +49,8 @@ function hostedPortalFormDirective() {
         //     vm.loading = false;
         // });
         vm.createSuggestion = function() {
-          $http.post('/api/tools/hosted-portals', {form: vm.form}, {}).then(function(response) {
+          var form = _.assign({}, vm.form, {participant: vm.participantCountriesMap[vm.form.participant]});
+          $http.post('/api/tools/hosted-portals', {form: form}, {}).then(function(response) {
               vm.referenceId = response.data.referenceId;
               vm.state = 'SUCCESS';
               console.log('juhuu');
