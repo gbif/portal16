@@ -1,5 +1,9 @@
 <div class="m-t-1">
-    <div>
+    <div ng-if="vm.state === 'SUCCESS'">
+      Thank you for your interst. We will get back to you within a month.
+      <button ng-click="vm.restart()">Create a new application</button>
+    </div>
+    <div ng-if="vm.state !== 'SUCCESS'">
         <form name="vm.hpform">
             <md-card>
                 <md-card-title>
@@ -270,13 +274,20 @@
             </md-card>
             </div>
 
-            <button ng-disabled="!vm.hpform.$valid" type="submit"
+            <button ng-disabled="!vm.hpform.$valid || vm.state == 'PENDING'" type="submit"
                     ng-click="vm.createSuggestion(vm.form)"
-                    class="btn btn-default flat">{$
-                __('tools.suggestDataset.form.submit') $}
+                    class="btn btn-default flat">
+                Submit
             </button>
-            <div class="text-error" ng-if="vm.state == 'FAILED'" translate="tools.suggestDataset.form.saveFailure">
-                {$ translations.failure | safe $}
+            <div class="text-error" ng-if="vm.state == 'FAILED'">
+                <div>
+                  This isn't good. We weren't able to save your application. Please try again later or send us an email with following information
+                </div>
+                <code>
+                  <pre>
+                    {{vm.form}}
+                  </pre>
+                </code>
             </div>
         </form>
     </div>

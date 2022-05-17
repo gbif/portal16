@@ -59,8 +59,8 @@ function createIssue(data, req, cb) {
     let ghrepo = client.repo(credentials.repository);
 
     try {
-        data.participantTitle = data.participant.participantTitle;
-        data.participantCountry = data.participant.country;
+        data.participantTitle = _.get(data, 'participant.participantTitle', '_no participant selected_');
+        data.participantCountry = _.get(data, 'participant.country');
         delete data.participant;
         description = getDescription({form: data, formString: JSON.stringify(data, null, 2)});
         // description = getDescription({form: data, formString: 'line\ntwo'});
@@ -70,24 +70,24 @@ function createIssue(data, req, cb) {
         return;
     }
 
-    // console.log(description);
-    // cb(null, data);
-    ghrepo.issue({
-        'title': data.portal_name,
-        'body': description,
-        'labels': labels
-    }, function(err, data) {
-        if (err) {
-            cb(err);
-        } else {
-            cb(null, data);
-        }
-    });
+    console.log(description);
+    cb('no no no', data);
+    // ghrepo.issue({
+    //     'title': data.portal_name,
+    //     'body': description,
+    //     'labels': labels
+    // }, function(err, data) {
+    //     if (err) {
+    //         cb(err);
+    //     } else {
+    //         cb(null, data);
+    //     }
+    // });
 }
 
 
 function getLabels() {
-    let labels = ['Needs review'];
+    let labels = ['REVIEW MANAGER NEEDED'];
     // additional logic for tagging suggestions can go here. F.x. based on license or region.
     return _.uniq(labels);
 }

@@ -1,7 +1,7 @@
 ## {$ form.portal_name $}
 
 Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
-Participant: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation)
+{% if form.participantCountry %} Participant: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
 
 **Application type**
 *Type*: {$ form.type $}

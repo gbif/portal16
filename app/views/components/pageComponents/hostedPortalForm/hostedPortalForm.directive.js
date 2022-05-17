@@ -50,6 +50,7 @@ function hostedPortalFormDirective() {
         // });
         vm.createSuggestion = function() {
           var form = _.assign({}, vm.form, {participant: vm.participantCountriesMap[vm.form.participant]});
+          vm.state = 'PENDING';
           $http.post('/api/tools/hosted-portals', {form: form}, {}).then(function(response) {
               vm.referenceId = response.data.referenceId;
               vm.state = 'SUCCESS';
@@ -61,6 +62,11 @@ function hostedPortalFormDirective() {
         };
         vm.typeChanged = function() {
           delete vm.form.type_contact;
+        };
+
+        vm.restart = function() {
+          vm.form = {};
+          vm.state = undefined;
         };
     }
 }
