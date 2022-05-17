@@ -271,6 +271,20 @@ module.exports = function(nunjucksConfiguration) {
     })();
 
     (function() {
+      nunjucksConfiguration.addFilter('startsWith', function(data, list = []) {
+          if (typeof data !== 'string') {
+              return false;
+          }
+          for (let i = 0; i < list.length; i++) {
+            if (data.startsWith(list[i])) {
+              return true;
+            }
+          }
+          return false;
+      });
+  })();
+
+    (function() {
         nunjucksConfiguration.addFilter('linkify', format.linkify);
     })();
 
