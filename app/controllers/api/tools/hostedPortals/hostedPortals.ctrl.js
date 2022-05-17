@@ -70,19 +70,19 @@ function createIssue(data, req, cb) {
         return;
     }
 
-    console.log(description);
-    cb('no no no', data);
-    // ghrepo.issue({
-    //     'title': data.portal_name,
-    //     'body': description,
-    //     'labels': labels
-    // }, function(err, data) {
-    //     if (err) {
-    //         cb(err);
-    //     } else {
-    //         cb(null, data);
-    //     }
-    // });
+    // console.log(description);
+    // cb('no no no', data);
+    ghrepo.issue({
+        'title': data.portal_name,
+        'body': description,
+        'labels': labels
+    }, function(err, data) {
+        if (err) {
+            cb(err);
+        } else {
+            cb(null, data);
+        }
+    });
 }
 
 
