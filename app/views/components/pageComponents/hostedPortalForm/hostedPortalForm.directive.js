@@ -52,12 +52,9 @@ function hostedPortalFormDirective() {
           var form = _.assign({}, vm.form, {participant: vm.participantCountriesMap[vm.form.participant]});
           vm.state = 'PENDING';
           $http.post('/api/tools/hosted-portals', {form: form}, {}).then(function(response) {
-              vm.referenceId = response.data.referenceId;
               vm.state = 'SUCCESS';
-              console.log('juhuu');
           }, function() {
               vm.state = 'FAILED';
-              console.log('øv');
           });
         };
         vm.typeChanged = function() {
