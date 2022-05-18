@@ -71,16 +71,32 @@ function getSourceTaxonomyDatasetKey(marker) {
 }
 
 function getClassification(taxon) {
-    return ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'].filter((key) => !!taxon[key]).map((tx) => ({name: (tx === 'species' && taxon.rank === 'SPECIES' && taxon.scientificName !== taxon.species) ? taxon.scientificName : taxon[tx], key: taxon[tx + 'Key']}));
+    return ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']
+        .filter((key) => !!taxon[key])
+        .map((tx) => ({name: (tx === 'species' && taxon.rank === 'SPECIES' && taxon.scientificName !== taxon.species) ? taxon.scientificName : taxon[tx], key: taxon[tx + 'Key']}));
 }
+
+function getFormattedGTDBname(taxon) {
+    /* Spaces are not allowed in fasta files, therefore these are replaced with _. 
+    GTDB, however, may have names like Synechococcus_E sp000153805 
+    - therefore we try to detect and adjust for that in order to get species matches from the checklist 
+    */
+    const splitted = _.get(taxon, 'name', '').split(' ');
+    if (splitted.length === 3 && splitted[1].length === 1) {
+        return `${splitted[0]}_${splitted[1]} ${splitted[2]}`;
+    } else {
+        return _.get(taxon, 'name', ''); 
+    }
+}
+
 async function decorateWithGBIFspecies2(e, marker) {
     const datasetKey = getSourceTaxonomyDatasetKey(marker);
-    let url = apiConfig.taxon.url + 'search?q=' + e.name + '&datasetKey=' + datasetKey;
+    const name = datasetKey === sourceTaxonomies['16s'] ? getFormattedGTDBname(e) : e.name;
+    let url = apiConfig.taxon.url + 'search?q=' + name + '&datasetKey=' + datasetKey;
     let res = await request({method: 'GET', url: url, json: true});
     let match = _.get(res, 'body.results[0]');
-   // console.log(JSON.stringify(nubMatch, null, 2));
     if (['UNRANKED', 'SPECIES'].includes(_.get(match, 'rank'))) {
-        if (_.get(match, 'scientificName') === e.name ) {
+        if (_.get(match, 'scientificName') === name ) {
             let formatted = datasetKey === sourceTaxonomies['16s'] ? _.get(match, 'scientificName') : await scientificName.getParsedName(
                 match.key
             );
