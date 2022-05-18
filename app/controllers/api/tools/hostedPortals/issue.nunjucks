@@ -4,8 +4,8 @@ Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
 {% if form.participantCountry %} Participant: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
 
 **Application type**
-*Type*: {$ form.type $}
-*State of node involvement*: {$ form.type_contact $}
+*Type*: _{$ form.type | prettifyEnum $}_
+*Node contact*: _{$ form.node_contact | prettifyEnum $}_ {% if form.node_manager %} - {$ form.node_manager $} {% endif %}
 
 **Data scope**
 {$ form.data_scope $}
@@ -20,7 +20,7 @@ Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
 {$ form.languages $}
 
 **Experience**
-{$ form.experience $}
+{$ form.experience | prettifyEnum $}
 
 
 **Status of application**
@@ -28,6 +28,7 @@ Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
 * [ ] The node manager has been contacted
 * [ ] Data scope clearly defined
 * [ ] User group - the community seems well defined
+* [ ] Any GrSciColl issues has been addressed
 
 
 <details>

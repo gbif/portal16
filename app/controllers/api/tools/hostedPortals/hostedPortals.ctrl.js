@@ -40,11 +40,8 @@ router.post('/', function(req, res) {
 });
 
 function isValid(data) {
+  // we will just accept whatever and fail if it cannot be parsed
   return true;
-    if (_.isEmpty(data.title)) return false;
-    if (_.isEmpty(data.region)) return false;
-    if (_.isEmpty(data.taxon)) return false;
-    return true;
 }
 
 function createIssue(data, req, cb) {
@@ -70,19 +67,19 @@ function createIssue(data, req, cb) {
         return;
     }
 
-    // console.log(description);
-    // cb('no no no', data);
-    ghrepo.issue({
-        'title': data.portal_name,
-        'body': description,
-        'labels': labels
-    }, function(err, data) {
-        if (err) {
-            cb(err);
-        } else {
-            cb(null, data);
-        }
-    });
+    console.log(description);
+    cb('no no no', data);
+    // ghrepo.issue({
+    //     'title': data.portal_name,
+    //     'body': description,
+    //     'labels': labels
+    // }, function(err, data) {
+    //     if (err) {
+    //         cb(err);
+    //     } else {
+    //         cb(null, data);
+    //     }
+    // });
 }
 
 
