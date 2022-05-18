@@ -106,6 +106,14 @@
                       </div>
                     </div>
                     <md-radio-button value="Other_type_of_portal" class="md-primary" ><span>Another type of portal to showcase data available in GBIF</span></md-radio-button>
+                    <div style="margin-left: 25px" ng-if="vm.form.type == 'Other_type_of_portal'">
+                      <div layout="row">
+                        <md-input-container flex="100">
+                          <label>Please describe which data publisher(s) and/or GBIF participants will be involved</label>
+                          <textarea required ng-model="vm.form.publisher_description" rows="5" md-select-on-focus name="publisher_description"></textarea>
+                      </md-input-container>
+                  </div>
+                    </div>
                   </md-radio-group>
                 </md-card-content>
             </md-card>
