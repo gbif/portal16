@@ -63,7 +63,26 @@
         </div>
     </a>
 
-     <a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="vm.lookupComplete">
+    <a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="vm.lookupComplete">
+        <div>
+            <div class="summaryStats__circle">
+                <round-progress
+                    max="100"
+                    current="( 100*vm.above95ThresholdCount / vm.species.length)"
+                    bgcolor="#dbefef"
+                    color="#71b171"
+                    responsive="true">
+                </round-progress>
+            </div>
+            <div class="summaryStats__percentage">
+                <span>{{ ( vm.above95ThresholdCount / vm.species.length) | formatAsPercentage:100 }}%</span>
+                <div >with identity > 95%</div>
+            </div>
+        </div>
+    </a>
+
+
+    <!-- <a  class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="vm.lookupComplete">
         <div>
             <div class="summaryStats__circle">
                 <round-progress
@@ -79,7 +98,7 @@
                 <div >with GBIF backbone match</div>
             </div>
         </div>
-    </a>
+    </a> -->
 
  
 

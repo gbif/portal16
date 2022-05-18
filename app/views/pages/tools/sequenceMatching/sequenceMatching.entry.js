@@ -123,6 +123,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         vm.species = result;
         vm.matchedSequenceCount = 0;
         vm.aboveThresholdCount = 0;
+        vm.above95ThresholdCount = 0;
         vm.inBackboneCount = 0;
         vm.blastMatchCount = 0;
         vm.normalizeAll();
@@ -350,6 +351,9 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         if (item.identity > vm.matchThreshold) {
             vm.aboveThresholdCount++;
         }
+        if (item.identity > 95) {
+            vm.above95ThresholdCount++;
+        }
         if (item.nubMatch && item.nubMatch.usage) {
             vm.inBackboneCount++;
         }
@@ -517,7 +521,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         scientificName:
             'The OTU identifier, which can be used as scientificName when publishing occurrence or sample event data to GBIF',
         classification:
-            'The higher classification of the OTU as represented in the GBIF backbone.'
+            'The higher classification of the OTU as represented in the source dataset.'
     };
 }
 
