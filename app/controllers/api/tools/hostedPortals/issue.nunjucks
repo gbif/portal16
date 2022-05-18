@@ -3,9 +3,9 @@
 Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
 
 **Application type**
-*Type*: _{$ form.type | prettifyEnum $}_
-{% if form.publisher_description %}*Involved parties*:  {$ form.publisher_description $} {% endif %}
-{% if form.participantCountry %} Participant: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
+*Type*: {$ form.type | prettifyEnum $}
+
+{% if form.type == "Other_type_of_portal" %}*Involved parties*:  {$ form.publisher_description $} {% endif %}{% if form.type == "National_portal" %}*Participant*: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
 
 *Node contact*: _{$ form.node_contact | prettifyEnum $}_ {% if form.node_manager %} - {$ form.node_manager $} {% endif %}
 
