@@ -67,8 +67,9 @@ function createIssue(data, req, cb) {
         return;
     }
 
-    // console.log(description);
-    // cb('no no no', data);
+    console.log(description);
+    cb(null, data);
+    return;
     ghrepo.issue({
         'title': data.portal_name,
         'body': description,
