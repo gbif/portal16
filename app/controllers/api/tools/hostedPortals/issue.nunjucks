@@ -1,6 +1,7 @@
 ## {$ form.portal_name $}
 
-Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
+Contact name: {$ form.person_name $}
+Contact name: [{$ form.email $}](mailto:{$ form.email $})
 
 **Application type**
 *Type*: {$ form.type | prettifyEnum $}
@@ -23,6 +24,9 @@ Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
 
 **Experience**
 {$ form.experience | prettifyEnum $}
+
+**Portal name**
+{$ form.portal_name $}
 
 
 **Status of application**
