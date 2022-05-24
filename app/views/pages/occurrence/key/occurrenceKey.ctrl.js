@@ -157,7 +157,7 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
 
         if (data.footprintWKT && hasValidOrNoSRS(data)) {
             vm.wkt = data.footprintWKT;
-        } else if (data.coordinateUncertaintyInMeters > 50) {
+        } else if (data.coordinateUncertaintyInMeters > 1) {
             vm.circle = {
                 coordinates: [data.decimalLongitude, data.decimalLatitude],
                 radius: data.coordinateUncertaintyInMeters,
