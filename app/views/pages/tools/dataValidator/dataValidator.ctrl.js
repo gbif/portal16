@@ -2,7 +2,7 @@
 
 var fixedUtil = require('../../dataset/key/main/submenu');
 
-// require('../../../components/fileUpload/fileUpload.directive');
+require('../../../components/fileUpload/fileUpload.directive');
 require('ng-file-upload');
 
 require('./feedback.service');
