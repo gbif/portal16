@@ -88,6 +88,7 @@
     "taxa": "وحدات تصنيفية",
     "mediatedThrough": "تم التوسط من خلال",
     "taxonIdentifiers": "معرفو الوحدة التصنيفية",
-    "whyDoubtful": ""
+    "whyDoubtful": "",
+    "noVerbatimData": ""
   }
 }

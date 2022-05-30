@@ -88,6 +88,7 @@
     "taxa": "Таксони",
     "mediatedThrough": "Опосередковано",
     "taxonIdentifiers": "Ідентифікатори таксона",
-    "whyDoubtful": ""
+    "whyDoubtful": "",
+    "noVerbatimData": ""
   }
 }
