@@ -88,6 +88,7 @@
     "taxa": "類群",
     "mediatedThrough": "經由",
     "taxonIdentifiers": "分類群辨識碼",
-    "whyDoubtful": ""
+    "whyDoubtful": "",
+    "noVerbatimData": ""
   }
 }
