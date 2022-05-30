@@ -88,6 +88,7 @@
     "taxa": "Taxa",
     "mediatedThrough": "Mediado através de",
     "taxonIdentifiers": "Identificadores de taxon",
-    "whyDoubtful": "Quando é um taxon \"dubio\""
+    "whyDoubtful": "Quando é um taxon \"dubio\"",
+    "noVerbatimData": ""
   }
 }
