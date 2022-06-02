@@ -82,6 +82,7 @@
     "events": "イベント",
     "occurrenceCount": "オカレンスのカウント",
     "inDataset": "In",
-    "samplingArticleLink": "GBIF.orgにおけるサンプリングイベントをもっと表示"
+    "samplingArticleLink": "GBIF.orgにおけるサンプリングイベントをもっと表示",
+    "getDownloadReport": "ダウンロードレポート"
   }
 }
