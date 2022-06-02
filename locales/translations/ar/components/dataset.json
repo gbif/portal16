@@ -82,6 +82,7 @@
     "events": "أحداث",
     "occurrenceCount": "عدد التكرار",
     "inDataset": "في",
-    "samplingArticleLink": "المزيد عن أحداث أخذ العينات في موقع GBIF.org"
+    "samplingArticleLink": "المزيد عن أحداث أخذ العينات في موقع GBIF.org",
+    "getDownloadReport": "تنزيل التقرير"
   }
 }
