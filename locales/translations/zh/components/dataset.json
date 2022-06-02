@@ -82,6 +82,7 @@
     "events": "事件",
     "occurrenceCount": "物种出现记录计数",
     "inDataset": "在",
-    "samplingArticleLink": "关于GBIF.org上的更多取样事件"
+    "samplingArticleLink": "关于GBIF.org上的更多取样事件",
+    "getDownloadReport": "下载报告"
   }
 }

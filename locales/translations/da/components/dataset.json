@@ -82,6 +82,7 @@
     "events": "Arrangementer",
     "occurrenceCount": "Antal observationer",
     "inDataset": "I",
-    "samplingArticleLink": ""
+    "samplingArticleLink": "",
+    "getDownloadReport": ""
   }
 }
