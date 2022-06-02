@@ -82,6 +82,7 @@
     "events": "Заходи",
     "occurrenceCount": "Кількість знахідок",
     "inDataset": "В",
-    "samplingArticleLink": "Детальніше про події вибірок на GBIF.org"
+    "samplingArticleLink": "Детальніше про події вибірок на GBIF.org",
+    "getDownloadReport": "Завантажити звіт"
   }
 }
