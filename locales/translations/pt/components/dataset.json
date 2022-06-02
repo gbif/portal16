@@ -82,6 +82,7 @@
     "events": "Eventos",
     "occurrenceCount": "Número (quantidade) de registos",
     "inDataset": "Em",
-    "samplingArticleLink": "Mais sobre eventos de colheita em GBIF.org"
+    "samplingArticleLink": "Mais sobre eventos de colheita em GBIF.org",
+    "getDownloadReport": "Relatório de transferência"
   }
 }
