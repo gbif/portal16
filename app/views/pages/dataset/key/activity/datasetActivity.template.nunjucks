@@ -21,10 +21,11 @@
             </div>
 
             <div ng-if="!datasetActivity.loadingDownloads && !datasetActivity.failedToLoadDownloads && datasetActivity.downloads.count > 0">
-                <div class="body-text">
-                    <div>
-                        <h3 tx="dataset.nDownloadEvents" tx-nr="datasetActivity.downloads.count"></h3>
+                <div style="display: flex; align-items: center; margin: 48px 0 24px 0;" class="body-text">
+                    <div style="margin-right: 24px;">
+                        <h3 style="margin: 0" tx="dataset.nDownloadEvents" tx-nr="datasetActivity.downloads.count"></h3>
                     </div>
+                    <a class="gb-button" ng-href="{{ datasetKey.dataApi }}occurrence/download/statistics/export?datasetKey={{datasetKey.key}}" translate="dataset.getDownloadReport">Download report</a>
                 </div>
 
                 <div ng-repeat="download in datasetActivity.downloads.results">
