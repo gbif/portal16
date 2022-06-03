@@ -45,8 +45,7 @@ const schema = Joi.alternatives().try(
   }),
   Joi.object({
     type: Joi.string().valid('within').required(),
-    key: Joi.string().required(),
-    value: Joi.string().required()
+    geometry: Joi.string().required(),
   }),
   Joi.object({
     type: Joi.string().valid('isNotNull').required(),

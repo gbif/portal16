@@ -82,6 +82,7 @@
     "events": "Events",
     "occurrenceCount": "Occurrence count",
     "inDataset": "In",
-    "samplingArticleLink": "More about sampling events on GBIF.org"
-    }
+    "samplingArticleLink": "More about sampling events on GBIF.org",
+    "getDownloadReport": "Download report"
+  }
 }

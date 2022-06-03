@@ -1,11 +1,14 @@
 ## {$ form.portal_name $}
 
-Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
-{% if form.participantCountry %} Participant: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
+Contact name: {$ form.person_name $}
+Contact name: [{$ form.email $}](mailto:{$ form.email $})
 
 **Application type**
-*Type*: {$ form.type $}
-*State of node involvement*: {$ form.type_contact $}
+*Type*: {$ form.type | prettifyEnum $}
+
+{% if form.type == "Other_type_of_portal" %}*Involved parties*:  {$ form.publisher_description $} {% endif %}{% if form.type == "National_portal" %}*Participant*: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
+
+*Node contact*: _{$ form.node_contact | prettifyEnum $}_ {% if form.node_manager %} - {$ form.node_manager $} {% endif %}
 
 **Data scope**
 {$ form.data_scope $}
@@ -20,7 +23,10 @@ Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
 {$ form.languages $}
 
 **Experience**
-{$ form.experience $}
+{$ form.experience | prettifyEnum $}
+
+**Portal name**
+{$ form.portal_name $}
 
 
 **Status of application**
@@ -28,6 +34,7 @@ Contact: {$ form.person_name $} via [{$ form.email $}](mailto:{$ form.email $})
 * [ ] The node manager has been contacted
 * [ ] Data scope clearly defined
 * [ ] User group - the community seems well defined
+* [ ] Any GrSciColl issues has been addressed
 
 
 <details>

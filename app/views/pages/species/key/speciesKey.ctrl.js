@@ -163,9 +163,11 @@ function speciesKey2Ctrl(
             vm.verbatim.$promise.catch(function(err) {
                 if (err.status === 404) {
                     vm.hasVerbatim = false;
-                    $state.go('speciesKey',
-                    {speciesKey: vm.key},
-                    {inherit: false, notify: true, reload: false});
+                    if (vm.$state.is('speciesKeyVerbatim')) {
+                      $state.go('speciesKey',
+                      {speciesKey: vm.key},
+                      {inherit: false, notify: true, reload: false});
+                    }
                 } else {
                     vm.nonCriticalErrorHandler(err);
                 }

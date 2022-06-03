@@ -57,9 +57,6 @@ function hostedPortalFormDirective() {
               vm.state = 'FAILED';
           });
         };
-        vm.typeChanged = function() {
-          delete vm.form.type_contact;
-        };
 
         vm.restart = function() {
           vm.form = {};

@@ -82,6 +82,7 @@
     "events": "Évènements",
     "occurrenceCount": "Nombre d’occurrences",
     "inDataset": "Dans",
-    "samplingArticleLink": "Plus d’informations à propos des événements d'échantillonnage sur GBIF.org"
+    "samplingArticleLink": "Plus d’informations à propos des événements d'échantillonnage sur GBIF.org",
+    "getDownloadReport": "Rapport de téléchargement"
   }
 }

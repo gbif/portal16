@@ -1,15 +1,15 @@
 <div class="horizontal-stripe light-background" ng-controller="occurrenceSnapshotsCtrl as vm">
     <div class="container--narrow">
-       
+
         <section class="horizontal-stripe white-background p-1">
              Every month GBIF takes a full occurrence snapshot, saved in different formats to ease usage. All snapshots are issued with a DOI to simplify citation, and some formats are copied to public clouds for easy use on those environments.
            <h2 id="Cloud-based-datasets">Cloud-based datasets</h2>
-           
-                GBIF makes data available on the <a href="https://planetarycomputer.microsoft.com/dataset/gbif" >Microsoft Planetary Computer (Azure)</a>, as an <a href="https://registry.opendata.aws/gbif/">Amazon AWS Open Dataset</a> and on a public Google GCS bucket (gs://public-datasets-gbif/occurrence).
+
+                GBIF makes data available on the <a href="https://planetarycomputer.microsoft.com/dataset/gbif" >Microsoft Planetary Computer (Azure)</a>, as an <a href="https://registry.opendata.aws/gbif/">Amazon AWS Open Dataset</a> and on a public Google <a href="https://console.cloud.google.com/storage/browser/public-datasets-gbif">GCS bucket</a> and <a href="https://console.cloud.google.com/marketplace/product/bigquery-public-data/gbif-occurrences">BigQuery table</a>.
 
 When using cloud-based snapshots, we always recommend creating a <a href="https://www.gbif.org/citation-guidelines#derivedDatasets">Derived Dataset citation</a> for the records that you use. When referring to the full dataset, please use the appropriate citation found below.
-          
-               {% include "./downloadTable.nunjucks" %}                    
+
+               {% include "./downloadTable.nunjucks" %}
 
         </section>
         <section class="horizontal-stripe white-background p-1">
@@ -19,8 +19,3 @@ When using cloud-based snapshots, we always recommend creating a <a href="https:
         </section>
     </div>
 </div>
-
-
-
-
-

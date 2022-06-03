@@ -1,7 +1,13 @@
 <div class="m-t-1">
-    <div ng-if="vm.state === 'SUCCESS'">
-      Thank you for your interst. We will get back to you within a month.
-      <button ng-click="vm.restart()">Create a new application</button>
+    <div ng-if="vm.state === 'SUCCESS'" class="text-center">
+      <div style="font-size: 18px; margin-bottom: 24px;">
+        <p>Thank you for submitting your application.</p>
+        <p>You can expect to hear back in the next 2 weeks.</p>
+        <button ng-click="vm.restart()" class="gb-button--brand">Create a new application</button>
+        <div style="width: 100%; padding: 12px 24px; margin: auto;">
+          <img src="/img/misc/success.png" style="width: 100%"/>
+        </div>
+      </div>
     </div>
     <div ng-if="vm.state !== 'SUCCESS'">
         <form name="vm.hpform">
@@ -81,93 +87,79 @@
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">3. Type of application</span>
+                        <span class="md-subhead">What best describes your proposed portal?
+                        </span>
                     </md-card-title-text>
                 </md-card-title>
 
                 <md-card-content>
                   <md-radio-group ng-model="vm.form.type" ng-change="vm.typeChanged(vm.for.type)" required>
-                    <md-radio-button value="node" class="md-primary" ><span>A GBIF Participant node</span></md-radio-button>
-                    <div style="margin-left: 25px">
-                      <md-radio-group ng-model="vm.form.type_contact" ng-disabled="vm.form.type != 'node'">
-                        <md-radio-button value="I_am_the_node_manager" class="md-primary" ><span>I am the Node Manager</span></md-radio-button>
-                        <md-radio-button value="the_node_mananger_has_approved" class="md-primary" ><span>I have an approvement from my GBIF Node manager</span></md-radio-button>
-                      </md-radio-group>
-                    </div>
-                    <md-radio-button value="publisher" class="md-primary" ><span>A GBIF data publisher </span></md-radio-button>
-                    <div style="margin-left: 25px">
-                      <md-radio-group ng-model="vm.form.type_contact" ng-disabled="vm.form.type != 'publisher'">
-                        <md-radio-button value="publisher_in_contact_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application.</span></md-radio-button>
-                        <md-radio-button value="publisher_no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
-                      </md-radio-group>
-                    </div>
-                    <md-radio-button value="other" class="md-primary" ><span>A group or network of GBIF data publishers</span></md-radio-button>
-                    <div style="margin-left: 25px">
-                      <md-radio-group ng-model="vm.form.type_contact" ng-disabled="vm.form.type != 'other'">
-                        <md-radio-button value="network_in_contact_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application.</span></md-radio-button>
-                        <md-radio-button value="network_no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
-                      </md-radio-group>
-                    </div>
-                  </md-radio-group>
-                  <div layout="column">
+                    <md-radio-button value="National_portal" class="md-primary" ><span>A national biodiversity portal.</span></md-radio-button>
+                    <div style="margin-left: 25px" ng-if="vm.form.type == 'National_portal'">
+                      <p>
+                        Note that national portals will exclusively be offered to countries participating in GBIF. 
+                      </p>
                       <p>Please select which participant country this application relates to. Please see the <a href="/the-gbif-network">list of participants</a> for contact information</p>
-                      <md-input-container flex="50">
-                          <label translate="eoi.clickToSelect">Click to select</label>
-                          <md-select name="participantNode" ng-model="vm.form.participant" ng-required="vm.form.type_contact !== 'network_no_node_contacted' && vm.form.type_contact !== 'publisher_no_node_contacted'">
-                            <md-option ng-repeat="participant in vm.participantCountries" ng-value="participant.key">
-                                {{participant.participantTitle}}
-                            </md-option>
-                          </md-select>
+                      <div layout="row">
+                        <md-input-container flex="50">
+                            <label>Click to select</label>
+                            <md-select name="participantNode" ng-model="vm.form.participant" required>
+                              <md-option ng-repeat="participant in vm.participantCountries" ng-value="participant.key">
+                                  {{participant.participantTitle}}
+                              </md-option>
+                            </md-select>
+                        </md-input-container>
+                      </div>
+                    </div>
+                    <md-radio-button value="Other_type_of_portal" class="md-primary" ><span>Another type of portal to showcase data available in GBIF</span></md-radio-button>
+                    <div style="margin-left: 25px" ng-if="vm.form.type == 'Other_type_of_portal'">
+                      <div layout="row">
+                        <md-input-container flex="100">
+                          <label>Please describe which data publisher(s) and/or GBIF participants will be involved</label>
+                          <textarea required ng-model="vm.form.publisher_description" rows="5" md-select-on-focus name="publisher_description"></textarea>
                       </md-input-container>
                   </div>
+                    </div>
+                  </md-radio-group>
                 </md-card-content>
             </md-card>
 
-            <!-- <md-card ng-if="vm.form.type == 'node'">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">3. a. Applications from GBIF Participant nodes</span>
-                    </md-card-title-text>
-                </md-card-title>
+            <md-card>
+              <md-card-title>
+                  <md-card-title-text>
+                      <span class="md-headline">4. Are you in contact with a GBIF Participant Node Manager about this application?</span>
+                      </span>
+                  </md-card-title-text>
+              </md-card-title>
 
-                <md-card-content>
-                  <md-radio-group ng-model="vm.form.type_contact">
-                    <md-radio-button value="node_manager" class="md-primary" ><span>I am the Node Manager</span></md-radio-button>
-                    <md-radio-button value="node_mananger_approved" class="md-primary" ><span>I have an approvement from my GBIF Node manager</span></md-radio-button>
-                  </md-radio-group>
-                </md-card-content>
-            </md-card> -->
+              <md-card-content>
+                <md-radio-group ng-model="vm.form.node_contact">
+                  <md-radio-button value="I_am_the_node_manager" class="md-primary" ><span>I am the Node Manager</span></md-radio-button>
+                  <md-radio-button value="Node_manager_contacted" class="md-primary" ><span>Yes, I am in contact with a Node Manager about this application</span></md-radio-button>
+                  <div style="margin-left: 25px" ng-if="vm.form.node_contact == 'Node_manager_contacted'">
+                    <div layout="row">
+                      <md-input-container flex="50">
+                        <label>Please state which Node Manager</label>
+                        <input
+                          type="text"
+                          required
+                          name="node_manager"
+                          ng-model="vm.form.node_manager"
+                        />
+                        <div ng-messages="vm.hpform.node_manager.$error">
+                          <div ng-message="required">
+                              This is required.
+                          </div>
+                        </div>
+                      </md-input-container>
+                    </div>
+                  </div>
+                  <md-radio-button value="No_contact_to_node_manager" class="md-primary" ><span>I have not yet contacted a Node Manager about this application</span></md-radio-button>
+                </md-radio-group>
+              </md-card-content>
+          </md-card>
 
-            <!-- <md-card ng-if="vm.form.type == 'publisher'">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">3. b. Applications from GBIF data publishers</span>
-                    </md-card-title-text>
-                </md-card-title>
-
-                <md-card-content>
-                  <md-radio-group ng-model="vm.form.type_contact">
-                    <md-radio-button value="discussing_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application. Please state which node:</span></md-radio-button>
-                    <md-radio-button value="no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
-                  </md-radio-group>
-                </md-card-content>
-            </md-card> -->
-
-            <!-- <md-card ng-if="vm.form.type == 'other'">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">3. c. Applications from groups or networks of GBIF data publishers</span>
-                    </md-card-title-text>
-                </md-card-title>
-
-                <md-card-content>
-                  <md-radio-group ng-model="vm.form.type_contact">
-                    <md-radio-button value="discussing_with_node" class="md-primary" ><span>I am in contact with a Participant node about this application. Please state which node:</span></md-radio-button>
-                    <md-radio-button value="no_node_contacted" class="md-primary" ><span>I have not yet contacted a Participant node about this application</span></md-radio-button>
-                  </md-radio-group>
-                </md-card-content>
-            </md-card> -->
-
-            <div xng-if="vm.form.type_contact">
+            <div>
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
@@ -218,7 +210,7 @@
                         <div layout="row">
                               <md-input-container flex="100">
                                 <label>Description of timelines</label>
-                                <textarea required ng-model="vm.form.timelines" rows="5" md-select-on-focus name="organizationDescription"></textarea>
+                                <textarea ng-model="vm.form.timelines" rows="5" md-select-on-focus name="organizationDescription"></textarea>
                             </md-input-container>
                         </div>
                     </md-card-content>
@@ -268,7 +260,7 @@
 
                 <md-card-content>
                   <md-checkbox ng-model="vm.form.terms_accepted" class="md-primary m-b-0" required><span>
-                    I have read the service agreement and data processor agreement and that you accept these terms and conditions for the hosted portal you plan to launch.
+                    I have read the service agreement and data processor agreement and I accept these terms and conditions for the hosted portal I plan to launch.
                   </span></md-checkbox>
                 </md-card-content>
             </md-card>

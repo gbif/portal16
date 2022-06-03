@@ -169,9 +169,11 @@
           </h3>
 
           <div class="meta" dir="auto">
+            {% if result.authors %}
             {% for author in result.authors.slice(0, 5) %}
               <span ng-repeat="author in result.authors | limitTo:6 ">{% if author.firstName %} {$ author.firstName $} {% endif %}{% if author.lastName %}{$ author.lastName $}{% endif %}, </span>
             {% endfor %}
+            {% endif %}
             {% if result.authors[6] %}
               <span>... - </span>
             {% endif %}

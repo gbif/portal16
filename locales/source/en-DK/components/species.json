@@ -88,6 +88,7 @@
     "taxa": "Taxa",
     "mediatedThrough": "Mediated through",
     "taxonIdentifiers": "Taxon identifiers",
-    "whyDoubtful": "When is a taxon 'doubtful'"
+    "whyDoubtful": "When is a taxon 'doubtful'",
+    "noVerbatimData": "No verbatim data is available for this taxon"
   }
 }
