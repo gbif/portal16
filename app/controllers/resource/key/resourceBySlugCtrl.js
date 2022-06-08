@@ -16,7 +16,7 @@ router.get('/*.:ext?', function(req, res, next) {
         if (response.count === 1) {
           let entry = response.results[0];
           let contentType = entry.contentType;
-          resource.getByAlias(urlAlias, 2, false, res.locals.gb.locales.current, contentType)
+          resource.getByAlias(urlAlias, 4, false, res.locals.gb.locales.current, contentType)
             .then(function(contentItem) {
                 helper.renderPage(req, res, next, contentItem, 'pages/resource/key/' + contentType + '/' + contentType);
             })

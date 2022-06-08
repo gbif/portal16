@@ -35,7 +35,7 @@ function searchContentful(query, depth, isPreview, locale) {
         validLocale = contentfulLocaleMap[locale],
         composedQuery = {
             'access_token': accessToken,
-            'include': depth || 1,
+            'include': depth || 3,
             // 'sys.id': entryId,
             'locale': validLocale
         },
