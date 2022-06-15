@@ -30,7 +30,9 @@
                                     <doi ng-if="datasetKey.isDoi(event.samplingProtocol)" link="{{ event.samplingProtocol }}"></doi>
                                 </td>
                                 <td>
-                                    <span><a ui-sref="occurrenceSearchTable({dataset_key: datasetKey.key, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a></span>
+                                    <span>
+                                      <a ui-sref="occurrenceSearchTable({dataset_key: datasetKey.key, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a> (<span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ datasetKey.key }}&event_id={{ event.eventID }}&occurrence_status=absent" count-translation="counts.nAbsent">&nbsp;</span>)
+                                    </span>
                                 </td>
                             </tr>
                         </tbody>
