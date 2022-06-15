@@ -1,0 +1,6 @@
+{
+  "occurrenceStatus": {
+    "PRESENT": "存在",
+    "ABSENT": "不在"
+  }
+}
