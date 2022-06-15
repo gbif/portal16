@@ -40,10 +40,10 @@
         </div>
     </section>
     <section class="white-background" ng-show="vm.currentRegion !== 'PARTICIPANT_ORGANISATIONS' && vm.currentRegion !== 'GBIF_AFFILIATES'">
-        <div class="container--desktop">
+        <div class="container--desktop" >
 
-            <div class="theGbifNetWork__map">
-                <div id="theNetworkMap" class="m-b-1"></div>
+            <div class="theGbifNetWork__map" >
+                <div id="theNetworkMap" class="m-b-1 fitSize fitSize--noBar" style="height: 500px"></div>
 
 
                 <ng-include ng-if="vm.showParticipantDetails === true" class="participant-details"

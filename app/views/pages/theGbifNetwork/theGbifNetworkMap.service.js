@@ -2,11 +2,12 @@
 
 var ol = require('ol'),
     proj4 = require('proj4'),
-    proj = require('ol/proj'),
+    olProj = require('ol/proj'),
     proj4_ = require('ol/proj/proj4'),
     querystring = require('querystring'),
     TileImage = require('ol/source/TileImage').default,
-    Tile = require('ol/layer/Tile').default;
+    Tile = require('ol/layer/Tile').default,
+    TileGrid = require('ol/tilegrid/TileGrid').default;
 
 // /*ol. */proj.setProj4(proj4);
 
@@ -50,8 +51,8 @@ angular
                 return extent / tileSize / Math.pow(2, i);
             });
 
-            var tileGrid16 = new ol.tilegrid.TileGrid({
-                extent: /*ol. */proj.get('EPSG:4326').getExtent(),
+            var tileGrid16 = new /* ol.tilegrid. */TileGrid({
+                extent: /*ol. */olProj.get('EPSG:4326').getExtent(),
                 minZoom: 0,
                 maxZoom: maxZoom,
                 resolutions: resolutions,
