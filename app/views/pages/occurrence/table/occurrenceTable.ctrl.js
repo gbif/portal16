@@ -105,7 +105,7 @@ function occurrenceTableCtrl($scope, $stateParams, $filter, hotkeys, OccurrenceF
     };
 
     // ---- Popup to handle columns selection ----
-    vm.columns = ['country', 'coordinates', 'eventDate', 'basisOfRecord', 'dataset', 'issues', 'typeStatus', 'individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordNumber', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy', 'publisher', 'locality', 'waterBody', 'stateProvince', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
+    vm.columns = ['country', 'coordinates', 'eventDate', 'occurrenceStatus', 'basisOfRecord', 'dataset', 'issues', 'typeStatus', 'individualCount', 'organismQuantity', 'organismQuantityType', 'sampleSizeUnit', 'sampleSizeValue', 'recordNumber', 'recordedBy', 'catalogNumber', 'collectionCode', 'institutionCode', 'identifiedBy', 'publisher', 'locality', 'waterBody', 'stateProvince', 'taxonRank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
 
     vm.translationKeyOverwrites = {
         coordinates: 'occurrence.coordinates',
@@ -117,7 +117,7 @@ function occurrenceTableCtrl($scope, $stateParams, $filter, hotkeys, OccurrenceF
 
     // Set defaults if there is no configuration in session storage
     if (!vm.sessionStorage.occurrenceSearchColumns) {
-        var defaultColumns = ['country', 'coordinates', 'eventDate', 'basisOfRecord', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
+        var defaultColumns = ['country', 'coordinates', 'eventDate', 'occurrenceStatus', 'basisOfRecord', 'dataset', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];// eslint-disable-line max-len
         var defaultSelectedColumns = {};
         vm.columns.forEach(function(col) {
             defaultSelectedColumns[col] = false;
