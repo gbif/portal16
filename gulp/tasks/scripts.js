@@ -121,7 +121,11 @@ function build(entry, name) {
     let b;
    
     if (config.isProd) {
-        b = browserify(opts);
+        b = browserify(opts).transform(babelify, {
+            presets: ['@babel/preset-env'],
+            plugins: ['angularjs-annotate'],
+            global: true,
+            ignore: [/\/node_modules\/(?!(ol|ol-mapbox-style|quick-lru)\/)/]});
     } else {
        // console.log(`Entry: ${entry}`);
         b = watchify(browserify(opts).transform(babelify, {
