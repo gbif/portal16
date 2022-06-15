@@ -25,6 +25,7 @@
         "pPublishers": "{NUMBER, plural, one{publisher} other{publishers}}",
         "contacts": "{NUMBER, plural, one{contact} other{contacts}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, one{treatment} other{treatments}}",
+        "nAbsent": "",
         "nImages": "{NUMBER_FORMATED} {NUMBER, plural, one{image} other{images}}"
     }
 }
