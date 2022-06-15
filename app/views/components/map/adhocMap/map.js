@@ -1,6 +1,26 @@
 'use strict';
 
-var ol = require('openlayers'),
+var ol = require('ol'),
+    interaction = require('ol/interaction'),
+    control = require('ol/control'),
+    proj = require('ol/proj'),
+    DragAndDrop = require('ol/interaction/DragAndDrop').default,
+    Draw = require('ol/interaction/Draw').default,
+    createBox = require('ol/interaction/Draw').createBox,
+    GeoJSON = require('ol/format/GeoJSON').default,
+    IGC = require('ol/format/IGC').default,
+    KML = require('ol/format/KML').default,
+    TopoJSON = require('ol/format/TopoJSON').default,
+    GPX = require('ol/format/GPX').default,
+    Vector = require('ol/source/Vector').default,
+    WKT = require('ol/format/WKT').default,
+    GeometryCollection = require('ol/geom/GeometryCollection').default,
+    LayerVector = require('ol/layer/Vector').default,
+    Modify = require('ol/interaction/Modify').default,
+    Snap = require('ol/interaction/Snap').default,
+    Style = require('ol/style/Style').default,
+    Stroke = require('ol/style/Stroke').default,
+    Fill = require('ol/style/Fill').default,
     _ = require('lodash'),
     Progress = require('../mapWidget/progress'),
     projections = require('../mapWidget/projections');
@@ -12,6 +32,7 @@ module.exports = {
 
 
 function createMap(element, options) {
+    proj.useGeographic();
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
     var progressElement = element[0].querySelector('.mapWidget__progress');
     var progress = new Progress(progressElement);
@@ -55,7 +76,7 @@ function createMap(element, options) {
         if (options.fitExtent) {
             if (options.filters.geometry) {
                 setTimeout(function() {
-                    map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
+                    map.getView().fit(/* ol. */proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
                 });
             } else if (currentProjection.fitExtent) {
                 map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
@@ -64,9 +85,9 @@ function createMap(element, options) {
     };
 
     var extentFromWKT = function(wkt) {
-        var format = new ol.format.WKT();
+        var format = new /* ol.format. */WKT();
         if (_.isArray(wkt)) {
-            var coll = new ol.geom.GeometryCollection(wkt.map(function(w) {
+            var coll = new /* ol.geom. */GeometryCollection(wkt.map(function(w) {
                 return format.readGeometry(w);
             }));
             return coll.getExtent();
@@ -76,39 +97,39 @@ function createMap(element, options) {
         }
     };
 
-    var dragAndDropInteraction = new ol.interaction.DragAndDrop({
+    var dragAndDropInteraction = new /* ol.interaction. */DragAndDrop({
         formatConstructors: [
-            ol.format.GPX,
-            ol.format.GeoJSON,
-            ol.format.IGC,
-            ol.format.KML,
-            ol.format.TopoJSON
+            /* ol.format. */GPX,
+           /*  ol.format. */GeoJSON,
+            /* ol.format. */IGC,
+            /* ol.format. */KML,
+            /* ol.format. */TopoJSON
         ]
     });
 
     var map = new ol.Map({
-        interactions: ol.interaction.defaults().extend([dragAndDropInteraction]),
+        interactions: /* ol. */interaction.defaults().extend([dragAndDropInteraction]),
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false, attribution: false})
+        controls: /* ol. */control.defaults({zoom: false, attribution: false})
 
     });
 
 
    // var drawLayer;
-    var source = new ol.source.Vector({wrapX: true});
-    var drawLayer = new ol.layer.Vector({
+    var source = new /* ol.source. */Vector({wrapX: true});
+    var drawLayer = new /* ol.layer. */LayerVector({
         source: source
     });
     drawLayer.setZIndex(100);
 
-    var modify = new ol.interaction.Modify({source: source});
-    var snap = new ol.interaction.Snap({source: source});
+    var modify = new /* ol.interaction. */Modify({source: source});
+    var snap = new /* ol.interaction. */Snap({source: source});
     map.addInteraction(snap);
     map.addInteraction(modify);
     map.addLayer(drawLayer);
-    var format = new ol.format.WKT();
-    var geoJsonFormatter = new ol.format.GeoJSON();
+    var format = new /* ol.format. */WKT();
+    var geoJsonFormatter = new /* ol.format. */GeoJSON();
     var draw;
     var exploreArea;
     function disableDraw() {
@@ -139,17 +160,17 @@ function createMap(element, options) {
     function enableDraw(type, cb) {
         map.removeInteraction(exploreArea);
         if (type === 'Rectangle') {
-            draw = new ol.interaction.Draw({
+            draw = new /* ol.interaction. */Draw({
                 source: source,
                 type: 'Circle',
-                geometryFunction: ol.interaction.Draw.createBox()
+                geometryFunction: /* ol.interaction.Draw. */createBox()
             });
         } else {
-            draw = new ol.interaction.Draw({
+            draw = new /* ol.interaction. */Draw({
                 source: source,
                 type: type
             });
-            snap = new ol.interaction.Snap({source: source});
+            snap = new /* ol.interaction. */Snap({source: source});
             map.addInteraction(snap);
         }
         map.addInteraction(draw);
@@ -203,21 +224,21 @@ function createMap(element, options) {
     function enableClickGeometry(cb) {
         map.removeInteraction(draw);
         map.removeInteraction(snap);
-       clickSource = new ol.source.Vector({wrapX: true});
-        exploreArea = new ol.interaction.Draw({
+       clickSource = new /* ol.source. */Vector({wrapX: true});
+        exploreArea = new /* ol.interaction. */Draw({
             source: clickSource,
             type: 'Circle',
-            geometryFunction: ol.interaction.Draw.createBox()
+            geometryFunction: /* ol.interaction.Draw */createBox()
         });
 
-        clickedGeometryLayer = new ol.layer.Vector({
+        clickedGeometryLayer = new /* ol.layer. */LayerVector({
             source: clickSource,
-            style: new ol.style.Style({
-                stroke: new ol.style.Stroke({
+            style: new /* ol.style. */Style({
+                stroke: new /* ol.style. */Stroke({
                     color: 'green',
                     width: 2
                 }),
-                fill: new ol.style.Fill({
+                fill: new /* ol.style. */Fill({
                     color: 'rgba(173,255,47, 0.1)'
                 })
             })
@@ -319,7 +340,7 @@ function createMap(element, options) {
 
     this.getViewExtent = function() {
         var e = map.getView().calculateExtent(map.getSize());
-        return ol.proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
+        return /* ol. */proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
     };
 
     this.getProjection = function() {
@@ -327,11 +348,11 @@ function createMap(element, options) {
     };
 
     this.getProjectedCoordinate = function(coordinate) {
-        return ol.proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
+        return /* ol. */proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
     };
 
     this.setExtent = function(extent) {
-        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), map.getSize());
+        map.getView().fit(/* ol. */proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), map.getSize());
     };
 
 

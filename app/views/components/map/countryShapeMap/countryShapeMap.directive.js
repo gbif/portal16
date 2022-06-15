@@ -2,7 +2,15 @@
 
 var angular = require('angular'),
     projections = require('../mapWidget/projections'),
-    ol = require('openlayers');
+    control = require('ol/control'),
+    interaction = require('ol/interaction'),
+    Vector = require('ol/source/Vector').default,
+    LayerVector = require('ol/layer/Vector').default,
+    Fill = require('ol/style/Fill').default,
+    Stroke = require('ol/style/Stroke').default,
+    Style = require('ol/style/Style').default,
+    TopoJSON = require('ol/format/TopoJSON').default,
+    ol = require('ol');
 
 angular
     .module('portal')
@@ -52,9 +60,9 @@ function countryShapeMapDirective(BUILD_VERSION) {
                         layers: [
                             currentProjection.getBaseLayer({style: 'gbif-geyser-en'})
                         ],
-                        interactions: ol.interaction.defaults({mouseWheelZoom: false, doubleClickZoom: false}),
+                        interactions: /* ol. */interaction.defaults({mouseWheelZoom: false, doubleClickZoom: false}),
                         logo: false,
-                        controls: ol.control.defaults({zoom: false, attribution: false})
+                        controls: /* ol. */control.defaults({zoom: false, attribution: false})
                     });
                     map.setView(currentProjection.getView(0, 0, 1, 1, 16));
                     vm.zoomIn = function() {
@@ -66,9 +74,9 @@ function countryShapeMapDirective(BUILD_VERSION) {
                         view.setZoom(view.getZoom() - 1);
                     };
                     var countryFeature;
-                    var source = new ol.source.Vector({
+                    var source = new /* ol.source. */Vector({
                         url: '/api/topojson/world/participants',
-                        format: new ol.format.TopoJSON(),
+                        format: new /* ol.format. */TopoJSON(),
                         overlaps: false
                     });
                     source.once('change', function(e) {
@@ -91,14 +99,14 @@ function countryShapeMapDirective(BUILD_VERSION) {
                             }
                         }
                     });
-                    var vector = new ol.layer.Vector({
+                    var vector = new /* ol.layer. */LayerVector({
                         source: source,
                         style: function(feature) {
-                            return new ol.style.Style({
-                                fill: new ol.style.Fill({
+                            return new /* ol.style. */Style({
+                                fill: new /* ol.style. */Fill({
                                     color: (feature === countryFeature) ? 'rgba(120,181,120, 0.3)' : 'rgba(0,0,0,0)'
                                 }),
-                                stroke: new ol.style.Stroke({
+                                stroke: new /* ol.style. */Stroke({
                                     color: '#FFFFFF',
                                     width: 1
                                 }),

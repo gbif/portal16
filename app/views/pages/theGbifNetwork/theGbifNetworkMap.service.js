@@ -1,12 +1,17 @@
 'use strict';
 
-var ol = require('openlayers'),
+var ol = require('ol'),
     proj4 = require('proj4'),
-    querystring = require('querystring');
+    proj = require('ol/proj'),
+    proj4_ = require('ol/proj/proj4'),
+    querystring = require('querystring'),
+    TileImage = require('ol/source/TileImage').default,
+    Tile = require('ol/layer/Tile').default;
 
-ol.proj.setProj4(proj4);
+// /*ol. */proj.setProj4(proj4);
 
 proj4.defs('EPSG:4326', '+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees');
+proj4_.register(proj4);
 
 
 angular
@@ -20,7 +25,7 @@ angular
             params = params || {};
             params.srs = proj.srs;
             delete params.progress;
-            var source = new ol.source.TileImage({
+            var source = new /* ol.source. */ TileImage({
                 projection: proj.projection,
                 tileGrid: proj.tileGrid,
                 tilePixelRatio: 1,
@@ -29,7 +34,7 @@ angular
             });
 
 
-            return new ol.layer.Tile({
+            return new /* ol.layer. */Tile({
                 extent: proj.extent,
                 source: source,
                 useInterimTilesOnError: false,
@@ -46,7 +51,7 @@ angular
             });
 
             var tileGrid16 = new ol.tilegrid.TileGrid({
-                extent: ol.proj.get('EPSG:4326').getExtent(),
+                extent: /*ol. */proj.get('EPSG:4326').getExtent(),
                 minZoom: 0,
                 maxZoom: maxZoom,
                 resolutions: resolutions,

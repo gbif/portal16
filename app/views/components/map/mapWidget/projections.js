@@ -1,17 +1,24 @@
 'use strict';
 
-var ol = require('openlayers'),
+var ol = require('ol'),
     proj4 = require('proj4'),
+    proj = require('ol/proj'),
+    proj4_ = require('ol/proj/proj4'),
+    olTilegrid = require('ol/tilegrid'),
+    TileGrid = require('ol/tilegrid/TileGrid').default,
+
+    olSource = require('ol/source'),
+    layer = require('ol/layer'),
     querystring = require('querystring'),
     // env = require('../../../shared/layout/html/angular/env'),
     env = window.gb.env,
     baseMaps = require('./baseMapConfig');
 
-ol.proj.setProj4(proj4);
-
+// ol.proj.setProj4(proj4);
 proj4.defs('EPSG:4326', '+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees');
 proj4.defs('EPSG:3575', '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs');
 proj4.defs('EPSG:3031', '+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+proj4_.register(proj4);
 
 // set up projections an dshared variables
 var halfWidth = Math.sqrt(2) * 6371007.2;
@@ -25,8 +32,8 @@ function get4326() {
         return extent / tileSize / Math.pow(2, i);
     });
 
-    var tileGrid16 = new ol.tilegrid.TileGrid({
-        extent: ol.proj.get('EPSG:4326').getExtent(),
+    var tileGrid16 = new /* ol.tilegrid, */TileGrid({
+        extent: /* ol. */proj.get('EPSG:4326').getExtent(),
         minZoom: 0,
         maxZoom: maxZoom,
         resolutions: resolutions,
@@ -69,7 +76,7 @@ function get4326() {
 
 
 function get3857() {
-    var tileGrid16 = ol.tilegrid.createXYZ({
+    var tileGrid16 = /*ol. */olTilegrid.createXYZ({
         minZoom: 0,
         maxZoom: maxZoom,
         tileSize: tileSize
@@ -82,7 +89,7 @@ function get3857() {
         epsg: 3857,
         tileGrid: tileGrid16,
         // resolutions: resolutions,
-        fitExtent: ol.proj.transformExtent([-90, -75, 90, 75], 'EPSG:4326', 'EPSG:3857'),
+        fitExtent: /* ol. */proj.transformExtent([-90, -75, 90, 75], 'EPSG:4326', 'EPSG:3857'),
         getView: function(lat, lon, zoom) {
             lat = lat || 0;
             lon = lon || 0;
@@ -106,12 +113,12 @@ function get3857() {
 
 function get3575() {
     var extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
-    ol.proj.get('EPSG:3575').setExtent(extent);
+    /* ol. */proj.get('EPSG:3575').setExtent(extent);
     var resolutions = Array.from(new Array(maxZoom + 1), function(x, i) {
         return halfWidth / (tileSize * Math.pow(2, i - 1));
     });
 
-    var tileGrid16 = new ol.tilegrid.TileGrid({
+    var tileGrid16 = new /* ol.tilegrid. */ TileGrid({
         extent: extent,
         origin: [-halfWidth, halfWidth],
         minZoom: 0,
@@ -121,7 +128,7 @@ function get3575() {
     });
 
     var getCenter = function() {
-        return ol.proj.fromLonLat([0, 89], 'EPSG:3575');
+        return /* ol. */proj.fromLonLat([0, 89], 'EPSG:3575');
     };
 
     return {
@@ -137,7 +144,7 @@ function get3575() {
         getView: function(lat, lon, zoom) {
             return new ol.View({
                 center: getCenter(lat, lon),
-                projection: ol.proj.get('EPSG:3575'),
+                projection: /*ol. */proj.get('EPSG:3575'),
                 zoom: zoom || 0,
                 maxResolution: halfWidth / tileSize * 2
             });
@@ -155,12 +162,12 @@ function get3575() {
 function get3031() {
     var halfWidth = 12367396.2185; // To the Equator
     var extent = [-halfWidth, -halfWidth, halfWidth, halfWidth];
-    ol.proj.get('EPSG:3031').setExtent(extent);
+    /*ol. */proj.get('EPSG:3031').setExtent(extent);
     var resolutions = Array.from(new Array(maxZoom + 1), function(x, i) {
         return halfWidth / (tileSize * Math.pow(2, i - 1));
     });
 
-    var tileGrid16 = new ol.tilegrid.TileGrid({
+    var tileGrid16 = new /*ol.tilegrid. */TileGrid({
         extent: extent,
         origin: [-halfWidth, halfWidth],
         minZoom: 0,
@@ -170,7 +177,7 @@ function get3031() {
     });
 
     var getCenter = function() {
-        return ol.proj.fromLonLat([0, -89], 'EPSG:3031');
+        return /*ol. */proj.fromLonLat([0, -89], 'EPSG:3031');
     };
 
     return {
@@ -185,7 +192,7 @@ function get3031() {
         getView: function(lat, lon, zoom) {
             return new ol.View({
                 center: getCenter(lat, lon),
-                projection: ol.proj.get('EPSG:3031'),
+                projection: /*ol. */proj.get('EPSG:3031'),
                 zoom: zoom || 0,
                 maxResolution: halfWidth / tileSize * 2
             });
@@ -205,7 +212,7 @@ function getLayer(baseUrl, proj, params) {
     params.srs = proj.srs;
     var progress = params.progress;
     delete params.progress;
-    var source = new ol.source.TileImage({
+    var source = new /*ol. */olSource.TileImage({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
         tilePixelRatio: pixelRatio,
@@ -225,7 +232,7 @@ function getLayer(baseUrl, proj, params) {
         });
     }
 
-    return new ol.layer.Tile({
+    return new /*ol. */layer.Tile({
         extent: proj.extent,
         source: source,
         useInterimTilesOnError: false,
@@ -258,7 +265,7 @@ function getAdhocLayer(baseUrl, proj, params) {
     params.srs = proj.srs;
     var progress = params.progress;
     delete params.progress;
-    var source = new ol.source.XYZ({
+    var source = new /*ol. */olSource.XYZ({
         projection: proj.projection,
         tileGrid: proj.tileGrid,
         tilePixelRatio: pixelRatio,
@@ -284,7 +291,8 @@ function getAdhocLayer(baseUrl, proj, params) {
             var z = tileCoord[0].toString();
             var x = tileCoord[1].toString();
             // for reasons unknown y is negative https://stackoverflow.com/questions/38730404/in-openlayers-3-why-are-the-tms-y-coordinates-negative
-            var y = ( -tileCoord[2] - 1).toString();
+            // seemingly not in OL 6
+            var y = tileCoord[2].toString();
 
             params.squareSize = squareSizePerZoomLevel[z] || 32;
             var str = baseUrl + querystring.stringify(params);
@@ -309,7 +317,7 @@ function getAdhocLayer(baseUrl, proj, params) {
         });
     }
 
-    return new ol.layer.Tile({
+    return new /*ol. */layer.Tile({
         extent: proj.extent,
         source: source,
         useInterimTilesOnError: false,

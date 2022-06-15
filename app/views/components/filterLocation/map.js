@@ -1,6 +1,14 @@
 'use strict';
 
-var ol = require('openlayers'),
+var ol = require('ol'),
+    interaction = require('ol/interaction'),
+    proj = require('ol/proj'),
+    control = require('ol/control'),
+    Vector = require('ol/source/Vector').default,
+    LayerVector = require('ol/layer/Vector').default,
+    WKT = require('ol/format/WKT').default,
+    GeoJSON = require('ol/format/GeoJSON').default,
+    GeometryCollection = require('ol/geom/GeometryCollection').default,
     _ = require('lodash'),
     projections = require('../map/mapWidget/projections');
 
@@ -27,7 +35,7 @@ function createMap(element, options) {
 
         if (options.fitExtent && options.filters.geometry) {
             setTimeout(function() {
-                map.getView().fit(ol.proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:3857'), {size: map.getSize(), nearest: false});
+                map.getView().fit(/*ol. */proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:3857'), {size: map.getSize(), nearest: false});
 
                 initGeometry(options.filters.geometry);
             });
@@ -39,9 +47,9 @@ function createMap(element, options) {
     };
 
     var extentFromWKT = function(wkt) {
-        var format = new ol.format.WKT();
+        var format = new /* ol.format. */WKT();
         if (_.isArray(wkt)) {
-            var coll = new ol.geom.GeometryCollection(wkt.map(function(w) {
+            var coll = new /* ol.geom. */GeometryCollection(wkt.map(function(w) {
                 return format.readGeometry(w);
             }));
             return coll.getExtent();
@@ -53,22 +61,22 @@ function createMap(element, options) {
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false, attribution: false})
+        controls: /* ol. */control.defaults({zoom: false, attribution: false})
 
     });
-    var source = new ol.source.Vector({wrapX: false});
-    var drawLayer = new ol.layer.Vector({
+    var source = new /* ol.source. */Vector({wrapX: false});
+    var drawLayer = new /* ol.layer. */LayerVector({
         source: source
     });
 
-    var modify = new ol.interaction.Modify({source: source});
+    var modify = new /*ol. */interaction.Modify({source: source});
     map.addInteraction(modify);
 
     map.addLayer(currentProjection.getBaseLayer(_.assign({}, {style: 'gbif-geyser-en'}, {})));
 
     map.addLayer(drawLayer);
-    var format = new ol.format.WKT();
-    var geoJsonFormatter = new ol.format.GeoJSON();
+    var format = new /* ol.format. */WKT();
+    var geoJsonFormatter = new /* ol.format. */GeoJSON();
     var draw, snap;
     function disableDraw() {
         map.removeInteraction(draw);
@@ -97,17 +105,17 @@ function createMap(element, options) {
     }
     function enableDraw(type, cb) {
         if (type === 'Rectangle') {
-            draw = new ol.interaction.Draw({
+            draw = new /*ol. */interaction.Draw({
                 source: source,
                 type: 'Circle',
-                geometryFunction: ol.interaction.Draw.createBox()
+                geometryFunction: /*ol. */interaction.Draw.createBox()
             });
         } else {
-            draw = new ol.interaction.Draw({
+            draw = new /*ol. */interaction.Draw({
                 source: source,
                 type: type
             });
-            snap = new ol.interaction.Snap({source: source});
+            snap = new /*ol. */interaction.Snap({source: source});
             map.addInteraction(snap);
         }
         map.addInteraction(draw);
@@ -188,7 +196,7 @@ function createMap(element, options) {
 
     this.getViewExtent = function() {
         var e = map.getView().calculateExtent(map.getSize());
-        return ol.proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
+        return /*ol. */proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
     };
 
     this.getProjection = function() {
@@ -196,11 +204,11 @@ function createMap(element, options) {
     };
 
     this.getProjectedCoordinate = function(coordinate) {
-        return ol.proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
+        return /*ol. */proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
     };
 
     this.setExtent = function(extent) {
-        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), map.getSize());
+        map.getView().fit(/*ol. */proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), map.getSize());
     };
 
 

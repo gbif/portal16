@@ -1,7 +1,10 @@
 'use strict';
 
-var ol = require('openlayers'),
+var ol = require('ol'),
     _ = require('lodash'),
+    interaction = require('ol/interaction'),
+    control = require('ol/control'),
+    proj = require('ol/proj'),
     Progress = require('./progress'),
     optionsConfig = require('./options'),
     // utils = require('../../../shared/layout/html/utils/utils'),
@@ -58,11 +61,11 @@ function createMap(element, options) {
         }
     };
 
-    var interactions = ol.interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
+    var interactions = /*ol. */interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false, attribution: false}),
+        controls: /* ol. */control.defaults({zoom: false, attribution: false}),
         interactions: interactions
     });
     window.map = map;
@@ -70,7 +73,7 @@ function createMap(element, options) {
 
     this.getViewExtent = function() {
         var e = map.getView().calculateExtent(map.getSize());
-        return ol.proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
+        return /*ol. */proj.transformExtent(e, currentProjection.srs, 'EPSG:4326');
     };
 
     this.getProjection = function() {
@@ -78,11 +81,11 @@ function createMap(element, options) {
     };
 
     this.getProjectedCoordinate = function(coordinate) {
-        return ol.proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
+        return /*ol. */proj.transform(coordinate, currentProjection.srs, 'EPSG:4326');
     };
 
     this.setExtent = function(extent) {
-        map.getView().fit(ol.proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
+        map.getView().fit(/*ol. */proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
             constrainResolution: false,
             maxZoom: 6,
             minZoom: 0,

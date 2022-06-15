@@ -7,6 +7,8 @@ let browserSync = require('browser-sync');
 let source = require('vinyl-source-stream');
 let buffer = require('vinyl-buffer');
 let browserify = require('browserify');
+let babelify = require('babelify');
+let babel = require('gulp-babel');
 let rename = require('gulp-rename');
 let gulpif = require('gulp-if');
 let g = require('gulp-load-plugins')();
@@ -72,9 +74,10 @@ gulp.task('home', function() {
     return build('./app/views/pages/home/home.entry.js', 'pages/home.js');
 });
 
-const vendors = ['angular', 'lodash', 'openlayers', 'angular-cookies', 'ngstorage', 'angular-messages', 'angular-ui-router', 'angular-translate', 'angular-hotkeys', 'angular-resource', 'angular-aria', 'angular-ui-bootstrap', 'angular-sanitize', 'nouislider-angular', 'angular-animate'];
+const vendors = ['angular', 'lodash', 'ol', 'angular-cookies', 'ngstorage', 'angular-messages', 'angular-ui-router', 'angular-translate', 'angular-hotkeys', 'angular-resource', 'angular-aria', 'angular-ui-bootstrap', 'angular-sanitize', 'nouislider-angular', 'angular-animate'];
 const noParseVendors = ['angular',
     'lodash',
+    'ol', 
     'angular-ui-router',
     'angular-translate',
     'angular-leaflet-directive',
@@ -101,6 +104,7 @@ const noParseVendors = ['angular',
     'checklist-model',
     'angular-svg-round-progressbar'];
 
+
 let watchify = require('watchify');
 let assign = require('lodash').assign;
 
@@ -115,11 +119,18 @@ function build(entry, name) {
 
     // if not a prod build then use watchify to watch the bundle files
     let b;
+   
     if (config.isProd) {
         b = browserify(opts);
     } else {
-        b = watchify(browserify(opts));
+       // console.log(`Entry: ${entry}`);
+        b = watchify(browserify(opts).transform(babelify, {
+            presets: ['@babel/preset-env'],
+            plugins: ['angularjs-annotate'],
+            global: true,
+            ignore: [/\/node_modules\/(?!(ol|ol-mapbox-style|quick-lru)\/)/]}));
     }
+    
 
     return b
         .external(vendors)
@@ -131,7 +142,7 @@ function build(entry, name) {
             loadMaps: true
         })))
         // Add transformation tasks to the pipeline here.
-        .pipe(g.ngAnnotate()) // To not break angular injection when minified
+      //  .pipe(g.ngAnnotate()) // To not break angular injection when minified - removed in favour of the babel angularjs-annotate plugin
         .pipe(g.if(config.isProd, g.uglify(), g.util.noop()))
         .on('error', config.errorHandler('uglify'))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
@@ -145,14 +156,18 @@ gulp.task('build:vendor', () => {
     const b = browserify({
         debug: true,
         noParse: vendors
-    });
+    }).transform(babelify, {
+        presets: ['@babel/preset-env'],
+        global: true,
+        ignore: [/\/node_modules\/(?!(ol|ol-mapbox-style|quick-lru)\/)/]});
 
     // require all libs specified in vendors array
     vendors.forEach((lib) => {
         b.require(lib);
     });
 
-    return b.bundle()
+    return b
+        .bundle()
         .pipe(source('vendor.js'))
         .pipe(buffer())
         .pipe(g.sourcemaps.init({loadMaps: true}))

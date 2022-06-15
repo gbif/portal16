@@ -1,7 +1,16 @@
 'use strict';
 
 var angular = require('angular'),
-    ol = require('openlayers'),
+    ol = require('ol'),
+    proj = require('ol/proj'),
+    control = require('ol/control'),
+    interaction = require('ol/interaction'),
+    Style = require('ol/style/Style').default,
+    Icon = require('ol/style/Icon').default,
+    Vector = require('ol/source/Vector').default,
+    XYZ = require('ol/source/XYZ').default,
+    LayerVector = require('ol/layer/Vector').default,
+    Tile = require('ol/layer/Tile').default,
     _ = require('lodash');
 
 angular
@@ -138,8 +147,8 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
     vm.createMap = function() {
         map = new ol.Map({
             layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.XYZ({
+                new /* ol.layer. */Tile({
+                    source: new /* ol.source. */XYZ({
                         url: 'https://tile.gbif.org/3857/omt/{z}/{x}/{y}@1x.png?style=osm-bright-en&srs=EPSG%3A3857'
                     })
                 })
@@ -149,9 +158,9 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
                 center: [0, 0],
                 zoom: 1
             }),
-            interactions: ol.interaction.defaults({mouseWheelZoom: false}),
+            interactions: /*  ol. */interaction.defaults({mouseWheelZoom: false}),
             logo: false,
-        controls: ol.control.defaults({attribution: false})
+        controls: /* ol. */control.defaults({attribution: false})
         });
         map.on('singleclick', function(evt) {
             setPinOnMap(evt);
@@ -195,7 +204,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         return [moveIntoBounds(longitude, 180), moveIntoBounds(latitude, 90)];
     }
     function setPinOnMap(evt) {
-        var latLong = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
+        var latLong = /*ol. */proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
         var sanitizedLatLong = sanitizeLatLong(latLong);
         $timeout(function() {
             vm.form.latitude = sanitizedLatLong[1]; // latLong[1];
@@ -209,8 +218,8 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
             var iconFeature = new ol.Feature({
                 geometry: vm.iconGeometry
             });
-            var iconStyle = new ol.style.Style({
-                image: new ol.style.Icon(({
+            var iconStyle = new /* ol.style. */Style({
+                image: new /* ol.style. */Icon(({
                     anchor: [0.5, 41],
                     anchorXUnits: 'fraction',
                     anchorYUnits: 'pixels',
@@ -222,10 +231,10 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
 
             iconFeature.setStyle(iconStyle);
 
-            var vectorSource = new ol.source.Vector({
+            var vectorSource = new /* ol.source. */Vector({
                 features: [iconFeature]
             });
-            vm.dynamicPinLayer = new ol.layer.Vector({
+            vm.dynamicPinLayer = new /* ol.layer. */LayerVector({
                 source: vectorSource
             });
             map.addLayer(vm.dynamicPinLayer);

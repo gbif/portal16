@@ -2,7 +2,9 @@
 
 var angular = require('angular'),
     parseGeometry = require('wellknown'),
-    ol = require('openlayers'),
+   // ol = require('ol'),
+    WKT = require('ol/format/WKT').default,
+    GeoJSON = require('ol/format/GeoJSON').default,
     turf = {
         simplify: require('@turf/simplify'),
         bboxPolygon: require('@turf/bbox-polygon'),
@@ -244,8 +246,8 @@ function filterLocationDirective(BUILD_VERSION, toastService) {
 
 module.exports = filterLocationDirective;
 
-var wktformat = new ol.format.WKT();
-var geojsonformat = new ol.format.GeoJSON();
+var wktformat = new /* ol.format. */WKT();
+var geojsonformat = new /* ol.format. */GeoJSON();
 
 function parseStringToWKTs(str) {
     var i, geojson, feature, isSimplified, orderChanged, wktGeom, wktGeometries = [];

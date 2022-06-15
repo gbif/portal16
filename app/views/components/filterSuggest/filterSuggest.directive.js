@@ -78,7 +78,7 @@ function filterSuggestDirective(BUILD_VERSION) {
                 }
                 return $http.get(vm.filterConfig.search.suggestEndpoint, {
                     params: _.assign({limit: 10}, defaultParams, {
-                        q: val.toLowerCase(),
+                        q: val.toLowerCase()
                     })
                 }).then(function(response) {
                     return response.data;

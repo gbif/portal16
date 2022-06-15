@@ -3,7 +3,8 @@
 
 var angular = require('angular'),
     mapController = require('./map'),
-    ol = require('openlayers'),
+   // ol = require('ol'),
+    interaction = require('ol/interaction'),
     options = require('./options'),
 // globeCreator = require('./globe'),
     moment = require('moment'),
@@ -151,7 +152,7 @@ function mapWidgetDirective(BUILD_VERSION) {
 
             // set up zoom control
             var zoomInteraction;
-            zoomInteraction = new ol.interaction.MouseWheelZoom();
+            zoomInteraction = new /* ol. */interaction.MouseWheelZoom();
             zoomInteraction.setActive(false);
             map.map.addInteraction(zoomInteraction);
 

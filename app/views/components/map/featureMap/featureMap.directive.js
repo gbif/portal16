@@ -2,7 +2,23 @@
 
 var angular = require('angular'),
     _ = require('lodash'),
-    ol = require('openlayers'),
+    ol = require('ol'),
+    interaction = require('ol/interaction'),
+    control = require('ol/control'),
+    proj = require('ol/proj'),
+    Vector = require('ol/source/Vector').default,
+    XYZ = require('ol/source/XYZ').default,
+    LayerVector = require('ol/layer/Vector').default,
+    Tile = require('ol/layer/Tile').default,
+    Circle = require('ol/style/Circle').default,
+    GeomCircle = require('ol/geom/Circle').default,
+    GeomPoint = require('ol/geom/Point').default,
+    Fill = require('ol/style/Fill').default,
+    Stroke = require('ol/style/Stroke').default,
+    Style = require('ol/style/Style').default,
+    Icon = require('ol/style/Icon').default,
+    WKT = require('ol/format/WKT').default,
+    GeoJSON = require('ol/format/GeoJSON').default,
     querystring = require('querystring'),
     projections = require('../mapWidget/projections');
 
@@ -62,7 +78,7 @@ function featureMapDirective(BUILD_VERSION) {
             }, function() {
                 if (map && vm.onMapMove && typeof vm.onMapMove === 'function') {
                     map.on('moveend', function() {
-                        var center = ol.proj.toLonLat(map.getView().getCenter(), projection.srs);
+                        var center = /*ol. */proj.toLonLat(map.getView().getCenter(), projection.srs);
                         vm.onMapMove(center[1], center[0], map.getView().getZoom());
                     });
                     unbind();
@@ -107,15 +123,15 @@ function featureMapDirective(BUILD_VERSION) {
         }, function() {
             if (map && vm.marker) {
                 var markerFeature = new ol.Feature({
-                    geometry: new ol.geom.Point(ol.proj.fromLonLat(vm.marker.point, projection.srs)),
+                    geometry: new /* ol.geom. */GeomPoint(/*ol. */proj.fromLonLat(vm.marker.point, projection.srs)),
                     message: vm.marker.message
                 });
                 markerFeature.setStyle(markerStyle);
-                var vectorSource = new ol.source.Vector({
+                var vectorSource = new /* ol.source. */Vector({
                     features: [markerFeature]
                 });
 
-                var vectorLayer = new ol.layer.Vector({
+                var vectorLayer = new /* ol.layer. */LayerVector({
                     source: vectorSource
                 });
                 map.addLayer(vectorLayer);
@@ -153,11 +169,11 @@ function createMap(element, style, baseLayer, projection) {
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
     var baseMapStyle = {style: style || 'osm-bright-en'};
 
-    var interactions = ol.interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
+    var interactions = /* ol. */interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: ol.control.defaults({zoom: false, attribution: false}),
+        controls: /*  ol. */control.defaults({zoom: false, attribution: false}),
         interactions: interactions
     });
 
@@ -181,18 +197,18 @@ function metersToRadius(map, meters) {
 }
 
 function lonLatToCurrentProjection(map, point) {
-    return ol.proj.fromLonLat(point, map.getView().getProjection());
+    return /*ol. */proj.fromLonLat(point, map.getView().getProjection());
 }
 
 function setFeatures(map, features, featureStyle) {
-    var vectorSource = new ol.source.Vector({
-        features: (new ol.format.GeoJSON()).readFeatures(features, {
+    var vectorSource = new /* ol.source. */Vector({
+        features: (new /* ol.format. */GeoJSON()).readFeatures(features, {
             dataProjection: 'EPSG:4326',
             featureProjection: projection.srs
         }),
         wrapX: false
     });
-    var vectorLayer = new ol.layer.Vector({
+    var vectorLayer = new /* ol.layer. */LayerVector({
         source: vectorSource,
         style: featureStyle || styleFunction
     });
@@ -201,13 +217,13 @@ function setFeatures(map, features, featureStyle) {
 }
 
 function setWKT(map, wkt) {
-    var vectorSource = new ol.source.Vector({
-        features: [new ol.format.WKT().readFeature(wkt, {
+    var vectorSource = new /* ol.source. */Vector({
+        features: [new /* ol.format. */WKT().readFeature(wkt, {
             dataProjection: 'EPSG:4326',
             featureProjection: projection.srs
         })]
     });
-    var vectorLayer = new ol.layer.Vector({
+    var vectorLayer = new /* ol.layer. */LayerVector({
         source: vectorSource,
         style: styleFunction
     });
@@ -219,20 +235,20 @@ function setWKT(map, wkt) {
 }
 
 function setCircle(map, circle) {
-    var vectorSource = new ol.source.Vector({});
-    var vectorLayer = new ol.layer.Vector({
+    var vectorSource = new /* ol.source. */Vector({});
+    var vectorLayer = new /* ol.layer. */LayerVector({
         source: vectorSource,
         style: styleFunction
     });
     map.addLayer(vectorLayer);
     var featureConfig = {
-        geometry: new ol.geom.Circle(lonLatToCurrentProjection(map, circle.coordinates), metersToRadius(map, circle.radius)),
-        style: new ol.style.Style({
-            stroke: new ol.style.Stroke({
+        geometry: new /* ol.geom. */ GeomCircle(lonLatToCurrentProjection(map, circle.coordinates), metersToRadius(map, circle.radius)),
+        style: new /* ol.style. */Style({
+            stroke: new /* ol.style. */Stroke({
                 color: 'yellow',
                 width: 2
             }),
-            fill: new ol.style.Fill({
+            fill: new /*ol.style. */Fill({
                 color: 'rgba(113, 177, 113, 0.1)'
             })
         })
@@ -246,16 +262,16 @@ function setCircle(map, circle) {
     map.getView().setZoom(6);
 }
 
-var image = new ol.style.Circle({
+var image = new /*ol.style. */Circle({
     radius: 4,
-    fill: new ol.style.Fill({
+    fill: new /* ol.style. */Fill({
         color: 'darkseagreen'
     }),
-    stroke: new ol.style.Stroke({color: 'darkseagreen', width: 2})
+    stroke: new /* ol.style. */Stroke({color: 'darkseagreen', width: 2})
 });
 
-var markerStyle = new ol.style.Style({
-    image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+var markerStyle = new /* ol.style. */Style({
+    image: new /* ol.style. */Icon(/** @type {olx.style.IconOptions} */ ({
         anchor: [0.5, 41],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
@@ -265,72 +281,72 @@ var markerStyle = new ol.style.Style({
 });
 
 var styles = {
-    'Point': new ol.style.Style({
+    'Point': new /* ol.style. */Style({
         image: image
     }),
-    'LineString': new ol.style.Style({
-        stroke: new ol.style.Stroke({
+    'LineString': new /* ol.style. */Style({
+        stroke: new /* ol.style. */Stroke({
             color: 'darkseagreen',
             width: 2
         })
     }),
-    'MultiLineString': new ol.style.Style({
-        stroke: new ol.style.Stroke({
+    'MultiLineString': new /* ol.style. */Style({
+        stroke: new /* ol.style. */Stroke({
             color: 'darkseagreen',
             width: 2
         })
     }),
-    'MultiPoint': new ol.style.Style({
+    'MultiPoint': new /* ol.style. */Style({
         image: image
     }),
-    'MultiPolygon': new ol.style.Style({
-        stroke: new ol.style.Stroke({
+    'MultiPolygon': new /* ol.style. */Style({
+        stroke: new /* ol.style. */Stroke({
             color: 'rgb(0,0,255)',
             width: 2
         }),
-        fill: new ol.style.Fill({
+        fill: new /* ol.style. */Fill({
             color: 'rgba(0,0,255, 0.1)'
         })
     }),
-    'Polygon': new ol.style.Style({
-        stroke: new ol.style.Stroke({
+    'Polygon': new /* ol.style. */Style({
+        stroke: new /* ol.style. */Stroke({
             color: 'rgb(0,0,255)',
             width: 2
         }),
-        fill: new ol.style.Fill({
+        fill: new /* ol.style. */Fill({
             color: 'rgba(0,0,255, 0.1)'
         })
     }),
-    'GeometryCollection': new ol.style.Style({
-        stroke: new ol.style.Stroke({
+    'GeometryCollection': new /* ol.style. */Style({
+        stroke: new /* ol.style. */Stroke({
             color: 'darkseagreen',
             width: 2
         }),
-        fill: new ol.style.Fill({
+        fill: new /* ol.style. */Fill({
             color: 'rgba(113, 177, 113, 0.1)'
         }),
-        image: new ol.style.Circle({
+        image: new /* ol.style. */Circle({
             radius: 10,
             fill: null,
-            stroke: new ol.style.Stroke({
+            stroke: new /* ol.style. */Stroke({
                 color: 'darkseagreen'
             })
         })
     }),
-    'Circle': new ol.style.Style({
-        stroke: new ol.style.Stroke({
+    'Circle': new /* ol.style. */Style({
+        stroke: new /* ol.style. */Stroke({
             color: 'rgba(255, 0, 0, 0.8)',
             width: 1
         }),
-        fill: new ol.style.Fill({
+        fill: new /* ol.style. */Fill({
             color: 'rgba(255, 0, 0, 0.1)'
         })
     })
 };
 
 function addSimpleBaseLayer(map, layer) {
-    map.addLayer(new ol.layer.Tile({
-        source: new ol.source.XYZ({
+    map.addLayer(new/*  ol.layer. */Tile({
+        source: new /* ol.source. */XYZ({
             attributions: layer.attribution,
             url: layer.url + querystring.stringify(layer.params),
             tilePixelRatio: (isHighDensity()) ? 2 : 1

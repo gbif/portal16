@@ -55,7 +55,7 @@ config.paths = {
 let vendorCss = [];
 vendorCss.push('node_modules/chartist/dist/chartist.min.css'); // This is wrong, but the minified version is the only that hasn't a source map. I would expect to use the unminified version
 vendorCss.push('node_modules/angular-toastr/dist/angular-toastr.min.css');
-vendorCss.push('node_modules/openlayers/dist/ol.css');
+vendorCss.push('node_modules/ol/ol.css');
 vendorCss.push('node_modules/angular-material/angular-material.css');
 vendorCss.push('node_modules/simplemde/dist/simplemde.min.css');
 vendorCss.push('node_modules/nouislider/distribute/nouislider.min.css');

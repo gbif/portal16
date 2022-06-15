@@ -4,7 +4,16 @@ require('./theGbifNetworkMap.service');
 
 var angular = require('angular'),
     _ = require('lodash'),
-    ol = require('openlayers');
+    ol = require('ol'),
+    proj = require('ol/proj'),
+    interaction = require('ol/interaction'),
+    control = require('ol/control'),
+    Vector = require('ol/source/Vector').default,
+    LayerVector = require('ol/layer/Vector').default,
+    Style = require('ol/style/Style').default,
+    Fill = require('ol/style/Fill').default,
+    Stroke = require('ol/style/Stroke').default,
+    TopoJSON = require('ol/format/TopoJSON').default;
 
 angular
     .module('portal')
@@ -37,8 +46,8 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
         layers: [
             currentProjection.getBaseLayer({style: 'gbif-light'})
         ],
-        interactions: ol.interaction.defaults({mouseWheelZoom: false}),
-        controls: ol.control.defaults({attribution: false})
+        interactions: /* ol. */interaction.defaults({mouseWheelZoom: false}),
+        controls: /* ol. */control.defaults({attribution: false})
 
     });
 
@@ -53,22 +62,22 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
 
     var currentlySelectedFeature;
 
-    var vector = new ol.layer.Vector({
-        source: new ol.source.Vector({
+    var vector = new /* ol.layer. */LayerVector({
+        source: new /* ol.source. */Vector({
             url: '/api/topojson/world/participants',
 
-            format: new ol.format.TopoJSON(),
+            format: new /* ol.format. */TopoJSON(),
             overlaps: false
         }),
         style: function(feature) {
             var stroke = (currentlySelectedFeature === feature) ? '#000000' : '#FFFFFF';
             var zIndex = (currentlySelectedFeature === feature) ? 100 : 1;
             var width = (currentlySelectedFeature === feature) ? 2 : 1;
-            return new ol.style.Style({
-                fill: new ol.style.Fill({
+            return new /* ol.style. */Style({
+                fill: new /* ol.style. */Fill({
                     color: colors[feature.getProperties().membershipType] || '#A9A9A9'
                 }),
-                stroke: new ol.style.Stroke({
+                stroke: new /* ol.style. */Stroke({
                     color: stroke,
                     width: width
                 }),
@@ -92,7 +101,7 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
             var longitudeSpan = (extent[2] - extent[0]);
             // A check if to see if the extent of a country crosses the date line, if so zoom to region rather than fit the entire globe
             if (longitudeSpan < 180) {
-                map.getView().fit(ol.proj.transformExtent(feature.getGeometry().getExtent(), 'EPSG:4326', currentProjection.srs));
+                map.getView().fit(/*ol. */proj.transformExtent(feature.getGeometry().getExtent(), 'EPSG:4326', currentProjection.srs));
             } else {
                 zoomToRegion(feature.getProperties().gbifRegion);
             }

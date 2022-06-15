@@ -1,7 +1,10 @@
 'use strict';
 
 var angular = require('angular');
-var ol = require('openlayers');
+var Style = require('ol/style/Style').default,
+Fill = require('ol/style/Fill').default,
+Stroke = require('ol/style/Stroke').default,
+Circle = require('ol/style/Circle').default;
 
 angular
     .module('portal')
@@ -69,13 +72,13 @@ function treatmentDirective() {
                             };
                         })
                     };
-                    vm.featureStyle = new ol.style.Style({
-                        image: new ol.style.Circle({
+                    vm.featureStyle = new /* ol.style. */Style({
+                        image: new /* ol.style. */Circle({
                             radius: 4,
-                            fill: new ol.style.Fill({
+                            fill: new /* ol.style. */Fill({
                                 color: 'blue'
                             }),
-                            stroke: new ol.style.Stroke({color: 'blue', width: 2})
+                            stroke: new /* ol.style. */Stroke({color: 'blue', width: 2})
                         })
                     });
 
