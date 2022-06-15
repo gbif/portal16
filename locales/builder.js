@@ -49,6 +49,7 @@ function builder(locale, folder, keepEmptyStrings) {
         getFile(locale, `./${folder}/${locale}/enums/nameTypeEnum`),
         getFile(locale, `./${folder}/${locale}/enums/nameUsageOrigin`),
         getFile(locale, `./${folder}/${locale}/enums/occurrenceIssue`),
+        getFile(locale, `./${folder}/${locale}/enums/occurrenceStatus`),
         getFile(locale, `./${folder}/${locale}/enums/originEnum`),
         getFile(locale, `./${folder}/${locale}/enums/projections`),
         getFile(locale, `./${folder}/${locale}/enums/region`),

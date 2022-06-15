@@ -84,7 +84,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="result in occTable.occurrenceState.table.results" class="lastCellFlexible rtl-supported">
+                            <tr ng-repeat="result in occTable.occurrenceState.table.results" class="lastCellFlexible rtl-supported" ng-style="{'background': result.occurrenceStatus === 'ABSENT' ? '#ffd7cf54' : ''}">
                                 <td class="table-cell table-cell--action"></td>
                                 <td dir="auto" class="table-cell--wide" >
                                     <a ui-sref="occurrenceKey({key:result.key})" class="issue-bullet__no-indent" ng-if="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1 || result.issues.indexOf('TAXON_MATCH_NONE') > -1) && result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']"><span ng-class="(result.issues.indexOf('TAXON_MATCH_HIGHERRANK') > -1) ?  'issue-bullet__warn' : 'issue-bullet__error'">&#9679</span> {{result._verbatimRecord['http://rs.tdwg.org/dwc/terms/scientificName']}}</a>
@@ -103,6 +103,9 @@
                                         {{result.eventDate | momentFormat:'YYYY MMMM'}}
                                     </a>
                                 </td>
+                                <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('occurrenceStatus')">
+                                  <a ui-sref="occurrenceKey({key:result.key})" ng-if="result.occurrenceStatus" translate="occurrenceStatus.{{result.occurrenceStatus}}"></a>
+                              </td>
                                 <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('basisOfRecord')">
                                     <a ui-sref="occurrenceKey({key:result.key})" translate="basisOfRecord.{{result.basisOfRecord}}"></a>
                                 </td>
