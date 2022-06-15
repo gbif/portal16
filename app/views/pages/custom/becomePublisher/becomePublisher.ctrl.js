@@ -5,6 +5,7 @@ var angular = require('angular'),
     proj = require('ol/proj'),
     control = require('ol/control'),
     interaction = require('ol/interaction'),
+    Point = require('ol/geom/Point').default,
     Style = require('ol/style/Style').default,
     Icon = require('ol/style/Icon').default,
     Vector = require('ol/source/Vector').default,
@@ -214,7 +215,7 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
         if (vm.dynamicPinLayer !== undefined) {
             vm.iconGeometry.setCoordinates(evt.coordinate);
         } else {
-            vm.iconGeometry = new ol.geom.Point(evt.coordinate);
+            vm.iconGeometry = new /* ol.geom. */Point(evt.coordinate);
             var iconFeature = new ol.Feature({
                 geometry: vm.iconGeometry
             });
