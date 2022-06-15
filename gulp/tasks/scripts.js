@@ -10,7 +10,7 @@ let browserify = require('browserify');
 let babelify = require('babelify');
 let rename = require('gulp-rename');
 let gulpif = require('gulp-if');
-let butternut = require('gulp-butternut');
+const terser = require('gulp-terser');
 let g = require('gulp-load-plugins')();
 
 gulp.task('scripts-reload', function() {
@@ -147,7 +147,7 @@ function build(entry, name) {
         })))
         // Add transformation tasks to the pipeline here.
       //  .pipe(g.ngAnnotate()) // To not break angular injection when minified - removed in favour of the babel angularjs-annotate plugin
-        .pipe(g.if(config.isProd, /* g.uglify() */butternut(), g.util.noop()))
+        .pipe(g.if(config.isProd, /* g.uglify() */terser(), g.util.noop()))
         .on('error', config.errorHandler('uglify'))
         .pipe(gulpif(!config.isProd, g.sourcemaps.write('./')))
         .pipe(gulp.dest(path.join(config.paths.dist, dest)))
@@ -175,7 +175,7 @@ gulp.task('build:vendor', () => {
         .pipe(source('vendor.js'))
         .pipe(buffer())
         .pipe(g.sourcemaps.init({loadMaps: true}))
-        .pipe(g.if(config.isProd, /* g.uglify() */butternut(), g.util.noop()))
+        .pipe(g.if(config.isProd, /* g.uglify() */terser(), g.util.noop()))
         .on('error', config.errorHandler('uglify'))
         .pipe(g.sourcemaps.write('./maps'))
         .pipe(gulp.dest('./public/js/base/'))
