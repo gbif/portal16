@@ -25,6 +25,7 @@
         "pPublishers": "{NUMBER, select, 1{forlægger} other{forlæggere}}",
         "contacts": "{NUMBER, select, 1{kontakt} other{kontakter}}",
         "nTreatments": "",
+        "nAbsent": "",
         "nImages": ""
     }
 }
