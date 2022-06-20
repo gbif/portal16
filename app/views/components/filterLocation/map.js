@@ -1,7 +1,6 @@
 'use strict';
 
 var ol = require('ol'),
-    interaction = require('ol/interaction'),
     proj = require('ol/proj'),
     control = require('ol/control'),
     Vector = require('ol/source/Vector').default,
@@ -9,6 +8,11 @@ var ol = require('ol'),
     WKT = require('ol/format/WKT').default,
     GeoJSON = require('ol/format/GeoJSON').default,
     GeometryCollection = require('ol/geom/GeometryCollection').default,
+    Draw = require('ol/interaction/Draw').default,
+    Snap = require('ol/interaction/Snap').default,
+    Modify = require('ol/interaction/Modify').default,
+    createBox = require('ol/interaction/Draw').createBox,
+    unByKey = require('ol/Observable').unByKey,
     _ = require('lodash'),
     projections = require('../map/mapWidget/projections');
 
@@ -19,6 +23,7 @@ module.exports = {
 
 
 function createMap(element, options) {
+   // proj.useGeographic();
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
 
     options = options || {};
@@ -68,8 +73,11 @@ function createMap(element, options) {
     var drawLayer = new /* ol.layer. */LayerVector({
         source: source
     });
+    drawLayer.setZIndex(1000);
 
-    var modify = new /*ol. */interaction.Modify({source: source});
+    var modify = new /*ol.interaction. */ Modify({source: source});
+    var snap = new /* ol.interaction. */Snap({source: source});
+    map.addInteraction(snap);
     map.addInteraction(modify);
 
     map.addLayer(currentProjection.getBaseLayer(_.assign({}, {style: 'gbif-geyser-en'}, {})));
@@ -77,7 +85,7 @@ function createMap(element, options) {
     map.addLayer(drawLayer);
     var format = new /* ol.format. */WKT();
     var geoJsonFormatter = new /* ol.format. */GeoJSON();
-    var draw, snap;
+    var draw;
     function disableDraw() {
         map.removeInteraction(draw);
         map.removeInteraction(snap);
@@ -91,6 +99,7 @@ function createMap(element, options) {
                 var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
                 geometries.push(format.writeFeature(rightHandCorrectedFeature, {
                     dataProjection: 'EPSG:4326',
+                    //featureProjection: 'EPSG:4326',
                     featureProjection: 'EPSG:3857',
                     rightHanded: true,
                     decimals: 5
@@ -104,18 +113,20 @@ function createMap(element, options) {
         });
     }
     function enableDraw(type, cb) {
+        var actions = map.getInteractions();
+        console.log(actions);
         if (type === 'Rectangle') {
-            draw = new /*ol. */interaction.Draw({
+            draw = new /*ol.interaction */ Draw({
                 source: source,
                 type: 'Circle',
-                geometryFunction: /*ol. */interaction.Draw.createBox()
+                geometryFunction: /*ol. interaction.Draw. */createBox()
             });
         } else {
-            draw = new /*ol. */interaction.Draw({
+            draw = new /*ol.interaction. */Draw({
                 source: source,
                 type: type
             });
-            snap = new /*ol. */interaction.Snap({source: source});
+            snap = new /*ol.interaction. */ Snap({source: source});
             map.addInteraction(snap);
         }
         map.addInteraction(draw);
@@ -160,7 +171,7 @@ function createMap(element, options) {
 
     function exitDeleteMode() {
        if (deleteListener) {
-        ol.Observable.unByKey(deleteListener);
+        /* ol.Observable. */ unByKey(deleteListener);
        }
     }
 
@@ -180,7 +191,8 @@ function createMap(element, options) {
                 var rightHandCorrectedFeature = geoJsonFormatter.readFeature(asGeoJson);
                 geometries.push(format.writeFeature(rightHandCorrectedFeature, {
                     dataProjection: 'EPSG:4326',
-                    featureProjection: 'EPSG:3857',
+                    featureProjection: 'EPSG:4326',
+                   // featureProjection: 'EPSG:3857',
                     rightHanded: true,
                     decimals: 5
                 }));

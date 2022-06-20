@@ -30,7 +30,7 @@ function filterLocationMapDirective(BUILD_VERSION) {
     }
 
     /** @ngInject */
-    function filterLocationMap($scope, OccurrenceFilter, $filter) {
+    function filterLocationMap($scope, OccurrenceFilter, $filter, $timeout) {
         var vm = this,
             map;
         $scope.create = function(element) {
@@ -76,12 +76,13 @@ function filterLocationMapDirective(BUILD_VERSION) {
         };
         vm.enableRectangleDraw = function() {
            // map.removeDrawnItems();
-            map.disableDraw();
+          //  map.disableDraw();
             map.exitDeleteMode();
             vm.deleteMode = false;
             vm.polygonDrawActive = false;
             vm.rectangleDrawActive = !vm.rectangleDrawActive;
             if (vm.rectangleDrawActive) {
+              //  $timeout(function(){},0)
                 map.enableDraw('Rectangle', function(wkt) {
                     var params = {geometry: $filter('unique')(wkt)};
                     if (vm.includeSuspicious !== true) {
@@ -90,16 +91,19 @@ function filterLocationMapDirective(BUILD_VERSION) {
                     OccurrenceFilter.updateParams(params);
                     vm.rectangleDrawActive = false;
                 });
+            } else {
+                map.disableDraw();
             }
         };
         vm.enablePolygonDraw = function() {
             // map.removeDrawnItems();
-            map.disableDraw();
+        //    map.disableDraw();
             map.exitDeleteMode();
             vm.deleteMode = false;
             vm.rectangleDrawActive = false;
             vm.polygonDrawActive = !vm.polygonDrawActive;
             if (vm.polygonDrawActive) {
+               // $timeout(function(){},0)
                 map.enableDraw('Polygon', function(wkt) {
                     var params = {geometry: $filter('unique')(wkt)};
                     if (vm.includeSuspicious !== true) {
@@ -108,6 +112,8 @@ function filterLocationMapDirective(BUILD_VERSION) {
                     OccurrenceFilter.updateParams(params);
                     vm.polygonDrawActive = false;
                 });
+            } else {
+                map.disableDraw();
             }
         };
         vm.removeDrawnItems = function() {
