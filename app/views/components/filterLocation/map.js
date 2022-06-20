@@ -113,8 +113,6 @@ function createMap(element, options) {
         });
     }
     function enableDraw(type, cb) {
-        var actions = map.getInteractions();
-        console.log(actions);
         if (type === 'Rectangle') {
             draw = new /*ol.interaction */ Draw({
                 source: source,

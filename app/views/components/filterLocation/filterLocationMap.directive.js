@@ -75,14 +75,11 @@ function filterLocationMapDirective(BUILD_VERSION) {
             view.setZoom(view.getZoom() - 1);
         };
         vm.enableRectangleDraw = function() {
-           // map.removeDrawnItems();
-          //  map.disableDraw();
             map.exitDeleteMode();
             vm.deleteMode = false;
             vm.polygonDrawActive = false;
             vm.rectangleDrawActive = !vm.rectangleDrawActive;
             if (vm.rectangleDrawActive) {
-              //  $timeout(function(){},0)
                 map.enableDraw('Rectangle', function(wkt) {
                     var params = {geometry: $filter('unique')(wkt)};
                     if (vm.includeSuspicious !== true) {
@@ -95,15 +92,12 @@ function filterLocationMapDirective(BUILD_VERSION) {
                 map.disableDraw();
             }
         };
-        vm.enablePolygonDraw = function() {
-            // map.removeDrawnItems();
-        //    map.disableDraw();
+        vm.enablePolygonDraw = function() {   
             map.exitDeleteMode();
             vm.deleteMode = false;
             vm.rectangleDrawActive = false;
             vm.polygonDrawActive = !vm.polygonDrawActive;
             if (vm.polygonDrawActive) {
-               // $timeout(function(){},0)
                 map.enableDraw('Polygon', function(wkt) {
                     var params = {geometry: $filter('unique')(wkt)};
                     if (vm.includeSuspicious !== true) {

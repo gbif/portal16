@@ -33,7 +33,6 @@ module.exports = {
 
 
 function createMap(element, options) {
-   // proj.useGeographic();
     var mapElement = element[0].querySelector('.mapWidget__mapArea');
     var progressElement = element[0].querySelector('.mapWidget__progress');
     var progress = new Progress(progressElement);
@@ -159,8 +158,6 @@ function createMap(element, options) {
         });
     }
     function enableDraw(type, cb) {
-        var actions = map.getInteractions();
-        console.log(actions);
         map.removeInteraction(exploreArea);
         if (type === 'Rectangle') {
             draw = new /* ol.interaction. */Draw({
