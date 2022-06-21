@@ -13,7 +13,7 @@ let knownFilters =
      'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey',
      'gbifDownloadKey', 'gbifDerivedDatasetDoi', 'publisher', 'source', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 
      'projectId', 'programmeId', 'doi', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias', 'gbifTaxonKey'];
-let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article'];
+let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article', 'composition'];
 
 let client = new elasticsearch.Client({
     host: elasticContentful
@@ -47,7 +47,7 @@ async function search(requestQuery, __, options) {
     query.requestTimeout = options.requestTimeout || 30000;
 
     let resp = await client.search(query);
-
+    
     let parsedResult = resourceResultParser.normalize(resp, query.from, query.size);
 
     resourceResultParser.removeFields(parsedResult.results, ['gbifDatasetKey', 'publishingOrganizationKey']);
@@ -331,6 +331,10 @@ function getFilter(field, value) {
       // nested field
       return filterHelper.getFilter('gbifDerivedDatasetDoi.keyword', value);
     }
+    if (field === 'keywords') {
+        // nested field
+        return filterHelper.getFilter('keywords.keyword', value);
+      }
     return filterHelper.getFilter(field, value, isRange);
     // //Create the term filter
     // let filterTerm = {};

@@ -30,6 +30,7 @@
                     <ng-include src="'/api/template/search/literatureResult.html?v=' +  resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'literature'"></ng-include>
                     <ng-include src="'/api/template/search/toolResult.html?v=' +        resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'tool'"></ng-include>
                     <ng-include src="'/api/template/search/documentResult.html?v=' +    resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'document'"></ng-include>
+                    <ng-include src="'/api/template/search/compositionResult.html?v=' +       resourceList.BUILD_VERSION+'&locale='+resourceList.locale" ng-if="result.contentType == 'composition'"></ng-include>
                 </div>
 
                 <div ng-if="resourceList.faqData.count > 0 && !resourceList.state.data.offset && !resourceList.state.query.contentType">

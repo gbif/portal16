@@ -39,6 +39,10 @@ router.get('/search/documentResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/document/documentSearchResult');
 });
 
+router.get('/search/compositionResult.html', function(req, res, next) {
+    helper.renderPage(req, res, next, {}, 'pages/resource/key/composition/compositionSearchResult');
+});
+
 router.get('/search/dataUseResult.html', function(req, res, next) {
     helper.renderPage(req, res, next, {}, 'pages/resource/key/dataUse/dataUseSearchResult');
 });
