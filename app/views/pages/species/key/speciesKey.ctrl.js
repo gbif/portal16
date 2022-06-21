@@ -13,6 +13,7 @@ require('./directives/distributions.directive.js');
 require('./directives/typeSpecimen.directive.js');
 require('../../../components/iucnStatus/iucnStatus.directive.js');
 require('../../../components/occurrenceCard/occurrenceCard.directive.js');
+require('../../../components/occurrenceTaxonomyChart/occurrenceTaxonomyStats.directive.js');
 require('../../../components/scientificName/scientificName.directive.js');
 require('./literature/literature.ctrl.js');
 

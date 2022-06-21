@@ -20,6 +20,8 @@ function nameUsagesDirective() {
         }
     };
     return directive;
+
+    /** @ngInject */
     function chartLink(scope, element) {
         // , attrs, ctrl
         scope.create(element);

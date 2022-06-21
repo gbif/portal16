@@ -5,10 +5,10 @@ var _ = require('lodash');
 
 angular
     .module('portal')
-    .directive('checklistMetrics', checklistMetrics);
+    .directive('checklistMetrics', checklistMetricsDirective);
 
 /** @ngInject */
-function checklistMetrics() {
+function checklistMetricsDirective() {
     var directive = {
         restrict: 'E',
         templateUrl: '/templates/components/checklistMetrics/checklistMetrics.html',
@@ -46,7 +46,7 @@ function checklistMetrics() {
         }
         translations.unit = $translate(u);
 
-
+        /** @ngInject */
         $scope.create = function(element) {
             vm.chartElement = element[0].querySelector('.chartArea');
         };
@@ -300,5 +300,5 @@ function checklistMetrics() {
     }
 }
 
-module.exports = checklistMetrics;
+module.exports = checklistMetricsDirective;
 

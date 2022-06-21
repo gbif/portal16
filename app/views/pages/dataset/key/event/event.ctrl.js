@@ -22,7 +22,7 @@ function datasetEventCtrl($stateParams, DatasetEvent, DatasetEventList, Occurren
     vm.isDoi = function(str) {
         return typeof str === 'string' && !!str.match(doiRegex());
     };
-
+    console.log('test');
     // Get first page of paginated events - currently from the proxy API that use occurrence facets to estimate it.  This is not ideal, but a fragile workaround
     vm.changeEventPage = function(offset) {
         vm.event.$promise.then(function() {

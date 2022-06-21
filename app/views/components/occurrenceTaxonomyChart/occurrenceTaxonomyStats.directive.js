@@ -5,10 +5,10 @@ var _ = require('lodash');
 
 angular
     .module('portal')
-    .directive('occurrenceTaxonomyStats', occurrenceTaxonomyStats);
+    .directive('occurrenceTaxonomyStats', occurrenceTaxonomyStatsDirective);
 
 /** @ngInject */
-function occurrenceTaxonomyStats(BUILD_VERSION) {
+function occurrenceTaxonomyStatsDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
         templateUrl: '/templates/components/occurrenceTaxonomyChart/occurrenceTaxonomyStats.html?v=' + BUILD_VERSION,
@@ -296,5 +296,5 @@ function paintChart(Highcharts, elm, type, res, allowDrillToNode, click, transla
    return Highcharts.chart(elm, options);
 }
 
-module.exports = occurrenceTaxonomyStats;
+module.exports = occurrenceTaxonomyStatsDirective;
 

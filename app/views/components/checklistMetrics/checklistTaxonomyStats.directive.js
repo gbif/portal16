@@ -5,10 +5,10 @@ var _ = require('lodash');
 
 angular
     .module('portal')
-    .directive('checklistTaxonomyStats', checklistTaxonomyStats);
+    .directive('checklistTaxonomyStats', checklistTaxonomyStatsDirective);
 
 /** @ngInject */
-function checklistTaxonomyStats(BUILD_VERSION) {
+function checklistTaxonomyStatsDirective(BUILD_VERSION) {
     var directive = {
         restrict: 'E',
         templateUrl: '/templates/components/checklistMetrics/checklistTaxonomyStats.html?v=' + BUILD_VERSION,
@@ -21,7 +21,7 @@ function checklistTaxonomyStats(BUILD_VERSION) {
         }
     };
     return directive;
-
+    /** @ngInject */
     function chartLink(scope, element) {// , attrs, ctrl
         scope.create(element);
     }
@@ -333,4 +333,4 @@ function checklistTaxonomyStats(BUILD_VERSION) {
     }
 }
 
-module.exports = checklistTaxonomyStats;
+module.exports = checklistTaxonomyStatsDirective;
