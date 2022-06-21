@@ -8,12 +8,30 @@
             <a href="" ng-click="vm.zoomOut()"
                tooltip-placement="right" uib-tooltip="{{ 'map.tooltips.zoomOut' | translate }}">-</a>
             <a href="" class="gb-icon-select smallIcon" ng-click="vm.enableClickGeometry()"
+                ng-if="vm.projectionSupportsDrawing()"
                ng-class="{'is-active': vm.clickQueryActive }"
                tooltip-placement="right" uib-tooltip="{{ 'map.tooltips.searchArea' | translate }}"></a>
             <a href="" class="gb-icon-format-paint smallIcon" ng-click="vm.toggleStyle()" 
                tooltip-placement="right" uib-tooltip="{{ 'map.tooltips.toggleStyle' | translate }}"></a>
+            <div uib-dropdown on-toggle="toggled(open)" class="dropdown-menu-right">
+                <a uib-dropdown-toggle href="" class="gb-icon-earth mapButton smallIcon"></a>
+                <ul class="dropdown-menu" uib-dropdown-menu aria-label="Map projection">
+                    <li>
+                        <a href="" ng-click="vm.setProjection(vm.projections.ARCTIC)" class="small" translate="projections.ARCTIC"></a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="vm.setProjection(vm.projections.PLATE_CAREE)" class="small" translate="projections.PLATE_CAREE"></a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="vm.setProjection(vm.projections.MERCATOR)" class="small" translate="projections.MERCATOR"></a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="vm.setProjection(vm.projections.ANTARCTIC)" class="small" translate="projections.ANTARCTIC"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="mapWidget__drawButtons" ng-if="!vm.noDrawing">
+        <div class="mapWidget__drawButtons" ng-if="!vm.noDrawing && vm.projectionSupportsDrawing()">
             <a href="" class="gb-icon-rectangle smallIcon" ng-click="vm.enableRectangleDraw()"
                ng-class="{'is-active': vm.rectangleDrawActive }"
                tooltip-placement="left" uib-tooltip="{{ 'map.tooltips.addRectangleFilter' | translate }}"></a>
@@ -21,8 +39,8 @@
                ng-class="{'is-active': vm.polygonDrawActive }"
                tooltip-placement="left" uib-tooltip="{{ 'map.tooltips.addPolygonFilter' | translate }}"></a>
             <a href="" class="gb-icon-trash smallIcon" ng-click="vm.enableDeleteMode()" 
-               ng-class="{'is-active': vm.deleteMode}"
-               tooltip-placement="left" uib-tooltip="{{ 'map.tooltips.removeGeometryFilter' | translate }}"></a>
+                ng-class="{'is-active': vm.deleteMode}"
+                tooltip-placement="left" uib-tooltip="{{ 'map.tooltips.removeGeometryFilter' | translate }}"></a>
         </div>
         <div class="mapWidget__info">
             <span>© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a href="/citation-guidelines" class="inherit">GBIF</a>.</span>
