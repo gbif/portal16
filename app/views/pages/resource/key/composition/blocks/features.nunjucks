@@ -1,7 +1,7 @@
 <section class="horizontal-stripe light-background featuresBlockList">
     <div class="container--desktop">
       {% if main.fields.title and not main.fields.hideTitle %}
-        <h4 class="card-header--bold m-b-05">{$ main.fields.title $}</h2>
+        <h4 class="card-header--bold m-b-05">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h2>
       {% endif %}
       <div class="featuresBlock featuresBlock-length-{$ main.fields.features.length $}">
           {% for featureId in main.fields.features %}

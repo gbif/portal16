@@ -48,7 +48,7 @@ function adhocMapDirective(BUILD_VERSION) {
             PLATE_CAREE: 'EPSG_4326',
             ANTARCTIC: 'EPSG_3031'
         };
-        vm.activeProjection = vm.projections.PLATE_CAREE;
+        vm.activeProjection = vm.projections.PLATE_CAREE; 
         vm.activeControl = undefined;
         vm.controls = {
             PROJECTION: 1,
@@ -246,6 +246,20 @@ function adhocMapDirective(BUILD_VERSION) {
                 filters: getQuery()
             };
             map.update(options);
+        };
+
+        vm.setProjection = function(epsg) {
+            map.update({projection: epsg});
+        };
+
+        vm.getProjection = function() {
+            return map ? map.getProjection() : undefined;
+        };
+
+        vm.projectionSupportsDrawing = function() {
+            let epsg = vm.getProjection();
+            if (epsg === vm.projections.PLATE_CAREE) return true;
+            return false;
         };
 
         vm.updateFilters = function() {

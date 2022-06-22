@@ -69,7 +69,7 @@ function get4326() {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
         },
         getAdhocLayer: function(params) {
-            params.srs = '4326';// only supports this projection
+            // params.srs = '4326';// only supports this projection
             return getAdhocLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
         }
     };
@@ -107,6 +107,10 @@ function get3857() {
         },
         getOccurrenceLayer: function(params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
+        },
+        getAdhocLayer: function(params) {
+            // params.srs = '4326';// only supports this projection
+            return getAdhocLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
         }
     };
 }
@@ -154,6 +158,10 @@ function get3575() {
         },
         getOccurrenceLayer: function(params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
+        },
+        getAdhocLayer: function(params) {
+            // params.srs = '4326';// only supports this projection
+            return getAdhocLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
         }
     };
 }
@@ -202,6 +210,10 @@ function get3031() {
         },
         getOccurrenceLayer: function(params) {
             return getLayer(env.dataApiV2 + 'map/occurrence/density/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
+        },
+        getAdhocLayer: function(params) {
+            // params.srs = '3031';// only supports this projection
+            return getAdhocLayer(env.dataApiV2 + 'map/occurrence/adhoc/{z}/{x}/{y}@' + pixelRatio + 'x.png?', this, params);
         }
     };
 }
@@ -263,6 +275,10 @@ function getLayer(baseUrl, proj, params) {
 function getAdhocLayer(baseUrl, proj, params) {
     params = params || {};
     params.srs = proj.srs;
+    params.style = 'scaled.circles';
+    params.mode = 'GEO_CENTROID';
+    delete params.hexPerTile;
+    delete params.bin;
     var progress = params.progress;
     delete params.progress;
     var source = new /*ol. */olSource.XYZ({

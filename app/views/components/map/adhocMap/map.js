@@ -24,6 +24,7 @@ var ol = require('ol'),
     unByKey = require('ol/Observable').unByKey,
     _ = require('lodash'),
     Progress = require('../mapWidget/progress'),
+    optionsConfig = require('../mapWidget/options'),
     projections = require('../mapWidget/projections');
 
 
@@ -41,25 +42,74 @@ function createMap(element, options) {
     var baseMapStyle = options.baseMap || {style: 'gbif-geyser-en'};
     var overlayStyle = options.overlays || [];
     var filters = options.filters || {};
-    var currentProjection = projections.EPSG_4326;
+    var currentProjection;// = projections.EPSG_3575;
 
-    this.update = function(options, resetView) {
+    // this.update = function(options, resetView) {
+    //     options = options || {};
+    //     baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-geyser-en'};
+    //     overlayStyle = options.overlay || overlayStyle || {};
+    //     filters = options.filters || filters || {};
+    //     map.getLayers().clear();
+    //     source.clear();
+    //     if (resetView) {
+    //         map.setView(currentProjection.getView(0, 0, 1));
+    //     }
+
+    //     map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
+    //     map.addLayer(drawLayer);
+
+    //     filters = _.omitBy(_.clone(filters), function(e) {
+    //         return _.isUndefined(e);
+    //     });
+    //     if (overlayStyle.length == 0) {
+    //         overlayStyle.push({});
+    //     }
+    //     if (_.isArray(overlayStyle)) {
+    //         overlayStyle.forEach(function(overlay) {
+    //             map.addLayer(currentProjection.getAdhocLayer(_.assign({}, overlay, filters, {progress: progress})));
+    //         });
+    //     }
+
+    //     if (options.filters.geometry) {
+    //         initGeometry(options.filters.geometry);
+    //     }
+
+    //     if (options.fitExtent) {
+    //         if (options.filters.geometry) {
+    //             setTimeout(function() {
+    //                 map.getView().fit(/* ol. */proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
+    //             });
+    //         } else if (currentProjection.fitExtent) {
+    //             map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
+    //         }
+    //     }
+    // };
+    this.update = function(options) {
         options = options || {};
-        baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-geyser-en'};
-        overlayStyle = options.overlay || overlayStyle || {};
-        filters = options.filters || filters || {};
-        map.getLayers().clear();
-        source.clear();
-        if (resetView) {
-            map.setView(currentProjection.getView(0, 0, 1));
+        baseMapStyle = options.baseMap || baseMapStyle || {style: 'gbif-classic'};
+        if (optionsConfig.localizedStyles[baseMapStyle.style]) {
+            baseMapStyle.style += '-' + locale;
         }
 
-        map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
-        map.addLayer(drawLayer);
-
+        overlayStyle = options.overlay || overlayStyle || {};
+        filters = options.filters || filters || {};
         filters = _.omitBy(_.clone(filters), function(e) {
             return _.isUndefined(e);
         });
+        map.getLayers().clear();
+        source.clear();
+        if (!currentProjection || (options.projection && options.projection != currentProjection.name)) {
+            currentProjection = projections[options.projection] || currentProjection || projections.EPSG_4326;
+            map.setView(currentProjection.getView(0, 0, 1));
+            if (currentProjection.fitExtent) {
+                map.getView().fit(currentProjection.fitExtent, {constrainResolution: false, maxZoom: 12, minZoom: 0});
+            }
+        }
+        map.addLayer(currentProjection.getBaseLayer(_.assign({}, baseMapStyle, {progress: progress})));
+        if (currentProjection.srs === 'EPSG:4326') {
+            map.addLayer(drawLayer);
+        }
+
         if (overlayStyle.length == 0) {
             overlayStyle.push({});
         }
@@ -69,33 +119,23 @@ function createMap(element, options) {
             });
         }
 
-        if (options.filters.geometry) {
-            initGeometry(options.filters.geometry);
-        }
-
-        if (options.fitExtent) {
-            if (options.filters.geometry) {
-                setTimeout(function() {
-                    map.getView().fit(/* ol. */proj.transformExtent(extentFromWKT(options.filters.geometry), 'EPSG:4326', 'EPSG:4326'), {size: map.getSize(), nearest: false});
-                });
-            } else if (currentProjection.fitExtent) {
-                map.getView().fit(currentProjection.fitExtent, {nearest: true, maxZoom: 12, minZoom: 0});
-            }
+        if (filters.geometry && currentProjection.srs === 'EPSG:4326') {
+            initGeometry(filters.geometry);
         }
     };
 
-    var extentFromWKT = function(wkt) {
-        var format = new /* ol.format. */WKT();
-        if (_.isArray(wkt)) {
-            var coll = new /* ol.geom. */GeometryCollection(wkt.map(function(w) {
-                return format.readGeometry(w);
-            }));
-            return coll.getExtent();
-        } else {
-            var geom = format.readGeometry(wkt);
-            return geom.getExtent();
-        }
-    };
+    // var extentFromWKT = function(wkt) {
+    //     var format = new /* ol.format. */WKT();
+    //     if (_.isArray(wkt)) {
+    //         var coll = new /* ol.geom. */GeometryCollection(wkt.map(function(w) {
+    //             return format.readGeometry(w);
+    //         }));
+    //         return coll.getExtent();
+    //     } else {
+    //         var geom = format.readGeometry(wkt);
+    //         return geom.getExtent();
+    //     }
+    // };
 
     var dragAndDropInteraction = new /* ol.interaction. */DragAndDrop({
         formatConstructors: [
@@ -108,7 +148,8 @@ function createMap(element, options) {
     });
 
     var map = new ol.Map({
-        interactions: /* ol. */interaction.defaults().extend([dragAndDropInteraction]),
+        // I'm disabling the drag'ndrop upload as it leads to conflict with projections. I'm sure it can be solved, but it is my impression no one knows and use this feature anyway.
+        // interactions: /* ol. */interaction.defaults().extend([dragAndDropInteraction]),
         target: mapElement,
         logo: false,
         controls: /* ol. */control.defaults({zoom: false, attribution: false})
@@ -116,7 +157,7 @@ function createMap(element, options) {
     });
 
 
-   // var drawLayer;
+   var drawLayer;
     var source = new /* ol.source. */Vector({wrapX: true});
     var drawLayer = new /* ol.layer. */LayerVector({
         source: source
@@ -277,8 +318,6 @@ function createMap(element, options) {
     }
     function initGeometry(geometry) {
         var geometries = [];
-
-
         if (_.isArray(geometry)) {
             var polys = geometry;
             for (var i = 0; i < polys.length; i++) {
@@ -352,7 +391,12 @@ function createMap(element, options) {
     };
 
     this.setExtent = function(extent) {
-        map.getView().fit(/* ol. */proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), map.getSize());
+        map.getView().fit(/*ol. */proj.transformExtent(extent, 'EPSG:4326', currentProjection.srs), {
+            constrainResolution: false,
+            maxZoom: 6,
+            minZoom: 0,
+            size: map.getSize()
+        });
     };
 
 

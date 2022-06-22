@@ -14,7 +14,7 @@
   <div class="card__stripe--expandable inherit">
     <div class="card__content" dir="auto">
       <h4 class="block_features__item__title">
-        <a href="{$ feature.fields.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ feature.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
+        <a href="{$ feature.fields.url | localizeLink(gb.locales.urlPrefix) $}" class="inherit">{$ feature.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</a>
       </h4>
       <div class="block_features__item__description">{$ feature.fields.comment | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
     </div>

@@ -2,7 +2,7 @@
   <div class="container--desktop">
     <div class="block_carousel" dir="auto">
       {% if main.fields.title and not main.fields.hideTitle %}
-      <h2 class="block__header">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
+      <h2 class="block__header" id="_{$ main.fields.title | slug() $}">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
       {% endif %}
       {% if main.fields.body %}
       <div class="block__description">
@@ -39,7 +39,7 @@
                     <div class="block_slide__textContent" dir="auto">
                       <h3 class="h2 block_slide__textContent__title">
                         <div>
-                          {$ feature.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
+                          {$ feature.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                         </div>
                         {% if feature.fields.titleCountPart %}
                           {% if feature.fields.titleCountPart | startsWith(["/", "http"]) %}
