@@ -17,15 +17,9 @@ let md = require('markdown-it')({html: true, linkify: true, typographer: false, 
     md.use(require('markdown-it-imsize'), {autofill: false});
 
     // adding anchor headers to markdown would be nice, but the problem is the navbar offset
-    // md.use(require('markdown-it-anchor'), {
-    //    level: 1,
-    //    slugify: function(str){return '_' + format.getSlug(str)},
-    //    permalink: true,
-    //    // renderPermalink: (slug, opts, state, permalink) => {},
-    //    permalinkClass: 'gb-icon-link header-anchor inherit noUnderline',
-    //    permalinkSymbol: '',
-    //    permalinkBefore: false
-    // });
+    md.use(require('markdown-it-anchor'), {
+       slugify: function(str){return '_' + encodeURIComponent(format.getSlug(str))},
+    });
 
 module.exports = function(nunjucksConfiguration) {
     (function() {
@@ -120,6 +114,10 @@ module.exports = function(nunjucksConfiguration) {
 
     (function() {
         nunjucksConfiguration.addFilter('toCamelCase', format.toCamelCase);
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('slug', format.getSlug);
     })();
 
     (function() {
