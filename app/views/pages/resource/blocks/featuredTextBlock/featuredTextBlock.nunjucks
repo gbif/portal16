@@ -4,7 +4,7 @@
   <div class="container--desktop">
     <div class="featured_text_block {% if main.fields.reverse %} block-reverse{% endif %}">
       {% if main.fields.title and not main.fields.hideTitle %}
-      <h2 class="block__header" dir="auto">{$ main.fields.title | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
+      <h2 class="block__header" dir="auto">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
       {% endif %}
       <div class="container--narrow">
         <div class="featured_text_block__content">

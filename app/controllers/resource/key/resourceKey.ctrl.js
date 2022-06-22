@@ -142,7 +142,7 @@ function prose(req, res, next, type, template, redirectToSlug) {
             resource.mapLegacyData(contentItem);
             resource.removeUnresovable(contentItem.main.fields, contentItem.resolved);
             let actualContentType = changeCase.paramCase(_.get(contentItem, 'main.sys.contentType.sys.id', type));
-
+console.log(JSON.stringify(contentItem, null, 2));
             let img = _.get(contentItem, 'resolved.Asset[' + _.get(contentItem, 'main.fields.primaryImage.sys.id') + '].fields.file.url');
             contentItem._meta = {
                 title: preview ? 'preview' : itemTitle,

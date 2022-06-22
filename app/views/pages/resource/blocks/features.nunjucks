@@ -1,5 +1,5 @@
 <section class="home">
-  <h4 class="card-header">{$ main.fields.title $}</h4>
+  <h4 class="card-header">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h4>
   <div class="featureBlock">
     {% for featureRef in main.fields.features %}
       {% set feature = resolved.Entry[featureRef.sys.id].fields %}
