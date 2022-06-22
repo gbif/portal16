@@ -55,6 +55,7 @@ function get4326() {
             lon = lon || 0;
             zoom = zoom || 0;
             return new ol.View({
+                multiWorld: true,
                 maxZoom: maxZoom,
                 minZoom: 0,
                 center: [lon, lat],
