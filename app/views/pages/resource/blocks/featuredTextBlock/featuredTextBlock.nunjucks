@@ -15,7 +15,7 @@
                 {$ main.fields.subtitle | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
               </h3>
               {% endif %}
-              <div class="block_slide__textContent__body">
+              <div class="block_slide__textContent__body body-text">
                 {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
               </div>
               {% if main.fields.callToAction %}
