@@ -1,5 +1,5 @@
 <div class="horizontal-stripe {$ main.fields.backgroundColour | default("white") $}-background"
-    {% if not main.fields.hideTitle %}
+    {% if main.fields.title %}
         id="_{$ main.fields.title | slug() $}"
     {% endif %}
   >

@@ -1,4 +1,8 @@
-<section class="horizontal-stripe light-background featuresBlockList">
+<section class="horizontal-stripe light-background featuresBlockList"
+    {% if main.fields.title %}
+      id="_{$ main.fields.title | slug() $}"
+    {% endif %}
+  >
     <div class="container--desktop">
       {% if main.fields.title and not main.fields.hideTitle %}
         <h4 class="card-header--bold m-b-05">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h2>
