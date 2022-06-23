@@ -1,5 +1,5 @@
 <section class="horizontal-stripe {$ main.fields.backgroundColour $}-background p-0"
-    {% if not main.fields.hideTitle %}
+    {% if main.fields.title %}
       id="_{$ main.fields.title | slug() $}"
     {% endif %}
     >

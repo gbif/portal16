@@ -1,7 +1,7 @@
 <div class="horizontal-stripe article-header white-background headerBlock"
-  {% if not main.fields.hideTitle %}
-    id="_{$ main.fields.title | slug() $}"
-  {% endif %}
+    {% if main.fields.title %}
+      id="_{$ main.fields.title | slug() $}"
+    {% endif %}
   >
   <div class="article-header">
     <header class="text-center">

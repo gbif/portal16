@@ -1,7 +1,7 @@
 {% set image = resolved.Asset[main.fields.primaryImage.sys.id].fields %}
 
 <section class="featured_text_block__background horizontal-stripe {$ main.fields.backgroundColour $}-background" {% if image %} style="background-image: url('{$ _meta.imageCache $}http:{$ image.file.url | encodeURI $}'); {% if main.fields.style %} {$ main.fields.style $} {% endif %}" {% endif %}
-  {% if not main.fields.hideTitle %}
+  {% if main.fields.title %}
     id="_{$ main.fields.title | slug() $}"
   {% endif %}
   >
