@@ -1,7 +1,11 @@
-<div class="horizontal-stripe {$ main.fields.backgroundColour | default("white") $}-background">
+<div class="horizontal-stripe {$ main.fields.backgroundColour | default("white") $}-background"
+    {% if not main.fields.hideTitle %}
+        id="_{$ main.fields.title | slug() $}"
+    {% endif %}
+  >
     <div class="container--narrow">
         {% if main.fields.title and not main.fields.hideTitle %}
-        <h2 id="_{$ main.fields.title | slug() $}">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h2>
+        <h2>{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h2>
         {% endif %}
         {% include "../../body.nunjucks" %}
     </div>

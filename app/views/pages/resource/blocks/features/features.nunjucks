@@ -1,8 +1,12 @@
-<div class="horizontal-stripe {$ main.fields.backgroundColour $}-background p-0">
+<div class="horizontal-stripe {$ main.fields.backgroundColour $}-background p-0"
+  {% if not main.fields.hideTitle %}
+    id="_{$ main.fields.title | slug() $}"
+  {% endif %}
+  >
   <div class="container--desktop">
     <div class="block_features">
       {% if main.fields.title and not main.fields.hideTitle %}
-      <h2 class="block__header" id="_{$ main.fields.title | slug() $}">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
+      <h2 class="block__header">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
       {% endif %}
       {% if main.fields.body %}
       <div class="block__description body-text">

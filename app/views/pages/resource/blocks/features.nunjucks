@@ -1,5 +1,9 @@
-<section class="home">
-  <h4 class="card-header" id="_{$ main.fields.title | slug() $}">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h4>
+<section class="home" 
+    {% if not main.fields.hideTitle %}
+    id="_{$ main.fields.title | slug() $}"
+    {% endif %}
+    >
+  <h4 class="card-header">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h4>
   <div class="featureBlock">
     {% for featureRef in main.fields.features %}
       {% set feature = resolved.Entry[featureRef.sys.id].fields %}
