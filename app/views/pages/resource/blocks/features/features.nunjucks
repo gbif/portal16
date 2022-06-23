@@ -5,7 +5,7 @@
       <h2 class="block__header" id="_{$ main.fields.title | slug() $}">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</h2>
       {% endif %}
       {% if main.fields.body %}
-      <div class="block__description">
+      <div class="block__description body-text">
         {$ main.fields.body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
       </div>
       {% endif %}

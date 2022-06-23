@@ -52,7 +52,7 @@
                         <div class="block_slide__textContent__title__small">{$ feature.fields.subtitle | renderMarkdownCustom(["i"]) | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}</div>
                         {% endif %}
                       </h3>
-                      <div class="block_slide__textContent__body">
+                      <div class="block_slide__textContent__body body-text">
                         {$ body | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}
                       </div>
                       {% if feature.fields.callToAction %}
