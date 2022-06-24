@@ -71,6 +71,16 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('GraphQLGet', function($resource, env) {
+            return $resource('https:' + env.graphQLApi, null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false,
+                        cancellable: true
+                    }
+                }
+            );
+        })
         .factory('OccurrenceBreakdown', function($resource) {
             return $resource('/api/occurrence/breakdown', null, {
                     'query': {

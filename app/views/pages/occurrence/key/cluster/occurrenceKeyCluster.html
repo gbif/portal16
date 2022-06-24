@@ -53,7 +53,9 @@
                   </div>
 
                   <div class="searchCard__meta">
-                      <span translate="filterNames.datasetKey"></span>: <a class="inherit" ui-sref="datasetKey({key: occurrenceKeyCluster.similarRecords.currentOccurrence.datasetKey})">{{ occurrenceKeyCluster.similarRecords.currentOccurrence.datasetName }}</a>
+                      <span translate="filterNames.datasetKey"></span>: <a class="inherit" ui-sref="datasetKey({key: occurrenceKeyCluster.similarRecords.currentOccurrence.datasetKey})">
+                        {{ occurrenceKeyCluster.datasetTitles[occurrenceKeyCluster.similarRecords.currentOccurrence.datasetKey].data.dataset.title }}
+                      </a>
                   </div>
                   <div class="searchCard__meta">
                       <span translate="ocurrenceFieldNames.publisher"></span>: <a class="inherit" ui-sref="publisherKey({key: occurrenceKeyCluster.similarRecords.currentOccurrence.publishingOrgKey})">{{ occurrenceKeyCluster.similarRecords.currentOccurrence.publishingOrgName }}</a>
@@ -117,7 +119,7 @@
                     </div>
 
                     <div class="searchCard__meta">
-                        <span translate="filterNames.datasetKey"></span>: <a class="inherit" ui-sref="datasetKey({key: match.occurrence.datasetKey})">{{ match.occurrence.datasetName }}</a>
+                        <span translate="filterNames.datasetKey"></span>: <a class="inherit" ui-sref="datasetKey({key: match.occurrence.datasetKey})">{{ occurrenceKeyCluster.datasetTitles[match.occurrence.datasetKey].data.dataset.title }}</a>
                     </div>
                     <div class="searchCard__meta">
                         <span translate="ocurrenceFieldNames.publisher"></span>: <a class="inherit" ui-sref="publisherKey({key: match.occurrence.publishingOrgKey})">{{ match.occurrence.publishingOrgName }}</a>
