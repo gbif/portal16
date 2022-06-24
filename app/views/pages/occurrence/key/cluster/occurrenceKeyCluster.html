@@ -24,7 +24,7 @@
         <article class="card searchCard rtl-supported rtl-bootstrap m-b-2">
           <div class="card__stripe">
               <div class="card__content">
-                <span ng-if="match.occurrence.typeStatus.length > 0" ng-repeat="typeStatus in occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus">
+                <span ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus.length > 0" ng-repeat="typeStatus in occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus">
                   <span ng-if="typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{typeStatus}}"></span>
                   <span ng-if="typeStatus && typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{typeStatus}}"></span>
                 </span>
