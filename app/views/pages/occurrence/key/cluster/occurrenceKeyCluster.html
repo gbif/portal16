@@ -24,8 +24,10 @@
         <article class="card searchCard rtl-supported rtl-bootstrap m-b-2">
           <div class="card__stripe">
               <div class="card__content">
-                  <span ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus}}"></span>
-                  <span ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus && occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus}}"></span>
+                <span ng-if="match.occurrence.typeStatus.length > 0" ng-repeat="typeStatus in occurrenceKeyCluster.similarRecords.currentOccurrence.typeStatus">
+                  <span ng-if="typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{typeStatus}}"></span>
+                  <span ng-if="typeStatus && typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{typeStatus}}"></span>
+                </span>
                   <h3 class="searchCard__headline" dir="auto">
                       <span>{{occurrenceKeyCluster.similarRecords.currentOccurrence.scientificName}}</span>
                   </h3>
@@ -43,6 +45,14 @@
                   </p>
                   <div class="small" ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.preparations">
                       <span translate="ocurrenceFieldNames.preparations"></span>: {{ occurrenceKeyCluster.similarRecords.currentOccurrence.preparations }}
+                  </div>
+                  <div class="small" ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.preparations && occurrenceKeyCluster.similarRecords.currentOccurrence.preparations.length > 0">
+                    <span translate="ocurrenceFieldNames.preparations"></span>:
+                    <ul class="inline-bullet-list">
+                      <li dir="ltr" ng-repeat="preparation in occurrenceKeyCluster.similarRecords.currentOccurrence.preparations">
+                        {{ preparation }}
+                      </li>
+                    </ul>
                   </div>
 
                   <div class="searchCard__meta">
@@ -81,8 +91,10 @@
           <article class="card m-b-2 searchCard rtl-supported rtl-bootstrap">
             <div class="card__stripe">
                 <div class="card__content">
-                    <span ng-if="match.occurrence.typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
-                    <span ng-if="match.occurrence.typeStatus && match.occurrence.typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{match.occurrence.typeStatus}}"></span>
+                    <span ng-if="match.occurrence.typeStatus.length > 0" ng-repeat="typeStatus in match.occurrence.typeStatus">
+                      <span ng-if="typeStatus === 'HOLOTYPE'" style="background: tomato; color: white" class="inherit searchCard__type hoverBox" translate="typeStatus.{{typeStatus}}"></span>
+                      <span ng-if="typeStatus && typeStatus !== 'HOLOTYPE'" class="inherit searchCard__type hoverBox" translate="typeStatus.{{typeStatus}}"></span>
+                    </span>
                     <h3 class="searchCard__headline" dir="auto">
                         <a ui-sref="occurrenceKey({key:match.occurrence.gbifId})">{{match.occurrence.scientificName}}</a>
                     </h3>
@@ -98,8 +110,13 @@
                         <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                               ng-if="match.occurrence[taxa] && taxa != match.occurrence.rank.toLowerCase()"><span dir="ltr" ng-bind-html="match.occurrence[taxa]"></span></span>
                     </p>
-                    <div class="small" ng-if="match.occurrence.preparations">
-                        <span translate="ocurrenceFieldNames.preparations"></span>: {{ match.occurrence.preparations }}
+                    <div class="small" ng-if="match.occurrence.preparations && match.occurrence.preparations.length > 0">
+                      <span translate="ocurrenceFieldNames.preparations"></span>
+                      <ul class="inline-bullet-list">
+                        <li dir="ltr" ng-repeat="preparation in match.occurrence.preparations">
+                          {{ preparation }}
+                        </li>
+                      </ul>
                     </div>
 
                     <div class="searchCard__meta">
