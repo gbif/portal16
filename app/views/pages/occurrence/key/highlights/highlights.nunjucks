@@ -86,7 +86,13 @@
                                     <dd class="issue-summary__list">
                                         <ul class="inline-bullet-list">
                                             {% for type in occurrence.record.typeStatusArray %}
-                                              <li><span translate="typeStatus.{$ type $}">{$ type $}</span></li>
+                                              <li>
+                                                  {% if (type == "HOLOTYPE") %}
+                                                  <span style="background: tomato; color: white; padding: 1px 5px" class="hoverBox" translate="typeStatus.{$ type $}">{$ type $}</span>
+                                                  {% else %}
+                                                   <span style="padding: 1px 5px;  background: #f1f1f1"  class="hoverBox" translate="typeStatus.{$ type $}">{$ type $}</span>
+                                                   {% endif %}
+                                                </li>
                                             {% endfor %}
                                         </ul>
                                     </dd>
