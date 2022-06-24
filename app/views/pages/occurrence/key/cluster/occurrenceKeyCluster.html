@@ -43,9 +43,6 @@
                       <span ng-repeat="taxa in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species']"
                             ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence[taxa] && taxa != occurrenceKeyCluster.similarRecords.currentOccurrence.rank.toLowerCase()"><span dir="ltr" ng-bind-html="occurrenceKeyCluster.similarRecords.currentOccurrence[taxa]"></span></span>
                   </p>
-                  <div class="small" ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.preparations">
-                      <span translate="ocurrenceFieldNames.preparations"></span>: {{ occurrenceKeyCluster.similarRecords.currentOccurrence.preparations }}
-                  </div>
                   <div class="small" ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.preparations && occurrenceKeyCluster.similarRecords.currentOccurrence.preparations.length > 0">
                     <span translate="ocurrenceFieldNames.preparations"></span>:
                     <ul class="inline-bullet-list">
