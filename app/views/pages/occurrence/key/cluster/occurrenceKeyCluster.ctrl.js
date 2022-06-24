@@ -7,7 +7,7 @@ angular
   .controller('occurrenceKeyClusterCtrl', occurrenceKeyClusterCtrl);
 
 /** @ngInject */
-function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKeys, Occurrence, OccurrenceRelated, OccurrenceFragment) {
+function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKeys, GraphQLGet, Occurrence, OccurrenceRelated, OccurrenceFragment) {
   var vm = this;
   vm.$state = $state;
   vm.key = $stateParams.key;
@@ -19,7 +19,9 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKey
     current: Occurrence.get({id: vm.key}).$promise,
     similarRecords: vm.similarRecords.$promise
   }).then(function(res) {
+    var datasetKeys = {};
     res.similarRecords.relatedOccurrences.forEach(function(e) {
+      datasetKeys[e.occurrence.datasetKey] = true;
       e.occurrence.fragment = OccurrenceFragment.get({id: e.occurrence.gbifId});
       e.occurrence._fullRecord = Occurrence.get({id: e.occurrence.gbifId});
       e.occurrence._fullRecord.$promise.then(function(response) {
@@ -37,17 +39,22 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKey
     });
 
     if (res.similarRecords.currentOccurrence) {
+      datasetKeys[res.similarRecords.currentOccurrence.datasetKey] = true;
       res.similarRecords.currentOccurrence.fragment = OccurrenceFragment.get({id: res.similarRecords.currentOccurrence.gbifId});
       if (res.similarRecords.currentOccurrence.media) {
         // select first image
         for (var i = 0; i < res.similarRecords.currentOccurrence.media.length; i++) {
           if (res.similarRecords.currentOccurrence.media[i].type == 'StillImage') {
             res.similarRecords.currentOccurrence._image = res.similarRecords.currentOccurrence.media[i];
-            return;
+            i += 1000;
           }
         }
       }
     }
+    vm.datasetTitles = {};
+    Object.keys(datasetKeys).forEach(function(key){
+      vm.datasetTitles[key] = GraphQLGet.get({query: 'query {dataset(key: "' + key +'") {title}}'});
+    });
   });
 
   vm.hasData = function() {
@@ -86,7 +93,6 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKey
         });
       }
     });
-    console.log(keys);
     return keys;
   };
 
