@@ -75,7 +75,7 @@
                     <div ng-if="occurrenceKeyCluster.similarRecords.currentOccurrence.media.length > 0">
                       <span class="gb-icon-images searchCard__features__icon"></span><span tx-nr="occurrenceKeyCluster.similarRecords.currentOccurrence.media.length" tx="counts.nImages"></span>
                     </div>
-                    <div ng-if="occurrenceKeyCluster.isSequenced(occurrenceKeyCluster.similarRecords.currentOccurrence.fragment.extensions)">
+                    <div ng-if="occurrenceKeyCluster.isSequenced(occurrenceKeyCluster.similarRecords.currentOccurrence.fragment)">
                       <span class="gb-icon-dna searchCard__features__icon"></span><span translate="occurrence.sequenced"></span>
                     </div>
                   </div>
@@ -139,7 +139,7 @@
                       <div ng-if="match.occurrence.media.length > 0">
                         <span class="gb-icon-images searchCard__features__icon"></span><span tx-nr="match.occurrence.media.length" tx="counts.nImages"></span>
                       </div>
-                      <div ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment.extensions)">
+                      <div ng-if="occurrenceKeyCluster.isSequenced(match.occurrence.fragment)">
                         <span class="gb-icon-dna searchCard__features__icon"></span><span translate="occurrence.sequenced"></span>
                       </div>
                       <div ng-if="occurrenceKeyCluster.isTreatment(match.occurrence)">

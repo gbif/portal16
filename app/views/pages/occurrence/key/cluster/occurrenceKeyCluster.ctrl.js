@@ -52,8 +52,8 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKey
       }
     }
     vm.datasetTitles = {};
-    Object.keys(datasetKeys).forEach(function(key){
-      vm.datasetTitles[key] = GraphQLGet.get({query: 'query {dataset(key: "' + key +'") {title}}'});
+    Object.keys(datasetKeys).forEach(function(key) {
+      vm.datasetTitles[key] = GraphQLGet.get({query: 'query {dataset(key: "' + key + '") {title}}'});
     });
   });
 
@@ -97,11 +97,16 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKey
   };
 
   var ggbn = ['Amplification', 'MaterialSample', 'Permit', 'Preparation', 'Preservation'];
-  vm.isSequenced = function(extensions) {
+  vm.isSequenced = function(fragment) {
+    var extensions = _.get(fragment, 'extensions');
+    if (_.get(fragment, 'associatedSequences')) return true;
     if (!extensions) return false;
     for (var i = 0; i < ggbn.length; i++) {
       var ext = extensions['http://data.ggbn.org/schemas/ggbn/terms/' + ggbn[i]];
       if (ext && ext.length > 0) return true;
+    }
+    if (extensions['http://rs.gbif.org/terms/1.0/DNADerivedData']) {
+      return true;
     }
     return false;
   };
