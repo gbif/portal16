@@ -67,6 +67,7 @@ helpdesk@gbif.org
     {#{% include "../partials/popups/terms/terms.html" %}#}
     <div terms></div>
     <div gdpr></div>
+    <div biodata-survey></div>
 </div>
 <div gb-help-overlay></div>
 
