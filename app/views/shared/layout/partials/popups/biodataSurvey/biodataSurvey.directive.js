@@ -23,9 +23,10 @@ function biodataSurveyDirective(BUILD_VERSION) {
     function survey($scope, $localStorage, AUTH_EVENTS, User, $uibModal, $location, $timeout) {
     var vm = this;
     vm.show = false;
-
+    
     vm.maybeLater = function() {
         delete $localStorage.has_responded_to_survey_popup;
+        $localStorage.has_postponed_survey_popup = Date.now();
         vm.show = false;
     };
     vm.reject = function() {
@@ -37,8 +38,10 @@ function biodataSurveyDirective(BUILD_VERSION) {
         vm.show = false;
         return true;
     };
-
-    if ($location.path().indexOf('/occurrence') === 0 && !$localStorage.has_responded_to_survey_popup) {
+    var now = Date.now();
+    var oneHourAgo = now - 3600000;
+    var postponed = $localStorage.has_postponed_survey_popup ? $localStorage.has_postponed_survey_popup : 0;
+    if ($location.path().indexOf('/occurrence') === 0 && !$localStorage.has_responded_to_survey_popup && postponed < oneHourAgo) {
         $timeout(openSurveymodal, 5000);
     }
    
