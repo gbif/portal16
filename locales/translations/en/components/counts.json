@@ -27,6 +27,6 @@
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, one{treatment} other{treatments}}",
         "nAbsent": "",
         "nImages": "{NUMBER_FORMATED} {NUMBER, plural, one{image} other{images}}",
-        "nMore": ""
+        "nMore": "{NUMBER_FORMATED} {NUMBER, plural, one{more} other{more}}"
     }
 }
