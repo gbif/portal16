@@ -26,6 +26,7 @@
         "contacts": "{NUMBER, plural, 1{联系人} other{联系人}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, 1{处理} other{处理}}",
         "nAbsent": "",
-        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{图片} other{图片}}"
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{图片} other{图片}}",
+        "nMore": ""
     }
 }
