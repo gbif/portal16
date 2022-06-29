@@ -12,14 +12,18 @@
                         <h4 translate="taxonRank.{{ rank.rank }}"></h4>
                         <div class="dataset-key__taxonomicCoverages__columns">
                             <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey.dataset.type == 'CHECKLIST'">
-                                <a ui-sref="speciesSearchList({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">
+                                <a ui-sref="speciesSearchList({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa | limitTo:datasetKey.taxaLimit">
                                     <span dir="ltr">{{ name.scientificName }}</span> <span dir="auto" ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
                                 </a>
+                                <span ng-if="rank.taxa.length > datasetKey.taxaLimit"
+                                  tx="counts.nMore" tx-nr="rank.taxa.length - datasetKey.taxaLimit"></span>
                             </span>
                             <span class="no-break" ng-class="{'no-break': rank.taxa.length < 6}" ng-if="datasetKey.dataset.type != 'CHECKLIST'">
-                                <a ui-sref="occurrenceSearchTable({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa">
+                                <a ui-sref="occurrenceSearchTable({advanced:true,dataset_key: datasetKey.dataset.key, q: name.scientificName})" ng-repeat="name in rank.taxa | limitTo:datasetKey.taxaLimit">
                                     <span dir="ltr">{{ name.scientificName }}</span> <span dir="auto" ng-if="name.commonName" class="small discreet">{{ name.commonName }}</span>
                                 </a>
+                                <span ng-if="rank.taxa.length > datasetKey.taxaLimit"
+                                  tx="counts.nMore" tx-nr="rank.taxa.length - datasetKey.taxaLimit"></span>
                             </span>
                         </div>
                     </div>
