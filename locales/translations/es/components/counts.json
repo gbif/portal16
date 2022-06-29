@@ -26,6 +26,7 @@
         "contacts": "{NUMBER, select, 1{contacto} other{contactos}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, 1{tratamiento} other{tratamientos}}",
         "nAbsent": "",
-        "nImages": "{NUMBER_FORMATED} con {NUMBER, select, 1{imagen} other{imágenes}}"
+        "nImages": "{NUMBER_FORMATED} con {NUMBER, select, 1{imagen} other{imágenes}}",
+        "nMore": ""
     }
 }
