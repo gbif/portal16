@@ -26,6 +26,7 @@
         "contacts": "{NUMBER, select, 1{kontakt} other{kontakter}}",
         "nTreatments": "",
         "nAbsent": "",
-        "nImages": ""
+        "nImages": "",
+        "nMore": ""
     }
 }
