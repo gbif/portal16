@@ -1,7 +1,7 @@
 'use strict';
 
 var angular = require('angular');
-
+var _ = require('lodash');
 angular
     .module('portal')
     .directive('wikidataIdentifiers', wikidataIdentifierDirective);
@@ -28,7 +28,9 @@ function wikidataIdentifierDirective() {
             method: 'get',
             url: '/api/wikidata/species/' + vm.key + '?locale=' + gb.locale
         }).then(function(res) {
-            vm.wikidataIdentifiers = res.data.identifiers;
+            vm.wikidataIdentifiers = res.data.identifiers.sort(function(a, b) {
+               return _.get(a, 'label.value') === 'Catalogue of Life ID' ? -1 : 0;
+            });
             vm.sourceLink = res.data.wikidataUrl;
             vm.sourceId = res.data.wikidataId;
         });
