@@ -26,6 +26,7 @@
         "contacts": "контакти",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, \n0 {таксономічних карток}\none {таксономічна картка}\nfew {таксономічних картки}\nmany {таксономічних карток}\nother {таксономічних карток}\n}",
         "nAbsent": "",
-        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{зображення} other{зображень}}"
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{зображення} other{зображень}}",
+        "nMore": ""
     }
 }

@@ -26,6 +26,7 @@
         "contacts": "{NUMBER, select, 1{جهة اتصال} other{جهات اتصال}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{معالجة} other{معالجات}}",
         "nAbsent": "",
-        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1، {صورة} other{صور}}"
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1، {صورة} other{صور}}",
+        "nMore": ""
     }
 }

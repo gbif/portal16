@@ -26,6 +26,7 @@
         "contacts": "{NUMBER, select, 1{聯絡人} other{聯絡人}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{分類處理} other{分類處理}}",
         "nAbsent": "",
-        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{圖片} other{圖片}}"
+        "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{圖片} other{圖片}}",
+        "nMore": ""
     }
 }

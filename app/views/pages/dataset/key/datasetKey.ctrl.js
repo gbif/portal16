@@ -30,6 +30,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     Page.drawer(false);
 
     vm.key = $stateParams.key;
+    vm.taxaLimit = 200;
     vm.capabilities = MapCapabilities.get({datasetKey: vm.key});
     vm.$state = $state;
     vm.dataset = DatasetExtended.get({key: vm.key});
