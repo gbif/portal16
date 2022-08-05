@@ -22,7 +22,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, PublisherEndorsedBy, CountryDataDigest, $q, BUILD_VERSION, GBIFNetworkMapService, $timeout) {
+function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, DirectoryNsgContacts, ParticipantHeads, /* PublisherEndorsedBy, */ /* CountryDataDigest, */ $q, BUILD_VERSION, GBIFNetworkMapService, $timeout) {
     var vm = this;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.locale = gb.locale;
@@ -140,14 +140,14 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
         vm.currentParticipantProps = props;
         if (props && props.id) {
             tasks.heads = ParticipantHeads.get({participantId: props.id}).$promise;
-            tasks.endorsement = PublisherEndorsedBy.get({participantId: props.id}).$promise;
+           // tasks.endorsement = PublisherEndorsedBy.get({participantId: props.id}).$promise;
         }
-        if (props && props.countryCode) {
+       /*  if (props && props.countryCode) {
             tasks.digest = CountryDataDigest.get({iso2: props.countryCode}).$promise;
             tasks.digest.catch(function() {
                 vm.participantApiError = true;
             });
-        }
+        } */
 
         $q.all(tasks).then(function(results) {
             if (results.hasOwnProperty('heads')) {
@@ -251,7 +251,7 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
             .then(function(response) {
                 // duplicate some counts for sorting.
                 response.forEach(function(r) {
-                    ['occurrenceFromCount', 'occurrenceHostedByCount', 'datasetFromCount'].forEach(function(c) {
+                    /* ['occurrenceFromCount', 'occurrenceHostedByCount', 'datasetFromCount'].forEach(function(c) {
                         if (r.counts.hasOwnProperty(c)) {
                             r[c + 'Sort'] = r.counts[c];
                         }
@@ -262,12 +262,12 @@ function theGbifNetworkCtrl( $scope, $state, $stateParams, ParticipantsDigest, D
                     }
                     if (r.counts && !isNaN(r.counts.datasetFromCount)) {
                         vm.count.dataset += r.counts.datasetFromCount;
-                    }
+                    } */
 
-                    if (r.hasOwnProperty('endorsedPublishers')) {
+                   /*  if (r.hasOwnProperty('endorsedPublishers')) {
                         r.endorsedPublishersSort = r.endorsedPublishers;
                         publisherCount += r.endorsedPublishers;
-                    }
+                    } */
 
                     vm.count[r.membershipType] ++;
                 });

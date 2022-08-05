@@ -7,7 +7,7 @@ var angular = require('angular');
 
     angular
         .module('portal')
-        .factory('CountryDataDigest', function($resource) {
+/*         .factory('CountryDataDigest', function($resource) {
             return $resource('/api/country/digest/:iso2', null,
                 {
                     'get': {
@@ -18,7 +18,7 @@ var angular = require('angular');
                         isArray: true
                     }
                 });
-        })
+        }) */
         .factory('Country', function($resource) {
             return $resource('/api/country/:key', null, {
                     'query': {

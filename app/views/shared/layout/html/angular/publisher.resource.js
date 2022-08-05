@@ -58,7 +58,7 @@ var angular = require('angular');
         })
         // Accepting participantId as param
         // return number of endorsed publishers
-        .factory('PublisherEndorsedBy', function($resource) {
+        /* .factory('PublisherEndorsedBy', function($resource) {
             return $resource('/api/publisher/endorsed-by/:participantId', null,
                 {
                     'get': {
@@ -67,6 +67,6 @@ var angular = require('angular');
                         isArray: false
                     }
                 });
-        })
+        }) */
         ;
 })();

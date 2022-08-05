@@ -37,7 +37,7 @@
                     <div ng-show="sort.field == 'memberSince' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'memberSince' && sort.Reverse" class="gb-icon-angle-up"></div>
                 </th>
-                <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES' && vm.currentRegion !== 'NORTH_AMERICA'"><a ng-click="sort.field = 'datasetFromCountSort'; sort.Reverse = !sort.Reverse"
+               <!-- <th ng-if="vm.currentRegion !== 'GBIF_AFFILIATES' && vm.currentRegion !== 'NORTH_AMERICA'"><a ng-click="sort.field = 'datasetFromCountSort'; sort.Reverse = !sort.Reverse"
                        translate="gbifNetwork.datasets">
                     </a>
                     <div ng-show="sort.field == 'datasetFromCountSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
@@ -64,7 +64,7 @@
                     </a>
                     <div ng-show="sort.field == 'endorsedPublishersSort' && !sort.Reverse" class="gb-icon-angle-down"></div>
                     <div ng-show="sort.field == 'endorsedPublishersSort' && sort.Reverse" class="gb-icon-angle-up"></div>
-                </th>
+                </th>-->
             </tr>
             </thead>
 
@@ -87,7 +87,7 @@
                     <span ng-if="!participant.memberSince && participant.membershipStart"> {{participant.membershipStart.split('-')[0]}}</span>
                 </td>
 
-                <td ng-if="vm.currentRegion !== 'GBIF_AFFILIATES' && vm.currentRegion !== 'NORTH_AMERICA'">
+              <!--  <td ng-if="vm.currentRegion !== 'GBIF_AFFILIATES' && vm.currentRegion !== 'NORTH_AMERICA'">
                     <a ng-if="participant.type === 'COUNTRY'"
                        ng-bind="participant.datasetFromCountSort | localNumber:gb.locale"
                        ui-sref="datasetSearchTable({type: 'OCCURRENCE', publishing_country: participant.iso2})"
@@ -105,7 +105,7 @@
                     <span ng-if="participant.type === 'COUNTRY'" >-</span>
                     <span ng-if="participant.type === 'OTHER'" ng-bind="participant.occurrenceHostedByCountSort | localNumber:gb.locale"></span>
                 </td>
-                <td  ng-if="vm.currentRegion !== 'GBIF_AFFILIATES' && vm.currentRegion !== 'NORTH_AMERICA'" ng-bind="participant.endorsedPublishers | localNumber:gb.locale"></td>
+                <td  ng-if="vm.currentRegion !== 'GBIF_AFFILIATES' && vm.currentRegion !== 'NORTH_AMERICA'" ng-bind="participant.endorsedPublishers | localNumber:gb.locale"></td> -->
             </tr>
             </tbody>
         </table>

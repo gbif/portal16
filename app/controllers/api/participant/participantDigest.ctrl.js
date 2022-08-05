@@ -1,10 +1,10 @@
 'use strict';
 const express = require('express'),
     router = express.Router(),
-    Q = require('q'),
+ //   Q = require('q'),
     moment = require('moment'),
     Directory = require('../../../models/gbifdata/directory/directory'),
-    TheGbifNetwork = require('../../../models/gbifdata/theGbifNetwork/theGbifNetwork'),
+  //  TheGbifNetwork = require('../../../models/gbifdata/theGbifNetwork/theGbifNetwork'),
     helper = require('../../../models/util/util'),
     log = require('../../../../config/log');
 
@@ -32,28 +32,29 @@ router.get('/participant/heads/:participantId?', (req, res, next) => {
  */
 router.get('/participants/digest', (req, res, next) => {
     let url = 'http://' + req.get('host') + '/api/directory/participants/active',
-        query = req.query,
-        participants = [];
+        query = req.query;
+      //  participants = [];
 
 
-    let promises = [helper.getApiDataPromise(url, {'qs': query}), TheGbifNetwork.getCountryFacets()];
+   /*  let promises = [helper.getApiDataPromise(url, {'qs': query}), TheGbifNetwork.getCountryFacets()];
 
-    Q.all(promises)
-        .then((result) => {
-            let data = result[0];
-            let facetMap = result[1];
+    Q.all(promises) */
+    helper.getApiDataPromise(url, {'qs': query})
+        .then((data) => {
+            //let data = result;
+           // let facetMap = result[1];
                 data.forEach((datum) => {
                     datum.iso2 = datum.countryCode;
                 });
-                let participantTasks = [];
+                /* let participantTasks = [];
 
                 data.forEach((participant) => {
                     participantTasks.push(TheGbifNetwork.getDataCount(participant, facetMap));
-                });
+                }); */
 
-                return Q.all(participantTasks);
+                return data; // Q.all(participantTasks);
             })
-            .then((countedParticipants) => {
+/*             .then((countedParticipants) => {
                 participants = participants.concat(countedParticipants);
                 if (TheGbifNetwork.validateParticipants(participants)) {
                     let endorsedCountTasks = [];
@@ -75,7 +76,7 @@ router.get('/participants/digest', (req, res, next) => {
                 } else {
                     throw new Error('One or more participants have no id. Abort.');
                 }
-            })
+            }) */
             .then((participants) => {
                 participants.forEach((p) => {
                     p.memberSince = moment(p.membershipStart, 'MMMM YYYY').format('YYYY');
