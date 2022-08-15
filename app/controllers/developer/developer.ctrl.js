@@ -31,9 +31,9 @@ router.get('/maps', function(req, res, next) {
     renderPage(req, res, next, 'maps');
 });
 
-router.get('/news', function(req, res, next) {
-    renderPage(req, res, next, 'news');
-});
+// router.get('/news', function(req, res, next) {
+//     renderPage(req, res, next, 'news');
+// });
 
 router.get('/literature', function(req, res, next) {
     renderPage(req, res, next, 'literature');
