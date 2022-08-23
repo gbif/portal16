@@ -72,8 +72,8 @@
             <tr ng-repeat="(index, participant) in vm.activeParticipantsDigest | orderBy:sort.field:sort.Reverse">
                 <td>
                     <a ng-bind="participant.name" ng-if="participant.type === 'COUNTRY'" href="/country/{{ participant.iso2 }}"></a>
-                    <span ng-bind="participant.name" ng-if="participant.type === 'OTHER' && (!participant._nodes || participant._nodes.length === 0)"></span>
-                    <a ng-if="participant.type === 'OTHER' && participant._nodes && participant._nodes.length > 0" ng-bind="participant.name" ng-href="/node/{{ participant._nodes[0].key }}"></a>
+                   <!-- <span ng-bind="participant.name" ng-if="participant.type === 'OTHER' && (!participant._nodes || participant._nodes.length === 0)"></span> -->
+                    <a ng-if="participant.type === 'OTHER'" ng-bind="participant.name" ng-href="/participant/{{ participant.id }}"></a>
 
 
 
