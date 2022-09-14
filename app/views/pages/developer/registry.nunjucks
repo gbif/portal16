@@ -375,7 +375,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection","masterSourceType"], description="Lists all collections")$}
+                            {$ trowCol(url="", resp="Collection List", respLink=apiBase+"grscicoll/collection", paging=true, params=["q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection","masterSourceType","displayOnNHCPortal","numberSpecimens"], description="Lists all collections")$}
                             {$ trowCol(url="", method="POST", resp="UUID", auth=true, description="Creates a new collection") $}
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
@@ -430,7 +430,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline","masterSourceType"], description="Lists all institutions")$}
+                            {$ trowInst(url="", resp="Institution List", respLink=apiBase+"grscicoll/institution", paging=true, params=["q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline","masterSourceType","displayOnNHCPortal","numberSpecimens"], description="Lists all institutions")$}
                             {$ trowInst(url="", method="POST", resp="UUID", auth=true, description="Creates a new institution") $}
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
@@ -610,7 +610,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                                {$ api.trow(url="/grscicoll/search", httpMethod="GET", authRequired=false, resp="Results found", respLink=apiBase+"grscicoll/search?q=smi&highlight=true", paging=false, params=["q","highlight"], description="Searches for institutions and collections") $}
+                                {$ api.trow(url="/grscicoll/search", httpMethod="GET", authRequired=false, resp="Results found", respLink=apiBase+"grscicoll/search?q=smi&hl=true&displayOnNHCPortal=true&entityType=INSTITUTION", paging=false, params=["q","hl","entityType","displayOnNHCPortal"], description="Searches for institutions and collections") $}
                             </tbody>
                         </table>
                     </section>
@@ -661,7 +661,6 @@
             "name":"Name of a GrSciColl institution or collection",
             "alternativeCode":"Alternative code of a GrSciColl institution or collection",
             "format": "Export format, accepts TSV(default) and CSV",
-            "highlight":"Highlights the matching fields in a search",
             "sameName":"Looks for collections/institutions with the same name if true or with different name if false. Ignored if not sent.",
             "sameFuzzyName":"Looks for collections/institutions with the same fuzzy name if true or with different fuzzy name if false. Ignored if not sent.",
             "sameCode":"Looks for collections/institutions with the same code if true or with different code if false. Ignored if not sent.",
@@ -695,7 +694,10 @@
             "personalCollection": "Flag for personal GRSciColl collections",
             "format": "Format of an export: TSV(default) or CSV",
             "replacedBy": "UUID of the replacement of a GRSciColl institution or collection",
-            "masterSourceType": "The master source type of a GRSciColl institution or collection(GRSCICOLL, GBIF_REGISTRY, IH)"
+            "masterSourceType": "The master source type of a GRSciColl institution or collection(GRSCICOLL, GBIF_REGISTRY, IH)",
+            "numberSpecimens": "Number of specimens of a collection or institution. It supports both exact values and ranges. The range supports the wildcard *, e.g.: *,100",
+            "entityType": "GRSciColl entity type: COLLECTION or INSTITUTION. If not specified both types are returned",
+            "displayOnNHCPortal": "Flag that indicates if a collection or institution should be displayed in the Natural History Collections portal"
             }) $}
 
             <section id="oai-pmh" class="white-background page--developer__anchor">
