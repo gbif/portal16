@@ -3,10 +3,10 @@
     "institutionType": {
       "BIOMEDICAL_RESEARCH_INSTITUTE": "",
       "BOTANICAL_GARDEN": "",
-      "HERBARIUM": "",
+      "HERBARIUM": "Herbarium",
       "LIVING_ORGANISM_COLLECTION": "",
       "MEDICAL_RESEARCH_INSTITUTE": "",
-      "MUSEUM": "",
+      "MUSEUM": "Museum",
       "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "",
       "OTHER_INSTITUTIONAL_TYPE": "",
       "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "",
