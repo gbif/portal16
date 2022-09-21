@@ -89,6 +89,6 @@
     "mediatedThrough": "Mediated through",
     "taxonIdentifiers": "Taxon identifiers",
     "whyDoubtful": "When is a taxon 'doubtful'",
-    "noVerbatimData": ""
+    "noVerbatimData": "No verbatim data is available for this taxon"
   }
 }
