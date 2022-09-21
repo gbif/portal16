@@ -95,7 +95,7 @@
             "orEnterLabel": "Or enter dataset keys/DOIs and occurrence counts here"
         },
         "occurrenceSnapshots": {
-            "title": ""
+            "title": "Occurrence snapshots"
         }
     }
 }
