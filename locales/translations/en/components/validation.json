@@ -131,46 +131,46 @@
         "RUNNING": "Uploading archive",
         "FINISHED": "Archive uploaded",
         "PENDING": "Upload archive",
-        "FAILED": "",
-        "QUEUED": ""
+        "FAILED": "Upload failed",
+        "QUEUED": "Upload queued"
       },
       "VALIDATOR_VALIDATE_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Verifying archive format",
+        "FINISHED": "Archive format verified",
+        "PENDING": "Verify archive format",
+        "FAILED": "Failed to verify archive format",
+        "QUEUED": "Archive verification queued"
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Extracting data",
+        "FINISHED": "Data extracted",
+        "PENDING": "Extract data",
+        "FAILED": "Extraction failed",
+        "QUEUED": "Extraction queued"
       },
       "VALIDATOR_VERBATIM_TO_INTERPRETED": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Interpreting data",
+        "FINISHED": "Data interpreted",
+        "PENDING": "Interpret data",
+        "FAILED": "Data interpretation failed",
+        "QUEUED": "Data interpretation queued"
       },
       "VALIDATOR_INTERPRETED_TO_INDEX": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Indexing for previews",
+        "FINISHED": "Indexed for previews",
+        "PENDING": "Index for previews",
+        "FAILED": "Indexing for previews failed",
+        "QUEUED": "Indexing for previews queued"
       },
       "VALIDATOR_COLLECT_METRICS": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Generating summary",
+        "FINISHED": "Summaries generated ",
+        "PENDING": "Generate summary",
+        "FAILED": "Summary generation failed",
+        "QUEUED": "Summary generation queued"
       }
     },
-    "validatingFile": "",
-    "fileName": ""
+    "validatingFile": "validating",
+    "fileName": "File name"
   }
 }
