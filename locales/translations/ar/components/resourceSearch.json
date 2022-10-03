@@ -32,6 +32,7 @@
             "year": "السنة",
             "gbifDatasetKey": "مجموعة بيانات",
             "publishingOrganizationKey": "الناشر",
+            "networkKey": "شبكة",
             "peerReview": "مُحَكّم",
             "openAccess": "مُتاح للجميع",
             "gbifDownloadKey": "مفتاح التنزيل",
