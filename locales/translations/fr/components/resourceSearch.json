@@ -32,6 +32,7 @@
             "year": "Année",
             "gbifDatasetKey": "Ensemble de données",
             "publishingOrganizationKey": "Fournisseurs de données",
+            "networkKey": "Réseau",
             "peerReview": "Examen par les pairs",
             "openAccess": "le libre accès",
             "gbifDownloadKey": "Clé de téléchargement",
