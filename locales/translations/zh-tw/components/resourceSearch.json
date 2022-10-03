@@ -32,6 +32,7 @@
             "year": "年",
             "gbifDatasetKey": "資料集",
             "publishingOrganizationKey": "發布者",
+            "networkKey": "網絡",
             "peerReview": "同儕審定",
             "openAccess": "開源",
             "gbifDownloadKey": "下載序號",
