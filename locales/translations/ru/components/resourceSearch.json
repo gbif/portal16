@@ -32,6 +32,7 @@
             "year": "Год",
             "gbifDatasetKey": "Набор данных",
             "publishingOrganizationKey": "Организация",
+            "networkKey": "Сеть",
             "peerReview": "Рецензируемая публикация",
             "openAccess": "В открытом доступе",
             "gbifDownloadKey": "Ключ для получения файла",
