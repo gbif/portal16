@@ -362,7 +362,7 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
         .state('resourceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len
-            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source&doi&gbifDerivedDatasetDoi&gbifTaxonKey',
+            url: '/resource?offset&limit&q&contentType&year&literatureType&language&audiences&purposes&topics&relevance&countriesOfResearcher&countriesOfCoverage&_showPastEvents&gbifDatasetKey&publishingOrganizationKey&gbifDownloadKey&peerReview&openAccess&projectId&contractCountry&publisher&source&doi&gbifDerivedDatasetDoi&gbifTaxonKey&gbifNetworkKey&gbifProjectIdentifier&gbifProgrammeAcronym',
             views: {
                 main: {
                     templateUrl: '/templates/pages/resource/search/resource.html?v=' + BUILD_VERSION,

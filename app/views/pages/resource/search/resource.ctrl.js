@@ -7,7 +7,7 @@ angular
     .controller('resourceCtrl', resourceCtrl);
 
 /** @ngInject */
-function resourceCtrl($state, ResourceFilter, $rootScope, Species, Dataset, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION, $translate) {
+function resourceCtrl($state, ResourceFilter, $rootScope, Species, Dataset, Network, Publisher, suggestEndpoints, Page, enums, NAV_EVENTS, BUILD_VERSION, $translate) {
     var vm = this;
     vm.state = ResourceFilter.getState();
     $translate('resourceSearch.title').then(function(title) {
@@ -211,6 +211,53 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Species, Dataset, Publ
             suggestTitle: 'title',
             suggestShortName: 'title',
             suggestKey: 'key'
+        }
+    };
+
+    vm.filters.network = {
+        titleTranslation: 'resourceSearch.filters.networkKey',
+        queryKey: 'gbifNetworkKey',
+        filter: ResourceFilter,
+        expand: {
+            resource: Network,
+            expandedTitle: 'title'
+        },
+        facets: {
+            hasFacets: false
+        },
+        search: {
+            isSearchable: true,
+            suggestEndpoint: suggestEndpoints.networkKey,
+            suggestTemplate: '/templates/components/filterTaxon/suggestBasicTemplate.html?v=' + BUILD_VERSION,
+            suggestTitle: 'title',
+            suggestShortName: 'title',
+            suggestKey: 'key'
+        }
+    };
+
+    vm.filters.projectId = {
+        titleTranslation: 'filterNames.projectId',
+        queryKey: 'gbifProjectIdentifier',
+        filter: ResourceFilter,
+        facets: {
+            hasFacets: false,
+            facetKey: 'GBIF_PROJECT_IDENTIFIER'
+        },
+        search: {
+            isSearchable: true
+        }
+    };
+
+    vm.filters.gbifProgramme = {
+        titleTranslation: 'filterNames.programme',
+        queryKey: 'gbifProgrammeAcronym',
+        filter: ResourceFilter,
+        facets: {
+            hasFacets: false,
+            facetKey: 'GBIF_PROGRAMME_ACRONYM'
+        },
+        search: {
+            isSearchable: true
         }
     };
 

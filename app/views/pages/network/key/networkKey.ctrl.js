@@ -10,7 +10,7 @@ angular
     .controller('networkKeyCtrl', networkKeyCtrl);
 
 /** @ngInject */
-function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, Network, OccurrenceSearch, NetworkDatasets, NetworkPublishers, $anchorScroll) {
+function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, Network, ResourceSearch, OccurrenceSearch, NetworkDatasets, NetworkPublishers, $anchorScroll) {
     var vm = this;
     vm.$state = $state;
     Page.drawer(false);
@@ -18,6 +18,7 @@ function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, Network, Occur
     vm.networkApiItem = Network.get({id: vm.key});
     vm.network = ResourceItem.get({contentType: 'network', networkKey: vm.key});
     vm.occurrences = OccurrenceSearch.query({network_key: vm.key, limit: 0});
+    vm.literature = ResourceSearch.query({contentType: 'literature', gbifNetworkKey: vm.key, limit: 0});
 
     // delete once we move once we go to the new contentful driven network pages issue #725
     vm.datasets = {};

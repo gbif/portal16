@@ -9,10 +9,10 @@ const _ = require('lodash'),
     filterHelper = require('./filter');
 
 let knownFilters =
-    ['year', 'contentType', 'literatureType', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher',
-     'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey',
-     'gbifDownloadKey', 'gbifDerivedDatasetDoi', 'publisher', 'source', 'relevance', 'start', 'end', 'peerReview', 'openAccess', 
-     'projectId', 'programmeId', 'doi', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias', 'gbifTaxonKey'];
+    ['year', 'contentType', 'gbifNetworkKey', 'literatureType', 'gbifProgrammeAcronym', 'gbifProjectIdentifier', 'language', 'audiences', 'purposes', 'topics', 'countriesOfResearcher',
+        'countriesOfCoverage', 'id', 'identifier', 'searchable', 'homepage', 'keywords', 'gbifDatasetKey', 'publishingOrganizationKey',
+        'gbifDownloadKey', 'gbifDerivedDatasetDoi', 'publisher', 'source', 'relevance', 'start', 'end', 'peerReview', 'openAccess',
+        'projectId', 'programmeId', 'doi', 'programmeTag', 'contractCountry', 'networkKey', 'urlAlias', 'gbifTaxonKey'];
 let defaultContentTypes = ['dataUse', 'literature', 'event', 'news', 'tool', 'document', 'project', 'programme', 'article', 'composition'];
 
 let client = new elasticsearch.Client({
@@ -47,7 +47,7 @@ async function search(requestQuery, __, options) {
     query.requestTimeout = options.requestTimeout || 30000;
 
     let resp = await client.search(query);
-    
+
     let parsedResult = resourceResultParser.normalize(resp, query.from, query.size);
 
     resourceResultParser.removeFields(parsedResult.results, ['gbifDatasetKey', 'publishingOrganizationKey']);
@@ -71,6 +71,10 @@ async function search(requestQuery, __, options) {
         resourceResultParser.addFilters(parsedResult, requestQuery, __);
     }
 
+    parsedResult = {
+        _warning: 'This is not the official API, but an unstable endpoint used by GBIF.org. See instead https://www.gbif.org/developer/literature',
+        ...parsedResult
+    }
     return parsedResult;
 }
 
@@ -121,7 +125,7 @@ function buildQuery(query) {
 
     // not facet filters should simply be added to the query filters.
     let notFactedFilters = getNotFacetedFilters(query);
-    notFactedFilters.forEach(function(filter) {
+    notFactedFilters.forEach(function (filter) {
         body.query = body.query || {};
         addToFilter(body.query, filter, query[filter]);
     });
@@ -130,7 +134,7 @@ function buildQuery(query) {
     // faceted filters must be added as post filters, but only if multiselect and have facets and filters
     let factedFilters = getFacetedFilters(query);
     if (!facetMultiselect) {
-        factedFilters.forEach(function(filter) {
+        factedFilters.forEach(function (filter) {
             body.query = body.query || {};
             addToFilter(body.query, filter, query[filter]);
         });
@@ -142,27 +146,27 @@ function buildQuery(query) {
         // if no filters then add simple facets without filters
         if (!facetMultiselect || factedFilters.length == 0) {
             if (facetSize > 0) {
-                query.facet.forEach(function(facet) {
-                    body.aggregations[facet] = {terms: {field: facet, size: facetSize}};
+                query.facet.forEach(function (facet) {
+                    body.aggregations[facet] = { terms: { field: facet, size: facetSize } };
                 });
             }
-            query.facet.forEach(function(facet) {
-                body.aggregations[facet + '_count'] = {cardinality: {field: facet}};
+            query.facet.forEach(function (facet) {
+                body.aggregations[facet + '_count'] = { cardinality: { field: facet } };
             });
         } else if (facetSize > 0) {
             // faceted filters must be added as post filters, but only if multiselect and have facets and filters
-            factedFilters.forEach(function(filter) {
+            factedFilters.forEach(function (filter) {
                 body.post_filter = body.post_filter || {};
                 addToFilter(body.post_filter, filter, query[filter]);
             });
 
             // Create object with all faceted filters so they can be added individually
             let facetedTermFilters = {};
-            factedFilters.forEach(function(filter) {
+            factedFilters.forEach(function (filter) {
                 facetedTermFilters[filter] = getFilter(filter, query[filter]);
             });
 
-            query.facet.forEach(function(filter) {
+            query.facet.forEach(function (filter) {
                 let allOtherFilters = getAggregationFilter(facetedTermFilters, filter);
                 body.aggregations[filter] = {
                     filter: {
@@ -172,7 +176,7 @@ function buildQuery(query) {
                     },
                     aggregations: {
                         counts: {
-                            terms: {field: filter, size: facetSize}
+                            terms: { field: filter, size: facetSize }
                         }
                     }
                 };
@@ -226,13 +230,13 @@ function buildQuery(query) {
             //     }
             // };
             body.sort = [
-               {
-                   createdAt: {
-                       order: 'desc',
-                       missing: '_last',
-                       unmapped_type: 'date'
-                   }
-               }
+                {
+                    createdAt: {
+                        order: 'desc',
+                        missing: '_last',
+                        unmapped_type: 'date'
+                    }
+                }
             ];
         }
     } else {
@@ -253,27 +257,27 @@ function buildQuery(query) {
 
     // sort evnets by date no matter what. as in https://github.com/gbif/portal-feedback/issues/3816
     if (query.contentType == 'event') {
-      body.sort = [
-          {
-              'start': {
-                  'order': showPastEvents ? 'desc' : 'asc',
-                  'missing': '_last',
-                  'unmapped_type': 'date'
-              }
-          }
-      ];
+        body.sort = [
+            {
+                'start': {
+                    'order': showPastEvents ? 'desc' : 'asc',
+                    'missing': '_last',
+                    'unmapped_type': 'date'
+                }
+            }
+        ];
     }
 
     searchParams.body = body;
     searchParams.index = 'content';
     searchParams.body.indices_boost = [
-        {literature: 1},
-        {'*': 10}
+        { literature: 1 },
+        { '*': 10 }
     ];
     if (query.q) {
         searchParams.body.indices_boost = [
-            {literature: 0},
-            {'*': 10}
+            { literature: 0 },
+            { '*': 10 }
         ];
     }
     // console.log(JSON.stringify(body, null, 4));
@@ -292,7 +296,7 @@ function getInteger(nr, fallbackValue) {
 
 function getAggregationFilter(filterTerms, excludedKey) {
     let filteredTerms = [];
-    Object.keys(filterTerms).forEach(function(key) {
+    Object.keys(filterTerms).forEach(function (key) {
         if (key != excludedKey) {
             filteredTerms.push(filterTerms[key]);
         }
@@ -320,21 +324,21 @@ function getFilter(field, value) {
         isRange = true;
     }
     if (field === 'programmeId') {
-      // nested field
-      return filterHelper.getNestedFilter('id', value, 'programme');
+        // nested field
+        return filterHelper.getNestedFilter('id', value, 'programme');
     }
     if (field === 'doi') {
-      // nested field
-      return filterHelper.getNestedFilter('doi', value, 'identifiers');
+        // nested field
+        return filterHelper.getNestedFilter('doi', value, 'identifiers');
     }
     if (field === 'gbifDerivedDatasetDoi') {
-      // nested field
-      return filterHelper.getFilter('gbifDerivedDatasetDoi.keyword', value);
+        // nested field
+        return filterHelper.getFilter('gbifDerivedDatasetDoi.keyword', value);
     }
     if (field === 'keywords') {
         // nested field
         return filterHelper.getFilter('keywords.keyword', value);
-      }
+    }
     return filterHelper.getFilter(field, value, isRange);
     // //Create the term filter
     // let filterTerm = {};
@@ -351,7 +355,7 @@ function getFilter(field, value) {
 }
 
 function getNotFacetedFilters(query) {
-    return knownFilters.filter(function(filterName) {
+    return knownFilters.filter(function (filterName) {
         let isFilterInQuery = !_.isUndefined(query[filterName]),
             isFilterFaceted = _.includes(query.facet, filterName);
         return isFilterInQuery && !isFilterFaceted;
@@ -359,7 +363,7 @@ function getNotFacetedFilters(query) {
 }
 
 function getFacetedFilters(query) {
-    return knownFilters.filter(function(filterName) {
+    return knownFilters.filter(function (filterName) {
         let isFilterInQuery = !_.isUndefined(query[filterName]),
             isFilterFaceted = _.includes(query.facet, filterName);
         return isFilterInQuery && isFilterFaceted;
@@ -367,7 +371,7 @@ function getFacetedFilters(query) {
 }
 
 function arrayifyParams(query) {
-    knownFilters.forEach(function(filter) {
+    knownFilters.forEach(function (filter) {
         if (!_.isUndefined(query[filter])) {
             query[filter] = arrayify(query[filter]);
         }
@@ -390,36 +394,36 @@ module.exports = {
 };
 
 let newEventOrSomethingElse = {
-        bool: {
-            'should': [
-                {
-                    bool: {
-                        must: [
-                            {
-                                'range': {
-                                    'end': {
-                                        'gte': 'now'
-                                    }
-                                }
-                            },
-                            {
-                                'term': {
-                                    'contentType': 'event'
+    bool: {
+        'should': [
+            {
+                bool: {
+                    must: [
+                        {
+                            'range': {
+                                'end': {
+                                    'gte': 'now'
                                 }
                             }
-                        ]
-                    }
-                },
-                {
-                    'terms': {
-                        'contentType': _.filter(defaultContentTypes, function(e) {
-                            return e !== 'event';
-                        })
-                    }
+                        },
+                        {
+                            'term': {
+                                'contentType': 'event'
+                            }
+                        }
+                    ]
                 }
-            ]
-        }
-    },
+            },
+            {
+                'terms': {
+                    'contentType': _.filter(defaultContentTypes, function (e) {
+                        return e !== 'event';
+                    })
+                }
+            }
+        ]
+    }
+},
     oldEventOrSomethingElse = _.cloneDeep(newEventOrSomethingElse);
 
 oldEventOrSomethingElse.bool.should[0].bool.must[0].range = {

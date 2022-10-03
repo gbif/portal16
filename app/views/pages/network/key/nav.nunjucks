@@ -1,5 +1,5 @@
 <section class="horizontal-stripe--paddingless white-background">
-    <div class="container--narrow">
+    <div class="container--normal">
         <div class="row">
             <div class="col-xs-12">
                 <div class="tabs__wrapper">
@@ -12,6 +12,13 @@
                                         <span class="gb-button--brand__label">
                                             Occurrences
                                         </span>
+                                    </a>
+                                </span>
+                            </li>
+                            <li class="tab tab-right ng-cloak" ng-if="networkKey.literature.count > 0">
+                                <span>
+                                    <a ui-sref="resourceSearchList({gbifNetworkKey:networkKey.key, contentType: 'literature'})" class="gb-button--dark">
+                                        <span tx="counts.nCitations" tx-nr="networkKey.literature.count"></span>
                                     </a>
                                 </span>
                             </li>

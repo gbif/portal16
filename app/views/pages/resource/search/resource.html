@@ -48,6 +48,11 @@
         <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.dataset" filter-state="resource.state"></div>
 
         <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.publisher" filter-state="resource.state"></div>
+        
+        <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.network" filter-state="resource.state"></div>
+        
+        <div ng-if="resource.state.query.contentType == 'literature'" filter-suggest filter-config="resource.filters.projectId" filter-state="resource.state"></div>
+        <div ng-if="resource.state.query.contentType == 'literature'" filter-suggest filter-config="resource.filters.gbifProgramme" filter-state="resource.state"></div>
 
         <div ng-if="resource.state.query.contentType == 'literature'" filter-ternary filter-config="resource.filters.peerReview" filter-state="resource.state"></div>
 
