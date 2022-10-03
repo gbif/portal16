@@ -32,6 +32,7 @@
             "year": "Рік",
             "gbifDatasetKey": "Набір даних",
             "publishingOrganizationKey": "Видавець",
+            "networkKey": "Мережа",
             "peerReview": "Рецензовано",
             "openAccess": "Відкритий доступ",
             "gbifDownloadKey": "Ключ завантаження",
