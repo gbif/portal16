@@ -32,6 +32,7 @@
             "year": "Año",
             "gbifDatasetKey": "Conjunto de datos",
             "publishingOrganizationKey": "Publicador",
+            "networkKey": "Red",
             "peerReview": "Revisado por pares",
             "openAccess": "Acceso abierto",
             "gbifDownloadKey": "Descargar clave",
