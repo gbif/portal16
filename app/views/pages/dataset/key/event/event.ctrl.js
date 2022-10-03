@@ -79,14 +79,14 @@ function datasetEventCtrl($stateParams, DatasetEvent, DatasetEventList, Occurren
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: '', type: type, showSettings: false},
-            filter: {dataset_key: vm.datasetKey, event_id: vm.eventKey, locale: LOCALE},
+            filter: {dataset_key: vm.datasetKey, event_id: vm.eventKey, occurrence_status: 'present', locale: LOCALE},
             customFilter: customFilter
         };
         vm.charts.push(chartConfig);
     };
 
     vm.pushChart('speciesKey', 'TABLE');
-    vm.filter = {dataset_key: vm.datasetKey, event_id: vm.eventKey, locale: LOCALE};
+    vm.filter = {dataset_key: vm.datasetKey, event_id: vm.eventKey, occurrence_status: 'present', locale: LOCALE};
 }
 
 module.exports = datasetEventCtrl;

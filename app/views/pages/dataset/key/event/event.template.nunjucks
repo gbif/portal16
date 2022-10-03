@@ -117,7 +117,7 @@
                                                         </td>
                                                         <td>
                                                             <span>
-                                                              <a ui-sref="occurrenceSearchTable({dataset_key: datasetEvent.datasetKey, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a> (<span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ datasetEvent.datasetKey }}&event_id={{ event.eventID }}&occurrence_status=absent" count-translation="counts.nAbsent">&nbsp;</span>)
+                                                              <a ui-sref="occurrenceSearchTable({dataset_key: datasetEvent.datasetKey, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a> (<span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ datasetEvent.datasetKey }}&event_id={{ event.eventID }}&occurrence_status=absent" count-translation="{{counts.nAbsent}}">&nbsp;</span>)
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -142,7 +142,7 @@
                         <div>
                             <h4 class="card-header" translate="metrics.taxonomicOccDistribution"></h4>
                             <div class="card">
-                                <occurrence-taxonomy-tree filter="{dataset_key: datasetEvent.datasetKey, event_id: datasetEvent.eventKey}" options="{limit:10}"></occurrence-taxonomy-tree>
+                                <occurrence-taxonomy-tree filter="{dataset_key: datasetEvent.datasetKey, event_id: datasetEvent.eventKey, occurrence_status: 'present'}" options="{limit:10}"></occurrence-taxonomy-tree>
                             </div>
                         </div>
                         <div>
