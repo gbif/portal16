@@ -20,7 +20,7 @@
     "administrativeContact": "Contacto administrativo",
     "header": {
       "publisher": "Proveedor",
-      "sinceDate": "Desde"
+      "sinceDate": "Desde {DATE}"
     }
   }
 }
