@@ -32,6 +32,7 @@
             "year": "År",
             "gbifDatasetKey": "Datasæt",
             "publishingOrganizationKey": "Forlægger",
+            "networkKey": "",
             "peerReview": "Peer-reviewed",
             "openAccess": "Open access",
             "gbifDownloadKey": "Download key",

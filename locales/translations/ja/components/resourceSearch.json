@@ -32,6 +32,7 @@
             "year": "年",
             "gbifDatasetKey": "データセット",
             "publishingOrganizationKey": "出版者",
+            "networkKey": "ネットワーク",
             "peerReview": "査読あり",
             "openAccess": "オープンアクセス",
             "gbifDownloadKey": "ダウンロードキー",
