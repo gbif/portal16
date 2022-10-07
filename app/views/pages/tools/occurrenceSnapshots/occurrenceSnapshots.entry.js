@@ -5,7 +5,7 @@ angular
     .controller('occurrenceSnapshotsCtrl', occurrenceSnapshotsCtrl);
 
 /** @ngInject */
-function occurrenceSnapshotsCtrl(User, $http, $scope, AUTH_EVENTS, $sessionStorage, $stateParams, $state, env) {
+function occurrenceSnapshotsCtrl(User, $http, $scope, AUTH_EVENTS, $sessionStorage, $stateParams, $state, env, $uibModal) {
     var vm = this;
     vm.$state = $state;
     vm.snapshots = [];
@@ -42,6 +42,32 @@ function occurrenceSnapshotsCtrl(User, $http, $scope, AUTH_EVENTS, $sessionStora
             });
     };
    vm.search();
+
+   vm.open = function (download) {
+    vm.currentDownload = download;
+    vm.openPredicateModal(download);
+  };
+
+  vm.openPredicateModal = function (download) {
+    var modalInstance = $uibModal.open({
+      animation: true,
+      ariaLabelledBy: 'modal-title',
+      ariaDescribedBy: 'modal-body',
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceCtrl',
+      controllerAs: '$ctrl',
+      resolve: {
+        options: function () {
+          return {download: download};
+        }
+      } 
+    });
+
+    modalInstance.result.then(function (options) {
+    }, function () {
+      // user clicked cancel
+    });
+  };
 }
 
 module.exports = occurrenceSnapshotsCtrl;

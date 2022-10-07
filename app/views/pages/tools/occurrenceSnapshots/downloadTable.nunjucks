@@ -7,7 +7,7 @@
     <table ng-if="!vm.loading" class="table search-table">
         <thead>
             <tr>
-                <th ng-repeat="col in ['Date', 'Format', 'Citation']">
+                <th ng-repeat="col in ['Date', 'Format', 'Citation', 'Filters']">
                     <span class="inline-block"> {{ col }} </span>
                 </th>
             </tr>
@@ -26,6 +26,9 @@
                         snapshot.created | momentFormatEnglish:"DD MMMM YYYY" }}) GBIF
                         Occurrence Data
                         <a href="https://doi.org/{{ snapshot.doi }}">https://doi.org/{{ snapshot.doi }}</a></span>
+                </td>
+                <td class="table-cell--narrow">
+                                           <a href="#" ng-if="snapshot.request.predicate" ng-click="vm.open(snapshot)" >Yes</a>
                 </td>
             </tr>
         </tbody>
