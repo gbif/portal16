@@ -76,7 +76,7 @@
     "pathway": "Pathway",
     "degreeOfEstablishment": "Degree of establishment",
     "dwcaExtension": "DWCA extension",
-    "isInCluster": "",
+    "isInCluster": "Has related records",
     "iucnRedListCategory": "IUCN Global Red List Category"
   }
 }
