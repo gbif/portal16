@@ -74,14 +74,6 @@ function date(date, locale, format) {
     return day.format(format);
 }
 
-function utcOffset(dateString) {
-    console.log(dateString);
-    if (!dateString || dateString.length !== 22) {
-        return '';
-    }
-    return dateString.substring(16, 22);
-}
-
 function getSlug(str) {
     return slug(str.toLowerCase());
 }
@@ -154,9 +146,9 @@ function timeRange(start, end, locale) {
     // always if all day event, then ignore time a day
     if (start === end || !end) {
         // if same date and time or no enddate then show just start date
-        return startDate.format('HH:mm');
+        return startDate.utc().format('HH:mm z');
     } else {
-        return startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm');
+        return startDate.utc().format('HH:mm') + ' - ' + endDate.utc().format('HH:mm z');
     }
 }
 
@@ -391,7 +383,6 @@ function sanitizeArrayField(array, field) {
 
 module.exports = {
     date: date,
-    utcOffset: utcOffset,
     prettifyEnum: prettifyEnum,
     formatBytes: formatBytes,
     prettifyLicense: prettifyLicense,

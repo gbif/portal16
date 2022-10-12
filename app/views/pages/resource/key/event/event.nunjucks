@@ -29,7 +29,6 @@
                                 {% if not main.fields.allDayEvent %}
                                 <div>
                                     <span class="gb-icon-clock"></span>{$ main.fields.start | timeRange(main.fields.end, gb.locales.current) $}
-                                    <span> UTC {$ main.fields.start | utcOffset() $}</span>
                                 </div>
                                 {% endif %}
                                 
@@ -83,7 +82,6 @@
                                     {% else  %}
                                         <dd>
                                             {$ main.fields.start | dateRange(main.fields.end, true, gb.locales.current) $}
-                                                <span> UTC {$ main.fields.start | utcOffset() $}</span>
                                         </dd>
                                     {% endif %}
                                 </div>

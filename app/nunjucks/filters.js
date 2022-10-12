@@ -44,9 +44,6 @@ module.exports = function(nunjucksConfiguration) {
         nunjucksConfiguration.addFilter('formatDate', format.date);
     })();
     (function() {
-        nunjucksConfiguration.addFilter('utcOffset', format.utcOffset);
-    })();
-    (function() {
         nunjucksConfiguration.addFilter('dateRange', format.dateRange);
     })();
 

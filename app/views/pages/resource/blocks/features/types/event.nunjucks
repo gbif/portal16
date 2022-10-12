@@ -21,7 +21,6 @@
         {% if not feature.fields.allDayEvent %}
         <div>
             <span class="gb-icon-clock"></span>{$ feature.fields.start | timeRange(feature.fields.end, gb.locales.current) $}
-            <span> UTC {$ feature.fields.start | utcOffset() $}</span>
         </div>
         {% endif %}
       </div>
