@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=prod node app.js",
     "build:locales": "node locales/build.js; node locales/createMock.js;",
-    "watch:server": "NODE_ENV=local npx nodemon app.js -- --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
+    "watch:server": "NODE_ENV=local npx nodemon app.js -- --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials-dev --redirects=/etc/portal16/redirects",
     "watch:client": "node node_modules/gulp/bin/gulp.js dev",
     "install": "mkdir -p reports;",
     "test": "node spec/unit-server.js;"
@@ -144,7 +144,7 @@
     "messageformat": "^1.0.2",
     "method-override": "^2.3.0",
     "moment": "^2.18.1",
-    "moment-timezone": "^0.5.14",
+    "moment-timezone": "^0.5.37",
     "ng-file-upload": "^12.2.13",
     "ngstorage": "^0.3.11",
     "nodemailer": "^6.7.2",

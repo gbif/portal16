@@ -1,4 +1,4 @@
-let moment = require('moment');
+// let moment = require('moment');
 let sanitizeHtml = require('sanitize-html');
 let Entities = require('html-entities').AllHtmlEntities;
 let isUrl = require('is-url');
@@ -13,6 +13,7 @@ let linkTools = require('./links/links');
 let defaultLanguage = require('../../config/config').defaultLocale;
 let localeConfig = require('../../config/locales');
 let getLocaleFromUrl = require('../middleware/i18n/localeFromQuery').getLocaleFromUrl;
+let moment = require('moment-timezone');
 
 let defaultAllowedTags = [
     'h3',
@@ -60,7 +61,7 @@ moment.updateLocale('en', {
         LLLL: 'LT, dddd Do MMMM YYYY'
     }
 });
-let dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ'];
+let dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ', 'YYYY-MM-DDTHH:mm Z'];
 
 function date(date, locale, format) {
     let day;
@@ -128,7 +129,8 @@ function timeRange(start, end, locale) {
     let startDate;
     let endDate;
     locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
-
+console.log(start);
+console.log(end);
     // parse start date
     if (!isNaN(Number(start))) {
         startDate = moment.unix(start).locale(locale);
@@ -136,6 +138,7 @@ function timeRange(start, end, locale) {
         startDate = moment(start, dateFormats).locale(locale);
     }
 
+    
     // parse end date
     if (!isNaN(Number(end))) {
         endDate = moment.unix(end).locale(locale);
@@ -143,12 +146,18 @@ function timeRange(start, end, locale) {
         endDate = moment(end, dateFormats).locale(locale);
     }
 
+    console.log(start);
+    console.log(moment.tz(start, dateFormats, 'Europe/London').format('YYYYMMDD HH:mm Z'));
+    
+
     // always if all day event, then ignore time a day
     if (start === end || !end) {
         // if same date and time or no enddate then show just start date
-        return startDate.utc().format('HH:mm z');
+        // return startDate.format('HH:mm z');
+        return moment.tz(start, dateFormats, 'Europe/London').format('HH:mm z');
     } else {
-        return startDate.utc().format('HH:mm') + ' - ' + endDate.utc().format('HH:mm z');
+        // return startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm z:z');
+        return moment.tz(start, dateFormats, 'Europe/London').format('HH:mm') + ' - ' + moment.tz(end, dateFormats, 'Europe/London').format('HH:mm z');
     }
 }
 

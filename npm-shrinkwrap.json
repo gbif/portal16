@@ -140,7 +140,7 @@
         "messageformat": "^1.0.2",
         "method-override": "^2.3.0",
         "moment": "^2.18.1",
-        "moment-timezone": "^0.5.14",
+        "moment-timezone": "^0.5.37",
         "ng-file-upload": "^12.2.13",
         "ngstorage": "^0.3.11",
         "nodemailer": "^6.7.2",
@@ -18833,9 +18833,9 @@
       }
     },
     "node_modules/moment-timezone": {
-      "version": "0.5.14",
-      "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.14.tgz",
-      "integrity": "sha1-TrOP+VOLgBCLpGekWPPtQmjM/LE=",
+      "version": "0.5.37",
+      "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.37.tgz",
+      "integrity": "sha512-uEDzDNFhfaywRl+vwXxffjjq1q0Vzr+fcQpQ1bU0kbzorfS7zVtZnCnGc8mhWmF39d4g4YriF6kwA75mJKE/Zg==",
       "dependencies": {
         "moment": ">= 2.9.0"
       },
@@ -42333,9 +42333,9 @@
       "integrity": "sha1-w2GT3Tzhwu7SrbfIAtu8d6gbHA8="
     },
     "moment-timezone": {
-      "version": "0.5.14",
-      "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.14.tgz",
-      "integrity": "sha1-TrOP+VOLgBCLpGekWPPtQmjM/LE=",
+      "version": "0.5.37",
+      "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.37.tgz",
+      "integrity": "sha512-uEDzDNFhfaywRl+vwXxffjjq1q0Vzr+fcQpQ1bU0kbzorfS7zVtZnCnGc8mhWmF39d4g4YriF6kwA75mJKE/Zg==",
       "requires": {
         "moment": ">= 2.9.0"
       }
