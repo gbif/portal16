@@ -35,6 +35,8 @@
                                                             <td style="min-width:20em">
                                                                 <sequence seq="{$ extension[term] $}" limit="200"></sequence>
                                                             </td>
+                                                        {% elif term == 'http://data.ggbn.org/schemas/ggbn/terms/geneticAccessionNumber' %}
+                                                           <td> <a href="https://www.ncbi.nlm.nih.gov/nuccore/{$ extension[term] $}">{$ extension[term] $}</a></td>
                                                         {% else %}
                                                             {$ shorten.compactTableCell(extension[term]) $}
                                                         {% endif %}
@@ -49,6 +51,8 @@
                                                             <td style="min-width:20em">
                                                                 <sequence seq="{$ extension[term] $}" limit="200"></sequence>
                                                             </td>
+                                                        {% elif term == 'http://data.ggbn.org/schemas/ggbn/terms/geneticAccessionNumber' %}
+                                                           <td> <a href="https://www.ncbi.nlm.nih.gov/nuccore/{$ extension[term] $}">{$ extension[term] $}</a></td>                                                            
                                                         {% else %}
                                                             {$ shorten.compactTableCell(extension[term]) $}
                                                         {% endif %}
@@ -63,6 +67,8 @@
                                                             <td style="min-width:20em">
                                                                 <sequence seq="{$ extension[term] $}" limit="200"></sequence>
                                                             </td>
+                                                        {% elif term == 'http://data.ggbn.org/schemas/ggbn/terms/geneticAccessionNumber' %}
+                                                           <td> <a href="https://www.ncbi.nlm.nih.gov/nuccore/{$ extension[term] $}">{$ extension[term] $}</a></td>
                                                         {% else %}
                                                             {$ shorten.compactTableCell(extension[term]) $}
                                                         {% endif %}
