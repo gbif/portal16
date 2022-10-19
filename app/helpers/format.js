@@ -231,7 +231,7 @@ function compactInteger(nr) {
 
 function prefixLinkUrl(str, urlPrefix) {
     if (_.isString(str)) {
-        str = str.replace(/^http(s)?:\/\/www\.gbif((-dev)|(-uat))?\.org/, '');
+        str = str.replace(/^http(s)?:\/\/www\.gbif((-dev)|(-uat))?\.org\//, '/');
     }
     if (!isUrl(str) && _.startsWith(str, '/')) {
         let relativeLinkLocale = getLocaleFromUrl(str, localeConfig.locales);
