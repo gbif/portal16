@@ -61,7 +61,8 @@ moment.updateLocale('en', {
         LLLL: 'LT, dddd Do MMMM YYYY'
     }
 });
-let dateFormats = ['YYYY-MM', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ', 'YYYY-MM-DDTHH:mm Z'];
+// We missed 'YYYY-MM-DD' here which produced odd results
+let dateFormats = ['YYYY-MM', 'YYYY-MM-DD', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ', 'YYYY-MM-DDTHH:mm Z'];
 
 function date(date, locale, format) {
     let day;
@@ -80,11 +81,11 @@ function getSlug(str) {
 }
 
 function dateRange(start, end, showHours, locale) {
-    // console.log(start);
-    // console.log(end);
     let startDate;
     let endDate;
     locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
+    // console.log("start " +start)
+    // console.log("end "+end)
 
     // parse start date
     if (!isNaN(Number(start))) {
@@ -99,8 +100,8 @@ function dateRange(start, end, showHours, locale) {
     } else {
         endDate = moment(end, dateFormats).locale(locale);
     }
-    // console.log(locale)
-    // console.log(moment.tz(endDate, dateFormats, locale).format('LL'))
+    // console.log("End "+ endDate.format('LL'))
+
     // always if all day event, then ignore time a day
     if (start === end || !end) {
         // if same date and time or no enddate then show just start date

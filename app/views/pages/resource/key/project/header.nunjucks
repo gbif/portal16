@@ -17,7 +17,7 @@
                     <div>
                         <a href="#details" class="inherit">
                             <span class="gb-icon-calendar"></span>
-                            {$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}
+                            {$ main.fields.start | dateRange( main.fields.end, false, gb.locales.current) $}
                         </a>
                     </div>
                 {% endif %}
