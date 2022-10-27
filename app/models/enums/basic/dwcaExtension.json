@@ -21,5 +21,6 @@
     "http://rs.gbif.org/terms/1.0/Identifier",
     "http://rs.gbif.org/terms/1.0/Reference",
     "http://rs.tdwg.org/dwc/terms/ResourceRelationship",
-    "http://rs.tdwg.org/chrono/terms/ChronometricAge"
+    "http://rs.tdwg.org/chrono/terms/ChronometricAge",
+    "http://eol.org/schema/reference/Reference"
 ]

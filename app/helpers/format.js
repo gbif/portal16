@@ -80,6 +80,8 @@ function getSlug(str) {
 }
 
 function dateRange(start, end, showHours, locale) {
+    // console.log(start);
+    // console.log(end);
     let startDate;
     let endDate;
     locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
@@ -97,7 +99,8 @@ function dateRange(start, end, showHours, locale) {
     } else {
         endDate = moment(end, dateFormats).locale(locale);
     }
-
+    // console.log(locale)
+    // console.log(moment.tz(endDate, dateFormats, locale).format('LL'))
     // always if all day event, then ignore time a day
     if (start === end || !end) {
         // if same date and time or no enddate then show just start date
