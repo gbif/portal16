@@ -50,7 +50,7 @@
 
             <div class="col-md-2">
             {% set sections = {'datasets':'Datasets', 'datasetSearch':'Dataset Search', 'datasetMetrics':'Dataset Metrics', 'installations':'Installations', 'organizations':'Organizations', 'nodes':'Nodes', 'networks':'Networks', 'collections':'Collections', 'parameters':'Query Parameters', 'oai-pmh':'OAI-PMH Service'} %}
-            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'person':'Person', 'lookup':'Lookup', 'search':'Search', 'auditLog':'Audit Log'} %}
+            {% set colSections = {'collection':'Collection', 'institution':'Institution', 'lookup':'Lookup', 'search':'Search', 'auditLog':'Audit Log'} %}
             {$ api.submenu(sections, colSections) $}
             </div>
             <div class="col-md-10">
@@ -349,16 +349,14 @@
             {% macro trowInst(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/grscicoll/institution"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
-            {% macro trowPerson(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
-                {$ api.trow(url="/grscicoll/person"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
             {% endmacro %}
             <section id="collections">
                 <div class="container--fluid">
                     <h3>Collections</h3>
                     <p>
-                        The collections API provides CRUD services for collections, institutions and person entities.
+                        The collections API provides CRUD services for collections and institutions entities.
                         The data was originally migrated from GrSciColl and adapted to follow the same conventions as other registry services. Therefore, the deletion of
-                        collections, institutions and persons is logical, meaning these entries remain registered forever
+                        collections and institutions is logical, meaning these entries remain registered forever
                         and only get a deleted timestamp. On the other hand, the deletion of tags and identifiers is physical, meaning the entries are permanently removed.
                     </p>
                     <p>
@@ -369,8 +367,7 @@
                         <h4>Collection</h4>
                         <p>
                             This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Collection.java">collection</a> entity.
-                            A collection can be associated with an <a href="#institution">institution</a> and can have a list of contacts, which are represented by the <a href="#person">person</a> entity.
-                            It can also have tags and identifiers.
+                            A collection can be associated with an <a href="#institution">institution</a> and can have a list of contacts, machine tags, tags, comments and identifiers.
                         </p>
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
@@ -380,9 +377,6 @@
                             {$ trowCol(url="/{UUID}", resp="Collection", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24", description="Gets details for the collection") $}
                             {$ trowCol(url="/{UUID}", method="PUT", auth=true, description="Updates the collection") $}
                             {$ trowCol(url="/{UUID}", method="DELETE", auth=true, description="Deletes the collection. The collection entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowCol(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contact", description="(Deprecated) Lists all contacts for the collection") $}
-                            {$ trowCol(url="/{UUID}/contact", method="POST", auth=true, description="(Deprecated) Adds a contact to the collection. The UUID key of the contact must be passed in the body.") $}
-                            {$ trowCol(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="(Deprecated) Deletes the contact with key {UUID} from the collection") $}
                             {$ trowCol(url="/{UUID}/contactPerson", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/collection/04672bb4-5621-4b5b-949d-63ceea77ae24/contactPerson", description="Lists all contacts for the collection") $}
                             {$ trowCol(url="/{UUID}/contactPerson", method="POST", auth=true, description="Adds a contact to the collection. The contact must be passed in the body.") $}
                             {$ trowCol(url="/{UUID}/contactPerson/{ID}", method="PUT", auth=true, description="Updates the contact with key {ID} of the collection. The updated contact must be passed in the body.") $}
@@ -412,7 +406,7 @@
                             {$ trowCol(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies a collection change suggestion") $}
                             {$ trowCol(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards a collection change suggestion") $}
-                            {$ trowCol(url="/export", resp="Export in CSV or TSV format", params=["format","q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection","masterSourceType"], description="Collections export")$}
+                            {$ trowCol(url="/export", resp="Export in CSV or TSV format", params=["format","q","institution","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","contentType","preservationType","accessionStatus","personalCollection","masterSourceType","displayOnNHCPortal","numberSpecimens"], description="Collections export")$}
                             {$ trowCol(url="/import", method="POST", resp="UUID", auth=true, description="Imports a collection from a dataset. The body must contain the datasetKey and the collectionCode.") $}
                             {$ trowCol(url="/{UUID}/masterSourceMetadata", method="GET", resp="Master source metadata of the entity", respLink=apiBase+"grscicoll/collection/cea43020-d501-452c-b18c-e180870630cd/masterSourceMetadata", description="Returns the master source of the entity") $}
                             {$ trowCol(url="/{UUID}/masterSourceMetadata", method="POST", auth=true, description="Adds a master source metadata to the collection. The metadata must be passed in the body.") $}
@@ -424,8 +418,7 @@
                         <h4>Institution</h4>
                         <p>
                             This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Institution.java">institution</a> entity.
-                            An institution can have a list of contacts, which are represented by the <a href="#person">person</a> entity.
-                            They can also have tags and identifiers.
+                            An institution can have a list of contacts, machine tags, comments, tags and identifiers.
                         </p>
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
@@ -435,9 +428,6 @@
                             {$ trowInst(url="/{UUID}", resp="Institution", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f", description="Gets details for the institution") $}
                             {$ trowInst(url="/{UUID}", method="PUT", auth=true, description="Updates the institution") $}
                             {$ trowInst(url="/{UUID}", method="DELETE", auth=true, description="Deletes the institution. The institution entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowInst(url="/{UUID}/contact", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contact", description="(Deprecated) Lists all contacts for the institution") $}
-                            {$ trowInst(url="/{UUID}/contact", method="POST", auth=true, description="(Deprecated) Adds a contact to the institution. The UUID key of the contact must be passed in the body.") $}
-                            {$ trowInst(url="/{UUID}/contact/{UUID}", method="DELETE", auth=true, description="(Deprecated) Deletes the contact with key {UUID} from the institution") $}
                             {$ trowInst(url="/{UUID}/contactPerson", method="GET", resp="Contact List", respLink=apiBase+"grscicoll/institution/5e9b1c0b-67ad-4d74-90f6-e160a01c016f/contactPerson", description="Lists all contacts for the institution") $}
                             {$ trowInst(url="/{UUID}/contactPerson", method="POST", auth=true, description="Adds a contact to the institution. The contact must be passed in the body.") $}
                             {$ trowInst(url="/{UUID}/contactPerson/{ID}", method="PUT", auth=true, description="Updates the contact with key {ID} of the institution. The updated contact must be passed in the body.") $}
@@ -468,45 +458,11 @@
                             {$ trowInst(url="/changeSuggestion/{ID}", method="PUT", auth=true, description="Updates an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}/apply", method="PUT", auth=true, description="Applies an institution change suggestion") $}
                             {$ trowInst(url="/changeSuggestion/{ID}/discard", method="PUT", auth=true, description="Discards an institution change suggestion") $}
-                            {$ trowInst(url="/export", resp="Institution Export", resp="Export in CSV or TSV format", params=["format","q","contact","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline","masterSourceType"], description="Institutions export")$}
+                            {$ trowInst(url="/export", resp="Institution Export", resp="Export in CSV or TSV format", params=["format","q","code","name","alternativeCode","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue","country","active","type","institutionalGovernance","discipline","masterSourceType","displayOnNHCPortal","numberSpecimens"], description="Institutions export")$}
                             {$ trowInst(url="/import", method="POST", resp="UUID", auth=true, description="Imports an institution from an organization. The body must contain the organizationKey and the institutionCode.") $}
                             {$ trowInst(url="/{UUID}/masterSourceMetadata", method="GET", resp="Master source metadata of the entity", respLink=apiBase+"grscicoll/institution/a73c63c0-6c66-46ce-93d7-341c5c7a56c1/masterSourceMetadata", description="Returns the master source of the entity") $}
                             {$ trowInst(url="/{UUID}/masterSourceMetadata", method="POST", auth=true, description="Adds a master source metadata to the institution. The metadata must be passed in the body.") $}
                             {$ trowInst(url="/{UUID}/masterSourceMetadata", method="DELETE", auth=true, description="Deletes the master source metadata from the institution") $}
-                            </tbody>
-                        </table>
-                    </section>
-                    <section id="person" class="white-background page--developer__anchor">
-                        <h4>Person</h4>
-                        <p>
-                            NOTE: this API is deprecated and replaced with the contactPerson endpoints of collections and institutions (see above).
-
-                            This API provides CRUD services for the <a href="https://github.com/gbif/gbif-api/blob/master/src/main/java/org/gbif/api/model/collections/Person.java">person</a> entity.
-                            A person can be associated with a primary <a href="#collection">collection</a> and a primary <a href="#institution">institution</a>.
-                            As mentioned before, a person can also be a contact in the <a href="#collection">collection</a> and <a href="#institution">institution</a> entities.
-                        </p>
-                        <table class='api table table-bordered table-striped table-params'>
-                            {$ api.apiTableHead() $}
-                            <tbody>
-                            {$ trowPerson(url="", resp="Person List", respLink=apiBase+"grscicoll/person", paging=true, params=["q","primaryInstitution","primaryCollection","identifier","identifierType","machineTagNamespace","machineTagName","machineTagValue"], description="Lists all persons")$}
-                            {$ trowPerson(url="", method="POST", resp="UUID", auth=true, description="Creates a new person") $}
-                            {$ trowPerson(url="/{UUID}", resp="Person", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a", description="Gets details for the person") $}
-                            {$ trowPerson(url="/{UUID}", method="PUT", auth=true, description="Updates the person") $}
-                            {$ trowPerson(url="/{UUID}", method="DELETE", auth=true, description="Deletes the person. The person entry gets a deleted timestamp but remains registered.") $}
-                            {$ trowPerson(url="/{UUID}/identifier", method="GET", resp="Identifier List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/identifier", description="Lists the identifiers of the person") $}
-                            {$ trowPerson(url="/{UUID}/identifier", method="POST", resp="ID", auth=true, description="Creates a new person identifier") $}
-                            {$ trowPerson(url="/{UUID}/identifier/{ID}", method="DELETE", auth=true, description="Deletes from the person the identifier with ID {ID}") $}
-                            {$ trowPerson(url="/{UUID}/tag", method="GET", resp="Tag List", description="Lists all tags for a person") $}
-                            {$ trowPerson(url="/{UUID}/tag", method="POST", resp="ID", auth=true, description="Creates and adds a tag to the person") $}
-                            {$ trowPerson(url="/{UUID}/tag/{ID}", method="DELETE", auth=true, description="Deletes from the person the tag with ID {ID}") $}
-                            {$ trowPerson(url="/{UUID}/machineTag", method="GET", resp="Machine Tag List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/machineTag", description="Lists all machine tags for a person") $}
-                            {$ trowPerson(url="/{UUID}/machineTag", method="POST", resp="ID", auth=true, description="Create and add a person machine tag") $}
-                            {$ trowPerson(url="/{UUID}/machineTag/{ID}", method="DELETE", description="Deletes the person machine tag with machine tag identifier {ID}") $}
-                            {$ trowPerson(url="/deleted", resp="Deleted Persons List", respLink=apiBase+"grscicoll/person/deleted", paging=true, description="Lists the deleted persons") $}
-                            {$ trowPerson(url="/suggest", resp="Suggested Search Result", respLink=apiBase+"grscicoll/person/suggest?q=ste", paging=false, description="Search that returns up to 20 matching persons. Results are ordered by relevance") $}
-                            {$ trowPerson(url="/{UUID}/comment", method="GET", resp="Comment List", respLink=apiBase+"grscicoll/person/a86ba58e-7de9-4ef3-90e1-d5e2f4921f4a/comment", description="Lists all comments for a person") $}
-                            {$ trowPerson(url="/{UUID}/comment", method="POST", resp="ID", auth=true, description="Create and add a person comment") $}
-                            {$ trowPerson(url="/{UUID}/comment", method="DELETE", auth=true, description="Deletes the person comment with comment identifier {ID}") $}
                             </tbody>
                         </table>
                     </section>
@@ -653,10 +609,7 @@
             "publishingCountry": "Filters datasets by their owning organization's country given as a ISO 639-1 (2 letter) country code",
             "continent": "Not yet implemented, but will eventually allow filtering datasets by their continent(s) as given in our <a href='"+apiBase+"enumeration/basic/Continent.html'>Continent enum</a>.",
             "facet": "A list of facet names used to retrieve the 100 most frequent values for a field. Allowed facets are: type, keyword, publishingOrg, hostingOrg, decade, and publishingCountry. Additionally subtype and country are legal values but not yet implemented, so data will not yet be returned for them.",
-            "contact": "Filters collections and institutions whose contacts contain the person key specified",
             "institution":"Filters collections by the institution key specified",
-            "primaryInstitution":"Filters persons by the primary institution key specified",
-            "primaryCollection":"Filters persons by the primary collection key specified",
             "code":"Code of a GrSciColl institution or collection",
             "name":"Name of a GrSciColl institution or collection",
             "alternativeCode":"Alternative code of a GrSciColl institution or collection",
@@ -677,10 +630,10 @@
             "proposerEmail": "The email of the person who suggested a change in GRSciColl",
             "entityKey": "The key of the entity of a change suggestion in GRSciColl",
             "traceId": "Trace ID of a GRSciColl audit log",
-            "collectionEntityType": "Entity type used in the GRSciColl audit log: INSTITUTION, COLLECTION, PERSON)",
-            "subEntityType": "Subentity type used in the GRSciColl audit log: Identifier, MachineTag, Comment, Tag, OccurrenceMapping, Person, ChangeSuggestionDto",
+            "collectionEntityType": "Entity type used in the GRSciColl audit log: INSTITUTION, COLLECTION)",
+            "subEntityType": "Subentity type used in the GRSciColl audit log: Identifier, MachineTag, Comment, Tag, OccurrenceMapping, Contact, ChangeSuggestionDto",
             "operation" : "Operation of a GRSciColl audit log: CREATE, UPDATE, DELETE, LINK, UNLINK, REPLACE, CONVERSION_TO_COLLECTION, APPLY_SUGGESTION, DISCARD_SUGGESTION",
-            "collectionEntityKey": "Key of the institution, collection or person being modified",
+            "collectionEntityKey": "Key of the institution or collection being modified",
             "createdBy": "User who did the change in a GRSciColl audit log",
             "dateFrom": "Filters GRSciColl audit logs after a specific date (format yyyy-MM-dd)",
             "dateTo": "Filters GRSciColl audit logs until a specific date (format yyyy-MM-dd)",
