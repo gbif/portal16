@@ -85,22 +85,22 @@ function dateRange(start, end, showHours, locale) {
     let endDate;
     locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
     // console.log("start " +start)
-    // console.log("end "+end)
-
+  //   console.log("end "+end)
+    // Dates come from contentful in 'Europe/Copenhagen' time, but GBIF servers run GMT time, so they should be initialised using time zone
     // parse start date
     if (!isNaN(Number(start))) {
         startDate = moment.unix(start).locale(locale);
     } else {
-        startDate = moment(start, dateFormats).locale(locale);
+        startDate = moment.tz(start, dateFormats, 'Europe/Copenhagen').locale(locale);
     }
 
     // parse end date
     if (!isNaN(Number(end))) {
         endDate = moment.unix(end).locale(locale);
     } else {
-        endDate = moment(end, dateFormats).locale(locale);
+        endDate = moment.tz(end, dateFormats, 'Europe/Copenhagen').locale(locale);
     }
-    // console.log("End "+ endDate.format('LL'))
+   // console.log("End " + endDate.utcOffset())
 
     // always if all day event, then ignore time a day
     if (start === end || !end) {
@@ -133,13 +133,14 @@ function timeRange(start, end, locale) {
     let startDate;
     let endDate;
     locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
-console.log(start);
-console.log(end);
+    // console.log(start);
+    // console.log(end);
+    // Dates come from contentful in 'Europe/Copenhagen' time, but GBIF servers run GMT time, so they should be initialised using time zone
     // parse start date
     if (!isNaN(Number(start))) {
         startDate = moment.unix(start).locale(locale);
     } else {
-        startDate = moment(start, dateFormats).locale(locale);
+        startDate = moment.tz(start, dateFormats, 'Europe/Copenhagen').locale(locale);
     }
 
     
@@ -147,21 +148,21 @@ console.log(end);
     if (!isNaN(Number(end))) {
         endDate = moment.unix(end).locale(locale);
     } else {
-        endDate = moment(end, dateFormats).locale(locale);
+        endDate = moment.tz(end, dateFormats, 'Europe/Copenhagen').locale(locale);
     }
 
-    console.log(start);
-    console.log(moment.tz(start, dateFormats, 'Europe/London').format('YYYYMMDD HH:mm Z'));
+    // console.log(start);
+    // console.log(moment.tz(start, dateFormats, 'Europe/London').format('YYYYMMDD HH:mm Z'));
     
 
     // always if all day event, then ignore time a day
     if (start === end || !end) {
         // if same date and time or no enddate then show just start date
-        // return startDate.format('HH:mm z');
-        return moment.tz(start, dateFormats, 'Europe/London').format('HH:mm z');
+         return startDate.format('HH:mm z');
+        // return moment.tz(start, dateFormats, 'Europe/London').format('HH:mm z');
     } else {
-        // return startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm z:z');
-        return moment.tz(start, dateFormats, 'Europe/London').format('HH:mm') + ' - ' + moment.tz(end, dateFormats, 'Europe/London').format('HH:mm z');
+         return startDate.format('HH:mm') + ' - ' + endDate.format('HH:mm z');
+        // return moment.tz(start, dateFormats, 'Europe/London').format('HH:mm') + ' - ' + moment.tz(end, dateFormats, 'Europe/London').format('HH:mm z');
     }
 }
 
