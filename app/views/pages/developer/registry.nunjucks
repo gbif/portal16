@@ -566,7 +566,7 @@
                         <table class='api table table-bordered table-striped table-params'>
                             {$ api.apiTableHead() $}
                             <tbody>
-                                {$ api.trow(url="/grscicoll/search", httpMethod="GET", authRequired=false, resp="Results found", respLink=apiBase+"grscicoll/search?q=smi&hl=true&displayOnNHCPortal=true&entityType=INSTITUTION", paging=false, params=["q","hl","entityType","displayOnNHCPortal"], description="Searches for institutions and collections") $}
+                                {$ api.trow(url="/grscicoll/search", httpMethod="GET", authRequired=false, resp="Results found", respLink=apiBase+"grscicoll/search?q=smi&hl=true&displayOnNHCPortal=true&entityType=INSTITUTION", paging=false, params=["q","hl","entityType","displayOnNHCPortal","country"], description="Searches for institutions and collections") $}
                             </tbody>
                         </table>
                     </section>
