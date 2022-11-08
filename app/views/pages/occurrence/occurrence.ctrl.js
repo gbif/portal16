@@ -580,7 +580,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     enumTranslationPath: 'endpointType.',
     showAll: true,
-    enums: enums.endpointType,
+    enums: enums.occurrenceProcols,
     reversible: true,
     facets: {
       hasFacets: true,
