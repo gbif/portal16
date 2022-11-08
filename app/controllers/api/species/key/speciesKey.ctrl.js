@@ -198,7 +198,7 @@ async function getTreatments(key) {
     // for each treatment lookup the verbatim (from which we use the eol extension to show treatment info)
     // and get the images for that taxon.
 
-    return _.map(treatments, 'treatment');
+    return _.map(treatments, 'treatment').filter((t) => !!t);
 }
 router.get('/species/:key/treatments', function(req, res) {
     getTreatments(req.params.key)
