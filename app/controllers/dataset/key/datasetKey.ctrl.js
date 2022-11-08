@@ -98,7 +98,11 @@ function getMetaSchema(dataset) {
           'email': contact.email[0],
           'telephone': contact.phone[0],
           'jobTitle': contact.position,
-          'identifier': contact.userId[0],
+          'identifier': _.get(contact, 'userId[0]', '').indexOf('//orcid.org/') === -1 ? contact.userId[0] : {'@id': 'https://orcid.org/' + _.get(contact.userId[0].split('//orcid.org/'), '[1]', ''),
+          '@type': 'PropertyValue',
+          'propertyID': 'https://registry.identifiers.org/registry/orcid',
+          'value': 'orcid:' + _.get(contact.userId[0].split('//orcid.org/'), '[1]', ''),
+          'url': 'https://orcid.org/' + _.get(contact.userId[0].split('//orcid.org/'), '[1]', '')},
           'address': {
               '@type': 'PostalAddress',
               'streetAddress': contact.address,
@@ -137,15 +141,38 @@ function getMetaSchema(dataset) {
       }
     }).filter((c) => !!c);
 
+    let keywords = [
+      ...dataset.keywordCollections.filter((kc) => kc.thesaurus.indexOf('http://rs.gbif.org/vocabulary/') > -1)
+        .map((kc) => kc.keywords.map((k) => ({
+          '@type': 'DefinedTerm',
+          'name': k,
+          'inDefinedTermSet': 'http://rs.gbif.org/vocabulary/' + _.get(kc.thesaurus.split('http://rs.gbif.org/vocabulary/'), '[1]', ''),
+        }))),
+      ...dataset.keywordCollections.filter((kc) => kc.thesaurus === 'N/A')
+        .map((kc) => kc.keywords.map((k) => ({
+          '@type': 'Text',
+          'name': k
+        }))),
+      ...dataset.keywordCollections.filter((kc) => kc.thesaurus !== 'N/A' && kc.thesaurus.indexOf('http://rs.gbif.org/vocabulary/') === -1)
+        .map((kc) => kc.keywords.map((k) => ({
+          '@type': 'DefinedTerm',
+          'name': k,
+          'inDefinedTermSet': kc.thesaurus
+        })))
+    ].flat();
+
+
     let schema = {
         '@context': 'https://schema.org/',
         '@type': 'Dataset',
         '@id': 'https://doi.org/' + dataset.doi,
         'identifier': [
           {
+            '@id': 'https://doi.org/' + dataset.doi,
             '@type': 'PropertyValue',
-            'propertyID': 'doi',
-            'value': 'https://doi.org/' + dataset.doi
+            'propertyID': 'https://registry.identifiers.org/registry/doi',
+            'value': 'doi:' + dataset.doi,
+            'url': 'https://doi.org/' + dataset.doi
           },
           {
             '@type': 'PropertyValue',
@@ -175,7 +202,8 @@ function getMetaSchema(dataset) {
             'logo': 'https://www.gbif.org/img/logo/GBIF50.png',
             'email': 'info@gbif.org',
             'telephone': '+45 35 32 14 70'
-        }
+        },
+        'keywords': keywords
     };
     if (dataset.temporalCoverages &&
       dataset.temporalCoverages.length > 0 &&
