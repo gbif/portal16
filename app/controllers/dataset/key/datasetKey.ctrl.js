@@ -142,22 +142,22 @@ function getMetaSchema(dataset) {
     }).filter((c) => !!c);
 
     let keywords = [
-      ...dataset.keywordCollections.filter((kc) => kc.thesaurus.indexOf('http://rs.gbif.org/vocabulary/') > -1)
+      ...dataset.keywordCollections.filter((kc) => _.get(kc, 'thesaurus') && _.get(kc, 'thesaurus', '').indexOf('http://rs.gbif.org/vocabulary/') > -1)
         .map((kc) => kc.keywords.map((k) => ({
           '@type': 'DefinedTerm',
           'name': k,
-          'inDefinedTermSet': 'http://rs.gbif.org/vocabulary/' + _.get(kc.thesaurus.split('http://rs.gbif.org/vocabulary/'), '[1]', ''),
+          'inDefinedTermSet': 'http://rs.gbif.org/vocabulary/' + _.get(_.get(kc, 'thesaurus', '').split('http://rs.gbif.org/vocabulary/'), '[1]', ''),
         }))),
-      ...dataset.keywordCollections.filter((kc) => kc.thesaurus === 'N/A')
+      ...dataset.keywordCollections.filter((kc) => !_.get(kc, 'thesaurus') || _.get(kc, 'thesaurus') === 'N/A')
         .map((kc) => kc.keywords.map((k) => ({
           '@type': 'Text',
           'name': k
         }))),
-      ...dataset.keywordCollections.filter((kc) => kc.thesaurus !== 'N/A' && kc.thesaurus.indexOf('http://rs.gbif.org/vocabulary/') === -1)
+      ...dataset.keywordCollections.filter((kc) => _.get(kc, 'thesaurus') && _.get(kc, 'thesaurus') !== 'N/A' && _.get(kc, 'thesaurus').indexOf('http://rs.gbif.org/vocabulary/') === -1)
         .map((kc) => kc.keywords.map((k) => ({
           '@type': 'DefinedTerm',
           'name': k,
-          'inDefinedTermSet': kc.thesaurus
+          'inDefinedTermSet': _.get(kc, 'thesaurus', '')
         })))
     ].flat();
 
