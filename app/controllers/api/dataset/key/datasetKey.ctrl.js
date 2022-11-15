@@ -110,10 +110,10 @@ function clean(obj) {
     });
 
     cleanMarkdownField(obj, 'project.title', [], []);
-    cleanMarkdownField(obj, 'project.funding', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
-    cleanMarkdownField(obj, 'project.studyAreaDescription', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
-    cleanMarkdownField(obj, 'project.designDescription', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
-    cleanMarkdownField(obj, 'project.abstract', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
+    cleanMarkdownField(obj, 'project.funding', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'project.studyAreaDescription', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'project.designDescription', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'project.abstract', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
 }
 
 // function cleanField(o, field) {
