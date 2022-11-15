@@ -105,6 +105,15 @@ function clean(obj) {
     _.get(obj, 'taxonomicCoverages', []).forEach(function(e) {
         cleanMarkdownField(e, 'description');
     });
+    _.get(obj, 'bibliographicCitations', []).forEach(function(e) {
+        cleanMarkdownField(e, 'text', ['i', 'a'], ['href']);
+    });
+
+    cleanMarkdownField(obj, 'project.title', [], []);
+    cleanMarkdownField(obj, 'project.funding', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
+    cleanMarkdownField(obj, 'project.studyAreaDescription', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
+    cleanMarkdownField(obj, 'project.designDescription', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
+    cleanMarkdownField(obj, 'project.abstract', ['a', 'i', 'ul', 'ol', 'p'], ['href']);
 }
 
 // function cleanField(o, field) {
@@ -113,9 +122,10 @@ function clean(obj) {
 //     }
 // }
 
-function cleanMarkdownField(o, field) {
+function cleanMarkdownField(o, field, allowedTags, allowedAttributes) {
+    const sanitize = allowedTags ? format.sanitizeCustom : format.sanitize;
     if (_.has(o, field)) {
-        _.set(o, field, format.sanitize(format.linkify(format.decodeHtml(md.render(_.get(o, field)))))
+        _.set(o, field, sanitize(format.linkify(format.decodeHtml(md.render(_.get(o, field)))), allowedTags, allowedAttributes)
             .replace(/(<p>)/g, '<p dir="auto">')
             .replace(/(<ul>)/g, '<ul dir="auto">')
             .replace(/(<ol>)/g, '<ol dir="auto">')

@@ -7,9 +7,7 @@
             <div class="dataset-key__bibliography__list">
                 <ol ng-class="{'no-decimals': datasetKey.dataset.bibliographicCitations.length<2}">
                     <li ng-repeat="reference in datasetKey.dataset.bibliographicCitations">
-                        <div dir="auto">
-                            {{ reference.text }}
-                        </div>
+                        <div dir="auto" ng-bind-html="reference.text"></div>
                         <div>
                             <ul class="inline-bullet-list">
                                 <li dir="ltr" ng-repeat="identifier in reference._identifiers">
