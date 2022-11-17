@@ -140,6 +140,9 @@ function feedbackDirective(BUILD_VERSION) {
         };
 
         vm.gaEvent = function(action, label, intValue) {
+            if (typeof plausible !== 'undefined') {
+                plausible('Feedback - ' + action, {props: {type: label}})
+            }
             var trackingData = {
                 hitType: 'event',
                 eventCategory: 'feedback'
