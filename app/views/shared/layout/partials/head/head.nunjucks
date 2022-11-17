@@ -136,6 +136,7 @@
 </noscript>
 
 <script defer data-domain="{$ gb.locales.topDomain $}" src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="proxy.gbif-uat.org" data-api="https://varnish.gbif.org/spoor/api/event" src="https://varnish.gbif.org/spoor/js/script.js"></script>
 
 {% if _meta.schema and gb.locales.urlPrefix === ""%}
 <script type="application/ld+json">
