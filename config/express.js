@@ -32,6 +32,7 @@ module.exports = function(app, config) {
                         `*.${config.topDomain}`,
                         '*.google.com',
                         '*.google-analytics.com',
+                        'plausible.io',
                         'fonts.gstatic.com',
                         'images.ctfassets.net',
                         'data:',
