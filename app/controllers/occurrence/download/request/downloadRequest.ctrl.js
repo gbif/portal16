@@ -12,6 +12,18 @@ module.exports = function(app) {
 };
 
 router.get('/download/request', function(req, res, next) {
+  let source = _.get(req, 'headers.origin');
+  if (source) {
+    res.cookie('downloadSource', source,
+      {
+        maxAge: 600000, // 10 minute
+        secure: false,
+        httpOnly: false
+      }
+    );
+  } else {
+    res.clearCookie('downloadSource');
+  }
   if (req.query.predicateId) {
     predicateIdRequestHandler({req, res, next, predicateId: req.query.predicateId});
   } else if (req.query.predicate && req.query.predicate !== '') {
