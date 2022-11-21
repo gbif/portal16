@@ -12,7 +12,7 @@ module.exports = function(app) {
 };
 
 router.get('/download/request', function(req, res, next) {
-  let source = req.get('gbif-download-source') || _.get(req, 'query.source');
+  let source = req.get('Referrer') || req.get('gbif-download-source') || _.get(req, 'query.source');
   if (source) {
     res.cookie('downloadSource', source,
       {
