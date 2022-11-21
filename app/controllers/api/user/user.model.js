@@ -222,15 +222,19 @@ async function createSimpleDownload(user, query) {
     return response.body;
 }
 
-async function createPredicateDownload(user, query) {
+async function createPredicateDownload(user, query, source) {
   query = query || {};
   expect(query, 'download query').to.be.an('object');
   expect(user.userName, 'user name').to.be.a('string');
 
   let email = user.email;
 
+  let url = apiConfig.occurrenceSearchDownload.url;
+  if (source) {
+    url += '?source=' + encodeURIComponent(source);
+  }
   let options = {
-      url: apiConfig.occurrenceSearchDownload.url,
+      url: url,
       canonicalPath: apiConfig.occurrenceSearchDownload.canonical,
       body: {
           creator: user.userName,

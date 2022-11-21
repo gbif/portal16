@@ -180,7 +180,7 @@ function createSimpleDownload(req, res) {
  * Initiate a predicate download based on query parameters.
  */
 function createPredicateDownload(req, res) {
-  userModel.createPredicateDownload(req.user, req.body)
+  userModel.createPredicateDownload(req.user, req.body, _.get(req, 'query.source'))
       .then(function(download) {
         res.status(201);
         auth.setNoCache(res);

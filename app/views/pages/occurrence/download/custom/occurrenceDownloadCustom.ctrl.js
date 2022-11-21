@@ -113,8 +113,11 @@ function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $ht
       var data = {predicate: jsonPredicate};
       data.format = format;
       data.notification_address = email;
-      // data.source = $cookies.get('downloadSource');
+      var source = $cookies.get('downloadSource');
       var downloadUrl = endpoints.download + '/predicate';
+      if (source) {
+        downloadUrl += '?source=' + encodeURIComponent(source);
+      }
       $http.post(downloadUrl, data).then(function (response) {
         window.location.href = response.data.downloadKey;
       }, function (err) {

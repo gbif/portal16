@@ -12,7 +12,7 @@ module.exports = function(app) {
 };
 
 router.get('/download/request', function(req, res, next) {
-  let source = _.get(req, 'headers.origin');
+  let source = _.get(req, 'query.source');
   if (source) {
     res.cookie('downloadSource', source,
       {
