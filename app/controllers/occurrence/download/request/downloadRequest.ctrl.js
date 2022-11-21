@@ -12,6 +12,25 @@ module.exports = function(app) {
 };
 
 router.get('/download/request', function(req, res, next) {
+  let source = _.get(req, 'query.source');
+  const referrer = req.get('Referrer');
+  if (referrer) {
+    const referrerUrl = new URL(referrer);
+    // if source name undefined, then overwrite with referrer hostname
+    source = source ?? referrerUrl.hostname;
+  }
+  
+  if (source) {
+    res.cookie('downloadSource', source,
+      {
+        maxAge: 600000, // 10 minute
+        secure: false,
+        httpOnly: false
+      }
+    );
+  } else {
+    res.clearCookie('downloadSource');
+  }
   if (req.query.predicateId) {
     predicateIdRequestHandler({req, res, next, predicateId: req.query.predicateId});
   } else if (req.query.predicate && req.query.predicate !== '') {

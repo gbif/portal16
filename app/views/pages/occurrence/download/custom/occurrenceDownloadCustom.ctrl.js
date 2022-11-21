@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceDownloadCustomCtrl($state, $scope, AUTH_EVENTS, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX, $location, $rootScope) {
+function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX, $location, $rootScope) {
   var vm = this;
   vm.stateParams = $state;
   vm.downloadFormats = enums.downloadFormats;
@@ -113,7 +113,11 @@ function occurrenceDownloadCustomCtrl($state, $scope, AUTH_EVENTS, $httpParamSer
       var data = {predicate: jsonPredicate};
       data.format = format;
       data.notification_address = email;
+      var source = $cookies.get('downloadSource');
       var downloadUrl = endpoints.download + '/predicate';
+      if (source) {
+        downloadUrl += '?source=' + encodeURIComponent(source);
+      }
       $http.post(downloadUrl, data).then(function (response) {
         window.location.href = response.data.downloadKey;
       }, function (err) {
