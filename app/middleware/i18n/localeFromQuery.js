@@ -51,7 +51,8 @@ function use(app, locales, defaultLocale) {
                 rtl: localeConfig.localeMappings.rtl[locale],
                 originalUrl: req.originalUrl,
                 url: req.url,
-                domain: config.domain
+                domain: config.domain,
+                topDomain: config.topDomain
             };
         } else if (typeof queryLocale !== 'undefined' && queryLocale != defaultLocale && locales.indexOf(queryLocale) > -1) {
             req.setLocale(queryLocale);
@@ -64,7 +65,8 @@ function use(app, locales, defaultLocale) {
                 vocabularyMapping: localeConfig.localeMappings.vocabulary,
                 originalUrl: req.originalUrl,
                 url: req.url,
-                domain: config.domain
+                domain: config.domain,
+                topDomain: config.topDomain
             };
         } else {
             req.setLocale(defaultLocale); // remove to use browser preference
@@ -76,7 +78,8 @@ function use(app, locales, defaultLocale) {
                 rtl: localeConfig.localeMappings.rtl[defaultLocale],
                 originalUrl: req.originalUrl,
                 url: req.url,
-                domain: config.domain
+                domain: config.domain,
+                topDomain: config.topDomain
             };
         }
         // console.log();

@@ -32,6 +32,7 @@ module.exports = function(app, config) {
                         `*.${config.topDomain}`,
                         '*.google.com',
                         '*.google-analytics.com',
+                        'plausible.io',
                         'fonts.gstatic.com',
                         'images.ctfassets.net',
                         'data:',
@@ -53,6 +54,7 @@ module.exports = function(app, config) {
                         `*.gbif-dev.org`,
                         `*.gbif-staging.org`,
                         '*.google-analytics.com',
+                        'plausible.io',
                         'api.mapbox.com',
                         'unpkg.com/react@17/umd/react.production.min.js',
                         'unpkg.com/react-dom@17/umd/react-dom.production.min.js'
