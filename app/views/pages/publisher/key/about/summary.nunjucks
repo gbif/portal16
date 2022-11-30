@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="m-t-1">
-                        <a href="https://api.gbif.org/v1/occurrence/download/statistics/export?publishingOrgKey={{publisherKey.key}}" translate="publisher.getDownloadReport">Get download report</a>
+                        <a class="gb-button" href="https://api.gbif.org/v1/occurrence/download/statistics/export?publishingOrgKey={{publisherKey.key}}" translate="publisher.getDownloadReport">Get download report</a>
                     </div>
                 </dl>
         </div>
