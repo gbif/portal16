@@ -54,6 +54,14 @@
                         </dd>
                     </div>
 
+                    <div>
+                        <dt translate="publisher.downloads"></dt>
+                        <dd dir="auto">
+                            <span count="{{ portal.dataApi }}occurrence/download/statistics?publishingOrgKey={{publisherKey.key}}&limit=0">&nbsp;</span>
+                            <a style="margin-left: 8px;" href="https://api.gbif.org/v1/occurrence/download/statistics/export?publishingOrgKey={{publisherKey.key}}" translate="dataset.getDownloadReport">Download report</a>
+                        </dd>
+                    </div>
+
                     <div ng-if="publisherKey.hostStats.datasetCount" class="m-t-1">
                         <dt translate="publisher.hosting"></dt>
                         <dd dir="auto">
