@@ -23,6 +23,7 @@
     "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "Вимірювання або факт",
     "http://rs.gbif.org/terms/1.0/Multimedia": "Мультимедіа",
     "http://rs.gbif.org/terms/1.0/Reference": "Посилання",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Зв'язок ресурсу"
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Зв'язок ресурсу",
+    "http://eol.org/schema/reference/Reference": ""
   }
 }
