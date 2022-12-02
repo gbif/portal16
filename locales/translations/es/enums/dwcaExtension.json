@@ -24,6 +24,6 @@
     "http://rs.gbif.org/terms/1.0/Multimedia": "Multimedia",
     "http://rs.gbif.org/terms/1.0/Reference": "Referencia",
     "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "",
-    "http://eol.org/schema/reference/Reference": ""
+    "http://eol.org/schema/reference/Reference": "Referencia EOL"
   }
 }
