@@ -23,6 +23,7 @@
     "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "Mesure ou fait",
     "http://rs.gbif.org/terms/1.0/Multimedia": "Multimédia",
     "http://rs.gbif.org/terms/1.0/Reference": "Référence",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Relation entre ressources"
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Relation entre ressources",
+    "http://eol.org/schema/reference/Reference": "Référence EOL"
   }
 }

@@ -23,6 +23,7 @@
     "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "القياس او الحقيقة",
     "http://rs.gbif.org/terms/1.0/Multimedia": "وسائط متعددة",
     "http://rs.gbif.org/terms/1.0/Reference": "مرجعية",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "علاقة الموارد"
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "علاقة الموارد",
+    "http://eol.org/schema/reference/Reference": ""
   }
 }

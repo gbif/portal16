@@ -23,6 +23,7 @@
     "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "测量或事实",
     "http://rs.gbif.org/terms/1.0/Multimedia": "多媒体",
     "http://rs.gbif.org/terms/1.0/Reference": "参考",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "资源关系"
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "资源关系",
+    "http://eol.org/schema/reference/Reference": "“生命大百科”（EOL）参考"
   }
 }

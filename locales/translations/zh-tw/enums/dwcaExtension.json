@@ -23,6 +23,7 @@
     "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "測量或事實",
     "http://rs.gbif.org/terms/1.0/Multimedia": "多媒體",
     "http://rs.gbif.org/terms/1.0/Reference": "參考文獻",
-    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "資源關係"
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "資源關係",
+    "http://eol.org/schema/reference/Reference": ""
   }
 }
