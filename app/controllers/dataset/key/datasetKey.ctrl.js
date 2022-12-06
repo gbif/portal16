@@ -166,6 +166,10 @@ function getMetaSchema(dataset) {
         '@context': 'https://schema.org/',
         '@type': 'Dataset',
         '@id': 'https://doi.org/' + dataset.doi,
+        'http://purl.org/dc/terms/conformsTo': {
+            '@type': 'CreativeWork',
+            '@id': 'https://bioschemas.org/profiles/Dataset/1.0-RELEASE'
+        },
         'identifier': [
           {
             '@id': 'https://doi.org/' + dataset.doi,

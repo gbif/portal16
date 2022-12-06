@@ -165,6 +165,10 @@ function getMetaSchema(tx) {
             }
         ],
         '@type': 'Taxon',
+        'http://purl.org/dc/terms/conformsTo': {
+            '@type': 'Taxon',
+            '@id': 'https://bioschemas.org/profiles/Taxon/0.6-RELEASE'
+        },
         'additionalType': ['dwc:Taxon', 'http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept'],
         'identifier': [
             {
