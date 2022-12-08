@@ -24,6 +24,17 @@ router.get('/checklist/:key/taxonomy', function(req, res) {
     });
 });
 
+router.get('/checklist/:key/sunburst', function(req, res) {
+    let datasetKey = req.params.key;
+    let higherTaxonKey = _.get(req, 'query.higherTaxonKey');
+    return getChecklistSunburstData(datasetKey, higherTaxonKey).then(function(taxa) {
+        return res.json(taxa);
+    }).catch(function(err) {
+        log.warn({module: 'api/chart/checklist/:key/taxonomy', key: datasetKey}, err);
+        res.sendStatus(500);
+    });
+});
+
 router.get('/occurrence/sunburst', function(req, res) {
     let query = req.query || {};
     return getOccurrenceDatasetTaxonomy(query, req).then(function(taxa) {
@@ -254,6 +265,53 @@ async function getChecklistTaxonomy(key) {
 
 
     return result;
+}
+
+async function getChecklistSunburstData(key, higherTaxonKey) {
+    let query = {
+        datasetKey: key,
+        facet: 'higherTaxonKey',
+        rank: 'SPECIES',
+        status: 'ACCEPTED',
+        facetLimit: 1000,
+        limit: 0
+    };
+    if (higherTaxonKey) {
+        query.higherTaxonKey = higherTaxonKey;
+    }
+    let baseRequest = {
+        url: apiConfig.taxonSearch.url + '?' + querystring.stringify(query),
+        method: 'GET',
+        json: true,
+        fullResponse: true
+    };
+    
+    let response = await request(baseRequest);
+    if (response.statusCode > 299) {
+        throw response;
+    }
+    let taxonFacets = response.body.facets[0].counts;
+    let promises = _.map(taxonFacets, expandWithTaxon);
+   
+    let taxa = await q.all(promises);
+
+/*     let taxonRankMap = taxa.reduce((acc, curr) => {
+        acc[curr.key.toString()] = curr.rank;
+        return acc;
+    }, {}); */
+    return taxa.map((t) => {
+        let val = {
+            id: t.key.toString(),
+            name: t.canonicalName,
+            value: t._count,
+            rank: t.rank
+        };
+        if (t.parentKey) {
+            val.parent = t.parentKey.toString();
+           // val.parentRank = taxonRankMap[t.parentKey.toString()];
+        }
+        return val;
+    }).filter((t) => higherTaxonKey ? t.parent === higherTaxonKey.toString() : true); // if a higherTaxonKey is given, only direct children of that should be returned
 }
 
 async function expandWithTaxon(taxonFacet, mapFn) {

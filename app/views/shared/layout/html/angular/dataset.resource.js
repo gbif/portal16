@@ -113,6 +113,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('DatasetChecklistSunburst', function($resource) {
+            return $resource('/api/chart/checklist/:key/sunburst', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: true
+                    }
+                }
+            );
+        })
         .factory('DatasetOccurrenceTaxonomy', function($resource) {
             return $resource('/api/chart/occurrence/sunburst', null, {
                     'query': {
