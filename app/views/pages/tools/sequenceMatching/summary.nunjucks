@@ -2,7 +2,7 @@
     <div class="row card__content">
         <div class="col-xs-12">
             <div ng-if="vm.selectedMarker === 'ITS'">
-            <p>Your data have been matched against a blast database of the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release v8.2</a>. 
+            <p>Your data have been matched against a blast database of the <a href="https://unite.ut.ee/repository.php">UNITE general FASTA release for eukaryotes v9.0</a>. 
         All returned matches have then been matched against the GBIF backbone taxonomy by their identifier (e.g. SH1571756.08FU). These OTU identifiers can be used for publishing sequence based data to GBIF. The result can be downloaded as a csv with identifiers included.</p>
         
                           

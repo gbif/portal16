@@ -5,7 +5,7 @@
         <div class="nameParser__prose" >
           <p>This tool will query taxonomy reference databases for Fungi, Animals, Bacteria and Archaea</p>
           <ul class="sequenceMatcher__list m-b-05">
-          <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE Species Hypothesis General FASTA release v8.2</a> (a reference database for DNA barcoding of Fungi)</li>
+          <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE general FASTA release for eukaryotes v9.0</a> (a reference database for DNA barcoding of Fungi)</li>
           <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2022-02-22</a> public data (COI-5P sequences)</li>
           <li><strong>16S</strong> sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database r207</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
         </ul>
@@ -65,7 +65,7 @@
             <div class="small p-r-1" flex="33">
                 
                         <div>
-                            UNITE Community (2019): UNITE general FASTA release for Fungi 2. Version 2020-02-04. UNITE Community. 
+                            UNITE Community (2022):UNITE general FASTA release for eukaryotes 2. Version 2022-11-29. UNITE Community. 
                         </div>
                         <doi link="https://doi.org/10.15156/BIO/786353"></doi>
                             
