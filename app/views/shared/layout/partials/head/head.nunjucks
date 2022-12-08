@@ -135,7 +135,6 @@
     </style>
 </noscript>
 
-<script defer data-domain="direct.{$ gb.locales.topDomain $}" src="https://plausible.io/js/script.js"></script>
 <script defer data-domain="{$ gb.locales.topDomain $}" data-api="/spoor/api/event" src="/spoor/js/script.js"></script>
 
 {% if _meta.schema and gb.locales.urlPrefix === ""%}
