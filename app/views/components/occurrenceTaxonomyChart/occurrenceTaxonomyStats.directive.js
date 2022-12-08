@@ -222,7 +222,7 @@ function paintChart(Highcharts, elm, type, res, allowDrillToNode, click, transla
                 dataLabels: {
                     enabled: true,
                     formatter: function() {
-                        return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : false;
+                        return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : '';
                     },
                     align: 'left',
                     verticalAlign: 'top',
@@ -241,7 +241,7 @@ function paintChart(Highcharts, elm, type, res, allowDrillToNode, click, transla
                 dataLabels: {
                     enabled: res.levelCounts[2] < 300,
                     formatter: function() {
-                        return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : false;
+                        return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : '';
                     },
                     style: {
                         fontSize: '14px',
@@ -255,7 +255,7 @@ function paintChart(Highcharts, elm, type, res, allowDrillToNode, click, transla
                     dataLabels: {
                         enabled: res.levelCounts[3] < 500,
                         formatter: function() {
-                            return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : false;
+                            return (this.point.options.value > minCountForTreeMapLabels) ? this.point.name : '';
                         }
                     },
                     colorVariation: {
