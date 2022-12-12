@@ -1,29 +1,3 @@
 files:
   - source: /locales/translations/en/**/*.json
     translation: /locales/translations/%locale%/**/%original_file_name%
-    update_option: update_as_unapproved
-    languages_mapping:
-      locale:
-        ar: ar
-        da: da
-        de-DE: de
-        es-ES: es
-        fa-IR: fa
-        fj-FJ: fj
-        fr: fr
-        ja: ja
-        la-LA: la
-        niu-NU: niu
-        nl-NL: nl
-        pis-SB: pis
-        pt-PT: pt
-        ru: ru
-        sm-WS: sm
-        sw-KE: sw
-        tkl-TK: tkl
-        to-TO: to
-        tvl-TV: tvl
-        uk: uk
-        zh-CN: zh
-        zh-TW: zh-tw
-        en: en-GB-oxendict

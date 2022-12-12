@@ -7,7 +7,7 @@
     "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{occurrence} other{occurrences}} dans un jeu de données dérivé",
     "title": "Titre",
     "description": "Description",
-    "originalDownloadDOI": ""
+    "originalDownloadDOI": "Jeu de données dérivé d'un téléchargement"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{occurrence} other{occurrences}} téléchargée",
@@ -77,12 +77,12 @@
     "title": "Mes téléchargements"
   },
   "customDownload": {
-    "invalidFilter": "",
-    "seeDocumentation": "",
-    "reformat": "",
-    "invalidJson": "",
-    "title": "",
-    "invalidUrlPredicate": "",
+    "invalidFilter": "Filtre invalide",
+    "seeDocumentation": "Lire la documentation",
+    "reformat": "Reformater",
+    "invalidJson": "JSON non valide",
+    "title": "Créer un nouveau téléchargement",
+    "invalidUrlPredicate": "Le prédicat dans l'URL est invalide",
     "redirectNotice": ""
   }
 }
