@@ -3,6 +3,10 @@
 var async = require('async');
 var Converter = require('csvtojson').Converter;
 var _ = require('lodash');
+var pLimit = require('p-limit');
+
+var Promise = require('bluebird'); //.getNewLibraryCopy();
+
 
 angular
     .module('portal')
@@ -12,7 +16,9 @@ angular
 function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     var vm = this;
     vm.species = undefined;
-    var MAX_ERRORS = 5;
+    var MAX_ERRORS = 25;
+    var retries = 3;
+    var erroredItems = {};
     vm.state = {};
     vm.pagination = {
         currentPage: 1,
@@ -22,7 +28,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     vm.error;
     vm.$location = $location;
     vm.thresholds = {
-        'ITS': 98.5,
+        'ITS': 99,
         'COI': 99,
         '16S': 99
     };
@@ -262,14 +268,14 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         vm.processing = true;
         blastAll();
     };
-    var errorCount = 0;
 
     function blast(item, callback) {
         var query = {
             sequence: item.sequence.replace(/[-.]/g, ''),
             marker: item.marker || 'its'
         };
-        $http({
+      return new Promise(function (resolve, reject) {
+         $http({
             method: 'post',
             data: query,
             url: '/api/blast'
@@ -277,21 +283,32 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             function successCallback(response) {
                 item.match = response.data;
                 vm.setItem(item, response.data);
-                callback();
-            },
+                delete erroredItems[item.occurrenceId];
+
+                if (typeof callback === 'function') {
+                    callback();
+                }   
+                resolve();      
+            }
+        ).catch(
             function errorCallback(response) {
                 // console.log(response);
-                errorCount++;
-                if (errorCount > Math.min(MAX_ERRORS, vm.species.length)) {
+                erroredItems[item.occurrenceId] = item;
+                if (erroredItems.length > Math.min(MAX_ERRORS, vm.species.length)) {
                     vm.error =
                         'The server is not responding. Please try again later and report an issue if the problem persists.';
                 }
-                callback('match went wrong');
+                if (typeof callback === 'function') {
+                    callback('match went wrong');
+                }
+               // console.log('Got an error for ' + item.sequence);
+                resolve(); 
             }
         );
+        });
     }
 
-    function blastAll() {
+/*     function blastAll() {
         async.eachLimit(vm.species, 10, blast, function(err) {
             if (err) {
                 // TODO inform the user that not everything could be matched
@@ -299,6 +316,28 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                 vm.lookupComplete = true;
             }
         });
+    } */
+    function blastAll(list) {
+        var blastlimit = pLimit(10);
+
+        Promise.all((list || vm.species).map(function(s) {
+            return blastlimit(
+                blast, s);
+            })).then(function(res) {
+               // console.log(res);
+                var erroredAsArray = Object.keys(erroredItems).map(function(k) {
+                    return erroredItems[k];
+                });
+                if ( erroredAsArray.length > 0 && retries > 0 ) {
+                    retries --;
+                    blastAll(erroredAsArray);
+                } else if (erroredAsArray.length > 0 && retries < 1) {
+                    vm.lookupComplete = true;
+                    vm.matchError = erroredAsArray.length + ' of ' + vm.species.length + '  sequences could not be matched';
+                } else {
+                    vm.lookupComplete = true;
+                }
+            });
     }
 
     vm.setItem = function(item, selected) {
@@ -365,6 +404,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             'identity',
             'bitScore',
             'expectValue',
+            'queryCoverage',
             'matchType',
             'scientificName',
             'classification',

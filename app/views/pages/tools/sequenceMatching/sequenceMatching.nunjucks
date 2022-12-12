@@ -40,6 +40,13 @@
                     </div>
                   </div>
                   </div>
+                  <div class="card m-t-1" ng-if="vm.matchError">
+                    <div class="card__content card__content--warning" >
+                        <p ng-bind="vm.matchError"></p>
+
+                    </div>
+            
+        </div>
             </div>
             </section>
 

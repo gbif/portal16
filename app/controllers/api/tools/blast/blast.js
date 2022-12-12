@@ -24,7 +24,11 @@ async function blast(seq, verbose = false) {
             return response.body;
         }
     } else {
-        return response.body;
+        if (response.statusCode > 299) {
+            throw response;
+        } else {
+            return response.body;
+        }
     }
 }
 

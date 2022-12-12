@@ -14,8 +14,7 @@ router.post('/blast', cors({origin: '*'}), function(req, res) {
     blast.blast(req.body, _.get(req, 'query.verbose', false))
     .then((response) => res.status(200).json(response))
     .catch((err) => {
-        console.log(err);
-        res.sendStatus(503);
+        res.status(err.statusCode || 503).send(err.body || '');
     });
 });
 
