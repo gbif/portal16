@@ -19,7 +19,7 @@ if (env === 'local' || env === 'dev') {
 }
 
 if (env === 'uat' || env === 'local') {
-  //  locales.push('zh-tw');
+   locales.push('pl');
 }
 
 // specify rtl
@@ -39,6 +39,7 @@ contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['uk'] = 'uk';
 contentfulLocaleMap['pt'] = 'pt';
+// contentfulLocaleMap['pl'] = 'pl'; // we do not have a polish translation in contentful as of 9 dec 2022. So this is commented out.
 contentfulLocaleMap['zh'] = 'zh-Hans';
 contentfulLocaleMap['zh-tw'] = 'zh-Hant';
 // mock test languages
@@ -57,6 +58,7 @@ translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['uk'] = 'ukr';
 translationMap['pt'] = 'por';
+translationMap['pl'] = 'pol';
 translationMap['da'] = 'dan';
 translationMap['zh'] = 'zh-hans';
 translationMap['zh-tw'] = 'zh-hant';
@@ -66,6 +68,7 @@ translationMap['ko-MOCK'] = 'kor';
 translationMap['ar-MOCK'] = 'ara';
 
 // what names are used in the vocabulary for the the languages on the website
+// https://api.gbif.org/v1/vocabularyLanguage
 let vocabularyMap = _.keyBy(locales); // assume that it is the same locale name used
 // overwrites
 vocabularyMap['es'] = 'es-ES';
@@ -74,6 +77,7 @@ vocabularyMap['jp'] = 'ja-JP';
 vocabularyMap['ru'] = 'ru-RU';
 vocabularyMap['uk'] = 'uk-UA';
 vocabularyMap['pt'] = 'pt-PT';
+vocabularyMap['pl'] = 'pl-PL';
 vocabularyMap['da'] = 'da-DK';
 vocabularyMap['zh'] = 'zh-CN';
 vocabularyMap['zh-tw'] = 'zh-TW';
