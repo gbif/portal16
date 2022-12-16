@@ -16,7 +16,6 @@
     "sizeZippedForDownload": "{SIZE_FORMATTED} compressé pour téléchargement",
     "freeOfCost": "Gratuit – mais pas sans responsabilités",
     "promoteTransperant": "Alors que l'accès aux données de GBIF.org est gratuit et ouvert, n’oubliez pas qu’en téléchargeant ces données, vous acceptez :\n\n— de vous conformer à l’accord utilisation GBIF (https://www.gbif.org/terms/data-user)\n— et, si vous utilisez les données, de [citer convenablement] (https://www.gbif.org/citation-guidelines)\n \nVeuillez vous assurer que votre citation inclut l’unique **DOI** (indiqué lorsque le téléchargement est terminé). L’utilisation des citations de données correctement formatée assure la reproductibilité et la transparence scientifique et permet l’attribution appropriée du crédit pour les fournisseurs de données.",
-    "ifAnalysingData": "Si vous analysez les données que vous allez télécharger, veuillez penser à référencer cette citation dans la section matériel et méthodes de votre manuscript.",
     "cancel": "Annuler",
     "proceed": "Continuer",
     "understood": "Compris",
