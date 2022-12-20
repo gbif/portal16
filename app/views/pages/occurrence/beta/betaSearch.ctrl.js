@@ -27,13 +27,20 @@ function betaSearchCtrl() {
         }
       });
     }
-    var siteConfig = {};
+    var siteConfig = {
+      routes: {
+        occurrenceSearch: {
+          route: gb.urlPrefix + '/occurrence-search/beta'
+        }
+      },
+      theme: siteTheme,
+      locale: gb.locale
+    };
 
     ReactDOM.render(
       React.createElement(gbifReactComponents.OccurrenceSearch, {
         style: {height: 'calc(100vh - 86px)'},
-        theme: siteTheme,
-        config: siteConfig
+        siteConfig: siteConfig
       }),
       document.getElementById('react-root')
     );
