@@ -348,8 +348,7 @@
             {% endmacro %}
             {% macro trowInst(url, method="GET", auth=false, resp=undefined, respLink=undefined, paging=false, params=[], description="") %}
                 {$ api.trow(url="/grscicoll/institution"+url, httpMethod=method, authRequired=auth, resp=resp, respLink=respLink, paging=paging, params=params, description=description) $}
-            {% endmacro %}
-            {% endmacro %}
+            {% endmacro %}}
             <section id="collections">
                 <div class="container--fluid">
                     <h3>Collections</h3>
