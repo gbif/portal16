@@ -8,6 +8,7 @@
     "continent": "Continent",
     "taxonKey": "Nom scientifique du taxon",
     "elevation": "Altitude",
+    "distanceFromCentroidInMeters": "",
     "collectionCode": "Code de la collection",
     "recordNumber": "Numéro d'enregistrement",
     "datasetKey": "Ensemble de données",
