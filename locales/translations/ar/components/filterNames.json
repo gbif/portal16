@@ -8,6 +8,7 @@
     "continent": "القارة",
     "taxonKey": "الاسم العلمي",
     "elevation": "ارتفاع",
+    "distanceFromCentroidInMeters": "",
     "collectionCode": "رمز المجموعة",
     "recordNumber": "رقم السجل",
     "datasetKey": "مجموعة البيانات",
