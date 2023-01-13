@@ -29,7 +29,7 @@
             "purposes": "Purpose",
             "relevance": "Relevance",
             "language": "Language",
-            "year": "Year",
+            "year": "Year of publication",
             "gbifDatasetKey": "Dataset",
             "publishingOrganizationKey": "Publisher",
             "networkKey": "Network",
