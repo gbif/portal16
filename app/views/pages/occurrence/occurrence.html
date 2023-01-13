@@ -136,6 +136,9 @@
         <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
+        <div filter-interval filter-config="occurrence.filters.distanceFromCentroidInMeters" filter-state="occurrence.occurrenceState"
+             ng-if="occurrence.occurrenceState.query.advanced"></div>
+
         <div filter-suggest filter-config="occurrence.filters.locality" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 

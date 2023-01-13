@@ -858,6 +858,17 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     }
   };
 
+  vm.filters.distanceFromCentroidInMeters = {
+    titleTranslation: 'filterNames.distanceFromCentroidInMeters',
+    intervalTranslation: 'intervals.coordinateUncertaintyInMeters.',
+    queryKey: 'distance_from_centroid_in_meters',
+    filter: OccurrenceFilter,
+    range: {
+      'min': [0, 500],
+      'max': [5000, 500]
+    }
+  };
+
   vm.filters.depth = {
     titleTranslation: 'filterNames.depth',
     intervalTranslation: 'intervals.depth.',
