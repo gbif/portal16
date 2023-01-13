@@ -8,7 +8,7 @@
     "continent": "Continent",
     "taxonKey": "Scientific name",
     "elevation": "Elevation",
-    "distanceFromCentroidInMeters": "",
+    "distanceFromCentroidInMeters": "Distance from centroid in meters",
     "collectionCode": "Collection code",
     "recordNumber": "Record number",
     "datasetKey": "Dataset",
