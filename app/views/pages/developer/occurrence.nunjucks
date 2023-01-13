@@ -354,6 +354,10 @@
                         Lists download counts grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
                         {% endcall %}
 
+                        {% call trowDS(url="/downloadsBySource", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsBySource?fromDate=2023-01&toDate=2023-02&source=GBIF-portal, params=[fromDate","toDate","source"]) %}
+                        Lists download counts grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
+                        {% endcall %}
+
                         </tbody>
                     </table>
                 </div>
@@ -509,7 +513,9 @@
             "fromDate": "Start partial date of a date range, accepts the format yyyy-MM, for example: 2015-11",
             "toDate": "End partial date of a date range, accepts the format yyyy-MM, for example: 2019-12",
             "userCountry": "Country country of the user who made the requested",
-            "publishingOrgKey": "The publishing organization key (a uuid)."
+            "publishingOrgKey": "The publishing organization key (a uuid).",
+
+            "source": "Source of a download, for example, GBIF-portal, python, etc."
 
             }) $}
 
