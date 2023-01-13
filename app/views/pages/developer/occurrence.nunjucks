@@ -354,7 +354,7 @@
                         Lists download counts grouped by year and month and filtered by: publishing organization, publishing country, a date range  and a dataset key.
                         {% endcall %}
 
-                        {% call trowDS(url="/downloadsBySource", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsBySource?fromDate=2023-01&toDate=2023-02&source=GBIF-portal", params=[fromDate","toDate","source"]) %}
+                        {% call trowDS(url="/downloadsBySource", resp="YearMonthCounts", paging=false, respLink=apiBase+"occurrence/download/statistics/downloadsBySource?fromDate=2023-01&toDate=2023-02&source=GBIF-portal", params=["fromDate","toDate","source"]) %}
                         Lists download counts grouped by year and month and filtered by source.
                         {% endcall %}
 
