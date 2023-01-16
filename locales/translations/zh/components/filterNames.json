@@ -8,6 +8,7 @@
     "continent": "洲",
     "taxonKey": "学名",
     "elevation": "海拔",
+    "distanceFromCentroidInMeters": "",
     "collectionCode": "保藏代码",
     "recordNumber": "记录号",
     "datasetKey": "数据集",

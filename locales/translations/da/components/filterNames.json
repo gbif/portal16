@@ -8,6 +8,7 @@
     "continent": "",
     "taxonKey": "Videnskabeligt navn",
     "elevation": "Elevation",
+    "distanceFromCentroidInMeters": "",
     "collectionCode": "Samlingskode",
     "recordNumber": "Optegnelsesnummer",
     "datasetKey": "Datasæt",

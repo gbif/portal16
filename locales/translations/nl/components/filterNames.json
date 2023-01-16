@@ -8,6 +8,7 @@
     "continent": "",
     "taxonKey": "",
     "elevation": "",
+    "distanceFromCentroidInMeters": "",
     "collectionCode": "",
     "recordNumber": "",
     "datasetKey": "Dataset",

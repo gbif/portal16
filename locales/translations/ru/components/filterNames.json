@@ -8,6 +8,7 @@
     "continent": "Континент",
     "taxonKey": "Латинское название",
     "elevation": "Высота",
+    "distanceFromCentroidInMeters": "",
     "collectionCode": "Код коллекции",
     "recordNumber": "Номер записи",
     "datasetKey": "Набор данных",

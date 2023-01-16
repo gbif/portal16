@@ -31,9 +31,6 @@
     "polygonSimplifiedToFewerPoints": "O polígono foi simplificado: número de pontos reduzido",
     "largeQueryLengthWarning": "A URL da sua consulta excede 2.000 caracteres e pode não funcionar corretamente em todos os navegadores. Para consultas grandes e/ou complicadas, por favor considere usar a API de download.",
     "didYouMean": "A sua pesquisa corresponde a {RANK}: '{NAME}'. Gostaria de limitá-la a apenas esse taxon?",
-    "clickToUseAcceptedTaxon": "Clique para procurar pelo nome aceite do taxon. Provavelmente verá mais dados, uma vez que estes incluem dados para todos os sinónimos.",
-    "helpText": {
-      "continent": ""
-    }
+    "clickToUseAcceptedTaxon": "Clique para procurar pelo nome aceite do taxon. Provavelmente verá mais dados, uma vez que estes incluem dados para todos os sinónimos."
   }
 }

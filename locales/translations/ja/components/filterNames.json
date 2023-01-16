@@ -8,6 +8,7 @@
     "continent": "大陸",
     "taxonKey": "学名",
     "elevation": "標高",
+    "distanceFromCentroidInMeters": "",
     "collectionCode": "コレクションコード",
     "recordNumber": "記録時のID",
     "datasetKey": "データセット",
