@@ -145,6 +145,7 @@
                         "decimalLatitude",
                         "decimalLongitude",
                         "depth",
+                        "distanceFromCentroidInMeters",
                         "elevation",
                         "establishmentMeans",
                         "eventDate",
@@ -443,6 +444,7 @@
             "decimalLatitude": "Latitude in decimals between -90 and 90 based on WGS 84. Supports <a href='/developer/summary#common'>range queries</a>.",
             "decimalLongitude": "Longitude in decimals between -180 and 180 based on WGS 84. Supports <a href='/developer/summary#common'>range queries</a>.",
             "depth": "Depth in meters relative to altitude. For example 10 meters below a lake surface with given altitude. Supports <a href='/developer/summary#common'>range queries</a>.",
+            "distanceFromCentroidInMeters": "Distance in metres to a known centroid of a country or area, if that distance is 5000m or less. Occurrences (especially specimens) near a country centroid may have a poor-quality georeference, especially if coordinateUncertaintyInMeters is blank or large."
             "elevation": "Elevation (altitude) in meters above sea level. Supports <a href='/developer/summary#common'>range queries</a>.",
             "establishmentMeans": "EstablishmentMeans, as defined in our <a href='"+apidocs+"/vocabulary/EstablishmentMeans.html'>EstablishmentMeans enum</a>",
             "eventDate": "Occurrence date in ISO 8601 format: yyyy, yyyy-MM, yyyy-MM-dd, or MM-dd. Supports <a href='/developer/summary#common'>range queries</a>.",
