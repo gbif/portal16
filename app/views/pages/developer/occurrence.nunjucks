@@ -200,9 +200,9 @@
                         "stateProvince",
                         "subgenusKey",
                         "taxonKey",
+                        "taxonId",
                         "typeStatus",
                         "verbatimScientificName",
-                        "verbatimTaxonId",
                         "waterBody",
                         "year",
 
@@ -500,9 +500,9 @@
             "stateProvince":"he name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs.",
             "subgenusKey": "Subgenus classification key.",
             "taxonKey": "A taxon key from the GBIF backbone. All included and synonym taxa are included in the search, so a search for aves with taxonKey=212 (i.e. <a href='"+apiBase+"occurrence/search?taxonKey=212'>/occurrence/search?taxonKey=212</a>) will match all birds, no matter which species.",
+            "taxonId": "The taxon identifier provided to GBIF by the data publisher.",
             "typeStatus": "Nomenclatural type (type status, typified scientific name, publication) applied to the subject.",
             "verbatimScientificName": "The scientific name provided to GBIF by the data publisher, before interpretation and processing by GBIF.",
-            "verbatimTaxonId": "The taxon identifier provided to GBIF by the data publisher.",
             "waterBody": "The name of the water body in which the Locations occurs.",
             "year": "The 4 digit year. A year of 98 will be interpreted as AD 98. Supports <a href='/developer/summary#common'>range queries</a>.",
 
