@@ -152,6 +152,51 @@ let config = {
         healthUpdateFrequency: healthUpdateFrequency
     },
 
+    // Dev2 is for testing the new cluster.  Fallback to dev or fail where appropriate.
+    dev2: {
+        env: env,
+        root: rootPath,
+        app: {
+            name: 'portal - dev2'
+        },
+        port: port || 80,
+        serverProtocol: 'http:',
+        apidocs: apidocs,
+        managementToolsSite: '//registry.gbif-dev2.org/',
+        dataApiV2: dataApiV2 || '//api.gbif-dev2.org/v2/',
+        dataApi: dataApi || '//api.gbif-dev2.org/v1/',
+        graphQLApi: graphQLApi || `//graphql.gbif-dev2.org/graphql`,
+        tileApi: tileApi || '//api.gbif-dev2.org/v1/map/density/tile.png',
+        basemapTileApi: basemapTileApi || '//tile.gbif-dev.org',
+        identityApi: identityApi || '//api.gbif-dev2.org/v1/',
+        analyticsImg: analyticsImg || 'www.gbif-dev.org/sites/default/files/gbif_analytics/',
+        domain: 'https://www.gbif-dev2.org',
+        topDomain: 'gbif-dev2.org',
+        credentials: credentials || '/etc/portal16/credentials',
+        redirects: redirects || '/etc/portal16/redirects',
+        spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
+        verification: verification || '/var/lib/human-verification/images',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
+        registry: registry || 'https://registry.gbif-dev2.org',
+        oozie: oozie || '//c3master1-vh.gbif.org:11000/oozie/v2/',
+        yarnResourceManager: yarnResourceManager || '//c3master2-vh.gbif.org:8088/ws/v1/',
+        elk: elk || '//privatelogs2-vh.gbif.org:5601/',
+        publicKibana: publicKibana || '//logs.gbif.org/',
+        kibanaIndex: kibanaIndex || '36e5ccd0-fdb1-11ea-93de-b97c40066ce8',
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
+        publicConstantKeys: publicConstantKeys,
+        fbAppId: 1534726343485342,
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-dev2.org/graphql',
+        reactComponents: '//react-components.gbif-dev2.org/lib/gbif-react-components.js',
+        healthUpdateFrequency: healthUpdateFrequency
+    },
+
     // Demo is using UAT APIs where necessary, as these are public.
     demo: {
         env: env,
