@@ -185,7 +185,7 @@ function filterLocationDirective(BUILD_VERSION, toastService) {
             var wkt = parseGeometry.stringify(simplified);
             
             // test that wkt is not self intersecting. If so add a toast warning, but still use the simplified geometry
-            const intersectionTest = testWktForIntersections(wkt);
+            var intersectionTest = testWktForIntersections(wkt);
             if (intersectionTest.selfIntersecting) {
                 toastService.warning({translate: 'occurrenceSearch.simplificationCausedSelfIntersection'});
             }
