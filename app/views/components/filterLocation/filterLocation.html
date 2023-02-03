@@ -99,7 +99,7 @@
                                            translate="filters.location.range">Range</label>
                                     <label ng-model="vm.inputType" uib-btn-radio="'GEOJSON'"
                                            ng-change="vm.changeInputType()"
-                                           translate="filters.location.geojson" dir="auto">GeoJson</label>
+                                           translate="filters.location.geometry" dir="auto">Geometry</label>
                                     <label ng-model="vm.inputType" uib-btn-radio="'PAST'"
                                            ng-change="vm.changeInputType()"
                                            translate="filters.location.past">Past</label>
@@ -135,6 +135,9 @@
                                    class="site-drawer__bar__action">Use bounding box</a>
                             </div>
                             <div class="card__content card__content--error" translate="filters.location.tooLargeSuggestion" ng-if="vm.tooLarge && !vm.singleGeometry"></div>
+                            <div class="card__content card__content--warning" translate="filters.location.simplificationWarning" ng-if="vm.tooLarge && vm.singleGeometry"></div>
+                            <div style="border-top: 1px solid #ddd" class="b-t-1 card__content card__content" ng-bind-html="'filters.location.aboutWktAndGeoJson' | translate | md2html"></div>
+
                         </div>
                         <div class="card__stripe--light" ng-if="vm.inputType=='PAST'">
                             <div class="card__content">

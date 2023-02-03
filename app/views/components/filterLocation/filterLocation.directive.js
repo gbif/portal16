@@ -8,7 +8,8 @@ var angular = require('angular'),
     turf = {
         simplify: require('@turf/simplify'),
         bboxPolygon: require('@turf/bbox-polygon'),
-        bbox: require('@turf/bbox')
+        bbox: require('@turf/bbox'),
+        kinks: require('@turf/kinks')
     };
 
 angular
@@ -145,7 +146,7 @@ function filterLocationDirective(BUILD_VERSION, toastService) {
         }
 
         vm.addString = function() {
-            var parsingResult = parseStringToWKTs(vm.geometryString);
+            var parsingResult = parseStringToWKTs(vm.geometryString, toastService);
 
             if (parsingResult.geometry) {
                 vm.singleGeometry = parsingResult.geometry.length == 1;
@@ -157,7 +158,7 @@ function filterLocationDirective(BUILD_VERSION, toastService) {
                 }
 
                 if (parsingResult.isSimplified) {
-                    toastService.warning({translate: 'occurrenceSearch.polygonSimplifiedToFewerDecimals'});
+                    toastService.info({translate: 'occurrenceSearch.polygonSimplifiedToFewerDecimals'});
                 }
 
                 vm.hasCoordinate = true;
@@ -177,22 +178,28 @@ function filterLocationDirective(BUILD_VERSION, toastService) {
 
         vm.useSimplified = function(tolerance) {
             tolerance = tolerance || 0.001;
-            var parsingResult = parseStringToWKTs(vm.geometryString);
+            var parsingResult = parseStringToWKTs(vm.geometryString, toastService);
             var geojson = parseGeometry(parsingResult.geometry[0]);
             var options = {tolerance: tolerance, highQuality: true};
             var simplified = turf.simplify(geojson, options);
             var wkt = parseGeometry.stringify(simplified);
+            
+            // test that wkt is not self intersecting. If so add a toast warning, but still use the simplified geometry
+            const intersectionTest = testWktForIntersections(wkt);
+            if (intersectionTest.selfIntersecting) {
+                toastService.warning({translate: 'occurrenceSearch.simplificationCausedSelfIntersection'});
+            }
             if (wkt.length > wktSizeLimit && tolerance <= 10) {
                 vm.useSimplified(tolerance * 4);
             } else {
                 vm.geometryString = wkt;
                 vm.addString();
-                toastService.warning({translate: 'occurrenceSearch.polygonSimplifiedToFewerPoints'});
+                toastService.info({translate: 'occurrenceSearch.polygonSimplifiedToFewerPoints'});
             }
         };
 
         vm.useBBox = function() {
-            var parsingResult = parseStringToWKTs(vm.geometryString);
+            var parsingResult = parseStringToWKTs(vm.geometryString, toastService);
             var geom = parseGeometry(parsingResult.geometry[0]);
             var bbox = turf.bbox(geom);
             var bboxPolygon = turf.bboxPolygon(bbox);
@@ -249,7 +256,7 @@ module.exports = filterLocationDirective;
 var wktformat = new /* ol.format. */WKT();
 var geojsonformat = new /* ol.format. */GeoJSON();
 
-function parseStringToWKTs(str) {
+function parseStringToWKTs(str, toastService) {
     var i, geojson, feature, isSimplified, orderChanged, wktGeom, wktGeometries = [];
     // assume geojson
     try {
@@ -258,19 +265,30 @@ function parseStringToWKTs(str) {
         for (i = 0; i < geojson.length; i++) {
             feature = geojson[i].getGeometry();
             wktGeom = wktformat.writeGeometry(feature);
-            wktGeom = getRightHandCorrectedWKT(wktGeom);
-            wktGeometries.push(wktGeom);
-        }
-    } catch (e) {
-        // not a json object. try to parse as wkt
-        try {
-            var parsedWkt = getAsValidWKT(str);
+            wktGeom = getRightHandCorrectedWKT(wktGeom, true);
+            var parsedWkt = getAsValidWKT(wktGeom, toastService);
             if (!parsedWkt.failed) {
                 isSimplified = parsedWkt.isSimplified;
                 orderChanged = parsedWkt.orderChanged;
                 wktGeometries.push(parsedWkt.wkt);
             } else {
-                throw 'Not valid wkt';
+                return {
+                    error: 'NOT_VALID_WKT'
+                };
+            }
+        }
+    } catch (e) {
+        // not a json object. try to parse as wkt
+        try {
+            var parsedWkt = getAsValidWKT(str, toastService);
+            if (!parsedWkt.failed) {
+                isSimplified = parsedWkt.isSimplified;
+                orderChanged = parsedWkt.orderChanged;
+                wktGeometries.push(parsedWkt.wkt);
+            } else {
+                return {
+                    error: 'NOT_VALID_WKT'
+                };
             }
         } catch (err) {
             return {
@@ -285,10 +303,38 @@ function parseStringToWKTs(str) {
     };
 }
 
-function getAsValidWKT(testWkt) {
+function testWktForIntersections(str) {
+    try {
+        // check for kinks, if not empty then throw error
+        var feature = wktformat.readFeature(str);
+        var testGeoJSon = geojsonformat.writeFeature(feature, {rightHanded: true});
+        var kinks = turf.kinks(JSON.parse(testGeoJSon));
+        if (kinks.features.length > 0) {
+            return {
+                selfIntersecting: true
+            };
+        }
+    } catch (err) {
+        return {
+            error: 'FAILED_PARSING'
+        };
+    }
+    return {
+        selfIntersecting: false
+    };
+}
+
+function getAsValidWKT(testWkt, toastService) {
     try {
         var simplifiedWkt = formatWkt(testWkt);
         var counterClockwiseWkt = getRightHandCorrectedWKT(simplifiedWkt);
+        // if starting with GEOMETRYCOLLECTION then fail
+        if (counterClockwiseWkt.indexOf('GEOMETRYCOLLECTION') === 0) {
+            if (toastService) {
+                toastService.warning({translate: 'occurrenceSearch.geometryCollectionNotSupported'});
+            }
+            return {failed: true};
+        }
         return {
             failed: false,
             isSimplified: simplifiedWkt !== testWkt,
