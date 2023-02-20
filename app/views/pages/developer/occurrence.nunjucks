@@ -76,7 +76,7 @@
                     <table class='api table table-bordered table-striped table-params'>
                         {$ api.apiTableHead(auth=false, paging=false, params=false) $}
                         <tbody>
-                        {% call trowO(url="/{key}", respLink=apiBase+"occurrence/1258202889") %}
+                        {% call trowO(url="/{key}", respLink=apiBase+"occurrence/142316610") %}
                         Gets details for a single, interpreted occurrence
                         {% endcall %}
 
@@ -84,7 +84,7 @@
                         Gets details for a single, interpreted occurrence by its dataset key and occurrenceId in that dataset.
                         {% endcall %}
 
-                        {% call trowO(url="/{key}/fragment", respLink=apiBase+"occurrence/1258202889/fragment") %}
+                        {% call trowO(url="/{key}/fragment", respLink=apiBase+"occurrence/142316610/fragment") %}
                         Get a single occurrence fragment in its raw form (xml or json)
                         {% endcall %}
 
@@ -92,7 +92,7 @@
                         Gets a single occurrence fragment in its raw form (xml or json) by its dataset key and occurrenceId in that dataset.
                         {% endcall %}
 
-                        {% call trowO(url="/{key}/verbatim", resp="VerbatimOccurrence", respLink=apiBase+"occurrence/1258202889/verbatim") %}
+                        {% call trowO(url="/{key}/verbatim", resp="VerbatimOccurrence", respLink=apiBase+"occurrence/142316610/verbatim") %}
                         Gets the verbatim occurrence record without any interpretation
                         {% endcall %}
 
