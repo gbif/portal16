@@ -34,7 +34,7 @@ function renderCollection(req, res, next) {
             }}, 'pages/grscicoll/collection/key/seo.nunjucks');
         })
         .catch(function(err) {
-            if (err.statusCode === '404') return next();
+            if (err.statusCode === 404 ) return next();
             next(err);
         });
 }
@@ -56,7 +56,7 @@ function renderInstitution(req, res, next) {
             }}, 'pages/grscicoll/institution/key/seo.nunjucks');
         })
         .catch(function(err) {
-            if (err.statusCode === '404') return next();
+            if (err.statusCode === 404) return next();
             next(err);
         });
 }
