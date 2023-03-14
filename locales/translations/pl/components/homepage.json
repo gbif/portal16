@@ -1,22 +1,22 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
-            "datasets": "",
-            "publishers": "",
-            "literature": ""
+            "occurrences": "Wystąpienia",
+            "datasets": "Zbiory danych",
+            "publishers": "Instytucje udostępniające dane",
+            "literature": "Recenzowane publikacje wykorzystujące dane"
         },
         "aboutGbifCountry": "O GBIF {COUNTRY}",
-        "summary": "",
+        "summary": "Bezpłatne i ogólnodostępne dane o różnorodności biologicznej",
         "whatIsGbif": "Co to jest GBIF?",
         "featureTypes": {
             "event": "Wydarzenia",
             "news": "Aktualności",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
+            "resource": "Źródła",
+            "dataUse": "Wykorzystanie danych",
+            "project": "Projekty",
+            "programme": "Programy",
+            "document": "Dokumenty",
             "tool": "Narzędzia",
             "literature": "Literatura",
             "treatment": "Taksonomia",
