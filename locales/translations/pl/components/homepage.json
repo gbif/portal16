@@ -6,24 +6,24 @@
             "publishers": "",
             "literature": ""
         },
-        "aboutGbifCountry": "",
+        "aboutGbifCountry": "O GBIF {COUNTRY}",
         "summary": "",
-        "whatIsGbif": "",
+        "whatIsGbif": "Co to jest GBIF?",
         "featureTypes": {
-            "event": "",
-            "news": "",
+            "event": "Wydarzenia",
+            "news": "Aktualności",
             "resource": "",
             "dataUse": "",
             "project": "",
             "programme": "",
             "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
-            "guidance": "",
-            "data": "",
-            "video": ""
+            "tool": "Narzędzia",
+            "literature": "Literatura",
+            "treatment": "Taksonomia",
+            "blog": "Blog",
+            "guidance": "Wskazówki",
+            "data": "Dane",
+            "video": "Flimy"
         }
     }
 }
