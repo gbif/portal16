@@ -1,16 +1,16 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
+    "PRESERVED_SPECIMEN": "Zachowany okaz",
+    "FOSSIL_SPECIMEN": "Kopalny okaz",
+    "LIVING_SPECIMEN": "Żywy okaz ",
+    "OBSERVATION": "Obserwacja",
     "HUMAN_OBSERVATION": "",
     "MACHINE_OBSERVATION": "",
     "MATERIAL_SAMPLE": "",
     "MATERIAL_CITATION": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
-    "OCCURRENCE": "",
-    "undefined": ""
+    "LITERATURE": "Literatura",
+    "UNKNOWN": "Nieznane",
+    "OCCURRENCE": "Występowanie",
+    "undefined": "Nieznane"
   }
 }
