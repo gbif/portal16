@@ -1,9 +1,9 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "Wystąpienia",
+            "occurrences": "Stwierdzenia",
             "datasets": "Zbiory danych",
-            "publishers": "Instytucje udostępniające dane",
+            "publishers": "Publikujących dane",
             "literature": "Recenzowane publikacje wykorzystujące dane"
         },
         "aboutGbifCountry": "O GBIF {COUNTRY}",
