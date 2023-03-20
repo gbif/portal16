@@ -37,7 +37,7 @@ function countryKeyCtrl($anchorScroll, $http, $stateParams, $state, constantKeys
         // TODO handle request error
     });
 
-    vm.countryCapabilities = MapCapabilities.get({country: vm.key});
+    vm.countryCapabilities = MapCapabilities.get({country: vm.countryCode});
     vm.publishingCountryCapabilities = MapCapabilities.get({publishingCountry: vm.countryCode});
 
     vm.publishingCountriesSearch = OccurrenceSearch.get({country: vm.countryCode, facet: 'publishing_country', facetLimit: 500});
