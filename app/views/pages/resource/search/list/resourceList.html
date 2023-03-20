@@ -3,9 +3,13 @@
         <div class="col-xs-12">
             <ng-include src="'/templates/components/loader/loader.html'" ng-if="!resourceList.hasData()"></ng-include>
             <div ng-if="resourceList.hasData()">
-                <p class="text-right">
-                    <a ng-href="{{portal.urlPrefix}}/literature-tracking " class="m-b-1 discreet small" ng-if="resource.state.query.gbifDatasetKey || resource.state.query.publishingOrganizationKey" translate="resourceSearch.citationExplainer"></a>
-                </p>
+                <div class="m-b-05" ng-if="resource.state.query.contentType == 'literature'" style="text-align: right;">
+                    <a ng-href="{{ resourceList.dataApi }}literature/export?format=TSV&{{ resourceList.getSerializedQuery() }}" class="gb-button--discreet">Download as TSV</a>
+                    <a tooltip-placement="left" uib-tooltip="{{ 'resourceSearch.citationExplainer' | translate }}" 
+                        ng-href="{{portal.urlPrefix}}/literature-tracking " 
+                        class="m-b-1 gb-button--discreet" 
+                        ng-if="resource.state.query.gbifDatasetKey || resource.state.query.publishingOrganizationKey">?</a>
+                </div>
                 <p ng-if="resource.state.query.contentType == 'event'" class="text-right">
                     <a ng-href="/suggest-event" class="gb-button--discreet text-uppercase small"><span class="gb-icon-add"></span> <span translate="resourceSearch.suggestEvent"></span></a>
                     <a ng-href="webcal:{{ resourceList.dataApi }}newsroom/events/calendar/upcoming.ics" class="gb-button--discreet text-uppercase small"><span class="gb-icon-calendar"></span> <span translate="resourceSearch.subscribeToCalendar"></span></a>

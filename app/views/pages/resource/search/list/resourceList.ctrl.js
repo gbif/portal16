@@ -7,7 +7,7 @@ angular
     .controller('resourceListCtrl', resourceListCtrl);
 
 /** @ngInject */
-function resourceListCtrl(hotkeys, ResourceFilter, ResourceSearch, env, BUILD_VERSION) {
+function resourceListCtrl(hotkeys, ResourceFilter, ResourceSearch, env, $httpParamSerializer, BUILD_VERSION) {
     var vm = this, offset;
     vm.state = ResourceFilter.getState();
     vm.tileApi = env.tileApi;
@@ -53,6 +53,17 @@ function resourceListCtrl(hotkeys, ResourceFilter, ResourceSearch, env, BUILD_VE
             }
         }
     });
+
+    vm.getSerializedQuery = function() {
+        var query = angular.copy(vm.state.query);
+        delete query.locale;
+        delete query.advanced;
+        delete query.limit;
+        delete query.offset;
+        delete query.contentType;
+        query = _.omitBy(query, angular.isUndefined);
+        return $httpParamSerializer(query);
+      };
 
     vm.faqData = {};
     var searchFaq = function() {
