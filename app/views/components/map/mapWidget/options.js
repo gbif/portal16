@@ -82,11 +82,11 @@ module.exports = {
             query: ['blueHeat.point'],
             type: 'POINT'
         },
-        // {
-        //   name: 'GREEN_POINT',
-        //   query: ['green.point'],
-        //   type: 'POINT'
-        // },
+        {
+          name: 'GREEN_POINT',
+          query: ['green.point'],
+          type: 'POINT'
+        },
         {
             name: 'ORANGE_HEAT',
             query: ['orangeHeat.point'],
@@ -150,6 +150,11 @@ module.exports = {
             baseMap: {style: 'gbif-tuatara'},
             localized: true,
             overlay: [{style: 'glacier.point'}]
+        },
+        GREEN: {
+            baseMap: {style: 'gbif-dark'},
+            localized: true,
+            overlay: [{style: 'green.point'}]
         }
     }
 };
