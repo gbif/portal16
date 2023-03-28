@@ -77,24 +77,22 @@ router.get('/sitemap/publisher/:offset/:limit.xml', getList(pager.publisher.list
 // router.get('/sitemap-species.xml', getIntervals(pager.species.intervals, 'sitemaps/species/index'));
 // router.get('/sitemap/species/:offset/:limit.xml', getList(pager.species.list, 'sitemaps/species/species'));
 // species in backbone
-
-// the backbone is currently broken, but will be fixed and exposed on a different endpoint and linked in webmaster tools
-// router.get('/sitemap-species.xml', function(req, res, next) {
-//     species.getSpeciesSiteMapIndex().then(function(sitemapIndex) {
-//         res.set('Content-Type', 'text/xml');
-//         res.send(sitemapIndex);
-//     }).catch(function(e) {
-//         next(e);
-//     });
-// });
-// router.get('/sitemap/species/:no.txt', function(req, res, next) {
-//     species.getSpeciesSiteMap(req.params.no).then(function(sitemap) {
-//         res.set('Content-Type', 'text/plain');
-//         res.send(sitemap);
-//     }).catch(function(e) {
-//         next(e);
-//     });
-// });
+router.get('/sitemap-species.xml', function(req, res, next) {
+    species.getSpeciesSiteMapIndex().then(function(sitemapIndex) {
+        res.set('Content-Type', 'text/xml');
+        res.send(sitemapIndex);
+    }).catch(function(e) {
+        next(e);
+    });
+});
+router.get('/sitemap/species/:no.txt', function(req, res, next) {
+    species.getSpeciesSiteMap(req.params.no).then(function(sitemap) {
+        res.set('Content-Type', 'text/plain');
+        res.send(sitemap);
+    }).catch(function(e) {
+        next(e);
+    });
+});
 
 
 function getIntervals(f, template) {
