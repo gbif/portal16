@@ -141,6 +141,7 @@
     "markdown-it-video": "^0.6.3",
     "marked": "^0.3.16",
     "maxmind": "^2.1.0",
+    "md5": "^2.3.0",
     "messageformat": "^1.0.2",
     "method-override": "^2.3.0",
     "moment": "^2.18.1",

@@ -5,7 +5,8 @@
         md = require('marked'),
         moment = require('moment'),
         filters = require('./filters'),
-        _ = require('lodash');
+        _ = require('lodash'),
+        md5 = require('md5');
 
     md.setOptions({
         renderer: new md.Renderer(),
@@ -146,6 +147,15 @@
                     return env.imageCache + (width || '') + 'x' + (height || '') + '/' + window.encodeURIComponent(imgUrl);
                 } else {
                     return env.imageCache + window.encodeURIComponent(imgUrl);
+                }
+            };
+        })
+        .filter('occurrenceImgCache', function(env) {
+            return function(identifier, occurrenceKey, params) {
+                if (params) {
+                    return env.customImageCache + params + '/occurrence/' + occurrenceKey + '/media/' + md5(identifier);
+                } else {
+                    return env.customImageCache + 'occurrence/' + occurrenceKey + '/media/' + md5(identifier);
                 }
             };
         })
