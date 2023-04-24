@@ -13,7 +13,12 @@
                 <h1>
                     <span ng-class="{'text-error': institutionKey.institution.deleted}">{{ institutionKey.institution.name }}</span>
                 </h1>
-                <p class="text-error text-center" ng-if="institutionKey.institution.deleted" translate="phrases.deletedOnDate" translate-values="{DATE: (institutionKey.institution.deleted | momentFormat:'LL') }"></p>
+                <p class="text-error text-center" ng-if="institutionKey.institution.deleted">
+                    <span translate="phrases.deletedOnDate" translate-values="{DATE: (institutionKey.institution.deleted | momentFormat:'LL') }"></span>
+                    <br/>
+                    <span ng-if="institutionKey.institution.replacedBy"><span dir="auto" translate="phrases.replacedBy"></span> <a dir="auto" class="inherit underline" ui-sref="institutionKey({key: institutionKey.institution.replacedBy})">{{ institutionKey.institution.replacedBy }}</a></span>
+                </p>
+
             </header>
         </div>
     </div>
