@@ -55,7 +55,8 @@ function render(req, res, next) {
                 _meta: {
                     title: dataset.title,
                     description: dataset.description,
-                    schema: getMetaSchema(dataset)
+                    schema: getMetaSchema(dataset),
+                    noIndex: dataset.deleted,
                 }
             };
             helper.renderPage(req, res, next, contentItem, 'pages/dataset/key/seo');

@@ -35,6 +35,7 @@ function renderPage(req, res, next, installation) {
     helper.renderPage(req, res, next, {
         installation: installation,
         _meta: {
+            noIndex: installation.deleted,
             title: installation.record.title,
             description: installation.record.description
         }

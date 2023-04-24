@@ -29,6 +29,7 @@ function renderCollection(req, res, next) {
     getData(apiConfig.collection.url + collectionKey)
         .then(function(collection) {
             helper.renderPage(req, res, next, {collection, _meta: {
+                noIndex: collection.deleted,
                 title: collection.name,
                 description: collection.description
             }}, 'pages/grscicoll/collection/key/seo.nunjucks');
@@ -51,6 +52,7 @@ function renderInstitution(req, res, next) {
     getData(apiConfig.institution.url + institutionKey)
         .then(function(institution) {
             helper.renderPage(req, res, next, {institution, _meta: {
+                noIndex: institution.deleted,
                 title: institution.name,
                 description: institution.description
             }}, 'pages/grscicoll/institution/key/seo.nunjucks');

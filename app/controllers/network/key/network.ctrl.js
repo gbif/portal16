@@ -49,6 +49,7 @@ function renderPage(req, res, next, network) {
     helper.renderPage(req, res, next, {
         network: network,
         _meta: {
+            noIndex: network.deleted,
             title: network.record.title,
             description: network.record.description
         }

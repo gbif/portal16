@@ -59,7 +59,7 @@ function render(req, res, next) {
                                     .endorsementApproved
                                     ? publisher.record.description
                                     : '',
-                                noIndex: !publisher.record.endorsementApproved
+                                noIndex: !publisher.record.endorsementApproved || publisher.deleted,
                             }
                         },
                         'pages/publisher/key/seo'
