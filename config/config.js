@@ -49,7 +49,8 @@ let path = require('path'),
         treatmentPublishers: [ // this is a mess and not in a config file. It has to be used tomorrow morning, so uuids from multiple environments will be added in one array
           '8d5e227d-ddf8-45f5-953e-e54be3e65ad1', // BHL UAT
           'ad0aba77-575f-45d4-bdf7-aacbd27e01b2', // BHL prod
-          '7ce8aef0-9e92-11dc-8738-b8a03c50a862' // Plazi in UAT and prod
+          '7ce8aef0-9e92-11dc-8738-b8a03c50a862', // Plazi in UAT and prod
+          '750a8724-fa66-4c27-b645-bd58ac5ee010' // Biodiversity Data Journal - Pensoft
         ]
     },
     elasticContentful = yargs.elasticContentful,

@@ -129,8 +129,8 @@ async function getTreatment(key) {
     if (
         treatmentCandidate &&
         treatmentCandidate['http://purl.org/dc/terms/description'] &&
-        treatmentCandidate['http://purl.org/dc/terms/contributor'] &&
-        treatmentCandidate['http://purl.org/dc/terms/contributor'].indexOf('Plazi') > -1
+        treatmentCandidate['http://purl.org/dc/terms/format'] === 'text/html' &&
+        treatmentPublishers.indexOf(dataset.publishingOrganizationKey) > -1 
     ) {
         let treatment = treatmentCandidate['http://purl.org/dc/terms/description'];
         let treatmentCitation = treatmentCandidate['http://purl.org/dc/terms/bibliographicCitation'];
@@ -144,7 +144,7 @@ async function getTreatment(key) {
             publisherKey: publisher.key,
             datasetTitle: dataset.title
         };
-    }
+    } 
 }
 
 // this is an ugly hack because we do not model treatments
