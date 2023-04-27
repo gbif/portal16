@@ -24,6 +24,7 @@ let environment = {
     basemapTileApi: config.basemapTileApi,
     analyticsImg: config.analyticsImg,
     imageCache: config.dataApi + 'image/unsafe/',
+    customImageCache: config.dataApi + 'image/cache/',
     mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json',
     domain: config.domain,
     locales: localeConfig.locales,

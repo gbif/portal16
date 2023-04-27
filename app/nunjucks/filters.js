@@ -4,6 +4,9 @@ let changeCase = require('change-case');
 let urlRegex = require('url-regex');
 let truncate = require('html-truncate');
 let url = require('url');
+let md5 = require('md5');
+let env = require('../../config/config');
+
 let md = require('markdown-it')({html: true, linkify: true, typographer: false, breaks: true});
     md.linkify.tlds('fuzzyLink', false);
 
@@ -382,6 +385,15 @@ module.exports = function(nunjucksConfiguration) {
                 return '';
             }
             return encodeURIComponent(data);
+        });
+    })();
+
+    (function() {
+        nunjucksConfiguration.addFilter('customImageCache', function(identifier, occurrenceKey, params) {
+            if (!identifier) {
+                return '';
+            }
+            return env.dataApi + 'image/cache/' + (params ? (params + '/') : '') + 'occurrence/' + occurrenceKey + '/media/' + md5(identifier);
         });
     })();
 
