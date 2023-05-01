@@ -26,22 +26,26 @@ const schema = Joi.alternatives().try(
   Joi.object({
     type: Joi.string().valid('greaterThan').required(),
     key: Joi.string().required(),
-    value: Joi.alternatives().try(Joi.string(), Joi.number()).required()
+    value: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
   }),
   Joi.object({
     type: Joi.string().valid('greaterThanOrEquals').required(),
     key: Joi.string().required(),
-    value: Joi.alternatives().try(Joi.string(), Joi.number()).required()
+    value: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
   }),
   Joi.object({
     type: Joi.string().valid('lessThan').required(),
     key: Joi.string().required(),
-    value: Joi.alternatives().try(Joi.string(), Joi.number()).required()
+    value: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
   }),
   Joi.object({
     type: Joi.string().valid('lessThanOrEquals').required(),
     key: Joi.string().required(),
-    value: Joi.alternatives().try(Joi.string(), Joi.number()).required()
+    value: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
   }),
   Joi.object({
     type: Joi.string().valid('within').required(),
