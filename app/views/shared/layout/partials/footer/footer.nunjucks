@@ -25,6 +25,18 @@
                 </nav>
             </div>
         </div>
+        <div class="horizontal-stripe site-footer__gbc p-t-1 p-b-1" style="background: #5b5b5b;">
+            <div class="container--normal">
+                <nav class="site-footer__menu">
+                    <div style="margin: 0;">
+                        <a href="{$ gb.locales.urlPrefix $}/news/6PHdgoyIF6RmI7u4VOouuD">
+                        <img src="/img/gbc.svg" style="max-height: 40px; padding: 0 24px;" />
+                            <span style="font-weight: 500;">GBIF</span> <span> is a Global Core Biodata Resource</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
         <div class="horizontal-stripe site-footer__lower">
             <div class="container--normal text-center">
                 <div class="site-footer__social">
