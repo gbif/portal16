@@ -16,7 +16,7 @@ function networkKeyCtrl(Page, $state, $stateParams, ResourceItem, Network, Resou
     Page.drawer(false);
     vm.key = $stateParams.key;
     vm.networkApiItem = Network.get({id: vm.key});
-    vm.network = ResourceItem.get({contentType: 'network', networkKey: vm.key});
+    vm.network = ResourceItem.get({contentType: 'network', networkKey: vm.key, locale: $stateParams.locale});
     vm.occurrences = OccurrenceSearch.query({network_key: vm.key, limit: 0});
     vm.literature = ResourceSearch.query({contentType: 'literature', gbifNetworkKey: vm.key, limit: 0});
 
