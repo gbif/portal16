@@ -60,7 +60,7 @@ router.get('/composition/:id/:title?.:ext?', function(req, res, next) {
 
 router.get('/api/resource/tool', function(req, res, next) {
     let query = req.query;
-    resource.getFirst(query, 2, false, query.locale)
+    resource.getFirst(query, 2, false, res.locals.gb.locales.current)
         .then(function(result) {
             helper.renderPage(req, res, next, result, 'pages/resource/key/tool/toolMain');
         })
@@ -87,7 +87,7 @@ router.get('/api/resource/content/:type', function(req, res, next) {
         default:
             template = 'pages/resource/key/article/articleContent';
     }
-    resource.getFirst(query, 2, false, query.locale)
+    resource.getFirst(query, 2, false, res.locals.gb.locales.current)
         .then(function(result) {
             helper.renderPage(req, res, next, result, template);
         })
