@@ -19,10 +19,8 @@ function getContactIdentifiers(contact) {
         identifiers = identifiers.concat(emailIdentifier);
     }
     if (identifiers.length == 0) {
-        if (contact.firstName && contact.lastName) {
-            identifiers.push(contact.firstName + ' ' + contact.lastName);
-        } else if (contact.organization) {
-            identifiers.push(contact.organization);
+        if (contact.firstName || contact.lastName || contact.organization) {
+            identifiers.push(contact.firstName + '_' + contact.lastName + '_' + contact.organization);
         }
     }
 
