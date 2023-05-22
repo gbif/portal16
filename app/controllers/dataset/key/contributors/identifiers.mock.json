@@ -38,7 +38,7 @@
       "organization": "orgNameB"
     },
     "expected": [
-      "Graham Edgar"
+      "Graham_Edgar_orgNameB"
     ]
   },
   {
