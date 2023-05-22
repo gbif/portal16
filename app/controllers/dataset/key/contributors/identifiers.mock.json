@@ -46,7 +46,7 @@
       "organization": "orgNameC"
     },
     "expected": [
-      "orgNameC"
+      "__orgNameC"
     ]
   },
   {

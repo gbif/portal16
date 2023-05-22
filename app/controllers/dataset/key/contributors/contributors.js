@@ -20,7 +20,7 @@ function getContactIdentifiers(contact) {
     }
     if (identifiers.length == 0) {
         if (contact.firstName || contact.lastName || contact.organization) {
-            identifiers.push(contact.firstName + '_' + contact.lastName + '_' + contact.organization);
+            identifiers.push(_.get(contact, 'firstName', '') + '_' + _.get(contact, 'lastName', '') + '_' + _.get(contact, 'organization', ''));
         }
     }
 
