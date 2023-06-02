@@ -33,22 +33,24 @@ router.get('/omniSearch', function(req, res) {
 });
 
 async function search(query, preferedLocale, __) {
-    query = _.isString(query) ? query.toLowerCase() : query;
+    queryLowerCase = _.isString(query) ? query.toLowerCase() : query;
     // removing highlights as a temporary measure as the implementation to show them doesn't work. See also https://github.com/gbif/portal16/issues/1358
     let datasets = Dataset.query({q: query, limit: 3, hl: true});
     let publishers = Publisher.query({q: query, limit: 3});
     let participants = Participant.query(query);
     let species = Species.query({q: query, datasetKey: backboneDatasetKey, limit: 3, hl: true});
     let speciesMatches = SpeciesMatch.query({name: query, verbose: true, hl: true});
-    let resources = resourceSearch.search({q: query, searchable: true, locale: preferedLocale, limit: 10}, __);
+    let resources = resourceSearch.search({
+        q: query, searchable: true, locale: preferedLocale, limit: 10,
+        contentType: ['network', 'dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document', 'composition']
+    }, __);
     let faq = resourceSearch.search({q: query, searchable: true, contentType: ['help'], locale: preferedLocale, limit: 5}, __);
     let sequences = SequenceMatch.query(query);
-    let resourceHighlights = resourceSearch.search(
-        {
-            keywords: query,
-            contentType: ['network', 'dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document', 'composition'],
-            locale: preferedLocale, limit: 4, searchable: true
-            }, __);
+    let resourceHighlights = resourceSearch.search({
+        keywords: queryLowerCase,
+        contentType: ['network', 'dataUse', 'event', 'news', 'project', 'programme', 'tool', 'article', 'document', 'composition'],
+        locale: preferedLocale, limit: 4, searchable: true
+    }, __);
     let country = Country.query(query, preferedLocale);
 
     let values = await Promise.all([speciesMatches, species, datasets, publishers, resources, country, resourceHighlights, participants, faq, sequences]);
