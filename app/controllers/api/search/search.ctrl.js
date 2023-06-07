@@ -33,7 +33,7 @@ router.get('/omniSearch', function(req, res) {
 });
 
 async function search(query, preferedLocale, __) {
-    queryLowerCase = _.isString(query) ? query.toLowerCase() : query;
+    let queryLowerCase = _.isString(query) ? query.toLowerCase() : query;
     // removing highlights as a temporary measure as the implementation to show them doesn't work. See also https://github.com/gbif/portal16/issues/1358
     let datasets = Dataset.query({q: query, limit: 3, hl: true});
     let publishers = Publisher.query({q: query, limit: 3});
