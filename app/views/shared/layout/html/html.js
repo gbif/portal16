@@ -335,7 +335,6 @@ require('../partials/notifications/notifications.directive');
 
 require('./angular/nav.constants');
 require('../partials/navigation/nav.ctrl');
-require('../partials/popups/terms/terms.directive');
 require('../partials/popups/gdpr/gdpr.directive');
 // require('../partials/popups/biodataSurvey/biodataSurvey.directive');
 
