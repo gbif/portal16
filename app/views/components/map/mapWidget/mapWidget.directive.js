@@ -459,19 +459,6 @@ function mapWidgetDirective(BUILD_VERSION) {
             vm.clickedQuery.has_geospatial_issue = false;
             vm.clickedQuery.has_coordinate = true;
 
-            // tracking
-            var trackingData = {
-                hitType: 'event',
-                eventCategory: 'map',
-                eventAction: 'exploreArea',
-                hitCallback: function() {
-                    window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
-                }
-            };
-            if (typeof ga === 'function') {
-              ga('send', trackingData);
-            }
-
             window.location.href = URL_PREFIX + '/occurrence/search?' + $httpParamSerializer(vm.getClickedQuery());
             // vm.activeControl = vm.controls.OCCURRENCES;
             // vm.mapMenu.isLoading = true;

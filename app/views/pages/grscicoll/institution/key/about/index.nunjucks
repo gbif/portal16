@@ -3,8 +3,7 @@
 				<div class="row">
 						<div class="col-xs-12">
 								<div class="p-b-05 text-right">
-									<a  ng-click="portal.gaEvent('grscicoll', 'suggest', 'institution')" 
-                      ng-href="{{ portal.env.registry }}/institution/{{institutionKey.institution.key}}" 
+									<a  ng-href="{{ portal.env.registry }}/institution/{{institutionKey.institution.key}}" 
                       class="gb-button--brand" 
                       translate="grscicoll.suggestChange">
 										Suggest a change

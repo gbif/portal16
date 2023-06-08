@@ -300,16 +300,6 @@ function adhocMapDirective(BUILD_VERSION) {
         vm.clickedQuery = {};
         vm.clickedGeometry;
         function getOccurrencesInArea(geom) {
-            // tracking
-            var trackingData = {
-                hitType: 'event',
-                eventCategory: 'adhocMap',
-                eventAction: 'exploreArea'
-            };
-            if (typeof ga === 'function') {
-              ga('send', trackingData);
-            }
-
             if (vm.occurrenceRequest && vm.occurrenceRequest.$cancelRequest) vm.occurrenceRequest.$cancelRequest();
 
             vm.clickedQuery = getQuery();

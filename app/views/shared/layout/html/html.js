@@ -100,7 +100,6 @@ function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $
         }
     });
 
-    // ga('send', 'pageview'); // if adding, then make sure ga is present first
     var termsValue = $cookies.get('userAcceptance');
     var attachAnalytics = false;
     var hasAcceptedTerms = false;
@@ -124,19 +123,9 @@ function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $
       } else {
         hasAcceptedTerms = true; // if nothing is stored in the cookie, then assume accepted as this was the previous cookie format
       }
-
-      if (termsIsLatest && hasAcceptedTerms) {
-        attachAnalytics = true;
-      }
     }
-    if (attachAnalytics && !$window.ga) $window.attachGoogleAnalytics();
 
     $rootScope.$on('$stateChangeSuccess', function() {
-        if (window.gbifHasSentGoogleAnalyticsForThisUrl === window.location.href) {
-            window.gbifHasSentGoogleAnalyticsForThisUrl = undefined;
-        } else {
-            if ($window.ga) $window.ga('send', 'pageview', $location.path());
-        }
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
 }

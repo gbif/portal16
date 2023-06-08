@@ -64,8 +64,6 @@ helpdesk@gbif.org
         {% include "../partials/footer/footer.nunjucks" %}
     {% endif %}
 
-    {#{% include "../partials/popups/terms/terms.html" %}#}
-    <div terms></div>
     <div gdpr></div>
 </div>
 <div gb-help-overlay></div>
