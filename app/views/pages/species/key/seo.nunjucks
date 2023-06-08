@@ -1,7 +1,7 @@
 {% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
 
 {% block page %}
-    <article class="hidden container">
+    <article class="hidden container ng-cloak">
         <div class="row">
             <div class="col-xs-12">
                 <h1>
@@ -37,8 +37,7 @@
                             {% endif %}
                         </dl>
                     </section>
-                    <section>
-
+                    {# <section>
                         {% if species.occurrenceImages and species.occurrenceImages.results.length > 0 %}
                             {% for occ in species.occurrenceImages.results %}
                                 {% for img in occ.media %}
@@ -49,7 +48,7 @@
                                 {% endfor %}
                             {% endfor %}
                         {% endif %}
-                    </section>
+                    </section> #}
 
                     <section>
                         <h3>Classification</h3>
