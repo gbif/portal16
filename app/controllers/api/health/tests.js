@@ -110,13 +110,13 @@ let tests = [
         message: 'Expect 401 when requesting login'
     },
     {
-        url: apiConfig.mapCapabilities.url + '?taxonKey=196&cachebust={NOW}',
+        url: apiConfig.mapCapabilities.url + '?taxonKey=1&cachebust={NOW}',
         component: 'MAPS',
         type: 'NUMBER_ABOVE',
         key: 'total',
         val: 100,
         message:
-            'Map capabilities for taxonKey 196 should return a json with a total above 100'
+            'Map capabilities for taxonKey 1 should return a json with a total above 100'
     },
     {
         url:
