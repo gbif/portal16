@@ -69,6 +69,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'occurrenceKeyClusterCtrl',
             controllerAs: 'occurrenceKeyCluster'
         })
+        .state('occurrenceKeyPhylotree', {
+            parent: 'occurrenceKey',
+            url: '/phylogenies',
+            templateUrl: '/templates/pages/occurrence/key/phylotree/occurrenceKeyPhylotree.html?v=' + BUILD_VERSION,
+            controller: 'occurrenceKeyPhylotreeCtrl',
+            controllerAs: 'occurrenceKeyPhylotree'
+        })
         .state('occurrenceSearch', {
             parent: 'localization',
             // eslint-disable-next-line max-len

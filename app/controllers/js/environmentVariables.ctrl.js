@@ -19,6 +19,7 @@ let environment = {
     registry: config.registry,
     dataApiV2: config.dataApiV2,
     dataApi: config.dataApi,
+    sourceArchive: config.sourceArchive,
     graphQLApi: config.graphQLApi,
     tileApi: config.tileApi,
     basemapTileApi: config.basemapTileApi,

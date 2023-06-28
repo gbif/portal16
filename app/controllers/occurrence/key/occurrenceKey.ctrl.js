@@ -29,6 +29,7 @@ router.get('/occurrence/:datasetKey/:occurrenceId', function(req, res, next) {
 
 router.get('/occurrence/:key(\\d+).:ext?', render);
 router.get('/occurrence/:key(\\d+)/cluster.:ext?', render);
+router.get('/occurrence/:key(\\d+)/phylogenies.:ext?', render);
 router.get('/occurrence/:key(\\d+)/fragment.:ext?', async function(req, res, next) {
   let key = req.params.key;
   try {

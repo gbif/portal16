@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "Details",
-      "cluster": "Related records"
+      "cluster": "Related records",
+      "phylotree": "Phylogenies"
     },
     "typeOf": "{TYPE} of {NAME}",
     "coordinates": "Coordinates",

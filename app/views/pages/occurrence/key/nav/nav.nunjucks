@@ -16,6 +16,12 @@
                                     Cluster
                                 </a>
                             </li>
+
+                            <li ng-if="occurrenceKey.fragment.phyloTreeTipLabel && occurrenceKey.fragment.phyloTreeFileName"  class="tab" ng-class="{isActive: occurrenceKey.$state.is('occurrenceKeyPhylotree')}">
+                                <a ui-sref="occurrenceKeyPhylotree({key:occurrenceKey.key})" translate="occurrence.tabs.phylotree">
+                                    Phylogenetic trees
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
