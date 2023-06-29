@@ -89,6 +89,6 @@
     "verficationLinkSent": "Te hemos enviado un correo electrónico con un enlace de verificación para asegurarnos que es tu cuenta de correo electrónico. Bienvenido a GBIF",
     "resetPasswordRequest": "Reestablecimiento de contraseña solicitado",
     "resetPasswordMessage": "Te hemos enviado un correo electrónico con un enlace para reestablecer tu contraseña.",
-    "derivedDatasets": ""
+    "derivedDatasets": "Conjuntos de datos derivados"
   }
 }
