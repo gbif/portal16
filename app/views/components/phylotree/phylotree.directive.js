@@ -2,7 +2,6 @@
 
 var angular = require('angular'),
     _ = require('lodash'),
-    d3 = require('d3'),
     phylotree = require('phylotree'),
     parseNexus = require('./parseNexus');
 
@@ -35,7 +34,7 @@ function phyloTreeDirective() {
     }
 
     /** @ngInject */
-    function phyloTreeCtrl($scope, $http, env) {
+    function phyloTreeCtrl($scope, $http, $state) {
         var vm = this;
         vm.loading = true;
        
@@ -120,6 +119,7 @@ function phyloTreeDirective() {
               top-bottom-spacing: "fixed-step"
               transitions: null
               zoom: false */
+              'show-menu': false,
              'left-right-spacing:': 'fit-to-size',
                         'node-styler': function(element, data) {
                         if (_.get(data, 'data.name') && _.get(data, 'data.name').replaceAll('_', ' ') === vm.phyloTreeTipLabel) {
@@ -129,12 +129,21 @@ function phyloTreeDirective() {
                                 'important'
                               );
                         }
+                        if (_.get(data, 'data.name')) {
+                            element.style(
+                                'cursor',
+                                'pointer'
+                              ); 
+                        }
                           element.on('click', function(e) {
                            /*  if (typeof onNodeClick === 'function') {
                               onNodeClick(data);
                             } */
                             data.selected_xx = true;
                             console.log(data);
+                            if (data.data.name) {
+                                $state.go('occurrenceSearchTable', {q: data.data.name.replaceAll('_', ' '), dataset_key: vm.datasetKey});
+                            }
                             // tree.getNodeById(data.data.id)
                            // console.log(tree.getNodeByName(data.data.name))
                             });
