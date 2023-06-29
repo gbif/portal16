@@ -3,6 +3,7 @@
 let baseConfig = require('../../../config/config'),
     clientTileApi = baseConfig.tileApi,
     baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
+    sourceArchive = 'https:' + baseConfig.sourceArchive,
     registryBaseUrl = baseConfig.serverProtocol + baseConfig.registryApi,
     oozie = baseConfig.serverProtocol + baseConfig.oozie,
     yarnResourceManager = baseConfig.serverProtocol + baseConfig.yarnResourceManager,
@@ -240,6 +241,9 @@ let apiConfig = {
     validator: {
         url: baseUrl + 'validation',
         canonical: baseUrl + 'validation'
+    },
+    sourceArchive: {
+        url: sourceArchive
     }
 };
 

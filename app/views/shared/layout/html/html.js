@@ -342,6 +342,8 @@ require('../../../pages/search/search.ctrl');
 
 require('../../../pages/occurrence/key/occurrenceKey.ctrl');
 require('../../../pages/occurrence/key/cluster/occurrenceKeyCluster.ctrl');
+require('../../../pages/occurrence/key/phylotree/occurrenceKeyPhylotree.ctrl');
+
 require('../../../pages/occurrence/occurrence.ctrl');
 require('../../../pages/occurrence/beta/betaSearch.ctrl');
 

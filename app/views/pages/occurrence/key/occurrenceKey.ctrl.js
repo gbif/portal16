@@ -11,7 +11,7 @@ angular
     .controller('occurrenceKeyCtrl', occurrenceKeyCtrl);
 
 /** @ngInject */
-function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, Page, OccurrenceRelated, occurrence, SpeciesVernacularName, DatasetProcessSummary, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION, LOCALE_2_LETTER) {
+function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, Page, OccurrenceRelated, occurrence, SpeciesVernacularName, DatasetProcessSummary, OccurrenceFragment, $translate, TRANSLATION_UNCERTAINTY, TRANSLATION_ELEVATION, LOCALE_2_LETTER) {
     var vm = this;
     vm.gb = gb;
     vm.$state = $state;
@@ -180,6 +180,8 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
             }
         });
     }
+
+    vm.fragment = OccurrenceFragment.get({id: vm.key});
 }
 
 module.exports = occurrenceKeyCtrl;
