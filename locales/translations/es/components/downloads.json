@@ -7,7 +7,7 @@
     "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}} en el conjunto de datos derivado",
     "title": "Título",
     "description": "Descripción",
-    "originalDownloadDOI": ""
+    "originalDownloadDOI": "Conjunto de datos derivados de la descarga"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registro} other{registros}} descargados",
