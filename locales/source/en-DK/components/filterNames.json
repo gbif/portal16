@@ -12,6 +12,7 @@
     "collectionCode": "Collection code",
     "recordNumber": "Record number",
     "datasetKey": "Dataset",
+    "datasetName": "Dataset name",
     "protocol": "Protocol",
     "mediaType": "Media type",
     "recordedBy": "Recorded by",
