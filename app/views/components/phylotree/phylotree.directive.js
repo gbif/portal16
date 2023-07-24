@@ -59,9 +59,11 @@ function phyloTreeDirective() {
             .then(function(response) {
                 console.log(response);
                 var nwk;
+                var tipTranslation;
                 if (['nex', 'nexus'].includes(vm.fileExtension)) {
                 var parsedNexus = parseNexus(response.data);
                     nwk = _.get(parsedNexus, 'treesblock.trees[0].newick');
+                    tipTranslation = _.get(parsedNexus, 'treesblock.translate');
                 } else if (['phy', 'nwk', 'newick'].includes(vm.fileExtension)) {
                     nwk = response.data;
                 } else {
@@ -70,6 +72,12 @@ function phyloTreeDirective() {
                 if (nwk) {
                     vm.tree = new phylotree.phylotree(nwk);
                     
+                    if (tipTranslation) {
+                        Object.keys(tipTranslation).forEach(function(key) {
+                            var n = vm.tree.getNodeByName(key);
+                            n.data.name = tipTranslation[key];
+                        });
+                    }
 
                     vm.selectedNode = vm.tree.getNodeByName(vm.phyloTreeTipLabel.replaceAll(' ', '_'));
                     vm.edgeSelection = vm.selectedNode ? pathToRoot(vm.selectedNode) : [];
