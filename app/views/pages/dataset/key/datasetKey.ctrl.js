@@ -24,7 +24,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, DatasetEventList, OccurrenceSearch, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
+function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sessionStorage, DatasetCurrentCrawlingStatus, DatasetEventList, OccurrenceSearch, OccurrenceFragment, SpeciesRoot, SpeciesSearch, ResourceSearch, Dataset, DatasetExtended, DatasetConstituents, Publisher, Installation, DatasetMetrics, DatasetProcessSummary, $anchorScroll, constantKeys, Page, MapCapabilities, env) {
     var vm = this;
     Page.setTitle('Dataset');
     Page.drawer(false);
@@ -138,6 +138,17 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         vm.orphanStatus = getOrphanStatus(vm.dataset);
 
         // checkIfUserIsContact();
+    });
+
+    var firstOccurrence = OccurrenceSearch.query({dataset_key: vm.key, limit: 1});
+
+    firstOccurrence.$promise.then(function() {
+        OccurrenceFragment.get({id: _.get(firstOccurrence, 'results[0].key')}).$promise.then(function(fragment) {
+           // console.log(fragment);
+            if (fragment.phyloTreeFileName) {
+                vm.hasPhylogenies = true;
+            }
+        });
     });
 
     // function checkIfUserIsContact() {

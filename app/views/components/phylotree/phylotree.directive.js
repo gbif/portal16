@@ -79,7 +79,7 @@ function phyloTreeDirective() {
                         });
                     }
 
-                    vm.selectedNode = vm.tree.getNodeByName(vm.phyloTreeTipLabel.replaceAll(' ', '_'));
+                    vm.selectedNode = vm.phyloTreeTipLabel ? vm.tree.getNodeByName(vm.phyloTreeTipLabel.replaceAll(' ', '_')) : null;
                     vm.edgeSelection = vm.selectedNode ? pathToRoot(vm.selectedNode) : [];
                     
                     vm.tree.render({

@@ -380,6 +380,7 @@ require('../../../pages/tools/suggestDataset/suggestDataset.ctrl');
 require('../../../pages/custom/becomePublisher/becomePublisher.ctrl');
 
 require('../../../pages/dataset/key/datasetKey.ctrl');
+require('../../../pages/dataset/key/phylotree/datasetKeyPhylotree.ctrl');
 
 // cms data is gathered under the umbrella term resources
 require('../../../pages/resource/search/resource.ctrl');

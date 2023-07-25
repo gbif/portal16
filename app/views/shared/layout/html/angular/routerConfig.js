@@ -206,6 +206,13 @@ function routerConfig($stateProvider, $locationProvider, BUILD_VERSION, LOCALE) 
             controller: 'datasetConstituentsCtrl',
             controllerAs: 'datasetConstituents'
         })
+        .state('datasetKeyPhylotree', {
+            parent: 'datasetKey',
+            url: '/phylogenies',
+            templateUrl: '/templates/pages/dataset/key/phylotree/datasetKeyPhylotree.html?v=' + BUILD_VERSION,
+            controller: 'datasetKeyPhylotreeCtrl',
+            controllerAs: 'datasetKeyPhylotree'
+        })
         .state('datasetEvent', {
             parent: 'localization',
             url: '/dataset/:datasetKey/event/:eventKey',
