@@ -11,7 +11,7 @@ Download.prototype.record = {};
 
 Download.get = function(key, options) {
     options = options || {};
-    let promise = resource.get(api.occurrenceDownload.url + key).as(Download);
+    let promise = resource.get(api.occurrenceDownload.url + key + '?statistics=true').as(Download);
     if (typeof options.expand === 'undefined') {
         return promise;
     } else {

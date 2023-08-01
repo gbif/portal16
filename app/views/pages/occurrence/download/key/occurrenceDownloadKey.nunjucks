@@ -192,6 +192,18 @@
                                                     <a href="#datasets">{{ {$ download.record.numberDatasets $} | localNumber}}</a>
                                                 </dd>
                                             </div>
+                                            <div>
+                                                <dt>{$ __('downloadKey.constituentOrganizations') $}</dt>
+                                                <dd>
+                                                    <span>{{ {$ download.record.numberOrganizations $} | localNumber}} </span>
+                                                </dd>
+                                            </div>
+                                            <div>
+                                                <dt>{$ __('downloadKey.constituentPublishingCountries') $}</dt>
+                                                <dd>
+                                                    <span>{{ {$ download.record.numberPublishingCountries $} | localNumber}} </span>
+                                                </dd>
+                                            </div>
                                             {% endif %}
                                         </dl>
                                         <div>

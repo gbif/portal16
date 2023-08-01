@@ -46,6 +46,8 @@
     "predatesDoi": "This download predates our use of DOIs",
     "file": "File",
     "constituentDatasets": "Involved datasets",
+    "constituentOrganizations": "Involved publishers",
+    "constituentPublishingCountries": "Involved publishing countries",
     "noFiltersApplied": "No filters used",
     "apiUsageDescription": "To repeat the download on todays data using the API you can use below query.",
     "apiFilterView": "API",
