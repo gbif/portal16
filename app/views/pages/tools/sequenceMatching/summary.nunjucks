@@ -18,6 +18,12 @@
         
                           
         </div>
+
+         <div ng-if="vm.selectedMarker === '12S'">
+            <p>Your data have been matched against the <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v3.91 database of 12S sequences</p>
+        
+                          
+        </div>
             
             <!-- <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="dataset.noDescriptionProvided"></div> -->
         </div>

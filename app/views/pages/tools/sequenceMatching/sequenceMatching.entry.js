@@ -30,7 +30,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     vm.thresholds = {
         'ITS': 99,
         'COI': 99,
-        '16S': 99
+        '16S': 99,
+        '12S': 99
     };
     vm.selectedMarker = 'COI';
     vm.matchThreshold = vm.thresholds[vm.selectedMarker];
@@ -184,6 +185,8 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
                         vm.selectedMarker = 'COI';
                     } else if (firstRecordMarker.toLowerCase().indexOf('16s') > -1) {
                         vm.selectedMarker = '16S';
+                    } else if (firstRecordMarker.toLowerCase().indexOf('12s') > -1) {
+                        vm.selectedMarker = '12S';
                     }
                 }
                 if (
@@ -544,7 +547,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     vm.help = {
         occurrenceId:
             'If you uploaded data in FASTA format, this is the ID line for the sequence. For publication to GBIF occurrenceId must be unique.',
-        marker: 'The DNA marker, COI and ITS are supported',
+        marker: 'The DNA markers, COI, ITS, 16S and 12S are supported',
         identity:
             'The extent to which two sequences have the same residues at the same positions in an alignment',
         bitScore:

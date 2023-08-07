@@ -140,6 +140,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         // checkIfUserIsContact();
     });
 
+    
     var firstOccurrence = OccurrenceSearch.query({dataset_key: vm.key, limit: 1});
 
     firstOccurrence.$promise.then(function() {
