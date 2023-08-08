@@ -71,11 +71,10 @@ module.exports = function(app, config) {
                     workerSrc: [
                         'blob:'
                     ],
-                    upgradeInsecureRequests: [],
-                    frameAncestors: [ // This leads to conflicting statements in Helmet. Looks like we should either go with frameAncestors or x-frame-options
-                      'https://app.contentful.com'
-                    ],
-                    xFrameOptions: false
+                    upgradeInsecureRequests: []
+                    // frameAncestors: [ // This leads to conflicting statements in Helmet. Looks like we should either go with frameAncestors or x-frame-options
+                    //   'https://www.onezoom.org'
+                    // ]
                   }
 
           },
