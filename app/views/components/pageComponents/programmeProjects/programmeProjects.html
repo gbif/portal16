@@ -31,7 +31,7 @@
                           </div>
                       </td>
                       <td class="table-cell--widder">
-                          <a ng-href="{{ urlPrefix }}/project/{{ result.id }}/{{ result._slug }}"
+                          <a ng-href="{{ portal.urlPrefix }}/project/{{ result.id }}/{{ result._slug }}"
                              ng-click="vm.preventBubbling($event)">{{ result.title }}</a>
                       </td>
                       <td class="table-cell--normal">
@@ -45,10 +45,10 @@
                           <span ng-if="result.end">{{ result.end | momentFormat:'LL' }}</span>
                       </td>
                       <td class="table-cell--narrow">
-                          <span ng-if="result.fundsAllocated">€{{ result.fundsAllocated | localNumber:portal.LOCALE }}</span>
+                          <span ng-if="result.fundsAllocated">€{{ result.fundsAllocated | localNumber:vm.locale }}</span>
                       </td>
                       <td class="table-cell--narrow">
-                          <span ng-if="result.matchingFunds">€{{ result.matchingFunds | localNumber:'portal.LOCALE }}</span>
+                          <span ng-if="result.matchingFunds">€{{ result.matchingFunds | localNumber:vm.locale }}</span>
                       </td>
                       <td class="table-cell--normal">
                           <span translate="enums.cms.vocabularyTerms.projectStatus.{{ result.status }}"

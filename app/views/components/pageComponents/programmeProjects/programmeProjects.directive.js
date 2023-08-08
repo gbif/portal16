@@ -24,10 +24,11 @@ function programmeProjectsDirective() {
   return directive;
 
   /** @ngInject */
-  function programmeProjectsCtrl(ResourceSearch) {
+  function programmeProjectsCtrl(ResourceSearch, env) {
     var vm = this;
     vm.loading = true;
     vm.locale = gb.locale;
+    vm.imageCache = env.imageCache;
     vm.state = {
       sortType: 'title'
     };
@@ -49,6 +50,10 @@ function programmeProjectsDirective() {
       event.stopPropagation();
       return false;
     };
+
+    vm.goto = function(url) {
+      window.location.href = url;
+  };
   }
 }
 
