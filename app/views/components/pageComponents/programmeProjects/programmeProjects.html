@@ -1,0 +1,83 @@
+<div class="programmeProjects">
+  <div>
+    <h4 class="card-header" translate="resourceSearch.types.projects">Projects</h4>
+      <div class="scrollable-y" style="{{vm.tableStyle}}">
+          <div class="table-container rtl-bootstrap">
+              <table class="table search-table smaller">
+                  <thead>
+                  <tr>
+                      <th></th>
+                      <th
+                          ng-repeat="col in ['title', 'grantType', 'start', 'end', 'fundsAllocated', 'matchingFunds', 'status', 'contractCountry', 'projectId', 'call']">
+                          <a href=""
+                             ng-click="vm.state.sortType = col; vm.state.sortReverse = !vm.state.sortReverse">
+                              <span class="inline-block text-nowrap">
+                                  <span translate="cms.project.{{ col }}"></span>
+                                  <span ng-show="vm.state.sortType == col && !vm.state.sortReverse">&#x25B2;</span>
+                                  <span ng-show="vm.state.sortType == col && vm.state.sortReverse">&#x25BC;</span>
+                                  <span ng-show="vm.state.sortType != col" class="invisible">&#x25BC;</span>
+                              </span>
+                          </a>
+                      </th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="result in vm.projects.results | orderBy:vm.state.sortType:vm.state.sortReverse"
+                      ng-click="vm.goto(portal.urlPrefix  + '/project/' + result.id + '/' + result._slug)">
+                      <td class="table-cell--narrow">
+                          <div class="imageGallery__img img-round-thumb" ng-if="result.primaryImage.file.url">
+                              <img ng-src="{{ vm.imageCache }}50x50/{{ 'http:' + result.primaryImage.file.url | encodeURIComponent }}"
+                                   gallery-image>
+                          </div>
+                      </td>
+                      <td class="table-cell--widder">
+                          <a ng-href="{{ urlPrefix }}/project/{{ result.id }}/{{ result._slug }}"
+                             ng-click="vm.preventBubbling($event)">{{ result.title }}</a>
+                      </td>
+                      <td class="table-cell--normal">
+                          <span translate="enums.cms.vocabularyTerms.projectGrantType.{{ result.grantType }}"
+                                ng-if="result.grantType">{{ result.grantType }}</span>
+                      </td>
+                      <td class="table-cell--narrow">
+                          <span ng-if="result.start">{{ result.start | momentFormat:'LL' }}</span>
+                      </td>
+                      <td class="table-cell--narrow">
+                          <span ng-if="result.end">{{ result.end | momentFormat:'LL' }}</span>
+                      </td>
+                      <td class="table-cell--narrow">
+                          <span ng-if="result.fundsAllocated">€{{ result.fundsAllocated | localNumber:portal.LOCALE }}</span>
+                      </td>
+                      <td class="table-cell--narrow">
+                          <span ng-if="result.matchingFunds">€{{ result.matchingFunds | localNumber:'portal.LOCALE }}</span>
+                      </td>
+                      <td class="table-cell--normal">
+                          <span translate="enums.cms.vocabularyTerms.projectStatus.{{ result.status }}"
+                                ng-if="result.status">{{ result.status }}</span>
+                      </td>
+                      <td class="table-cell--normal">
+                          <span translate="country.{{ result.contractCountry }}"
+                                ng-if="result.contractCountry">{{ result.contractCountry }}</span>
+                      </td>
+                      <td class="table-cell--normal">
+                          <span ng-if="result.status">{{ result.projectId }}</span>
+                      </td>
+                      <td class="table-cell--widder">
+                          <span ng-if="result.status">{{ result.call }}</span>
+                      </td>
+                  </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+  <div class="emptyInfo--large" ng-if="!vm.projects.$resolved">
+      <h3>Hang on while we search for related projects</h3>
+      <span class="loading"></span>
+  </div>
+  <div class="emptyInfo--large" ng-if="vm.projects.$resolved && !vm.projects.results">
+      <h3>Hmm :( we couldn't find any projects due to a server error</h3>
+  </div>
+  <div class="emptyInfo--large" ng-if="vm.projects.$resolved && vm.projects.count == 0">
+      <h3>No projects to show</h3>
+  </div>
+</div>

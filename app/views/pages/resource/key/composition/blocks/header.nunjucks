@@ -6,6 +6,11 @@
   <div class="article-header">
     <header class="text-center">
       {% if not main.fields.hideTitle %}
+      <nav class="article-header__category">
+          <span class="article-header__category__upper">
+              <a href="{$ gb.locales.urlPrefix $}/resource/search?contentType={$ main.fields.type $}">{$ __('enums.cms.contentType.' + main.fields.type) $}</a>
+          </span>
+      </nav>
       <h1 dir="auto">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h1>
       {% endif %}
       <div class="article-header__intro m-b-2" dir="auto">
