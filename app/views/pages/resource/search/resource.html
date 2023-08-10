@@ -42,6 +42,7 @@
         </div>
 
         <div ng-if="resource.state.query.contentType == 'project'" filter-enum filter-config="resource.filters.contractCountry" filter-state="resource.state"></div>
+        <div ng-if="resource.state.query.contentType == 'project'" filter-suggest filter-config="resource.filters.gbifProgramme" filter-state="resource.state"></div>
 
         <div ng-if="resource.state.query.contentType == 'literature'" filter-taxon filter-config="resource.filters.taxonKey" filter-state="resource.state"></div>
 
