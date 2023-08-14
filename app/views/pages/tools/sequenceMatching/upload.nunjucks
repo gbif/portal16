@@ -8,7 +8,8 @@
           <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE general FASTA release for eukaryotes v9.0</a> (a reference database for DNA barcoding of Fungi)</li>
           <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2023-03-12</a> public data (COI-5P sequences)</li>
           <li><strong>16S</strong> sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database r207</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
-           <li><strong>12S</strong> sequences for Fish will be queried against the <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v3.91 database of 12S sequences</li>
+          <li><strong>18S</strong> sequences will be queried against the <a href="https://pr2-database.org//">PR2 database</a> v5.0.0</li>
+          <li><strong>12S</strong> sequences for Fish will be queried against the <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v3.91 database of 12S sequences</li>
         </ul>
         <p>Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
         </div>
@@ -22,6 +23,7 @@
       <md-radio-button class="md-primary" value="ITS" >ITS</md-radio-button>
       <md-radio-button class="md-primary" value="COI"> COI </md-radio-button>
       <md-radio-button class="md-primary" value="16S"> 16S </md-radio-button>
+      <md-radio-button class="md-primary" value="18S"> 18S </md-radio-button>
       <md-radio-button class="md-primary" value="12S"> 12S </md-radio-button>
 
     </md-radio-group>
@@ -83,14 +85,12 @@
 
             </div>
 
-            <div class="small p-r-1" flex="33">
+             <div class="small p-r-1" flex="33">
                 
                         <div>
-                            Kõljalg, U. et.al. (2013). Towards a unified paradigm for sequence‐based identification of fungi. Molecular Ecology. 22 (21): 5271-5277.
+                            Sato Y, Miya M, Fukunaga T, Sado T, Iwasaki W. 2018. MitoFish and MiFish Pipeline: A Mitochondrial Genome Database of Fish with an Analysis Pipeline for Environmental DNA Metabarcoding. Mol Biol Evol 35:1553-1555. 
                         </div>
-                        <doi link="https://doi.org/10.1111/mec.12481"></doi>
-                     
-
+                        <doi link="https://doi.org/10.1093/molbev/msy074"></doi>
 
             </div>
             </div>
@@ -120,9 +120,9 @@
             <div class="small p-r-1" flex="33">
                 
                         <div>
-                            Sato Y, Miya M, Fukunaga T, Sado T, Iwasaki W. 2018. MitoFish and MiFish Pipeline: A Mitochondrial Genome Database of Fish with an Analysis Pipeline for Environmental DNA Metabarcoding. Mol Biol Evol 35:1553-1555. 
+                            Guillou, L., Bachar, D., Audic, S., Bass, D., Berney, C., Bittner, L., Boutte, C. et al. 2013. The Protist Ribosomal Reference database (PR2): a catalog of unicellular eukaryote Small Sub-Unit rRNA sequences with curated taxonomy. Nucleic Acids Res. 41:D597–604.
                         </div>
-                        <doi link="https://doi.org/10.1093/molbev/msy074"></doi>
+                        <doi link="https://doi.org/10.1093/nar/gks1160"></doi>
 
             </div>
 
@@ -154,15 +154,18 @@
              <div class="small p-r-1" flex="33">
                 
                         <div>
-                            Altschul, S., Gish, W., Miller, W., Myers, E., Lipman, D. (1990). Basic local alignment search tool. Journal of Molecular Biology. 215 (3): 403–410.
+                            Daniel Vaulot, Javier del Campo, Mahwash Jamy, Fabien Burki, Laure Guillou, Luciana Santoferrara, Maximilian Ganser, Andrea de Oliveira da Rocha Franco, Kenneth Mertens, Haifeng Gu, Se Hyeon Jang, Pavel Škaloud, Manon Dünn, Megan Gross, Алексей Селюк, Miguel Mendez Sandin, Sebastian Metz, Richard Dorrell, & AnnaMaria Fiore-Donno. (2023). pr2database/pr2database: PR2 version 5.0.0 (v5.0.0). Zenodo.
                         </div>
-                        <doi link="https://doi.org/10.1016/S0022-2836(05)80360-2"></doi>
+                        <doi link="https://doi.org/10.5281/zenodo.7805244"></doi>
 
             </div>
 
             
 
+            
+
         </div>
+                 
     </div>
     </div>
 

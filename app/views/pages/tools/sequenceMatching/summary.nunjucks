@@ -25,6 +25,11 @@
                           
         </div>
             
+         <div ng-if="vm.selectedMarker === '18S'">
+            <p>Your data have been matched against the <a href="https://pr2-database.org/">PR2</a> v5.0.0 database of 18S sequences</p>
+        
+                          
+        </div>
             <!-- <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="dataset.noDescriptionProvided"></div> -->
         </div>
         <div class="col-xs-12">

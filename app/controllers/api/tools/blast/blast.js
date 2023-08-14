@@ -36,9 +36,9 @@ async function decorateWithGBIFspecies(e) {
     let url = apiConfig.taxon.url + 'match2?name=' + e.name;
     let nub = await request({method: 'GET', url: url, json: true});
     let nubMatch = nub.body;
-    if (['UNRANKED', 'SPECIES'].includes(_.get(nubMatch, 'usage.rank'))) {
-        const species = nubMatch.classification.find((t) => t.rank === 'SPECIES');
-        if (_.get(species, 'name') === e.name || _.get(nubMatch, 'usage.name') === e.name) {
+    if (_.get(nubMatch, 'diagnostics.matchType') === 'EXACT') {
+        const canonical = nubMatch.classification.find((t) => _.get(nubMatch, 'usage.key') === t.key);
+        if (_.get(canonical, 'name') === e.name || _.get(nubMatch, 'usage.name') === e.name) {
             let formatted = await scientificName.getParsedName(
                 nubMatch.usage.key
             );
