@@ -259,7 +259,7 @@ module.exports = function(nunjucksConfiguration) {
                 return false;
             }
             if (data.startsWith('urn:lsid:')) {
-                return 'http://lsid.info/' + data;
+                return 'https://lsid.info/' + data;
             }
             if (data.startsWith('avibase-')) {
               return 'https://avibase.ca/' + data.substring(8);
