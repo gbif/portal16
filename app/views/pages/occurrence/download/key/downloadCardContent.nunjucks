@@ -71,6 +71,14 @@
                                     </dd>
                                 </div>
                             {% endif %}
+                            {% if download.record.numberOrganizations %}
+                                <div>
+                                    <dt>{$ __('downloadKey.constituentOrganizations') $}</dt>
+                                    <dd>
+                                        <span>{{ {$ download.record.numberOrganizations $} | localNumber}} </span>
+                                    </dd>
+                                </div>
+                            {% endif %}
                         {% endif %}
                     </dl>
                 </div>
