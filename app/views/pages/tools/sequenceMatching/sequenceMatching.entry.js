@@ -99,6 +99,16 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             'TGAGGAATATTGGACAATGGAGGCAACTCTGATCCAGCCATGCCGCGTGCAGGATGACTGCCCTATGGGTTGTAAACTGCTTTTATACAGGAAGAAACATCTCTACGTGTAGAGACTTGACGGTACTGTAAGAATAAGGATCGGCTAACTCCGTGCCAGCAGCCGCGGTAATACGGAGGATCCAAGCGTTATCCGGAATCATTGGGTTTAAAGGGTCCGTAGGTGGATAATTAAGTCAGAGGTGAAATCCTGCAGCTCAACTGTAGAATTGCCTTTGATACTGGTTATCTTGAATTATTGTGAAGTAGTTAGAATATGTAGTGTAGCGGTGAAATGCATAGATATTACATAGAATACCGATTGCGAAGGCAGATTACTAACAATATATTGACACTGATGGACGAAAGCGTGGGGAGCGAACA\n' +
             '>SMHI:BalticPicoplankton:16S21:ASV:91817edabd5d2aeddb1fa1507a0bcf3b\n' +
             'TGGGGAATATTGCACAATGGGCGAAAGCCTGATGCAGCCATGCCGCGTGTGTGAAGAAGGCTCTAGGGTTGTAAAGCACTTTCAGTAGGGAGGAAAAGCTTAAGGTTAATAACCTTGAGCCCTGACGTTACCTACAGAAGAAGCACCGGCAAACTCCGTGCCAGCAGCCGCGGTAATACGGAGGGTGCGAGCGTTAATCGGAATTACTGGGCGTAAAGCGCGCGTAGGTGGTTTGATAAGCTAGCTGTGAAAGCCCCGGGCTCAACCTGGGAACTGCAGTTAGAACTGTCTGGCTAGAGTATAGTAGAGGGTGGCGGAATTTCCTGTGTAGCGGTGAAATGCGTAGATATAGGAAGGAACATCAGTGGCGAAGGCGGCCACCTGGACTAATACTGACACTGAGGTGCGAAAGCGTGGGGAGCAAACA\n';
+        } else if (vm.selectedMarker === '12S') {
+            vm.inputList =
+            '>ASV1\n' +
+            'caccgcggttatacgagggacccaagttgacagctgccggcgtaaagagtggttaagatagacccaaactaaagtcgaacaacttcaaagctgttatacgcttatgaaaaaacgaagcccaacaacgaaagtgactttaacttttctgattccacgaaagctagggaa\n' +
+            '>ASV2\n' +
+            'caccgcggttatacgagaggcccaagttaacggacattcggcgtaaagagtggttaaattttctttttactaaagccgaacgcccccactactgttatacgttttcgggggtaagaagcccctaacgaaagtagctttacctacattgaccccacgaaagctgtgaaa\n' +
+            '>ASV3\n' +
+            'caccgcggccatacgagtgttagcccaagtggacagttagcggcgtaaagcgtggttagagaattgccccaactaaagctgaagtacctcaaggctgtcgcacgcacccgagaatattaaacccaaccacgaaagtgactttaacccaactcgaacccacgaaagctgaggga\n' +
+            '>ASV4\n' +
+            'taccgcggttatacgagaggcccaagttgataagcatcggcgtaaagagtggttatggttaaataaatactaaagctgaacacttacaaagctgttatacgctcccgaaaataagaagaacaactacgaaagtggctttattacacccgaacccacgaaagccaaggca\n'
         }
     };
 
