@@ -72,12 +72,12 @@
     "relativeOrganismQuantity": "Относительное обилие вида",
     "collectionKey": "Коллекция",
     "institutionKey": "Организация",
-    "gadmGid": "",
+    "gadmGid": "Административные районы (gadm.org)",
     "lifeStage": "Стадия жизненного цикла",
-    "pathway": "",
+    "pathway": "Фильтрация путей",
     "degreeOfEstablishment": "",
     "dwcaExtension": "",
-    "isInCluster": "",
-    "iucnRedListCategory": ""
+    "isInCluster": "Имеет связанные записи",
+    "iucnRedListCategory": "Категория глобального красного списка IUCN (МСОП)"
   }
 }
