@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "Лицензия не может быть проанализирована, не поддерживается GBIF или просто отсутствует",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Запись не идентифицирована однозначно",
       "UNREADABLE_SECTION_ERROR": "Ошибка чтения раздела",
-      "UNHANDLED_ERROR": "",
+      "UNHANDLED_ERROR": "Необработанная ошибка",
       "NoIssuesFound": "Проблемы не найдены"
     },
     "fileFormat": {
