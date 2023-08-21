@@ -52,13 +52,13 @@
       "ORANGE_CLUSTER": "Оранжевый кластер"
     },
     "tooltips": {
-      "toggleStyle": "",
-      "searchArea": "",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
-      "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "toggleStyle": "Изменить вид карты",
+      "searchArea": "Область поиска",
+      "addRectangleFilter": "Нарисовать прямоугольник и добавить его как фильтр",
+      "addPolygonFilter": "Нарисовать область и добавить её как фильтр",
+      "removeGeometryFilter": "Удалить геометрический фильтр ",
+      "zoomIn": "Увеличить",
+      "zoomOut": "Уменьшить"
     },
     "errors": {
       "413": "Файл геометрии слишком большой для обработки API."
