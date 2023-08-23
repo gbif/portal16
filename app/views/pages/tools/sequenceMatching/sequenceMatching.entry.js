@@ -108,7 +108,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             '>ASV3\n' +
             'caccgcggccatacgagtgttagcccaagtggacagttagcggcgtaaagcgtggttagagaattgccccaactaaagctgaagtacctcaaggctgtcgcacgcacccgagaatattaaacccaaccacgaaagtgactttaacccaactcgaacccacgaaagctgaggga\n' +
             '>ASV4\n' +
-            'taccgcggttatacgagaggcccaagttgataagcatcggcgtaaagagtggttatggttaaataaatactaaagctgaacacttacaaagctgttatacgctcccgaaaataagaagaacaactacgaaagtggctttattacacccgaacccacgaaagccaaggca\n'
+            'taccgcggttatacgagaggcccaagttgataagcatcggcgtaaagagtggttatggttaaataaatactaaagctgaacacttacaaagctgttatacgctcccgaaaataagaagaacaactacgaaagtggctttattacacccgaacccacgaaagccaaggca\n';
         }
     };
 
