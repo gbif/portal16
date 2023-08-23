@@ -253,11 +253,11 @@ function resourceCtrl($state, ResourceFilter, $rootScope, Species, Dataset, Netw
         queryKey: 'gbifProgrammeAcronym',
         filter: ResourceFilter,
         facets: {
-            hasFacets: false,
+            hasFacets: true,
             facetKey: 'GBIF_PROGRAMME_ACRONYM'
         },
         search: {
-            isSearchable: true
+            isSearchable: false
         }
     };
 
