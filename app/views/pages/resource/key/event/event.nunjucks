@@ -33,7 +33,7 @@
                                 {% endif %}
                                 
                                 {% if main.fields.country %}
-                                <div><a href="#where" class="inherit"><span class="gb-icon-marker"></span>{$ __('country.' + main.fields.country.sys.id) $}</a></div>
+                                <div><a href="#where" class="inherit"><span class="gb-icon-marker"></span>{$ __('country.' + resolved.Entry[main.fields.country.sys.id].fields.isoCode ) $}</a></div>
                                 {% endif %}
 
                             </div>
@@ -72,7 +72,7 @@
                                 {% if main.fields.country %}
                                     <div>
                                         <dt>{$ __('resource.country') $}</dt>
-                                        <dd>{$ __('country.' + main.fields.country.sys.id) $}</dd>
+                                        <dd>{$ __('country.' + resolved.Entry[main.fields.country.sys.id].fields.isoCode ) $}</dd>
                                     </div>
                                 {% endif %}
                                 <div>

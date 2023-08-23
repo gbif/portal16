@@ -1,8 +1,11 @@
 {% set componentType = main.fields.componentType %}
 <div class="horizontal-stripe {$ main.fields.backgroundColour | default("white") $}-background">
-    <div class="container--narrow">
+    <div class="container--{$ main.fields.width | default("narrow") $}">
         {% if componentType == "hostedPortalForm" %}
          <hosted-portal-form />
+        {% endif %}
+        {% if componentType == "projects" %}
+         <programme-projects programme-id="{$ main.fields.settings.programmeId $}" table-style="{$ main.fields.settings.tableStyle $}" />
         {% endif %}
     </div>
 </div>

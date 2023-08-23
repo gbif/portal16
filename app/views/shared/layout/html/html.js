@@ -466,6 +466,7 @@ require('../../../components/focusMe/focusMe.directive');
 
 // page components that can be managed through Contentful
 require('../../../components/pageComponents/hostedPortalForm/hostedPortalForm.directive');
+require('../../../components/pageComponents/programmeProjects/programmeProjects.directive');
 
 require('./angular/translate');
 

@@ -5,7 +5,7 @@
         "messages": "Mensajes",
         "version": "Versión",
         "releaseNotes": "Notas de la versión",
-        "nInQueue": "en cola",
+        "nInQueue": "{NUMBER} en cola",
         "status": {
             "OPERATIONAL": "Operacional",
             "WARNING": "Inestable",
