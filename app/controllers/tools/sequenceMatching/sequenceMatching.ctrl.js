@@ -11,7 +11,7 @@ router.get('/tools/sequence-id', function(req, res) {
     res.render('pages/tools/sequenceMatching/sequenceMatching', {
         _meta: {
             title: req.__('Sequence ID'),
-            description: req.__('A tool for identifying fungal DNA sequences')
+            description: req.__('A tool for identifying DNA sequences')
         }
     });
 });
@@ -20,7 +20,7 @@ router.get('/tools/sequence-id/about', function(req, res) {
     res.render('pages/tools/sequenceMatching/sequenceMatching', {
         _meta: {
             title: req.__('Sequence ID'),
-            description: req.__('A tool for identifying fungal DNA sequences')
+            description: req.__('A tool for identifying DNA sequences')
         }
     });
 });
