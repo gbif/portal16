@@ -180,6 +180,15 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     }
   };
 
+  vm.filters.gbifId = {
+    titleTranslation: 'filterNames.gbifId',
+    queryKey: 'gbif_id',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true
+    }
+  };
+
   vm.filters.recordNumber = {
     titleTranslation: 'filterNames.recordNumber',
     queryKey: 'record_number',

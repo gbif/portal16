@@ -36,6 +36,7 @@
     "license": "License",
     "organismId": "Organism id",
     "depth": "Depth",
+    "gbifId": "GBIF ID",
     "occurrenceId": "Occurrence id",
     "hasCoordinate": "Has coordinate",
     "repatriated": "Repatriated",
