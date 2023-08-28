@@ -18,7 +18,6 @@ helpdesk@gbif.org
 <!--[if IE]>
 <html lang="en" class="ie" ng-app="portal">
 <![endif]-->
-
 <head ng-controller="headCtrl as head">
     {% include "../partials/head/head.nunjucks" %}
     {% block head %}{% endblock %}
@@ -26,7 +25,8 @@ helpdesk@gbif.org
 </head>
 <body class="
     {% if gb.locales.rtl %} rtl {% endif %} 
-    {% if _meta.bodyClass | isNotEmpty %}{$ _meta.bodyClass $}{% endif %}
+    {% if _meta.bodyClass | isNotEmpty %}{$ _meta.bodyClass $}{% endif %} 
+    env_{$ gb.env $}
 " 
     ng-init="portal.urlPrefix='{$ gb.locales.urlPrefix $}';BUILD_VERSION={$ BUILD_VERSION $}"
     ng-class="{'hasDrawer': portal.getDrawer()}"

@@ -30,6 +30,12 @@
                 </div>
             </div>
         </div>
+        {% if gb.env != "prod" %}
+        <div class="feedback_env_warning">
+            <p>{$ __('phrases.testSiteWarning') $}</p>
+            <p><a class="gb-button--error" href="https://www.gbif.org">GBIF.org</a></p>
+        </div>
+        {% endif %} 
         <div class="menubox__content">
 
             {# LIST OF ISSUES FROM OTHER USERS #}

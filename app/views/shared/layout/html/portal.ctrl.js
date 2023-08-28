@@ -8,7 +8,7 @@ angular
     .controller('portalCtrl', portalCtrl);
 
 /** @ngInject */
-function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVENTS, $sce, env, constantKeys, NAV_EVENTS, IS_TOUCH, LOCALE, Page, User, $state) {
+function portalCtrl($scope, $rootScope, $sessionStorage, toastService, BUILD_VERSION, AUTH_EVENTS, $sce, env, constantKeys, NAV_EVENTS, IS_TOUCH, LOCALE, Page, User, $state) {
     var vm = this;
     vm.env = env;
     vm.BUILD_VERSION = BUILD_VERSION;
@@ -20,6 +20,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     vm.mapCapabilities = env.mapCapabilities;
     vm.IS_TOUCH = IS_TOUCH;
     vm.LOCALE = LOCALE;
+    vm.isNotProd = env.env !== 'prod';
     vm.getDrawer = Page.drawer;
 
     vm.openHelpdesk = function(type) {
@@ -60,6 +61,10 @@ function portalCtrl($scope, $rootScope, $sessionStorage, BUILD_VERSION, AUTH_EVE
     vm.trustAsHtml = function(htmlCode) {
         return $sce.trustAsHtml(htmlCode);
     };
+    if (vm.isNotProd && !$sessionStorage.hasShownNotProdWarning) {
+        $sessionStorage.hasShownNotProdWarning = true;
+        toastService.error({translate: 'phrases.testSiteWarning'});
+    }
 }
 
 module.exports = portalCtrl;

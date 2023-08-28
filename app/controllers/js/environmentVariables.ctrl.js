@@ -15,6 +15,7 @@ localeConfig.locales.forEach(function(e) {
 
 let unLanguages = ['en', 'ar', 'zh', 'fr', 'ru', 'es'];
 let environment = {
+    env: config.env,
     managementToolsSite: config.managementToolsSite,
     registry: config.registry,
     dataApiV2: config.dataApiV2,

@@ -82,6 +82,7 @@ function use(app, locales, defaultLocale) {
                 topDomain: config.topDomain
             };
         }
+        res.locals.gb.env = config.env;
         // console.log();
         next();
     });
