@@ -19,7 +19,7 @@ angular
     .controller('becomePublisherCtrl', becomePublisherCtrl);
 
 /** @ngInject */
-function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry, $scope, $sessionStorage, NOTIFICATIONS) {
+function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints, Publisher, DirectoryParticipants, Node, NodeCountry, $scope, $sessionStorage, NOTIFICATIONS, AUTH_EVENTS, User) {
     var vm = this;
     vm.MAGIC_OBIS_KEY = constantKeys.node.OBIS_NODE_KEY;
     vm.state = {
@@ -274,6 +274,21 @@ function becomePublisherCtrl($timeout, $q, $http, constantKeys, suggestEndpoints
     $scope.$on(NOTIFICATIONS.CHANGED, function(event, notifications) {
         vm.notifications = notifications;
     });
+           // keep track of whether the user is logged in or not
+    function setLoginState() {
+        vm.hasUser = !!$sessionStorage.user;
+    }
+    $scope.$on(AUTH_EVENTS.LOGOUT_SUCCESS, function() {
+        setLoginState();
+    });
+    $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
+        setLoginState();
+    });
+    $scope.$on(AUTH_EVENTS.USER_UPDATED, function() {
+        setLoginState();
+    });
+    User.loadActiveUser();
+    setLoginState();
 }
 
 module.exports = becomePublisherCtrl;
