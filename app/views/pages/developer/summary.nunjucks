@@ -221,7 +221,7 @@
                         </li>
                         <li>The base URL includes the version as appropriate.</li>
                     </ol>
-                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a>. (For questions and help see <a href="#communication>above</a>.)</p>
+                    <p>Feedback from developers on the API can be sent to <a href="mailto:informatics@gbif.org">informatics@gbif.org</a>. (For questions and help see <a href="#communication">above</a>.)</p>
                 </div>
             </section>
         </div>
