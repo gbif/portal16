@@ -146,7 +146,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
 
     vm.setItem = function(item, selected) {
         // eslint-disable-next-line max-len
-        var fields = ['scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey', 'canonicalName', 'authorship'];
+        var fields = ['scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'kingdomKey', 'phylumKey', 'classKey', 'orderKey', 'familyKey', 'genusKey', 'speciesKey', 'accepted', 'acceptedKey', 'canonicalName', 'authorship', 'acceptedUsageKey', 'usageKey'];
         fields.forEach(function(field) {
             item[field] = selected[field];
         });
@@ -198,7 +198,7 @@ function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, consta
     };
 
     vm.generateCsv = function() {
-        var fields = ['occurrenceId', 'verbatimScientificName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'canonicalName', 'authorship'];
+        var fields = ['occurrenceId', 'verbatimScientificName', 'scientificName', 'key', 'matchType', 'confidence', 'status', 'rank', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species', 'canonicalName', 'authorship', 'usageKey', 'acceptedUsageKey'];
         var csvContent = '';
 
         // write column names
