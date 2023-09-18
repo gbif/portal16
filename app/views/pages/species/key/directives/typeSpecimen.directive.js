@@ -23,7 +23,7 @@ function typeSpecimenDirective() {
     return directive;
 
     /** @ngInject */
-    function typeSpecimenCtrl(OccurrenceTableSearch) {
+    function typeSpecimenCtrl(OccurrenceTableSearch, constantKeys) {
         var vm = this;
         vm.specimen;
 
@@ -38,7 +38,7 @@ function typeSpecimenDirective() {
             // sort by type
             vm.specimen = _.sortBy(
                 _.filter(data.results, function(o) {
-                    return !_.find(o.issues, function(o) {
+                    return o.datasetKey !== constantKeys.dataset.austrian_mycological_society && !_.find(o.issues, function(o) {
                         return o == 'TAXON_MATCH_HIGHERRANK';
                     }) && o.taxonRank === vm.rank;
                 }), ['typeStatus', 'year', 'occurrenceID']);
