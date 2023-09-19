@@ -74,7 +74,7 @@
     "TAXON_MATCH_TAXON_ID_IGNORED": "Taxon match taxon ID ignored",
     "SCIENTIFIC_NAME_ID_NOT_FOUND": "Scientific name ID not found",
     "TAXON_CONCEPT_ID_NOT_FOUND": "Taxon concept ID not found",
-    "TAXON_ID_NOT_FOUND": "Taxon id not found",
+    "TAXON_ID_NOT_FOUND": "Taxon ID not found",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Scientific name and ID inconsistent",
     "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Taxon match name and ID ambiguous"
   }
