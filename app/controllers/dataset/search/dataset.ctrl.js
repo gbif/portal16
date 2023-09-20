@@ -1,3 +1,5 @@
+const rewriteParamCase = require('../../../middleware/paramCase/paramCase');
+
 let express = require('express'),
     router = express.Router({caseSensitive: true});
 
@@ -28,6 +30,6 @@ router.get('/', function(req, res) {
     res.redirect(302, './dataset/search');
 });
 
-router.get('/search', function(req, res) {
+router.get('/search', rewriteParamCase(), function(req, res) {
     searchHandler(req, res);
 });
