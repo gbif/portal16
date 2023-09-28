@@ -79,15 +79,15 @@ function date(dateToFormat, locale, format) {
         day = moment.unix(dateToFormat).locale(locale);
     } else {
         day = moment(dateToFormat, dateFormats).locale(locale);
-    }
-    // depending on the resolution of the provided date, then we need to format it accordingly. e.g. 2017-01-01 vs 2017-01 The latter should be formatted as January 2017
-    let parts = dateToFormat.split('-');
-    if (parts.length === 1) {
-        return day.format('YYYY');
-    } else if (parts.length === 2) {
-        return day.format('YYYY MMMM');
-    } else if (parts.length === 3) {
-        return day.format(format);
+        // depending on the resolution of the provided date, then we need to format it accordingly. e.g. 2017-01-01 vs 2017-01 The latter should be formatted as January 2017
+        let parts = dateToFormat.split('-');
+        if (parts.length === 1) {
+            return day.format('YYYY');
+        } else if (parts.length === 2) {
+            return day.format('YYYY MMMM');
+        } else if (parts.length === 3) {
+            return day.format(format);
+        }
     }
     return day.format(format);
 }
