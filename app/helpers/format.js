@@ -64,14 +64,30 @@ moment.updateLocale('en', {
 // We missed 'YYYY-MM-DD' here which produced odd results
 let dateFormats = ['YYYY-MM', 'YYYY-MM-DD', 'YYYY-MM-DD k:mm:ss', 'ddd, DD MMM YYYY HH:mm:ss ZZ', 'ddd, DD MMM YY HH:mm:ss ZZ', 'YYYY-MM-DDTHH:mm Z'];
 
-function date(date, locale, format) {
+function date(dateToFormat, locale, format) {
     let day;
+    if (typeof dateToFormat === 'string' && dateToFormat.indexOf('/') > -1) {
+        // it is a range
+        //split into 2 parts
+        let parts = dateToFormat.split('/');
+        // and return as a range start - end
+        return date(parts[0], locale, format) + ' - ' + date(parts[1], locale, format);
+    }
     locale = localeConfig.localeMappings.moment[locale] || defaultLanguage;
     format = _.isUndefined(format) ? 'LL' : format; // localized format http://momentjs.com/docs/#/displaying/format/
-    if (!isNaN(Number(date))) {
-        day = moment.unix(date).locale(locale);
+    if (!isNaN(Number(dateToFormat)) && dateToFormat.toString().length > 4) {
+        day = moment.unix(dateToFormat).locale(locale);
     } else {
-        day = moment(date, dateFormats).locale(locale);
+        day = moment(dateToFormat, dateFormats).locale(locale);
+    }
+    // depending on the resolution of the provided date, then we need to format it accordingly. e.g. 2017-01-01 vs 2017-01 The latter should be formatted as January 2017
+    let parts = dateToFormat.split('-');
+    if (parts.length === 1) {
+        return day.format('YYYY');
+    } else if (parts.length === 2) {
+        return day.format('YYYY MMMM');
+    } else if (parts.length === 3) {
+        return day.format(format);
     }
     return day.format(format);
 }

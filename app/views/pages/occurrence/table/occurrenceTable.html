@@ -100,7 +100,7 @@
                                 </td>
                                 <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('eventDate')">
                                     <a ui-sref="occurrenceKey({key:result.key})" ng-if="result.eventDate">
-                                        {{result.eventDate | momentFormat:'YYYY MMMM'}}
+                                        {{result.eventDate | momentFormatRange}}
                                     </a>
                                 </td>
                                 <td dir="auto" class="table-cell--normal" ng-if="occTable.showCol('occurrenceStatus')">
