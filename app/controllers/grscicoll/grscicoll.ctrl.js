@@ -14,6 +14,20 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
+/*
+GrSciColl on gbif.org is soon to be deprecated. The new site is hosted on grscicoll.org
+Old URLs should simply redirect to the new site, but keep the path and parameters as they are the same for the new site.
+*/
+/*router.get('/grscicoll/*', function(req, res, next) {
+    // new grscicoll domain
+    const grscicollDomain = 'https://scientific-collections.gbif.org/';
+    // redirect to  new site, but keep the path and parameters as they are the same for the new site. Except the trailing grscicoll part
+    let path = req.originalUrl.replace('/grscicoll', '');
+    // if the path is empty, we are on the root page and should not redirect
+    let url = grscicollDomain + path;
+    res.redirect(302, url);
+});*/
+
 router.get('/grscicoll', render);
 router.get('/grscicoll/collection/search', render);
 router.get('/grscicoll/institution/search', render);
