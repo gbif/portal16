@@ -19,6 +19,7 @@
     "recordedById": "Recorded by ID",
     "identifiedBy": "Identified by",
     "identifiedById": "Identified by ID",
+    "geoDistance": "Distance from point",
     "eventDate": "Event date",
     "eventId": "Event ID",
     "samplingProtocol": "Sampling protocol",

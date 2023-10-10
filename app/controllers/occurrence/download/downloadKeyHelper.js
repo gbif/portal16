@@ -24,6 +24,10 @@ function addChildKeys(predicate) {
             predicate.key = 'GEOMETRY';
             predicate.value = predicate.geometry;
         }
+        if (predicate.type == 'geoDistance') {
+            predicate.key = 'GEO_DISTANCE';
+            predicate.value = predicate.latitude + ',' + predicate.longitude + ',' + predicate.distance;
+        }
         if (predicate.type == 'isNotNull') {
             predicate.key = predicate.parameter;
         }

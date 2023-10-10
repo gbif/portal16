@@ -18,6 +18,12 @@ const schema = Joi.alternatives().try(
     predicate: Joi.link('#predicateItem')
   }),
   Joi.object({
+    type: Joi.string().valid('geoDistance').required(),
+    latitude: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    longitude: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    distance: Joi.string().required(),
+  }),
+  Joi.object({
     type: Joi.string().valid('equals').required(),
     key: Joi.string().required(),
     value: Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool()).required(),
