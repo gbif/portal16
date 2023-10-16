@@ -44,7 +44,7 @@
     "publishers": "",
     "memberSince": "",
     "participant": "",
-    "pPublishers": "",
+    "pPublishers": "{NUMBER, plural, one{Herausgeber} other{Herausgeber}}",
     "pOccurrence": "{NUMBER, plural, one {Vorkommnis} other {Vorkommnisse}}",
     "occurrenceDatasets": "",
     "occurrences": "",
