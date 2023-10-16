@@ -45,7 +45,7 @@
     "memberSince": "",
     "participant": "",
     "pPublishers": "",
-    "pOccurrence": "",
+    "pOccurrence": "{NUMBER, plural, one {Vorkommnis} other {Vorkommnisse}}",
     "occurrenceDatasets": "",
     "occurrences": "",
     "occurrencesHostedBy": ""
