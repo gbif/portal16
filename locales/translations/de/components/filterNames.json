@@ -1,6 +1,6 @@
 {
   "filterNames": {
-    "occurrenceStatus": "Occurrence-Status",
+    "occurrenceStatus": "Status des Vorkommens",
     "month": "Monat",
     "catalogNumber": "Katalognummer",
     "year": "Jahr",
@@ -74,8 +74,8 @@
     "institutionKey": "Institution",
     "gadmGid": "Verwaltungsbereiche (gadm.org)",
     "lifeStage": "Lebensstadium",
-    "pathway": "",
-    "degreeOfEstablishment": "",
+    "pathway": "Verbringungsweg",
+    "degreeOfEstablishment": "Grad der Etablierung",
     "dwcaExtension": "DWCA-Erweiterung",
     "isInCluster": "Ist Teil eines Clusters",
     "iucnRedListCategory": "Kategorie in der Roten Liste gefährdeter Arten"
