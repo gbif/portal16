@@ -21,12 +21,19 @@ Old URLs should simply redirect to the new site, but keep the path and parameter
 router.get('/grscicoll', redirect);
 router.get('/grscicoll/*', redirect);
 
+let supportedLanguagesOnGrSciColl = {
+    // 'es': 'es',
+}
 function redirect(req, res, next) {
     // new grscicoll domain
     const grscicollDomain = 'https://scientific-collections.gbif.org';
     // redirect to  new site, but keep the path and parameters as they are the same for the new site. Except the trailing grscicoll part
-    let path = req.originalUrl.replace('/grscicoll', '');
+    let path = req.url.replace('/grscicoll', '');
     // if the path is empty, we are on the root page and should not redirect
+    // if the locale is a supported language, then insert that before the path
+    if (req.locale && supportedLanguagesOnGrSciColl[req.locale]) {
+        path = '/' + supportedLanguagesOnGrSciColl[req.locale] + path;
+    }
     let url = grscicollDomain + path;
     res.redirect(302, url);
 }
