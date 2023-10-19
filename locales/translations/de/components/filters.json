@@ -31,17 +31,17 @@
             "east": "Ost",
             "withCoordinates": "Mit Koordinaten",
             "withoutCoordinates": "Ohne Koordinaten",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
-            "range": "",
-            "noFiltersAdded": "",
-            "wktPlaceholder": "",
-            "invalidTextInput": "",
-            "tooLarge": "",
-            "tooLargeSuggestion": "",
-            "invalidRange": ""
+            "includeFlaggedAsSuspicious": "Schließe Einträge mit ein, bei denen die Koordinaten als verdächtig markiert wurden",
+            "onlyShowFlagged": "Zeige nur Einträge, die als verdächtig markiert wurden",
+            "past": "Kürzlich verwendet",
+            "geojson": "GeoJSON",
+            "range": "Verbreitungsgebiet",
+            "noFiltersAdded": "Kein Bereichsfilter hinzugefügt",
+            "wktPlaceholder": "WKT oder GeoJSON",
+            "invalidTextInput": "Ungültiger WKT oder GeoJSON",
+            "tooLarge": "Geometrie zu groß",
+            "tooLargeSuggestion": "Versuchen Sie stattdessen eine Boundary-Box zu verwenden und stattdessen lokal zu filtern",
+            "invalidRange": "Ungültige Boundary Box"
         }
     }
 }
