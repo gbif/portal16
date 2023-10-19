@@ -31,7 +31,7 @@
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
-    "datasets": "",
+    "datasets": "Datensätze",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
@@ -41,8 +41,8 @@
       "HEAD_OF_DELEGATION": "",
       "NODE_MANAGER": ""
     },
-    "publishers": "",
-    "memberSince": "",
+    "publishers": "Herausgeber",
+    "memberSince": "Mitglied seit",
     "participant": "",
     "pPublishers": "{NUMBER, plural, one{Herausgeber} other{Herausgeber}}",
     "pOccurrence": "{NUMBER, plural, one {Vorkommnis} other {Vorkommnisse}}",
