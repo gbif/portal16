@@ -1,36 +1,36 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
-        "clear": "",
-        "add": "",
+        "searchPlaceholder": "Suche",
+        "noPreference": "Keine Präferenz",
+        "invert": "Umkehren",
+        "clear": "Löschen",
+        "add": "Hinzufügen",
         "repatriation": {
-            "description": ""
+            "description": "Daten werden als 'zurückgeführt' bezeichnet, wenn sie von einer Institution in einem Land veröffentlicht werden, aber sie betreffen die biologische Vielfalt in einem anderen Land"
         },
         "isClustered": {
-            "description": ""
+            "description": "Diese experimentelle Funktion hebt mögliche Duplikate und/oder damit zusammenhängende Vorkommen hervor."
         },
         "occurrenceStatus": {
-            "description": "",
+            "description": "'Abwesend' wird auf einen Vorkommnis-Datensatz angewendet, wenn bei einer Begutachtung eines Taxons zu einem bestimmten Zeitpunkt und Ort keine Individuen gefunden wurden",
             "options": {
-                "yes": "",
-                "no": "",
-                "all": ""
+                "yes": "Vorhanden",
+                "no": "Abwesend",
+                "all": "Alles"
             }
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "Ja",
+            "no": "Nein",
+            "all": "Alle"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
+            "north": "Nord",
+            "south": "Süd",
+            "west": "West",
+            "east": "Ost",
+            "withCoordinates": "Mit Koordinaten",
+            "withoutCoordinates": "Ohne Koordinaten",
             "includeFlaggedAsSuspicious": "",
             "onlyShowFlagged": "",
             "past": "",
