@@ -1,29 +1,29 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
-            "datasets": "",
-            "publishers": "",
-            "literature": ""
+            "occurrences": "Beobachtungsdaten",
+            "datasets": "Datensätze",
+            "publishers": "Veröffentlichende Institution",
+            "literature": "Peer-Review Papiere mit Daten"
         },
-        "aboutGbifCountry": "",
-        "summary": "",
-        "whatIsGbif": "",
+        "aboutGbifCountry": "Über GBIF {COUNTRY}",
+        "summary": "Freier und offener Zugang zu Daten der biologischen Vielfalt",
+        "whatIsGbif": "Was ist GBIF?",
         "featureTypes": {
-            "event": "",
-            "news": "",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
+            "event": "Veranstaltung",
+            "news": "Neuigkeiten",
+            "resource": "Ressource",
+            "dataUse": "Nutzung der Daten",
+            "project": "Projekt",
+            "programme": "Programm",
+            "document": "Dokument",
+            "tool": "Werkzeug ",
             "literature": "Literatur",
-            "treatment": "",
-            "blog": "",
-            "guidance": "",
-            "data": "",
-            "video": ""
+            "treatment": "Taxonomie",
+            "blog": "Blog",
+            "guidance": "Leitfaden",
+            "data": "Daten",
+            "video": "Video"
         }
     }
 }
