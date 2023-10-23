@@ -193,6 +193,7 @@ let allowedKeys = [
   'WATER_BODY',
   'YEAR',
   'HOSTING_ORGANIZATION_KEY',
+  'IUCN_RED_LIST_CATEGORY',
   'IS_IN_CLUSTER'
 ];
 
