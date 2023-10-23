@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "Systemzustand",
+        "description": "Was ist der Status der verschiedenen GBIF-Dienste",
+        "updatedTimeAgo": "{TIME_AGO} aktualisiert",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "Alle System funktionsfähig",
+            "INFO": "Alle System funktionsfähig",
+            "WARNING": "Wir erleben instabile oder langsame Systeme",
+            "CRITICAL": "Wir erleben einen Teilausfall"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Dienste instabil",
+                "summary": "Wir erleben derzeit langsame oder instabile Dienste."
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Dienste nicht verfügbar",
+                "summary": "Wir erleben einen Teilausfall"
             }
         }
     }

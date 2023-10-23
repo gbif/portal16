@@ -8,7 +8,7 @@
             "pleaseDescribeTheDataset": "",
             "thankYou": "Vielen Dank",
             "form": {
-                "title": "",
+                "title": "Titel",
                 "link": "",
                 "region": "",
                 "taxon": "",
@@ -67,12 +67,12 @@
         },
         "derivedDataset": {
             "title": "",
-            "titleField": "",
+            "titleField": "Titel",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
             "datasetKey": "",
-            "occurrenceCount": "",
+            "occurrenceCount": "Anzahl Vorkommen",
             "submit": "",
             "pleaseFill": "",
             "loginToCreate": "",

@@ -5,7 +5,7 @@
     "sourceUrl": "",
     "headlineDatasets": "",
     "headlineOccurrences": "",
-    "title": "",
+    "title": "Titel",
     "description": "",
     "originalDownloadDOI": ""
   },
@@ -67,7 +67,7 @@
         "not": ""
       },
       "and": "",
-      "or": "",
+      "or": "Oder",
       "not": "",
       "isNotNull": "",
       "isNull": ""
