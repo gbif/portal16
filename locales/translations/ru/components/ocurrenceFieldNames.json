@@ -183,7 +183,7 @@
     "identifiedBy": "Кем определено",
     "dateIdentified": "Дата определения",
     "identificationReferences": "Ссылка на определение",
-    "identificationVerificationStatus": "Определение проверено",
+    "identificationVerificationStatus": "Статус проверки идентификации",
     "identificationRemarks": "Комментарии к определению",
     "taxonID": "ID таксона",
     "scientificNameID": "ID латинского названия",
