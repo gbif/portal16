@@ -30,6 +30,7 @@ function builder(locale, folder, keepEmptyStrings) {
         getFile(locale, `./${folder}/${locale}/enums/continent`),
         getFile(locale, `./${folder}/${locale}/enums/country`),
         getFile(locale, `./${folder}/${locale}/enums/discipline`),
+        getFile(locale, `./${folder}/${locale}/enums/directory`),
         getFile(locale, `./${folder}/${locale}/enums/downloadFormat`),
         getFile(locale, `./${folder}/${locale}/enums/dwcaExtension`),
         getFile(locale, `./${folder}/${locale}/enums/endpointType`),
