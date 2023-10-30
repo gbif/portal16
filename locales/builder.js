@@ -54,6 +54,7 @@ function builder(locale, folder, keepEmptyStrings) {
         getFile(locale, `./${folder}/${locale}/enums/projections`),
         getFile(locale, `./${folder}/${locale}/enums/region`),
         getFile(locale, `./${folder}/${locale}/enums/role`),
+        getFile(locale, `./${folder}/${locale}/enums/gbifRole`),
         getFile(locale, `./${folder}/${locale}/enums/taxonomicStatus`),
         getFile(locale, `./${folder}/${locale}/enums/participationStatus`),
         getFile(locale, `./${folder}/${locale}/enums/taxonRank`),
