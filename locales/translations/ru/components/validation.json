@@ -116,7 +116,7 @@
     "or": "или",
     "selectFile": "Выбрать файл",
     "fetchFileFromLocation": "Извлечь файл из местоположения",
-    "started": "",
+    "started": "Начато",
     "tabs": {
       "newDataValidation": "Новая проверка данных",
       "newValidation": "Новая проверка",
@@ -124,13 +124,13 @@
       "darwinCoreExtensions": "Расширения Darwin Core",
       "metaData": "Мета данные",
       "summary": "Краткое описание",
-      "myValidations": ""
+      "myValidations": "Отчеты о проверке"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
+        "RUNNING": "Выгрузка архива",
+        "FINISHED": "Архив выгружен",
+        "PENDING": "Выгрузить архив",
         "FAILED": "",
         "QUEUED": ""
       },
