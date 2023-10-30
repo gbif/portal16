@@ -21,7 +21,7 @@
     "administrativeContact": "Административные вопросы",
     "header": {
       "publisher": "Организация",
-      "sinceDate": "в GBIF с {DATE}"
+      "sinceDate": "Начиная с {DATE}"
     }
   }
 }
