@@ -77,8 +77,8 @@
           "MARINE": "Морские экосистемы",
           "PHYLOGENETICS": "Филогенетика",
           "SPECIES_DISTRIBUTIONS": "Распространение видов",
-          "INFRASTRUCTURE": "",
-          "DNA": "",
+          "INFRASTRUCTURE": "Инфраструктура",
+          "DNA": "ДНК",
           "TAXONOMY": "Таксономия"
         },
         "purposes": {
