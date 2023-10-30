@@ -43,7 +43,7 @@
     "decimalLatitude": "Широта в десятичных градусах",
     "decimalLongitude": "Долгота в десятичных градусах",
     "publishingOrg": "Организация",
-    "hostingOrganizationKey": "",
+    "hostingOrganizationKey": "Принимающая организация",
     "kingdomKey": "Царство",
     "phylumKey": "Тип / Отдел",
     "classKey": "Класс",
