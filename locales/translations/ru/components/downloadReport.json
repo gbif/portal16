@@ -1,6 +1,6 @@
 {
   "downloadReport": {
-    "title": "",
+    "title": "Отчет о загрузке",
     "knownIssues": "Известные ошибки",
     "knownIssuesDescription": "Часть обработки данных службами GIBIF - это пометка данных о находках видах, которые содержат сомнительные поля",
     "FossilsIncluded": "Ископаемые",
@@ -34,17 +34,17 @@
     "minutes": "Минуты"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "Настройки загрузки",
     "content": {
-      "rawData": "",
-      "interpretedData": "",
+      "rawData": "Необработанные данные",
+      "interpretedData": "Интерпретированные данные",
       "images": "Мультимедиа",
       "coordinates": "Координаты",
       "fileFormat": "Формат",
-      "estimatedSize": ""
+      "estimatedSize": "Предполагаемый размер данных"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "CSV с разделителями табуляции (для использования в Excel и т.д.)"
     },
     "tableValues": {
       "yes": "",
