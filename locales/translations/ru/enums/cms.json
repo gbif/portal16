@@ -38,7 +38,7 @@
           "REGIONAL": "Региональный грант",
           "SMALL": "Малый грант",
           "NATIONAL": "Национальный грант",
-          "DATA_USE": "",
+          "DATA_USE": "Разрешение на использование данных",
           "undefined": "Не указано"
         },
         "projectStatus": {
@@ -77,8 +77,8 @@
           "MARINE": "Морские экосистемы",
           "PHYLOGENETICS": "Филогенетика",
           "SPECIES_DISTRIBUTIONS": "Распространение видов",
-          "INFRASTRUCTURE": "",
-          "DNA": "",
+          "INFRASTRUCTURE": "Инфраструктура",
+          "DNA": "ДНК",
           "TAXONOMY": "Таксономия"
         },
         "purposes": {
