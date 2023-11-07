@@ -13,7 +13,7 @@
     "COORDINATE_PRECISION_INVALID": "некорректная точность координат",
     "COORDINATE_UNCERTAINTY_METERS_INVALID": "неопределенность координат некорректна",
     "COORDINATE_PRECISION_UNCERTAINTY_MISMATCH": "несоответствие точности и неопределенности координат",
-    "FOOTPRINT_SRS_INVALID": "Отпечаток SRS неверный",
+    "FOOTPRINT_SRS_INVALID": "Местоположение отпечатка в соответствии с SRS неверно",
     "FOOTPRINT_WKT_MISMATCH": "",
     "FOOTPRINT_WKT_INVALID": "Отпечаток WKT неверный",
     "COUNTRY_COORDINATE_MISMATCH": "координаты не соответствуют стране",
