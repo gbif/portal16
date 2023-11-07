@@ -52,13 +52,13 @@
       "ORANGE_CLUSTER": "橙色集群"
     },
     "tooltips": {
-      "toggleStyle": "",
-      "searchArea": "",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
-      "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "toggleStyle": "切換地圖樣式",
+      "searchArea": "搜尋區域",
+      "addRectangleFilter": "繪製矩形添加篩選",
+      "addPolygonFilter": "繪製區域添加篩選",
+      "removeGeometryFilter": "移除幾何圖形的篩選",
+      "zoomIn": "放大",
+      "zoomOut": "縮小"
     },
     "errors": {
       "413": "此幾何檔案過大，資料 API 無法處理。"
