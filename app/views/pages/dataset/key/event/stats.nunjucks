@@ -1,5 +1,5 @@
 <div class="row summaryStats" ng-if="datasetEvent.occurrences.count">
-    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, advanced: true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item">
         <div>
             <div class="summaryStats__circle summaryStats__circle--occurrences"></div>
             <div class="summaryStats__percentage">
@@ -9,7 +9,7 @@
         </div>
     </a>
 
-    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, issue:'TAXON_MATCH_NONE'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="datasetEvent.withoutTaxon.$resolved">
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, issue:'TAXON_MATCH_NONE', advanced: true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item"  ng-if="datasetEvent.withoutTaxon.$resolved">
         <div>
             <div class="summaryStats__circle">
                 <round-progress
@@ -27,7 +27,7 @@
         </div>
     </a>
 
-    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, has_geospatial_issue:false, has_coordinate:true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetEvent.withCoordinates.$resolved">
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, has_geospatial_issue:false, has_coordinate:true, advanced: true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetEvent.withCoordinates.$resolved">
         <div>
             <div class="summaryStats__circle">
                 <round-progress
@@ -45,7 +45,7 @@
         </div>
     </a>
 
-    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, year: '*,3000'})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetEvent.withYear.$resolved">
+    <a ui-sref="occurrenceSearchTable({dataset_key:datasetEvent.datasetKey, event_id: datasetEvent.eventKey, year: '*,3000', advanced: true})" class="col-xs-12 col-sm-6 col-md-3 summaryStats__item" ng-if="datasetEvent.withYear.$resolved">
         <div>
             <div class="summaryStats__circle">
                 <round-progress
