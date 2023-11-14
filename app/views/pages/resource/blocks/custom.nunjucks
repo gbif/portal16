@@ -7,5 +7,8 @@
         {% if componentType == "projects" %}
          <programme-projects programme-id="{$ main.fields.settings.programmeId $}" table-style="{$ main.fields.settings.tableStyle $}" />
         {% endif %}
+        {% if componentType == "translatorsList" %}
+         <translators-list tableStyle="{$ main.fields.tableStyle $}" title="{$ main.fields.title $}" />
+        {% endif %}
     </div>
 </div>
