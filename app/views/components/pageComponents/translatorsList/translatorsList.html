@@ -36,13 +36,14 @@
                             </td>
                             <td>
                                 <span
+                                    class="m-r-1"
                                     ng-if="result.Person.languages.length > 0"
                                     ng-repeat="lang in result.Person.languages"
                                     translate="language.{{lang}}">{{ lang }}</span
                                 >
                             </td>
                             <td>
-                                <span ng-if="result.Person.countryCode" translate="enum.country.{{result.Person.countryCode}}">{{ result.Person.countryCode }}</span>
+                                <span ng-if="result.Person.countryCode" translate="country.{{result.Person.countryCode}}">{{ result.Person.countryCode }}</span>
                             </td>
                             <td>
                                 <span
