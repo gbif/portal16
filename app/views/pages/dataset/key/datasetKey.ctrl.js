@@ -144,6 +144,15 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     var firstOccurrence = OccurrenceSearch.query({dataset_key: vm.key, limit: 1});
 
     firstOccurrence.$promise.then(function() {
+        var dynProps = _.get(firstOccurrence, 'results[0].dynamicProperties');
+        try {
+            var dynamicProperties = JSON.parse(dynProps);
+            if (dynamicProperties.phyloTreeFileName) {
+                vm.hasPhylogenies = true;
+            }
+        } catch (err) {
+            // Invalid json
+        }
         OccurrenceFragment.get({id: _.get(firstOccurrence, 'results[0].key')}).$promise.then(function(fragment) {
            // console.log(fragment);
             if (fragment.phyloTreeFileName) {

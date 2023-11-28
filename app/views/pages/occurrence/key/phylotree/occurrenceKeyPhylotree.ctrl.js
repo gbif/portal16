@@ -1,6 +1,6 @@
 'use strict';
 var angular = require('angular');
-//var _ = require('lodash');
+var _ = require('lodash');
 require('../../../../components/phylotree/phylotree.directive');
 
 angular
@@ -15,13 +15,35 @@ function occurrenceKeyPhylotreeCtrl($q, $http, $state, env, $stateParams, Occurr
   vm.dataApi = env.dataApi;
 
   $q.all({
-    occurrence: Occurrence.get({id: vm.key}).$promise,
-    fragment: OccurrenceFragment.get({id: vm.key}).$promise
+    occurrence: Occurrence.get({id: vm.key}).$promise/* ,
+    fragment: OccurrenceFragment.get({id: vm.key}).$promise  */
   }).then(function(res) {
-        console.log(res);
         vm.occurrence = res.occurrence;
-        vm.fragment = res.fragment;
+        if ( _.get(vm.occurrence, 'dynamicProperties')) {
+          try {
+             var dynProps = JSON.parse(_.get(vm.occurrence, 'dynamicProperties'));
+             if (dynProps['phyloTreeFileName'] ) {
+              vm.phyloTreeFileName = dynProps['phyloTreeFileName'];
+             }
+             if (dynProps['phyloTreeTipLabel'] ) {
+              vm.phyloTreeTipLabel = dynProps['phyloTreeTipLabel'];
+             }
+          } catch (err) {
+              // unparsable JSON
+          }
+      }
+      if (!vm.phyloTreeTipLabel && !vm.phyloTreeFileName) {
+       return $q.all({
+          fragment: OccurrenceFragment.get({id: vm.key}).$promise  
+        });
+      }
   })
+  .then(function(res) {
+  if (!vm.phyloTreeTipLabel && !vm.phyloTreeFileName) {
+    vm.phyloTreeTipLabel = _.get(res, 'fragment.phyloTreeTipLabel');
+    vm.phyloTreeFileName = _.get(res, 'fragment.phyloTreeFileName');
+  }
+})
   .catch(function(err) {
     console.log(err);
   });
