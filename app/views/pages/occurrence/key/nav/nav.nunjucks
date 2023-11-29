@@ -17,7 +17,7 @@
                                 </a>
                             </li>
 
-                            <li ng-if="(occurrenceKey.fragment.phyloTreeTipLabel || occurrenceKey.dynamicProperties.phyloTreeTipLabel ) && ( occurrenceKey.fragment.phyloTreeFileName || occurrenceKey.dynamicProperties.phyloTreeFileName )"  class="tab" ng-class="{isActive: occurrenceKey.$state.is('occurrenceKeyPhylotree')}">
+                            <li ng-if="(occurrenceKey.fragment.phyloTreeTipLabel || occurrenceKey.dynamicProperties.phylogenies ) && ( occurrenceKey.fragment.phyloTreeFileName || occurrenceKey.dynamicProperties.phylogenies )"  class="tab" ng-class="{isActive: occurrenceKey.$state.is('occurrenceKeyPhylotree')}">
                                 <a ui-sref="occurrenceKeyPhylotree({key:occurrenceKey.key})" translate="occurrence.tabs.phylotree">
                                     Phylogenetic trees
                                 </a>

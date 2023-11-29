@@ -1,7 +1,7 @@
 <div class="wrapper-horizontal-stripes">
     <div class="container--normal">
-        <div class="m-t-1" ng-if="datasetKeyPhylotree.fragment.phyloTreeFileName || datasetKeyPhylotree.dynamicProperties.phyloTreeFileName">
-            <phylo-tree phylo-tree-file-name="datasetKeyPhylotree.fragment.phyloTreeFileName || datasetKeyPhylotree.dynamicProperties.phyloTreeFileName"   dataset-key="datasetKeyPhylotree.key"/>
+        <div class="m-t-1" ng-repeat="elm in datasetKeyPhylotree.phylogenies">
+            <phylo-tree phylo-tree-file-name="elm.phyloTreeFileName"   dataset-key="datasetKeyPhylotree.key"/>
 
         </div>
     </div>

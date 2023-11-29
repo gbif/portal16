@@ -22,26 +22,31 @@ function occurrenceKeyPhylotreeCtrl($q, $http, $state, env, $stateParams, Occurr
         if ( _.get(vm.occurrence, 'dynamicProperties')) {
           try {
              var dynProps = JSON.parse(_.get(vm.occurrence, 'dynamicProperties'));
-             if (dynProps['phyloTreeFileName'] ) {
+            /*  if (dynProps['phyloTreeFileName'] ) {
               vm.phyloTreeFileName = dynProps['phyloTreeFileName'];
              }
              if (dynProps['phyloTreeTipLabel'] ) {
               vm.phyloTreeTipLabel = dynProps['phyloTreeTipLabel'];
+             } */
+             if (dynProps['phylogenies'] && _.isArray(dynProps['phylogenies'])) {
+              vm.phylogenies = dynProps['phylogenies'];
              }
           } catch (err) {
               // unparsable JSON
           }
       }
-      if (!vm.phyloTreeTipLabel && !vm.phyloTreeFileName) {
+      if (!vm.phylogenies) {
        return $q.all({
           fragment: OccurrenceFragment.get({id: vm.key}).$promise  
         });
       }
   })
   .then(function(res) {
-  if (!vm.phyloTreeTipLabel && !vm.phyloTreeFileName) {
-    vm.phyloTreeTipLabel = _.get(res, 'fragment.phyloTreeTipLabel');
-    vm.phyloTreeFileName = _.get(res, 'fragment.phyloTreeFileName');
+  if (!vm.phylogenies) {
+    vm.phylogenies = [{
+      phyloTreeTipLabel: _.get(res, 'fragment.phyloTreeTipLabel'),
+      phyloTreeFileName: _.get(res, 'fragment.phyloTreeFileName')
+    }];
   }
 })
   .catch(function(err) {

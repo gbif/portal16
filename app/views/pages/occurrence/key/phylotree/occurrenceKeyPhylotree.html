@@ -1,7 +1,8 @@
 <div class="wrapper-horizontal-stripes">
     <div class="container--normal">
-        <div class="m-t-1" ng-if="occurrenceKeyPhylotree.phyloTreeFileName">
-            <phylo-tree phylo-tree-file-name="occurrenceKeyPhylotree.phyloTreeFileName"  phylo-tree-tip-label="occurrenceKeyPhylotree.phyloTreeTipLabel" dataset-key="occurrenceKeyPhylotree.occurrence.datasetKey"/>
+
+        <div class="m-t-1" ng-repeat="elm in occurrenceKeyPhylotree.phylogenies">
+            <phylo-tree phylo-tree-file-name="elm.phyloTreeFileName"  phylo-tree-tip-label="elm.phyloTreeTipLabel" dataset-key="occurrenceKeyPhylotree.occurrence.datasetKey"/>
 
         </div>
     </div>

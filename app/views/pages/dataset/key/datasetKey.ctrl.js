@@ -147,7 +147,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
         var dynProps = _.get(firstOccurrence, 'results[0].dynamicProperties');
         try {
             var dynamicProperties = JSON.parse(dynProps);
-            if (dynamicProperties.phyloTreeFileName) {
+            if (dynamicProperties.phylogenies) {
                 vm.hasPhylogenies = true;
             }
         } catch (err) {
