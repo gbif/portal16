@@ -64,7 +64,7 @@ function phyloTreeDirective() {
                 var parsedNexus = parseNexus(response.data);
                     nwk = _.get(parsedNexus, 'treesblock.trees[0].newick');
                     tipTranslation = _.get(parsedNexus, 'treesblock.translate');
-                } else if (['phy', 'nwk', 'newick'].includes(vm.fileExtension)) {
+                } else if (['phy', 'nwk', 'newick', 'tree'].includes(vm.fileExtension)) {
                     nwk = response.data;
                 } else {
                     vm.unsupportedFormatError = 'Unsupported file type';
