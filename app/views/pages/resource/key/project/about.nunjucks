@@ -135,7 +135,7 @@
                                         <li>
                                             {% if resolved.Entry[partner.sys.id].sys.contentType.sys.id == "Participant" %}
                                                 {# if country #}
-                                                <a dir="auto" href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[partner.sys.id].fields.country.sys.id $}/about">GBIF {$ resolved.Entry[partner.sys.id].fields.title $}</a>
+                                                <a dir="auto" href="{$ gb.locales.urlPrefix $}/country/{$ resolved.Entry[partner.sys.id].fields.country.sys.id $}/participation">GBIF {$ resolved.Entry[partner.sys.id].fields.title $}</a>
                                             {% else %}
                                                 {#if organisation#}
                                                 {% if resolved.Entry[partner.sys.id].fields.url %}
