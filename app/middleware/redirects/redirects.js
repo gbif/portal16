@@ -10,9 +10,11 @@ redirectList.forEach(function(e) {
 });
 
 function handleRedirects(req, res, next) {
-    let redirectTo = redirectTable[req.url];
+    // remove query params from url first
+    let url = req.url.split('?')[0];
+    let redirectTo = redirectTable[url];
     if (!redirectTo && ignoreTrailingSlashes ) {
-        redirectTo = redirectTable[addTrailingSlash(req.url)];
+        redirectTo = redirectTable[addTrailingSlash(url)];
     }
 
     if (redirectTo) {
