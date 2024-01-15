@@ -38,7 +38,7 @@
           "REGIONAL": "Региональный грант",
           "SMALL": "Малый грант",
           "NATIONAL": "Национальный грант",
-          "DATA_USE": "",
+          "DATA_USE": "Разрешение на использование данных",
           "undefined": "Не указано"
         },
         "projectStatus": {
@@ -63,7 +63,7 @@
           "AGRICULTURE": "Сельское хозяйство",
           "BIODIVERSITY_SCIENCE": "Наука о биоразнообразии",
           "BIOGEOGRAPHY": "Биогеография",
-          "CITIZEN_SCIENCE": "Любительские наблюдения",
+          "CITIZEN_SCIENCE": "Гражданская наука",
           "CLIMATE_CHANGE": "Изменение климата",
           "CONSERVATION": "Охрана природы",
           "DATA_MANAGEMENT": "Управление данными",
@@ -77,8 +77,8 @@
           "MARINE": "Морские экосистемы",
           "PHYLOGENETICS": "Филогенетика",
           "SPECIES_DISTRIBUTIONS": "Распространение видов",
-          "INFRASTRUCTURE": "",
-          "DNA": "",
+          "INFRASTRUCTURE": "Инфраструктура",
+          "DNA": "ДНК",
           "TAXONOMY": "Таксономия"
         },
         "purposes": {

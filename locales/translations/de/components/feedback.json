@@ -1,53 +1,53 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Hinterlasse Feedback",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Feedback und Fragen",
+      "example": "Helfen Sie uns, alle Probleme zu lösen, indem Sie wählen, welche Art von Feedback Sie geben. Bitte senden Sie uns Ihr Feedback, wenn möglich, in englischer Sprache. Wir bemühen uns innerhalb von 2 Werktagen zu antworten."
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "title": "Inhalt",
+      "example": "Zum Beispiel: Diese Seite enthält einen Tippfehler. Diese Art existiert nicht. Dieser Ort scheint verdächtig zu sein. Die neue URL für diese Organisation ist...",
+      "annotate": "Dieser Herausgeber hat eine Website für Feedback. Wir empfehlen diese zu verwenden.",
+      "contactPerMail": "Kontaktieren Sie den Ansprechpartner für den Datensatz"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "Programmfehler",
+      "example": "Zum Beispiel: Der Suchknopf funktioniert nicht. Die Seite wird nicht geladen. Ich kann dies nicht lesen, da sich die Spalten überlappen."
     },
     "idea": {
-      "title": "",
-      "example": ""
+      "title": "Vorschlag",
+      "example": "So als: Ich möchte Links zu verwandten genetischen Sequenzdaten. Zeige mir alle Artikel mit freiem (open-access) Zugang."
     },
     "question": {
-      "title": "",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "title": "Hilfe",
+      "example": "Zum Beispiel: Wie schützt man die Daten seltener Arten? Kann man mir helfen, alle Aufzeichnungen dieser Art zu finden, die in internationalen Gewässern auftreten?",
+      "description": "Alle Fragen werden von unserem Mitarbeitern unter helpdesk@gbif.org beantwortet",
+      "comment": "Für private Anfragen und nichttechnische Fragen kannst du uns unter [info@gbif.org](mailto:info@gbif.org) oder unter [communication@gbif.org](mailto:communication@gbif.org) erreichen."
     },
     "confirmation": {
-      "title": "",
-      "example": "",
-      "seeIssue": ""
+      "title": "Vielen Dank",
+      "example": "Dein Feedback wurde als Problem auf Github protokolliert. Bei Bedarf und bei Angabe von Kontaktdaten können wir uns an Sie für weitere Informationen wenden. Sie können den Fortschritt verfolgen, indem Sie die Ticket-Seite besuchen.",
+      "seeIssue": "Siehe Ticket"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "Inhaltsprobleme",
+      "description": "Con anderen gemeldete inhaltliche Probleme",
+      "create": "Hinterlasse Feedback"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "Zusammenfassung",
+      "description": "Detaillierte Beschreibung. Für Taxonomien geben Sie bitte eine Referenz an. Bitte senden Sie Ihr Feedback, wenn möglich, in englischer Sprache.",
+      "username": "Ihre E-Mail-Adresse oder Github Benutzername (öffentlich)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "markdownSupport": "Markdown-Unterstützung",
+    "issueTracking": "Alle Tickets sind öffentlich und verfügbar über [Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "Das ist nicht gut — das Feedback-System funktioniert nicht. Bitte senden Sie uns eine E-Mail oder gehen Sie direkt zu [Github](https://github. om/gbif/portal-feedback/issues). Wir bedauern die Schwierigkeiten.",
+    "weRecommendX": "Wir empfehlen [{NAME}]({LINK} ) zu verwenden",
+    "tellGbif": "Erzähl es GBIF",
+    "submit": "Absenden",
+    "seeAllComments": "Alle ansehen",
+    "recommendMail": "Wir empfehlen eine E-Mail zu senden an",
+    "pleaseLogin": "Bitte melde dich an, um Feedback zu hinterlassen. Alternativ kannst du [Github](https://github.com/gbif/portal-feedback/issues) oder [helpdesk@gbif. rg](mailto:helpdesk@gbif.org) nutzen.\n\nWarum? Leider sehen wir viele Spam-Werbung in unserem Feedback-System, wenn wir keine eingeloggten Benutzer verlangen."
   }
 }

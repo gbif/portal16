@@ -26,7 +26,7 @@ router.get('/downloadRequest.html', function(req, res) {
     }
     // smaller queries will show nicely formated
     getTransformedPredicate(predicate, res.__mf).then(function(context) {
-      // res.json(context);
+      // return res.json(context);
       return res.render('pages/occurrence/download/key/predicateOnly', {decoratedPredicate: context.predicate});
     })
     .catch(function(err) {

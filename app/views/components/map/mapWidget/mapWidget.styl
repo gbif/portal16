@@ -6,6 +6,9 @@
         position relative
         z-index 10
     }
+    .ol-scale-line {
+        position: unset;
+    }
     .mapPopups {
         z-index 60
     }
@@ -268,17 +271,22 @@
     }
     &__info {
         position absolute
-        opacity 0.5
-        background #444
         color white
         bottom 0
         left 0
         z-index 15
-        padding 3px 5px
         font-size 12px
+        opacity 0.75
         transition opacity 200ms ease
         &:hover {
             opacity 1
+        }
+        &__attribution {
+            background rgba(0,60,136,.3)
+            padding 3px 5px
+        }
+        &__scale {
+            display: inline-block;
         }
     }
 }

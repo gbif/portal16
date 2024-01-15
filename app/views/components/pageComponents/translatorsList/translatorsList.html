@@ -1,0 +1,65 @@
+<div class="translatorsList">
+    <div>
+        <h4 class="card-header">
+            {{vm.title}}
+        </h4>
+        <div class="scrollable-y" style="{{vm.tableStyle}}" ng-if="vm.results">
+            <div class="table-container rtl-bootstrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th
+                                ng-repeat="col in ['volunteer', 'language', 'country', 'annualBadges']"
+                            >
+                                <span class="inline-block text-nowrap">
+                                    <span
+                                        translate="directory.person.{{ col }}"
+                                    ></span>
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="result in vm.results">
+                            <td>
+                                <span
+                                    ng-if="!result.Person.orcidId"
+                                    >{{ result.Person.firstName }} {{
+                                    result.Person.surname }}</span
+                                >
+                                <a
+                                    ng-if="result.Person.orcidId"
+                                    ng-href="{{ result.Person.orcidId }}"
+                                    >{{ result.Person.firstName }} {{
+                                        result.Person.surname }}</a
+                                >
+                            </td>
+                            <td>
+                                <span
+                                    class="m-r-1"
+                                    ng-if="result.Person.languages.length > 0"
+                                    ng-repeat="lang in result.Person.languages"
+                                    translate="language.{{lang}}">{{ lang }}</span
+                                >
+                            </td>
+                            <td>
+                                <span ng-if="result.Person.countryCode" translate="country.{{result.Person.countryCode}}">{{ result.Person.countryCode }}</span>
+                            </td>
+                            <td>
+                                <span
+                                    class="m-r-1"
+                                    ng-repeat="badge in result.Person.certifications"
+                                    >{{ badge.year }}</span
+                                >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="emptyInfo--large" ng-if="!vm.results">
+        <!-- sloppy loader that doens't test for errors -->
+        <span class="loading"></span>
+    </div>
+</div>

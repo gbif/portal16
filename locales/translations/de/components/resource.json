@@ -1,6 +1,6 @@
 {
   "resource": {
-    "resources": "",
+    "resources": "Ressourcen",
     "contactHelpdesk": "",
     "addToCalendar": "",
     "venue": "",
@@ -15,7 +15,7 @@
     "viewOnGBIF": "",
     "published": "",
     "programme": "",
-    "fundedBy": "",
+    "fundedBy": "Gefördert von",
     "about": "",
     "datasets": "",
     "gbifWillAttend": "",

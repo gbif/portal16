@@ -1,45 +1,45 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "Projekt",
+      "projectId": "Projekt ID",
+      "projectIdentifier": "Projektidentifikator",
+      "grantType": "Förderungstyp",
+      "duration": "Dauer",
+      "title": "Titel",
+      "start": "Start",
+      "end": "Ende",
+      "fundsAllocated": "Zugewiesene Mittel",
+      "matchingFunds": "Geschätzte Kofinanzierung",
+      "funding": "Finanzierung",
+      "coFunding": "Co Finanzierung",
+      "fundedBy": "Gefördert von",
+      "coFundedBy": "Co finanziert von",
+      "typeOfGrant": "Art der Förderung",
+      "projectStart": "Projektbeginn",
+      "status": "Status",
+      "programme": "Programm",
+      "contractCountry": "Land oder Gebiet",
+      "newsAndEvents": "Neuigkeiten & Veranstaltungen",
+      "call": "Anrufen",
+      "projectLead": "Projektleitung",
+      "contactDetalils": "Kontaktdaten",
+      "partners": "Partner"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "Über GBIF verwendete Datenressourcen"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Stichwörter"
     },
     "auxiliary": {
-      "subject": "",
-      "citation": "",
-      "organisingParticipants": ""
+      "subject": "Thema",
+      "citation": "Zitierung",
+      "organisingParticipants": "Organisierende Teilnehmer"
     },
     "document": {
-      "download": "",
-      "readDocument": ""
+      "download": "Herunterladen",
+      "readDocument": "Zum Dokument gehen"
     }
   }
 }

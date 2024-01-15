@@ -16,12 +16,12 @@
     "pendingEndorsementBy": "Ожидает одобрения",
     "endorsementWithheld": "",
     "installations": "Поддерживаемые инсталляции",
-    "getDownloadReport": "",
+    "getDownloadReport": "Архив, аннотированный GBIF",
     "contacts": "Контакты",
     "administrativeContact": "Административные вопросы",
     "header": {
       "publisher": "Организация",
-      "sinceDate": "в GBIF с {DATE}"
+      "sinceDate": "Начиная с {DATE}"
     }
   }
 }

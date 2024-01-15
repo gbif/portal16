@@ -2,13 +2,13 @@
   "network": {
     "network": "",
     "tabs": {
-      "summary": "",
+      "summary": "Zusammenfassung",
       "homepage": "",
-      "metrics": "",
-      "datasets": "",
-      "publishers": ""
+      "metrics": "Kennzahlen",
+      "datasets": "Datensätze",
+      "publishers": "Herausgeber"
     },
-    "registeredDate": "",
+    "registeredDate": "Registriert am {DATE}",
     "nParticipatingDatasets": "",
     "nParticipatingPublishers": ""
   }

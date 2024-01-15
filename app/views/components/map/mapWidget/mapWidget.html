@@ -12,8 +12,11 @@
             <span translate="map.clickToSearchArea"></span>
         </div>
         <div class="mapWidget__info">
-            <span translate="map.generatedDateAgo" translate-values="{DATE_AGO: ((vm.capabilities.generated || '2017-05-01') | momentFromNow:gb.locales.current)}"></span>
-            <span dir="ltr">© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a ng-href="{{vm.URL_PREFIX}}/citation-guidelines" class="inherit">GBIF</a>.</span>
+            <div id="mapWidget_olScale" class="mapWidget__info__scale"></div>
+            <div class="mapWidget__info__attribution">
+                <span translate="map.generatedDateAgo" translate-values="{DATE_AGO: ((vm.capabilities.generated || '2017-05-01') | momentFromNow:gb.locales.current)}"></span>
+                <span dir="ltr">© <a href="https://www.openstreetmap.org/copyright" class="inherit">OpenStreetMap</a> contributors, © <a href="https://openmaptiles.org/" class="inherit">OpenMapTiles</a>, <a ng-href="{{vm.URL_PREFIX}}/citation-guidelines" class="inherit">GBIF</a>.</span>
+            </div>
         </div>
     </div>
     <div class="mapWidget__controlsArea">

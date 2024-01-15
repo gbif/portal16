@@ -31,15 +31,16 @@ function start(cb) {
         } else {
             let components = _.get(response, 'body.components', []);
             let deliveryAPI = _.find(components, {name: 'Content Delivery API'});
-            if (deliveryAPI.status === 'operational') {
+            if (deliveryAPI.status === 'operational' || deliveryAPI.status === 'degraded_performance' || deliveryAPI.status === 'under_maintenance' ) {
                 cb({
                     severity: severity.OPERATIONAL,
                     component: config.component
                 });
             } else {
+                // options "operational" "under_maintenance" "degraded_performance" "partial_outage" "major_outage" "" - see https://developer.statuspage.io/#operation/patchPagesPageIdComponentsComponentId
                 cb({
                     severity: severity.WARNING,
-                    message: 'expected "Content Delivery AP" status to be "operational" : ' + config.url,
+                    message: 'expected "Content Delivery API" status to be "operational" : ' + config.url,
                     component: config.component
                 });
             }

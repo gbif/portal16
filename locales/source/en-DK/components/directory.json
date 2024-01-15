@@ -48,6 +48,17 @@
     "details": "Details",
     "roles": "Roles",
     "sinceDate": "Since {DATE}",
-    "showAllContacts": "All"
+    "showAllContacts": "All",
+    "person": {
+      "volunteer": "Volunteer",
+      "annualBadges": "Annual badges",
+      "language": "Language",
+      "country": "Country or area",
+      "affiliation": "Affiliation",
+      "areaOfExpertise": "Area of expertise",
+      "email": "Email"
+    },
+    "prize": "Prize",
+    "year": "Year"
   }
 }

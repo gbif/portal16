@@ -53,7 +53,7 @@
                                     <span dir="auto">{{ person.firstName }} {{ person.surname }}</span>
                                 </td>
                                 <td>
-                                    <span dir="auto">{{ 'role.' + person.role | translate }}</span>
+                                    <span dir="auto">{{ 'gbifRole.' + person.role | translate }}</span>
                                 </td>
                                 <td>
                                     <span dir="auto">{{ person.participant }}</span>
@@ -105,7 +105,7 @@
                                     <span dir="auto">{{ person.name }} {{ person.firstName }} {{ person.surname }}</span>
                                 </td>
                                 <td>
-                                    <span dir="auto" ng-repeat="role in person.roles">{{ 'role.' + role | translate }}</span>
+                                    <span dir="auto" ng-repeat="role in person.roles">{{ 'gbifRole.' + role | translate }}</span>
                                 </td>
                                 <td>
                                     <span dir="auto">{{ person.participant }}</span>

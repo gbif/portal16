@@ -62,10 +62,17 @@ function createMap(element, options) {
     };
 
     var interactions = /*ol. */interaction.defaults({altShiftDragRotate: false, pinchRotate: false, mouseWheelZoom: false});
+    var scaleControl = new control.ScaleLine({
+        units: 'metric',
+        bar: false,
+        steps: 4,
+        text: true,
+        target: document.getElementById('mapWidget_olScale')
+    });
     var map = new ol.Map({
         target: mapElement,
         logo: false,
-        controls: /* ol. */control.defaults({zoom: false, attribution: false}),
+        controls: /* ol. */control.defaults({zoom: false, attribution: false}).extend([scaleControl]),
         interactions: interactions
     });
     window.map = map;

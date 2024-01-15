@@ -18,6 +18,12 @@ const schema = Joi.alternatives().try(
     predicate: Joi.link('#predicateItem')
   }),
   Joi.object({
+    type: Joi.string().valid('geoDistance').required(),
+    latitude: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    longitude: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
+    distance: Joi.string().required(),
+  }),
+  Joi.object({
     type: Joi.string().valid('equals').required(),
     key: Joi.string().required(),
     value: Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool()).required(),
@@ -187,6 +193,7 @@ let allowedKeys = [
   'WATER_BODY',
   'YEAR',
   'HOSTING_ORGANIZATION_KEY',
+  'IUCN_RED_LIST_CATEGORY',
   'IS_IN_CLUSTER'
 ];
 

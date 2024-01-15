@@ -134,7 +134,7 @@ async function proxyGet(url) {
 
 function cleanPerson(p) {
     let pers = _.pick(p,
-        ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
+        ['id', 'firstName', 'surname', 'role', 'roles', 'title', 'jobTitle', 'phone', 'email', 'orcidId', 'areasExpertise', 'languages', 'profileDescriptions', 'certifications', 'address', 'country', 'institutionName', 'countryCode', 'countryName', 'participants', 'nodes']);
     if (pers.address) pers.address = pers.address.replace(/[\r\n]{2,}/g, '\n');
     pers.name = pers.name ? pers.name : pers.firstName + ' ' + pers.surname;
     return pers;

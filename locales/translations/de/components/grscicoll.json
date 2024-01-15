@@ -5,9 +5,9 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "Zusammenfassung",
       "homepage": "",
-      "metrics": ""
+      "metrics": "Kennzahlen"
     },
     "headerTitle": "",
     "description": "",
@@ -42,9 +42,9 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "Zusammenfassung",
       "homepage": "",
-      "metrics": ""
+      "metrics": "Kennzahlen"
     },
     "headerTitle": "",
     "indexHerbariorumIdentifier": "",
@@ -77,8 +77,8 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
     "fullName": "",
     "position": "",
     "affiliations": "",
@@ -102,7 +102,7 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "E-Mail",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
@@ -111,7 +111,7 @@
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Land"
     }
   }
 }

@@ -16,7 +16,7 @@
     "pendingEndorsementBy": "Pendiente de respaldo por",
     "endorsementWithheld": "",
     "installations": "Instalaciones",
-    "getDownloadReport": "",
+    "getDownloadReport": "Busque registros con texto parecido entre los campos de texto. Para buscar un texto que coincida dentro de un campo específico, utilice el filtro correspondiente, como el de \"Nombre Científico\".",
     "contacts": "Contactos",
     "administrativeContact": "Contacto administrativo",
     "header": {

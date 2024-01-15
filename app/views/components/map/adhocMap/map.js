@@ -147,13 +147,20 @@ function createMap(element, options) {
         ]
     });
 
+    var scaleControl = new control.ScaleLine({
+        units: 'metric',
+        bar: false,
+        steps: 4,
+        text: true,
+        target: document.getElementById('mapWidget_olScale')
+    });
+
     var map = new ol.Map({
         // I'm disabling the drag'ndrop upload as it leads to conflict with projections. I'm sure it can be solved, but it is my impression no one knows and use this feature anyway.
         // interactions: /* ol. */interaction.defaults().extend([dragAndDropInteraction]),
         target: mapElement,
         logo: false,
-        controls: /* ol. */control.defaults({zoom: false, attribution: false})
-
+        controls: /* ol. */control.defaults({zoom: false, attribution: false}).extend([scaleControl])
     });
 
 
