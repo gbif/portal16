@@ -5,7 +5,8 @@ const express = require('express'),
     helper = rootRequire('app/models/util/util'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     _ = require('lodash'),
-    log = rootRequire('config/log');
+    log = rootRequire('config/log'),
+    minute = 60; // cache goes by seconds
 
 module.exports = (app) => {
     app.use('/', router);
@@ -26,6 +27,7 @@ router.get('/api/template/contactUs/contactUs.html', function(req, res, next) {
     let isPreview = !_.isUndefined(req.query._isPreview);
     let cmsContent = resource.getByAlias('/contact-us', 2, isPreview, res.locals.gb.locales.current);
     cmsContent.then(function(content) {
+        res.header('Cache-Control', 'public, max-age=' + minute * 10);
         helper.renderPage(req, res, next, content, 'pages/custom/contactUs/contactUs.template.nunjucks');
     }).catch(function(err) {
         log.info(err.message);
