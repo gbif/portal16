@@ -1,0 +1,8 @@
+{
+    "sex": {
+        "NONE": "не выбрана",
+        "MALE": "",
+        "FEMALE": "",
+        "HERMAPHRODITE": ""
+    }
+}
