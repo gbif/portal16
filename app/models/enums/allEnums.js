@@ -25,5 +25,6 @@ module.exports = {
         'audiences': require('./cms/audience.json'),
         'literatureType': require('./cms/literatureType.json'),
         'relevance': require('./cms/relevance.json')
-    }
+    },
+    'sex': require('./basic/sex.json'),
 };

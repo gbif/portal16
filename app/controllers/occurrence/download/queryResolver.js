@@ -82,6 +82,14 @@ let queryResolver = {
     eventDate: {
         type: 'ENUM',
         valueTranslation: 'intervals.year.'
+    },
+    gbifRegion: {
+        type: 'ENUM',
+        valueTranslation: 'gbifRegion.'
+    },
+    sex: {
+        type: 'ENUM',
+        valueTranslation: 'sex.'
     }
 };
 
