@@ -1,8 +1,8 @@
 {
     "sex": {
         "NONE": "没有",
-        "MALE": "",
-        "FEMALE": "",
-        "HERMAPHRODITE": ""
+        "MALE": "男",
+        "FEMALE": "女",
+        "HERMAPHRODITE": "雌雄同体"
     }
 }
