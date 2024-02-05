@@ -1,0 +1,11 @@
+{
+    "gbifRegion": {
+        "NORTH_AMERICA": "أمريكا الشماليّة",
+        "OCEANIA": "اوقيانوسيا",
+        "EUROPE": "أوروبا",
+        "ANTARCTICA": "القارة القطبية الجنوبية",
+        "LATIN_AMERICA": "",
+        "AFRICA": "أفريقيا",
+        "ASIA": "آسيا"
+    }
+}

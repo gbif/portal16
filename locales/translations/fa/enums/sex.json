@@ -1,0 +1,8 @@
+{
+    "sex": {
+        "NONE": "هیچ کدام",
+        "MALE": "",
+        "FEMALE": "",
+        "HERMAPHRODITE": ""
+    }
+}
