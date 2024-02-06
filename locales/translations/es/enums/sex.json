@@ -1,8 +1,8 @@
 {
     "sex": {
         "NONE": "Ninguno",
-        "MALE": "",
-        "FEMALE": "",
-        "HERMAPHRODITE": ""
+        "MALE": "Hombre",
+        "FEMALE": "Mujer",
+        "HERMAPHRODITE": "Hermafrodita"
     }
 }
