@@ -11,6 +11,9 @@
         "isClustered": {
           "description": "This is an experimental feature that highlights possible duplicate and/or related occurrences."
         },
+        "isSequenced": {
+          "description": "Has either DNA derived data extension or associatedSequences"
+      },
         "occurrenceStatus": {
           "description": "Some records are labelled as being absent - meaning someone looked for it but didn't find anything.",
           "options": {
