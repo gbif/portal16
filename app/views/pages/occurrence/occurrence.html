@@ -44,113 +44,107 @@
             </div>
         </div>
 
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Record">Record</h3>
-     <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.institution_key" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.collection_key" filter-state="occurrence.occurrenceState"></div> 
-     <div filter-enum filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Occurrence">Occurrence</h3>
-     <div filter-ternary-custom filter-config="occurrence.filters.occurrenceStatus" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.occurrenceId" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.recordNumber" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.recordedById" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.organism_quantity" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.organism_quantity_type" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.relative_organism_quantity" filter-type="float" filter-state="occurrence.occurrenceState"></div>   
-     <div filter-enum filter-config="occurrence.filters.sex" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.lifeStage" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.degreeOfEstablishment" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.pathway" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.gbifId" filter-state="occurrence.occurrenceState"></div>
-          
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Organism">Organism</h3>
-     <div filter-suggest filter-config="occurrence.filters.organismId" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.previousIdentifications" filter-state="occurrence.occurrenceState"></div>
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.MaterialEntity">Material entity</h3>
-     <div filter-suggest filter-config="occurrence.filters.preparations" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.associatedSequences" filter-state="occurrence.occurrenceState"></div>
-     <div filter-ternary filter-config="occurrence.filters.isSequenced" filter-state="occurrence.occurrenceState"></div>
-     <!-- <h3 class="occurrenceGroup" translate="occurrence.groups.MaterialSample">MaterialSample</h3> -->
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Event">Event</h3>
-     <div filter-suggest filter-config="occurrence.filters.eventId" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.fieldNumber" filter-state="occurrence.occurrenceState"></div>
-     <div filter-date filter-config="occurrence.filters.eventDate" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.startDayOfYear" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.endDayOfYear" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.year" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.samplingProtocol" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.sample_size_value" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.sample_size_unit" filter-state="occurrence.occurrenceState"></div>
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Location">Location</h3>
-     <div filter-suggest filter-config="occurrence.filters.higherGeography" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.continent" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.waterBody" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.islandGroup" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.island" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.countryCode" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.stateProvince" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.locality" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.elevation" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState"></div>
-     <div filter-location filter-config="occurrence.filters.location" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.coordinateUncertaintyInMeters" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.georeferencedBy" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.gadmGid" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.gbifRegion" filter-state="occurrence.occurrenceState"></div>
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.GeologicalContext">GeologicalContext</h3>
-     <div filter-suggest ng-repeat="param in ['earliestEonOrLowestEonothem','latestEonOrHighestEonothem','earliestEraOrLowestErathem','latestEraOrHighestErathem','earliestPeriodOrLowestSystem','latestPeriodOrHighestSystem','earliestEpochOrLowestSeries','latestEpochOrHighestSeries','earliestAgeOrLowestStage','latestAgeOrHighestStage','lowestBiostratigraphicZone','highestBiostratigraphicZone','_group','formation','member','bed']" filter-config="occurrence.filters[param]" filter-state="occurrence.occurrenceState"></div>
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Identification">Identification</h3>
-     <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.identifiedBy" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.identifiedById" filter-state="occurrence.occurrenceState"></div>
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Taxon">Taxon</h3>
-     <div filter-suggest filter-config="occurrence.filters.taxon_id" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.verbatim_scientific_name" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.iucnRedListCategory" filter-state="occurrence.occurrenceState"></div>
-
-     <!-- <h3 class="occurrenceGroup">MeasurementOrFact</h3> -->
-     <!-- <h3 class="occurrenceGroup">ResourceRelationship</h3> -->
-     <!-- <h3 class="occurrenceGroup">UseWithIRI</h3> -->
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.Provenance">Provenance</h3>
-     <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.publisher" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.publishedByGbifRegion" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.hostingOrganizationKey" filter-state="occurrence.occurrenceState"></div>
-     <div filter-taxon filter-config="occurrence.filters.networkKey" filter-state="occurrence.occurrenceState"></div>
-     <!--div filter-suggest filter-config="occurrence.filters.installationKey" filter-state="occurrence.occurrenceState"></div-->
-     <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.project_id" filter-state="occurrence.occurrenceState"></div>
-     <div filter-suggest filter-config="occurrence.filters.programme" filter-state="occurrence.occurrenceState"></div>
-
-     <h3 class="occurrenceGroup" translate="occurrence.groups.other">Other</h3>
-     <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
-     <div filter-interval filter-config="occurrence.filters.distanceFromCentroidInMeters" filter-state="occurrence.occurrenceState"></div>
-     <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"></div>
-     <div filter-ternary filter-config="occurrence.filters.isClustered" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.dwcaExtension" filter-state="occurrence.occurrenceState" ></div>
-     <div filter-date filter-config="occurrence.filters.lastInterpreted" filter-state="occurrence.occurrenceState"></div>
-
-             <li ng-repeat="phone in vm.getAsArray(vm.contact.phone)" ng-if="phone">
-               <a ng-href="tel:{{ phone }}" dir="ltr">{{ phone }}</a>
-           </li>
-
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Record">Record</h3>
+        <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.institution_key" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.collection_key" filter-state="occurrence.occurrenceState"></div> 
+        <div filter-enum filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>    
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Occurrence">Occurrence</h3>
+        <div filter-ternary-custom filter-config="occurrence.filters.occurrenceStatus" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.occurrenceId" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.recordNumber" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.recordedBy" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.recordedById" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.organism_quantity" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.organism_quantity_type" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.relative_organism_quantity" filter-type="float" filter-state="occurrence.occurrenceState"></div>   
+        <div filter-enum filter-config="occurrence.filters.sex" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.lifeStage" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.degreeOfEstablishment" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.pathway" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.gbifId" filter-state="occurrence.occurrenceState"></div>
+           
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Organism">Organism</h3>
+        <div filter-suggest filter-config="occurrence.filters.organismId" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.previousIdentifications" filter-state="occurrence.occurrenceState"></div>      
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.MaterialEntity">Material entity</h3>
+        <div filter-suggest filter-config="occurrence.filters.preparations" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.associatedSequences" filter-state="occurrence.occurrenceState"></div>
+        <div filter-ternary filter-config="occurrence.filters.isSequenced" filter-state="occurrence.occurrenceState"></div>
+        <!-- <h3 class="occurrenceGroup" translate="occurrence.groups.MaterialSample">MaterialSample</h3> -->       
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Event">Event</h3>
+        <div filter-suggest filter-config="occurrence.filters.eventId" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.fieldNumber" filter-state="occurrence.occurrenceState"></div>
+        <div filter-date filter-config="occurrence.filters.eventDate" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.startDayOfYear" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.endDayOfYear" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.year" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.samplingProtocol" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.sample_size_value" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.sample_size_unit" filter-state="occurrence.occurrenceState"></div>        
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Location">Location</h3>
+        <div filter-suggest filter-config="occurrence.filters.higherGeography" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.continent" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.waterBody" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.islandGroup" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.island" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.countryCode" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.stateProvince" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.locality" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.elevation" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.depth" filter-state="occurrence.occurrenceState"></div>
+        <div filter-location filter-config="occurrence.filters.location" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.coordinateUncertaintyInMeters" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.georeferencedBy" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.gadmGid" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.gbifRegion" filter-state="occurrence.occurrenceState"></div>       
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.GeologicalContext">GeologicalContext</h3>
+        <div filter-suggest ng-repeat="param in ['earliestEonOrLowestEonothem','latestEonOrHighestEonothem','earliestEraOrLowestErathem','latestEraOrHighestErathem','earliestPeriodOrLowestSystem','latestPeriodOrHighestSystem','earliestEpochOrLowestSeries','latestEpochOrHighestSeries','earliestAgeOrLowestStage','latestAgeOrHighestStage','lowestBiostratigraphicZone','highestBiostratigraphicZone','_group','formation','member','bed']" filter-config="occurrence.filters[param]" filter-state="occurrence.occurrenceState"></div>      
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Identification">Identification</h3>
+        <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.identifiedBy" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.identifiedById" filter-state="occurrence.occurrenceState"></div>     
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Taxon">Taxon</h3>
+        <div filter-suggest filter-config="occurrence.filters.taxon_id" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.verbatim_scientific_name" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.iucnRedListCategory" filter-state="occurrence.occurrenceState"></div>        
+        
+        <!-- <h3 class="occurrenceGroup">MeasurementOrFact</h3> -->
+        <!-- <h3 class="occurrenceGroup">ResourceRelationship</h3> -->
+        <!-- <h3 class="occurrenceGroup">UseWithIRI</h3> -->      
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.Provenance">Provenance</h3>
+        <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.publisher" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.publishedByGbifRegion" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.hostingOrganizationKey" filter-state="occurrence.occurrenceState"></div>
+        <div filter-taxon filter-config="occurrence.filters.networkKey" filter-state="occurrence.occurrenceState"></div>
+        <!--div filter-suggest filter-config="occurrence.filters.installationKey" filter-state="occurrence.occurrenceState"></div-->
+        <div filter-enum filter-config="occurrence.filters.protocol" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.project_id" filter-state="occurrence.occurrenceState"></div>
+        <div filter-suggest filter-config="occurrence.filters.programme" filter-state="occurrence.occurrenceState"></div>     
+        
+        <h3 class="occurrenceGroup" translate="occurrence.groups.other">Other</h3>
+        <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
+        <div filter-interval filter-config="occurrence.filters.distanceFromCentroidInMeters" filter-state="occurrence.occurrenceState"></div>
+        <div filter-ternary filter-config="occurrence.filters.repatriated" filter-state="occurrence.occurrenceState"></div>
+        <div filter-ternary filter-config="occurrence.filters.isClustered" filter-state="occurrence.occurrenceState"></div>
+        <div filter-enum filter-config="occurrence.filters.dwcaExtension" filter-state="occurrence.occurrenceState" ></div>
+        <div filter-date filter-config="occurrence.filters.lastInterpreted" filter-state="occurrence.occurrenceState"></div>
     </div>
 </div>
 <div class="content__overlay hide-on-laptop" ng-click="occurrence.showFilters = false" ng-if="occurrence.showFilters"></div>
