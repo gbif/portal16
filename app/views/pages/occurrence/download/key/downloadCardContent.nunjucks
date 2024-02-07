@@ -96,6 +96,8 @@
             <div class="predicates {% if download.isSimple %} isSimplePredicate {% endif %}">
                 {$ predicate.print(download.record.request.predicate, __) $}
             </div>
+        {% elif download.record.request.sql %}
+            {$ download.record.request.sql $}
         {% else %}
             {$ __('downloadKey.noFiltersApplied') $}
         {% endif %}

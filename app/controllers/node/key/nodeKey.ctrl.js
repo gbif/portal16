@@ -6,7 +6,8 @@ let express = require('express'),
     helper = rootRequire('app/models/util/util'),
     _ = require('lodash'),
 // contributors = require('../../dataset/key/contributors/contributors'),
-    router = express.Router({caseSensitive: true});
+    router = express.Router({caseSensitive: true}),
+    minute = 60; // cache goes by seconds
 
 module.exports = function(app) {
     app.use('/', router);
@@ -133,6 +134,7 @@ router.get('/api/template/country/:iso.:ext?', function(req, res, next) {
     let country = getCountry(isoCode, res.locals.gb.locales.current);
     country
         .then(function(context) {
+            res.header('Cache-Control', 'public, max-age=' + minute * 10);
             helper.renderPage(req, res, next, context, 'pages/participant/country/participation/about');
         })
         .catch(function() {

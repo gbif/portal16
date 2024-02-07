@@ -272,6 +272,8 @@
                                             </code>
                                         </pre>
                                     </div>
+                                {% elif download.record.request.sql %}
+                                    {$ download.record.request.sql $}
                                 {% else %}
                                     {$ __('downloadKey.noFiltersApplied') $}
                                 {% endif %}

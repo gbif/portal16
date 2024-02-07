@@ -431,6 +431,15 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
       suggestEndpoint: suggestEndpoints.taxon_id
     }
   };
+  vm.filters.taxonConceptId = {
+    titleTranslation: 'filterNames.taxonConceptId',
+    queryKey: 'taxon_concept_id',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.taxon_concept_id
+    }
+  };
   vm.filters.organism_quantity = {
     titleTranslation: 'filterNames.organismQuantity',
     intervalTranslation: 'intervals.default.',
@@ -940,6 +949,13 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter
   };
 
+  vm.filters.isSequenced = {
+    titleTranslation: 'filterNames.isSequenced',
+    descriptionTranslation: 'filters.isSequenced.description',
+    queryKey: 'is_sequenced',
+    filter: OccurrenceFilter
+  };
+
   // dates
   vm.filters.lastInterpreted = {
     titleTranslation: 'filterNames.lastInterpreted',
@@ -961,6 +977,476 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     queryKey: 'geometry',
     expanded: false
   };
+
+  // New filters: https://github.com/gbif/portal16/issues/1902
+
+  vm.filters.fieldNumber = {
+    titleTranslation: 'filterNames.fieldNumber',
+    queryKey: 'field_number',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.field_number,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'FIELD_NUMBER'
+    },
+    focusFirst: false
+  };
+  vm.filters.preparations = {
+    titleTranslation: 'filterNames.preparations',
+    queryKey: 'preparations',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.preparations,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'PREPARATIONS'
+    },
+    focusFirst: false
+  };
+
+
+  vm.filters.sex = {
+    titleTranslation: 'filterNames.sex',
+    queryKey: 'sex',
+    filter: OccurrenceFilter,
+    enumTranslationPath: 'sex.',
+    showAll: true,
+    enums: enums.sex,
+    reversible: true,
+    facets: {
+      hasFacets: true,
+      facetKey: 'SEX'
+    }
+  };
+
+  vm.filters.endDayOfYear = {
+    titleTranslation: 'filterNames.endDayOfYear',
+    intervalTranslation: 'intervals.default.',
+    queryKey: 'end_day_of_year',
+    filter: OccurrenceFilter,
+    step: 1,
+    range: {
+      'min': [1, 1],
+      '50%': [183, 1],
+      'max': [366, 1]
+    }
+  };
+
+  vm.filters.startDayOfYear = {
+    titleTranslation: 'filterNames.startDayOfYear',
+    intervalTranslation: 'intervals.default.',
+    queryKey: 'start_day_of_year',
+    filter: OccurrenceFilter,
+    step: 1,
+    range: {
+      'min': [1, 1],
+      '50%': [183, 1],
+      'max': [366, 1]
+    }
+  };
+
+  vm.filters.higherGeography = {
+    titleTranslation: 'filterNames.higherGeography',
+    queryKey: 'higher_geography',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.higherGeography,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'HIGHER_GEOGRAPHY'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.island = {
+    titleTranslation: 'filterNames.island',
+    queryKey: 'island',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.island,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'ISLAND'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.islandGroup = {
+    titleTranslation: 'filterNames.islandGroup',
+    queryKey: 'island_group',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.islandGroup,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'ISLAND_GROUP'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.georeferencedBy = {
+    titleTranslation: 'filterNames.georeferencedBy',
+    queryKey: 'georeferenced_by',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.georeferencedBy,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'GEOREFERENCED_BY'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.higherClassification = {
+    titleTranslation: 'filterNames.higherClassification',
+    queryKey: 'higher_classification',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.higherClassification,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'HIGHER_CLASSIFICATION'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.previousIdentifications = {
+    titleTranslation: 'filterNames.previousIdentifications',
+    queryKey: 'previous_identifications',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.previousIdentifications,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'PREVIOUS_IDENTIFICATIONS'
+    },
+    focusFirst: false
+  };
+
+   
+  vm.filters.associatedSequences = {
+    titleTranslation: 'filterNames.associatedSequences',
+    queryKey: 'associated_sequences',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.associatedSequences,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'ASSOCIATED_SEQUENCES'
+    },
+    focusFirst: false
+  };
+  vm.filters.earliestEonOrLowestEonothem = {
+    titleTranslation: 'filterNames.earliestEonOrLowestEonothem',
+    queryKey: 'earliest_eon_or_lowest_eonothem',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.earliestEonOrLowestEonothem,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'EARLIEST_EON_OR_LOWEST_EONOTHEM'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.latestEonOrHighestEonothem = {
+    titleTranslation: 'filterNames.latestEonOrHighestEonothem',
+    queryKey: 'latest_eon_or_highest_eonothem',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.latestEonOrHighestEonothem,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LATEST_EON_OR_HIGHEST_EONOTHEM'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.earliestEraOrLowestErathem = {
+    titleTranslation: 'filterNames.earliestEraOrLowestErathem',
+    queryKey: 'earliest_era_or_lowest_erathem',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.earliestEraOrLowestErathem,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'EARLIEST_ERA_OR_LOWEST_ERATHEM'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.latestEraOrHighestErathem = {
+    titleTranslation: 'filterNames.latestEraOrHighestErathem',
+    queryKey: 'latest_era_or_highest_erathem',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.latestEraOrHighestErathem,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LATEST_ERA_OR_HIGHEST_ERATHEM'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.earliestPeriodOrLowestSystem = {
+    titleTranslation: 'filterNames.earliestPeriodOrLowestSystem',
+    queryKey: 'earliest_period_or_lowest_system',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.earliestPeriodOrLowestSystem,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'EARLIEST_PERIOD_OR_LOWEST_SYSTEM'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.latestPeriodOrHighestSystem = {
+    titleTranslation: 'filterNames.latestPeriodOrHighestSystem',
+    queryKey: 'latest_period_or_highest_system',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.latestPeriodOrHighestSystem,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LATEST_PERIOD_OR_HIGHEST_SYSTEM'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.earliestEpochOrLowestSeries = {
+    titleTranslation: 'filterNames.earliestEpochOrLowestSeries',
+    queryKey: 'earliest_epoch_or_lowest_series',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.earliestEpochOrLowestSeries,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'EARLIEST_EPOCH_OR_LOWEST_SERIES'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.latestEpochOrHighestSeries = {
+    titleTranslation: 'filterNames.latestEpochOrHighestSeries',
+    queryKey: 'latest_epoch_or_highest_series',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.latestEpochOrHighestSeries,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LATEST_EPOCH_OR_HIGHEST_SERIES'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.earliestAgeOrLowestStage = {
+    titleTranslation: 'filterNames.earliestAgeOrLowestStage',
+    queryKey: 'earliest_age_or_lowest_stage',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.earliestAgeOrLowestStage,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'EARLIEST_AGE_OR_LOWEST_STAGE'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.latestAgeOrHighestStage = {
+    titleTranslation: 'filterNames.latestAgeOrHighestStage',
+    queryKey: 'latest_age_or_highest_stage',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.latestAgeOrHighestStage,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LATEST_AGE_OR_HIGHEST_STAGE'
+    },
+    focusFirst: false
+  };
+
+  vm.filters.lowestBiostratigraphicZone = {
+    titleTranslation: 'filterNames.lowestBiostratigraphicZone',
+    queryKey: 'lowest_biostratigraphic_zone',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.lowestBiostratigraphicZone,
+      defaultParams: {limit: 50}
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'LOWEST_BIOSTRATIGRAPHIC_ZONE'
+    },
+    focusFirst: false
+  };
+
+vm.filters.highestBiostratigraphicZone = {
+  titleTranslation: 'filterNames.highestBiostratigraphicZone',
+  queryKey: 'highest_biostratigraphic_zone',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true,
+    suggestEndpoint: suggestEndpoints.highestBiostratigraphicZone,
+    defaultParams: {limit: 50}
+  },
+  facets: {
+    hasFacets: false,
+    facetKey: 'HIGHEST_BIOSTRATIGRAPHIC_ZONE'
+  },
+  focusFirst: false
+};
+
+vm.filters._group = {
+  titleTranslation: 'filterNames._group',
+  queryKey: '_group',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true,
+    suggestEndpoint: suggestEndpoints._group,
+    defaultParams: {limit: 50}
+  },
+  facets: {
+    hasFacets: false,
+    facetKey: '_GROUP'
+  },
+  focusFirst: false
+};
+
+vm.filters.formation = {
+  titleTranslation: 'filterNames.formation',
+  queryKey: 'formation',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true,
+    suggestEndpoint: suggestEndpoints.formation,
+    defaultParams: {limit: 50}
+  },
+  facets: {
+    hasFacets: false,
+    facetKey: 'FORMATION'
+  },
+  focusFirst: false
+};
+
+vm.filters.member = {
+  titleTranslation: 'filterNames.member',
+  queryKey: 'member',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true,
+    suggestEndpoint: suggestEndpoints.member,
+    defaultParams: {limit: 50}
+  },
+  facets: {
+    hasFacets: false,
+    facetKey: 'MEMBER'
+  },
+  focusFirst: false
+};
+
+vm.filters.bed = {
+  titleTranslation: 'filterNames.bed',
+  queryKey: 'bed',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true,
+    suggestEndpoint: suggestEndpoints.bed,
+    defaultParams: {limit: 50}
+  },
+  facets: {
+    hasFacets: false,
+    facetKey: 'BED'
+  },
+  focusFirst: false
+};
+
+vm.filters.publishedByGbifRegion = {
+  titleTranslation: 'filterNames.publishedByGbifRegion',
+  queryKey: 'published_by_gbif_region',
+  filter: OccurrenceFilter,
+  enumTranslationPath: 'gbifRegion.',
+  showAll: true,
+  enums: enums.gbifRegion,
+  reversible: true,
+  facets: {
+    hasFacets: true,
+    facetKey: 'PUBLISHED_BY_GBIF_REGION'
+  }
+};
+
+vm.filters.gbifRegion = {
+  titleTranslation: 'filterNames.gbifRegion',
+  queryKey: 'gbif_region',
+  filter: OccurrenceFilter,
+  enumTranslationPath: 'gbifRegion.',
+  showAll: true,
+  enums: enums.gbifRegion,
+  reversible: true,
+  facets: {
+    hasFacets: true,
+    facetKey: 'GBIF_REGION'
+  }
+};
 
 
   vm.toggleAdvanced = function () {

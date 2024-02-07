@@ -109,7 +109,6 @@ function occurrenceTableCtrl($scope, $stateParams, $filter, hotkeys, OccurrenceF
 console.log(vm.columns);
     vm.translationKeyOverwrites = {
         coordinates: 'occurrence.coordinates',
-        eventDate: 'occurrence.monthAndyear',
         issues: 'occurrence.issues',
         dataset: 'occurrence.dataset'
     };

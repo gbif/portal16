@@ -1,0 +1,8 @@
+{
+    "sex": {
+        "NONE": "該当なし",
+        "MALE": "",
+        "FEMALE": "",
+        "HERMAPHRODITE": ""
+    }
+}

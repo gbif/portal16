@@ -8,6 +8,7 @@
     "MAP_OF_LIFE": "Map of Life export",
     "IUCN": "IUCN export",
     "BIONOMIA": "Bionomia export",
+    "SQL_TSV_ZIP": "SQL TSV zip",
     "SIMPLE_PARQUET": "Simple Parquet"
   }
 }

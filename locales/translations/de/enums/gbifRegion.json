@@ -1,0 +1,11 @@
+{
+    "gbifRegion": {
+        "NORTH_AMERICA": "Nordamerika",
+        "OCEANIA": "Ozeanien",
+        "EUROPE": "Europa",
+        "ANTARCTICA": "Antarktis",
+        "LATIN_AMERICA": "",
+        "AFRICA": "Afrika",
+        "ASIA": "Asien"
+    }
+}

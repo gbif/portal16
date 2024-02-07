@@ -69,7 +69,10 @@ angular
             'establishmentMeans',
             'pathway',
             'degreeOfEstablishment',
-            'publishing_org'];
+            'publishing_org',
+            'gbif_region',
+            'published_by_gbif_region',
+            'sex'];
         var exhaustiveFacets = [];
         exhaustiveFacetsKeys.forEach(function(facet) {
             exhaustiveFacets.push(facet);
@@ -89,7 +92,10 @@ angular
             'issue',
             'dwca_extension',
             'license',
-            'publishing_org'];
+            'publishing_org',
+            'gbif_region',
+            'published_by_gbif_region',
+            'sex'];
 
         function getOccurrenceState() {
             return state;

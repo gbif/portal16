@@ -354,7 +354,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             });
         } */
     function blastAll(list) {
-        var blastlimit = pLimit(10);
+        var blastlimit = pLimit(4);
 
         Promise.all((list || vm.species).map(function (s) {
             return blastlimit(

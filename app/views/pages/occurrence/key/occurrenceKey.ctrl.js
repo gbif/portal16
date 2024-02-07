@@ -93,11 +93,20 @@ function occurrenceKeyCtrl($state, $sessionStorage, $stateParams, env, hotkeys, 
         vm.iiifManifestUri = iiifUris[0].split('://')[0] + '://labs.gbif.org/mirador/?manifest=' + iiifUris[0];
        }
    }
-    if (!vm.iiifManifestUri && _.get(occurrence, 'dynamicProperties')) {
+   // If dynamicProperties are JSON, pase them and attach to controller
+    if (_.get(occurrence, 'dynamicProperties')) {
         try {
-           var dynProps = JSON.parse(_.get(occurrence, 'dynamicProperties'));
-           if (dynProps['iiifManifestUri']) {
-            vm.iiifManifestUri = dynProps['iiifManifestUri'].split('://')[0] + '://labs.gbif.org/mirador/?manifest=' + dynProps['iiifManifestUri'];
+            var dynProps = JSON.parse(_.get(occurrence, 'dynamicProperties'));
+            vm.dynamicProperties = dynProps;
+         } catch (err) {
+             // unparsable JSON
+         }
+    } 
+
+    if (!vm.iiifManifestUri && _.get(vm.dynamicProperties, 'iiifManifestUri')) {
+        try {
+           if (vm.dynamicProperties['iiifManifestUri']) {
+            vm.iiifManifestUri = vm.dynamicProperties['iiifManifestUri'].split('://')[0] + '://labs.gbif.org/mirador/?manifest=' + vm.dynamicProperties['iiifManifestUri'];
            }
         } catch (err) {
             // unparsable JSON

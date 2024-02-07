@@ -105,7 +105,7 @@ function occurrenceKeyClusterCtrl($q, $state, $filter, $stateParams, constantKey
       var ext = extensions['http://data.ggbn.org/schemas/ggbn/terms/' + ggbn[i]];
       if (ext && ext.length > 0) return true;
     }
-    if (extensions['http://rs.gbif.org/terms/1.0/DNADerivedData']) {
+    if (extensions['http://rs.gbif.org/terms/1.0/DNADerivedData'] && extensions['http://rs.gbif.org/terms/1.0/DNADerivedData'].length > 0) {
       return true;
     }
     return false;

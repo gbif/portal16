@@ -119,6 +119,26 @@
                 return moment(date).format(format || 'LLLL');
             };
         })
+        .filter('momentFormatRange', function (LOCALE, LOCALE_MAPPINGS) {
+            const formats = ['YYYY', 'YYYY MMM', 'YYYY MMM DD'];
+            return function (date, format) {
+                moment.locale(LOCALE_MAPPINGS.moment[LOCALE]);
+                if (!date) return '';
+                if (format === 'LL') {
+                    date = date.substr(0, 10);
+                }
+                if (date.indexOf('/') > -1) {
+                    var dates = date.split('/');
+                    let firstParts = dates[0].split('-');
+                    let secondParts = dates[1].split('-');
+
+                    return moment(dates[0]).format(format || formats[firstParts.length - 1] || 'LLLL') + ' - ' + moment(dates[1]).format(format || formats[secondParts.length - 1] || 'LLLL');
+                } else {
+                    let firstParts = date.split('-');
+                    return moment(date).format(format || formats[firstParts.length - 1] || 'LLLL');
+                }
+            };
+        })
         .filter('momentFormatEnglish', function (LOCALE_MAPPINGS) {
             return function (date, format) {
                 moment.locale(LOCALE_MAPPINGS.moment['en']);

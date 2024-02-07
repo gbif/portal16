@@ -7,7 +7,8 @@ let express = require('express'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     utils = rootRequire('app/helpers/utils'),
     router = express.Router({caseSensitive: true}),
-    prettifyXml = require('prettify-xml');
+    prettifyXml = require('prettify-xml'),
+    minute = 60; // cache goes by seconds
 
 
 module.exports = function(app) {
@@ -89,6 +90,7 @@ async function render(req, res, next) {
 router.get('/api/template/occurrence/:key(\\d+)', function(req, res, next) {
     let key = req.params.key;
     occurrenceKey.getOccurrenceModel(key, res.__).then(function(occurrence) {
+        res.header('Cache-Control', 'public, max-age=' + minute * 10);
         renderContent(req, res, next, occurrence);
     }).catch(function(err) {
         if (err.type == 'NOT_FOUND') {
