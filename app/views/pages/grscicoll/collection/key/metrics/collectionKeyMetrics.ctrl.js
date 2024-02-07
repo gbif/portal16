@@ -24,7 +24,7 @@ function collectionKeyMetricsCtrl($state, $stateParams, OccurrenceSearch, MapCap
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: secondDimension || '', type: type, customizable: false, showSettings: true},
-            filter: {collection_key: vm.key, advanced: true}
+            filter: {collection_key: vm.key}
         };
         vm.defaultCharts.push(chartConfig);
     }

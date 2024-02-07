@@ -117,7 +117,7 @@
                                                         </td>
                                                         <td>
                                                             <span>
-                                                              <a ui-sref="occurrenceSearchTable({dataset_key: datasetEvent.datasetKey, event_id: event.eventID, advanced: true})">{{ event.occurrenceCount | localNumber }}</a> (<span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ datasetEvent.datasetKey }}&event_id={{ event.eventID }}&occurrence_status=absent" count-translation="{{counts.nAbsent}}">&nbsp;</span>)
+                                                              <a ui-sref="occurrenceSearchTable({dataset_key: datasetEvent.datasetKey, event_id: event.eventID})">{{ event.occurrenceCount | localNumber }}</a> (<span count="{{ portal.dataApi }}occurrence/search?dataset_key={{ datasetEvent.datasetKey }}&event_id={{ event.eventID }}&occurrence_status=absent" count-translation="{{counts.nAbsent}}">&nbsp;</span>)
                                                             </span>
                                                         </td>
                                                     </tr>
