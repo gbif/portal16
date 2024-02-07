@@ -112,7 +112,8 @@
     "member": "Member",
     "bed": "Bed",
     "gbifRegion": "GBIF region",
-    "publishedByGbifRegion": "Published by GBIF region"
+    "publishedByGbifRegion": "Published by GBIF region",
+    "taxonConceptId": "Taxon Concept Id"
     
   }
 }

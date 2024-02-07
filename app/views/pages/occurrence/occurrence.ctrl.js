@@ -431,6 +431,15 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
       suggestEndpoint: suggestEndpoints.taxon_id
     }
   };
+  vm.filters.taxonConceptId = {
+    titleTranslation: 'filterNames.taxonConceptId',
+    queryKey: 'taxon_concept_id',
+    filter: OccurrenceFilter,
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.taxon_concept_id
+    }
+  };
   vm.filters.organism_quantity = {
     titleTranslation: 'filterNames.organismQuantity',
     intervalTranslation: 'intervals.default.',
