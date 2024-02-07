@@ -108,7 +108,6 @@
      <div filter-suggest filter-config="occurrence.filters.georeferencedBy" filter-state="occurrence.occurrenceState"></div>
      <div filter-taxon filter-config="occurrence.filters.gadmGid" filter-state="occurrence.occurrenceState"></div>
      <div filter-enum filter-config="occurrence.filters.gbifRegion" filter-state="occurrence.occurrenceState"></div>
-     <div filter-enum filter-config="occurrence.filters.publishedByGbifRegion" filter-state="occurrence.occurrenceState"></div>
 
      <h3 class="occurrenceGroup" translate="occurrence.groups.GeologicalContext">GeologicalContext</h3>
      <div filter-suggest ng-repeat="param in ['earliestEonOrLowestEonothem','latestEonOrHighestEonothem','earliestEraOrLowestErathem','latestEraOrHighestErathem','earliestPeriodOrLowestSystem','latestPeriodOrHighestSystem','earliestEpochOrLowestSeries','latestEpochOrHighestSeries','earliestAgeOrLowestStage','latestAgeOrHighestStage','lowestBiostratigraphicZone','highestBiostratigraphicZone','_group','formation','member','bed']" filter-config="occurrence.filters[param]" filter-state="occurrence.occurrenceState"></div>
@@ -128,10 +127,11 @@
      <!-- <h3 class="occurrenceGroup">ResourceRelationship</h3> -->
      <!-- <h3 class="occurrenceGroup">UseWithIRI</h3> -->
 
-     <h3 class="occurrenceGroup">Provenance</h3>
+     <h3 class="occurrenceGroup" translate="occurrence.groups.Provenance">Provenance</h3>
      <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
      <div filter-taxon filter-config="occurrence.filters.publisher" filter-state="occurrence.occurrenceState"></div>
      <div filter-enum filter-config="occurrence.filters.publishingCountry" filter-state="occurrence.occurrenceState"></div>
+     <div filter-enum filter-config="occurrence.filters.publishedByGbifRegion" filter-state="occurrence.occurrenceState"></div>
      <div filter-taxon filter-config="occurrence.filters.hostingOrganizationKey" filter-state="occurrence.occurrenceState"></div>
      <div filter-taxon filter-config="occurrence.filters.networkKey" filter-state="occurrence.occurrenceState"></div>
      <!--div filter-suggest filter-config="occurrence.filters.installationKey" filter-state="occurrence.occurrenceState"></div-->

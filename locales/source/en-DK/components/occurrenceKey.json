@@ -42,6 +42,8 @@
       "Organism": "Organism",
       "MaterialSample": "MaterialSample",
       "GeologicalContext": "Geological context",
+      "MaterialEntity": "Material entity",
+      "Provenance": "Provenance",
       "other": "Other"
     },
     "term": "Term",
