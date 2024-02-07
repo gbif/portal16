@@ -244,9 +244,7 @@
              filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
-             <li ng-repeat="phone in vm.getAsArray(vm.contact.phone)" ng-if="phone">
-               <a ng-href="tel:{{ phone }}" dir="ltr">{{ phone }}</a>
-           </li>
+             
           <div filter-suggest ng-repeat="param in ['earliestEonOrLowestEonothem','latestEonOrHighestEonothem','earliestEraOrLowestErathem','latestEraOrHighestErathem','earliestPeriodOrLowestSystem','latestPeriodOrHighestSystem','earliestEpochOrLowestSeries','latestEpochOrHighestSeries','earliestAgeOrLowestStage','latestAgeOrHighestStage','lowestBiostratigraphicZone','highestBiostratigraphicZone','_group','formation','member','bed']" filter-config="occurrence.filters[param]" filter-state="occurrence.occurrenceState"
              ng-if="occurrence.occurrenceState.query.advanced"></div>
 
