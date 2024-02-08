@@ -58,22 +58,23 @@
             <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
             <div filter-taxon filter-config="occurrence.filters.taxonKey" filter-state="occurrence.occurrenceState"></div>
             <div filter-enum filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>
-            <div filter-location filter-config="occurrence.filters.location" filter-state="occurrence.occurrenceState"></div>
-            <div filter-taxon filter-config="occurrence.filters.gadmGid" filter-state="occurrence.occurrenceState"></div>
-            <div filter-interval filter-config="occurrence.filters.coordinateUncertaintyInMeters" filter-state="occurrence.occurrenceState"></div>
             <div filter-interval filter-config="occurrence.filters.year" filter-state="occurrence.occurrenceState"></div>
             <div filter-enum filter-config="occurrence.filters.month" filter-state="occurrence.occurrenceState"></div>
-            <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
+            <div filter-location filter-config="occurrence.filters.location" filter-state="occurrence.occurrenceState"></div>
+            <div filter-taxon filter-config="occurrence.filters.gadmGid" filter-state="occurrence.occurrenceState"></div>
+            <!-- <div filter-interval filter-config="occurrence.filters.coordinateUncertaintyInMeters" filter-state="occurrence.occurrenceState"></div> -->
             <div filter-enum filter-config="occurrence.filters.countryCode" filter-state="occurrence.occurrenceState"></div>
             <div filter-enum filter-config="occurrence.filters.continent" filter-state="occurrence.occurrenceState"></div>
-            <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
-            <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div>
+            
+            <!-- <div filter-enum filter-config="occurrence.filters.mediaType" filter-state="occurrence.occurrenceState"></div> -->
+            <div filter-taxon filter-config="occurrence.filters.dataset" filter-state="occurrence.occurrenceState"></div>
             <div filter-taxon filter-config="occurrence.filters.publisher" filter-state="occurrence.occurrenceState"></div>
-            <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
+            <!-- <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
             <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
             <div filter-suggest filter-config="occurrence.filters.catalogNumber" filter-state="occurrence.occurrenceState"></div>
-            <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
+            <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div> -->
             <div filter-enum filter-config="occurrence.filters.iucnRedListCategory" filter-state="occurrence.occurrenceState"></div>
+            <div filter-enum filter-config="occurrence.filters.issue" filter-state="occurrence.occurrenceState"></div>
         </div>
         <div ng-if="occurrence.occurrenceState.query.advanced">
             <h3 class="occurrenceGroup" translate="occurrence.groups.Record">Record</h3>
