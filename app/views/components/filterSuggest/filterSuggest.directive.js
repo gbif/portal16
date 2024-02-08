@@ -91,7 +91,7 @@ function filterSuggestDirective(BUILD_VERSION) {
         };
 
         vm.showFacetCount = function() {
-            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
+            return vm.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets && vm.query.length != 1;
         };
 
         vm.getWidth = function(key) {

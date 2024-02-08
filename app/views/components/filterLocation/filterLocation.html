@@ -1,15 +1,15 @@
 <div class="filter-group filter-group--location rtl-bootstrap">
-    <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
+    <a href="" class="inherit" ng-click="vm.expanded = !vm.expanded">
         <h4>
             <span translate="filterNames.location">Location</span>
-            <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
-            <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
+            <span class="gb-icon-angle-down pull-right" ng-if="!vm.expanded"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="vm.expanded"></span>
         </h4>
     </a>
 
-    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
+    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.expanded}">
 
-        <div class="is-padded" ng-if="vm.filterConfig.expanded">
+        <div class="is-padded" ng-if="vm.expanded">
             <div class="gb-radio">
                 <label class="radio" ng-model="vm.hasCoordinate" uib-btn-radio=""
                        ng-change="vm.hasCoordinateChange()"><span class="gb-radio__indicator"><span></span></span><span
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="is-padded overflow-hidden">
-            <div class="checkbox" ng-if="vm.hasCoordinate!==undefined && !vm.filterConfig.expanded">
+            <div class="checkbox" ng-if="vm.hasCoordinate!==undefined && !vm.expanded">
                 <label>
                     <input type="checkbox" ng-click="vm.hasCoordinate=undefined; vm.hasCoordinateChange();" checked>
                     <span ng-if="vm.hasCoordinate" translate="filters.location.withCoordinates">
@@ -35,7 +35,7 @@
                 </label>
             </div>
             <div class="checkbox"
-                 ng-if="vm.hasCoordinate !== false && (vm.includeSuspicious || vm.filterConfig.expanded)">
+                 ng-if="vm.hasCoordinate !== false && (vm.includeSuspicious || vm.expanded)">
                 <label>
                     <input type="checkbox" ng-model="vm.includeSuspicious" ng-change="vm.apply()"
                            ng-disabled="!vm.hasCoordinate">
@@ -53,7 +53,7 @@
                 </label>
             </div>
             <div class="checkbox p-l-05" ng-repeat="geometry in vm.geometryOptions"
-                 ng-if="!vm.filterConfig.expanded && vm.hasCoordinate !== false && vm.geometryOptions.length > 0">
+                 ng-if="!vm.expanded && vm.hasCoordinate !== false && vm.geometryOptions.length > 0">
                 <label>
                     <input type="checkbox" ng-model="geometry.active" ng-change="vm.removeFromList($index, geometry)">
                         <span class="filter-group__filter__name">
@@ -63,7 +63,7 @@
                 </label>
             </div>
 
-            <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false" class="card">
+            <div ng-if="vm.expanded && vm.hasCoordinate !== false" class="card">
                 <div class="card__stripe" ng-class="{fadeImages: !vm.hasCoordinate}">
                     <filter-location-map include-suspicious="vm.includeSuspicious"></filter-location-map>
                 </div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-            <div ng-if="vm.filterConfig.expanded && vm.hasCoordinate !== false " class="is-padded">
+            <div ng-if="vm.expanded && vm.hasCoordinate !== false " class="is-padded">
                 <div class="filter-group--location__input-types">
                     <div class="card">
                         <div class="card__stripe">
@@ -141,7 +141,7 @@
                         </div>
                         <div class="card__stripe--light" ng-if="vm.inputType=='PAST'">
                             <div class="card__content">
-                                <div ng-if="vm.geometrySuggestions.length && vm.filterConfig.expanded && vm.hasCoordinate !== false">
+                                <div ng-if="vm.geometrySuggestions.length && vm.expanded && vm.hasCoordinate !== false">
                                     <div class="checkbox" ng-repeat="geometry in vm.geometrySuggestions | limitTo:5 ">
                                         <label>
                                             <input type="checkbox" ng-model="geometry.active"

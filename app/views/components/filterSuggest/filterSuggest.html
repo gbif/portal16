@@ -1,13 +1,13 @@
 <div class="filter-group filter-group--search rtl-bootstrap">
-    <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
+    <a href="" class="inherit" ng-click="vm.expanded = !vm.expanded">
         <h4>
             <span translate="{{vm.filterConfig.titleTranslation}}">Translation missing</span>
-            <span class="gb-icon-angle-down pull-right" ng-if="!vm.filterConfig.expanded"></span>
-            <span class="gb-icon-angle-up pull-right" ng-if="vm.filterConfig.expanded"></span>
+            <span class="gb-icon-angle-down pull-right" ng-if="!vm.expanded"></span>
+            <span class="gb-icon-angle-up pull-right" ng-if="vm.expanded"></span>
         </h4>
     </a>
 
-    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.filterConfig.expanded}">
+    <div class="filter-group__filter" ng-class="{'filter-group__filter--collapsed': !vm.expanded}">
 
         <div ng-if="vm.query.length > 0" class="is-padded overflow-hidden">
             <div class="checkbox" ng-repeat="key in vm.query">
@@ -17,7 +17,7 @@
                     <span class="filter-group__filter__name">
                         <div class="filter-group__filter__name__bar" ng-style="vm.getWidth(key)"
                              ng-if="vm.filterConfig.facets.hasFacets"></div>
-                        <span dir="auto" ng-class="{'filter-group__filter__name__title' : vm.filterConfig.expanded}">{{key}}</span>
+                        <span dir="auto" ng-class="{'filter-group__filter__name__title' : vm.expanded}">{{key}}</span>
                         <span class="filter-group__filter__name__count"
                               ng-if="vm.showFacetCount() && vm.filterState.data.facets">
                             {{vm.filterState.data.facets[vm.filterConfig.facets.facetKey].counts[key].count || 0 | localNumber:vm.filterState.query.locale}}
@@ -28,9 +28,9 @@
         </div>
         {{vm.filterState.data.filters[vm.filterConfig.facets.facetKey]}}
         <div class="filter-group__filter__search"
-             ng-if="vm.filterConfig.expanded && vm.filterConfig.search.isSearchable">
+             ng-if="vm.expanded && vm.filterConfig.search.isSearchable">
             <input type="text"
-                   focus-me="vm.filterConfig.expanded"
+                   focus-me="vm.expanded"
                    autocomplete="off"
                    class="fit-suggestions"
                    ng-model="vm.selected"
@@ -43,7 +43,7 @@
         </div>
 
         <div class="is-padded overflow-hidden"
-             ng-if="vm.filterConfig.expanded && vm.filterConfig.facets.hasFacets && vm.allowSelection()">
+             ng-if="vm.expanded && vm.filterConfig.facets.hasFacets && vm.allowSelection()">
 
             <div class="checkbox" ng-repeat="(key, facet) in vm.suggestions.counts" ng-if="!vm.inQuery(key)">
                 <label>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="site-drawer__bar"
-             ng-if="vm.filterConfig.expanded && vm.query.length > 0 && !vm.filterConfig.singleSelect">
+             ng-if="vm.expanded && vm.query.length > 0 && !vm.filterConfig.singleSelect">
             <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
                 <span translate="filters.clear">Clear</span>
             </a>

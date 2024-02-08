@@ -87,7 +87,7 @@ function filterEnumDirective(BUILD_VERSION) {
 
         vm.showEnum = function(key) {
             if (vm.inQuery(key)) return true;
-            if (vm.filterConfig.expanded) {
+            if (vm.expanded) {
                 if (vm.filterConfig.showAll) return true;
                 if (vm.suggestions && vm.suggestions.counts && vm.suggestions.counts[key]) return true;
             }
@@ -101,7 +101,7 @@ function filterEnumDirective(BUILD_VERSION) {
         };
 
         vm.showFacetCount = function() {
-            return vm.filterConfig.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
+            return vm.expanded && vm.filterConfig.facets && vm.filterConfig.facets.hasFacets;
         };
 
         vm.getWidth = function(key) {
