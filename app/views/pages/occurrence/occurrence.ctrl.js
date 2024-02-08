@@ -1448,6 +1448,11 @@ vm.filters.gbifRegion = {
   }
 };
 
+
+  vm.toggleAdvanced = function () {
+    OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
+  };
+
   vm.search = function () {
     vm.occurrenceState.query.q = vm.freeTextQuery;
     $state.go('.', vm.occurrenceState.query, {inherit: false, notify: true, reload: true});

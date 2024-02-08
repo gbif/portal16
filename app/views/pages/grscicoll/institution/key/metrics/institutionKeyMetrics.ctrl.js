@@ -24,7 +24,7 @@ function institutionKeyMetricsCtrl($state, $stateParams, OccurrenceSearch, MapCa
         var chartConfig = {
             api: {},
             config: {dimension: dimension, secondDimension: secondDimension || '', type: type, customizable: false, showSettings: true},
-            filter: {institution_key: vm.key}
+            filter: {institution_key: vm.key, advanced: true}
         };
         vm.defaultCharts.push(chartConfig);
     }

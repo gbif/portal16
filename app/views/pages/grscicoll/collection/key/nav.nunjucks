@@ -7,7 +7,7 @@
                         <ul>
                             <li class="tab tab-right ng-cloak">
                                 <span>
-                                    <a ui-sref="occurrenceSearchTable({collection_key: collectionKey.key})" class="gb-button--brand">
+                                    <a ui-sref="occurrenceSearchTable({collection_key: collectionKey.key, advanced: true})" class="gb-button--brand">
                                         {{ collectionKey.occurrences.count | localNumber }}
                                         <span class="gb-button--brand__label">
                                             Occurrences
