@@ -1,8 +1,8 @@
 {
     "sex": {
         "NONE": "該当なし",
-        "MALE": "",
-        "FEMALE": "",
-        "HERMAPHRODITE": ""
+        "MALE": "オス",
+        "FEMALE": "メス",
+        "HERMAPHRODITE": "雌雄同体"
     }
 }
