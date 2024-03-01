@@ -9,6 +9,12 @@ angular
     .module('portal')
     .directive('phyloTree', phyloTreeDirective);
 
+function startsWithLowerCase(s) {
+    var character = s.charAt(0);
+    return character == character.toLowerCase();
+}
+
+    
 /** @ngInject */
 function phyloTreeDirective() {
     var directive = {
@@ -137,7 +143,7 @@ function phyloTreeDirective() {
                                 'important'
                               );
                         }
-                        if (_.get(data, 'data.name')) {
+                        if (_.get(data, 'data.name') && !data.children) {
                             element.style(
                                 'cursor',
                                 'pointer'
@@ -149,8 +155,23 @@ function phyloTreeDirective() {
                             } */
                             data.selected_xx = true;
                             console.log(data);
-                            if (data.data.name) {
-                                $state.go('occurrenceSearchTable', {q: data.data.name.replaceAll('_', ' '), dataset_key: vm.datasetKey});
+                            if (data.data.name && !data.children) {
+                                var searchTerm = '';
+                                var parts = data.data.name.split('_');
+                                if (parts.length < 3) {
+                                    searchTerm = data.data.name.replaceAll('_', ' ');
+                                } else {
+                                    var firstEpithet = parts.find(startsWithLowerCase);
+                                    var firstEpithetIndex = parts.indexOf(firstEpithet);
+                                    if (firstEpithetIndex > 1) {
+                                        searchTerm = parts.slice(firstEpithetIndex - 1).join(' ');
+                                    } else {
+                                        searchTerm = data.data.name.replaceAll('_', ' ');
+                                    }
+                                }
+                                
+
+                                $state.go('occurrenceSearchTable', {q: searchTerm, dataset_key: vm.datasetKey});
                             }
                             // tree.getNodeById(data.data.id)
                            // console.log(tree.getNodeByName(data.data.name))
