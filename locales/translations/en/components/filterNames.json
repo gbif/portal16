@@ -20,7 +20,7 @@
     "recordedById": "Recorded by ID",
     "identifiedBy": "Identified by",
     "identifiedById": "Identified by ID",
-    "geoDistance": "",
+    "geoDistance": "Distance from point",
     "eventDate": "Event date",
     "eventId": "Event ID",
     "samplingProtocol": "Sampling protocol",
@@ -83,7 +83,7 @@
     "dwcaExtension": "DWCA extension",
     "isInCluster": "Has related records",
     "iucnRedListCategory": "IUCN Global Red List Category",
-    "isSequenced": "",
+    "isSequenced": "Is sequenced",
     "fieldNumber": "Field number",
     "preparations": "Preparations",
     "sex": "Sex",
@@ -113,7 +113,7 @@
     "member": "Member",
     "bed": "Bed",
     "gbifRegion": "GBIF region",
-    "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "publishedByGbifRegion": "Published by GBIF region",
+    "taxonConceptId": "Taxon Concept Id"
   }
 }
