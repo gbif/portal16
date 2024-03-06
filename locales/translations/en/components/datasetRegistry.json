@@ -34,7 +34,7 @@
             "itemInIngestionQueue": "Items in ingestion queue",
             "datasetIngestionStatus": "Dataset ingestion status",
             "gbifIngestionStatus": "GBIF ingestion status",
-            "lastIngestionSuccess": "Last ingestion a success",
+            "lastIngestionSuccess": "Last ingestion successful",
             "lastIngestionFailed": "Last ingestion failed",
             "outOfSync": "Out of sync",
             "becauseTrustedContact": "Because you are trusted contact"
