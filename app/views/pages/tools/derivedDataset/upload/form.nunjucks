@@ -31,7 +31,7 @@
 
 
                 <div class="m-b-1" ng-show="!derivedDatasetUpload.form.doi && derivedDatasetUpload.relatedDatasets.length < 2">
-                <span translate="tools.derivedDataset.attachCsvLabel">Attach csv with dataset keys and occurrence counts</span>
+                    <p ng-bind-html="'tools.derivedDataset.attachCsvLabel' | translate | md2html">Attach csv with dataset keys and occurrence counts</p>
                     <input 
                          ngf-select
                          name="attachment"
