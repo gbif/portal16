@@ -16,7 +16,7 @@
     "pendingEndorsementBy": "待批准",
     "endorsementWithheld": "拒绝给予支持",
     "installations": "安装",
-    "getDownloadReport": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
+    "getDownloadReport": "",
     "contacts": "联系人",
     "administrativeContact": "行政联系人",
     "header": {
