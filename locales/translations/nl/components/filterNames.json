@@ -20,7 +20,7 @@
     "recordedById": "",
     "identifiedBy": "",
     "identifiedById": "",
-    "geoDistance": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
+    "geoDistance": "",
     "eventDate": "",
     "eventId": "",
     "samplingProtocol": "",
@@ -83,7 +83,7 @@
     "dwcaExtension": "",
     "isInCluster": "",
     "iucnRedListCategory": "",
-    "isSequenced": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
+    "isSequenced": "",
     "fieldNumber": "",
     "preparations": "",
     "sex": "",
@@ -113,7 +113,7 @@
     "member": "",
     "bed": "",
     "gbifRegion": "",
-    "publishedByGbifRegion": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
-    "taxonConceptId": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\"."
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }
