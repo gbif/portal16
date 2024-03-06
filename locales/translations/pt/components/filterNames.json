@@ -20,7 +20,7 @@
     "recordedById": "Registado por ID",
     "identifiedBy": "Identificado por",
     "identifiedById": "Identificado por ID",
-    "geoDistance": "Uma breve descrição do componente deve ser colocada aqui",
+    "geoDistance": "",
     "eventDate": "Data do evento",
     "eventId": "ID do Evento",
     "samplingProtocol": "Protocolo de amostragem",
@@ -83,7 +83,7 @@
     "dwcaExtension": "Extensão DWCA",
     "isInCluster": "Está em cluster",
     "iucnRedListCategory": "",
-    "isSequenced": "Uma breve descrição do componente deve ser colocada aqui",
+    "isSequenced": "",
     "fieldNumber": "Número de campo",
     "preparations": "Preparações",
     "sex": "Sexo",
@@ -113,7 +113,7 @@
     "member": "Membro",
     "bed": "Cama",
     "gbifRegion": "Região do GBIF",
-    "publishedByGbifRegion": "Uma breve descrição do componente deve ser colocada aqui",
-    "taxonConceptId": "Uma breve descrição do componente deve ser colocada aqui"
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }
