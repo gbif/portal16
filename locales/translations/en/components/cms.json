@@ -27,7 +27,7 @@
       "partners": "Partners"
     },
     "datause": {
-      "dataViaGbif": "Data resources used via GBIF"
+      "dataViaGbif": "GBIF-mediated data resources used"
     },
     "literature": {
       "keywords": "Keywords"
