@@ -20,7 +20,7 @@
     "recordedById": "記錄者識別碼",
     "identifiedBy": "鑑定者",
     "identifiedById": "鑑定者識別碼",
-    "geoDistance": "GBIF 註記的存檔",
+    "geoDistance": "",
     "eventDate": "事件日期",
     "eventId": "事件識別碼",
     "samplingProtocol": "取樣程序",
@@ -83,7 +83,7 @@
     "dwcaExtension": "達爾文延伸集",
     "isInCluster": "在（資料）叢集上",
     "iucnRedListCategory": "",
-    "isSequenced": "GBIF 註記的存檔",
+    "isSequenced": "",
     "fieldNumber": "樣區事件編碼",
     "preparations": "準備",
     "sex": "性別",
@@ -113,7 +113,7 @@
     "member": "段",
     "bed": "層",
     "gbifRegion": "GBIF 地區",
-    "publishedByGbifRegion": "GBIF 註記的存檔",
-    "taxonConceptId": "GBIF 註記的存檔"
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }
