@@ -15,6 +15,7 @@ angular
         catalogNumber: env.dataApi + 'occurrence/search/catalogNumber',
         institutionCode: env.dataApi + 'occurrence/search/institutionCode',
         collectionCode: env.dataApi + 'occurrence/search/collectionCode',
+        datasetName: env.dataApi + 'occurrence/search/datasetName',
         organismId: env.dataApi + 'occurrence/search/organismId',
         locality: env.dataApi + 'occurrence/search/locality',
         waterBody: env.dataApi + 'occurrence/search/waterBody',

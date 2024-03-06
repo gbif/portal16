@@ -1420,6 +1420,34 @@ vm.filters.bed = {
   focusFirst: false
 };
 
+vm.filters.datasetName = {
+  titleTranslation: 'filterNames.datasetName',
+  queryKey: 'dataset_name',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true,
+    suggestEndpoint: suggestEndpoints.datasetName,
+    defaultParams: {limit: 50}
+  },
+  facets: {
+    hasFacets: false,
+    facetKey: 'DATASET_NAME'
+  }
+};
+
+vm.filters.datasetId = {
+  titleTranslation: 'filterNames.datasetId',
+  queryKey: 'dataset_id',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true
+  },
+  facets: {
+    hasFacets: false,
+    facetKey: 'DATASET_ID'
+  }
+};
+
 vm.filters.publishedByGbifRegion = {
   titleTranslation: 'filterNames.publishedByGbifRegion',
   queryKey: 'published_by_gbif_region',

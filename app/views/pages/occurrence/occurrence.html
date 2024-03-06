@@ -79,9 +79,11 @@
         <div ng-if="occurrence.occurrenceState.query.advanced">
             <h3 class="occurrenceGroup" translate="occurrence.groups.Record">Record</h3>
             <div filter-enum filter-config="occurrence.filters.license" filter-state="occurrence.occurrenceState"></div>
+            <div filter-suggest filter-config="occurrence.filters.datasetId" filter-state="occurrence.occurrenceState"></div>
             <div filter-suggest filter-config="occurrence.filters.institutionCode" filter-state="occurrence.occurrenceState"></div>
             <div filter-taxon filter-config="occurrence.filters.institution_key" filter-state="occurrence.occurrenceState"></div>
             <div filter-suggest filter-config="occurrence.filters.collectionCode" filter-state="occurrence.occurrenceState"></div>
+            <div filter-suggest filter-config="occurrence.filters.datasetName" filter-state="occurrence.occurrenceState"></div>
             <div filter-taxon filter-config="occurrence.filters.collection_key" filter-state="occurrence.occurrenceState"></div> 
             <div filter-enum filter-config="occurrence.filters.basisOfRecord" filter-state="occurrence.occurrenceState"></div>    
             
