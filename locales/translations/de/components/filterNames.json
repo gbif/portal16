@@ -20,7 +20,7 @@
     "recordedById": "Sammler/Beobachter ID",
     "identifiedBy": "Bestimmt von",
     "identifiedById": "Bestimmer ID",
-    "geoDistance": "Stadt zum Fundort.",
+    "geoDistance": "",
     "eventDate": "Funddatum",
     "eventId": "Fund-ID",
     "samplingProtocol": "Sampling-Protokoll",
@@ -83,7 +83,7 @@
     "dwcaExtension": "DWCA-Erweiterung",
     "isInCluster": "Ist Teil eines Clusters",
     "iucnRedListCategory": "Kategorie in der Roten Liste gefährdeter Arten",
-    "isSequenced": "Stadt zum Fundort.",
+    "isSequenced": "",
     "fieldNumber": "",
     "preparations": "",
     "sex": "",
@@ -113,7 +113,7 @@
     "member": "",
     "bed": "",
     "gbifRegion": "",
-    "publishedByGbifRegion": "Stadt zum Fundort.",
-    "taxonConceptId": "Stadt zum Fundort."
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }
