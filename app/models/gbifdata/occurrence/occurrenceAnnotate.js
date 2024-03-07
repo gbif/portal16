@@ -49,8 +49,16 @@ let config = {
           abbrivation: 'Pz'
         }
     },
+    hostingOrganization: {
+        '96710dc8-fecb-440d-ae3e-c34ae8a9616f': { // issue https://github.com/gbif/portal-feedback/issues/5226
+            url: '{{references}}',
+            keys: ['references'],
+            name: 'Symbiota',
+            abbrivation: 'Sy'
+        }
+    },
     installation: {
-        '2c733a9d-363d-4d66-9aef-3e0f7bc44bec': {
+        '2c733a9d-363d-4d66-9aef-3e0f7bc44bec': { // should still be here as Symbiota is many things https://github.com/gbif/portal-feedback/issues/5226#issuecomment-1983043344
             url: '{{references}}',
             keys: ['references'],
             name: 'Symbiota',
@@ -64,9 +72,10 @@ function getAnnotationUrl(occurrence) {
 
     let publishingOrgKey = occurrence.publishingOrgKey;
     let installationKey = occurrence._installationKey;
+    let hostingOrganizationKey = occurrence.hostingOrganizationKey;
     if (typeof publishingOrgKey === 'undefined' && typeof installationKey === 'undefined') return undefined;
 
-    let configTemplate = config.publisher[publishingOrgKey] || config.installation[installationKey];
+    let configTemplate = config.publisher[publishingOrgKey] || config.installation[installationKey] || config.hostingOrganization[hostingOrganizationKey];
     if (typeof configTemplate === 'undefined') return undefined;
 
     let url = configTemplate.url;
