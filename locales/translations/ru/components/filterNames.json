@@ -20,7 +20,7 @@
     "recordedById": "Записано по ID",
     "identifiedBy": "Кем определено",
     "identifiedById": "Идентифицировано по ID",
-    "geoDistance": "Архив, аннотированный GBIF",
+    "geoDistance": "",
     "eventDate": "Дата",
     "eventId": "ID описания, учёта или сбора",
     "samplingProtocol": "Методика сбора данных",
@@ -83,7 +83,7 @@
     "dwcaExtension": "",
     "isInCluster": "Имеет связанные записи",
     "iucnRedListCategory": "Категория глобального красного списка IUCN (МСОП)",
-    "isSequenced": "Архив, аннотированный GBIF",
+    "isSequenced": "",
     "fieldNumber": "Полевой номер",
     "preparations": "Способ препарирования",
     "sex": "Пол",
@@ -113,7 +113,7 @@
     "member": "Элемент",
     "bed": "Ложе",
     "gbifRegion": "Регион GBIF",
-    "publishedByGbifRegion": "Архив, аннотированный GBIF",
-    "taxonConceptId": "Архив, аннотированный GBIF"
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }

@@ -20,7 +20,7 @@
     "recordedById": "由ID记录",
     "identifiedBy": "由......识别",
     "identifiedById": "由ID标识",
-    "geoDistance": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
+    "geoDistance": "",
     "eventDate": "事件日期",
     "eventId": "事件 ID",
     "samplingProtocol": "取样流程",
@@ -83,7 +83,7 @@
     "dwcaExtension": "DWCA 扩展",
     "isInCluster": "在集群中",
     "iucnRedListCategory": "世界自然保护联盟全球红色名录类别",
-    "isSequenced": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
+    "isSequenced": "",
     "fieldNumber": "现场编号",
     "preparations": "准备",
     "sex": "性别",
@@ -113,7 +113,7 @@
     "member": "成员",
     "bed": "岩床",
     "gbifRegion": "GBIF区域",
-    "publishedByGbifRegion": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
-    "taxonConceptId": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。"
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }

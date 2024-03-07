@@ -20,7 +20,7 @@
     "recordedById": "Записано за ID",
     "identifiedBy": "Ким визначено",
     "identifiedById": "Визначено за ID",
-    "geoDistance": "Архів анотований GBIF",
+    "geoDistance": "",
     "eventDate": "Дата події",
     "eventId": "ID події",
     "samplingProtocol": "Протокол збору",
@@ -83,7 +83,7 @@
     "dwcaExtension": "Розширення DWCA",
     "isInCluster": "",
     "iucnRedListCategory": "",
-    "isSequenced": "Архів анотований GBIF",
+    "isSequenced": "",
     "fieldNumber": "Польовий номер",
     "preparations": "Підготовчі дії щодо зразка (наприклад, відфотографовано, відпрепаровано тощо)",
     "sex": "Стать",
@@ -113,7 +113,7 @@
     "member": "Елемент",
     "bed": "Пласт",
     "gbifRegion": "Регіон GBIF",
-    "publishedByGbifRegion": "Архів анотований GBIF",
-    "taxonConceptId": "Архів анотований GBIF"
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }

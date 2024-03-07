@@ -20,7 +20,7 @@
     "recordedById": "تم تسجيله بواسطة المعرف ID",
     "identifiedBy": "تم تحديده بواسطة",
     "identifiedById": " تم تحديده بواسطة المعرف",
-    "geoDistance": "أرشيف شروح \"جيبف\"",
+    "geoDistance": "",
     "eventDate": "تاريخ الحدث",
     "eventId": "معرف الحدث",
     "samplingProtocol": "بروتوكول اخذ العينات",
@@ -83,7 +83,7 @@
     "dwcaExtension": "لاحقة DWCA",
     "isInCluster": "",
     "iucnRedListCategory": "",
-    "isSequenced": "أرشيف شروح \"جيبف\"",
+    "isSequenced": "",
     "fieldNumber": "رقم الحقل",
     "preparations": "تحضيرات",
     "sex": "الجندر",
@@ -113,7 +113,7 @@
     "member": "عضو",
     "bed": "سرير",
     "gbifRegion": "منطقة \"جبيف\"",
-    "publishedByGbifRegion": "أرشيف شروح \"جيبف\"",
-    "taxonConceptId": "أرشيف شروح \"جيبف\""
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }

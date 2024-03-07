@@ -20,7 +20,7 @@
     "recordedById": "ID de Enregistré par",
     "identifiedBy": "Identifié par",
     "identifiedById": "ID de Identifié par",
-    "geoDistance": "Archive annotée par GBIF",
+    "geoDistance": "",
     "eventDate": "Date de l'événement",
     "eventId": "ID de l'événement",
     "samplingProtocol": "Protocole d'échantillonnage",
@@ -83,7 +83,7 @@
     "dwcaExtension": "Extension DWCA",
     "isInCluster": "Est dans le regroupement",
     "iucnRedListCategory": "",
-    "isSequenced": "Archive annotée par GBIF",
+    "isSequenced": "",
     "fieldNumber": "Numéro de terrain",
     "preparations": "Préparations",
     "sex": "Sexe",
@@ -113,7 +113,7 @@
     "member": "Membre",
     "bed": "Couche",
     "gbifRegion": "Région GBIF",
-    "publishedByGbifRegion": "Archive annotée par GBIF",
-    "taxonConceptId": "Archive annotée par GBIF"
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }

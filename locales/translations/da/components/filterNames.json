@@ -20,7 +20,7 @@
     "recordedById": "",
     "identifiedBy": "",
     "identifiedById": "",
-    "geoDistance": "GBIF annoteret Arkiv",
+    "geoDistance": "",
     "eventDate": "Begivenhedsdato",
     "eventId": "",
     "samplingProtocol": "",
@@ -83,7 +83,7 @@
     "dwcaExtension": "",
     "isInCluster": "",
     "iucnRedListCategory": "",
-    "isSequenced": "GBIF annoteret Arkiv",
+    "isSequenced": "",
     "fieldNumber": "",
     "preparations": "",
     "sex": "",
@@ -113,7 +113,7 @@
     "member": "",
     "bed": "",
     "gbifRegion": "",
-    "publishedByGbifRegion": "GBIF annoteret Arkiv",
-    "taxonConceptId": "GBIF annoteret Arkiv"
+    "publishedByGbifRegion": "",
+    "taxonConceptId": ""
   }
 }
