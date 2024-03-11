@@ -94,6 +94,9 @@
         "MIXS:0000088": "host_pred_appr",
         "MIXS:0000089": "host_pred_est_acc",
         "MIXS:0000091": "url",
-        "MIXS:0000090": "sop"
+        "MIXS:0000090": "sop",
+        "MIXS:0000111": "samp_vol_we_dna_ext",
+        "MIXS:0001225": "samp_collec_method"
+
       }
 }
