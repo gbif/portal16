@@ -17,7 +17,7 @@
                                         <thead>
                                         <tr>
                                             {% for term, value in occurrence.usedExtensionFields[name] %}
-                                                {% if term.indexOf('/MIXS:') > -1 %}
+                                                {% if term.indexOf('https://w3id.org/mixs') > -1 %}
                                                     <th translate="mixs.{$ term.substr(term.lastIndexOf('/') + 1) $}" dir="auto"> {$ term.substr(term.lastIndexOf('/') + 1) $} </th>
                                                 {% else %}
                                                     <th dir="auto">{$ term | prettifyEnum $}</th>
