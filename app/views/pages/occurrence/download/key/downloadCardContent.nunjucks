@@ -24,6 +24,14 @@
                     </div>
                 </div>
             </div>
+        {% elif download.record.eraseAfter %}
+            <div class="card__content card__content--error seperator--b">
+                <div class="row">
+                    <div class="col-xs-12">
+                        {$ __('downloadKey.eligibleForDeletion') $}
+                    </div>
+                </div>
+            </div>
         {% endif %}
         <div class="card__content">
             <div class="row">
