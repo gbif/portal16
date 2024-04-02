@@ -66,7 +66,6 @@ function builder(locale, folder, keepEmptyStrings) {
         getFile(locale, `./${folder}/${locale}/enums/gbifRegion`),
         getFile(locale, `./${folder}/${locale}/enums/sex`),
 
-        getFile(locale, `./${folder}/${locale}/components/grscicoll`),
         getFile(locale, `./${folder}/${locale}/components/counts`),
         getFile(locale, `./${folder}/${locale}/components/feedback`),
         getFile(locale, `./${folder}/${locale}/components/filters`),
