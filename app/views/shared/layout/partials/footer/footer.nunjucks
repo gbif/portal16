@@ -1,5 +1,5 @@
 {% if not _meta.hideFooter %}
-    <footer class="site-footer wrapper-horizontal-stripes">
+    <footer class="site-footer wrapper-horizontal-stripes" data-nosnippet>
         <div class="horizontal-stripe light-background site-footer__upper">
             <div class="container--normal">
                 <nav class="site-footer__menu">

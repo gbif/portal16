@@ -1,4 +1,5 @@
 <div class="stickyNav rtl-supported"
+     data-nosnippet
      ng-class="{'mobileMenu--active': nav.mobileMenuActive, 'mainMenu--firstLevelActive': nav.activeMenu, hasOffset: nav.scrollOffset > 0}"
      ng-controller="navCtrl as nav">
     <div class="stickyNav__container">

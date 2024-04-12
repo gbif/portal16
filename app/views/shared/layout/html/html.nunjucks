@@ -66,9 +66,9 @@ helpdesk@gbif.org
         {% include "../partials/footer/footer.nunjucks" %}
     {% endif %}
 
-    <div gdpr></div>
+    <div gdpr data-nosnippet></div>
 </div>
-<div gb-help-overlay></div>
+<div gb-help-overlay data-nosnippet></div>
 
 <script type="text/ng-template" id="dropdown.html">
   <a href="" dir="auto">
