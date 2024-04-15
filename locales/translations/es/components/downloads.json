@@ -42,7 +42,6 @@
     "tellUs": "Cuéntenos más acerca del uso",
     "downloadKilled": "La solicitud de descarga no tuvo éxito. Por favor, inténtelo de nuevo o contáctenos.",
     "downloadDeleted": "El archivo ha sido eliminado. Si lo necesita restaurado, por favor, contáctenos.",
-    "eligibleForDeletion": "Aquí debe colocarse una breve descripción del componente",
     "storageDurationTeaser": "¿Durante cuánto tiempo GBIF almacenará estos datos?",
     "predatesDoi": "Esta descarga es anterior a nuestro uso de DOIs",
     "file": "Archivo",

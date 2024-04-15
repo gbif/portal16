@@ -42,7 +42,6 @@
     "tellUs": "告訴我們您的資料用途",
     "downloadKilled": "下載失敗。請再試一次或與我們聯繫。",
     "downloadDeleted": "此檔案已被刪除。如果您需要回復檔案，請與我們聯繫。",
-    "eligibleForDeletion": "GBIF 註記的存檔",
     "storageDurationTeaser": "GBIF 將儲存此資料多久？",
     "predatesDoi": "此下載早於我們所使用的 DOIs",
     "file": "檔案",
