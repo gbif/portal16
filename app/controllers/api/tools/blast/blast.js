@@ -32,6 +32,39 @@ async function blast(seq, verbose = false) {
     }
 }
 
+async function blastBatch(seq, verbose = false) {
+    let url = apiConfig.blast.url + `/blast/batch${verbose ? '?verbose=true' : ''}`;
+    let response = await request({
+        method: 'POST',
+        url: url,
+        body: seq,
+        json: true
+    });
+  
+    try {
+        const promises = response.body.map(async (result) => {
+            if (result.matchType) {
+                try {
+                    let decorated = await decorateWithGBIFspecies(result);
+                    if (verbose && result.alternatives) {
+                        await decorateAlternatives(result.alternatives);
+                    }
+                    return decorated;
+                } catch (err) {
+                    return result;
+                }
+            } else {
+                    return result; 
+            }
+        });
+       const data = await Promise.all(promises);
+       return data;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
 async function decorateWithGBIFspecies(e) {
     let url = apiConfig.taxon.url + 'match2?name=' + e.name;
     let nub = await request({method: 'GET', url: url, json: true});
@@ -66,5 +99,6 @@ async function decorateAlternatives(alternatives) {
 
 module.exports = {
     blast: blast,
+    blastBatch: blastBatch,
     decorateWithGBIFspecies: decorateWithGBIFspecies
 };

@@ -9,7 +9,8 @@ let maxActiveRequestCount = 0;
 
 const agentMapping = [
   {startsWith: '/v1/occurrence/', requestAgent: requestAgents.occurrence},
-  {startsWith: '/v1/species/', requestAgent: requestAgents.species}
+  {startsWith: '/v1/species/', requestAgent: requestAgents.species},
+  {startsWith: '/blast/', requestAgent: requestAgents.blast}
 ];
 
 function wrapper(options) {
