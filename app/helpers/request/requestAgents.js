@@ -53,8 +53,26 @@ let speciesRequest = request.defaults({
   timeout: 45000 // in milliseconds
 });
 
+// seperate pool for species requests as that API often has outages.
+const blastAgent = new Agent({
+  maxSockets: 1000, // Default = Infinity
+  keepAlive: true
+});
+
+let blastRequest = request.defaults({
+  agent: blastAgent,
+  headers: {
+    'User-Agent': 'GBIF-portal'
+  },
+  maxAttempts: 2,
+  retryDelay: 10000, // in milliseconds
+  retryStrategy: request.RetryStrategies.HTTPOrNetworkError, // (default) retry on 5xx or network errors
+  timeout: 90000 // in milliseconds
+});
+
 module.exports = {
     standard: stdRequest,
     occurrence: occurrenceRequest,
-    species: speciesRequest
+    species: speciesRequest,
+    blast: blastRequest
 };

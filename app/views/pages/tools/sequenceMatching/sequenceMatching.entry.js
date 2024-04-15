@@ -344,21 +344,72 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
         });
     }
 
-    /*     function blastAll() {
-            async.eachLimit(vm.species, 10, blast, function(err) {
-                if (err) {
-                    // TODO inform the user that not everything could be matched
-                } else {
-                    vm.lookupComplete = true;
+    function chunk (arr, len) {
+        var chunks = [],
+            i = 0,
+            n = arr.length;
+      
+        while (i < n) {
+          chunks.push(arr.slice(i, i += len));
+        }
+      
+        return chunks;
+      }
+  
+
+    function blastBatch(items, callback) {
+        var query = {
+            sequence: items.map(function(item) {
+                return item.sequence.replace(/[-.]/g, '');
+            }),
+            marker: items[0].marker || 'its'
+        };
+        return new Promise(function (resolve, reject) {
+            $http({
+                method: 'post',
+                data: query,
+                url: '/api/blast/batch'
+            }).then(
+                function successCallback(response) {
+                    items.forEach(function(item, idx) {
+                        item.match = response.data[idx];
+                        vm.setItem(item, response.data[idx]);
+                        delete erroredItems[item.occurrenceId];
+                    });
+                   
+
+                    if (typeof callback === 'function') {
+                        callback();
+                    }
+                    resolve();
                 }
-            });
-        } */
+            ).catch(
+                function errorCallback(response) {
+                    // console.log(response);
+                    items.forEach(function(item, idx) {
+                        erroredItems[item.occurrenceId] = item;
+                    });
+                    if (erroredItems.length > Math.min(MAX_ERRORS, vm.species.length)) {
+                        vm.error =
+                            'The server is not responding. Please try again later and report an issue if the problem persists.';
+                    }
+                    if (typeof callback === 'function') {
+                        callback('match went wrong');
+                    }
+                    // console.log('Got an error for ' + item.sequence);
+                    resolve();
+                }
+            );
+        });
+    }
+
     function blastAll(list) {
         var blastlimit = pLimit(4);
-
-        Promise.all((list || vm.species).map(function (s) {
+        var data = list || vm.species;
+        var chunks = chunk(data, 25);
+        Promise.all((chunks).map(function (s) {
             return blastlimit(
-                blast, s);
+                blastBatch, s);
         })).then(function (res) {
             // console.log(res);
             var erroredAsArray = Object.keys(erroredItems).map(function (k) {
