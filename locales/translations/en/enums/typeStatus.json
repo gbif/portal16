@@ -41,6 +41,7 @@
     "SYNTYPE": "Syntype",
     "TOPOTYPE": "Topotype",
     "ORIGINALMATERIAL": "Original material",
+    "HYPOTYPE": "Hypotype",
     "NOTATYPE": "Not a type"
   }
 }
