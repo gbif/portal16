@@ -27,6 +27,6 @@
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, select, 1{分類處理} other{分類處理}}",
         "nAbsent": "",
         "nImages": "{NUMBER_FORMATED} {NUMBER, select, 1{圖片} other{圖片}}",
-        "nMore": ""
+        "nMore": "{NUMBER_FORMATED} {NUMBER, plural, one{更多} other{更多}}"
     }
 }
