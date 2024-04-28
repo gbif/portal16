@@ -7,7 +7,7 @@
     "headlineOccurrences": "{NUMBER_FORMATED} 筆{NUMBER, plural, one{出現紀錄} other{出現紀錄}}在衍生資料集中",
     "title": "衍生資料集標題",
     "description": "描述",
-    "originalDownloadDOI": ""
+    "originalDownloadDOI": "從下載衍生的資料集"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "已下載 {NUMBER_FORMATTED} 筆{NUMBER, select, one{出現紀錄} other{出現紀錄}}",
@@ -21,7 +21,7 @@
     "cancelled": "已取消",
     "cancel": "取消",
     "download": "下載",
-    "records": "",
+    "records": "記錄",
     "occurrences": "出現紀錄",
     "largeQueryMessage": "篩選範圍太大。詳細資訊請參閱下載。",
     "date": "日期",
@@ -79,12 +79,12 @@
     "title": "我的下載"
   },
   "customDownload": {
-    "invalidFilter": "",
-    "seeDocumentation": "",
-    "reformat": "",
-    "invalidJson": "",
-    "title": "",
-    "invalidUrlPredicate": "",
-    "redirectNotice": ""
+    "invalidFilter": "無效篩選",
+    "seeDocumentation": "閱讀文檔",
+    "reformat": "重新編排格式",
+    "invalidJson": "無效的 JSON",
+    "title": "重新下載",
+    "invalidUrlPredicate": "URL中的謂詞無效",
+    "redirectNotice": "您似乎是從另一個網站被引導到這裡的。 要下載，您需要先登入或註冊。"
   }
 }
