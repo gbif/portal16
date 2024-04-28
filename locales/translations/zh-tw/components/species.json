@@ -5,7 +5,7 @@
   },
   "species": {
     "literature": {
-      "introText": ""
+      "introText": "[GBIF 相關](/faq?question=literature-relevance) 文獻明確著重分類群"
     },
     "distribution": {
       "presentIn": "出現於 {country} 的 {status}",
@@ -88,7 +88,7 @@
     "taxa": "類群",
     "mediatedThrough": "經由",
     "taxonIdentifiers": "分類群辨識碼",
-    "whyDoubtful": "",
+    "whyDoubtful": "當分類群有疑點",
     "noVerbatimData": ""
   }
 }
