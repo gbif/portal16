@@ -22,7 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "無效的替代識別碼",
     "BACKBONE_MATCH_NONE": "無法與 GBIF 骨幹配對",
     "BACKBONE_MATCH_FUZZY": "模糊的 GBIF 骨幹配對",
-    "BACKBONE_MATCH_AGGREGATE": "",
+    "BACKBONE_MATCH_AGGREGATE": "GBIF 骨架與聚集吻合",
     "ACCEPTED_NAME_MISSING": "同種異名，缺乏有效學名。",
     "ACCEPTED_NAME_NOT_UNIQUE": "有效名稱不是唯一",
     "PARENT_NAME_NOT_UNIQUE": "母名稱不是唯一的",
