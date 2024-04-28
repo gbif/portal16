@@ -47,7 +47,7 @@
       "metrics": "指標"
     },
     "headerTitle": "機構",
-    "indexHerbariorumIdentifier": "",
+    "indexHerbariorumIdentifier": "植物標本館索引",
     "numberSpecimens": "標本數量",
     "code": "機構代碼",
     "alternativeCodes": "其它代碼",
@@ -92,8 +92,8 @@
   "grscicoll": {
     "title": "科學典藏",
     "suggestChange": "提供建議",
-    "suggestNewCollection": "",
-    "suggestNewInstitution": "",
+    "suggestNewCollection": "建議新蒐藏",
+    "suggestNewInstitution": "建議新機構",
     "tabs": {
       "about": "關於",
       "institutions": "機構",
