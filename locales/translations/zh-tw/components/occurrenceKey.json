@@ -21,8 +21,8 @@
     "gbifTaxonInterpretation": "GBIF 分類群解析",
     "aboutTheDataset": "關於資料集",
     "noLocationInformation": "此發布紀錄內容無地點資訊",
-    "deletedMessage": "",
-    "deletedDescription": "",
+    "deletedMessage": "資料發布者已從 GBIF 索引中刪除此記錄，但最後版本如下所示。",
+    "deletedDescription": "已發布資料集中不存在的記錄將從 GBIF 索引中刪除。 發布者有可能基於某種理由刪除單一記錄或整個資料集或指派新的區域識別碼。",
     "subMenu": {
       "diagnostics": "診斷訊息",
       "menu": "選單",
@@ -95,15 +95,15 @@
     },
     "occurrence": "出現紀錄",
     "inLanguage": "於 {LANGUAGE_TRANSLATED}",
-    "sequenced": "",
+    "sequenced": "已序列化",
     "treatment": "分類處理",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "目前",
+      "relatedOccurrences": "相關出現紀錄",
+      "similarBecause": "相似因為",
+      "matchedRecord": "吻合的紀錄",
+      "noMatches": "無候選關係",
+      "explainer": "這個實驗中的功能標註可能重覆或相關的物種出現紀錄。"
     }
   },
   "interpretationRemarks": {
