@@ -1,19 +1,19 @@
 {
     "downloadUsage": {
-        "title": "",
+        "title": "通知 GBIF 有關出版品 (或類似出版品) 中出現資料的使用情況",
         "form": {
             "title": "標題",
-            "titlePlaceholder": "",
-            "authors": "",
-            "authorsPlaceholder": "",
-            "link": "",
-            "linkPlaceholder": "",
+            "titlePlaceholder": "使用資料的出版品/產品的標題/名稱",
+            "authors": "作者",
+            "authorsPlaceholder": "出版品或成品之作者",
+            "link": "URL",
+            "linkPlaceholder": "出版品/產品的連結/DOI (如可線上提供)",
             "date": "日期",
             "comments": "評論",
-            "commentsPlaceholder": "",
+            "commentsPlaceholder": "有關出版品/產品的附加資訊 (特別是若非傳統的期刊文章)",
             "submit": "送出",
-            "saveFailure": "",
-            "saveSuccess": ""
+            "saveFailure": "儲存表格時發生錯誤。請重試。",
+            "saveSuccess": "感謝您通知我們。 我們會將下載內容連結到所述的出版物/產品。 請記得根據下載頁面上的說明引用下載內容。 您現在可以關閉此彈出視窗。"
         }
     }
 }
