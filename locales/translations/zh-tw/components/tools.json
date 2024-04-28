@@ -54,7 +54,7 @@
             "dontSeeYourIpt": "沒看到您的 IPT ？將您的座標告訴 [GBIF](mailto:helpdesk@gbif.org \"來信 GBIF 協助平台詢求在地圖上加入IPT\") 。"
         },
         "dataRepository": {
-            "title": ""
+            "title": "資料儲存庫"
         },
         "sequenceId": {
             "title": "序列識別碼"
@@ -68,31 +68,31 @@
         "derivedDataset": {
             "title": "衍生的資料集",
             "titleField": "標題",
-            "sourceUrl": "",
-            "originalDownloadDOI": "",
+            "sourceUrl": "可以存取衍生資料集的 URL",
+            "originalDownloadDOI": "原始下載 DOI",
             "registrationDate": "註冊日期",
             "datasetKey": "資料集檢索",
             "occurrenceCount": "出現記錄計數",
             "submit": "送出",
-            "pleaseFill": "",
-            "loginToCreate": "",
+            "pleaseFill": "請填寫所有必填欄位後提交表格",
+            "loginToCreate": "登入以新建立一個衍生資料集",
             "myDatasets": "我的衍生的資料集",
             "register": "註冊",
             "about": "關於",
-            "optionalDescription": "",
-            "registerNew": "",
-            "editDataset": "",
-            "editFailed": "",
+            "optionalDescription": "選用描述",
+            "registerNew": "註冊新衍生資料集",
+            "editDataset": "編輯衍生資料集",
+            "editFailed": "編輯失敗",
             "registrationFailed": "註冊失敗",
-            "registrationCompleted": "",
-            "editCompleted": "",
-            "newRegistration": "",
+            "registrationCompleted": "註冊完成",
+            "editCompleted": "編輯完成",
+            "newRegistration": "新註冊",
             "goToDataset": "到資料集頁面",
             "yourDerivedDatasets": "您的衍生資料集",
-            "backToEdit": "",
-            "mintingDoi": "",
-            "attachCsvLabel": "",
-            "orEnterLabel": ""
+            "backToEdit": "返回編輯",
+            "mintingDoi": "建立 DOI - 這不會花很長時間。",
+            "attachCsvLabel": "附加 [CSV 檔案](/faq?question=how-do-i-create-a-csv-file-for-a-driven-dataset&inline=true) 以及資料集檢索和出現次數",
+            "orEnterLabel": "或在此輸入資料集檢索/DOI 和出現次數"
         },
         "occurrenceSnapshots": {
             "title": ""
