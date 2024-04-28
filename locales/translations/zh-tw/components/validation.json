@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "無法處理授權，GBIF 不支援或授權不存在",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "非唯一識別的記錄",
       "UNREADABLE_SECTION_ERROR": "部分錯誤無法讀取",
-      "UNHANDLED_ERROR": "",
+      "UNHANDLED_ERROR": "未處理的錯誤",
       "NoIssuesFound": "未找到問題"
     },
     "fileFormat": {
@@ -67,7 +67,7 @@
     "fileHasNoIssues": "在檔案中未找到任何問題",
     "error": "錯誤",
     "errors": {
-      "401": "",
+      "401": "你必須登入才可檢視本頁",
       "400": "無法處理該檔案，或者可能是您提供的 URL 遺失。",
       "404": "找不到驗證作業識別碼。若您認定此為錯誤，請回報。",
       "413": "此檔案太大，資料驗證工具無法處理。",
@@ -82,7 +82,7 @@
       "interpreted": "已解析"
     },
     "interpretedCounts": {
-      "indexed": "",
+      "indexed": "索引紀錄的數量",
       "date": "已解析的日期數",
       "taxon": "已解析的分類群列數",
       "location": "已解析的座標數"
@@ -124,13 +124,13 @@
       "darwinCoreExtensions": "達爾文核心延伸集",
       "metaData": "詮釋資料",
       "summary": "總結",
-      "myValidations": ""
+      "myValidations": "驗證報告"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
+        "RUNNING": "歸檔上傳中",
+        "FINISHED": "歸檔已上傳",
+        "PENDING": "上傳歸檔",
         "FAILED": "",
         "QUEUED": ""
       },
