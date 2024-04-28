@@ -37,20 +37,20 @@
     "title": "下載選項",
     "content": {
       "rawData": "原始資料",
-      "interpretedData": "",
+      "interpretedData": "已解釋的資料",
       "images": "多媒體",
       "coordinates": "座標",
       "fileFormat": "格式",
-      "estimatedSize": ""
+      "estimatedSize": "預估資料大小"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "Tab分隔的CSV檔案(用於Excel等)"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (若可用)",
+      "yesLinks": "✔ (連結)",
+      "no": "X"
     }
   }
 }
