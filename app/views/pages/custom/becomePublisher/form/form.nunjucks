@@ -11,7 +11,7 @@
             {% include "./preform/terms.nunjucks" %}
             <form name="eoi.publisherForm"
                   ng-submit="eoi.publisherForm.$valid && eoi.createOrganization()"
-                  ng-if="eoi.terms.agreement && eoi.terms.authorized && eoi.terms.public && eoi.hasUser">
+                  ng-if="eoi.terms.agreement && eoi.terms.authorized && eoi.terms.public">
                 {% include "./organization.nunjucks" %}
 
                 {% include "./endorsement.nunjucks" %}
@@ -29,9 +29,9 @@
                 {% include "./save.nunjucks" %}
             </form>
 
-            <md-card ng-if="!eoi.hasUser">
+           {#  <md-card ng-if="!eoi.hasUser">
                     <div user-login></div>
-                </md-card>
+                </md-card> #}
         </div>
          
 
