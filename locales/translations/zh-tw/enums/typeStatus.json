@@ -41,6 +41,7 @@
     "SYNTYPE": "總模式標本",
     "TOPOTYPE": "等地模式標本",
     "ORIGINALMATERIAL": "原始材料",
+    "HYPOTYPE": "亞型",
     "NOTATYPE": "不是模式標本"
   }
 }

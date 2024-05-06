@@ -41,6 +41,7 @@
     "SYNTYPE": "Синтип",
     "TOPOTYPE": "Топотип",
     "ORIGINALMATERIAL": "Оригінальний матеріал",
+    "HYPOTYPE": "",
     "NOTATYPE": "Не є типом"
   }
 }
