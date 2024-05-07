@@ -9,7 +9,7 @@
       "publishers": "Publicadores"
     },
     "registeredDate": "Registrado {DATE}",
-    "nParticipatingDatasets": "{NUMBER_FORMATED} participando {NUMBER, select, 1{conjunto de datos} other{conjuntos de datos}}",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} {NUMBER, plural, one{conjunto de datos} other{conjuntos de datos}} participando",
     "nParticipatingPublishers": ""
   }
 }
