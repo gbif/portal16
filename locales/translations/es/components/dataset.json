@@ -74,7 +74,7 @@
     "recommended": "Recomendado",
     "processedOccurrences": "Archivos registrados (anotados) en GBIF",
     "noDescriptionProvided": "Descripción no disponible",
-    "pNetwork": "{NUMBER, select, 1{Red de trabajo} other{Redes de trabajo}}",
+    "pNetwork": "{NUMBER, plural, one{Red} other{Redes}}",
     "parentEvent": "Evento parental",
     "eventDescription": "Descripción del evento",
     "siblingEvents": "Evento hermano",
