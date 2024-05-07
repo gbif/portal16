@@ -30,7 +30,7 @@
     "name": "Nombre",
     "endorsedDataPublisher": "Ha sido adherido {NUMBER_FORMATTED} dato {NUMBER, select, one{publicador} other{publicadores}}",
     "nParticipants": "{NUMBER_FORMATTED} {NUMBER, select, one{participante} other{participantes}}",
-    "dataset": "{NUMBER, select, one{conjunto de datos} other{conjuntos de datos}}",
+    "dataset": "{NUMBER, plural, one{conjunto de datos} other{conjuntos de datos}}",
     "datasets": "Conjuntos de datos",
     "regionalRepresentative": "{NUMBER, select, one{representante} other{representantes}}",
     "participation": {
