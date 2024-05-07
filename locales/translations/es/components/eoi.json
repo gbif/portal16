@@ -32,7 +32,7 @@
     "none": "Ninguno",
     "whatAndHow": "Qué y cómo",
     "helpUsUnderstand": "Ayúdanos a entender qué tipo de datos planeas publicar y qué ayuda podrías necesitar.",
-    "publOfFourTypesOfData": "GBIF.org apoya la publicación de cuatro tipos de datos, explicados (/clases de juegos de datos) La responsabilidad sobre el formateo y almacenamiento de los juegos de datos originales recae en el proveedor de datos pero podemos ayudaros a encontrar las soluciones técnicas más apropiadas.",
+    "publOfFourTypesOfData": "GBIF.org apoya la publicación de cuatro tipos de datos, explicados (/clases de conjuntos de datos) La responsabilidad sobre el formato y almacenamiento de los conjuntos de datos originales recae en el publicador de datos pero podemos ayudarlo a encontrar las soluciones técnicas más apropiadas.",
     "whichTypesOfData": "¿Qué tipo de datos esperas publicar?",
     "resourcesMetaData": "Metadatos de recursos",
     "checkListData": "Datos de listas de especies",
