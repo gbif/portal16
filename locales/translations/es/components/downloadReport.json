@@ -26,9 +26,9 @@
     "estDLtimes": "Número de descargas estimadas:",
     "nMbitConn": "Mbit de conexión",
     "onceDownloaded": "Una vez hayas descargado el archivo, necesitarás otros de espacio libre en el disco para descomprimir los datos.",
-    "datasetHasNumRows": "El juego de datos tiene filas de datos.",
+    "datasetHasNumRows": "El conjunto de datos tiene {NUMBER_FORMATTED} filas.",
     "youWillNotBeAble": "Los datos no podrán visualizarse o analizarse en Excel o aplicaciones similares. Para trabajar con estos datos necesitarás tener conocimientos previos en R, Python o bases de datos Relacionales.",
-    "difficultToAnalyse": "Un juego de datos de este tamaño es difícil de analizar en tu ordenador convencional. Probablemente necesites acceso a algún tipo de servicio de computación distribuido.",
+    "difficultToAnalyse": "Un conjunto de datos de este tamaño es difícil de analizar en tu ordenador convencional. Probablemente necesites acceso a algún tipo de servicio de computación distribuido.",
     "hours": "Horas",
     "minute": "Minuto",
     "minutes": "Minutos"
