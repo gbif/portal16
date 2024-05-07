@@ -11,7 +11,7 @@
     "distanceFromCentroidInMeters": "",
     "collectionCode": "Código de la colección",
     "recordNumber": "Número de registro",
-    "datasetKey": "Juego de datos",
+    "datasetKey": "Conjunto de datos",
     "datasetName": "Nombre del conjunto de datos",
     "datasetId": "ID del conjunto de datos",
     "protocol": "Protocolo",
