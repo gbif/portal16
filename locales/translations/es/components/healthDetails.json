@@ -23,7 +23,7 @@
             },
             "REGISTRY": {
                 "name": "Registro",
-                "tooltip": "Ej.: Juego de datos, proveedores, intalaciones, países, participantes y redes de trabajo."
+                "tooltip": "Ej.: Conjunto de datos, publicadores, intalaciones, países, participantes y redes de trabajo."
             },
             "IDENTITY": {
                 "name": "Identidad",
@@ -43,11 +43,11 @@
             },
             "GITHUB": {
                 "name": "GitHub (sistema externo)",
-                "tooltip": "Comentarios y sugerencias a los juegos de datos"
+                "tooltip": "Comentarios y sugerencias a los conjuntos de datos"
             },
             "CRAWLER": {
                 "name": "Importando",
-                "tooltip": "Para actualizar los juegos de datos - nuevos y antiguos."
+                "tooltip": "Para actualizar los conjuntos de datos - nuevos y antiguos."
             },
             "RESOURCE_SEARCH": {
                 "name": "Búsqueda de recursos",

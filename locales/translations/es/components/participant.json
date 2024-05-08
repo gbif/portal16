@@ -14,7 +14,7 @@
         "website": "Página web",
         "participantNodeManager": "Administrador del nodo participante",
         "pending": "Pendiente",
-        "latestDatasetsPublished": "Últimos juegos de datos publicados",
-        "noDatasets": "Juegos de datos no publicados"
+        "latestDatasetsPublished": "Últimos conjuntos de datos publicados",
+        "noDatasets": "Conjuntos de datos no publicados"
     }
 }

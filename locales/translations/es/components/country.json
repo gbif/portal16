@@ -29,11 +29,11 @@
     "countryNamingDisclaimer": "Los nombres de los países y áreas están basados en el [estándar ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "Registros de presencia",
-      "datasets": "Conjuntos de datos",
+      "datasets": "{NUMBER, plural, 0 {Conjuntos de datos} one {Conjunto de dato} other {Conjuntos de datos}}",
       "publishers": "Publicadores",
       "countriesAndAreasContributeData": "Países y áreas que contribuyen con datos",
       "publishedOccurrences": "Registros de presencia publicados",
-      "publishedDatasets": "Juegos de datos publicados",
+      "publishedDatasets": "Conjuntos de datos publicados",
       "countriesAndAreasCoveredByDataFrom": "Países y áreas cubiertas por datos de",
       "publishersFrom": "Proveedores de"
     },
