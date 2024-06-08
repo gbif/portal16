@@ -1,11 +1,11 @@
 {
     "healthSummary": {
-        "systemHealth": "",
+        "systemHealth": "Sprawdzanie wydajności systemu",
         "description": "",
-        "updatedTimeAgo": "",
+        "updatedTimeAgo": "Zaktualizowano {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
+            "OPERATIONAL": "Wszystkie systemy sprawne.",
+            "INFO": "Wszystkie systemy sprawne.",
             "WARNING": "",
             "CRITICAL": ""
         },
