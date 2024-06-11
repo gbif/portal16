@@ -39,7 +39,7 @@ contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['uk'] = 'uk';
 contentfulLocaleMap['pt'] = 'pt';
-// contentfulLocaleMap['pl'] = 'pl'; // we do not have a polish translation in contentful as of 9 dec 2022. So this is commented out.
+contentfulLocaleMap['pl'] = 'pl'; // we do not have a polish translation in contentful as of 9 dec 2022. So this is commented out.
 contentfulLocaleMap['zh'] = 'zh-Hans';
 contentfulLocaleMap['zh-tw'] = 'zh-Hant';
 // mock test languages
