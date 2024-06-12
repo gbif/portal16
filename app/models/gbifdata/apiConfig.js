@@ -42,6 +42,9 @@ let apiConfig = {
     crawlingDatasetProcessRunning: {
         url: baseUrl + 'dataset/process/running'
     },
+    pipelinesProcessRunning: {
+        url: baseUrl + 'pipelines/history/process/running'
+    },
     oozie: {
         url: oozie
     },

@@ -54,6 +54,7 @@ async function clusterLoad() {
 }
 
 async function crawlerLoad() {
+    // dataset process running)
     let options = {
         url: apiConfig.crawlingDatasetProcessRunning.url + '?vLoad=' + Date.now(),
         json: true,
@@ -68,10 +69,28 @@ async function crawlerLoad() {
         };
     }
     let result = response.body;
+
+    // pipelines process running
+    let optionsPipeline = {
+        url: apiConfig.pipelinesProcessRunning.url + '?vLoad=' + Date.now(),
+        json: true,
+        userAgent: userAgent
+    };
+    let responsePipeline = await request(optionsPipeline);
+    if (response.statusCode != 200) {
+        return {
+            component: 'CRAWLER',
+            error: 'No response',
+            severity: 'CRITICAL'
+        };
+    }
+    let resultPipeline = responsePipeline.body;
+
+    let totalResults = result.length + resultPipeline.count;
     return {
         component: 'CRAWLER',
-        load: result.length,
-        severity: result.total > 200 ? 'WARNING' : 'OPERATIONAL'
+        load: totalResults,
+        severity: totalResults > 1000 ? 'WARNING' : 'OPERATIONAL' // arbitrary threshold, but decided in collaboration with Matt. It only markes the number in red on the status page
     };
 }
 
