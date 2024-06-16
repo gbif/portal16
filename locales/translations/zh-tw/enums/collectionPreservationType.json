@@ -1,7 +1,7 @@
 {
   "enum": {
     "collectionPreservationType": {
-      "STORAGE_OUTDOORS": "",
+      "STORAGE_OUTDOORS": "戶外儲存",
       "STORAGE_INDOORS": "",
       "STORAGE_CONTROLLED_ATMOSPHERE": "",
       "STORAGE_FROZEN_MINUS_20": "",
