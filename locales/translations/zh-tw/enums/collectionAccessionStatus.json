@@ -1,7 +1,7 @@
 {
   "enum": {
     "collectionAccessionStatus": {
-      "INSTITUTIONAL": "",
+      "INSTITUTIONAL": "機構 ",
       "PROJECT": "專案"
     }
   }
