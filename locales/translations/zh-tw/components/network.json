@@ -10,6 +10,6 @@
     },
     "registeredDate": "已註冊 {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} 參與{NUMBER, select,1{資料集} other{資料集}}",
-    "nParticipatingPublishers": ""
+    "nParticipatingPublishers": "{NUMBER_FORMATED} 參與 {NUMBER, plural,one{發布者}other{發布者}}"
   }
 }
