@@ -14,8 +14,8 @@
     "custom": "",
     "baseMap": "",
     "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "year": "Rok",
+    "chooseColors": "Kolory",
     "predefined": {
       "CLASSIC_HEX": "",
       "CLASSIC": "",
