@@ -1,21 +1,21 @@
 {
   "enum": {
     "identifierType": {
-      "URL": "",
-      "LSID": "",
+      "URL": "URL",
+      "LSID": "LSID",
       "HANDLER": "",
-      "DOI": "",
-      "UUID": "",
-      "FTP": "",
-      "URI": "",
+      "DOI": "DOI",
+      "UUID": "UUID",
+      "FTP": "FTP",
+      "URI": "URI",
       "UNKNOWN": "未知",
-      "GBIF_PORTAL": "",
-      "GBIF_NODE": "",
-      "GBIF_PARTICIPANT": "",
-      "GRBIO_ID": "",
-      "GRBIO_URI": "",
+      "GBIF_PORTAL": "GBIF入口網",
+      "GBIF_NODE": "GBIF節點",
+      "GBIF_PARTICIPANT": "GBIF 會員",
+      "GRBIO_ID": "GRBIO ID",
+      "GRBIO_URI": "GRBIO URI",
       "GRSCICOLL_URI": "科學蒐藏統一資源標識符",
-      "ROR": "",
+      "ROR": "ROR",
       "GRID": "網格",
       "GRSCICOLL_ID": "科學蒐藏統一資源識別碼"
     }
