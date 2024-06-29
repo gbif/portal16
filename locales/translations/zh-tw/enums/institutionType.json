@@ -1,17 +1,17 @@
 {
   "enum": {
     "institutionType": {
-      "BIOMEDICAL_RESEARCH_INSTITUTE": "",
-      "BOTANICAL_GARDEN": "",
-      "HERBARIUM": "",
-      "LIVING_ORGANISM_COLLECTION": "",
-      "MEDICAL_RESEARCH_INSTITUTE": "",
-      "MUSEUM": "",
-      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "",
-      "OTHER_INSTITUTIONAL_TYPE": "",
-      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "",
-      "UNIVERSITY_COLLEGE": "",
-      "ZOO_AQUARIUM": ""
+      "BIOMEDICAL_RESEARCH_INSTITUTE": "生醫研究機構",
+      "BOTANICAL_GARDEN": "植物園",
+      "HERBARIUM": "植物標本室",
+      "LIVING_ORGANISM_COLLECTION": "生物活體採集",
+      "MEDICAL_RESEARCH_INSTITUTE": "醫學研究機構",
+      "MUSEUM": "博物館",
+      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "非營利私人植物標本館",
+      "OTHER_INSTITUTIONAL_TYPE": "其他機構類型",
+      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "其他類型研究機構生物樣本庫",
+      "UNIVERSITY_COLLEGE": "大學學院",
+      "ZOO_AQUARIUM": "動物園水族館"
     }
   }
 }
