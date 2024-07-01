@@ -1,15 +1,15 @@
 {
   "enum": {
     "institutionGovernance": {
-      "ACADEMIC_FEDERAL": "",
-      "ACADEMIC_FOR_PROFIT": "",
-      "ACADEMIC_LOCAL": "",
-      "ACADEMIC_NON_PROFIT": "",
-      "ACADEMIC_STATE": "",
-      "FEDERAL": "",
-      "FOR_PROFIT": "",
-      "LOCAL": "",
-      "NON_PROFIT": "",
+      "ACADEMIC_FEDERAL": "學術聯邦",
+      "ACADEMIC_FOR_PROFIT": "學術收益",
+      "ACADEMIC_LOCAL": "區域學術",
+      "ACADEMIC_NON_PROFIT": "非營利學術",
+      "ACADEMIC_STATE": "學術狀態",
+      "FEDERAL": "聯邦",
+      "FOR_PROFIT": "營利",
+      "LOCAL": "區域\n",
+      "NON_PROFIT": "非營利",
       "OTHER": "其它",
       "STATE": "州/省"
     }
