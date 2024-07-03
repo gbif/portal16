@@ -4,6 +4,7 @@ let express = require('express'),
     request = require('request-promise'),
     https = require('https'),
     cors = require('cors'),
+    botDetector = require('isbot'),
     _ = require('lodash'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     log = require('../../../../config/log');
@@ -19,6 +20,9 @@ module.exports = function(app) {
  * @param nubKey the nubKey of the name we are after - both nubKey and canonicalName must match
  */
 router.get('/otl/ottid', cors(), function(req, res) {
+    const isBot = botDetector.isbot(req.get("user-agent"));
+    if (isBot) return res.status(403).send('Thirdparty endpoints are not available for bots to avoid overloading external services.');
+
     let canonicalName = req.query.canonicalName;
     let nubKey = req.query.nubKey;
 
@@ -63,6 +67,9 @@ router.get('/otl/ottid', cors(), function(req, res) {
  * @param ottid the Open Tree of Life Taxon ID.
  */
 router.get('/otl/newick', cors(), async function (req, res) {
+    const isBot = isbot(req.get("user-agent"));
+    if (isBot) return res.status(403).send('Thirdparty endpoints are not available for bots to avoid overloading external services.');
+
     let ottid = req.query.ott_id;
     let nodeid = req.query.node_id;
     let baseRequest = {

@@ -4,6 +4,7 @@ let express = require('express'),
     _ = require('lodash'),
     apiConfig = rootRequire('/app/models/gbifdata/apiConfig'),
     cites = rootRequire('config/credentials').CITES,
+    botDetector = require('isbot'),
     request = rootRequire('app/helpers/request');
 
 module.exports = function(app) {
@@ -11,6 +12,9 @@ module.exports = function(app) {
 };
 
 router.get('/cites/:kingdom/:name', function(req, res) {
+    const isBot = botDetector.isbot(req.get("user-agent"));
+    if (isBot) return res.status(403).send('Thirdparty endpoints are not available for bots to avoid overloading external services.');
+
     let name = req.params.name,
         kingdom = req.params.kingdom;
 

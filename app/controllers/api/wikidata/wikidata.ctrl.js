@@ -3,7 +3,8 @@ let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     request = require('request-promise'),
-    log = require('../../../../config/log');
+    log = require('../../../../config/log'),
+    botDetector = require('isbot');
 const wdk = require('wikibase-sdk')({
     instance: 'https://www.wikidata.org',
     sparqlEndpoint: 'https://query.wikidata.org/sparql'
@@ -21,6 +22,9 @@ module.exports = function(app) {
 };
 
 router.get('/wikidata/species/:key', function(req, res) {
+      const isBot = botDetector.isbot(req.get("user-agent"));
+      if (isBot) return res.status(403).send('Thirdparty endpoints are not available for bots to avoid overloading external services.');
+
       return getIdentifiers(req, res)
         .then((response) => {
             return res.status(200).json(response);
