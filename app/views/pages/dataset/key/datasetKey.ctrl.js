@@ -173,7 +173,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
     function getOriginalDarwinCoreArchive(endpoints) {
         endpoints = endpoints || [];
         return endpoints.find(function(e) {
-            return e.type == 'DWC_ARCHIVE';
+            return ['DWC_ARCHIVE', 'CAMTRAP_DP'].includes(e.type);
         });
     }
 
