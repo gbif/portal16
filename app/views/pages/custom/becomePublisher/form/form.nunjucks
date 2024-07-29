@@ -5,34 +5,36 @@
             <span class="error-block" translate="eoi.outage"></span>
         </div>
 
-        {% include "./preform/existingOrganization.nunjucks" %}
-
-        <div ng-if="eoi.state.notExisting">
-            {% include "./preform/terms.nunjucks" %}
-            <form name="eoi.publisherForm"
-                  ng-submit="eoi.publisherForm.$valid && eoi.createOrganization()"
-                  ng-if="eoi.terms.agreement && eoi.terms.authorized && eoi.terms.public && eoi.hasUser">
-                {% include "./organization.nunjucks" %}
-
-                {% include "./endorsement.nunjucks" %}
-
-                {% include "./programme.nunjucks" %}
-
-                {% include "./contacts.nunjucks" %}
-
-                {% include "./administrativeContact.nunjucks" %}
-
-                {% include "./technicalContact.nunjucks" %}
-
-                {% include "./hosting.nunjucks" %}
-
-                {% include "./save.nunjucks" %}
-            </form>
-
-            <md-card ng-if="!eoi.hasUser">
-                    <div user-login></div>
-                </md-card>
+        <div class="text-center" ng-if="!eoi.hasUser && eoi.notifications.components.REGISTRY === 'OPERATIONAL'">
+            <span class="info-block" translate="eoi.loginRequired"></span>
         </div>
+        <div ng-if="eoi.hasUser">
+            {% include "./preform/existingOrganization.nunjucks" %}
+
+            <div ng-if="eoi.state.notExisting">
+                {% include "./preform/terms.nunjucks" %}
+                <form name="eoi.publisherForm"
+                    ng-submit="eoi.publisherForm.$valid && eoi.createOrganization()"
+                    ng-if="eoi.terms.agreement && eoi.terms.authorized && eoi.terms.public && eoi.hasUser">
+                    {% include "./organization.nunjucks" %}
+
+                    {% include "./endorsement.nunjucks" %}
+
+                    {% include "./programme.nunjucks" %}
+
+                    {% include "./contacts.nunjucks" %}
+
+                    {% include "./administrativeContact.nunjucks" %}
+
+                    {% include "./technicalContact.nunjucks" %}
+
+                    {% include "./hosting.nunjucks" %}
+
+                    {% include "./save.nunjucks" %}
+                </form>
+            </div>
+        </div>
+
          
 
     </div>
