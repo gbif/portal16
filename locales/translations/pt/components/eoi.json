@@ -79,6 +79,7 @@
     "youWillRecieveConfEmail": "Receberás um e-mail de confirmação após ter sido concedido o aval.",
     "yourOrgDetailsAreHere": "As informações da organização estão aqui.",
     "outage": "Estamos com uma interrupção parcial e não aceitamos inscrições no momento",
+    "loginRequired": "Uma breve descrição do componente deve ser colocada aqui",
     "eoiDescription": "Para preparar a publicação de dados através do GBIF, pedimos aos potenciais publicadores para preencher este formulário online. Antes do GBIF indexar teus conjuntos de dados, a instituição deverá receber o aval de publicador de dados, seja de um dos países ou de organizações participantes do GBIF, através de um dos Nós. Se o teu país ainda não participa do GBIF, procuraremos o aval a teu favor na Comunidade GBIF.",
     "eoiTitle": "Tornar-se um publicador"
   }
