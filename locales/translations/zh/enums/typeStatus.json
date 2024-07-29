@@ -41,7 +41,7 @@
     "SYNTYPE": "同步类型",
     "TOPOTYPE": "典型标本",
     "ORIGINALMATERIAL": "原始材料",
-    "HYPOTYPE": "",
+    "HYPOTYPE": "亚型",
     "NOTATYPE": "不是一种模式标本"
   }
 }
