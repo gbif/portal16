@@ -79,7 +79,7 @@
     "youWillRecieveConfEmail": "You will receive a confirmation email once your endorsement has been approved.",
     "yourOrgDetailsAreHere": "Your organization details are here.",
     "outage": "We are experiencing a partial outage and do not accept registrations at the moment",
-    "loginRequired": "",
+    "loginRequired": "You need an account to register a new organization. Please create an account first and then revisit this page.",
     "eoiDescription": "To prepare for publishing data through GBIF, we ask prospective new publishers to complete this online form. Before GBIF indexes your datasets, your institution must receive endorsement as a data publisher from one of the countries or organizations participating in GBIF, through a GBIF Participant node. If your country is not yet participating in GBIF, we will seek endorsement on your behalf from the GBIF community.",
     "eoiTitle": "Become a publisher"
   }
