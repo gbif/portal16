@@ -79,7 +79,7 @@
     "youWillRecieveConfEmail": "您收到確認信後，表示您的認可要求已批准。",
     "yourOrgDetailsAreHere": "您組織的詳細資料在這裡。",
     "outage": "系統目前處於部分故障狀態，暫時不接受註冊",
-    "loginRequired": "GBIF 註記的存檔",
+    "loginRequired": "",
     "eoiDescription": "為了準備透過 GBIF 發布資料，我們請求潛在的新發布者們填寫此線上表格。在 GBIF 開始為您的資料編制索引之前，您的機構必須得到 GBIF 會員中的國家或組織之一、透過其會員節點的認可，始成為資料發布者。如果您的國家尚未參與 GBIF，我們將替您在 GBIF 社群中尋找認可。",
     "eoiTitle": "成為一個發布者"
   }
