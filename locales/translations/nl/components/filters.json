@@ -1,10 +1,10 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
+        "searchPlaceholder": "Zoeken",
+        "noPreference": "Geen voorkeur",
+        "invert": "Omkeren",
         "clear": "",
-        "add": "",
+        "add": "Voeg toe",
         "repatriation": {
             "description": ""
         },
@@ -15,26 +15,26 @@
             "description": "",
             "options": {
                 "yes": "Aanwezig",
-                "no": "",
-                "all": ""
+                "no": "Afwezig",
+                "all": "Alles"
             }
         },
         "ternary": {
-            "yes": "",
-            "no": "",
+            "yes": "Ja",
+            "no": "Nee",
             "all": "Alle"
         },
         "location": {
-            "north": "",
-            "south": "",
+            "north": "Noord",
+            "south": "Zuid",
             "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
+            "east": "Oost",
+            "withCoordinates": "Met coördinaten",
+            "withoutCoordinates": "Zonder coördinaten ",
             "includeFlaggedAsSuspicious": "",
             "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
+            "past": "Onlangs gebruikt",
+            "geojson": "GeoJSON",
             "range": "",
             "noFiltersAdded": "",
             "wktPlaceholder": "",
