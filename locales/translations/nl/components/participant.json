@@ -1,10 +1,10 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
+        "participant": "Deelnemer",
+        "participantSummary": "Overzicht deelnemer",
         "endorsedPublishers": "",
         "noEndorsedPublishers": "",
-        "memberStatus": "",
+        "memberStatus": "Status van lid",
         "gbifParticipantSince": "",
         "headOfDelegation": "Hoofd van de delegatie",
         "gbifRegion": "",
