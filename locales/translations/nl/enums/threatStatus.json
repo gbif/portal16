@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
+        "EXTINCT": "Uitgestorven",
+        "EXTINCT_IN_THE_WILD": "Uitgestorven in het wild",
         "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
-        "VULNERABLE": "",
+        "ENDANGERED": "Bedreigd",
+        "VULNERABLE": "Kwetsbaar",
         "NEAR_THREATENED": "",
         "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "DATA_DEFICIENT": "Gegevens Tekort",
+        "NOT_EVALUATED": "Niet geëvalueerd"
     }
 }
