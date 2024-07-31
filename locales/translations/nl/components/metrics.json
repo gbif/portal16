@@ -11,7 +11,7 @@
     "issues": "",
     "extensions": "",
     "taxa": "",
-    "other": "",
+    "other": "Andere",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
     "explore": "",
@@ -44,7 +44,7 @@
     "groupByX": "",
     "pOtherOrUknown": "",
     "unknownRank": "",
-    "vernacularNames": "",
+    "vernacularNames": "Volksnamen",
     "majorRanksPlural": {
       "KINGDOM": "",
       "PHYLUM": "",
