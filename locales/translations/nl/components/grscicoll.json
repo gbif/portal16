@@ -5,34 +5,34 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": ""
+      "summary": "Samenvatting",
+      "homepage": "Startpagina",
+      "metrics": "Metrieken"
     },
-    "headerTitle": "",
-    "description": "",
+    "headerTitle": "Collectie",
+    "description": "Beschrijving",
     "institutionName": "",
-    "code": "",
+    "code": "Code",
     "alternativeCodes": "",
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Ja",
+      "false": "Nee"
     },
     "accessionStatus": "",
-    "contentTypes": "",
+    "contentTypes": "Type inhoud",
     "preservationTypes": "",
-    "homepage": "",
+    "homepage": "Startpagina",
     "apiUrl": "",
     "catalogUrl": "",
     "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
+    "collectionMailingAddress": "Postadres",
+    "status": "Status",
     "name": "Naam",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Actief",
+      "false": "Inactief"
     }
   },
   "institution": {
@@ -42,19 +42,19 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": ""
+      "summary": "Samenvatting",
+      "homepage": "Startpagina",
+      "metrics": "Metrieken"
     },
     "headerTitle": "",
     "indexHerbariorumIdentifier": "",
-    "numberSpecimens": "",
-    "code": "",
+    "numberSpecimens": "Aantal soorten",
+    "code": "Code instelling",
     "alternativeCodes": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "statusOfInstitution": "Status Instelling",
+    "additionalNames": "Extra naam(en)",
+    "description": "Beschrijving",
+    "homepage": "Startpagina",
     "foundingDate": "",
     "geographicDescription": "",
     "taxonomicDescription": "",
@@ -64,11 +64,11 @@
     "type": "",
     "identifiers": "",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Actief",
+      "false": "Inactief"
     },
-    "true": "",
-    "false": ""
+    "true": "Ja",
+    "false": "Nee"
   },
   "grscicollPerson": {
     "title": "",
@@ -102,16 +102,16 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Email",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "Postadres",
       "physicalAddress": "",
-      "contacts": "",
+      "contacts": "Contacten",
       "address": "",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Land"
     }
   }
 }
