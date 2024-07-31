@@ -6,48 +6,48 @@
     "generatedDateAgo": "",
     "anyYear": "",
     "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
+    "explore": "Verkennen",
+    "style": "Stijl",
+    "filters": "Filteren",
     "projection": "",
-    "select": "",
+    "select": "Selecteer",
     "custom": "",
-    "baseMap": "",
+    "baseMap": "Basiskaart",
     "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "year": "Jaar",
+    "chooseColors": "Kleuren",
     "predefined": {
       "CLASSIC_HEX": "",
       "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
+      "STREETS": "Straten",
+      "GLACIER": "Gletsjer",
       "CUSTOM": ""
     },
     "basemap": {
-      "CLASSIC": "",
+      "CLASSIC": "Magenta",
       "LIGHT": "",
-      "LIGHT_DETAILS": "",
+      "LIGHT_DETAILS": "Licht",
       "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "DARK_DETAILS": "Donker",
+      "OSM": "Wegen"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Punten",
+      "SMALL_HEX": "Kleine zeshoeken",
+      "LARGE_HEX": "Zeshoeken",
+      "SMALL_SQUARE": "Kleine vierkanten",
+      "LARGE_SQUARE": "Vierkant"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
+      "CLASSIC": "Klassiek",
+      "FIRE": "Vuur",
+      "GLACIER": "Gletsjer",
       "GREEN_POINT": "Groen",
-      "PURPLE_YELLOW": "",
+      "PURPLE_YELLOW": "Paars Geel",
       "PURPLE_HEAT": "",
       "BLUE_HEAT": "",
       "ORANGE_HEAT": "",
-      "GREEN": "",
+      "GREEN": "Groen",
       "BLUE_CLUSTER": "",
       "ORANGE_CLUSTER": ""
     },
@@ -57,8 +57,8 @@
       "addRectangleFilter": "",
       "addPolygonFilter": "",
       "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "zoomIn": "Inzoomen",
+      "zoomOut": "Uitzoomen"
     },
     "errors": {
       "413": ""
