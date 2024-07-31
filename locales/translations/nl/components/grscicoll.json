@@ -29,7 +29,7 @@
     "identifiers": "",
     "collectionMailingAddress": "",
     "status": "",
-    "name": "",
+    "name": "Naam",
     "isActive": {
       "true": "",
       "false": ""
@@ -95,7 +95,7 @@
     "suggestNewCollection": "",
     "suggestNewInstitution": "",
     "tabs": {
-      "about": "",
+      "about": "Over",
       "institutions": "",
       "collections": "",
       "people": ""
