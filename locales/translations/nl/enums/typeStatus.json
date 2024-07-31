@@ -1,8 +1,8 @@
 {
   "typeStatus": {
-    "TYPE": "",
-    "TYPE_SPECIES": "",
-    "TYPE_GENUS": "",
+    "TYPE": "Type",
+    "TYPE_SPECIES": "Type soort",
+    "TYPE_GENUS": "Type genus",
     "ALLOLECTOTYPE": "",
     "ALLONEOTYPE": "",
     "ALLOTYPE": "",
@@ -40,8 +40,8 @@
     "SUPPLEMENTARYTYPE": "",
     "SYNTYPE": "",
     "TOPOTYPE": "",
-    "ORIGINALMATERIAL": "",
+    "ORIGINALMATERIAL": "Origineel materiaal",
     "HYPOTYPE": "Hypotype",
-    "NOTATYPE": ""
+    "NOTATYPE": "Geen type"
   }
 }
