@@ -2,15 +2,15 @@
     "health": {
         "automatedMonitoring": "",
         "systemLoad": "",
-        "messages": "",
+        "messages": "Berichten",
         "version": "",
         "releaseNotes": "",
         "nInQueue": "",
         "status": {
             "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "WARNING": "Onstabiel",
+            "CRITICAL": "Niet bruikbaar",
+            "INFO": "Systeemupdate"
         },
         "components": {
             "OCCURRENCE": {
@@ -18,7 +18,7 @@
                 "tooltip": ""
             },
             "SPECIES": {
-                "name": "",
+                "name": "Soort",
                 "tooltip": ""
             },
             "REGISTRY": {
@@ -26,19 +26,19 @@
                 "tooltip": ""
             },
             "IDENTITY": {
-                "name": "",
+                "name": "Identiteit",
                 "tooltip": ""
             },
             "MAPS": {
-                "name": "",
+                "name": "Kaarten",
                 "tooltip": ""
             },
             "CONTENTFUL": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "B.v.b. nieuws en evenementen"
             },
             "IMAGE_CACHE": {
-                "name": "",
+                "name": "Afbeeldingscache",
                 "tooltip": ""
             },
             "GITHUB": {
@@ -58,7 +58,7 @@
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
+                "name": "Downloaden",
                 "tooltip": ""
             }
         }
