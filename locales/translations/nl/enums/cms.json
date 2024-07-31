@@ -3,13 +3,13 @@
     "cms": {
       "filters": {
         "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
+        "countriesOfResearcher": "Land of regio van onderzoeker",
+        "literatureType": "Type literatuur",
         "contractCountry": "",
-        "topics": "",
+        "topics": "Onderwerp",
         "audiences": "",
         "purposes": "",
-        "relevance": "",
+        "relevance": "Relevantie",
         "language": "",
         "year": "",
         "datasetKey": "Dataset",
@@ -24,8 +24,8 @@
         "resource": "",
         "dataUse": "",
         "project": "",
-        "participant": "",
-        "programme": "",
+        "participant": "Deelnemer",
+        "programme": "Programma",
         "document": "",
         "tool": "",
         "literature": ""
