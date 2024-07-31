@@ -1,15 +1,15 @@
 {
     "speciesSearch": {
-        "title": "",
+        "title": "Soort zoeken",
         "youAreCurrentlySearchingInGBIFtaxonomy": "",
         "SearchAcrossChecklists": "",
         "freeTextSearchFor": "",
-        "limitSearchTo": "",
+        "limitSearchTo": "Zoekopdracht beperken tot",
         "limitResultsTo": {
-            "all": "",
-            "scientificNames": "",
-            "vernacularNames": "",
-            "descriptions": ""
+            "all": "Alle",
+            "scientificNames": "Wetenschappelijke namen",
+            "vernacularNames": "Volksnamen",
+            "descriptions": "Beschrijvingen"
         }
     }
 }
