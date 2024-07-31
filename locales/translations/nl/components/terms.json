@@ -2,8 +2,8 @@
   "terms": {
     "headline": "",
     "description": "",
-    "readTerms": "",
-    "accept": "",
-    "reject": ""
+    "readTerms": "Voorwaarden lezen",
+    "accept": "Accepteren",
+    "reject": "Weigeren"
   }
 }
