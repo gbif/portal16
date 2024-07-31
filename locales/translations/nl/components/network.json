@@ -2,11 +2,11 @@
   "network": {
     "network": "",
     "tabs": {
-      "summary": "",
-      "homepage": "",
-      "metrics": "",
-      "datasets": "",
-      "publishers": ""
+      "summary": "Samenvatting",
+      "homepage": "Startpagina",
+      "metrics": "Metrieken",
+      "datasets": "Datasets",
+      "publishers": "Uitgevers"
     },
     "registeredDate": "",
     "nParticipatingDatasets": "",
