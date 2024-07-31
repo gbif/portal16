@@ -1,18 +1,18 @@
 {
   "countryKey": {
     "tabs": {
-      "summary": "",
+      "summary": "Samenvatting",
       "dataPublishing": "",
       "dataAbout": "",
-      "participartion": "",
+      "participartion": "Participatie",
       "publicationsFrom": "",
       "publicationsAbout": "",
-      "news": "",
+      "news": "Nieuws",
       "invasives": "",
-      "more": "",
+      "more": "Meer",
       "projects": "Projecten"
     },
-    "memberSince": "",
+    "memberSince": "Lid sinds",
     "dataFrom": "",
     "dataAboutCountry": "",
     "publishingTrends": "",
@@ -22,8 +22,8 @@
     "nFrom": "",
     "nAbout": "",
     "viewAllN": "",
-    "noPublications": "",
-    "noProjects": "",
+    "noPublications": "Geen publicaties",
+    "noProjects": "Geen projecten",
     "notParticipant": "",
     "notParticipantDescription": "",
     "countryNamingDisclaimer": "",
@@ -33,7 +33,7 @@
       "publishers": "",
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "",
-      "publishedDatasets": "",
+      "publishedDatasets": "Gepubliceerde datasets",
       "countriesAndAreasCoveredByDataFrom": "",
       "publishersFrom": ""
     },
