@@ -14,7 +14,7 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
+                "yes": "Aanwezig",
                 "no": "",
                 "all": ""
             }
@@ -22,7 +22,7 @@
         "ternary": {
             "yes": "",
             "no": "",
-            "all": ""
+            "all": "Alle"
         },
         "location": {
             "north": "",
