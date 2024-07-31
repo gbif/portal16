@@ -40,14 +40,14 @@
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
+      "role": "Rol",
+      "name": "Naam",
+      "participant": "Deelnemer",
       "participationStatus": ""
     },
     "details": "",
-    "roles": "",
+    "roles": "Rollen",
     "sinceDate": "",
-    "showAllContacts": ""
+    "showAllContacts": "Alle"
   }
 }
