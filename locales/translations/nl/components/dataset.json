@@ -13,7 +13,7 @@
       "withCoordinates": "",
       "withYear": "",
       "acceptedNames": "",
-      "synonyms": "",
+      "synonyms": "Synoniemen",
       "overlapWithNub": "",
       "overlapWithCol": ""
     },
@@ -62,7 +62,7 @@
     "temporalCoverages": "",
     "history": "",
     "ingestNow": "",
-    "readFullDescription": "",
+    "readFullDescription": "Meer",
     "howToCite": "",
     "geographicCoverages": "",
     "taxonomicCoverages": "",
@@ -79,9 +79,9 @@
     "eventDescription": "",
     "siblingEvents": "",
     "childEvents": "",
-    "events": "",
+    "events": "Evenementen",
     "occurrenceCount": "",
-    "inDataset": "",
+    "inDataset": "In",
     "samplingArticleLink": "",
     "getDownloadReport": "Rapport downloaden"
   }
