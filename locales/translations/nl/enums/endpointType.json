@@ -1,12 +1,12 @@
 {
   "endpointType": {
-    "EML": "",
-    "FEED": "",
-    "WFS": "",
-    "WMS": "",
+    "EML": "EML",
+    "FEED": "RSS feed",
+    "WFS": "WFS",
+    "WMS": "WMS",
     "TCS_RDF": "",
     "TCS_XML": "",
-    "DWC_ARCHIVE": "",
+    "DWC_ARCHIVE": "Darwin Core Archief",
     "DIGIR": "",
     "CAMTRAP_DP": "Cameraval data pakket",
     "DIGIR_MANIS": "",
@@ -14,6 +14,6 @@
     "BIOCASE": "",
     "BIOCASE_XML_ARCHIVE": "",
     "OAI_PMH": "",
-    "OTHER": ""
+    "OTHER": "Andere"
   }
 }

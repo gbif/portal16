@@ -1,14 +1,14 @@
 {
   "footer": {
-    "whatIsGbif": "",
-    "api": "",
-    "faq": "",
-    "newsletter": "",
+    "whatIsGbif": "Wat is GBIF?",
+    "api": "API",
+    "faq": "VEELGESTELDE VRAGEN",
+    "newsletter": "Nieuwsbrief",
     "privacy": "",
-    "terms": "",
+    "terms": "Voorwaarden en Overeenkomsten",
     "citation": "Bronvermelding",
-    "codeOfConduct": "",
+    "codeOfConduct": "Code of Conduct",
     "acknowledgements": "",
-    "contact": ""
+    "contact": "Contact"
   }
 }

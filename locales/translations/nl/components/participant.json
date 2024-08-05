@@ -1,20 +1,20 @@
 {
     "participant": {
-        "participant": "",
-        "participantSummary": "",
+        "participant": "Deelnemer",
+        "participantSummary": "Overzicht deelnemer",
         "endorsedPublishers": "",
         "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
+        "memberStatus": "Status van lid",
+        "gbifParticipantSince": "GBIF deelnemer sinds",
         "headOfDelegation": "Hoofd van de delegatie",
-        "gbifRegion": "",
-        "countryOrArea": "",
-        "nodeName": "",
+        "gbifRegion": "GBIF regio",
+        "countryOrArea": "Land of regio",
+        "nodeName": "Nodenaam",
         "nodeEstablished": "",
-        "website": "",
+        "website": "Website",
         "participantNodeManager": "",
-        "pending": "",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "pending": "In behandeling",
+        "latestDatasetsPublished": "Meest recent gepubliceerde datasets ",
+        "noDatasets": "Geen gepubliceerde datasets"
     }
 }

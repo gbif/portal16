@@ -1,8 +1,8 @@
 {
   "gbifNetwork": {
-    "gbifNetwork": "",
+    "gbifNetwork": "Het GBIF Network",
     "title": "",
-    "contact": "",
+    "contact": "Contact",
     "voting_participant": {
       "one": "",
       "other": ""
@@ -23,15 +23,15 @@
       "one": "",
       "other": ""
     },
-    "role": "",
+    "role": "Rol",
     "group": {},
     "gbif_secretariat": "GBIF secretariaat",
-    "membershipType": "",
-    "name": "",
+    "membershipType": "Lidmaatschap ",
+    "name": "Naam",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
-    "datasets": "",
+    "datasets": "Datasets",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
@@ -41,9 +41,9 @@
       "HEAD_OF_DELEGATION": "Hoofd van de delegatie",
       "NODE_MANAGER": ""
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
+    "publishers": "Uitgevers",
+    "memberSince": "Lid sinds",
+    "participant": "Deelnemer",
     "pPublishers": "",
     "pOccurrence": "",
     "occurrenceDatasets": "",

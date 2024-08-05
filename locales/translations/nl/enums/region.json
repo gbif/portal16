@@ -1,12 +1,12 @@
 {
   "region": {
-    "GLOBAL": "",
-    "AFRICA": "",
-    "ASIA": "",
-    "EUROPE": "",
-    "LATIN_AMERICA": "",
-    "NORTH_AMERICA": "",
-    "OCEANIA": "",
-    "ANTARCTICA": ""
+    "GLOBAL": "Globaal",
+    "AFRICA": "Afrika",
+    "ASIA": "Azië",
+    "EUROPE": "Europa en Centraal-Azië",
+    "LATIN_AMERICA": "Latijns-Amerika en de Caraïben",
+    "NORTH_AMERICA": "Noord Amerika",
+    "OCEANIA": "Oceanië",
+    "ANTARCTICA": "Antarctica"
   }
 }

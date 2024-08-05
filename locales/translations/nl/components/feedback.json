@@ -1,42 +1,42 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "Feedback geven",
     "intro": {
-      "title": "",
+      "title": "Feedback en vragen",
       "example": ""
     },
     "data content": {
-      "title": "",
+      "title": "Inhoud",
       "example": "",
       "annotate": "",
       "contactPerMail": ""
     },
     "bug": {
-      "title": "",
+      "title": "Fout",
       "example": ""
     },
     "idea": {
-      "title": "",
+      "title": "Idee",
       "example": ""
     },
     "question": {
-      "title": "",
+      "title": "Helpdesk",
       "example": "",
       "description": "",
       "comment": ""
     },
     "confirmation": {
-      "title": "",
+      "title": "Bedankt",
       "example": "",
       "seeIssue": ""
     },
     "issues": {
       "title": "",
       "description": "",
-      "create": ""
+      "create": "Feedback geven"
     },
     "placeholders": {
-      "summary": "",
+      "summary": "Samenvatting",
       "description": "",
       "username": ""
     },
@@ -44,9 +44,9 @@
     "issueTracking": "",
     "failure": "",
     "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
+    "tellGbif": "Vertel GBIF",
+    "submit": "Verzenden",
+    "seeAllComments": "Alles weergeven",
     "recommendMail": "",
     "pleaseLogin": ""
   }

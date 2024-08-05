@@ -79,7 +79,7 @@
     "youWillRecieveConfEmail": "Vous recevrez un courriel de confirmation lorsque votre approbation aura été acceptée.",
     "yourOrgDetailsAreHere": "Les détails à propos de votre organisation sont ici.",
     "outage": "Nous éprouvons actuellement une panne partielle et nous ne pouvons recevoir aucun enregistrement pour le moment",
-    "loginRequired": "Archive annotée par GBIF",
+    "loginRequired": "",
     "eoiDescription": "Pour se préparer à la publication de données via GBIF, nous demandons aux potentiels nouveaux fournisseurs de données de remplir ce formulaire en ligne. Avant que GBIF n'indexe votre jeu de données, votre institution doit être approuvé comme fournisseur de données par l’un des pays ou des organisations participant au GBIF, via un nœud GBIF participant. Si votre pays ne participe pas encore au GBIF, nous demanderons l'approbation en votre nom auprès de la communauté GBIF.",
     "eoiTitle": "Devenir un fournisseur de données"
   }

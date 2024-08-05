@@ -1,15 +1,15 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Geen filter",
         "elevation": {
             "equals": "",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Ongeldig",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Is",
+                "between": "Tussen",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -19,10 +19,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Ongeldig",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Is",
+                "between": "Tussen",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -32,10 +32,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Ongeldig",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Is",
+                "between": "Tussen",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -45,10 +45,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Ongeldig",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Is",
+                "between": "Tussen",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -58,10 +58,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Ongeldig",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Is",
+                "between": "Tussen",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }

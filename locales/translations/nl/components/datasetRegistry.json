@@ -3,7 +3,7 @@
         "registry": {
             "failedSinceSuccess": "",
             "lastFailed": "",
-            "registrationDate": "",
+            "registrationDate": "Registratiedatum",
             "lastSuccess": "",
             "lastWithChange": "",
             "noEntries": "",
@@ -12,14 +12,14 @@
             "completionReasons": "",
             "unfinished": "",
             "total": "",
-            "endpoints": "",
+            "endpoints": "Eindpunten",
             "installationContacts": "",
-            "installation": "",
+            "installation": "Installatie",
             "dataLastChanged": "",
-            "pubDate": "",
-            "hostedBy": "",
+            "pubDate": "Publicatiedatum",
+            "hostedBy": "Gehost door",
             "hostingStatus": "",
-            "metdataLastModified": "",
+            "metdataLastModified": "Metadata laatst gewijzigd",
             "preferredIdentifier": "",
             "alternativeIdentifier": "",
             "orphaned": "",
@@ -43,7 +43,7 @@
             "finishReason": {
                 "NORMAL": "",
                 "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NOT_MODIFIED": "Niet gewijzigd"
             }
         }
     }

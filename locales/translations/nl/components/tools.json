@@ -6,9 +6,9 @@
             "NOT_OPEN": "",
             "title": "",
             "pleaseDescribeTheDataset": "",
-            "thankYou": "",
+            "thankYou": "Bedankt",
             "form": {
-                "title": "",
+                "title": "Titel",
                 "link": "",
                 "region": "",
                 "taxon": "",
@@ -62,12 +62,12 @@
         "machineVision": {
             "tabs": {
                 "demo": "",
-                "statement": ""
+                "statement": "Over"
             }
         },
         "derivedDataset": {
             "title": "",
-            "titleField": "",
+            "titleField": "Titel",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",

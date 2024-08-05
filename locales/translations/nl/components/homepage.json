@@ -2,28 +2,28 @@
     "homepage": {
         "counts": {
             "occurrences": "",
-            "datasets": "",
+            "datasets": "Datasets",
             "publishers": "",
             "literature": ""
         },
         "aboutGbifCountry": "",
         "summary": "",
-        "whatIsGbif": "",
+        "whatIsGbif": "Wat is GBIF?",
         "featureTypes": {
-            "event": "",
-            "news": "",
+            "event": "Evenement",
+            "news": "Nieuws",
             "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
+            "dataUse": "Data gebruik",
+            "project": "Project",
+            "programme": "Programma",
+            "document": "Document",
             "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
-            "guidance": "",
-            "data": "",
-            "video": ""
+            "literature": "Literatuur",
+            "treatment": "Taxonomie",
+            "blog": "Blog",
+            "guidance": "Begeleiding",
+            "data": "Data",
+            "video": "Video"
         }
     }
 }

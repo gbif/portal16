@@ -1,11 +1,11 @@
 {
     "healthSummary": {
-        "systemHealth": "",
+        "systemHealth": "Systeemstatus",
         "description": "",
         "updatedTimeAgo": "",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
+            "OPERATIONAL": "Alle systemen zijn operationeel",
+            "INFO": "Alle systemen zijn operationeel",
             "WARNING": "",
             "CRITICAL": ""
         },

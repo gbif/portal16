@@ -2,16 +2,16 @@
     "downloadUsage": {
         "title": "",
         "form": {
-            "title": "",
+            "title": "Titel",
             "titlePlaceholder": "",
-            "authors": "",
+            "authors": "Auteur(s)",
             "authorsPlaceholder": "",
-            "link": "",
+            "link": "URL",
             "linkPlaceholder": "",
-            "date": "",
-            "comments": "",
+            "date": "Datum",
+            "comments": "Opmerkingen",
             "commentsPlaceholder": "",
-            "submit": "",
+            "submit": "Verzenden",
             "saveFailure": "",
             "saveSuccess": ""
         }

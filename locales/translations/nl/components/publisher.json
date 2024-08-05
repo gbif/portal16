@@ -2,25 +2,25 @@
   "publisher": {
     "searchTitle": "",
     "tabs": {
-      "aboutPublisher": "",
-      "metrics": "",
-      "publishersHomepage": ""
+      "aboutPublisher": "Over",
+      "metrics": "Metrieken",
+      "publishersHomepage": "Startpagina"
     },
     "joinedAgo": "",
-    "newPublisher": "",
+    "newPublisher": "Nieuwe uitgever",
     "technicalContact": "",
-    "country": "",
+    "country": "Land of regio",
     "hosting": "",
-    "description": "",
+    "description": "Beschrijving",
     "endorsedBy": "",
     "pendingEndorsementBy": "",
     "endorsementWithheld": "",
     "installations": "",
     "getDownloadReport": "",
-    "contacts": "",
-    "administrativeContact": "",
+    "contacts": "Contacten",
+    "administrativeContact": "Contactpunt administratie",
     "header": {
-      "publisher": "",
+      "publisher": "Uitgever",
       "sinceDate": ""
     }
   }
