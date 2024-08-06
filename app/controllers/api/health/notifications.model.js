@@ -5,7 +5,7 @@ let // notifications = require('../notifications//notifications.model'),
     health = require('./health.model'),
     loadModel = require('./load.model'),
     resourceSearch = require('../resource/search/resourceSearch'),
-//    severity = require('./severity').severity,
+   severity = require('./severity').severity,
     getMostSevere = require('./severity').getMostSevere,
     _ = require('lodash'),
     objectHash = require('object-hash'),
@@ -81,8 +81,11 @@ async function updateMessages() {
             }
         });
     } catch (err) {
-        // console.log(err); //TODO log
-        updateStatus({failure: err});
+        updateStatus({messages: {
+            list: [],
+            severity: severity.CRITICAL,
+            failure: err
+        }});
     }
 }
 
