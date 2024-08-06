@@ -110,7 +110,7 @@ function dataValidatorKeyCtrl($http, $scope, User, AUTH_EVENTS, $stateParams, $s
 
     function loadEvaluationCategory() {
         return $http({
-            url: vm.dataApi + 'validator/enumeration/simple/EvaluationCategory'
+            url: vm.dataApi + 'validation/enumeration/EvaluationCategory'
         }).success(function(data) {
             vm.evaluationCategory = data;
         }).error(function(err, status) { // data, status, headers, config
