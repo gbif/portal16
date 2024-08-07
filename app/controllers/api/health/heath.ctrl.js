@@ -21,8 +21,9 @@ router.get('/health', function(req, res) {
             res.setHeader('Cache-Control', 'public, max-age=5'); // 5 seconds
             res.json(status);
         })
-        .catch(function() {
+        .catch(function(err) {
             // TODO log error ?
+            log.warn({module: 'api/health'}, err);
             res.status(500);
             res.send();
         });
@@ -42,6 +43,7 @@ router.get('/health/ping', function(req, res) {
         })
         .catch(function() {
             // TODO log error ?
+            log.warn({module: 'api/health/ping'}, err);
             res.status(500);
             res.send();
         });
