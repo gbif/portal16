@@ -1,5 +1,7 @@
 'use strict';
 
+const { authenticatedRequest } = require('../../auth/gbifAuthRequest');
+
 let _ = require('lodash'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     userAgent = require('../../../../config/config').userAgent,
@@ -8,14 +10,14 @@ let _ = require('lodash'),
 let TIMEOUT = 8000;
 
 module.exports = {
-    start: function() {
+    start: function () {
         return start(testConfig);
     }
 };
 
 async function start(tests) {
     try {
-        let results = await Promise.all(tests.map(function(test) {
+        let results = await Promise.all(tests.map(function (test) {
             return test();
         }));
         return {
@@ -73,32 +75,36 @@ async function crawlerLoad() {
 }
 
 async function downloadQueue() {
-    let query = {
-        timezone: 'GMT',
-        filter: 'status=RUNNING',
-        _dc: Date.now()
-    };
-    let options = {
-        url: apiConfig.oozie.url + 'jobs?' + querystring.stringify(query),
-        json: true,
-        userAgent: userAgent,
-        timeout: TIMEOUT
-    };
-    let response = await request(options);
-    if (response.statusCode != 200) {
+    try {
+        let options = {
+            method: 'GET',
+            url: apiConfig.occurrenceDownload.url + '?status=RUNNING&limit=0&_dc=' + Date.now(),
+            canonicalPath: apiConfig.occurrenceDownload.canonical,
+            timeout: TIMEOUT,
+            json: true
+        };
+        let response = await authenticatedRequest(options);
+        if (response.statusCode != 200) {
+            return {
+                component: 'DOWNLOAD',
+                error: 'No response',
+                severity: 'CRITICAL'
+            };
+        }
+        let result = response.body;
+        return {
+            component: 'DOWNLOAD',
+            load: result.count,
+            severity: result.count > 2000 ? 'WARNING' : 'OPERATIONAL'
+        };
+    } catch (err) {
         return {
             component: 'DOWNLOAD',
             error: 'No response',
             severity: 'CRITICAL'
         };
     }
-    let result = response.body;
-    return {
-        component: 'DOWNLOAD',
-        load: result.total,
-        severity: result.total > 200 ? 'WARNING' : 'OPERATIONAL'
-    };
 }
 
 // tests are expected to return {component name, load?: [high, medium, low], values: {custom obj}}
-let testConfig = [crawlerLoad, downloadQueue];
+let testConfig = [crawlerLoad/*, downloadQueue*/];

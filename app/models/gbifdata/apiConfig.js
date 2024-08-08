@@ -5,8 +5,6 @@ let baseConfig = require('../../../config/config'),
     baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
     sourceArchive = 'https:' + baseConfig.sourceArchive,
     registryBaseUrl = baseConfig.serverProtocol + baseConfig.registryApi,
-    oozie = baseConfig.serverProtocol + baseConfig.oozie,
-    yarnResourceManager = baseConfig.serverProtocol + baseConfig.yarnResourceManager,
     elk = baseConfig.serverProtocol + baseConfig.elk,
     publicKibana = baseConfig.publicKibana,
     identityBaseUrl = baseConfig.serverProtocol + baseConfig.identityApi;
@@ -44,12 +42,6 @@ let apiConfig = {
     },
     pipelinesProcessRunning: {
         url: baseUrl + 'pipelines/history/process/running'
-    },
-    oozie: {
-        url: oozie
-    },
-    yarnResourceManager: {
-        url: yarnResourceManager
     },
     image: {
         url: baseConfig.dataApi + 'image/unsafe/'
