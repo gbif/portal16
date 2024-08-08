@@ -29,39 +29,6 @@ async function start(tests) {
     }
 }
 
-async function clusterLoad() {
-    let options = {
-        url: apiConfig.yarnResourceManager.url + 'cluster/scheduler?v=' + Date.now(),
-        json: true,
-        userAgent: userAgent,
-        timeout: TIMEOUT
-    };
-    let response = await request(options);
-    if (response.statusCode != 200) {
-        return {
-            component: 'CLUSTER',
-            error: 'No response',
-            severity: 'CRITICAL'
-        };
-    }
-    let result = response.body;
-
-    // calculate load as fraction of memory usage or core usage - whichever is higher
-    let maxMemory = _.get(result, 'scheduler.schedulerInfo.rootQueue.maxResources.memory', 1);
-    let maxCores = _.get(result, 'scheduler.schedulerInfo.rootQueue.maxResources.vCores', 1);
-
-    let usedMemory = _.get(result, 'scheduler.schedulerInfo.rootQueue.usedResources.memory', 0);
-    let usedCores = _.get(result, 'scheduler.schedulerInfo.rootQueue.usedResources.vCores', 0);
-
-    let load = Math.max( (usedMemory / maxMemory), (usedCores / maxCores) );
-
-    return {
-        component: 'CLUSTER',
-        load: load,
-        severity: load > 0.90 ? 'WARNING' : 'OPERATIONAL'
-    };
-}
-
 async function crawlerLoad() {
     // dataset process running)
     let options = {
@@ -134,4 +101,4 @@ async function downloadQueue() {
 }
 
 // tests are expected to return {component name, load?: [high, medium, low], values: {custom obj}}
-let testConfig = [clusterLoad, crawlerLoad, downloadQueue];
+let testConfig = [crawlerLoad, downloadQueue];
