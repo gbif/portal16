@@ -12,8 +12,9 @@ module.exports = function(app) {
 };
 
 router.get('/cites/:kingdom/:name', function(req, res) {
-    const isBot = botDetector.isbot(req.get("user-agent"));
-    if (isBot) return res.status(403).send('Thirdparty endpoints are not available for bots to avoid overloading external services.');
+    let userAgent = req.get('user-agent');    
+    const isBot = botDetector.isbot(userAgent);
+    if (isBot) return res.status(418).send('Thirdparty endpoints are not available for bots to avoid overloading external services.');
 
     let name = req.params.name,
         kingdom = req.params.kingdom;
