@@ -10,6 +10,7 @@ let // notifications = require('../notifications//notifications.model'),
     _ = require('lodash'),
     objectHash = require('object-hash'),
     healthUpdateFrequency = require('../../../../config/config').healthUpdateFrequency,
+    log = require('../../../../config/log'),
     status = {};
 
 module.exports = onComplete;
@@ -81,6 +82,7 @@ async function updateMessages() {
             }
         });
     } catch (err) {
+        log.warn({module: 'api/health'}, err);
         updateStatus({messages: {
             list: [],
             severity: severity.CRITICAL,
@@ -99,7 +101,7 @@ function updateHealth() {
     }
 
     function failed(err) {
-        // console.log(err); //TODO log
+        log.warn({module: 'api/health'}, err);
         updateStatus({failure: err});
     }
 
@@ -113,7 +115,7 @@ async function updateLoad() {
             load: load
         });
     } catch (err) {
-        // console.log(err); //TODO log;
+        log.warn({module: 'api/health'}, err);
         updateStatus({failure: err});
     }
 }
