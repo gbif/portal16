@@ -77,13 +77,11 @@ async function crawlerLoad() {
 async function downloadQueue() {
     try {
         let options = {
-            method: 'GET',
-            url: apiConfig.occurrenceDownload.url + '?status=RUNNING&limit=0&_dc=' + Date.now(),
-            canonicalPath: apiConfig.occurrenceDownload.canonical,
+            url: apiConfig.occurrenceDownload.url + 'count?status=RUNNING&status=PREPARING&status=SUSPENDED',
             timeout: TIMEOUT,
-            json: true
+            json: false
         };
-        let response = await authenticatedRequest(options);
+        let response = await request(options);
         if (response.statusCode != 200) {
             return {
                 component: 'DOWNLOAD',
@@ -91,11 +89,20 @@ async function downloadQueue() {
                 severity: 'CRITICAL'
             };
         }
-        let result = response.body;
+        let resultString = response.body;
+        // try to parse as int else return error
+        let result = parseInt(resultString);
+        if (isNaN(result)) {
+            return {
+                component: 'DOWNLOAD',
+                error: 'Could not parse response',
+                severity: 'CRITICAL'
+            };
+        }
         return {
             component: 'DOWNLOAD',
-            load: result.count,
-            severity: result.count > 2000 ? 'WARNING' : 'OPERATIONAL'
+            load: result,
+            severity: result > 10000 ? 'WARNING' : 'OPERATIONAL'
         };
     } catch (err) {
         return {
@@ -107,4 +114,4 @@ async function downloadQueue() {
 }
 
 // tests are expected to return {component name, load?: [high, medium, low], values: {custom obj}}
-let testConfig = [crawlerLoad/*, downloadQueue*/];
+let testConfig = [crawlerLoad, downloadQueue];
