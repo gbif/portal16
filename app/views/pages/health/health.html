@@ -57,6 +57,9 @@
 
                         <section class="m-t-2">
                             <h3 class="card-header" translate="health.systemLoad"></h3>
+                            <div ng-if="health.status.load.error" style="color: tomato;">
+                                Failed to measure system load
+                            </div>
                             <div class="card card--spaced">
                                 <div class="card__stripe status--{{ health.status.load.components.CRAWLER.severity | lowercase }}">
                                     <div class="card__content">

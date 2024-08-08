@@ -5,6 +5,7 @@ let _ = require('lodash'),
     userAgent = require('../../../../config/config').userAgent,
     querystring = require('querystring'),
     request = rootRequire('app/helpers/request');
+let TIMEOUT = 8000;
 
 module.exports = {
     start: function() {
@@ -13,19 +14,27 @@ module.exports = {
 };
 
 async function start(tests) {
-    let results = await Promise.all(tests.map(function(test) {
-        return test();
-    }));
-    return {
-        components: _.keyBy(results, 'component')
-    };
+    try {
+        let results = await Promise.all(tests.map(function(test) {
+            return test();
+        }));
+        return {
+            components: _.keyBy(results, 'component')
+        };
+    } catch (err) {
+        return {
+            error: 'Failed to resolve load',
+            severity: 'CRITICAL'
+        };
+    }
 }
 
 async function clusterLoad() {
     let options = {
         url: apiConfig.yarnResourceManager.url + 'cluster/scheduler?v=' + Date.now(),
         json: true,
-        userAgent: userAgent
+        userAgent: userAgent,
+        timeout: TIMEOUT
     };
     let response = await request(options);
     if (response.statusCode != 200) {
@@ -58,7 +67,8 @@ async function crawlerLoad() {
     let options = {
         url: apiConfig.crawlingDatasetProcessRunning.url + '?vLoad=' + Date.now(),
         json: true,
-        userAgent: userAgent
+        userAgent: userAgent,
+        timeout: TIMEOUT
     };
     let response = await request(options);
     if (response.statusCode != 200) {
@@ -74,7 +84,8 @@ async function crawlerLoad() {
     let optionsPipeline = {
         url: apiConfig.pipelinesProcessRunning.url + '?vLoad=' + Date.now(),
         json: true,
-        userAgent: userAgent
+        userAgent: userAgent,
+        timeout: TIMEOUT
     };
     let responsePipeline = await request(optionsPipeline);
     if (response.statusCode != 200) {
@@ -103,7 +114,8 @@ async function downloadQueue() {
     let options = {
         url: apiConfig.oozie.url + 'jobs?' + querystring.stringify(query),
         json: true,
-        userAgent: userAgent
+        userAgent: userAgent,
+        timeout: TIMEOUT
     };
     let response = await request(options);
     if (response.statusCode != 200) {
