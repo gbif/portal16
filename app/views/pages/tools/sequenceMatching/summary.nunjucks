@@ -8,7 +8,7 @@
                           
         </div>
         <div ng-if="vm.selectedMarker === 'COI'">
-            <p>Your data have been matched against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2024-01-06</a> public data (COI-5P sequences)
+            <p>Your data have been matched against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2024-07-19</a> public data (COI-5P sequences)
         All returned matches have then been matched against the GBIF backbone taxonomy by their identifier (e.g. BOLD:ADJ8357). These OTU identifiers can be used for publishing sequence based data to GBIF. The result can be downloaded as a csv with identifiers included.</p>
         
                           
