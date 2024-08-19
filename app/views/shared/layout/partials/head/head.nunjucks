@@ -34,7 +34,7 @@
 {% endif %}
 
 {% if _meta.noIndex %}
-    <meta name="robots" content="noindex nofollow">
+    <meta name="robots" content="noindex,nofollow">
 {% endif %}
 
 {% if _meta.onlyNoFollow %}
