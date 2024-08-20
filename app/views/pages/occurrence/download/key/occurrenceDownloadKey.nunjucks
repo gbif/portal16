@@ -36,10 +36,14 @@
                             {% else %}
                                 {% if download.record.request.format === 'SPECIES_LIST' %}
                                     <span translate="downloadKey.nRecordsDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
+                                {% elif download.record.request.format === 'SQL_TSV_ZIP' %}
+                                    <span translate="downloadKey.nRowsDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
+                                {% elif download.record.request.format === 'DWCA' or download.record.request.format === 'SIMPLE_CSV' %}
+                                    <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
                                 {% elif download.record.totalRecords === 0 %}
                                     <span translate="downloadKey.occurrenceDownload" > </span>
                                 {% else %}
-                                    <span translate="downloadKey.nOccurrencesDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
+                                    <span translate="downloadKey.nRecordsDownloaded" translate-values="{NUMBER: {$ download.record.totalRecords $} , NUMBER_FORMATTED: '{{ {$ download.record.totalRecords $} | localNumber }}' } "> </span>
                                 {% endif %}
                             {% endif %}
                         </h1>
