@@ -51,12 +51,22 @@
     "showAllContacts": "All",
     "person": {
       "volunteer": "Volunteer",
+      "name": "Name",
       "annualBadges": "Annual badges",
       "language": "Language",
       "country": "Country or area",
       "affiliation": "Affiliation",
-      "areaOfExpertise": "Area of expertise",
+      "recipient": "Recipient",
+      "areasExpertise": "Area of expertise",
+      "orcId": "OrcID",
+      "year": "Year",
       "email": "Email"
+    },
+    "award": {
+      "GRA": "GBIF Research Award",
+      "EBBE1ST": "1st Prize",
+      "EBBE2ND": "2nd Prize",
+      "EBBE3RD": "3rd Prize"
     },
     "prize": "Prize",
     "year": "Year"

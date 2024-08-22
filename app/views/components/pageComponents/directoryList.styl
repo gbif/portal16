@@ -1,10 +1,16 @@
-.translatorsList {
+.directoryList {
   .scrollable-y {
     border: 1px solid #ddd;
     background: white;
   }
   table {
     position: relative;
+    td>a, td>span {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   thead {
     position: sticky;

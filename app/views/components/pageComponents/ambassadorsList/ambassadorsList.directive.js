@@ -5,18 +5,18 @@ var angular = require('angular'),
 
 angular
   .module('portal')
-  .directive('translatorsList', translatorsListDirective);
+  .directive('ambassadorsList', ambassadorsListDirective);
 
 /** @ngInject */
-function translatorsListDirective() {
+function ambassadorsListDirective() {
   var directive = {
     restrict: 'E',
-    templateUrl: '/templates/components/pageComponents/translatorsList/translatorsList.html',
+    templateUrl: '/templates/components/pageComponents/ambassadorsList/ambassadorsList.html',
     scope: {
       settings: '@',
       title: '@',
     },
-    controller: translatorsListCtrl,
+    controller: ambassadorsListCtrl,
     controllerAs: 'vm',
     bindToController: true
   };
@@ -24,7 +24,7 @@ function translatorsListDirective() {
   return directive;
 
   /** @ngInject */
-  function translatorsListCtrl(GraphQLGet) {
+  function ambassadorsListCtrl(GraphQLGet) {
     var vm = this;
     vm.loading = true;
     vm.locale = gb.locale;
@@ -39,17 +39,19 @@ function translatorsListDirective() {
 
     var response = GraphQLGet.get({
       query: `query {
-      directoryTranslators(limit: 1000) {
+      directoryAmbassadors(limit: 1000) {
         results {
+          term {
+            start
+          }
           Person {
             firstName
             surname
-            languages
-            countryCode
+            email
             orcidId
-            certifications {
-              year
-            }
+            institutionName
+            countryCode
+            areasExpertise
           }
         }
       }
@@ -58,7 +60,7 @@ function translatorsListDirective() {
     response.$promise.then(function successCallback(response) {
       // this callback will be called asynchronously
       // when the response is available
-      vm.results = response.data.directoryTranslators.results;
+      vm.results = response.data.directoryAmbassadors.results;
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
@@ -66,5 +68,5 @@ function translatorsListDirective() {
   }
 }
 
-module.exports = translatorsListDirective;
+module.exports = ambassadorsListDirective;
 

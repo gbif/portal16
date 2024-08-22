@@ -5,18 +5,18 @@ var angular = require('angular'),
 
 angular
   .module('portal')
-  .directive('translatorsList', translatorsListDirective);
+  .directive('ebbeList', ebbeListDirective);
 
 /** @ngInject */
-function translatorsListDirective() {
+function ebbeListDirective() {
   var directive = {
     restrict: 'E',
-    templateUrl: '/templates/components/pageComponents/translatorsList/translatorsList.html',
+    templateUrl: '/templates/components/pageComponents/ebbeList/ebbeList.html',
     scope: {
       settings: '@',
       title: '@',
     },
-    controller: translatorsListCtrl,
+    controller: ebbeListCtrl,
     controllerAs: 'vm',
     bindToController: true
   };
@@ -24,7 +24,7 @@ function translatorsListDirective() {
   return directive;
 
   /** @ngInject */
-  function translatorsListCtrl(GraphQLGet) {
+  function ebbeListCtrl(GraphQLGet) {
     var vm = this;
     vm.loading = true;
     vm.locale = gb.locale;
@@ -39,32 +39,35 @@ function translatorsListDirective() {
 
     var response = GraphQLGet.get({
       query: `query {
-      directoryTranslators(limit: 1000) {
-        results {
-          Person {
-            firstName
-            surname
-            languages
-            countryCode
-            orcidId
-            certifications {
-              year
-            }
+      ebbeWinners:directoryAwardWinners(award: ["EBBE1ST", "EBBE2ND", "EBBE3RD"]) {
+        firstName
+        surname
+        countryCode 
+        orcidId
+        roles {
+          award
+          term {
+            start
           }
         }
-      }
+      } 
     }`});
 
     response.$promise.then(function successCallback(response) {
       // this callback will be called asynchronously
       // when the response is available
-      vm.results = response.data.directoryTranslators.results;
+      vm.results = response.data.ebbeWinners;
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
     });
+
+    // takes an iso string and returns a year
+    vm.asYear = function (year) {
+      return year.split('-')[0];
+    }
   }
 }
 
-module.exports = translatorsListDirective;
+module.exports = ebbeListDirective;
 

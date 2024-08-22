@@ -8,7 +8,19 @@
          <programme-projects programme-id="{$ main.fields.settings.programmeId $}" table-style="{$ main.fields.settings.tableStyle $}" />
         {% endif %}
         {% if componentType == "translatorsList" %}
-         <translators-list tableStyle="{$ main.fields.tableStyle $}" title="{$ main.fields.title $}" />
+         <translators-list settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
+        {% endif %}
+        {% if componentType == "ambassadorsList" %}
+         <ambassadors-list settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
+        {% endif %}
+        {% if componentType == "mentorsList" %}
+         <mentors-list settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
+        {% endif %}
+         {% if componentType == "graList" %}
+         <gra-list settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
+        {% endif %}
+        {% if componentType == "ebbeWinnersList" %}
+         <ebbe-list settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
         {% endif %}
     </div>
 </div>

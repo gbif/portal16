@@ -5,18 +5,18 @@ var angular = require('angular'),
 
 angular
   .module('portal')
-  .directive('translatorsList', translatorsListDirective);
+  .directive('mentorsList', mentorsListDirective);
 
 /** @ngInject */
-function translatorsListDirective() {
+function mentorsListDirective() {
   var directive = {
     restrict: 'E',
-    templateUrl: '/templates/components/pageComponents/translatorsList/translatorsList.html',
+    templateUrl: '/templates/components/pageComponents/mentorsList/mentorsList.html',
     scope: {
       settings: '@',
       title: '@',
     },
-    controller: translatorsListCtrl,
+    controller: mentorsListCtrl,
     controllerAs: 'vm',
     bindToController: true
   };
@@ -24,7 +24,7 @@ function translatorsListDirective() {
   return directive;
 
   /** @ngInject */
-  function translatorsListCtrl(GraphQLGet) {
+  function mentorsListCtrl(GraphQLGet) {
     var vm = this;
     vm.loading = true;
     vm.locale = gb.locale;
@@ -39,17 +39,15 @@ function translatorsListDirective() {
 
     var response = GraphQLGet.get({
       query: `query {
-      directoryTranslators(limit: 1000) {
+      directoryMentors {
         results {
+          award
           Person {
             firstName
             surname
-            languages
+            email
             countryCode
-            orcidId
-            certifications {
-              year
-            }
+            areasExpertise
           }
         }
       }
@@ -58,7 +56,7 @@ function translatorsListDirective() {
     response.$promise.then(function successCallback(response) {
       // this callback will be called asynchronously
       // when the response is available
-      vm.results = response.data.directoryTranslators.results;
+      vm.results = response.data.directoryMentors.results;
     }, function errorCallback(response) {
       // called asynchronously if an error occurs
       // or server returns response with an error status.
@@ -66,5 +64,5 @@ function translatorsListDirective() {
   }
 }
 
-module.exports = translatorsListDirective;
+module.exports = mentorsListDirective;
 

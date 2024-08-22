@@ -9,7 +9,7 @@
                     <thead>
                         <tr>
                             <th
-                                ng-repeat="col in ['volunteer', 'language', 'country', 'annualBadges']"
+                                ng-repeat="col in ['year', 'recipient', 'country']"
                             >
                                 <span class="inline-block text-nowrap">
                                     <span
@@ -23,34 +23,26 @@
                         <tr ng-repeat="result in vm.results">
                             <td>
                                 <span
-                                    ng-if="!result.Person.orcidId"
-                                    >{{ result.Person.firstName }} {{
-                                    result.Person.surname }}</span
+                                    class="m-r-1"
+                                    ng-if="result.roles.length > 0"
+                                    ng-repeat="roles in result.roles">{{ vm.asYear(roles.term.start) }}</span
+                                >
+                            </td>
+                            <td>
+                                <span
+                                    ng-if="!result.orcidId"
+                                    >{{ result.firstName }} {{
+                                    result.surname }}</span
                                 >
                                 <a
-                                    ng-if="result.Person.orcidId"
-                                    ng-href="{{ result.Person.orcidId }}"
-                                    >{{ result.Person.firstName }} {{
-                                        result.Person.surname }}</a
+                                    ng-if="result.orcidId"
+                                    ng-href="{{ result.orcidId }}"
+                                    >{{ result.firstName }} {{
+                                        result.surname }}</a
                                 >
                             </td>
                             <td>
-                                <span
-                                    class="m-r-1"
-                                    ng-if="result.Person.languages.length > 0"
-                                    ng-repeat="lang in result.Person.languages"
-                                    translate="language.{{lang}}">{{ lang }}</span
-                                >
-                            </td>
-                            <td>
-                                <span ng-if="result.Person.countryCode" translate="country.{{result.Person.countryCode}}">{{ result.Person.countryCode }}</span>
-                            </td>
-                            <td>
-                                <span
-                                    class="m-r-1"
-                                    ng-repeat="badge in result.Person.certifications"
-                                    >{{ badge.year }}</span
-                                >
+                                <span ng-if="result.countryCode" translate="country.{{result.countryCode}}">{{ result.countryCode }}</span>
                             </td>
                         </tr>
                     </tbody>

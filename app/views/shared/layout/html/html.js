@@ -468,6 +468,10 @@ require('../../../components/focusMe/focusMe.directive');
 require('../../../components/pageComponents/hostedPortalForm/hostedPortalForm.directive');
 require('../../../components/pageComponents/programmeProjects/programmeProjects.directive');
 require('../../../components/pageComponents/translatorsList/translatorsList.directive');
+require('../../../components/pageComponents/ambassadorsList/ambassadorsList.directive');
+require('../../../components/pageComponents/mentorsList/mentorsList.directive');
+require('../../../components/pageComponents/graList/graList.directive');
+require('../../../components/pageComponents/ebbeList/ebbeList.directive');
 
 require('./angular/translate');
 
