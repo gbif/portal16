@@ -48,6 +48,27 @@
     "details": "Details",
     "roles": "Roles",
     "sinceDate": "Since {DATE}",
-    "showAllContacts": "All"
+    "showAllContacts": "All",
+    "person": {
+      "volunteer": "",
+      "name": "Name",
+      "annualBadges": "",
+      "language": "Language",
+      "country": "Country or area",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
+      "year": "Year",
+      "email": "Email"
+    },
+    "award": {
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
+    },
+    "prize": "",
+    "year": "Year"
   }
 }
