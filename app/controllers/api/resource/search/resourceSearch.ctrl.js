@@ -15,7 +15,8 @@ module.exports = function(app) {
 
 router.get('/resource/search', function(req, res) {
     const origin = req.get('origin');
-    log.info('origin', origin);
+    log.info('origin', req.get('origin'));
+    log.info('refferer', req.get('Referrer'));
     const warningHeader = req.get('not-the-endpoint-you-want');
     if (warningHeader !== 'See https://techdocs.gbif.org/en/' && req.query.thisIsNotASupportedAPI !== 'true') {
         res.status(403);
