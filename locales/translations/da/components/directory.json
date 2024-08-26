@@ -48,6 +48,27 @@
     "details": "Detaljer",
     "roles": "Roller",
     "sinceDate": "Siden {DATE}",
-    "showAllContacts": "Alle"
+    "showAllContacts": "Alle",
+    "person": {
+      "volunteer": "GBIF annoteret Arkiv",
+      "name": "Navn",
+      "annualBadges": "GBIF annoteret Arkiv",
+      "language": "Sprog",
+      "country": "Land eller område",
+      "affiliation": "GBIF annoteret Arkiv",
+      "recipient": "GBIF annoteret Arkiv",
+      "areasExpertise": "GBIF annoteret Arkiv",
+      "orcId": "GBIF annoteret Arkiv",
+      "year": "",
+      "email": "E-mail"
+    },
+    "award": {
+      "GRA": "GBIF annoteret Arkiv",
+      "EBBE1ST": "GBIF annoteret Arkiv",
+      "EBBE2ND": "GBIF annoteret Arkiv",
+      "EBBE3RD": "GBIF annoteret Arkiv"
+    },
+    "prize": "GBIF annoteret Arkiv",
+    "year": ""
   }
 }

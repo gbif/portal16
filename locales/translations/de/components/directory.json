@@ -48,6 +48,27 @@
     "details": "",
     "roles": "",
     "sinceDate": "",
-    "showAllContacts": ""
+    "showAllContacts": "",
+    "person": {
+      "volunteer": "Stadt zum Fundort.",
+      "name": "",
+      "annualBadges": "Stadt zum Fundort.",
+      "language": "",
+      "country": "",
+      "affiliation": "Stadt zum Fundort.",
+      "recipient": "Stadt zum Fundort.",
+      "areasExpertise": "Stadt zum Fundort.",
+      "orcId": "Stadt zum Fundort.",
+      "year": "",
+      "email": "E-Mail"
+    },
+    "award": {
+      "GRA": "Stadt zum Fundort.",
+      "EBBE1ST": "Stadt zum Fundort.",
+      "EBBE2ND": "Stadt zum Fundort.",
+      "EBBE3RD": "Stadt zum Fundort."
+    },
+    "prize": "Stadt zum Fundort.",
+    "year": ""
   }
 }

@@ -48,6 +48,27 @@
     "details": "詳細",
     "roles": "役割",
     "sinceDate": "{DATE} から",
-    "showAllContacts": "すべて"
+    "showAllContacts": "すべて",
+    "person": {
+      "volunteer": "GBIFがアノーテーションしたアーカイブ",
+      "name": "名前",
+      "annualBadges": "GBIFがアノーテーションしたアーカイブ",
+      "language": "言語",
+      "country": "国または地域",
+      "affiliation": "GBIFがアノーテーションしたアーカイブ",
+      "recipient": "GBIFがアノーテーションしたアーカイブ",
+      "areasExpertise": "GBIFがアノーテーションしたアーカイブ",
+      "orcId": "GBIFがアノーテーションしたアーカイブ",
+      "year": "年",
+      "email": "メールアドレス"
+    },
+    "award": {
+      "GRA": "GBIFがアノーテーションしたアーカイブ",
+      "EBBE1ST": "GBIFがアノーテーションしたアーカイブ",
+      "EBBE2ND": "GBIFがアノーテーションしたアーカイブ",
+      "EBBE3RD": "GBIFがアノーテーションしたアーカイブ"
+    },
+    "prize": "GBIFがアノーテーションしたアーカイブ",
+    "year": "年"
   }
 }
