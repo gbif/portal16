@@ -12,6 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{ocorrência incluída} other{ocorrências incluídas}} na transferência",
     "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{registo incluido} other{registos incluidos}} na transferência",
+    "nRowsDownloaded": "Uma breve descrição do componente deve ser colocada aqui",
     "nConstituentDatasets": "Inclui registos de {NUMBER_FORMATTED} {NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
     "fileNotAvailable": "Este ficheiro não está mais disponível para transferência",
     "downloadDeletionWarning": "A menos que [o GBIF descubra citações](/literature-tracking) deste download, o arquivo de dados é elegível para exclusão após {DATE}.",
