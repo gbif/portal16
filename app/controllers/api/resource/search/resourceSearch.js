@@ -283,7 +283,7 @@ function buildQuery(query) {
     }
     // console.log(JSON.stringify(body, null, 4));
     if (searchParams.size && (searchParams.size === 200 || searchParams.size === '200')) {
-        log.warn({module: 'api/resource/search'}, 'suspicious query size', searchParams);
+        log.warn({module: 'api/resource/search'}, 'suspicious query size', JSON.stringify(searchParams));
     } else {
         log.info({module: 'api/resource/search'}, 'resource size ' + searchParams.size);
     }
