@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
-    "SCIENTIFIC": "",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
+    "SCIENTIFIC": "Wetenschappelijke naam",
+    "DOUBTFUL": "Twijfelachtig",
+    "BLACKLISTED": "Op zwartelijst",
+    "VIRUS": "Virus",
     "HYBRID": "",
-    "INFORMAL": "",
+    "INFORMAL": "Informeel",
     "OTU": "",
-    "CULTIVAR": "",
+    "CULTIVAR": "Cultivar",
     "CANDIDATUS": "",
-    "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "PLACEHOLDER": "Plaatshouder",
+    "NO_NAME": "Geen naam"
   }
 }
