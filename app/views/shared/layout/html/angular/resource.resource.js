@@ -20,7 +20,10 @@ var angular = require('angular');
             return $resource('/api/resource/search', null, {
                     'query': {
                         method: 'GET',
-                        isArray: false
+                        isArray: false,
+                        headers: { 
+                            'not-the-endpoint-you-want': 'See https://techdocs.gbif.org/en/'
+                         }
                     }
                 }
             );

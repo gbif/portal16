@@ -13,6 +13,13 @@ module.exports = function(app) {
 };
 
 router.get('/resource/search', function(req, res) {
+    const warningHeader = req.get('not-the-endpoint-you-want');
+    if (warningHeader !== 'See https://techdocs.gbif.org/en/') {
+        res.status(403);
+        res.send('Not the endpoint you are looking for. See https://techdocs.gbif.org/en/ or get in touch with help desk if you need some help.');
+        return;
+    }
+
     resourceSearch.search(req.query, req.__)
         .then(function(result) {
             res.json(result);
