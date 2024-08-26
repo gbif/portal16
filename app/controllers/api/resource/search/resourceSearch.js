@@ -1,6 +1,7 @@
 // This module is in need of a cleanup
 // has two functions. translate url query simlar to our other APIs into a ES post query. And secondly transform the result into something similar to our APIs results format
 const _ = require('lodash'),
+    log = rootRequire('config/log'),
     elasticsearch = require('elasticsearch'),
     resourceResultParser = require('./resourceResultParser'),
     contentfulLocaleMap = require('../../../../../config/config').contentfulLocaleMap,
@@ -281,6 +282,9 @@ function buildQuery(query) {
         ];
     }
     // console.log(JSON.stringify(body, null, 4));
+    if (searchParams.size && (searchParams.size === 200 || searchParams.size === '200')) {
+        log.warn({module: 'api/resource/search'}, 'suspicious query size', searchParams);
+    }
     return searchParams;
 }
 
