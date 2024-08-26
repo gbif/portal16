@@ -33,7 +33,7 @@
     },
     "groups": {
       "Record": "Record",
-      "Occurrence": "",
+      "Occurrence": "Voorkomen",
       "Event": "Gebeurtenis",
       "Identification": "",
       "Taxon": "Taxon",
@@ -93,7 +93,7 @@
       },
       "unknownSpecies": ""
     },
-    "occurrence": "",
+    "occurrence": "Voorkomen",
     "inLanguage": "",
     "sequenced": "",
     "treatment": "",
