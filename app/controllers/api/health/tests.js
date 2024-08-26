@@ -152,7 +152,7 @@ let tests = [
         url:
             'http://www.' +
             config.topDomain +
-            '/api/resource/search?contentType=literature&cachebust={NOW}',
+            '/api/resource/search?contentType=literature&thisIsNotASupportedAPI=true&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
@@ -164,7 +164,7 @@ let tests = [
         url:
             'http://www.' +
             config.topDomain +
-            '/api/resource/search?contentType=dataUse&cachebust={NOW}',
+            '/api/resource/search?contentType=dataUse&cachebust={NOW}&thisIsNotASupportedAPI=true',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
         key: 'count',
