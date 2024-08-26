@@ -13,19 +13,7 @@ module.exports = function(app) {
     app.use('/api', router);
 };
 
-function isExternalRefferer(referrer) {
-    return (typeof referrer !== 'string') || (!/^http(s)?:\/\/(www\.)?gbif((-dev)|(-uat))?\.org/.test(referrer)) && !referer.startsWith('http://localhost:');
-}
-
 router.get('/resource/search', function(req, res) {
-    let isExternal = isExternalRefferer(req.get('Referrer'));
-    const warningHeader = req.get('not-the-endpoint-you-want');
-    if (isExternal && warningHeader !== 'See https://techdocs.gbif.org/en/') {
-        res.status(403);
-        res.send('Not the endpoint you are looking for. See https://techdocs.gbif.org/en/ or get in touch with help desk if you need some help.');
-        return;
-    }
-
     resourceSearch.search(req.query, req.__)
         .then(function(result) {
             res.json(result);
