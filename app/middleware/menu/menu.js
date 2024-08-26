@@ -6,12 +6,26 @@ let fallbackMenu = menuBuilder.fallbackMenu;
 let getMenu = menuBuilder.getMenu;
 
 let menus = {};
+
+// get date stamp for cache
+function getCacheDate() {
+    return new Date().toISOString();
+}
+
+let lastCacheDate = null;
+
 async function getMenuData(locale, __) {
     // if cached version ready, then use that
     let cachedMenu = menus[locale];
+    
+    // if there is a cached version and it is less than 5 minutes old, then use that
+    if (cachedMenu && lastCacheDate && new Date() - new Date(lastCacheDate) < 2 * 60 * 1000) {
+        return cachedMenu;
+    }
     let menuPromise = getMenu(locale, __)
         .then(function(dynamicMenu) {
             menus[locale] = dynamicMenu;
+            lastCacheDate = getCacheDate();
             return dynamicMenu;
         }).catch(function() {
             return fallbackMenu;
