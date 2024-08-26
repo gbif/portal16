@@ -12,6 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} تم تنزيلها",
     "nRecordsDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{سجل} other{سجلات}} تم تنزيلها",
+    "nRowsDownloaded": "أرشيف شروح \"جيبف\"",
     "nConstituentDatasets": "يضم سجلات من {NUMBER_FORMATED} {NUMBER, select, 1{مجموعة بيانات} other{مجموعات بيانات}}",
     "fileNotAvailable": "هذا الملف لم يعد متوفر للتنزيل",
     "downloadDeletionWarning": "ما لم يكتشف الـ \"جبيف\" اقتباسات (متابعة مرجعية) من هذا التنزيل، فإن ملف البيانات سيكون مؤهلاً للحذف بعد {DATE}.",
