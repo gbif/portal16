@@ -1,13 +1,13 @@
 {
   "iucnRedListCategory": {
-    "EX": "",
-    "EW": "",
-    "CR": "",
-    "EN": "",
-    "VU": "",
-    "NT": "",
-    "LC": "",
-    "DD": "",
+    "EX": "Uitgestorven (EX)",
+    "EW": "Uitgestorven in het wild (EW)",
+    "CR": "Ernstig bedreigd (CR)",
+    "EN": "Bedreigd (EN)",
+    "VU": "Kwetsbaar (VU)",
+    "NT": "Gevoelig (NT)",
+    "LC": "Minst bedreigd (LC)",
+    "DD": "Gegevens Tekort (DD)",
     "NE": "Niet geëvalueerd (NE)"
   }
 }
