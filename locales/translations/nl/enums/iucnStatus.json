@@ -2,11 +2,11 @@
   "iucnStatus": {
     "EX": "Uitgestorven",
     "EW": "Uitgestorven in het wild",
-    "CR": "",
+    "CR": "Ernstig bedreigd",
     "EN": "Bedreigd",
     "VU": "Kwetsbaar",
-    "NT": "",
-    "LC": "",
+    "NT": "Gevoelig",
+    "LC": "Minst bedreigd",
     "DD": "Gegevens Tekort",
     "NE": "Niet geëvalueerd"
   }
