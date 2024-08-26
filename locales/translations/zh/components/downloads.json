@@ -12,6 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{出现记录} other{出现记录}}",
     "nRecordsDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{记录} other{记录}}",
+    "nRowsDownloaded": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
     "nConstituentDatasets": "包含来自 {NUMBER_FORMATTED} 个{NUMBER, select, one {数据集} other{数据集}} 的记录",
     "fileNotAvailable": "此文件不再可供下载。",
     "downloadDeletionWarning": "除非此次下载被 [GBIF发现有引用](/literature-tracking), 这个数据文件可以在 {DATE} 后删除。",
