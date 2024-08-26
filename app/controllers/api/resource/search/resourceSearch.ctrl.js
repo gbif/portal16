@@ -2,6 +2,7 @@
 let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
+    log = rootRequire('config/log'),
     resourceSearch = require('./resourceSearch'),
     resourceResultParser = require('./resourceResultParser'),
     resource = require('../../../resource/key/resourceKey'),
@@ -13,6 +14,8 @@ module.exports = function(app) {
 };
 
 router.get('/resource/search', function(req, res) {
+    const origin = req.get('origin');
+    log.info('origin', origin);
     const warningHeader = req.get('not-the-endpoint-you-want');
     if (warningHeader !== 'See https://techdocs.gbif.org/en/' && req.query.thisIsNotASupportedAPI !== 'true') {
         res.status(403);
