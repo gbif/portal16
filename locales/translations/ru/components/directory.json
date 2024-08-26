@@ -48,6 +48,27 @@
     "details": "Подробнее",
     "roles": "Роли",
     "sinceDate": "С {DATE}",
-    "showAllContacts": "Все"
+    "showAllContacts": "Все",
+    "person": {
+      "volunteer": "Архив, аннотированный GBIF",
+      "name": "Имя",
+      "annualBadges": "Архив, аннотированный GBIF",
+      "language": "Язык",
+      "country": "Страна (территория)",
+      "affiliation": "Архив, аннотированный GBIF",
+      "recipient": "Архив, аннотированный GBIF",
+      "areasExpertise": "Архив, аннотированный GBIF",
+      "orcId": "Архив, аннотированный GBIF",
+      "year": "Год",
+      "email": "Email"
+    },
+    "award": {
+      "GRA": "Архив, аннотированный GBIF",
+      "EBBE1ST": "Архив, аннотированный GBIF",
+      "EBBE2ND": "Архив, аннотированный GBIF",
+      "EBBE3RD": "Архив, аннотированный GBIF"
+    },
+    "prize": "Архив, аннотированный GBIF",
+    "year": "Год"
   }
 }
