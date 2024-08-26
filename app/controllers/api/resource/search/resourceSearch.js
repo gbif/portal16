@@ -284,6 +284,8 @@ function buildQuery(query) {
     // console.log(JSON.stringify(body, null, 4));
     if (searchParams.size && (searchParams.size === 200 || searchParams.size === '200')) {
         log.warn({module: 'api/resource/search'}, 'suspicious query size', searchParams);
+    } else {
+        log.info({module: 'api/resource/search'}, 'resource size ' + searchParams.size);
     }
     return searchParams;
 }
