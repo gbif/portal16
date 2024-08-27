@@ -1,6 +1,6 @@
 {
   "dwcaExtension": {
-    "http://rs.tdwg.org/dwc/terms/Occurrence": "",
+    "http://rs.tdwg.org/dwc/terms/Occurrence": "Voorkomen",
     "http://rs.tdwg.org/ac/terms/Multimedia": "",
     "http://rs.gbif.org/terms/1.0/DNADerivedData": "",
     "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "",
@@ -19,7 +19,7 @@
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "",
     "http://rs.tdwg.org/dwc/terms/Identification": "",
     "http://rs.gbif.org/terms/1.0/Identifier": "",
-    "http://rs.gbif.org/terms/1.0/Image": "",
+    "http://rs.gbif.org/terms/1.0/Image": "Afbeelding",
     "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "",
     "http://rs.gbif.org/terms/1.0/Multimedia": "",
     "http://rs.gbif.org/terms/1.0/Reference": "Referentie",
