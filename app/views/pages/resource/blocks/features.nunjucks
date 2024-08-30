@@ -3,7 +3,7 @@
     id="_{$ main.fields.title | slug() $}"
     {% endif %}
     >
-  <h4 class="card-header">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h4>
+  <h4 class="card-header">{$ main.fields.title | renderMarkdownCustom(["a", "em", "i"], ["name"]) | sanitize(gb.locales.urlPrefix, ["a", "em", "i"]) | safe $}</h4>
   <div class="featureBlock">
     {% for featureRef in main.fields.features %}
       {% set feature = resolved.Entry[featureRef.sys.id].fields %}

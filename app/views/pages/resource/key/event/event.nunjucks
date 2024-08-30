@@ -13,7 +13,7 @@
                                 </span>
                                 <span class="article-header__category__lower">{$ main.fields.start | dateRange(main.fields.end, false, gb.locales.current) $}</span>
                             </nav>
-                            <h1 dir="auto">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h1>
+                            <h1 dir="auto">{$ main.fields.title | renderMarkdownCustom(["a", "em", "i"], ["name"]) | sanitize(gb.locales.urlPrefix, ["a", "em", "i"]) | safe $}</h1>
 
                             <div class="article-header__button" dir="auto">
                                 {% if main.fields.primaryLink %}

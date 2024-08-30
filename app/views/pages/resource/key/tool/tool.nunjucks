@@ -13,7 +13,7 @@
                                         __('enums.cms.contentType.tool') $}</a></span>
                                 <span class="article-header__category__lower">{$ (main.fields.meta.drupal.created or main.sys.createdAt) | formatDate(gb.locales.current) $}</span>
                             </nav>
-                            <h1 dir="auto">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h1>
+                            <h1 dir="auto">{$ main.fields.title | renderMarkdownCustom(["a", "em", "i"], ["name"]) | sanitize(gb.locales.urlPrefix, ["a", "em", "i"]) | safe $}</h1>
                             {% if main.fields.summary %}
                             <div class="article-header__intro" dir="auto">
                                 {$ main.fields.summary | renderMarkdown | sanitizeTrusted(gb.locales.urlPrefix) | addPortalClasses | safe $}

@@ -9,7 +9,7 @@
                     {$ __('enums.cms.vocabularyTerms.projectStatus.' + main.fields.status) $}
                 </span>
             </nav>
-            <h1 dir="auto">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h1>
+            <h1 dir="auto">{$ main.fields.title | renderMarkdownCustom(["a", "em", "i"], ["name"]) | sanitize(gb.locales.urlPrefix, ["a", "em", "i"]) | safe $}</h1>
 
             <div class="article-header__highlights">
 

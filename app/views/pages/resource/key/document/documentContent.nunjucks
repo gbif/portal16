@@ -14,7 +14,7 @@
             <div class="container--narrow">
                 <div class="card card--spaced">
                     <div class="card__content text-center seperator--b">
-                        <h3 dir="auto">{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h3>
+                        <h3 dir="auto">{$ main.fields.title | renderMarkdownCustom(["a", "em", "i"], ["name"]) | sanitize(gb.locales.urlPrefix, ["a", "em", "i"]) | safe $}</h3>
                         {% if resolved.Asset[main.fields.document.sys.id].fields.file.url %}
                         <a href="{$ resolved.Asset[main.fields.document.sys.id].fields.file.url $}" class="gb-button--brand">{$ __('cms.document.download') $} <span class="gb-icon-file-download"></span></a>
                         {% elif resolved.Entry[main.fields.primaryLink.sys.id].fields.url %}

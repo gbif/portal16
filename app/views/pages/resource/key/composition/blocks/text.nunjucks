@@ -5,7 +5,7 @@
   >
     <div class="container--narrow">
         {% if main.fields.title and not main.fields.hideTitle %}
-        <h2>{$ main.fields.title | renderMarkdownCustom(["i", "a"], ["name"]) $}</h2>
+        <h2>{$ main.fields.title | renderMarkdownCustom(["a", "em", "i"], ["name"]) | sanitize(gb.locales.urlPrefix, ["a", "em", "i"]) | safe $}</h2>
         {% endif %}
         {% include "../../body.nunjucks" %}
     </div>
