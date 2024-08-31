@@ -51,16 +51,16 @@
     "showAllContacts": "",
     "person": {
       "volunteer": "",
-      "name": "",
+      "name": "Imię i nazwisko/nazwa",
       "annualBadges": "",
-      "language": "",
-      "country": "",
+      "language": "Język",
+      "country": "Państwo lub obszar",
       "affiliation": "",
       "recipient": "",
       "areasExpertise": "",
       "orcId": "",
-      "year": "",
-      "email": ""
+      "year": "Rok",
+      "email": "Adres e-mail"
     },
     "award": {
       "GRA": "",
@@ -69,6 +69,6 @@
       "EBBE3RD": ""
     },
     "prize": "",
-    "year": ""
+    "year": "Rok"
   }
 }
