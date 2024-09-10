@@ -6,6 +6,7 @@ let express = require('express'),
     _ = require('lodash'),
     resource = rootRequire('app/controllers/resource/key/resourceKey'),
     log = rootRequire('config/log'),
+    config = rootRequire('config/config'),
     request = rootRequire('app/helpers/request'),
     apiConfig = rootRequire('app/models/gbifdata/apiConfig'),
     router = express.Router({caseSensitive: true});
@@ -26,7 +27,7 @@ let supportedLanguagesOnGrSciColl = {
 }
 function redirect(req, res, next) {
     // new grscicoll domain
-    const grscicollDomain = 'https://scientific-collections.gbif.org';
+    const grscicollDomain = config.grscicollDomain;
     // redirect to  new site, but keep the path and parameters as they are the same for the new site. Except the trailing grscicoll part
     let path = req.url.replace('/grscicoll', '');
     // if the path is empty, we are on the root page and should not redirect
