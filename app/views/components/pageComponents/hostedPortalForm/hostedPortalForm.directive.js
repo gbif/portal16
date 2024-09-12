@@ -23,10 +23,11 @@ function hostedPortalFormDirective() {
     return directive;
 
     /** @ngInject */
-    function hostedPortalFormCtrl($http, Node) {
+    function hostedPortalFormCtrl($http, Node, $sessionStorage) {
         var vm = this;
         vm.loading = true;
         vm.form = {};
+        vm.session = $sessionStorage;
 
         Node.query({identifierType: 'GBIF_PARTICIPANT', limit: 500}).$promise
             .then(function(data) {
