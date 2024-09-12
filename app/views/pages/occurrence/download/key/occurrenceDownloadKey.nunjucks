@@ -365,10 +365,11 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="authors">{$
+                                                            <label for="type">{$
                                                                 __('downloadUsage.form.type') $}<span
                                                                         class="form-required"></span></label>
                                                             <select class="form-control"
+                                                                    id="type"
                                                                     ng-model="downloadUsage.usage.type">
                                                                 {% for typeOption in ["JOURNAL_ARTICLE",
                                                                     "BOOK",
