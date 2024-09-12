@@ -9,7 +9,7 @@ angular
     .controller('occurrenceDownloadKeyCtrl', occurrenceDownloadKeyCtrl);
 
 /** @ngInject */
-function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage, $uibModal) {
+function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $location, $rootScope, NAV_EVENTS, endpoints, $http, $sessionStorage, $uibModal, User) {
     var vm = this;
     vm.HUMAN = true;
     vm.hasClipboard = _.get(navigator, 'clipboard.writeText');
@@ -18,7 +18,7 @@ function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $loc
     vm.doi = _.get(gb, 'downloadKey.doi', '').replace(/^.*(10\.)/, '10.');
     vm.key = gb.downloadKey.key;
     vm.downloadState = gb.downloadKey.status;
-    vm.profile = $sessionStorage.user;
+    vm.storage = $sessionStorage;
 
     // if (vm.doi) {
     // A hardcoded limit and no pagination for now. Currently we never have a download citet more than once. If this change in the future we ought to add pagination and link more to resource search
@@ -67,7 +67,7 @@ function occurrenceDownloadKeyCtrl($timeout, toastService, $scope, $window, $loc
             .then(function(response) {
                 vm.download = response.data;
                 parseDeletionDate(vm.download);
-                vm.isUsersDownload = (typeof vm.download.request.creator === 'string' && (vm.download.request.creator == _.get(vm.profile, 'userName')));
+                vm.isUsersDownload = (typeof vm.download.request.creator === 'string' && (vm.download.request.creator == _.get($sessionStorage, 'user.userName')));
                 if (vm.isUsersDownload && vm.isCancelable) {
                     if (response.data.status !== 'RUNNING' && response.data.status !== 'PREPARING') {
                         vm.isCancelable = false;

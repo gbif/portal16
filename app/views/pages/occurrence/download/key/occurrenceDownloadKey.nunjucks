@@ -134,7 +134,7 @@
                                 RIS
                               </a>
 
-                              <a href="" class="gb-button--flat text-uppercase" ng-if="downloadKey.profile" ng-click="downloadKey.showUsageFormModal()" translate="downloadKey.tellUs"></a>
+                              <a href="" class="gb-button--flat text-uppercase" ng-if="downloadKey.storage.user" ng-click="downloadKey.showUsageFormModal()" translate="downloadKey.tellUs"></a>
                             {% endif %}
                           {% endif %}
                         </div>
@@ -362,6 +362,41 @@
                                                                    ng-model="downloadUsage.usage.title"
                                                                    id="publicationTitle" placeholder="{{ 'downloadUsage.form.titlePlaceholder' | translate }}"
                                                                    required="">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="authors">{$
+                                                                __('downloadUsage.form.type') $}<span
+                                                                        class="form-required"></span></label>
+                                                            <select class="form-control"
+                                                                    ng-model="downloadUsage.usage.type">
+                                                                {% for typeOption in ["JOURNAL_ARTICLE",
+                                                                    "BOOK",
+                                                                    "BOOK_CHAPTER",
+                                                                    "CONFERENCE_PAPER_PROCEEDINGS",
+                                                                    "PREPRINT_WORKING_PAPER",
+                                                                    "REPORT",
+                                                                    "WEB_PAGE",
+                                                                    "THESIS_DISSERTATION",
+                                                                    "COURSE_TEACHING_MATERIALS",
+                                                                    "MAGAZINE_ARTICLE",
+                                                                    "STATUTE",
+                                                                    "PATENT",
+                                                                    "NEWSPAPER_ARTICLE",
+                                                                    "SOFTWARE_COMPUTER_PROGRAM",
+                                                                    "HEARING",
+                                                                    "TELEVISION_BROADCAST",
+                                                                    "ENCYCLOPEDIA_ARTICLE",
+                                                                    "CASE",
+                                                                    "FILM",
+                                                                    "BILL",
+                                                                    "OTHER"
+                                                                    ] %}
+                                                                    <option value="{$ typeOption | prettifyEnum $}">
+                                                                        {$__('downloadUsage.types.' + typeOption)$}
+                                                                    </option>
+                                                                {% endfor %}
+                                                            </select>
                                                         </div>
 
                                                         <div class="form-group">
