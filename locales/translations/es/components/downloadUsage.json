@@ -4,6 +4,7 @@
         "form": {
             "title": "Título",
             "titlePlaceholder": "Título/nombre de la publicación/producto en el que se utilizan los datos",
+            "type": "Tipo",
             "authors": "Autor(es)",
             "authorsPlaceholder": "Autor(es) de la publicación o producto",
             "link": "URL",
@@ -14,6 +15,29 @@
             "submit": "Enviar",
             "saveFailure": "Se ha producido un error al guardar el formulario. Por favor, inténtelo de nuevo.",
             "saveSuccess": "Gracias por avisarnos. Vincularemos la descarga a la publicación/producto descrito. Por favor, recuerde citar la descarga según las instrucciones de la página de descarga. Ahora puede cerrar esta ventana emergente."
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "",
+            "BOOK": "",
+            "BOOK_CHAPTER": "",
+            "CONFERENCE_PAPER_PROCEEDINGS": "",
+            "PREPRINT_WORKING_PAPER": "",
+            "REPORT": "",
+            "WEB_PAGE": "",
+            "THESIS_DISSERTATION": "",
+            "COURSE_TEACHING_MATERIALS": "",
+            "MAGAZINE_ARTICLE": "",
+            "STATUTE": "",
+            "PATENT": "",
+            "NEWSPAPER_ARTICLE": "",
+            "SOFTWARE_COMPUTER_PROGRAM": "",
+            "HEARING": "",
+            "TELEVISION_BROADCAST": "",
+            "ENCYCLOPEDIA_ARTICLE": "",
+            "CASE": "",
+            "FILM": "",
+            "BILL": "",
+            "OTHER": ""
         }
     }
 }
