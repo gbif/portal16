@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "Детальніше",
     "share": "",
-    "loginRequiredDueToSpam": "Будь ласка, увійдіть, щоб продовжити."
+    "testSiteWarning": "Архів анотований GBIF",
+    "loginRequiredDueToSpam": "Будь ласка, увійдіть, щоб продовжити.",
+    "loginRequiredExplainer": "Архів анотований GBIF"
   }
 }
