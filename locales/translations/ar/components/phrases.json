@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "اقرأ المزيد",
     "share": "",
-    "loginRequiredDueToSpam": "يرجى تسجيل الدخول للمتابعة. "
+    "testSiteWarning": "أرشيف شروح \"جيبف\"",
+    "loginRequiredDueToSpam": "يرجى تسجيل الدخول للمتابعة. ",
+    "loginRequiredExplainer": "أرشيف شروح \"جيبف\""
   }
 }
