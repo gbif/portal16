@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "Leer más",
     "share": "",
-    "loginRequiredDueToSpam": "Por favor, inicia sesión para acceder a esta página."
+    "testSiteWarning": "Aquí debe colocarse una breve descripción del componente",
+    "loginRequiredDueToSpam": "Por favor, inicia sesión para acceder a esta página.",
+    "loginRequiredExplainer": "Aquí debe colocarse una breve descripción del componente"
   }
 }
