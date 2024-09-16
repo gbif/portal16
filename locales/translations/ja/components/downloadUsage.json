@@ -4,6 +4,7 @@
         "form": {
             "title": "タイトル",
             "titlePlaceholder": "データ利用した出版物/成果物のタイトル/名前",
+            "type": "タイプ",
             "authors": "著者",
             "authorsPlaceholder": "出版物/成果物の著者",
             "link": "URL",
@@ -14,6 +15,29 @@
             "submit": "送信",
             "saveFailure": "",
             "saveSuccess": ""
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "",
+            "BOOK": "",
+            "BOOK_CHAPTER": "",
+            "CONFERENCE_PAPER_PROCEEDINGS": "",
+            "PREPRINT_WORKING_PAPER": "",
+            "REPORT": "",
+            "WEB_PAGE": "",
+            "THESIS_DISSERTATION": "",
+            "COURSE_TEACHING_MATERIALS": "",
+            "MAGAZINE_ARTICLE": "",
+            "STATUTE": "",
+            "PATENT": "",
+            "NEWSPAPER_ARTICLE": "",
+            "SOFTWARE_COMPUTER_PROGRAM": "",
+            "HEARING": "",
+            "TELEVISION_BROADCAST": "",
+            "ENCYCLOPEDIA_ARTICLE": "",
+            "CASE": "",
+            "FILM": "",
+            "BILL": "",
+            "OTHER": ""
         }
     }
 }

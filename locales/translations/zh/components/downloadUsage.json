@@ -4,6 +4,7 @@
         "form": {
             "title": "标题",
             "titlePlaceholder": "使用数据的出版物/产品的标题/名称",
+            "type": "类型",
             "authors": "作者",
             "authorsPlaceholder": "出版物/产品的作者",
             "link": "网址",
@@ -14,6 +15,29 @@
             "submit": "提交",
             "saveFailure": "保存表单时发生错误。请再试一次。",
             "saveSuccess": "感谢您通知我们。我们会将下载链接到所描述的出版物/产品。请记住根据下载页面上的说明引用下载内容。您现在可以关闭此弹出窗口。"
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "",
+            "BOOK": "",
+            "BOOK_CHAPTER": "",
+            "CONFERENCE_PAPER_PROCEEDINGS": "",
+            "PREPRINT_WORKING_PAPER": "",
+            "REPORT": "",
+            "WEB_PAGE": "",
+            "THESIS_DISSERTATION": "",
+            "COURSE_TEACHING_MATERIALS": "",
+            "MAGAZINE_ARTICLE": "",
+            "STATUTE": "",
+            "PATENT": "",
+            "NEWSPAPER_ARTICLE": "",
+            "SOFTWARE_COMPUTER_PROGRAM": "",
+            "HEARING": "",
+            "TELEVISION_BROADCAST": "",
+            "ENCYCLOPEDIA_ARTICLE": "",
+            "CASE": "",
+            "FILM": "",
+            "BILL": "",
+            "OTHER": ""
         }
     }
 }

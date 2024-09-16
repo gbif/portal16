@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "En savoir plus",
     "share": "",
-    "loginRequiredDueToSpam": "Veuillez vous connecter pour continuer."
+    "testSiteWarning": "Archive annotée par GBIF",
+    "loginRequiredDueToSpam": "Veuillez vous connecter pour continuer.",
+    "loginRequiredExplainer": "Archive annotée par GBIF"
   }
 }
