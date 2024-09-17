@@ -6,7 +6,7 @@
             "publishers": "",
             "literature": ""
         },
-        "aboutGbifCountry": "",
+        "aboutGbifCountry": "Over GBIF {COUNTRY}",
         "summary": "",
         "whatIsGbif": "Wat is GBIF?",
         "featureTypes": {
