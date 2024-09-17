@@ -370,6 +370,7 @@
                                                                         class="form-required"></span></label>
                                                             <select class="form-control"
                                                                     id="type"
+                                                                    required=""
                                                                     ng-model="downloadUsage.usage.type">
                                                                 {% for typeOption in ["JOURNAL_ARTICLE",
                                                                     "BOOK",

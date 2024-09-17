@@ -50,14 +50,17 @@ const sendMail = async (data, user) => {
         from: `"${envPrefix}GBIF portal" <${config.sender}>`, // sender address
         to: config.recipient, // list of receivers
         subject: `${envPrefix}GBIF Download usage`, // Subject line
-        text: `download: ${data.key}\nusername: ${user.userName}\nemail: ${
-            user.email
-        }\ntitle: ${removeLineBreaks(data.title)}\nauthors: ${removeLineBreaks(
-            data.authors
-        )}\nlink: ${data.link || ''}\ndate: ${data.date}\ncomments: ${
-            removeLineBreaks(data.comments) || ''
-        }`, // plain text body
+        text: `download: ${data.key}
+username: ${user.userName}
+email: ${user.email}
+title: ${removeLineBreaks(data.title)}
+type: ${data.type}
+authors: ${removeLineBreaks(data.authors)}
+link: ${data.link || ''}
+date: ${data.date}
+comments: ${removeLineBreaks(data.comments) || ''}`, // plain text body
     };
+    
     let info = await transporter.sendMail(mailOptions);
     return info;
 };
