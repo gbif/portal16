@@ -2,68 +2,68 @@
     "intervals": {
         "noFilter": "Geen filter",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "Is {from}m",
+            "between": "Tussen {from} en {to}m",
+            "lessThanOrEquals": "Onder {to}m",
+            "greaterThanOrEquals": "Boven {from}m",
             "invalid": "Ongeldig",
             "select": {
                 "equals": "Is",
                 "between": "Tussen",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Onder",
+                "greaterThanOrEquals": "Boven"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "Is {from}m",
+            "between": "Tussen {from} en {to}m",
+            "lessThanOrEquals": "Boven {to}m diepte",
+            "greaterThanOrEquals": "Dieper dan {from}m",
             "invalid": "Ongeldig",
             "select": {
                 "equals": "Is",
                 "between": "Tussen",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Minder dan",
+                "greaterThanOrEquals": "Dieper dan"
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "Is {from}",
+            "between": "Tussen {from} en {to}",
+            "lessThanOrEquals": "Minder dan of gelijk aan {to}",
+            "greaterThanOrEquals": "Groter dan of gelijk aan {from}",
             "invalid": "Ongeldig",
             "select": {
                 "equals": "Is",
                 "between": "Tussen",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Minder dan of gelijk aan",
+                "greaterThanOrEquals": "Groter dan of gelijk aan"
             }
         },
         "year": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "Is {from}",
+            "between": "Tussen begin van {from} en eind van {to}",
+            "lessThanOrEquals": "Voor het eind van {to}",
+            "greaterThanOrEquals": "Na het begin van {from}",
             "invalid": "Ongeldig",
             "select": {
                 "equals": "Is",
                 "between": "Tussen",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Voor het eind van",
+                "greaterThanOrEquals": "Na het begin van"
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "equals": "Is {from}",
+            "between": "Tussen {from} en {to}",
+            "lessThanOrEquals": "Minder dan of gelijk aan {to}",
+            "greaterThanOrEquals": "Groter dan of gelijk aan {from}",
             "invalid": "Ongeldig",
             "select": {
                 "equals": "Is",
                 "between": "Tussen",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Minder dan of gelijk aan",
+                "greaterThanOrEquals": "Groter dan of gelijk aan"
             }
         }
     }
