@@ -13,7 +13,7 @@
             "comments": "Opmerkingen",
             "commentsPlaceholder": "Extra informatie over de publicatie/product (vooral als het geen traditionele journal artikel is)",
             "submit": "Verzenden",
-            "saveFailure": "",
+            "saveFailure": "Er is een fout opgetreden bij het opslaan van het formulier. Gelieve het opnieuw te proberen.",
             "saveSuccess": ""
         },
         "types": {
