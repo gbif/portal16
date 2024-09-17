@@ -1,17 +1,17 @@
 {
   "enum": {
     "institutionType": {
-      "BIOMEDICAL_RESEARCH_INSTITUTE": "",
-      "BOTANICAL_GARDEN": "",
+      "BIOMEDICAL_RESEARCH_INSTITUTE": "Instituut voor biomedisch onderzoek",
+      "BOTANICAL_GARDEN": "Botanische tuin",
       "HERBARIUM": "Herbarium",
       "LIVING_ORGANISM_COLLECTION": "",
-      "MEDICAL_RESEARCH_INSTITUTE": "",
+      "MEDICAL_RESEARCH_INSTITUTE": "Instituut voor medisch onderzoek",
       "MUSEUM": "Museum",
       "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "",
-      "OTHER_INSTITUTIONAL_TYPE": "",
+      "OTHER_INSTITUTIONAL_TYPE": "Ander type instelling",
       "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "",
       "UNIVERSITY_COLLEGE": "",
-      "ZOO_AQUARIUM": ""
+      "ZOO_AQUARIUM": "Dierentuin-aquarium"
     }
   }
 }
