@@ -5,67 +5,67 @@
       "RESOURCE_INTEGRITY": "",
       "RECORD_STRUCTURE": "",
       "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
+      "METADATA_CONTENT": "Metadata context",
       "CLB_INTERPRETATION_BASED": ""
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
+      "DWCA_UNREADABLE": "Darwin Core Archief onleesbaar",
+      "DWCA_META_XML_NOT_FOUND": "Meta.xml bestand niet gevonden",
       "DWCA_META_XML_SCHEMA": "",
       "RECORD_IDENTIFIER_NOT_FOUND": "",
       "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
+      "EML_NOT_FOUND": "Geen EML-document kon gevonden worden. ",
       "EML_GBIF_SCHEMA": "",
       "UNKNOWN_ROWTYPE": "",
       "REQUIRED_TERM_MISSING": "",
       "COLUMN_MISMATCH": "",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
+      "UNKNOWN_TERM": "Onbekende term",
+      "DUPLICATED_TERM": "Gedupliceerde term",
+      "TITLE_MISSING_OR_TOO_SHORT": "De titel van de dataset is niet aanwezig of te kort. ",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
       "LICENSE_MISSING_OR_UNKNOWN": "",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
-      "UNHANDLED_ERROR": "",
-      "NoIssuesFound": ""
+      "UNHANDLED_ERROR": "Fout niet afgehandeld",
+      "NoIssuesFound": "Geen problemen gevonden"
     },
     "fileFormat": {
-      "title": "",
-      "DWCA": "",
+      "title": "Bestandsformaat",
+      "DWCA": "Darwin Core Archief",
       "TABULAR": "",
       "SPREADSHEET": ""
     },
     "fileType": {
-      "title": "",
+      "title": "Rij type",
       "CORE": {
         "title": "Kern"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Extensies"
       },
       "METADATA": {
         "description": "",
-        "title": ""
+        "title": "Metadata document"
       },
       "META_DESCRIPTOR": {
         "description": "",
         "title": ""
       }
     },
-    "fileSize": "",
+    "fileSize": "Bestandsgrootte",
     "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
+    "receivedMediaType": "Mediatype",
+    "uniqueIdentifier": "Unieke identificatie",
     "reportLocation": "",
     "reportDeletion": "",
     "reportGenerated": "",
-    "summary": "",
-    "issues": "",
+    "summary": "Validatie samenvatting",
+    "issues": "Validatie problemen",
     "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "fileHasNoIssues": "Geen problemen in het bestand gevonden",
+    "error": "Fout",
     "errors": {
       "401": "Je moet ingelogd zijn om deze pagina te kunnen zien",
       "400": "",
@@ -78,7 +78,7 @@
       "title": "",
       "term": "",
       "count": "",
-      "percentage": "",
+      "percentage": "Percentage",
       "interpreted": ""
     },
     "interpretedCounts": {
@@ -91,12 +91,12 @@
       "title": ""
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
+      "title": "Status",
+      "SUBMITTED": "Bestand aan het versturen",
       "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
+      "ACCEPTED": "Validatie begonnen",
+      "RUNNING": "Validatie in uitvoering",
+      "FINISHED": "Validatie voltooid",
       "FAILED": "",
       "CONTACTING_SERVER": ""
     },
@@ -105,32 +105,32 @@
     "notIndexeable": "",
     "numberOfLines": "",
     "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
+    "validationReport": "Validatie rapport",
     "dataValidator": "",
     "dataValidatorDescription": "",
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
     "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
+    "submit": "Indienen",
+    "dropHere": "Hier neerzetten",
+    "or": "of",
+    "selectFile": "Bestand selecteren",
     "fetchFileFromLocation": "",
-    "started": "",
+    "started": "Gestart",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
+      "newDataValidation": "Nieuwe datavalidatie",
+      "newValidation": "Nieuwe validatie",
       "about": "Over",
       "darwinCoreExtensions": "",
-      "metaData": "",
+      "metaData": "Metadata",
       "summary": "Samenvatting",
-      "myValidations": ""
+      "myValidations": "Validatie rapporten"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
+        "RUNNING": "Archief aan het uploaden",
+        "FINISHED": "Archief geüpload",
+        "PENDING": "Archief uploaden",
         "FAILED": "",
         "QUEUED": ""
       },
