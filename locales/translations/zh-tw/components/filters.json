@@ -11,6 +11,9 @@
         "isClustered": {
             "description": "這個實驗中的功能標註可能重覆或相關的物種出現紀錄。"
         },
+        "isSequenced": {
+            "description": "GBIF 註記的存檔"
+        },
         "occurrenceStatus": {
             "description": "當一針對特定分類群在給定時間及地點的調查沒有產生任何標本，即標示為「未出現」。",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "只顯示標註為可疑的紀錄",
             "past": "最近使用",
             "geojson": "GeoJSON 格式",
+            "geometry": "幾何",
             "range": "範圍",
             "noFiltersAdded": "未加入區域的篩選",
             "wktPlaceholder": "WKT 或 GeoJSON 格式",
             "invalidTextInput": "無效的 WKT 或 GeoJSON 格式",
             "tooLarge": "幾何形狀過大",
             "tooLargeSuggestion": "嘗試使用定界框，然後進行區域篩選。",
+            "aboutWktAndGeoJson": "GBIF 註記的存檔",
+            "simplificationWarning": "GBIF 註記的存檔",
             "invalidRange": "無效的定界框"
         }
     }
