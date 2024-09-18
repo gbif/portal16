@@ -11,6 +11,9 @@
         "isClustered": {
             "description": ""
         },
+        "isSequenced": {
+            "description": "Архив, аннотированный GBIF"
+        },
         "occurrenceStatus": {
             "description": "",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "Показывать только те записи, которые помечены как подозрительные",
             "past": "Недавно использованные",
             "geojson": "GeoJSON",
+            "geometry": "Геометрия",
             "range": "Крайние точки",
             "noFiltersAdded": "Нет фильтров по местонахождениям",
             "wktPlaceholder": "Мультиполигоны WKT и GeoJSON не поддерживаются",
             "invalidTextInput": "Недопустимый WKT или GeoJSON",
             "tooLarge": "Слишком большой охват",
             "tooLargeSuggestion": "Попробуйте использовать ограничительную рамку и отфильтровать данные географически",
+            "aboutWktAndGeoJson": "Архив, аннотированный GBIF",
+            "simplificationWarning": "Архив, аннотированный GBIF",
             "invalidRange": "Недопустимый ограничивающий прямоугольник"
         }
     }
