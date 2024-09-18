@@ -12,7 +12,7 @@
             "description": "This experimental feature highlights possible duplicate and/or related occurrences."
         },
         "isSequenced": {
-            "description": ""
+            "description": "Has either DNA-derived data extension or associatedSequences"
         },
         "occurrenceStatus": {
             "description": "'Absent' is applied to an occurrence record when a survey of a taxon at a specific time and place encounters no specimens",
@@ -45,8 +45,8 @@
             "invalidTextInput": "Invalid WKT or GeoJSON",
             "tooLarge": "Geometry too large",
             "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
-            "aboutWktAndGeoJson": "",
-            "simplificationWarning": "",
+            "aboutWktAndGeoJson": "Only WKT is supported, but we will attempt to convert any GeoJSON to WKT. If you have a large GeoJSON file or a Shape file, you can simplify it using [MapShaper](http://mapshaper.org/) and convert to WKT using [geojson.io](http://geojson.io/). Notice that only POINT, LINESTRING, LINEARRING, POLYGON and MULTIPOLYGON are accepted WKT types.",
+            "simplificationWarning": "We can try to simplify the geometry, but this might lead to self-intersections or otherwise invalid geometries. In that case you need to correct the geometry manually or simplify the initial geometry.",
             "invalidRange": "Invalid bounding box"
         }
     }
