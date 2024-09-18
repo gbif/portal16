@@ -3,7 +3,7 @@
     "project": {
       "project": "Project",
       "projectId": "Project ID",
-      "projectIdentifier": "",
+      "projectIdentifier": "Projectidentificatie",
       "grantType": "",
       "duration": "Duur",
       "title": "Titel",
@@ -13,10 +13,10 @@
       "matchingFunds": "",
       "funding": "Financiering",
       "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
+      "fundedBy": "Gefinancierd door",
+      "coFundedBy": "Co-Gefinancierd door",
       "typeOfGrant": "",
-      "projectStart": "",
+      "projectStart": "Project Start",
       "status": "Status",
       "programme": "Programma",
       "contractCountry": "Land of regio",
@@ -30,7 +30,7 @@
       "dataViaGbif": ""
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Trefwoorden"
     },
     "auxiliary": {
       "subject": "Onderwerp",

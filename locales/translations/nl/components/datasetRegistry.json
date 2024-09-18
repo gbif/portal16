@@ -18,7 +18,7 @@
             "dataLastChanged": "",
             "pubDate": "Publicatiedatum",
             "hostedBy": "Gehost door",
-            "hostingStatus": "",
+            "hostingStatus": "Status hosting",
             "metdataLastModified": "Metadata laatst gewijzigd",
             "preferredIdentifier": "",
             "alternativeIdentifier": "",
@@ -27,7 +27,7 @@
             "adopted": "",
             "neverIngested": "",
             "inIngestionQueue": "",
-            "addingToQueue": "",
+            "addingToQueue": "Toevoegen aan wachtrij",
             "unableToStart": "",
             "ingestionChartExplainer": "",
             "ingestionStatus": "",
@@ -36,13 +36,13 @@
             "gbifIngestionStatus": "",
             "lastIngestionSuccess": "",
             "lastIngestionFailed": "",
-            "outOfSync": "",
+            "outOfSync": "Niet gesynchroniseerd",
             "becauseTrustedContact": ""
         },
         "crawl": {
             "finishReason": {
                 "NORMAL": "",
-                "ABORT": "",
+                "ABORT": "Afbreken",
                 "NOT_MODIFIED": "Niet gewijzigd"
             }
         }

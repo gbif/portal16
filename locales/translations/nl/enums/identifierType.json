@@ -1,15 +1,15 @@
 {
   "enum": {
     "identifierType": {
-      "URL": "",
-      "LSID": "",
+      "URL": "URL",
+      "LSID": "LSID",
       "HANDLER": "",
-      "DOI": "",
+      "DOI": "DOI",
       "UUID": "",
       "FTP": "",
       "URI": "",
-      "UNKNOWN": "",
-      "GBIF_PORTAL": "",
+      "UNKNOWN": "Onbekend",
+      "GBIF_PORTAL": "GBIF portaal",
       "GBIF_NODE": "",
       "GBIF_PARTICIPANT": "",
       "GRBIO_ID": "",

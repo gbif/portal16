@@ -8,20 +8,20 @@
     },
     "joinedAgo": "",
     "newPublisher": "Nieuwe uitgever",
-    "technicalContact": "",
+    "technicalContact": "Technische contactpersonen",
     "country": "Land of regio",
-    "hosting": "",
+    "hosting": "Hosting",
     "description": "Beschrijving",
     "endorsedBy": "",
     "pendingEndorsementBy": "",
     "endorsementWithheld": "",
-    "installations": "",
+    "installations": "Installaties",
     "getDownloadReport": "",
     "contacts": "Contacten",
     "administrativeContact": "Contactpunt administratie",
     "header": {
       "publisher": "Uitgever",
-      "sinceDate": ""
+      "sinceDate": "Sinds  {DATE}"
     }
   }
 }

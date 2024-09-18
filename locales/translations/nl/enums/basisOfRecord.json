@@ -1,16 +1,16 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
-    "HUMAN_OBSERVATION": "",
-    "MACHINE_OBSERVATION": "",
-    "MATERIAL_SAMPLE": "",
+    "PRESERVED_SPECIMEN": "Geconserveerd exemplaar",
+    "FOSSIL_SPECIMEN": "Fossiel exemplaar",
+    "LIVING_SPECIMEN": "Levend exemplaar",
+    "OBSERVATION": "Waarneming",
+    "HUMAN_OBSERVATION": "Menselijke waarneming",
+    "MACHINE_OBSERVATION": "Machinale waarneming",
+    "MATERIAL_SAMPLE": "Materiaal monster",
     "MATERIAL_CITATION": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
+    "LITERATURE": "Literatuur",
+    "UNKNOWN": "Onbekend",
     "OCCURRENCE": "Voorkomen",
-    "undefined": ""
+    "undefined": "Onbekend"
   }
 }

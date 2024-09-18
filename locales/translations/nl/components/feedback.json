@@ -9,7 +9,7 @@
       "title": "Inhoud",
       "example": "",
       "annotate": "",
-      "contactPerMail": ""
+      "contactPerMail": "Neem contact op met de dataset contactpunt"
     },
     "bug": {
       "title": "Fout",
@@ -38,16 +38,16 @@
     "placeholders": {
       "summary": "Samenvatting",
       "description": "",
-      "username": ""
+      "username": "Je mail of Github gebruikersnaam (openbaar)"
     },
     "markdownSupport": "",
     "issueTracking": "",
     "failure": "",
-    "weRecommendX": "",
+    "weRecommendX": "We raden het gebruik van  [{NAME}]({LINK}) aan",
     "tellGbif": "Vertel GBIF",
     "submit": "Verzenden",
     "seeAllComments": "Alles weergeven",
-    "recommendMail": "",
+    "recommendMail": "We raden het aan om een mail te sturen naar ",
     "pleaseLogin": ""
   }
 }

@@ -3,11 +3,11 @@
         "automatedMonitoring": "",
         "systemLoad": "",
         "messages": "Berichten",
-        "version": "",
-        "releaseNotes": "",
-        "nInQueue": "",
+        "version": "Versie",
+        "releaseNotes": "Release-opmerkingen",
+        "nInQueue": "{NUMBER} in wachtrij",
         "status": {
-            "OPERATIONAL": "",
+            "OPERATIONAL": "Operationeel",
             "WARNING": "Onstabiel",
             "CRITICAL": "Niet bruikbaar",
             "INFO": "Systeemupdate"
@@ -19,42 +19,42 @@
             },
             "SPECIES": {
                 "name": "Soort",
-                "tooltip": ""
+                "tooltip": "Bvb. Zoek en bekijk soorten, voorgestelde soorten"
             },
             "REGISTRY": {
                 "name": "Register",
-                "tooltip": ""
+                "tooltip": "Bvb. Dataset, publishers, installaties, landen, deelnemers en netwerken."
             },
             "IDENTITY": {
                 "name": "Identiteit",
-                "tooltip": ""
+                "tooltip": "Om in en uit te loggen, accounts verbinden enzo. "
             },
             "MAPS": {
                 "name": "Kaarten",
-                "tooltip": ""
+                "tooltip": "Om kaart afbeeldingen weer te geven en informatie over een kaart te krijgen."
             },
             "CONTENTFUL": {
-                "name": "",
+                "name": "Content Beheersysteem (externe systeem)",
                 "tooltip": "B.v.b. nieuws en evenementen"
             },
             "IMAGE_CACHE": {
                 "name": "Afbeeldingscache",
-                "tooltip": ""
+                "tooltip": "Verantwoordelijk voor de meeste afbeeldingen op de website"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "Github (externe systeem)",
+                "tooltip": "Feedback, dataset voorstellen"
             },
             "CRAWLER": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Om datasets te updaten - nieuw en oud."
             },
             "RESOURCE_SEARCH": {
                 "name": "",
-                "tooltip": ""
+                "tooltip": "Bvb. Om literatuur, nieuws te zoeken"
             },
             "CLUSTER": {
-                "name": "",
+                "name": "Systeembelasting",
                 "tooltip": ""
             },
             "DOWNLOAD": {

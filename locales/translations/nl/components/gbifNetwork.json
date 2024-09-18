@@ -4,8 +4,8 @@
     "title": "",
     "contact": "Contact",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Stemgerechtigde deelnemer",
+      "other": "Stemgerechtigde deelnemers"
     },
     "associate_country_participant": {
       "one": "",
@@ -16,12 +16,12 @@
       "other": ""
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Voormalige deelnemer",
+      "other": "Voormalige deelnemers"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "GBIF-filiaal",
+      "other": "GBIF-filialen"
     },
     "role": "Rol",
     "group": {},
@@ -34,8 +34,8 @@
     "datasets": "Datasets",
     "regionalRepresentative": "",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Deelnemende organisaties",
+      "gbifAffiliates": "GBIF-filialen"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Hoofd van de delegatie",

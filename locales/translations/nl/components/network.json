@@ -1,6 +1,6 @@
 {
   "network": {
-    "network": "",
+    "network": "Netwerk",
     "tabs": {
       "summary": "Samenvatting",
       "homepage": "Startpagina",
@@ -8,7 +8,7 @@
       "datasets": "Datasets",
       "publishers": "Uitgevers"
     },
-    "registeredDate": "",
+    "registeredDate": "Geregistreerd {DATE}",
     "nParticipatingDatasets": "",
     "nParticipatingPublishers": ""
   }

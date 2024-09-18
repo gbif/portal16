@@ -1,11 +1,11 @@
 {
   "phrases": {
-    "pleaseCiteAs": "",
-    "copy": "",
+    "pleaseCiteAs": "Gelieve deze bronvermelding in publicaties te gebruiken",
+    "copy": "Kopie",
     "contactHelpdesk": "CONTACT HELPDESK",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "",
-    "deletedOnDate": "",
+    "deletedOnDate": "Verwijderd op {DATE}",
     "replacedBy": "Is vervangen door",
     "loading": "Laden",
     "failed": "Gefaald",
@@ -24,8 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "Lees verder",
     "share": "Delen",
-    "testSiteWarning": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
+    "testSiteWarning": "",
     "loginRequiredDueToSpam": "Log in om verder te gaan",
-    "loginRequiredExplainer": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\"."
+    "loginRequiredExplainer": ""
   }
 }

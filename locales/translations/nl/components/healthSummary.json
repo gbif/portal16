@@ -1,8 +1,8 @@
 {
     "healthSummary": {
         "systemHealth": "Systeemstatus",
-        "description": "",
-        "updatedTimeAgo": "",
+        "description": "Wat is de status van de verschillende GBIF-diensten?",
+        "updatedTimeAgo": "Bewerkt {TIME_AGO}",
         "statusSummary": {
             "OPERATIONAL": "Alle systemen zijn operationeel",
             "INFO": "Alle systemen zijn operationeel",
@@ -15,7 +15,7 @@
                 "summary": ""
             },
             "CRITICAL": {
-                "title": "",
+                "title": "Dienst niet beschikbaar",
                 "summary": ""
             }
         }

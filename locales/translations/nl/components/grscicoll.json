@@ -1,7 +1,7 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "Collecties",
       "description": ""
     },
     "tabs": {
@@ -11,11 +11,11 @@
     },
     "headerTitle": "Collectie",
     "description": "Beschrijving",
-    "institutionName": "",
+    "institutionName": "Naam instelling",
     "code": "Code",
     "alternativeCodes": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "statusOfCollection": "Collectie status",
+    "personalCollection": "Persoonlijke collectie",
     "isPersonalCollection": {
       "true": "Ja",
       "false": "Nee"
@@ -36,9 +36,9 @@
     }
   },
   "institution": {
-    "title": "",
+    "title": "Instelling",
     "search": {
-      "title": "",
+      "title": "Instellingen",
       "description": ""
     },
     "tabs": {
@@ -46,7 +46,7 @@
       "homepage": "Startpagina",
       "metrics": "Metrieken"
     },
-    "headerTitle": "",
+    "headerTitle": "Instelling",
     "indexHerbariorumIdentifier": "",
     "numberSpecimens": "Aantal soorten",
     "code": "Code instelling",
@@ -61,7 +61,7 @@
     "citesPermitNumber": "",
     "disciplines": "",
     "institutionalGovernance": "",
-    "type": "",
+    "type": "Type Instelling",
     "identifiers": "",
     "isActive": {
       "true": "Actief",
@@ -71,17 +71,17 @@
     "false": "Nee"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "Persoon",
     "search": {
-      "title": "",
+      "title": "Collectie personeel",
       "description": ""
     },
-    "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
+    "headerTitle": "Collectie personeel",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "fullName": "Volledige naam",
+    "position": "Functietitel",
+    "affiliations": "Affiliaties",
     "areaResponsibility": "",
     "researchPursuits": "",
     "primaryInstitution": "",
@@ -92,22 +92,22 @@
   "grscicoll": {
     "title": "",
     "suggestChange": "",
-    "suggestNewCollection": "",
-    "suggestNewInstitution": "",
+    "suggestNewCollection": "Stel een nieuwe collectie voor",
+    "suggestNewInstitution": "Stel een nieuwe instelling voor",
     "tabs": {
       "about": "Over",
-      "institutions": "",
-      "collections": "",
-      "people": ""
+      "institutions": "Instellingen",
+      "collections": "Collecties",
+      "people": "Personeelsleden"
     },
     "contact": {
-      "phone": "",
+      "phone": "Telefoonnummer",
       "email": "Email",
-      "fax": "",
+      "fax": "Faxnummer",
       "mailingAddress": "Postadres",
-      "physicalAddress": "",
+      "physicalAddress": "Fysieke Adres",
       "contacts": "Contacten",
-      "address": "",
+      "address": "Adres",
       "province": "",
       "postalCode": "",
       "city": "",
