@@ -11,6 +11,9 @@
         "isClustered": {
             "description": ""
         },
+        "isSequenced": {
+            "description": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\"."
+        },
         "occurrenceStatus": {
             "description": "",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "",
             "past": "Onlangs gebruikt",
             "geojson": "GeoJSON",
+            "geometry": "Geometrie",
             "range": "",
             "noFiltersAdded": "",
             "wktPlaceholder": "",
             "invalidTextInput": "",
             "tooLarge": "",
             "tooLargeSuggestion": "",
+            "aboutWktAndGeoJson": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
+            "simplificationWarning": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
             "invalidRange": ""
         }
     }
