@@ -11,6 +11,9 @@
         "isClustered": {
             "description": "Esta característica experimental resalta posibles registros biológicos duplicados o relacionados."
         },
+        "isSequenced": {
+            "description": "Aquí debe colocarse una breve descripción del componente"
+        },
         "occurrenceStatus": {
             "description": "'Ausente' se aplica a un registro biológico cuando una consulta de un taxón, en un momento y lugar específico, no encuentra especímenes",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "Mostrar sólo registros que aparecen como sospechosos",
             "past": "Usado recientemente",
             "geojson": "GeoJSON",
+            "geometry": "Geometría",
             "range": "Rango",
             "noFiltersAdded": "Filtros de área no añadidos",
             "wktPlaceholder": "WKT o GeoJSON - los multipolígonos no son compatibles",
             "invalidTextInput": "WKT o GeoJSON incorrectos",
             "tooLarge": "Geometría demasiado grande",
             "tooLargeSuggestion": "Intenta usar un cuadro delimitador y filtrar localmente",
+            "aboutWktAndGeoJson": "Aquí debe colocarse una breve descripción del componente",
+            "simplificationWarning": "Aquí debe colocarse una breve descripción del componente",
             "invalidRange": "Cuadro delimitador inválido"
         }
     }
