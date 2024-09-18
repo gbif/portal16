@@ -11,6 +11,9 @@
         "isClustered": {
             "description": "This experimental feature highlights possible duplicate and/or related occurrences."
         },
+        "isSequenced": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "'Absent' is applied to an occurrence record when a survey of a taxon at a specific time and place encounters no specimens",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "Only show records that are flagged as suspicious",
             "past": "Recently used",
             "geojson": "GeoJSON",
+            "geometry": "Geometry",
             "range": "Range",
             "noFiltersAdded": "No area filters added",
             "wktPlaceholder": "WKT or GeoJSON",
             "invalidTextInput": "Invalid WKT or GeoJSON",
             "tooLarge": "Geometry too large",
             "tooLargeSuggestion": "Try to use a bounding box and filter locally instead",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
             "invalidRange": "Invalid bounding box"
         }
     }
