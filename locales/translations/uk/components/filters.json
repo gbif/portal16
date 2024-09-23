@@ -11,6 +11,9 @@
         "isClustered": {
             "description": "Ця експериментальна функція виділяє можливі дубльовані та/або пов'язані знахідки."
         },
+        "isSequenced": {
+            "description": "Архів анотований GBIF"
+        },
         "occurrenceStatus": {
             "description": "Статус \"відсутня\" означає, що пошук за таксоном у певний час та на певній території не дав жодного зразку",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "Відобразити лише записи, позначені як сумнівні",
             "past": "Нещодавно використані",
             "geojson": "GeoJSON",
+            "geometry": "Геометрія",
             "range": "Діапазон",
             "noFiltersAdded": "Не додано жодних фільтрів щодо місця знахідки",
             "wktPlaceholder": "Мультиполігони WKT та GeoJSON не підтримуються",
             "invalidTextInput": "Неприпустимий WKT або GeoJSON",
             "tooLarge": "Занадто велика геометрія",
             "tooLargeSuggestion": "Спробуйте застосувати обмежувальну рамку та відфільтрувати дані географічно",
+            "aboutWktAndGeoJson": "Архів анотований GBIF",
+            "simplificationWarning": "Архів анотований GBIF",
             "invalidRange": "Недозволена обмежувальна рамка "
         }
     }

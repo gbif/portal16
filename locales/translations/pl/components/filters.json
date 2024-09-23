@@ -11,6 +11,9 @@
         "isClustered": {
             "description": ""
         },
+        "isSequenced": {
+            "description": ""
+        },
         "occurrenceStatus": {
             "description": "",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "",
             "past": "",
             "geojson": "",
+            "geometry": "Geometria",
             "range": "",
             "noFiltersAdded": "",
             "wktPlaceholder": "",
             "invalidTextInput": "",
             "tooLarge": "",
             "tooLargeSuggestion": "",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
             "invalidRange": ""
         }
     }

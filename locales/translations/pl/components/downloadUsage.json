@@ -4,7 +4,7 @@
         "form": {
             "title": "",
             "titlePlaceholder": "",
-            "type": "",
+            "type": "Typ",
             "authors": "",
             "authorsPlaceholder": "",
             "link": "",
@@ -17,27 +17,27 @@
             "saveSuccess": ""
         },
         "types": {
-            "JOURNAL_ARTICLE": "",
-            "BOOK": "",
-            "BOOK_CHAPTER": "",
-            "CONFERENCE_PAPER_PROCEEDINGS": "",
+            "JOURNAL_ARTICLE": "artykuł naukowy",
+            "BOOK": "książka",
+            "BOOK_CHAPTER": "rozdział książki",
+            "CONFERENCE_PAPER_PROCEEDINGS": "doniesienie konferencyjne",
             "PREPRINT_WORKING_PAPER": "",
-            "REPORT": "",
-            "WEB_PAGE": "",
+            "REPORT": "raport",
+            "WEB_PAGE": "strona internetowa",
             "THESIS_DISSERTATION": "",
             "COURSE_TEACHING_MATERIALS": "",
             "MAGAZINE_ARTICLE": "",
-            "STATUTE": "",
-            "PATENT": "",
-            "NEWSPAPER_ARTICLE": "",
-            "SOFTWARE_COMPUTER_PROGRAM": "",
-            "HEARING": "",
-            "TELEVISION_BROADCAST": "",
-            "ENCYCLOPEDIA_ARTICLE": "",
+            "STATUTE": "statut",
+            "PATENT": "patent",
+            "NEWSPAPER_ARTICLE": "artykuł w gazecie",
+            "SOFTWARE_COMPUTER_PROGRAM": "program komputerowy",
+            "HEARING": "tekst źródłowy",
+            "TELEVISION_BROADCAST": "transmisja telewizyjna",
+            "ENCYCLOPEDIA_ARTICLE": "artykuł w encyklopedii",
             "CASE": "",
-            "FILM": "",
+            "FILM": "film",
             "BILL": "",
-            "OTHER": ""
+            "OTHER": "inne"
         }
     }
 }

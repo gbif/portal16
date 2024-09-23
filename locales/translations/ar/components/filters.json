@@ -11,6 +11,9 @@
         "isClustered": {
             "description": "تسلط هذه الميزة  التجريبية الضوء على التكرارات المحتملة و/أو ذات الصلة"
         },
+        "isSequenced": {
+            "description": "أرشيف شروح \"جيبف\""
+        },
         "occurrenceStatus": {
             "description": "\"غير موجود\" يطبق على سجل التكرار عندما لا تصادف دراسة استقصائية حول وحدة تصنيفية ما في وقت ومكان محددين أي عينة",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "أظهر فقط السجلات التي أُشير إلى أنه مشكوك فيها",
             "past": "مستخدمة مؤخرا",
             "geojson": "GeoJSON",
+            "geometry": "هندسة",
             "range": "المدى",
             "noFiltersAdded": "لم تتم إضافة مُرشِّحات للمنطقة",
             "wktPlaceholder": "WKT أو GeoJSON - مضلعات متعددة غير مدعومة",
             "invalidTextInput": "WKT او GeoJSON غير صالح",
             "tooLarge": "هندسة كبيرة جداً",
             "tooLargeSuggestion": "حاول استخدام صندوق الإحاطة وقم بالتصفية محلياً عوضاً عن ذلك",
+            "aboutWktAndGeoJson": "أرشيف شروح \"جيبف\"",
+            "simplificationWarning": "أرشيف شروح \"جيبف\"",
             "invalidRange": "صندوق إحاطة غير صالح"
         }
     }
