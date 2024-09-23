@@ -12,7 +12,7 @@
             "description": ""
         },
         "isSequenced": {
-            "description": "GBIF annoteret Arkiv"
+            "description": ""
         },
         "occurrenceStatus": {
             "description": "",
@@ -45,8 +45,8 @@
             "invalidTextInput": "Ugyldig WKT eller GeoJSON",
             "tooLarge": "Geometrien er for stor",
             "tooLargeSuggestion": "Prøv at afgrænse din søgning med en grov geometri og lav en mere udførlig filtrering lokalt",
-            "aboutWktAndGeoJson": "GBIF annoteret Arkiv",
-            "simplificationWarning": "GBIF annoteret Arkiv",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
             "invalidRange": "Ugyldig geometri"
         }
     }
