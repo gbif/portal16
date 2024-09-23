@@ -11,6 +11,9 @@
         "isClustered": {
             "description": "Este recurso experimental destaca possíveis duplicadas e/ou ocorrências relacionadas."
         },
+        "isSequenced": {
+            "description": "Uma breve descrição do componente deve ser colocada aqui"
+        },
         "occurrenceStatus": {
             "description": "\"Ausente\" é aplicado a um registo de ocorrência quando uma inventário de um taxon, num momento e localidade específicos, não encontra espécimes",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "Mostrar apenas os registos assinalados como duvidosos",
             "past": "Usado recentemente",
             "geojson": "GeoJSON",
+            "geometry": "Geometria",
             "range": "Intervalo",
             "noFiltersAdded": "Sem filtros de área adicionados",
             "wktPlaceholder": "WKT ou GeoJSON",
             "invalidTextInput": "WKT ou GeoJSON inválido",
             "tooLarge": "Geometria muito grande",
             "tooLargeSuggestion": "Tente usar uma caixa delimitadora e em alternativa filtrar localmente",
+            "aboutWktAndGeoJson": "Uma breve descrição do componente deve ser colocada aqui",
+            "simplificationWarning": "Uma breve descrição do componente deve ser colocada aqui",
             "invalidRange": "Caixa delimitadora inválida"
         }
     }

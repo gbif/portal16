@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "اقرأ المزيد",
     "share": "",
-    "loginRequiredDueToSpam": "يرجى تسجيل الدخول للمتابعة. "
+    "testSiteWarning": "",
+    "loginRequiredDueToSpam": "يرجى تسجيل الدخول للمتابعة. ",
+    "loginRequiredExplainer": ""
   }
 }

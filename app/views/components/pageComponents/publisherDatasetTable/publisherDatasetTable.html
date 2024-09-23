@@ -1,0 +1,124 @@
+<div class="publisherDatasetTable whiteDataTable">
+    <div ng-if="!vm.loading">
+        <h4 class="card-header">{{vm.title}}</h4>
+        <div class="scrollable-y" style="{{vm.tableStyle}}" ng-if="vm.results">
+            <div class="table-container rtl-bootstrap">
+                <table class="table search-table smaller">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="col in vm.config.columns">
+                                <span class="inline-block text-nowrap">
+                                    <span>{{col.title}}</span>
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="result in vm.results">
+                            <td ng-repeat="col in vm.config.columns">
+                                <span class="" ng-if="col.type === 'TITLE'">
+                                    <a
+                                        ng-href="{{ vm.urlPrefix }}{{ result.url}}"
+                                        >{{ result.title }}</a
+                                    >
+                                </span>
+                                <span
+                                    class=""
+                                    ng-if="col.type === 'COUNTRY'"
+                                    translate="country.{{result.country}}"
+                                    >{{ result.country }}</span
+                                >
+                                <span
+                                    class="text-end"
+                                    ng-if="col.type === 'DATASET_COUNT'"
+                                    >{{result.datasetCount | localNumber}}</span
+                                >
+                                <span
+                                    class="text-end"
+                                    ng-if="col.type === 'OCCURRENCE_COUNT'"
+                                    >{{result.occurrenceCount |
+                                    localNumber}}</span
+                                >
+                                <span
+                                    class="text-end"
+                                    ng-if="col.type === 'LITERATURE_COUNT'"
+                                    >{{result.literatureCount |
+                                    localNumber}}</span
+                                >
+                                <span
+                                    class="m-r-1"
+                                    ng-if="col.type === 'NAMESPACE'"
+                                    ng-repeat="mt in result.machineTags"
+                                    >{{ vm.translatedValue(mt.value) }}</span
+                                >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div ng-if="vm.largestCount > vm.limit">
+            <uib-pagination
+                    total-items="vm.largestCount"
+                    ng-model="vm.currentPage"
+                    max-size="vm.maxSize"
+                    items-per-page="vm.limit"
+                    class="pagination-sm"
+                    first-text="{{'pagination.first' | translate}}"
+                    next-text="{{'pagination.next' | translate}}"
+                    previous-text="{{'pagination.previous' | translate}}"
+                    boundary-link-numbers="false"
+                    rotate="false"
+                    ng-change="vm.pageChanged()">
+            </uib-pagination>
+        </div>
+    </div>
+
+    <div ng-if="vm.config.summaryColumns.length > 0 && !vm.loading" class="m-t-2">
+        <h4 ng-if="vm.config.summaryTitle" class="card-header">{{vm.config.summaryTitle}}</h4>
+        <div class="scrollable-y" ng-if="vm.results">
+            <div class="table-container rtl-bootstrap">
+                <table class="table search-table smaller">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="col in vm.config.summaryColumns">
+                                <span class="inline-block text-nowrap">
+                                    <span>{{col.title}}</span>
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td ng-repeat="col in vm.config.summaryColumns">
+                                <span
+                                    class=""
+                                    ng-if="col.type === 'DATASET_COUNT'"
+                                    >{{vm.summaryCounts.datasetCount |
+                                    localNumber}}</span
+                                >
+                                <span
+                                    class=""
+                                    ng-if="col.type === 'OCCURRENCE_COUNT'"
+                                    >{{vm.summaryCounts.occurrenceCount |
+                                    localNumber}}</span
+                                >
+                                <span
+                                    class=""
+                                    ng-if="col.type === 'LITERATURE_COUNT'"
+                                    >{{vm.summaryCounts.literatureCount |
+                                    localNumber}}</span
+                                >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="emptyInfo--large" ng-if="!vm.results && vm.loading">
+        <!-- sloppy loader that doens't test for errors -->
+        <span class="loading"></span>
+    </div>
+</div>

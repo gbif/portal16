@@ -11,6 +11,9 @@
         "isClustered": {
             "description": ""
         },
+        "isSequenced": {
+            "description": "GBIF annoteret Arkiv"
+        },
         "occurrenceStatus": {
             "description": "",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "Vis kun observationer der virker mistænkelige",
             "past": "Senest anvendt",
             "geojson": "GeoJSON",
+            "geometry": "Geometri",
             "range": "Interval",
             "noFiltersAdded": "Intet område filter brugt",
             "wktPlaceholder": "WKT eller GeoJSON — multipolygoner understøttes ikke",
             "invalidTextInput": "Ugyldig WKT eller GeoJSON",
             "tooLarge": "Geometrien er for stor",
             "tooLargeSuggestion": "Prøv at afgrænse din søgning med en grov geometri og lav en mere udførlig filtrering lokalt",
+            "aboutWktAndGeoJson": "GBIF annoteret Arkiv",
+            "simplificationWarning": "GBIF annoteret Arkiv",
             "invalidRange": "Ugyldig geometri"
         }
     }

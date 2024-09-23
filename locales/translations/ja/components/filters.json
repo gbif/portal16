@@ -11,6 +11,9 @@
         "isClustered": {
             "description": "この試験的な機能では、重複や関連するオカレンスの可能性があればハイライトします。"
         },
+        "isSequenced": {
+            "description": "GBIFがアノーテーションしたアーカイブ"
+        },
         "occurrenceStatus": {
             "description": "「不在」には、特定の時間と場所における種の調査で対象が見つからなかった場合のオカレンスレコードが当てはまります。",
             "options": {
@@ -35,12 +38,15 @@
             "onlyShowFlagged": "疑わしいとフラグ付けされたレコードのみを表示する",
             "past": "最近使用された",
             "geojson": "GeoJSON",
+            "geometry": "ジオメトリ",
             "range": "範囲",
             "noFiltersAdded": "地域フィルターは追加されていない",
             "wktPlaceholder": "WKT または GeoJSON",
             "invalidTextInput": "無効な WKT または GeoJSON",
             "tooLarge": "ジオメトリが大きすぎます。",
             "tooLargeSuggestion": "代わりに範囲ボックスを使用して場所を指定してください。",
+            "aboutWktAndGeoJson": "GBIFがアノーテーションしたアーカイブ",
+            "simplificationWarning": "GBIFがアノーテーションしたアーカイブ",
             "invalidRange": "無効な範囲ボックス"
         }
     }

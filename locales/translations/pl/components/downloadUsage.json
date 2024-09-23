@@ -4,6 +4,7 @@
         "form": {
             "title": "",
             "titlePlaceholder": "",
+            "type": "Typ",
             "authors": "",
             "authorsPlaceholder": "",
             "link": "",
@@ -14,6 +15,29 @@
             "submit": "",
             "saveFailure": "",
             "saveSuccess": ""
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "artykuł naukowy",
+            "BOOK": "książka",
+            "BOOK_CHAPTER": "rozdział książki",
+            "CONFERENCE_PAPER_PROCEEDINGS": "doniesienie konferencyjne",
+            "PREPRINT_WORKING_PAPER": "",
+            "REPORT": "raport",
+            "WEB_PAGE": "strona internetowa",
+            "THESIS_DISSERTATION": "",
+            "COURSE_TEACHING_MATERIALS": "",
+            "MAGAZINE_ARTICLE": "",
+            "STATUTE": "statut",
+            "PATENT": "patent",
+            "NEWSPAPER_ARTICLE": "artykuł w gazecie",
+            "SOFTWARE_COMPUTER_PROGRAM": "program komputerowy",
+            "HEARING": "tekst źródłowy",
+            "TELEVISION_BROADCAST": "transmisja telewizyjna",
+            "ENCYCLOPEDIA_ARTICLE": "artykuł w encyklopedii",
+            "CASE": "",
+            "FILM": "film",
+            "BILL": "",
+            "OTHER": "inne"
         }
     }
 }

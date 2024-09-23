@@ -2,6 +2,7 @@
 
 let express = require('express'),
     nunjucks = require('nunjucks'),
+    auth = require('../../../auth/auth.service'),
     github = require('octonode'),
     credentials = rootRequire('config/credentials').hostedPortals,
     log = rootRequire('config/log'),
@@ -15,7 +16,7 @@ module.exports = function(app) {
     app.use('/api/tools/hosted-portals', router);
 };
 
-router.post('/', function(req, res) {
+router.post('/', auth.isAuthenticated(), function(req, res) {
     let formData = req.body.form;
     if (!formData || !isValid(formData)) {
         res.status(400);

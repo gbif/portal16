@@ -4,6 +4,7 @@
         "form": {
             "title": "Title",
             "titlePlaceholder": "PLaceholder for Title",
+            "type": "Type",
             "authors": "Authors",
             "authorsPlaceholder": "PLaceholder for Authors",
             "link": "Link",
@@ -14,7 +15,29 @@
             "submit": "Submit",
             "saveFailure": "This isn't good. We couldn't save your usage report.",
             "saveSuccess": "Thank you for notifying us. You may close this popup"
-
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "journal article",
+            "BOOK": "book",
+            "BOOK_CHAPTER": "book chapter",
+            "CONFERENCE_PAPER_PROCEEDINGS": "conference paper / proceedings",
+            "PREPRINT_WORKING_PAPER": "preprint / working paper",
+            "REPORT": "report",
+            "WEB_PAGE": "web page",
+            "THESIS_DISSERTATION": "thesis / dissertation",
+            "COURSE_TEACHING_MATERIALS": "course / teaching materials",
+            "MAGAZINE_ARTICLE": "magazine article",
+            "STATUTE": "statute",
+            "PATENT": "patent",
+            "NEWSPAPER_ARTICLE": "newspaper article",
+            "SOFTWARE_COMPUTER_PROGRAM": "software / computer program",
+            "HEARING": "hearing",
+            "TELEVISION_BROADCAST": "television broadcast",
+            "ENCYCLOPEDIA_ARTICLE": "encyclopedia article",
+            "CASE": "case",
+            "FILM": "film",
+            "BILL": "bill",
+            "OTHER": "other (please elaborate in comments below)"
         }
     }
 }

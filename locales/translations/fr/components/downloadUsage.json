@@ -4,6 +4,7 @@
         "form": {
             "title": "Titre",
             "titlePlaceholder": "Titre/nom de la publication/du produit dans lequel les données sont utilisées",
+            "type": "Type ",
             "authors": "Auteur·e(s)",
             "authorsPlaceholder": "Auteur·e(s) de la publication/du produit",
             "link": "URL",
@@ -14,6 +15,29 @@
             "submit": "Soumettre",
             "saveFailure": "Une erreur s'est produite lors de l'enregistrement du formulaire. Veuillez réessayer.",
             "saveSuccess": "Nous vous remercions de nous avoir informé. Nous lierons le téléchargement à la publication/produit décrite. N'oubliez pas de mentionner le téléchargement selon les instructions de la page de téléchargement. Vous pouvez maintenant fermer cette fenêtre popup."
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "article de revue scientifique",
+            "BOOK": "livre",
+            "BOOK_CHAPTER": "chapitre de livre",
+            "CONFERENCE_PAPER_PROCEEDINGS": "résumé de conférence / actes de colloque",
+            "PREPRINT_WORKING_PAPER": "prépublication / document de travail",
+            "REPORT": "rapport",
+            "WEB_PAGE": "page Internet",
+            "THESIS_DISSERTATION": "thèse / dissertation",
+            "COURSE_TEACHING_MATERIALS": "cours / matériel d'enseignement",
+            "MAGAZINE_ARTICLE": "article de magazine",
+            "STATUTE": "loi",
+            "PATENT": "brevet",
+            "NEWSPAPER_ARTICLE": "article de journal",
+            "SOFTWARE_COMPUTER_PROGRAM": "logiciel / programme informatique",
+            "HEARING": "audience",
+            "TELEVISION_BROADCAST": "émission de télévision",
+            "ENCYCLOPEDIA_ARTICLE": "article encyclopédique",
+            "CASE": "cas",
+            "FILM": "film",
+            "BILL": "projet de loi",
+            "OTHER": "autre (veuillez fournir des précisions dans les commentaires ci-dessous)"
         }
     }
 }

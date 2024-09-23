@@ -4,6 +4,7 @@
         "form": {
             "title": "Título",
             "titlePlaceholder": "Título/nombre de la publicación/producto en el que se utilizan los datos",
+            "type": "Tipo",
             "authors": "Autor(es)",
             "authorsPlaceholder": "Autor(es) de la publicación o producto",
             "link": "URL",
@@ -14,6 +15,29 @@
             "submit": "Enviar",
             "saveFailure": "Se ha producido un error al guardar el formulario. Por favor, inténtelo de nuevo.",
             "saveSuccess": "Gracias por avisarnos. Vincularemos la descarga a la publicación/producto descrito. Por favor, recuerde citar la descarga según las instrucciones de la página de descarga. Ahora puede cerrar esta ventana emergente."
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "artículo de revista",
+            "BOOK": "libro",
+            "BOOK_CHAPTER": "capítulo de libro",
+            "CONFERENCE_PAPER_PROCEEDINGS": "memorias de conferencia / actas",
+            "PREPRINT_WORKING_PAPER": "preimpresión / publicación en desarrollo",
+            "REPORT": "informe",
+            "WEB_PAGE": "página web",
+            "THESIS_DISSERTATION": "tesis / disertación",
+            "COURSE_TEACHING_MATERIALS": "curso / materiales didácticos",
+            "MAGAZINE_ARTICLE": "artículo de revista",
+            "STATUTE": "estatuto",
+            "PATENT": "patente",
+            "NEWSPAPER_ARTICLE": "artículo de periódico",
+            "SOFTWARE_COMPUTER_PROGRAM": "software / programa de computadora",
+            "HEARING": "audiencia",
+            "TELEVISION_BROADCAST": "transmisión de televisión",
+            "ENCYCLOPEDIA_ARTICLE": "artículo de enciclopedia",
+            "CASE": "caso",
+            "FILM": "película",
+            "BILL": "proyecto de ley",
+            "OTHER": "otro (por favor explique en los comentarios a continuación)"
         }
     }
 }

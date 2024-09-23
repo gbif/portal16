@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "Детальніше",
     "share": "",
-    "loginRequiredDueToSpam": "Будь ласка, увійдіть, щоб продовжити."
+    "testSiteWarning": "",
+    "loginRequiredDueToSpam": "Будь ласка, увійдіть, щоб продовжити.",
+    "loginRequiredExplainer": ""
   }
 }

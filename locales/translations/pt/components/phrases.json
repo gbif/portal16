@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "Ler mais",
     "share": "",
-    "loginRequiredDueToSpam": "Por favor, inicie a sua sessão para prosseguir."
+    "testSiteWarning": "",
+    "loginRequiredDueToSpam": "Por favor, inicie a sua sessão para prosseguir.",
+    "loginRequiredExplainer": ""
   }
 }

@@ -1,4 +1,9 @@
 <div class="m-t-1">
+<div ng-if="!vm.session.user" class="notice">
+  <h3 translate="phrases.loginRequiredDueToSpam">Please login to apply</h3>
+  <div translate="phrases.loginRequiredExplainer">Sadly this is needed to avoid spam and attempts at disrupting our services.</div>
+</div>
+<div ng-if="vm.session.user" class="">
     <div ng-if="vm.state === 'SUCCESS'" class="text-center">
       <div style="font-size: 18px; margin-bottom: 24px;">
         <p>Thank you for submitting your application.</p>
@@ -283,4 +288,5 @@
             </div>
         </form>
     </div>
+</div>
 </div>

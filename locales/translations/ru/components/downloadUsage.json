@@ -4,6 +4,7 @@
         "form": {
             "title": "Название",
             "titlePlaceholder": "",
+            "type": "Тип записи",
             "authors": "",
             "authorsPlaceholder": "",
             "link": "",
@@ -14,6 +15,29 @@
             "submit": "Отправить",
             "saveFailure": "",
             "saveSuccess": ""
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "",
+            "BOOK": "",
+            "BOOK_CHAPTER": "",
+            "CONFERENCE_PAPER_PROCEEDINGS": "",
+            "PREPRINT_WORKING_PAPER": "",
+            "REPORT": "",
+            "WEB_PAGE": "",
+            "THESIS_DISSERTATION": "",
+            "COURSE_TEACHING_MATERIALS": "",
+            "MAGAZINE_ARTICLE": "",
+            "STATUTE": "",
+            "PATENT": "",
+            "NEWSPAPER_ARTICLE": "",
+            "SOFTWARE_COMPUTER_PROGRAM": "",
+            "HEARING": "",
+            "TELEVISION_BROADCAST": "",
+            "ENCYCLOPEDIA_ARTICLE": "",
+            "CASE": "",
+            "FILM": "",
+            "BILL": "",
+            "OTHER": ""
         }
     }
 }

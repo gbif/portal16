@@ -3,15 +3,15 @@
     "title": "",
     "group": {
       "executiveCommittee": {
-        "title": "",
+        "title": "Directiecomité",
         "description": ""
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "Wetenschapscommissie",
         "description": ""
       },
       "budgetCommittee": {
-        "title": "",
+        "title": "Begrotingscommissie",
         "description": ""
       },
       "nsg": {
@@ -27,7 +27,7 @@
         "description": ""
       },
       "voting": {
-        "title": "",
+        "title": "Stemgerechtigde deelnemers",
         "description": ""
       },
       "associateCountries": {
@@ -43,11 +43,11 @@
       "role": "Rol",
       "name": "Naam",
       "participant": "Deelnemer",
-      "participationStatus": ""
+      "participationStatus": "Status deelnemer"
     },
-    "details": "",
+    "details": "Gegevens",
     "roles": "Rollen",
-    "sinceDate": "",
+    "sinceDate": "Sinds {DATE}",
     "showAllContacts": "Alle",
     "person": {
       "volunteer": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",

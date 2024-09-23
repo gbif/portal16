@@ -24,6 +24,8 @@
     "payloadTooLarge": "",
     "readMore": "Læs mere",
     "share": "",
-    "loginRequiredDueToSpam": ""
+    "testSiteWarning": "",
+    "loginRequiredDueToSpam": "",
+    "loginRequiredExplainer": ""
   }
 }

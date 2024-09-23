@@ -1,18 +1,18 @@
 {
     "participationStatus": {
         "longForm": {
-            "VOTING": "",
+            "VOTING": "Stemgerechtigde deelnemer",
             "ASSOCIATE": "",
             "OBSERVER": "",
-            "AFFILIATE": "",
-            "FORMER": "",
+            "AFFILIATE": "Filiaal",
+            "FORMER": "Voormalige deelnemer",
             "undefined": "Onbekend"
         },
         "description": {
             "VOTING": "",
             "ASSOCIATE": "",
             "OBSERVER": "",
-            "AFFILIATE": "",
+            "AFFILIATE": "Een filiaal van {REGION}",
             "FORMER": "",
             "undefined": "Onbekend"
         },
@@ -30,7 +30,7 @@
                     "VOTING": "",
                     "ASSOCIATE": "",
                     "OBSERVER": "",
-                    "AFFILIATE": "",
+                    "AFFILIATE": "Filiaalorganisatie",
                     "FORMER": "",
                     "undefined": "Onbekend"
                 }

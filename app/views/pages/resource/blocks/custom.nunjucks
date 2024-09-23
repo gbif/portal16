@@ -22,5 +22,8 @@
         {% if componentType == "ebbeWinnersList" %}
          <ebbe-list settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
         {% endif %}
+        {% if componentType == "publisherOrDatasetTable" %}
+         <publisher-dataset-table settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
+        {% endif %}
     </div>
 </div>
