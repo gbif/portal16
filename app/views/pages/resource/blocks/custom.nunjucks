@@ -25,5 +25,8 @@
         {% if componentType == "publisherOrDatasetTable" %}
          <publisher-dataset-table settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
         {% endif %}
+        {% if componentType == "metabarcodingDataToolForm" %}
+         <metabarcoding-data-tool-form settings="{$ main.fields.settings | rawJson $}" title="{$ main.fields.title $}" />
+        {% endif %}
     </div>
 </div>

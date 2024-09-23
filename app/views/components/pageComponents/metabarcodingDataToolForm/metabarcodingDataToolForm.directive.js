@@ -5,17 +5,17 @@ var angular = require('angular'),
 
 angular
     .module('portal')
-    .directive('ednaToolForm', ednaToolFormDirective);
+    .directive('metabarcodingDataToolForm', metabarcodingDataToolFormDirective);
 
 /** @ngInject */
-function ednaToolFormDirective() {
+function metabarcodingDataToolFormDirective() {
     var directive = {
         restrict: 'E',
-        templateUrl: '/templates/components/pageComponents/ednaToolForm/ednaToolForm.html',
+        templateUrl: '/templates/components/pageComponents/metabarcodingDataToolForm/metabarcodingDataToolForm.html',
         scope: {
             key: '@'
         },
-        controller: ednaToolFormFormCtrl,
+        controller: metabarcodingDataToolFormCtrl,
         controllerAs: 'vm',
         bindToController: true
     };
@@ -23,7 +23,7 @@ function ednaToolFormDirective() {
     return directive;
 
     /** @ngInject */
-    function ednaToolFormFormCtrl($http, Node) {
+    function metabarcodingDataToolFormCtrl($http, Node) {
         var vm = this;
         vm.loading = true;
         vm.form = {};
@@ -65,5 +65,5 @@ function ednaToolFormDirective() {
     }
 }
 
-module.exports = ednaToolFormDirective;
+module.exports = metabarcodingDataToolFormDirective;
 

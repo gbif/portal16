@@ -26,7 +26,7 @@ Contact name: [{$ form.email $}](mailto:{$ form.email $})
 **Status of application**
 
 * [ ] The node manager has been contacted
-* [ ] Data scope clearly defined
+* [ ] Content providers clearly defined
 * [ ] User group - the community seems well defined
 
 

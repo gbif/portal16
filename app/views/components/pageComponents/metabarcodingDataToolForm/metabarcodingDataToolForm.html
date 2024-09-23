@@ -53,7 +53,25 @@
                                 </div>
                             </div>
                         </md-input-container>
+                        
                     </div>
+                    <div layout="row">
+                      <div >
+                       
+                        <p>Please select which participant node this application relates to.</p>
+                        <div layout="row">
+                          <md-input-container flex="50">
+                              <label>Click to select</label>
+                              <md-select name="participantNode" ng-model="vm.form.participant" required>
+                                <md-option ng-repeat="participant in vm.participantCountries" ng-value="participant.key">
+                                    {{participant.participantTitle}}
+                                </md-option>
+                              </md-select>
+                          </md-input-container>
+                        </div>
+                      </div>
+                    </div>
+                    
                 </md-card-content>
             </md-card>
             <md-card>
@@ -95,37 +113,22 @@
                 <md-card-content>
                   <md-radio-group ng-model="vm.form.type" ng-change="vm.typeChanged(vm.for.type)" required>
                     <md-radio-button value="National_installation" class="md-primary" ><span>A national installation.</span></md-radio-button>
-                    <div style="margin-left: 25px" ng-if="vm.form.type == 'National_installation'">
-                      <p>
-                        Note that national portals will exclusively be offered to countries participating in GBIF. 
-                      </p>
-                      <p>Please select which participant country this application relates to. Please see the <a href="/the-gbif-network">list of participants</a> for contact information</p>
+                    <md-radio-button value="Thematic_node_installation" class="md-primary" ><span>An installation to support your thematic Node.</span></md-radio-button>
+                    <md-radio-button value="Regional_installation" class="md-primary" ><span>An installation for a GBIF Region (application to be submitted only by the regional representative Node Manager).</span></md-radio-button>
+
+                    
+                    <md-radio-button value="Group_installation" class="md-primary" ><span>An installation for a group of publishers within our nodes network.</span></md-radio-button>
+                    <div style="margin-left: 25px" ng-if="vm.form.type == 'Group_installation'">
                       <div layout="row">
-                        <md-input-container flex="50">
-                            <label>Click to select</label>
-                            <md-select name="participantNode" ng-model="vm.form.participant" required>
-                              <md-option ng-repeat="participant in vm.participantCountries" ng-value="participant.key">
-                                  {{participant.participantTitle}}
-                              </md-option>
-                            </md-select>
-                        </md-input-container>
+                        <p>
+                          The programme is intended primarily to support node and regional installations, rather than e.g. an installation for every publishing organization.  However, we know there may be cases where an alternative to a Node or regional installation may be more suitable to  bring significant amounts of data. Can you please justify why you feel this is needed? 
+                        </p>
                       </div>
-                    </div>
-                    <md-radio-button value="Multinational_installation" class="md-primary" ><span>A multinational installation.</span></md-radio-button>
-                    <div style="margin-left: 25px" ng-if="vm.form.type == 'Multinational_installation'">
                       <div layout="row">
+                        
                         <md-input-container flex="100">
                           <label>Please describe which data publisher(s) and/or GBIF participants will be involved</label>
-                          <textarea required ng-model="vm.form.multinational_publisher_description" rows="5" md-select-on-focus name="multinational_publisher_description"></textarea>
-                      </md-input-container>
-                      </div>
-                    </div>
-                    <md-radio-button value="Group_or_institution_installation" class="md-primary" ><span>An installation for a group or institution within a country.</span></md-radio-button>
-                    <div style="margin-left: 25px" ng-if="vm.form.type == 'Group_or_institution_installation'">
-                      <div layout="row">
-                        <md-input-container flex="100">
-                          <label>Please describe which data publisher(s) and/or GBIF participants will be involved</label>
-                          <textarea required ng-model="vm.form.group_or_institution_publisher_description" rows="5" md-select-on-focus name="group_or_institution_publisher_description"></textarea>
+                          <textarea required ng-model="vm.form.group_publisher_description" rows="5" md-select-on-focus name="group_description"></textarea>
                       </md-input-container>
                       </div>
                     </div>
@@ -133,46 +136,43 @@
                 </md-card-content>
             </md-card>
 
-<!--             <md-card>
+            <md-card>
               <md-card-title>
                   <md-card-title-text>
-                      <span class="md-headline">4. Are you in contact with a GBIF Participant Node Manager about this application?</span>
+                      <span class="md-headline">4. Mode of operation
+                      </span>
+                      <span class="md-subhead">What best describes your application?
                       </span>
                   </md-card-title-text>
               </md-card-title>
 
               <md-card-content>
-                <md-radio-group ng-model="vm.form.node_contact">
-                  <md-radio-button value="I_am_the_node_manager" class="md-primary" ><span>I am the Node Manager</span></md-radio-button>
-                  <md-radio-button value="Node_manager_contacted" class="md-primary" ><span>Yes, I am in contact with a Node Manager about this application</span></md-radio-button>
-                  <div style="margin-left: 25px" ng-if="vm.form.node_contact == 'Node_manager_contacted'">
-                    <div layout="row">
-                      <md-input-container flex="50">
-                        <label>Please state which Node Manager</label>
-                        <input
-                          type="text"
-                          required
-                          name="node_manager"
-                          ng-model="vm.form.node_manager"
-                        />
-                        <div ng-messages="vm.ednaform.node_manager.$error">
-                          <div ng-message="required">
-                              This is required.
-                          </div>
-                        </div>
-                      </md-input-container>
-                    </div>
+                <md-radio-group ng-model="vm.form.Mode_of_operation" required>
+                  <md-radio-button value="publishing" class="md-primary" ><span>Publishing mode:</span></md-radio-button>
+                  <div layout="row">
+                    <p>
+                      Users of the tool can be enabled to register datasets in GBIF on behalf of the organizations to which they have been associated. In this mode, the tool operates in a similar manner to an IPT, and is a publishing platform into GBIF where datasets become hosted by GBIF within the tool.
+                    </p>
                   </div>
-                  <md-radio-button value="No_contact_to_node_manager" class="md-primary" ><span>I have not yet contacted a Node Manager about this application</span></md-radio-button>
+                  <md-radio-button value="conversion_only" class="md-primary" ><span>Conversion-only mode: 
+                  </span></md-radio-button>
+                  <div layout="row">
+                    <p>
+                      Users of the tool can use the tool to shape their dataset, but must download the resulting dataset and submit it to another repository, such as a GBIF IPT installation, in order to publish to GBIF. This may be appropriate in situations where there are concerns of having GBIF host datasets. A tool may be converted from conversion-only mode to publishing mode later.                    </p>
+                  </div>
+
+                  
+                  
                 </md-radio-group>
               </md-card-content>
-          </md-card> -->
+          </md-card>
+
 
             <div>
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline">4. Description of the anticipated content providers</span>
+                            <span class="md-headline">5. Description of the anticipated content providers</span>
                             
                         </md-card-title-text>
                     </md-card-title>
@@ -189,16 +189,16 @@
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline">5. Timelines</span>
+                            <span class="md-headline">6. Timeline</span>
                             <span class="md-subhead">
-                              Are there any timelines you need to keep with regards to the deployment, promotion and ongoing use of the portal?
+                              Please let us know if there is a deadline for configuring this installation.
                             </span>
                         </md-card-title-text>
                     </md-card-title>
                     <md-card-content>
                         <div layout="row">
                               <md-input-container flex="100">
-                                <label>Description of timelines</label>
+                                <label>Description of timeline</label>
                                 <textarea ng-model="vm.form.timelines" rows="5" md-select-on-focus name="organizationDescription"></textarea>
                             </md-input-container>
                         </div>
@@ -213,10 +213,25 @@
                 </md-card-title>
 
                 <md-card-content>
-                  <md-checkbox ng-model="vm.form.terms_accepted" class="md-primary m-b-0" required><span>
-                    I have read the service agreement and data processor agreement and I accept these terms and conditions for the hosted eDNA Tool I will use.
+                  <md-checkbox ng-model="vm.form.have_read_the_service_agreement " class="md-primary" required><span>
+                    I have read the service agreement and data processor agreement and I accept these terms and conditions for the hosted Metabarcoding Data Toolkit I will use.
                   </span></md-checkbox>
+                  <md-checkbox ng-model="vm.form.commit_to_help_data_holders" class="md-primary" required><span></span>
+                    I commit to ensuring that data holders engaging in data publishing get the appropriate help to be able to publish to GBIF.
+                  </span></md-checkbox>
+                  <md-checkbox ng-model="vm.form.will_provide_feedback" class="md-primary" required><span></span>
+                    I will provide feedback to help improve and develop the tool and guidance material for easier and better use by Nodes and data holders.
+                  </span></md-checkbox>
+                  <md-checkbox ng-model="vm.form.will_participate_in_quarterly_webinars" class="md-primary" required><span></span>
+                    I will participate in quarterly webinars and encourage users (data holders) to join to provide feedback.
+                  </span></md-checkbox>
+                  <md-checkbox ng-model="vm.form.will_ensure_atasets_published_will_remain_online" class="md-primary" required><span></span>
+                    I agree to help ensure all datasets published to GBIF.org during the pilot will remain online at the end of the pilot, should the installations be moved or the programme terminated. 
+                  </span></md-checkbox>
+                  <div layout="row">Following submission we will check the eligibility, configure the installation and contact you to arrange an introduction session.</div>
+
                 </md-card-content>
+
             </md-card>
             </div>
 

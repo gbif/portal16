@@ -473,6 +473,7 @@ require('../../../components/pageComponents/mentorsList/mentorsList.directive');
 require('../../../components/pageComponents/graList/graList.directive');
 require('../../../components/pageComponents/ebbeList/ebbeList.directive');
 require('../../../components/pageComponents/publisherDatasetTable/publisherDatasetTable.directive');
+require('../../../components/pageComponents/metabarcodingDataToolForm/metabarcodingDataToolForm.directive');
 
 require('./angular/translate');
 
