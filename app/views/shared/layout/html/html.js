@@ -472,6 +472,7 @@ require('../../../components/pageComponents/ambassadorsList/ambassadorsList.dire
 require('../../../components/pageComponents/mentorsList/mentorsList.directive');
 require('../../../components/pageComponents/graList/graList.directive');
 require('../../../components/pageComponents/ebbeList/ebbeList.directive');
+require('../../../components/pageComponents/ednaToolForm/ednaToolForm.directive');
 
 require('./angular/translate');
 

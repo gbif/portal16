@@ -1,0 +1,39 @@
+## {$ form.portal_name $}
+
+Contact name: {$ form.person_name $}
+Contact name: [{$ form.email $}](mailto:{$ form.email $})
+
+**Application type**
+*Type*: {$ form.type | prettifyEnum $}
+
+{% if form.type == "Group_or_institution_installation" %}*Involved parties*:  {$ form.group_or_institution_publisher_description $} {% endif %}{% if form.type == "Multinational_installation" %}*Involved parties*:  {$ form.multinational_publisher_description $} {% endif %}{% if form.type == "National_portal" %}*Participant*: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
+
+*Node contact*: _{$ form.node_contact | prettifyEnum $}_ {% if form.node_manager %} - {$ form.node_manager $} {% endif %}
+
+**Content providers**
+{$ form.content_providers $}
+
+**User group**
+{$ form.user_group $}
+
+**Timelines**
+{$ form.timelines $}
+
+**Installation name**
+{$ form.installation_name $}
+
+
+**Status of application**
+
+* [ ] The node manager has been contacted
+* [ ] Data scope clearly defined
+* [ ] User group - the community seems well defined
+
+
+<details>
+<summary>JSON details</summary>
+
+```json
+{$ formString | safe $}
+```
+</details>
