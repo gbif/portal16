@@ -12,7 +12,7 @@
             "description": "تسلط هذه الميزة  التجريبية الضوء على التكرارات المحتملة و/أو ذات الصلة"
         },
         "isSequenced": {
-            "description": "أرشيف شروح \"جيبف\""
+            "description": ""
         },
         "occurrenceStatus": {
             "description": "\"غير موجود\" يطبق على سجل التكرار عندما لا تصادف دراسة استقصائية حول وحدة تصنيفية ما في وقت ومكان محددين أي عينة",
@@ -45,8 +45,8 @@
             "invalidTextInput": "WKT او GeoJSON غير صالح",
             "tooLarge": "هندسة كبيرة جداً",
             "tooLargeSuggestion": "حاول استخدام صندوق الإحاطة وقم بالتصفية محلياً عوضاً عن ذلك",
-            "aboutWktAndGeoJson": "أرشيف شروح \"جيبف\"",
-            "simplificationWarning": "أرشيف شروح \"جيبف\"",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
             "invalidRange": "صندوق إحاطة غير صالح"
         }
     }
