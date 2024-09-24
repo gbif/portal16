@@ -20,14 +20,14 @@
             "JOURNAL_ARTICLE": "artículo de revista",
             "BOOK": "libro",
             "BOOK_CHAPTER": "capítulo de libro",
-            "CONFERENCE_PAPER_PROCEEDINGS": "memorias de conferencia / actas",
-            "PREPRINT_WORKING_PAPER": "preimpresión / publicación en desarrollo",
+            "CONFERENCE_PAPER_PROCEEDINGS": "memorias / actas de una conferencia",
+            "PREPRINT_WORKING_PAPER": "prepublicación / documento de trabajo",
             "REPORT": "informe",
             "WEB_PAGE": "página web",
             "THESIS_DISSERTATION": "tesis / disertación",
-            "COURSE_TEACHING_MATERIALS": "curso / materiales didácticos",
-            "MAGAZINE_ARTICLE": "artículo de revista",
-            "STATUTE": "estatuto",
+            "COURSE_TEACHING_MATERIALS": "curso / materiales pedagógicos",
+            "MAGAZINE_ARTICLE": "artículo divulgativo",
+            "STATUTE": "normativa",
             "PATENT": "patente",
             "NEWSPAPER_ARTICLE": "artículo de periódico",
             "SOFTWARE_COMPUTER_PROGRAM": "software / programa de computadora",
@@ -36,7 +36,7 @@
             "ENCYCLOPEDIA_ARTICLE": "artículo de enciclopedia",
             "CASE": "caso",
             "FILM": "película",
-            "BILL": "proyecto de ley",
+            "BILL": "proyecto normativo",
             "OTHER": "otro (por favor explique en los comentarios a continuación)"
         }
     }

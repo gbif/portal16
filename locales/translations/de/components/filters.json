@@ -12,7 +12,7 @@
             "description": "Diese experimentelle Funktion hebt mögliche Duplikate und/oder damit zusammenhängende Vorkommen hervor."
         },
         "isSequenced": {
-            "description": "Stadt zum Fundort."
+            "description": ""
         },
         "occurrenceStatus": {
             "description": "'Abwesend' wird auf einen Vorkommnis-Datensatz angewendet, wenn bei einer Begutachtung eines Taxons zu einem bestimmten Zeitpunkt und Ort keine Individuen gefunden wurden",
@@ -45,8 +45,8 @@
             "invalidTextInput": "Ungültiger WKT oder GeoJSON",
             "tooLarge": "Geometrie zu groß",
             "tooLargeSuggestion": "Versuchen Sie stattdessen eine Boundary-Box zu verwenden und stattdessen lokal zu filtern",
-            "aboutWktAndGeoJson": "Stadt zum Fundort.",
-            "simplificationWarning": "Stadt zum Fundort.",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
             "invalidRange": "Ungültige Boundary Box"
         }
     }

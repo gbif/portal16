@@ -12,7 +12,7 @@
             "description": "这个实验性的特性强调了可能的重复和/或相关的事件。"
         },
         "isSequenced": {
-            "description": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。"
+            "description": ""
         },
         "occurrenceStatus": {
             "description": "“缺席”指在某一特定时间和地点对一个分类群进行调查时没有发现标本的出现记录",
@@ -45,8 +45,8 @@
             "invalidTextInput": "无效的 WKT 或 GeoJSON",
             "tooLarge": "几何太大了",
             "tooLargeSuggestion": "尝试使用边界框, 然后在本地进行筛选",
-            "aboutWktAndGeoJson": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
-            "simplificationWarning": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
             "invalidRange": "无效的边界框"
         }
     }

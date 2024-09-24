@@ -12,7 +12,7 @@
             "description": ""
         },
         "isSequenced": {
-            "description": "Архив, аннотированный GBIF"
+            "description": ""
         },
         "occurrenceStatus": {
             "description": "",
@@ -45,8 +45,8 @@
             "invalidTextInput": "Недопустимый WKT или GeoJSON",
             "tooLarge": "Слишком большой охват",
             "tooLargeSuggestion": "Попробуйте использовать ограничительную рамку и отфильтровать данные географически",
-            "aboutWktAndGeoJson": "Архив, аннотированный GBIF",
-            "simplificationWarning": "Архив, аннотированный GBIF",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
             "invalidRange": "Недопустимый ограничивающий прямоугольник"
         }
     }
