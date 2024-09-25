@@ -1,20 +1,19 @@
-## {$ form.portal_name $}
+## {$ form.installation_name $}
 
 Contact name: {$ form.person_name $}
 Contact name: [{$ form.email $}](mailto:{$ form.email $})
+Node: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation)
 
 **Application type**
 *Type*: {$ form.type | prettifyEnum $}
 
-{% if form.type == "Group_or_institution_installation" %}*Involved parties*:  {$ form.group_or_institution_publisher_description $} {% endif %}{% if form.type == "Multinational_installation" %}*Involved parties*:  {$ form.multinational_publisher_description $} {% endif %}{% if form.type == "National_portal" %}*Participant*: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation){% endif %}
-
-*Node contact*: _{$ form.node_contact | prettifyEnum $}_ {% if form.node_manager %} - {$ form.node_manager $} {% endif %}
+{% if form.type == "Group_installation" %}*Involved parties*:  {$ form.group_publisher_description $} {% endif %}
 
 **Content providers**
 {$ form.content_providers $}
 
-**User group**
-{$ form.user_group $}
+**Mode of Operation**
+{$ form.Mode_of_operation $}
 
 **Timelines**
 {$ form.timelines $}
@@ -25,7 +24,6 @@ Contact name: [{$ form.email $}](mailto:{$ form.email $})
 
 **Status of application**
 
-* [ ] The node manager has been contacted
 * [ ] Content providers clearly defined
 * [ ] User group - the community seems well defined
 

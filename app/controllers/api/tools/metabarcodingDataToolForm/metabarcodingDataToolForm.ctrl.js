@@ -68,7 +68,7 @@ function createIssue(data, req, cb) {
     }
 
     ghrepo.issue({
-        'title': data.portal_name,
+        'title': data.installation_name,
         'body': description,
         'labels': labels
     }, function(err, data) {
