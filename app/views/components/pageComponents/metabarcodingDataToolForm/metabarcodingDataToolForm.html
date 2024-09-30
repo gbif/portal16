@@ -77,12 +77,19 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline">2. Name of the installation </span>
+                        <span class="md-headline">2. Name and description of the installation </span>
                     </md-card-title-text>
                 </md-card-title>
 
                 <md-card-content>
+                  <div layout="row">
+                    <p>Please let us know how this installation should be named; 
+                      e.g. “GBIF.us Metabarcoding Datasets”, “GBIF Africa Metabarcoding Datasets”, “Acme Metabarcoding Converter”
+                      </p>
+                  </div>
                     <div layout="row">
+                      
+
                         <md-input-container flex="50">
                             <label>Name</label>
                             <input
@@ -98,7 +105,23 @@
                             </div>
                         </md-input-container>
                     </div>
+                    <div layout="row">
+                      <p>Please give a short description of your installation. This will be visible on the "about" page.
+                        </p>
+                    </div>
+                    <div layout="row">
+                      <md-input-container flex="100">
+                        <label>Description</label>
+                        <textarea required ng-model="vm.form.installation_description" rows="5" md-select-on-focus name="installationDescription"></textarea>
+                        <div ng-messages="vm.ednaform.installationDescription.$error">
+                          <div ng-message="required">
+                              This is required.
+                          </div>
+                      </div>
+                    </md-input-container>
+                </div>
                 </md-card-content>
+               
             </md-card>
 
             <md-card>

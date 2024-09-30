@@ -21,6 +21,8 @@ Node: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.partici
 **Installation name**
 {$ form.installation_name $}
 
+**Installation description**
+{$ form.installation_description $}
 
 **Status of application**
 
