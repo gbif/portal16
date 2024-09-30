@@ -6,6 +6,7 @@
     "BIOCASE_INSTALLATION": "Biocase-installation",
     "HTTP_INSTALLATION": "HTTP-installation",
     "SYMBIOTA_INSTALLATION": "Symbiota-installation",
-    "EARTHCAPE_INSTALLATION": "EarthCape"
+    "EARTHCAPE_INSTALLATION": "EarthCape",
+    "MDT_INSTALLATION": "GBIF annoteret Arkiv"
   }
 }
