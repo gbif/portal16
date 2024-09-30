@@ -6,6 +6,7 @@
     "BIOCASE_INSTALLATION": "Instalación Biocase",
     "HTTP_INSTALLATION": "Instalación HTTP",
     "SYMBIOTA_INSTALLATION": "Instalación Symbiota",
-    "EARTHCAPE_INSTALLATION": "EarthCape"
+    "EARTHCAPE_INSTALLATION": "EarthCape",
+    "MDT_INSTALLATION": "Aquí debe colocarse una breve descripción del componente"
   }
 }
