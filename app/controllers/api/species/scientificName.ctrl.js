@@ -146,7 +146,18 @@ async function getParsedName(speciesKey) {
         if (species.taxonomicStatus === 'SYNONYM' || species.rank !== 'UNRANKED') {
             return name.scientificName;
         } else {
-                let parent = await getSpecies(species.parentKey);
+                let parentKey = species.parentKey;
+                let parent;
+                let linneanParentFound = false;
+                while (!linneanParentFound) {
+                   let p = await getSpecies(parentKey);
+                   if (p.nameType !== 'OTU') {
+                    parent = p;
+                    linneanParentFound = true;
+                   } else {
+                    parentKey = p.parentKey;
+                   }
+                }
                 return (ranks.indexOf(parent.rank) < SPECIES_RANK_INDEX) ?
                 name.scientificName + ' <i>(' + parent.canonicalName + ' sp.)</i>' :
                 name.scientificName + ' <i>(cf. ' + parent.canonicalName + ')</i>';
