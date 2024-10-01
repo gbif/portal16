@@ -6,6 +6,7 @@
     "BIOCASE_INSTALLATION": "Biocase安装",
     "HTTP_INSTALLATION": "Http安装",
     "SYMBIOTA_INSTALLATION": "Symbiota安装",
-    "EARTHCAPE_INSTALLATION": "地球景观"
+    "EARTHCAPE_INSTALLATION": "地球景观",
+    "MDT_INSTALLATION": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。"
   }
 }

@@ -6,6 +6,7 @@
     "BIOCASE_INSTALLATION": "Biocaseのインストール",
     "HTTP_INSTALLATION": "Httpのインストール",
     "SYMBIOTA_INSTALLATION": "Symbiotaのインストール",
-    "EARTHCAPE_INSTALLATION": "EarthCape"
+    "EARTHCAPE_INSTALLATION": "EarthCape",
+    "MDT_INSTALLATION": "GBIFがアノーテーションしたアーカイブ"
   }
 }

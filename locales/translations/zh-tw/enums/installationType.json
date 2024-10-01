@@ -6,6 +6,7 @@
     "BIOCASE_INSTALLATION": "安裝生物典藏品檢索服務",
     "HTTP_INSTALLATION": "安裝超文本傳輸協定",
     "SYMBIOTA_INSTALLATION": "安裝 Symbiota",
-    "EARTHCAPE_INSTALLATION": "EarthCape"
+    "EARTHCAPE_INSTALLATION": "EarthCape",
+    "MDT_INSTALLATION": "GBIF 註記的存檔"
   }
 }

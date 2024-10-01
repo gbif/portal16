@@ -6,6 +6,7 @@
     "BIOCASE_INSTALLATION": "BioCASe",
     "HTTP_INSTALLATION": "HTTP",
     "SYMBIOTA_INSTALLATION": "Symbiota",
-    "EARTHCAPE_INSTALLATION": "EarthCape"
+    "EARTHCAPE_INSTALLATION": "EarthCape",
+    "MDT_INSTALLATION": "Архив, аннотированный GBIF"
   }
 }
