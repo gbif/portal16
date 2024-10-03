@@ -24,6 +24,9 @@ Node: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.partici
 **Installation description**
 {$ form.installation_description $}
 
+**Domain**
+{$ form.domain $}
+
 **Status of application**
 
 * [ ] Content providers clearly defined

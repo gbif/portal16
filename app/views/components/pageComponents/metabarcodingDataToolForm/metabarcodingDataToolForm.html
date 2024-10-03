@@ -227,7 +227,28 @@
                         </div>
                     </md-card-content>
                 </md-card>
-
+                <md-card>
+                  <md-card-title>
+                      <md-card-title-text>
+                          <span class="md-headline">7. Domain</span>
+                          <span class="md-subhead">
+                            If you have your own domain that you want to use for the installation, enter it here (e.g. mdt.gbif.xx)
+                          </span>
+                      </md-card-title-text>
+                  </md-card-title>
+                  <md-card-content>
+                      <div layout="row">
+                            <md-input-container flex="100">
+                              <label>Domain</label>
+                              <input
+                              type="text"
+                              name="domain"
+                              ng-model="vm.form.domain"
+                          />
+                          </md-input-container>
+                      </div>
+                  </md-card-content>
+              </md-card>
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
