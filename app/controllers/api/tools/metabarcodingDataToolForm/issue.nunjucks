@@ -1,7 +1,7 @@
 ## {$ form.installation_name $}
 
 Contact name: {$ form.person_name $}
-Contact name: [{$ form.email $}](mailto:{$ form.email $})
+Contact email: [{$ form.email $}](mailto:{$ form.email $})
 Node: [{$ form.participantTitle $}](https://www.gbif.org/country/{$ form.participantCountry $}/participation)
 
 **Application type**
