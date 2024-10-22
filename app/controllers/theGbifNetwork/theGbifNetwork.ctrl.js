@@ -6,7 +6,6 @@
 
 const express = require('express'),
     router = express.Router(),
-    Q = require('q'),
     helper = rootRequire('app/models/util/util'),
     resource = require('../resource/key/resourceKey');
 
@@ -35,7 +34,7 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
     }
 
 
-    let contentPromise = ( region !== 'GLOBAL') ? resource.getByAlias(req.path, 2, false, res.locals.gb.locales.current) : Q.resolve(false);
+    let contentPromise = resource.getByAlias(req.path, 2, false, res.locals.gb.locales.current);
 
     contentPromise.then((result) => {
             let opts = {};
@@ -45,6 +44,10 @@ router.get('/the-gbif-network/:region?', (req, res, next) => {
             res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', opts);
         })
         .catch((err) => {
+            // fix issue with failing routes. Assume that any 404 is a missing resource and can be handled by fallbacks
+            if (err.statusCode == 404) {
+                return res.render('pages/theGbifNetwork/theGbifNetwork.nunjucks', {});
+            }
             next(err);
         });
 });
