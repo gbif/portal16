@@ -122,8 +122,7 @@
             <div filter-interval filter-config="occurrence.filters.organism_quantity" filter-state="occurrence.occurrenceState"></div>
             <div filter-suggest filter-config="occurrence.filters.organism_quantity_type" filter-state="occurrence.occurrenceState"></div>
             <div filter-interval filter-config="occurrence.filters.relative_organism_quantity" filter-type="float" filter-state="occurrence.occurrenceState"></div>   
-            <div filter-taxon filter-config="occurrence.filters.sex" filter-state="occurrence.occurrenceState"></div>
-
+            <div filter-enum filter-config="occurrence.filters.sex" filter-state="occurrence.occurrenceState"></div>
             <div filter-taxon filter-config="occurrence.filters.lifeStage" filter-state="occurrence.occurrenceState"></div>
             <div filter-taxon filter-config="occurrence.filters.establishmentMeans" filter-state="occurrence.occurrenceState"></div>
             <div filter-taxon filter-config="occurrence.filters.degreeOfEstablishment" filter-state="occurrence.occurrenceState"></div>
@@ -167,8 +166,7 @@
             <div filter-suggest ng-repeat="param in ['earliestEonOrLowestEonothem','latestEonOrHighestEonothem','earliestEraOrLowestErathem','latestEraOrHighestErathem','earliestPeriodOrLowestSystem','latestPeriodOrHighestSystem','earliestEpochOrLowestSeries','latestEpochOrHighestSeries','earliestAgeOrLowestStage','latestAgeOrHighestStage','lowestBiostratigraphicZone','highestBiostratigraphicZone','_group','formation','member','bed']" filter-config="occurrence.filters[param]" filter-state="occurrence.occurrenceState"></div>      
             
             <h3 class="occurrenceGroup" translate="occurrence.groups.Identification">Identification</h3>
-            <div filter-taxon filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
-
+            <div filter-enum filter-config="occurrence.filters.typeStatus" filter-state="occurrence.occurrenceState"></div>
             <div filter-suggest filter-config="occurrence.filters.identifiedBy" filter-state="occurrence.occurrenceState"></div>
             <div filter-suggest filter-config="occurrence.filters.identifiedById" filter-state="occurrence.occurrenceState"></div>     
             
