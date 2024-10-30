@@ -369,6 +369,7 @@ require('../../../pages/derivedDataset/key/derivedDatasetKey.ctrl');
 
 require('../../../pages/occurrence/download/key/occurrenceDownload.ctrl');
 require('../../../pages/occurrence/download/custom/occurrenceDownloadCustom.ctrl');
+require('../../../pages/occurrence/download/sql/occurrenceDownloadSql.ctrl');
 require('../../../pages/species/key/speciesKey.ctrl');
 require('../../../pages/species/key/metrics/speciesKeyMetrics.ctrl');
 

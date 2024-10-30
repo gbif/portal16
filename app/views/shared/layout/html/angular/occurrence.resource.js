@@ -101,6 +101,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SqlFormatting', function($resource, env) {
+            return $resource('/api/occurrence/formatSql', null, {
+                'query': {
+                    method: 'GET',
+                    isArray: false,
+                    cancellable: true
+                }
+            });
+        })
         // This service connects to a proxy which returns processed result from /occurrence/download/dataset/:id.
         .factory('downloadKeyDatasets', function($resource, env) {
             return $resource(env.dataApi + 'occurrence/download/:id/datasets');

@@ -1,0 +1,74 @@
+<div ng-if="!occCustomDownload.hash || occCustomDownload.hash === 'create'">
+  <div class="horizontal-stripe light-background p-t-0 seperator">
+    
+    <div class="container--normal ng-cloak" ng-if="!occCustomDownload.hasUser">
+      <div class="m-t-1 text-center" translate="customDownload.redirectNotice">
+        It looks like you you have been directed here from another site. To download you need to login or register first.
+      </div>
+    </div>
+    <div class="container--normal ng-cloak">
+      <div class="card card--login m-t-1" ng-if="!occCustomDownload.hasUser">
+          <div user-login></div>
+      </div>
+      <section ng-if="occCustomDownload.hasUser">
+        <div class="card-header-flex">
+          <h3 class="card-header-flex__item">
+            <span translate="occurrenceSearch.currentFilter">Current filter</span>
+          </h3>
+          <div class="card-header-flex__spacer"></div>
+          <div class="switch-group card-header-flex__item">
+            <p class="small" ng-if="!occCustomDownload.inEditMode" translate="profile.startEditing"></p>
+            <p class="small" ng-if="occCustomDownload.inEditMode" translate="profile.stopEditing"></p>
+            <input id="downloadEditMode" type="checkbox" ng-model="occCustomDownload.inEditMode"
+                  aria-label="Edit" ng-change="occCustomDownload.editModeChanged()"/>
+            <label for="downloadEditMode" class="switch"></label>
+          </div>
+        </div>
+        <div class="card card--spaced">
+          <div class="card__stripe rtl-supported">
+            <div class="card__content" ng-if="!occCustomDownload.inEditMode">
+              <div class="predicates">
+                <div ng-if="!occCustomDownload.sqlLoaded && !occCustomDownload.invalidInput">
+                  <div class="emptyInfo">
+                      <h3 translate="phrases.loading"></h3>
+                  </div>
+                </div>
+                <div ng-if="!occCustomDownload.invalidInput" class="gb-sqlInput">
+<ng-include src="'/api/occurrence/downloadSql.html?' + occCustomDownload.getSerializedQuery()" onload="occCustomDownload.sqlLoaded = true"></ng-include>
+                </div>
+                <div ng-if="occCustomDownload.invalidInput">
+                  <div class="text-error"><div translate="customDownload.invalidFilter"></div><div ng-if="occCustomDownload.errorMessage">{{occCustomDownload.errorMessage}}</div></div>
+                  <pre>
+{{ occCustomDownload.input }}</pre>
+                </div>
+              </div>
+            </div>
+            <div ng-if="occCustomDownload.inEditMode">
+              <div>
+                <div class="clearfix seperator--b">
+                  <a href="" ng-click="occCustomDownload.prettify()" class="pull-right gb-button--flat text-uppercase" translate="customDownload.reformat">Reformat</a>
+                </div>
+                <div style="position: relative;">
+                  <span ng-if="occCustomDownload.invalidInput" class="badge--error badge" style="position: absolute; right: 1rem; top: 1rem;" translate="customDownload.invalidSQL">Invalid SQL</span>
+                  <textarea ng-change="occCustomDownload.invalidInput = false" placeholder="Enter your SQL" class="gb-sqlInput textarea--noBorder--vertical" ng-model="occCustomDownload.input"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a  ng-if="occCustomDownload.inEditMode" 
+            ng-href="https://techdocs.gbif.org/en/" 
+            class="gb-button gb-button--brand m-t-1" translate="customDownload.seeDocumentation">Read the documentation</a>
+          <select ng-model="occCustomDownload.examples" >
+            <option value="{{example.name}}" ng-repeat="example in occCustomDownload.examples" translate="sqlDownload.examples.{{example.name}}">{{example.sql}}</option>
+          </select>
+        </div>
+      </section>
+      <section class="m-t-1 ng-cloak" ng-if="!occCustomDownload.inEditMode && occCustomDownload.hasUser && !occCustomDownload.invalidInput">
+        <a  ng-click="occCustomDownload.open('SPECIES_LIST')"
+            class="gb-button gb-button--brand m-t-1" translate="sqlDownload.download">Download</a>
+      </section>
+    </div>
+  </div>
+</div>

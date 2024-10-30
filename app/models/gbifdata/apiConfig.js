@@ -80,6 +80,9 @@ let apiConfig = {
         url: baseUrl + 'occurrence/download/',
         canonical: 'occurrence/download/'
     },
+    occurrenceDownloadRequestValidate: {
+        url: baseUrl + 'occurrence/download/request/validate',
+    },
     occurrenceDownloadUser: {
         url: baseUrl + 'occurrence/download/user/'
     },

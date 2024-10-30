@@ -75,7 +75,7 @@ let config = {
         dataApiV2: dataApiV2 || `//api.gbif${localEnvironmentPostFix}.org/v2/`,
         dataApi: dataApi || `//api.gbif${localEnvironmentPostFix}.org/v1/`,
         sourceArchive: sourceArchive || `//source-archive.gbif${localEnvironmentPostFix}.org/`,
-        graphQLApi: graphQLApi || `//graphql.gbif${localEnvironmentPostFix}.org/graphql`,
+        graphQLApi: graphQLApi || `//graphql.gbif-staging.org/graphql`,
         tileApi: tileApi || `//api.gbif${localEnvironmentPostFix}.org/v1/map/density/tile.png`,
         basemapTileApi: basemapTileApi || `//tile.gbif${localEnvironmentPostFix}.org`,
         identityApi: identityApi || `//api.gbif${localEnvironmentPostFix}.org/v1/`,

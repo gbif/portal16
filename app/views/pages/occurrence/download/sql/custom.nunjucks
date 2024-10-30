@@ -1,0 +1,63 @@
+{% extends ".nunjucks ./../shared/layout/html/html.nunjucks" %}
+
+{% block page %}
+    <script>
+        var gb = gb || {};
+        {% if sql %}
+        gb.sql = "{$ sql | encodeURI $}";
+        {% endif %}
+        {% if invalidSql %}
+          gb.invalidSql = true;
+        {% endif %}
+         {% if highlighted %}
+          gb.highlighted = "{$ highlighted | encodeURI $}";;
+        {% endif %}
+    </script>
+    <article class="wrapper-horizontal-stripes downloadCustom"
+             ng-controller="occurrenceDownloadSqlCtrl as occCustomDownload">
+      <div class="horizontal-stripe article-header white-background p-b-0"
+        ng-init="occCustomDownload.inEditMode = {$ invalidSql $}">
+        <div class="container--desktop">
+          
+          <div class="row">
+            <header class="col-xs-12 text-center">
+              <nav class="article-header__category article-header__category--deep">
+                <span class="article-header__category__upper" translate="occurrence.occurrence">occurrence</span>
+                <span class="article-header__category__lower" translate="downloadKey.download">download</span>
+              </nav>
+
+              <h1 class="text-center" dir="auto" translate="customDownload.title">
+                Create new download
+              </h1>
+              {% if invalidSql %}
+                <p ng-if="occCustomDownload.hash === 'create'" class="ng-cloak text-error" dir="auto" translate="customDownload.invalidUrlSQL">
+                  The SQL in the URL is invalid
+                </p>
+              {% endif %}
+            </header>
+          </div>
+        </div>
+        {% include "./nav.nunjucks" %}
+      </div>
+
+      {% include "./about.nunjucks" %}
+      {% include "./create.nunjucks" %}
+      
+      <script type="text/ng-template" id="myModalContent.html">
+          <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
+          <div class="gb-modal-header">
+              <span class="modal-title body-text" id="modal-title" translate="downloadReport.freeOfCost"></span>
+          </div>
+          <div class="gb-modal-body" id="modal-body">
+              <div class="gb-modal-body__content horizontal-stripe white-background">
+                  <div ng-bind-html="'downloadReport.promoteTransperant' | translate | md2html"></div>
+              </div>
+          </div>
+          <div class="gb-modal-footer">
+              <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()" translate="downloadReport.cancel"></a>
+              <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()" id="occurrenceDownloadUnderstoodTerms" translate="downloadReport.understood"></a>
+          </div>
+      </script>
+    </article>
+
+{% endblock %}
