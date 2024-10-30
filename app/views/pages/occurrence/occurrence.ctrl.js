@@ -16,7 +16,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstablishment, LifeStage, EstablishmentMeans, Pathway, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
+function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstablishment, LifeStage, EstablishmentMeans, Pathway, TypeStatus, Sex, OccurrenceSearch, OccurrenceFilter, suggestEndpoints, Species, Dataset, Network, Collection, Institution, SpeciesMatch, $filter, Page, BUILD_VERSION, Publisher, Gadm, $translate) {
   var vm = this;
   $translate('occurrenceSearch.title').then(function (title) {
     Page.setTitle(title);
@@ -26,7 +26,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
 
   vm.filters = {};
   // enums
-  vm.filters.typeStatus = {
+/*   vm.filters.typeStatus = {
     titleTranslation: 'filterNames.typeStatus',
     queryKey: 'type_status',
     filter: OccurrenceFilter,
@@ -37,6 +37,31 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     facets: {
       hasFacets: true,
       facetKey: 'TYPE_STATUS'
+    }
+  }; */
+
+  vm.filters.typeStatus = {
+    titleTranslation: 'filterNames.typeStatus',
+    queryKey: 'typeStatus',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: TypeStatus,
+      expandedTitle: 'name'
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'TYPE_STATUS'
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.typeStatus,
+      suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: function(item) {
+        return $filter('vocabularyLabel')(item);
+      },
+      suggestShortName: 'name',
+      suggestKey: 'name',
+      defaultParams: {limit: 20}
     }
   };
 
@@ -1012,7 +1037,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
   };
 
 
-  vm.filters.sex = {
+/*   vm.filters.sex = {
     titleTranslation: 'filterNames.sex',
     queryKey: 'sex',
     filter: OccurrenceFilter,
@@ -1023,6 +1048,31 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     facets: {
       hasFacets: true,
       facetKey: 'SEX'
+    }
+  }; */
+
+  vm.filters.pathway = {
+    titleTranslation: 'filterNames.sex',
+    queryKey: 'sex',
+    filter: OccurrenceFilter,
+    expand: {
+      resource: Sex,
+      expandedTitle: 'name'
+    },
+    facets: {
+      hasFacets: false,
+      facetKey: 'SEX'
+    },
+    search: {
+      isSearchable: true,
+      suggestEndpoint: suggestEndpoints.sex,
+      suggestTemplate: '/templates/components/filterTaxon/suggetVocabularyTemplate.html?v=' + BUILD_VERSION,
+      suggestTitle: function(item) {
+        return $filter('vocabularyLabel')(item);
+      },
+      suggestShortName: 'name',
+      suggestKey: 'name',
+      defaultParams: {limit: 20}
     }
   };
 

@@ -294,6 +294,8 @@ require('./angular/dataset.resource');
 require('./angular/lifeStage.resource');
 require('./angular/establishmentMeans.resource');
 require('./angular/pathway.resource');
+require('./angular/sex.resource');
+require('./angular/typeStatus.resource');
 require('./angular/degreeOfEstablishment.resource');
 require('./angular/gadm.resource');
 require('./angular/redlist.resource');

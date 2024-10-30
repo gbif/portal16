@@ -40,7 +40,9 @@ angular
         organismQuantityType: env.dataApi + 'occurrence/search/organismQuantityType',
         sampleSizeUnit: env.dataApi + 'occurrence/search/sampleSizeUnit',
         collectionKey: env.dataApi + 'grscicoll/collection/suggest',
-        institutionKey: env.dataApi + 'grscicoll/institution/suggest'
+        institutionKey: env.dataApi + 'grscicoll/institution/suggest',
+        sex: env.dataApi + 'vocabularies/Sex/concepts',
+        typeStatus: env.dataApi + 'vocabularies/TypeStatus/concepts'
     }).constant('token', {
     }).constant('BUILD_VERSION',
         gb.buildVersion
