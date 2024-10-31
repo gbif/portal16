@@ -42,14 +42,14 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
 
   vm.filters.typeStatus = {
     titleTranslation: 'filterNames.typeStatus',
-    queryKey: 'typeStatus',
+    queryKey: 'type_status',
     filter: OccurrenceFilter,
     expand: {
       resource: TypeStatus,
       expandedTitle: 'name'
     },
     facets: {
-      hasFacets: false,
+      hasFacets: true,
       facetKey: 'TYPE_STATUS'
     },
     search: {
@@ -1051,7 +1051,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     }
   }; */
 
-  vm.filters.pathway = {
+  vm.filters.sex = {
     titleTranslation: 'filterNames.sex',
     queryKey: 'sex',
     filter: OccurrenceFilter,
