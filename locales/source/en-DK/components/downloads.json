@@ -90,6 +90,8 @@
   },
   "customSqlDownload": {
     "invalidSQL": "Invalid SQL",
-    "title": "Create new SQL download"
+    "title": "Create new SQL download",
+    "notification": "The easiest way to download and explore data is via the occurrence search user interface. But for complex queries and aggregations, then the SQL editor provides more freedom.",
+    "occurrenceSearch": "Occurrence search"
   }
 }
