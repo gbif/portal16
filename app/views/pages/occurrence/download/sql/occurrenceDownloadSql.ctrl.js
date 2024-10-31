@@ -8,6 +8,7 @@
 'use strict';
 var angular = require('angular');
 require('../downloadSpeed.service');
+var examples = require('./examples.json');
 
 console.log('is this even loaded');
 
@@ -37,15 +38,8 @@ function occurrenceDownloadSqlCtrl($state, $cookies, $scope, AUTH_EVENTS, $httpP
   vm.sqlLoaded = false;
   vm.inEditMode = vm.input.length < 4;
   vm.errorMessage = '';
+  vm.examples = examples;
   var tabs = ['create', 'about'];
-  vm.examples = [
-    {name: 'Simple example', sql: 'SELECT * FROM occurrence WHERE year = 2000'},
-    {name: 'Complex example', sql:`
-SELECT datasetkey, countrycode, COUNT(*)
-FROM occurrence
-WHERE occurrence.continent = 'EUROPE'
-GROUP BY occurrence.datasetkey, occurrence.countrycode`},
-  ];
 
   $scope.$on('$includeContentError', function(event, args) {
     vm.invalidInput = true;
@@ -57,14 +51,22 @@ GROUP BY occurrence.datasetkey, occurrence.countrycode`},
     vm.prettify();
   };
 
+  vm.selectExample = function() {
+    var example = vm.examples.find(function(ex) {
+      return ex.name === vm.selectedExample;
+    });
+    vm.input = example.sql;
+    vm.prettify();
+  };
+
   vm.format = function(str) {
     SqlFormatting.query({sql: str}, function(response) {
-      console.log('inspect result');
       if (response.error) {
         vm.invalidInput = true;
         vm.errorMessage = response.error;
       } else {
         vm.invalidInput = false;
+        vm.errorMessage = undefined;
         vm.input = response.sql;
       }
     }, function() {
@@ -75,6 +77,7 @@ GROUP BY occurrence.datasetkey, occurrence.countrycode`},
   vm.prettify = function(str) {
     vm.format(str || vm.input);
   };
+  vm.prettify();
 
   vm.getSerializedQuery = function() {
     return $httpParamSerializer({sql: vm.input});
@@ -127,8 +130,8 @@ GROUP BY occurrence.datasetkey, occurrence.countrycode`},
 
   vm.startDownload = function (format, username, password, email) {
     try {
-      var jsonSql = JSON.parse(vm.input);
-      var data = {sql: jsonSql};
+      console.log('download');
+      var data = {sql: vm.input};
       data.format = format;
       data.notification_address = email;
       var source = $cookies.get('downloadSource');

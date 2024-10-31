@@ -277,7 +277,7 @@
                                         </pre>
                                     </div>
                                 {% elif download.record.request.sql %}
-                                    {$ download.record.request.sql $}
+                                <div style="white-space: pre-line;">{$ download.record.request.sql $}</div>
                                 {% else %}
                                     {$ __('downloadKey.noFiltersApplied') $}
                                 {% endif %}

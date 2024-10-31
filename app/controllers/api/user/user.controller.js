@@ -18,6 +18,7 @@ module.exports = {
     getDownloads: getDownloads,
     createSimpleDownload: testForDuplicateThenCreateSimpleDownload,
     createPredicateDownload: testForDuplicateThenCreatePredicateDownload,
+    createSqlDownload: createSqlDownload,
     changePassword: changePassword,
     cancelDownload: cancelDownload,
     changeEmail: changeEmail
@@ -188,6 +189,19 @@ function createPredicateDownload(req, res) {
       })
       .catch(handleError(res, 422));
 }
+
+/**
+ * Initiate a predicate download based on query parameters.
+ */
+function createSqlDownload(req, res) {
+    userModel.createSqlDownload(req.user, req.body, _.get(req, 'query.source'))
+        .then(function(download) {
+          res.status(201);
+          auth.setNoCache(res);
+          res.json({downloadKey: download});
+        })
+        .catch(handleError(res, 422));
+  }
 
 /**
  * Cancel a download the user has initiated

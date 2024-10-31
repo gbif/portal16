@@ -26,14 +26,9 @@
                 <span class="article-header__category__lower" translate="downloadKey.download">download</span>
               </nav>
 
-              <h1 class="text-center" dir="auto" translate="customDownload.title">
-                Create new download
+              <h1 class="text-center" dir="auto" translate="customSqlDownload.title">
+                Create new SQL download
               </h1>
-              {% if invalidSql %}
-                <p ng-if="occCustomDownload.hash === 'create'" class="ng-cloak text-error" dir="auto" translate="customDownload.invalidUrlSQL">
-                  The SQL in the URL is invalid
-                </p>
-              {% endif %}
             </header>
           </div>
         </div>

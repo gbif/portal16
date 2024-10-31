@@ -87,5 +87,9 @@
     "title": "Create new download",
     "invalidUrlPredicate": "The predicate in the URL is invalid",
     "redirectNotice": "It looks like you you have been directed here from another site. To download you need to login or register first."
+  },
+  "customSqlDownload": {
+    "invalidSQL": "Invalid SQL",
+    "title": "Create new SQL download"
   }
 }

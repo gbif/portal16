@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Simple example",
+    "sql": "SELECT * FROM occurrence WHERE year = 2000"
+  },
+  {
+    "name": "Complex example",
+    "sql": "SELECT datasetkey, countrycode, COUNT(*)\nFROM occurrence\nWHERE occurrence.continent = 'EUROPE'\nGROUP BY occurrence.datasetkey, occurrence.countrycode"
+  }
+]
