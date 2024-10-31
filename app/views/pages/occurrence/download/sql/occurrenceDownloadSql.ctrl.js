@@ -10,8 +10,6 @@ var angular = require('angular');
 require('../downloadSpeed.service');
 var examples = require('./examples.json');
 
-console.log('is this even loaded');
-
 function htmlDecode(input) {
   var doc = new DOMParser().parseFromString(input, 'text/html');
   return doc.documentElement.textContent;
@@ -130,7 +128,6 @@ function occurrenceDownloadSqlCtrl($state, $cookies, $scope, AUTH_EVENTS, $httpP
 
   vm.startDownload = function (format, username, password, email) {
     try {
-      console.log('download');
       var data = {sql: vm.input};
       data.format = format;
       data.notification_address = email;
