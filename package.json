@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=prod node app.js",
     "build:locales": "node locales/build.js; node locales/createMock.js;",
-    "watch:server": "NODE_ENV=local npx nodemon app.js -- --loglevel=terminal --port=3000 --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
+    "watch:server": "NODE_ENV=local npx nodemon app.js -- --loglevel=terminal --port=3000 --webUtils=http://localhost:4002/unstable-api --credentials=/etc/portal16/credentials --redirects=/etc/portal16/redirects",
     "watch:client": "node node_modules/gulp/bin/gulp.js dev",
     "install": "mkdir -p reports;",
     "test": "node spec/unit-server.js;"

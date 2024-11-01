@@ -92,6 +92,94 @@
     "invalidSQL": "Invalid SQL",
     "title": "Create new SQL download",
     "notification": "The easiest way to download and explore data is via the occurrence search user interface. But for complex queries and aggregations, then the SQL editor provides more freedom.",
-    "occurrenceSearch": "Occurrence search"
+    "occurrenceSearch": "Occurrence search",
+    "taxon": {
+      "KINGDOM": "Kingdom",
+      "PHYLUM": "Phylum",
+      "CLASS": "Class",
+      "ORDER": "Order",
+      "FAMILY": "Family",
+      "GENUS": "Genus",
+      "SPECIES": "Species",
+      "ACCEPTED_TAXON": "Accepted taxon",
+      "EXACT_TAXON": "Exact taxon"
+    },
+    "cubeTitle": "Download cube",
+    "cubeDescription": "Description placeholder",
+    "readMore":"Read more",
+    "time": {
+      "YEAR": "Year",
+      "YEARMONTH": "Year and month",
+      "DATE": "Date"
+    },
+    "grid": {
+      "EEA_REFERENCE_GRID": "EEA reference grid",
+      "EXTENDED_QUARTER_DEGREE_GRID": "Extended quarter degree grid",
+      "ISEA3H_GRID": "ISEA3H grid",
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Military grid reference system"
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "25m",
+        "100": "100m",
+        "250": "250m",
+        "1000": "1km",
+        "10000": "10km",
+        "100000": "100km"
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "Level 0",
+        "1": "Level 1",
+        "2": "Level 2",
+        "3": "Level 3",
+        "4": "Level 4",
+        "5": "Level 5",
+        "6": "Level 6"
+      },
+      "ISEA3H_GRID": {
+        "0": "Level 0",
+        "1": "Level 1",
+        "2": "Level 2",
+        "3": "Level 3",
+        "4": "Level 4",
+        "5": "Level 5",
+        "6": "Level 6",
+        "7": "Level 7",
+        "8": "Level 8",
+        "9": "Level 9",
+        "10": "Level 10",
+        "11": "Level 11",
+        "12": "Level 12",
+        "13": "Level 13",
+        "14": "Level 14",
+        "15": "Level 15",
+        "16": "Level 16",
+        "17": "Level 17",
+        "18": "Level 18",
+        "19": "Level 19",
+        "20": "Level 20",
+        "21": "Level 21",
+        "22": "Level 22"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "1": "1 degree",
+        "10": "10 degrees",
+        "100": "100 degrees",
+        "1000": "1000 degrees",
+        "10000": "10000 degrees",
+        "0": "Finest resolution"
+      }
+    },
+    "noneSelected": "None selected",
+    "dimensions": "Dimensions",
+    "taxonomicDimension": "Taxonomic dimension",
+    "temporalDimension": "Temporal dimension",
+    "spatialDimension": "Spatial dimension",
+    "spatialResolution": "Spatial resolution",
+    "randomPoints": "Randomize Points within Uncertainty Circle",
+    "measurements": "Measurements",
+    "countHigherTaxonomy": "Occurrence count at higher taxonomic level",
+    "coordinateUncertainty": "Include minimum coordinate uncertainty",
+    "temporalUncertainty": "Include minimum temporal uncertainty"
   }
 }

@@ -17,7 +17,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX) {
+function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, OccurrenceFilter, OccurrenceTableSearch, Remarks, env, endpoints, $httpParamSerializer, $uibModal, enums, $translate, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX) {
     var vm = this;
     vm.stateParams = $state;
     vm.downloadFormats = enums.downloadFormats;
@@ -42,7 +42,9 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     vm.adhocTileApi = env.dataApiV2;
 
-    vm.randomize = 'yes';
+    vm.randomize = 'YES';
+    vm.includeTemporalUncertainty = 'YES';
+    vm.includeSpatialUncertainty = 'YES';
     vm.taxonomy = 'SPECIES';
     vm.temporal = 'YEAR';
     vm.TAXONOMIC_GROUP = [
@@ -112,8 +114,17 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     vm.isFormValid = function() {
         vm.isValid = !!(vm.taxonomy || vm.temporal || (vm.spatial && vm.resolution));
+        if (vm.spatial && typeof vm.resolution === undefined) {
+            vm.isValid = false;
+        }
         return vm.isValid;
     };
+
+    vm.translateEnum = function(type, enumKey) {
+        console.log(type + '.' + enumKey);
+        // Assuming translateService is a service that provides translations
+        return $translate(type + '.' + enumKey);
+      };
 
     vm.generateSql = function() {
         var query = {
@@ -122,10 +133,15 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             spatial: vm.spatial,
             resolution: vm.resolution,
             randomize: vm.randomize,
-            higherGroups: vm.selectedHigherTaxonomyGroups
+            higherGroups: vm.selectedHigherTaxonomyGroups,
+            includeTemporalUncertainty: vm.includeTemporalUncertainty,
+            includeSpatialUncertainty: vm.includeSpatialUncertainty
         };
-        $http.get('http://local:4001/unstable-api/generate-sql', {params: query})
+
+        $http.get(endpoints.webUtils + '/generate-sql', {params: query})
             .then(function(response) {
+                console.log(response);
+                vm.sql = response.data.sql;
             })
             .catch(function(err) {
                 console.log(err);
