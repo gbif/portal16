@@ -42,6 +42,95 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     vm.adhocTileApi = env.dataApiV2;
 
+    vm.randomize = 'yes';
+    vm.taxonomy = 'SPECIES';
+    vm.temporal = 'YEAR';
+    vm.TAXONOMIC_GROUP = [
+        'KINGDOM',
+        'PHYLUM',
+        'CLASS',
+        'ORDER',
+        'FAMILY',
+        'GENUS',
+        'SPECIES',
+        'ACCEPTED_TAXON',
+        'EXACT_TAXON'
+    ];
+
+    vm.TEMPORAL_GROUP = [
+        'YEAR',
+        'YEARMONTH',
+        'DATE'
+    ];
+
+    var HIGHER_TAXONOMIC_OPTIONS = [
+        'KINGDOM',
+        'PHYLUM',
+        'CLASS',
+        'ORDER',
+        'FAMILY',
+        'GENUS'
+    ];
+    
+    vm.SPATIAL_GROUP = [
+        'EEA_REFERENCE_GRID',
+        'EXTENDED_QUARTER_DEGREE_GRID',
+        'ISEA3H_GRID',
+        'MILITARY_GRID_REFERENCE_SYSTEM'
+    ];
+    vm.selectedHigherTaxonomyGroups = [];
+
+    var EEA_REFERENCE_GRID_RESOLUTION = [25, 100, 250, 1000, 10000, 100000];
+    var EXTENDED_QUARTER_DEGREE_GRID_RESOLUTION = [0, 1, 2, 3, 4, 5, 6];
+    var ISEA3H_GRID_RESOLUTION = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+    var MILITARY_GRID_REFERENCE_SYSTEM_RESOLUTION = [1, 10, 100, 1000, 10000, 0];
+    vm.resolutionOptions = {
+        EEA_REFERENCE_GRID: EEA_REFERENCE_GRID_RESOLUTION,
+        EXTENDED_QUARTER_DEGREE_GRID: EXTENDED_QUARTER_DEGREE_GRID_RESOLUTION,
+        ISEA3H_GRID: ISEA3H_GRID_RESOLUTION,
+        MILITARY_GRID_REFERENCE_SYSTEM: MILITARY_GRID_REFERENCE_SYSTEM_RESOLUTION
+    };
+
+    vm.setHigherCounts = function() {
+        // only allowtaxonomic groups that are higher than the the selected taxonomic group (vm.taxonomy)
+        var index = vm.TAXONOMIC_GROUP.indexOf(vm.taxonomy);
+        vm.higherTaxonomicGroups = HIGHER_TAXONOMIC_OPTIONS.slice(0, index);
+        vm.disableHigherTaxonomy = vm.higherTaxonomicGroups.length === 0;
+
+        // refresh selectedHigherTaxonomyGroups - meaning remove unavaialble values (e.g. union of higherTaxonomicGroups and selectedHigherTaxonomyGroups)
+        vm.selectedHigherTaxonomyGroups = _.union(vm.higherTaxonomicGroups, vm.selectedHigherTaxonomyGroups);
+    };
+    vm.setHigherCounts();
+
+    vm.higherTaxonChange = function(key, checked) {
+        vm.higherTaxonomyTypes[key] = checked;
+    };
+
+    vm.updateResolutionOptions = function() {
+        vm.resolution = undefined;
+    };
+
+    vm.isFormValid = function() {
+        vm.isValid = !!(vm.taxonomy || vm.temporal || (vm.spatial && vm.resolution));
+        return vm.isValid;
+    };
+
+    vm.generateSql = function() {
+        var query = {
+            taxonomy: vm.taxonomy,
+            temporal: vm.temporal,
+            spatial: vm.spatial,
+            resolution: vm.resolution,
+            randomize: vm.randomize,
+            higherGroups: vm.selectedHigherTaxonomyGroups
+        };
+        $http.get('http://local:4001/unstable-api/generate-sql', {params: query})
+            .then(function(response) {
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    };
 
     var toCamelCase = function(str) {
         return str.replace(/_([a-z])/g, function(g) {
@@ -190,7 +279,9 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     vm.open = function(format) {
         vm.state.table.$promise.then(function() {
-            if (vm.state.table.count > vm.largeDownloadOffset && format !== 'SPECIES_LIST') {
+            if (format === 'SQL_CUBE') {
+                vm.openSqlModal(format);
+            } else if (vm.state.table.count > vm.largeDownloadOffset && format !== 'SPECIES_LIST') {
                 vm.openWarningModal(format);
             } else {
                 vm.openDownloadModal(format);
@@ -204,6 +295,28 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: 'myModalContent.html',
+            controller: 'ModalInstanceCtrl',
+            controllerAs: '$ctrl',
+            resolve: {
+                options: function() {
+                    return {format: format};
+                }
+            }
+        });
+
+        modalInstance.result.then(function(downloadOptions) {
+            vm.startDownload(downloadOptions.format, downloadOptions.username, downloadOptions.password, downloadOptions.email);
+        }, function() {
+            // user clicked cancel
+        });
+    };
+
+    vm.openSqlModal = function(format) {
+        var modalInstance = $uibModal.open({
+            animation: true,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'simpleSqlDownload.html',
             controller: 'ModalInstanceCtrl',
             controllerAs: '$ctrl',
             resolve: {

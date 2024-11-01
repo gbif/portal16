@@ -72,6 +72,72 @@
         <div class="container--normal">
             <div class="m-t-1" ng-if="occDownload.hasUser && occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
                 <!-- download table -->
+
+
+                <div style="border: 5px solid #000">
+                    <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
+                    <div class="gb-modal-header">
+                        <span class="modal-title body-text" id="modal-title" x_translate="downloadReport.freeOfCost">Simple SQL download</span>
+                    </div>
+                    <div class="gb-modal-body">
+                        <div class="gb-modal-body__content horizontal-stripe white-background" id="modal-body">
+                            description
+                        </div>
+                        <div class="horizontal-stripe light-background">
+                            <form name="sampleForm" novalidate>
+                                <h3>Dimensions</h3>
+                                <!-- Taxonomy Dropdown -->
+                                <div>
+                                    <label for="taxonomy">Taxonomic dimension</label><br/>
+                                    <select id="taxonomy" ng-change="occDownload.setHigherCounts()" ng-model="occDownload.taxonomy" ng-options="rank for rank in occDownload.TAXONOMIC_GROUP" required>
+                                        <option value="">None selected</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <!-- Temporal Dropdown -->
+                                    <label for="temporal">Temporal dimension</label><br/>
+                                    <select id="temporal" ng-model="occDownload.temporal" ng-options="time for time in occDownload.TEMPORAL_GROUP" required>
+                                        <option value="">None selected</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <!-- Spatial Dropdowns -->
+                                    <label for="spatial1">Spatial dimension</label><br/>
+                                    <select id="spatial1" ng-model="occDownload.spatial" ng-options="location for location in occDownload.SPATIAL_GROUP" required>
+                                        <option value="">None selected</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="spatial2">Spatial resolution</label><br/>
+                                    <select ng-disabled="!occDownload.spatial" id="spatial2" ng-model="occDownload.resolution" ng-options="location for location in occDownload.resolutionOptions[occDownload.spatial]" required>
+                                        <option value="">None selected</option>
+                                    </select>
+                                </div>
+                                <h3>Measurements</h3>
+                                <div>
+                                    <!-- Measurement Types (Multi-select) -->
+                                    <label for="measurements">Measurement Types</label><br/>
+                                    <div ng-repeat="type in occDownload.higherTaxonomicGroups">
+                                        <label>
+                                            <input type="checkbox" checklist-model="occDownload.selectedHigherTaxonomyGroups" checklist-value="type">
+                                            {{ type }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <!-- Randomize Points within Uncertainty Circle -->
+                                    <label>Randomize Points within Uncertainty Circle</label><br/>
+                                    <label><input type="radio" ng-model="occDownload.randomize" value="yes">Yes</label>
+                                    <label><input type="radio" ng-model="occDownload.randomize" value="no">No</label>
+                                </div>
+                                <div>
+                                    <div class="text-error" ng-if="!occDownload.isValid">At least one dimension must be selected</div>
+                                    <button class="gb-button gb-button--brand" type="submit" ng-disabled="!occDownload.isFormValid()" ng-click="occDownload.generateSql()">Download</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <h3 class="card-header" translate="downloadOptions.title">Download options</h3>
                 <div class="card card--spaced">
                     <div class="card__content">
@@ -155,6 +221,25 @@
                                             <td>
                                                 <span gb-help="opening-gbif-csv-in-excel">
                                                 <span translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</span>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <a href="" class="center-block gb-button--brand" ng-click="occDownload.open('SQL_CUBE')">
+                                                        <span class="gb-icon-file-download"></span>
+                                                        <span sx_translate="downloadFormat.SPECIES_LIST">SQL cube</span>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td translate="downloadOptions.tableValues.no"></td>
+                                            <td translate="downloadOptions.tableValues.yes">✓</td>
+                                            <td translate="downloadOptions.tableValues.no"></td>
+                                            <td translate="downloadOptions.tableValues.no">No</td>
+                                            <td>
+                                                <span gb-help="opening-gbif-csv-in-excel">
+                                                <span x_translate="downloadOptions.fileFormats.tabCsv">Tab-delimited CSV</span>
                                             </td>
                                             <td></td>
                                         </tr>
@@ -319,6 +404,26 @@
         <div class="gb-modal-footer">
             <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()" translate="downloadReport.cancel"></a>
             <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()" id="occurrenceDownloadWarningProceed" translate="downloadReport.proceed"></a>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="simpleSqlDownload.html">
+        <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
+        <div class="gb-modal-header">
+            <span class="modal-title body-text" id="modal-title" x_translate="downloadReport.freeOfCost">Simple SQL download</span>
+        </div>
+        <div class="gb-modal-body">
+            <div class="gb-modal-body__content horizontal-stripe white-background" id="modal-body">
+                <!-- <div ng-bind-html="'downloadReport.promoteTransperant' | translate | md2html"></div> -->
+                 Some short introduction text that can be closed? sdkfhj
+            </div>
+            <div class="horizontal-stripe light-background">
+                form here
+            </div>
+        </div>
+        <div class="gb-modal-footer">
+            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()" translate="downloadReport.cancel"></a>
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()" id="occurrenceDownloadUnderstoodTerms" translate="downloadReport.understood"></a>
         </div>
     </script>
 

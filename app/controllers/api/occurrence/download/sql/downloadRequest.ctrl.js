@@ -4,6 +4,7 @@ const router = express.Router();
 const request = require('../../../../../helpers/request');
 const apiConfig = require('../../../../../models/gbifdata/apiConfig');
 const {highlight} = require('sql-highlight');
+const {format} = require('sql-formatter');
 
 module.exports = function(app) {
     app.use('/api/occurrence', router);
@@ -14,7 +15,12 @@ router.get('/formatSql', function(req, res) {
     let sql = req.query.sql;
     if (!sql) return res.sendStatus(500);
     validateSql(sql).then(function(response) {
-      return res.json(response);
+      // is valid. Now format it
+      // const sqlString = response.sql;// currently this creates broken sql so use original
+      const sqlString = sql;
+      const formattedSql = format(sqlString, {language: 'mysql'});
+
+      return res.json({error: response.error, sql: formattedSql});
     }).catch(function(err) {
       console.log(err);
       return res.sendStatus(500);
@@ -32,8 +38,10 @@ router.get('/downloadSql.html', function(req, res) {
     if (!sql) return res.sendStatus(400);
     validateSql(sql).then(function(response) {
       if (response.error) return res.sendStatus(500);
-      const sqlString = response.sql;
-      const highlighted = highlight(sqlString, {
+      // const sqlString = response.sql;// currently this creates broken sql so use original
+      const sqlString = sql;
+      const formattedSql = format(sqlString, {language: 'mysql'});
+      const highlighted = highlight(formattedSql, {
         html: true
       });
       return res.send(highlighted);
