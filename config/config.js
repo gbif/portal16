@@ -19,6 +19,7 @@ let path = require('path'),
     analyticsImg = yargs.analyticsImg,
     contentfulApi = yargs.contentfulApi,
     registry = yargs.registry,
+    registryApi = yargs.registryApi,
     contentfulPreviewApi = yargs.contentfulPreviewApi,
     elk = yargs.elk,
     publicKibana = yargs.publicKibana,
@@ -60,7 +61,7 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-const localEnvironmentPostFix = '-dev'; // e.g. '-uat';
+const localEnvironmentPostFix = '-uat'; // e.g. '-uat';
 let config = {
     local: {
         env: 'dev',
@@ -75,6 +76,7 @@ let config = {
         managementToolsSite: `//registry.gbif${localEnvironmentPostFix}.org/`,
         dataApiV2: dataApiV2 || `//api.gbif${localEnvironmentPostFix}.org/v2/`,
         dataApi: dataApi || `//api.gbif${localEnvironmentPostFix}.org/v1/`,
+        registryApi: registryApi || `//registry-api.gbif${localEnvironmentPostFix}.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif${localEnvironmentPostFix}.org/`,
         graphQLApi: graphQLApi || `//graphql.gbif-staging.org/graphql`,
         webUtils: webUtils || `//graphql.gbif-staging.org/unstable-api`,
@@ -123,6 +125,7 @@ let config = {
         managementToolsSite: '//registry.gbif-dev.org/',
         dataApiV2: dataApiV2 || '//api.gbif-dev.org/v2/',
         dataApi: dataApi || '//api.gbif-dev.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif-dev.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif-dev.org/`,
         graphQLApi: graphQLApi || `//graphql.gbif-dev.org/graphql`,
         webUtils: webUtils || `//graphql.gbif-dev.org/unstable-api`,
@@ -169,6 +172,7 @@ let config = {
         managementToolsSite: '//registry.gbif-dev2.org/',
         dataApiV2: dataApiV2 || '//api.gbif-dev2.org/v2/',
         dataApi: dataApi || '//api.gbif-dev2.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif-dev2.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif-dev.org/`,
         graphQLApi: graphQLApi || `//graphql.gbif-dev2.org/graphql`,
         webUtils: webUtils || `//graphql.gbif-dev2.org/unstable-api`,
@@ -214,6 +218,7 @@ let config = {
         managementToolsSite: '//registry.gbif-uat.org/',
         dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
         dataApi: dataApi || '//api.gbif-uat.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif-uat.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif-uat.org/`,
         graphQLApi: graphQLApi || `//graphql.gbif-uat.org/graphql`,
         webUtils: webUtils || `//graphql.gbif-uat.org/unstable-api`,
@@ -259,6 +264,7 @@ let config = {
         managementToolsSite: '//registry.gbif.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif.org/`,
         graphQLApi: graphQLApi || `//graphql.gbif.org/graphql`,
         webUtils: webUtils || `//graphql.gbif.org/unstable-api`,
@@ -304,6 +310,7 @@ let config = {
         managementToolsSite: '//registry.gbif.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif.org/`,
         graphQLApi: graphQLApi || `//graphql.gbif.org/graphql`,
         webUtils: webUtils || `//graphql.gbif.org/unstable-api`,
@@ -349,6 +356,7 @@ let config = {
         managementToolsSite: '//registry.gbif-uat.org/',
         dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
         dataApi: dataApi || '//api.gbif-uat.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif-uat.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif-uat.org/`,
         tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
         basemapTileApi: basemapTileApi || '//tile.gbif.org',

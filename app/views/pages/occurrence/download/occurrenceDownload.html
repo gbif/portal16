@@ -72,133 +72,6 @@
         <div class="container--normal">
             <div class="m-t-1" ng-if="occDownload.hasUser && occDownload.state.table.count > 0 && !occDownload.stateParams.params.q">
                 <!-- download table -->
-
-
-                <div style="border: 5px solid #000">
-                    <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
-                    <div class="gb-modal-header">
-                        <span class="modal-title body-text" id="modal-title" translate="customSqlDownload.cubeTitle">Sql download</span>
-                    </div>
-                    <div class="gb-modal-body">
-                        <div class="gb-modal-body__content horizontal-stripe white-background" id="modal-body" translate="customSqlDownload.cubeDescription">
-                            description
-                        </div>
-                        <div class="horizontal-stripe light-background p-t-05">
-                            <form name="sampleForm" class="gbifCubeForm" novalidate>
-                                <fieldset class="gbifCubeForm__mainFieldset ">
-                                    <legend class="card-header" translate="customSqlDownload.dimensions">Dimensions</legend>
-                                    <div class="card">
-                                        <!-- Taxonomy Dropdown -->
-                                        <div class="card__stripe">
-                                            <div class="card__content">
-                                                <label for="taxonomy" translate="customSqlDownload.taxonomicDimension">Taxonomic dimension</label><br/>
-                                                <select id="taxonomy"
-                                                        ng-change="occDownload.setHigherCounts()" 
-                                                        ng-model="occDownload.taxonomy" 
-                                                        ng-options="taxon as (('customSqlDownload.taxon.' + taxon) | translate) for taxon in occDownload.TAXONOMIC_GROUP">
-                                                    <option value="" translate="customSqlDownload.noneSelected">None selected</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="card__stripe">
-                                            <div class="card__content">
-                                                <!-- Temporal Dropdown -->
-                                                <label for="temporal" translate="customSqlDownload.temporalDimension">Temporal dimension</label><br/>
-                                                <select id="temporal" 
-                                                        ng-model="occDownload.temporal" 
-                                                        ng-options="time as (('customSqlDownload.time.' + time) | translate) for time in occDownload.TEMPORAL_GROUP" required>
-                                                    <option value="" translate="customSqlDownload.noneSelected">None selected</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="card__stripe">
-                                            <div class="card__content">
-                                                <fieldset>
-                                                    <legend class="sr-only" translate="customSqlDownload.spatialDimension">Spatial dimension</legend>
-                                                    <!-- Spatial Dropdowns -->
-                                                    <div>
-                                                        <div>
-                                                            <label for="spatial1" translate="customSqlDownload.spatialDimension">Spatial dimension</label><br/>
-                                                            <select id="spatial1" 
-                                                                    ng-model="occDownload.spatial" 
-                                                                    ng-options="grid as (('customSqlDownload.grid.' + grid) | translate) for grid in occDownload.SPATIAL_GROUP" required>
-                                                                <option value="" translate="customSqlDownload.noneSelected">None selected</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="m-t-05">
-                                                            <label for="spatial2" translate="customSqlDownload.spatialResolution">Spatial resolution</label><br/>
-                                                            <select ng-disabled="!occDownload.spatial" 
-                                                                    id="spatial2" ng-model="occDownload.resolution" 
-                                                                    ng-options="location as (('customSqlDownload.resolution.' + occDownload.spatial + '.' + location) | translate) for location in occDownload.resolutionOptions[occDownload.spatial]" required>
-                                                                <option value="" translate="customSqlDownload.noneSelected">None selected</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="m-t-05">
-                                                            <fieldset>
-                                                                <legend><label translate="customSqlDownload.randomPoints">Randomize Points within Uncertainty Circle</label></legend>
-                                                                <div>
-                                                                    <label><input ng-disabled="!occDownload.spatial" type="radio" ng-model="occDownload.randomize" value="YES"><span class="m-x-05">Yes</span></label>
-                                                                    <label class="m-x-05"><input ng-disabled="!occDownload.spatial" type="radio" ng-model="occDownload.randomize" value="NO"><span class="m-x-05">No</span></label>
-                                                                </div>
-                                                            </fieldset>
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <fieldset class="gbifCubeForm__mainFieldset m-t-05">
-                                    <legend class="card-header" translate="customSqlDownload.measurements">Measurements</legend>
-                                    <div class="card">
-                                        <div class="card__stripe">
-                                            <div class="card__content">
-                                                <!-- Measurement Types (Multi-select) -->
-                                                <fieldset>
-                                                    <legend><label translate="customSqlDownload.countHigherTaxonomy">Occurrence count at higher taxonomic level</label></legend>
-                                                    <div>
-                                                        <div ng-repeat="type in occDownload.higherTaxonomicGroups">
-                                                            <label>
-                                                                <input type="checkbox" checklist-model="occDownload.selectedHigherTaxonomyGroups" checklist-value="type">
-                                                                <span translate="taxonRank.{{type}}">{{type}}</span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="card__stripe">
-                                            <div class="card__content">
-                                                <fieldset>
-                                                    <legend><label translate="customSqlDownload.coordinateUncertainty">Include minimum coordinate uncertainty</label></legend>
-                                                    <div>
-                                                        <label><input type="radio" ng-model="occDownload.includeSpatialUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
-                                                        <label class="m-x-05"><input type="radio" ng-model="occDownload.includeSpatialUncertainty" value="NO"><span class="m-x-05">No</span></label>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="card__stripe">
-                                            <div class="card__content">
-                                                <fieldset>
-                                                    <legend><label translate="customSqlDownload.temporalUncertainty">Include minimum temporal uncertainty</label></legend>
-                                                    <div>
-                                                        <label><input type="radio" ng-model="occDownload.includeTemporalUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
-                                                        <label class="m-x-05"><input type="radio" ng-model="occDownload.includeTemporalUncertainty" value="NO"><span class="m-x-05">No</span></label>
-                                                    </div>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <div class="m-t-05">
-                                    <div class="text-error" ng-if="!occDownload.isValid" translate="customSqlDownload.errorMinimumDimension">At least one dimension must be selected</div>
-                                    <button class="gb-button gb-button--brand" type="submit" ng-disabled="!occDownload.isFormValid()" ng-click="occDownload.generateSql()" translate="customSqlDownload.download">Download</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
                 <h3 class="card-header" translate="downloadOptions.title">Download options</h3>
                 <div class="card card--spaced">
                     <div class="card__content">
@@ -470,14 +343,17 @@
 
     <script type="text/ng-template" id="simpleSqlDownload.html">
         <a href="" class="gb-icon-close_L inherit pull-right m-t-05 m-r-05" type="button" ng-click="$ctrl.cancel()"></a>
-        <div class="gb-modal-header">
-            <span class="modal-title body-text" id="modal-title" translate="customSqlDownload.cubeTitle">Sql download</span>
+        <div class="gb-modal-header card__stripe">
+            <div class="modal-title body-text" id="modal-title" translate="customSqlDownload.cubeTitle">Sql download</div>
+            <div class="m-t-05">
+                <a ng-href="{{ portal.urlPrefix }}/occurrence/download/sql#about" translate="customSqlDownload.whatIsThis">Learn more about occurrence cubes</a>
+            </div>
         </div>
         <div class="gb-modal-body">
-            <div class="gb-modal-body__content horizontal-stripe white-background" id="modal-body" translate="customSqlDownload.cubeDescription">
+            <!-- <div class="gb-modal-body__content horizontal-stripe white-background" id="modal-body" translate="customSqlDownload.cubeDescription">
                 description
-            </div>
-            <div class="horizontal-stripe light-background p-t-05">
+            </div> -->
+            <div class="horizontal-stripe light-background p-t-05 p-b-0">
                 <form name="sampleForm" class="gbifCubeForm" novalidate>
                     <fieldset class="gbifCubeForm__mainFieldset ">
                         <legend class="card-header" translate="customSqlDownload.dimensions">Dimensions</legend>
@@ -487,9 +363,9 @@
                                 <div class="card__content">
                                     <label for="taxonomy" translate="customSqlDownload.taxonomicDimension">Taxonomic dimension</label><br/>
                                     <select id="taxonomy"
-                                            ng-change="occDownload.setHigherCounts()" 
-                                            ng-model="occDownload.taxonomy" 
-                                            ng-options="taxon as (('customSqlDownload.taxon.' + taxon) | translate) for taxon in occDownload.TAXONOMIC_GROUP">
+                                            ng-change="$ctrl.setHigherCounts()" 
+                                            ng-model="$ctrl.taxonomy" 
+                                            ng-options="taxon as (('customSqlDownload.taxon.' + taxon) | translate) for taxon in $ctrl.TAXONOMIC_GROUP">
                                         <option value="" translate="customSqlDownload.noneSelected">None selected</option>
                                     </select>
                                 </div>
@@ -499,8 +375,8 @@
                                     <!-- Temporal Dropdown -->
                                     <label for="temporal" translate="customSqlDownload.temporalDimension">Temporal dimension</label><br/>
                                     <select id="temporal" 
-                                            ng-model="occDownload.temporal" 
-                                            ng-options="time as (('customSqlDownload.time.' + time) | translate) for time in occDownload.TEMPORAL_GROUP" required>
+                                            ng-model="$ctrl.temporal" 
+                                            ng-options="time as (('customSqlDownload.time.' + time) | translate) for time in $ctrl.TEMPORAL_GROUP" required>
                                         <option value="" translate="customSqlDownload.noneSelected">None selected</option>
                                     </select>
                                 </div>
@@ -514,25 +390,26 @@
                                             <div>
                                                 <label for="spatial1" translate="customSqlDownload.spatialDimension">Spatial dimension</label><br/>
                                                 <select id="spatial1" 
-                                                        ng-model="occDownload.spatial" 
-                                                        ng-options="grid as (('customSqlDownload.grid.' + grid) | translate) for grid in occDownload.SPATIAL_GROUP" required>
+                                                        ng-model="$ctrl.spatial" 
+                                                        ng-change="$ctrl.setResolutionOptions()"
+                                                        ng-options="grid as (('customSqlDownload.grid.' + grid) | translate) for grid in $ctrl.SPATIAL_GROUP" required>
                                                     <option value="" translate="customSqlDownload.noneSelected">None selected</option>
                                                 </select>
                                             </div>
                                             <div class="m-t-05">
                                                 <label for="spatial2" translate="customSqlDownload.spatialResolution">Spatial resolution</label><br/>
-                                                <select ng-disabled="!occDownload.spatial" 
-                                                        id="spatial2" ng-model="occDownload.resolution" 
-                                                        ng-options="location as (('customSqlDownload.resolution.' + occDownload.spatial + '.' + location) | translate) for location in occDownload.resolutionOptions[occDownload.spatial]" required>
-                                                    <option value="" translate="customSqlDownload.noneSelected">None selected</option>
+                                                <select ng-disabled="!$ctrl.spatial" 
+                                                        id="spatial2" ng-model="$ctrl.resolution" 
+                                                        ng-options="location as (('customSqlDownload.resolution.' + $ctrl.spatial + '.' + location) | translate) for location in $ctrl.resolutionOptions[$ctrl.spatial]">
+                                                        <option value="" disabled translate="customSqlDownload.noneSelected">None selected</option>
                                                 </select>
                                             </div>
                                             <div class="m-t-05">
                                                 <fieldset>
                                                     <legend><label translate="customSqlDownload.randomPoints">Randomize Points within Uncertainty Circle</label></legend>
                                                     <div>
-                                                        <label><input ng-disabled="!occDownload.spatial" type="radio" ng-model="occDownload.randomize" value="YES"><span class="m-x-05">Yes</span></label>
-                                                        <label class="m-x-05"><input ng-disabled="!occDownload.spatial" type="radio" ng-model="occDownload.randomize" value="NO"><span class="m-x-05">No</span></label>
+                                                        <label><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.randomize" value="YES"><span class="m-x-05">Yes</span></label>
+                                                        <label class="m-x-05"><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.randomize" value="NO"><span class="m-x-05">No</span></label>
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -545,15 +422,15 @@
                     <fieldset class="gbifCubeForm__mainFieldset m-t-05">
                         <legend class="card-header" translate="customSqlDownload.measurements">Measurements</legend>
                         <div class="card">
-                            <div class="card__stripe">
+                            <div class="card__stripe" ng-if="!$ctrl.disableHigherTaxonomy">
                                 <div class="card__content">
                                     <!-- Measurement Types (Multi-select) -->
                                     <fieldset>
                                         <legend><label translate="customSqlDownload.countHigherTaxonomy">Occurrence count at higher taxonomic level</label></legend>
                                         <div>
-                                            <div ng-repeat="type in occDownload.higherTaxonomicGroups">
+                                            <div ng-repeat="type in $ctrl.higherTaxonomicGroups">
                                                 <label>
-                                                    <input type="checkbox" checklist-model="occDownload.selectedHigherTaxonomyGroups" checklist-value="type">
+                                                    <input type="checkbox" checklist-model="$ctrl.selectedHigherTaxonomyGroups" checklist-value="type">
                                                     <span translate="taxonRank.{{type}}">{{type}}</span>
                                                 </label>
                                             </div>
@@ -566,8 +443,8 @@
                                     <fieldset>
                                         <legend><label translate="customSqlDownload.coordinateUncertainty">Include minimum coordinate uncertainty</label></legend>
                                         <div>
-                                            <label><input type="radio" ng-model="occDownload.includeSpatialUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
-                                            <label class="m-x-05"><input type="radio" ng-model="occDownload.includeSpatialUncertainty" value="NO"><span class="m-x-05">No</span></label>
+                                            <label><input type="radio" ng-model="$ctrl.includeSpatialUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
+                                            <label class="m-x-05"><input type="radio" ng-model="$ctrl.includeSpatialUncertainty" value="NO"><span class="m-x-05">No</span></label>
                                         </div>
                                     </fieldset>
                                 </div>
@@ -577,8 +454,8 @@
                                     <fieldset>
                                         <legend><label translate="customSqlDownload.temporalUncertainty">Include minimum temporal uncertainty</label></legend>
                                         <div>
-                                            <label><input type="radio" ng-model="occDownload.includeTemporalUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
-                                            <label class="m-x-05"><input type="radio" ng-model="occDownload.includeTemporalUncertainty" value="NO"><span class="m-x-05">No</span></label>
+                                            <label><input type="radio" ng-model="$ctrl.includeTemporalUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
+                                            <label class="m-x-05"><input type="radio" ng-model="$ctrl.includeTemporalUncertainty" value="NO"><span class="m-x-05">No</span></label>
                                         </div>
                                     </fieldset>
                                 </div>
@@ -586,8 +463,14 @@
                         </div>
                     </fieldset>
                     <div class="m-t-05">
-                        <div class="text-error" ng-if="!occDownload.isValid" translate="customSqlDownload.errorMinimumDimension">At least one dimension must be selected</div>
-                        <button class="gb-button gb-button--brand" type="submit" ng-disabled="!occDownload.isFormValid()" ng-click="occDownload.generateSql()" translate="customSqlDownload.download">Download</button>
+                        <div class="text-error" ng-if="!$ctrl.isValid" translate="customSqlDownload.errorMinimumDimension">At least one dimension must be selected</div>
+                        <div>
+                            <button class="gb-button gb-button--brand" type="submit" ng-disabled="!$ctrl.isFormValid()" ng-click="$ctrl.download()" translate="phrases.download">Download</button>
+                            <button class="gb-button gb-button" ng-click="$ctrl.cancel()" translate="phrases.cancel">Cancel</button>
+                        </div>
+                        <div class="m-t-05">
+                            <a ng-href="{{ portal.urlPrefix }}/occurrence/download/sql" ng-click="$ctrl.gotoEditSql($event)" target="_blank" translate="customSqlDownload.editSql">Edit as SQL</a>
+                        </div>
                     </div>
                 </form>
             </div>

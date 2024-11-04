@@ -34,7 +34,7 @@ router.get('/download/sql', function(req, res, next) {
   if (req.query.sql && req.query.sql !== '') {
     sqlRequestHandler({req, res, next, sql: req.query.sql});
   } else {
-    return res.render('pages/occurrence/download/custom/custom.nunjucks', {});
+    return res.render('pages/occurrence/download/sql/custom.nunjucks', {});
   }
 });
 
@@ -48,11 +48,11 @@ async function sqlRequestHandler({req, res, next, sql}) {
         sql: sql
       });
     }
-    const highlighted = highlight(validationResponse.sql, {
+    const highlighted = highlight(sql, {
       html: true
     });
     return res.render('pages/occurrence/download/sql/custom.nunjucks', {
-      sql: validationResponse.sql,
+      sql: sql,
       invalidSql: false,
       highlighted: highlighted
     });

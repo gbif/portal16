@@ -42,112 +42,6 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 
     vm.adhocTileApi = env.dataApiV2;
 
-    vm.randomize = 'YES';
-    vm.includeTemporalUncertainty = 'YES';
-    vm.includeSpatialUncertainty = 'YES';
-    vm.taxonomy = 'SPECIES';
-    vm.temporal = 'YEAR';
-    vm.TAXONOMIC_GROUP = [
-        'KINGDOM',
-        'PHYLUM',
-        'CLASS',
-        'ORDER',
-        'FAMILY',
-        'GENUS',
-        'SPECIES',
-        'ACCEPTED_TAXON',
-        'EXACT_TAXON'
-    ];
-
-    vm.TEMPORAL_GROUP = [
-        'YEAR',
-        'YEARMONTH',
-        'DATE'
-    ];
-
-    var HIGHER_TAXONOMIC_OPTIONS = [
-        'KINGDOM',
-        'PHYLUM',
-        'CLASS',
-        'ORDER',
-        'FAMILY',
-        'GENUS'
-    ];
-    
-    vm.SPATIAL_GROUP = [
-        'EEA_REFERENCE_GRID',
-        'EXTENDED_QUARTER_DEGREE_GRID',
-        'ISEA3H_GRID',
-        'MILITARY_GRID_REFERENCE_SYSTEM'
-    ];
-    vm.selectedHigherTaxonomyGroups = [];
-
-    var EEA_REFERENCE_GRID_RESOLUTION = [25, 100, 250, 1000, 10000, 100000];
-    var EXTENDED_QUARTER_DEGREE_GRID_RESOLUTION = [0, 1, 2, 3, 4, 5, 6];
-    var ISEA3H_GRID_RESOLUTION = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
-    var MILITARY_GRID_REFERENCE_SYSTEM_RESOLUTION = [1, 10, 100, 1000, 10000, 0];
-    vm.resolutionOptions = {
-        EEA_REFERENCE_GRID: EEA_REFERENCE_GRID_RESOLUTION,
-        EXTENDED_QUARTER_DEGREE_GRID: EXTENDED_QUARTER_DEGREE_GRID_RESOLUTION,
-        ISEA3H_GRID: ISEA3H_GRID_RESOLUTION,
-        MILITARY_GRID_REFERENCE_SYSTEM: MILITARY_GRID_REFERENCE_SYSTEM_RESOLUTION
-    };
-
-    vm.setHigherCounts = function() {
-        // only allowtaxonomic groups that are higher than the the selected taxonomic group (vm.taxonomy)
-        var index = vm.TAXONOMIC_GROUP.indexOf(vm.taxonomy);
-        vm.higherTaxonomicGroups = HIGHER_TAXONOMIC_OPTIONS.slice(0, index);
-        vm.disableHigherTaxonomy = vm.higherTaxonomicGroups.length === 0;
-
-        // refresh selectedHigherTaxonomyGroups - meaning remove unavaialble values (e.g. union of higherTaxonomicGroups and selectedHigherTaxonomyGroups)
-        vm.selectedHigherTaxonomyGroups = _.union(vm.higherTaxonomicGroups, vm.selectedHigherTaxonomyGroups);
-    };
-    vm.setHigherCounts();
-
-    vm.higherTaxonChange = function(key, checked) {
-        vm.higherTaxonomyTypes[key] = checked;
-    };
-
-    vm.updateResolutionOptions = function() {
-        vm.resolution = undefined;
-    };
-
-    vm.isFormValid = function() {
-        vm.isValid = !!(vm.taxonomy || vm.temporal || (vm.spatial && vm.resolution));
-        if (vm.spatial && typeof vm.resolution === undefined) {
-            vm.isValid = false;
-        }
-        return vm.isValid;
-    };
-
-    vm.translateEnum = function(type, enumKey) {
-        console.log(type + '.' + enumKey);
-        // Assuming translateService is a service that provides translations
-        return $translate(type + '.' + enumKey);
-      };
-
-    vm.generateSql = function() {
-        var query = {
-            taxonomy: vm.taxonomy,
-            temporal: vm.temporal,
-            spatial: vm.spatial,
-            resolution: vm.resolution,
-            randomize: vm.randomize,
-            higherGroups: vm.selectedHigherTaxonomyGroups,
-            includeTemporalUncertainty: vm.includeTemporalUncertainty,
-            includeSpatialUncertainty: vm.includeSpatialUncertainty
-        };
-
-        $http.get(endpoints.webUtils + '/generate-sql', {params: query})
-            .then(function(response) {
-                console.log(response);
-                vm.sql = response.data.sql;
-            })
-            .catch(function(err) {
-                console.log(err);
-            });
-    };
-
     var toCamelCase = function(str) {
         return str.replace(/_([a-z])/g, function(g) {
             return g[1].toUpperCase();
@@ -333,21 +227,51 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: 'simpleSqlDownload.html',
-            controller: 'ModalInstanceCtrl',
+            controller: 'SqlCubeController',
             controllerAs: '$ctrl',
             resolve: {
                 options: function() {
-                    return {format: format};
+                    return {
+                        format: format
+                    };
                 }
             }
         });
-
+        
         modalInstance.result.then(function(downloadOptions) {
-            vm.startDownload(downloadOptions.format, downloadOptions.username, downloadOptions.password, downloadOptions.email);
+            vm.startSqlDownload(downloadOptions);
         }, function() {
             // user clicked cancel
         });
     };
+
+    vm.startSqlDownload = function (downloadOptions) {
+        try {
+            var data = {
+                format: downloadOptions.format,
+                sql: downloadOptions.sql
+            };
+          $http.post(endpoints.sqlDownload, data).then(function (response) {
+            window.location.href = 'download/' + response.data.downloadKey;
+          }, function (err) {
+            // TODO alert user of failure
+            if (err.status === 401) {
+              // unauthorized
+              toastService.error({translate: 'phrases.errorNotAuthorized'});
+            } else if (err.status === 413) {
+              // Query too large for the API
+              toastService.error({translate: 'phrases.payloadTooLarge'});
+            } else if (err.status === 420) {
+              // User throttled
+              toastService.error({translate: 'occurrenceSearch.errorUserThrottled', readMore: URL_PREFIX + '/restricted'});
+            } else {
+              toastService.error({translate: 'phrases.criticalErrorMsg'});
+            }
+          });
+        } catch (err) {
+          toastService.error({translate: 'phrases.criticalErrorMsg'});
+        }
+      };
 
     vm.openWarningModal = function(format) {
             var filterCount = 0;
@@ -435,19 +359,161 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
     setLoginState();
 }
 
+angular.module('portal').controller('SqlCubeController', function($uibModalInstance, $http, endpoints, toastService, OccurrenceFilter) {
+    var vm = this;
+    var state = OccurrenceFilter.getOccurrenceData();
 
-angular.module('portal').controller('ModalInstanceCtrl', function($uibModalInstance, options) {
+    vm.cancel = function() {
+        $uibModalInstance.dismiss('cancel');
+    };
+
+    // get query as predicate
+    $http.get(endpoints.predicate, {params: state.query})
+        .then(function(response) {
+            vm.predicate = response.data.predicate;
+        })
+        .catch(function(err) {
+            toastService.error({translate: 'phrases.criticalErrorMsg'});
+        });
+
+    vm.randomize = 'YES';
+    vm.includeTemporalUncertainty = 'YES';
+    vm.includeSpatialUncertainty = 'YES';
+    vm.taxonomy = 'SPECIES';
+    vm.temporal = 'YEAR';
+    vm.TAXONOMIC_GROUP = [
+        'KINGDOM',
+        'PHYLUM',
+        'CLASS',
+        'ORDER',
+        'FAMILY',
+        'GENUS',
+        'SPECIES',
+        'ACCEPTED_TAXON',
+        'EXACT_TAXON'
+    ];
+
+    vm.TEMPORAL_GROUP = [
+        'YEAR',
+        'YEARMONTH',
+        'DATE'
+    ];
+
+    var HIGHER_TAXONOMIC_OPTIONS = [
+        'KINGDOM',
+        'PHYLUM',
+        'CLASS',
+        'ORDER',
+        'FAMILY',
+        'GENUS'
+    ];
+    
+    vm.SPATIAL_GROUP = [
+        'EEA_REFERENCE_GRID',
+        'EXTENDED_QUARTER_DEGREE_GRID',
+        'ISEA3H_GRID',
+        'MILITARY_GRID_REFERENCE_SYSTEM'
+    ];
+    vm.selectedHigherTaxonomyGroups = [];
+
+    var EEA_REFERENCE_GRID_RESOLUTION = [25, 100, 250, 1000, 10000, 100000];
+    var EXTENDED_QUARTER_DEGREE_GRID_RESOLUTION = [0, 1, 2, 3, 4, 5, 6];
+    var ISEA3H_GRID_RESOLUTION = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+    var MILITARY_GRID_REFERENCE_SYSTEM_RESOLUTION = [1, 10, 100, 1000, 10000, 0];
+    vm.resolutionOptions = {
+        EEA_REFERENCE_GRID: EEA_REFERENCE_GRID_RESOLUTION,
+        EXTENDED_QUARTER_DEGREE_GRID: EXTENDED_QUARTER_DEGREE_GRID_RESOLUTION,
+        ISEA3H_GRID: ISEA3H_GRID_RESOLUTION,
+        MILITARY_GRID_REFERENCE_SYSTEM: MILITARY_GRID_REFERENCE_SYSTEM_RESOLUTION
+    };
+    var resolutionDefaults = {
+        EEA_REFERENCE_GRID: 1000,
+        EXTENDED_QUARTER_DEGREE_GRID: 2,
+        ISEA3H_GRID: 9,
+        MILITARY_GRID_REFERENCE_SYSTEM: 1000
+    };
+
+    vm.setHigherCounts = function() {
+        // only allowtaxonomic groups that are higher than the the selected taxonomic group (vm.taxonomy)
+        var index = vm.TAXONOMIC_GROUP.indexOf(vm.taxonomy);
+        if (!vm.taxonomy) {
+            index = 0;
+        }
+        vm.higherTaxonomicGroups = HIGHER_TAXONOMIC_OPTIONS.slice(0, index);
+        vm.disableHigherTaxonomy = vm.higherTaxonomicGroups.length < 1;
+
+        // refresh selectedHigherTaxonomyGroups - meaning remove unavaialble values (e.g. intersection of higherTaxonomicGroups and selectedHigherTaxonomyGroups)
+        vm.selectedHigherTaxonomyGroups = _.intersection(vm.higherTaxonomicGroups, vm.selectedHigherTaxonomyGroups);
+    };
+    vm.setHigherCounts();
+
+    vm.setResolutionOptions = function() {
+        vm.resolution = resolutionDefaults[vm.spatial];
+    };
+
+    vm.isFormValid = function() {
+        vm.isValid = !!(vm.taxonomy || vm.temporal || (vm.spatial && vm.resolution));
+        if (vm.spatial && typeof vm.resolution === undefined) {
+            vm.isValid = false;
+        }
+        return vm.isValid;
+    };
+
+    vm.generateSql = function() {
+        var query = {
+            taxonomy: vm.taxonomy,
+            temporal: vm.temporal,
+            spatial: vm.spatial,
+            resolution: vm.resolution,
+            randomize: vm.randomize,
+            higherGroups: vm.selectedHigherTaxonomyGroups,
+            includeTemporalUncertainty: vm.includeTemporalUncertainty,
+            includeSpatialUncertainty: vm.includeSpatialUncertainty,
+            predicate: vm.predicate
+        };
+
+        return $http.post(endpoints.webUtils + '/generate-sql', query)
+            .then(function(response) {
+                return response.data.sql;
+            })
+            .catch(function(err) {
+                toastService.error({translate: 'phrases.criticalErrorMsg'});
+            });
+    };
+
+    vm.gotoEditSql = function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        // get sql and redirect to sql editor
+        vm.generateSql().then(function(sql) {
+            if (!sql) {
+                window.location.href = '/occurrence/download/sql';
+            } else {
+                window.location.href = '/occurrence/download/sql?sql=' + encodeURIComponent(sql);
+            }
+        }).catch(function(err) {
+            toastService.error({translate: 'phrases.criticalErrorMsg'});
+        });
+    };
+
+    vm.download = function() {
+        vm.generateSql().then(function(sql) {
+            $uibModalInstance.close({
+                format: 'SQL_TSV_ZIP',
+                sql: sql
+            });
+        }).catch(function(err) {
+            toastService.error({translate: 'phrases.criticalErrorMsg'});
+        });
+    };
+});
+
+angular.module('portal').controller('ModalInstanceCtrl', function($uibModalInstance, options, $http, endpoints) {
     var $ctrl = this;
-    // $ctrl.username;
-    // $ctrl.password;
-    // $ctrl.email;
     $ctrl.options = options;
 
     $ctrl.ok = function() {
         $uibModalInstance.close({
-            // username: $ctrl.username,
-            // password: $ctrl.password,
-            // email: $ctrl.email,
             format: $ctrl.options.format
         });
     };

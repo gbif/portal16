@@ -97,7 +97,7 @@
                 {$ predicate.print(download.record.request.predicate, __) $}
             </div>
         {% elif download.record.request.sql %}
-            <div style="white-space: pre-line;">{$ download.record.request.sql $}</div>
+            <div style="white-space: pre-line; font-family: monospace;">{$ download.record.request.sql $}</div>
         {% else %}
             {$ __('downloadKey.noFiltersApplied') $}
         {% endif %}

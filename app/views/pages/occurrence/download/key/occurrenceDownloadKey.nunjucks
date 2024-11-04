@@ -27,7 +27,7 @@
                         </nav>
 
                         <h1 class="text-center ng-cloak" dir="auto">
-                            {% if download.record.status === 'KILLED' %}
+                            {% if download.record.status === 'KILLED' or download.record.status === 'FAILED' %}
                                 <span class="error">{$ __('downloadKey.brokenDownload') $}</span>
                             {% elif download.record.status === 'CANCELLED' %}
                                 <span class="error">{$ __('downloadKey.cancelled') $}</span>

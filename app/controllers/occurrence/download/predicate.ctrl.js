@@ -22,6 +22,14 @@ router.get('/search/predicate.html', function(req, res, next) {
     });
 });
 
+router.get('/search/predicate', function(req, res, next) {
+    getPredicate(req.query).then(function(predicate) {
+        res.json(predicate);
+    }).catch(function() {
+        res.sendStatus(500);
+    });
+});
+
 async function getPredicate(query) {
     query = query || {};
     query.format = 'SIMPLE_CSV';

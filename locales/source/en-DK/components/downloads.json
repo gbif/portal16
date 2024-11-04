@@ -180,6 +180,9 @@
     "measurements": "Measurements",
     "countHigherTaxonomy": "Occurrence count at higher taxonomic level",
     "coordinateUncertainty": "Include minimum coordinate uncertainty",
+    "errorMinimumDimension": "At least one dimension must be selected",
+    "editSql": "Edit as SQL",
+    "whatIsThis": "About occurrence cubes",
     "temporalUncertainty": "Include minimum temporal uncertainty"
   }
 }

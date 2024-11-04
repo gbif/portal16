@@ -3,6 +3,7 @@
 let baseConfig = require('../../../config/config'),
     clientTileApi = baseConfig.tileApi,
     baseUrl = baseConfig.serverProtocol + baseConfig.dataApi,
+    registryApi = baseConfig.serverProtocol + baseConfig.registryApi,
     sourceArchive = 'https:' + baseConfig.sourceArchive,
     registryBaseUrl = baseConfig.serverProtocol + baseConfig.registryApi,
     elk = baseConfig.serverProtocol + baseConfig.elk,
@@ -92,6 +93,10 @@ let apiConfig = {
     },
     occurrenceCancelDownload: {
         url: baseUrl + 'occurrence/download/request/'
+    },
+    registryOccurrenceDownload: {
+        url: registryApi + 'occurrence/download/',
+        canonical: 'occurrence/download/'
     },
     publisher: {
         url: baseUrl + 'organization/'
