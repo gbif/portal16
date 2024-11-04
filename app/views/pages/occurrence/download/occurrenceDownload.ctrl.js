@@ -442,8 +442,7 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
         vm.higherTaxonomicGroups = HIGHER_TAXONOMIC_OPTIONS.slice(0, index);
         vm.disableHigherTaxonomy = vm.higherTaxonomicGroups.length < 1;
 
-        // refresh selectedHigherTaxonomyGroups - meaning remove unavaialble values (e.g. intersection of higherTaxonomicGroups and selectedHigherTaxonomyGroups)
-        vm.selectedHigherTaxonomyGroups = _.intersection(vm.higherTaxonomicGroups, vm.selectedHigherTaxonomyGroups);
+        vm.selectedHigherTaxonomyGroups = _.clone(vm.higherTaxonomicGroups);//_.intersection(vm.higherTaxonomicGroups, vm.selectedHigherTaxonomyGroups);
     };
     vm.setHigherCounts();
 
