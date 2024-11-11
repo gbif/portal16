@@ -346,7 +346,9 @@
         <div class="gb-modal-header card__stripe">
             <div class="modal-title body-text" id="modal-title" translate="customSqlDownload.cubeTitle">Sql download</div>
             <div class="m-t-05">
-                <a ng-href="https://techdocs.gbif.org/en/data-use/data-cubes" translate="customSqlDownload.whatIsThis">Learn more about occurrence cubes</a>
+                <div class="m-b-05 discreet" translate="customSqlDownload.help.whatIsThis"></div>
+                <a class="gb-button m-r-05" ng-href="{{ portal.urlPrefix }}/article/6lwmNjKCChjNSMvLO9s7qE" translate="customSqlDownload.readMore">Learn more about occurrence cubes</a>
+                <a class="gb-button m-r-05" ng-href="https://techdocs.gbif.org/en/data-use/data-cubes" translate="customSqlDownload.documentation">Documentation</a>
             </div>
         </div>
         <div class="gb-modal-body">
@@ -357,11 +359,13 @@
                 <form name="sampleForm" class="gbifCubeForm" novalidate>
                     <fieldset class="gbifCubeForm__mainFieldset ">
                         <legend class="card-header" translate="customSqlDownload.dimensions">Dimensions</legend>
+                        <div class="m-b-05 discreet" translate="customSqlDownload.help.dimensions"></div>
                         <div class="card">
                             <!-- Taxonomy Dropdown -->
                             <div class="card__stripe">
                                 <div class="card__content">
                                     <label for="taxonomy" translate="customSqlDownload.taxonomicDimension">Taxonomic dimension</label><br/>
+                                    <div class="m-b-05 discreet" translate="customSqlDownload.help.taxonomicDimension"></div>
                                     <select id="taxonomy"
                                             ng-change="$ctrl.setHigherCounts()" 
                                             ng-model="$ctrl.taxonomy" 
@@ -374,6 +378,7 @@
                                 <div class="card__content">
                                     <!-- Temporal Dropdown -->
                                     <label for="temporal" translate="customSqlDownload.temporalDimension">Temporal dimension</label><br/>
+                                    <div class="m-b-05 discreet" translate="customSqlDownload.help.temporalDimension"></div>
                                     <select id="temporal" 
                                             ng-model="$ctrl.temporal" 
                                             ng-options="time as (('customSqlDownload.time.' + time) | translate) for time in $ctrl.TEMPORAL_GROUP" required>
@@ -388,7 +393,8 @@
                                         <!-- Spatial Dropdowns -->
                                         <div>
                                             <div>
-                                                <label for="spatial1" translate="customSqlDownload.spatialDimension">Spatial dimension</label><br/>
+                                                <label for="spatial1" translate="customSqlDownload.spatialDimension">Grid</label><br/>
+                                                <div class="m-b-05 discreet" translate="customSqlDownload.help.grid"></div>
                                                 <select id="spatial1" 
                                                         ng-model="$ctrl.spatial" 
                                                         ng-change="$ctrl.setResolutionOptions()"
@@ -398,6 +404,7 @@
                                             </div>
                                             <div class="m-t-05">
                                                 <label for="spatial2" translate="customSqlDownload.spatialResolution">Spatial resolution</label><br/>
+                                                <div class="m-b-05 discreet" translate="customSqlDownload.help.gridResolution"></div>
                                                 <select ng-disabled="!$ctrl.spatial" 
                                                         id="spatial2" ng-model="$ctrl.resolution" 
                                                         ng-options="location as (('customSqlDownload.resolution.' + $ctrl.spatial + '.' + location) | translate) for location in $ctrl.resolutionOptions[$ctrl.spatial]">
@@ -407,6 +414,7 @@
                                             <div class="m-t-05">
                                                 <fieldset>
                                                     <legend><label translate="customSqlDownload.randomPoints">Randomize Points within Uncertainty Circle</label></legend>
+                                                    <div class="m-b-05 discreet" translate="customSqlDownload.help.randomizePoints"></div>
                                                     <div>
                                                         <label><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.randomize" value="YES"><span class="m-x-05">Yes</span></label>
                                                         <label class="m-x-05"><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.randomize" value="NO"><span class="m-x-05">No</span></label>
@@ -421,6 +429,7 @@
                     </fieldset>
                     <fieldset class="gbifCubeForm__mainFieldset m-t-05">
                         <legend class="card-header" translate="customSqlDownload.measurements">Measurements</legend>
+                        <div class="m-b-05 discreet" translate="customSqlDownload.help.measurements"></div>
                         <div class="card">
                             <div class="card__stripe">
                                 <div class="card__content">
@@ -431,6 +440,7 @@
                                                     <input type="checkbox" checked disabled>
                                                     <span translate="customSqlDownload.occurrenceMeasurements">Occurrence count (always included)</span>
                                                 </label>
+                                                <div class="m-b-05 discreet" translate="customSqlDownload.help.occurrenceCount"></div>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -441,6 +451,7 @@
                                     <!-- Measurement Types (Multi-select) -->
                                     <fieldset>
                                         <legend><label translate="customSqlDownload.countHigherTaxonomy">Occurrence count at higher taxonomic level</label></legend>
+                                        <div class="m-b-05 discreet" translate="customSqlDownload.help.higherTaxonomy"></div>
                                         <div>
                                             <div ng-repeat="type in $ctrl.higherTaxonomicGroups">
                                                 <label>
@@ -456,6 +467,7 @@
                                 <div class="card__content">
                                     <fieldset>
                                         <legend><label translate="customSqlDownload.coordinateUncertainty">Include minimum coordinate uncertainty</label></legend>
+                                        <div class="m-b-05 discreet" translate="customSqlDownload.help.minCoorindateUncertainty"></div>
                                         <div>
                                             <label><input type="radio" ng-model="$ctrl.includeSpatialUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
                                             <label class="m-x-05"><input type="radio" ng-model="$ctrl.includeSpatialUncertainty" value="NO"><span class="m-x-05">No</span></label>
@@ -467,6 +479,7 @@
                                 <div class="card__content">
                                     <fieldset>
                                         <legend><label translate="customSqlDownload.temporalUncertainty">Include minimum temporal uncertainty</label></legend>
+                                        <div class="m-b-05 discreet" translate="customSqlDownload.help.minTemporalUncertainty"></div>
                                         <div>
                                             <label><input type="radio" ng-model="$ctrl.includeTemporalUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
                                             <label class="m-x-05"><input type="radio" ng-model="$ctrl.includeTemporalUncertainty" value="NO"><span class="m-x-05">No</span></label>
@@ -482,8 +495,9 @@
                             <button class="gb-button gb-button--brand" type="submit" ng-disabled="!$ctrl.isFormValid()" ng-click="$ctrl.download()" translate="phrases.download">Download</button>
                             <button class="gb-button gb-button" ng-click="$ctrl.cancel()" translate="phrases.cancel">Cancel</button>
                         </div>
-                        <div class="m-t-05">
+                        <div class="m-t-1">
                             <a ng-href="{{ portal.urlPrefix }}/occurrence/download/sql" ng-click="$ctrl.gotoEditSql($event)" target="_blank" translate="customSqlDownload.editSql">Edit as SQL</a>
+                            <div class="m-b-05 discreet" translate="customSqlDownload.help.editSql"></div>
                         </div>
                     </div>
                 </form>
