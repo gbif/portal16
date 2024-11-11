@@ -43,7 +43,7 @@
             <div ng-if="occCustomDownload.inEditMode">
               <div>
                 <div class="clearfix seperator--b">
-                  <span ng-if="occCustomDownload.invalidInput" class="badge--error badge" style="margin: 4px;" translate="customSqlDownload.invalidSQL">Invalid SQL</span>
+                  <span ng-if="occCustomDownload.invalidInput && occCustomDownload.input" class="badge--error badge" style="margin: 4px;" translate="customSqlDownload.invalidSQL">Invalid SQL</span>
                   <a href="" ng-click="occCustomDownload.prettify()" class="pull-right gb-button--flat text-uppercase" translate="customDownload.reformat">Reformat</a>
                 </div>
                 <div style="position: relative;">
