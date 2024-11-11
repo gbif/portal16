@@ -22,7 +22,6 @@ router.get('/formatSql', function(req, res) {
 
       return res.json({error: response.error, sql: formattedSql});
     }).catch(function(err) {
-      console.log(err);
       return res.sendStatus(500);
     });
   } catch (err) {
@@ -46,12 +45,10 @@ router.get('/downloadSql.html', function(req, res) {
       });
       return res.send(highlighted);
     }).catch(function(err) {
-      console.log(err);
       return res.sendStatus(500);
     });
   } catch (err) {
     // invalid predicate
-    console.log(err);
     return res.sendStatus(500);
   }
 });
