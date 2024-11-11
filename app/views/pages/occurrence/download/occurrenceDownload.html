@@ -163,12 +163,12 @@
                                                 <div>
                                                     <a href="" class="center-block gb-button--brand" ng-click="occDownload.open('SQL_CUBE')">
                                                         <span class="gb-icon-file-download"></span>
-                                                        <span sx_translate="downloadFormat.SPECIES_LIST">SQL cube</span>
+                                                        <span translate="downloadFormat.CUBE">Cube</span>
                                                     </a>
                                                 </div>
                                             </td>
                                             <td translate="downloadOptions.tableValues.no"></td>
-                                            <td translate="downloadOptions.tableValues.yes">✓</td>
+                                            <td translate="downloadOptions.tableValues.yesIfSelected">✓</td>
                                             <td translate="downloadOptions.tableValues.no"></td>
                                             <td translate="downloadOptions.tableValues.no">No</td>
                                             <td>
@@ -346,7 +346,7 @@
         <div class="gb-modal-header card__stripe">
             <div class="modal-title body-text" id="modal-title" translate="customSqlDownload.cubeTitle">Sql download</div>
             <div class="m-t-05">
-                <a ng-href="{{ portal.urlPrefix }}/occurrence/download/sql#about" translate="customSqlDownload.whatIsThis">Learn more about occurrence cubes</a>
+                <a ng-href="https://techdocs.gbif.org/en/data-use/data-cubes" translate="customSqlDownload.whatIsThis">Learn more about occurrence cubes</a>
             </div>
         </div>
         <div class="gb-modal-body">
@@ -422,6 +422,20 @@
                     <fieldset class="gbifCubeForm__mainFieldset m-t-05">
                         <legend class="card-header" translate="customSqlDownload.measurements">Measurements</legend>
                         <div class="card">
+                            <div class="card__stripe">
+                                <div class="card__content">
+                                    <fieldset>
+                                        <div>
+                                            <div>
+                                                <label>
+                                                    <input type="checkbox" checked disabled>
+                                                    <span translate="customSqlDownload.occurrenceMeasurements">Occurrence count (always included)</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
                             <div class="card__stripe" ng-if="!$ctrl.disableHigherTaxonomy">
                                 <div class="card__content">
                                     <!-- Measurement Types (Multi-select) -->

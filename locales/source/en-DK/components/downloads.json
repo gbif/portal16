@@ -112,11 +112,12 @@
       "YEARMONTH": "Year and month",
       "DATE": "Date"
     },
+    "occurrenceMeasurements": "Occurrence count (always included)",
     "grid": {
-      "EEA_REFERENCE_GRID": "EEA reference grid",
-      "EXTENDED_QUARTER_DEGREE_GRID": "Extended quarter degree grid",
+      "EEA_REFERENCE_GRID": "EEA reference grid - Europe only",
+      "EXTENDED_QUARTER_DEGREE_GRID": "Extended quarter degree grid (QDGC)",
       "ISEA3H_GRID": "ISEA3H grid",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "Military grid reference system"
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Military grid reference systems (MGRS)"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -162,11 +163,11 @@
         "22": "Level 22"
       },
       "MILITARY_GRID_REFERENCE_SYSTEM": {
-        "1": "1 degree",
-        "10": "10 degrees",
-        "100": "100 degrees",
-        "1000": "1000 degrees",
-        "10000": "10000 degrees",
+        "1": "1 meter",
+        "10": "10 meters",
+        "100": "100 meters",
+        "1000": "1000 meters",
+        "10000": "10000 meters",
         "0": "Finest resolution"
       }
     },
@@ -176,13 +177,13 @@
     "temporalDimension": "Temporal dimension",
     "spatialDimension": "Spatial dimension",
     "spatialResolution": "Spatial resolution",
-    "randomPoints": "Randomize Points within Uncertainty Circle",
+    "randomPoints": "Randomize points within uncertainty circle",
     "measurements": "Measurements",
     "countHigherTaxonomy": "Occurrence count at higher taxonomic level",
     "coordinateUncertainty": "Include minimum coordinate uncertainty",
     "errorMinimumDimension": "At least one dimension must be selected",
     "editSql": "Edit as SQL",
-    "whatIsThis": "About occurrence cubes",
+    "whatIsThis": "About species occurrence cubes",
     "temporalUncertainty": "Include minimum temporal uncertainty"
   }
 }
