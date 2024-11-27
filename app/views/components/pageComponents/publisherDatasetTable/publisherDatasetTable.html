@@ -8,7 +8,7 @@
                     <thead>
                         <tr>
                             <th ng-repeat="col in vm.config.summaryColumns">
-                                <span class="inline-block text-nowrap">
+                                <span class="inline-block text-nowrap text-end">
                                     <span>{{col.title}}</span>
                                 </span>
                             </th>
@@ -18,7 +18,7 @@
                         <tr>
                             <td ng-repeat="col in vm.config.summaryColumns">
                                 <span
-                                    class=""
+                                    class="text-end"
                                     ng-if="col.type === 'DATASET_COUNT'"
                                     >{{vm.summaryCounts.datasetCount |
                                     localNumber}}</span
