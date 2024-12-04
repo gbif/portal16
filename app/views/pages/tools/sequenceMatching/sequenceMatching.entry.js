@@ -549,7 +549,10 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
     };
 
     function align(match) {
-        var paddingLength = Math.max(match.qstart.length, match.sstart.length) + 1;
+        if (match.alignment) {
+            return match.alignment;
+        } else {
+            var paddingLength = Math.max(match.qstart.length, match.sstart.length) + 1;
         var q =
             'query ' +
             match.qstart.padEnd(paddingLength) +
@@ -571,6 +574,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             }
         }
         return q + diff + '<br/>' + s;
+        }
     }
 
 
