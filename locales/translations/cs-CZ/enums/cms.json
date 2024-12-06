@@ -10,10 +10,10 @@
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": "",
-        "year": "",
+        "language": "Jazyk",
+        "year": "Rok",
         "datasetKey": "Datová sada",
-        "publishingOrg": "",
+        "publishingOrg": "Vydavatel",
         "peerReview": "",
         "openAccess": "Otevřený přístup",
         "gbifDownloadKey": ""
