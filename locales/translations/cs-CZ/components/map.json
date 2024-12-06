@@ -26,28 +26,28 @@
     "basemap": {
       "CLASSIC": "Magenta",
       "LIGHT": "",
-      "LIGHT_DETAILS": "",
+      "LIGHT_DETAILS": "Světlý",
       "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "DARK_DETAILS": "Tmavý",
+      "OSM": "Silnice"
     },
     "bin": {
-      "PIXEL": "",
+      "PIXEL": "Body",
       "SMALL_HEX": "",
       "LARGE_HEX": "",
       "SMALL_SQUARE": "",
       "LARGE_SQUARE": ""
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
+      "CLASSIC": "Klasický",
+      "FIRE": "Oheň",
       "GLACIER": "Ledovec",
-      "GREEN_POINT": "",
+      "GREEN_POINT": "Zelená",
       "PURPLE_YELLOW": "",
       "PURPLE_HEAT": "",
       "BLUE_HEAT": "",
       "ORANGE_HEAT": "",
-      "GREEN": "",
+      "GREEN": "Zelená",
       "BLUE_CLUSTER": "",
       "ORANGE_CLUSTER": ""
     },
@@ -57,8 +57,8 @@
       "addRectangleFilter": "",
       "addPolygonFilter": "",
       "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "zoomIn": "Přiblížit",
+      "zoomOut": "Oddálit"
     },
     "errors": {
       "413": ""
