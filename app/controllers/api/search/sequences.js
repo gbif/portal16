@@ -10,7 +10,7 @@ async function query(query) {
         return {count: 0, results: []};
     } else if (pattern.test(query)) {
       const databases = await blast.getDatabasesAvailable();
-      const results = await Promise.all(databases.map((db) => blast.blast({database: db, sequence: query}) ));
+      const results = await Promise.all(databases.map((db) => blast.blast({database: db.db, sequence: query}) ));
       const filteredResults = results.filter((r) => ['BLAST_EXACT_MATCH', 'BLAST_AMBIGUOUS_MATCH', 'BLAST_CLOSE_MATCH'].includes(r.matchType)).map((e) => _.merge(e, {alignment: align(e)}));
       return {count: filteredResults.length, results: filteredResults};
     } else {
