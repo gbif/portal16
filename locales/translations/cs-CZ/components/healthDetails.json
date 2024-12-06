@@ -14,7 +14,7 @@
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
+                "name": "Výskyt",
                 "tooltip": ""
             },
             "SPECIES": {
@@ -22,7 +22,7 @@
                 "tooltip": ""
             },
             "REGISTRY": {
-                "name": "",
+                "name": "Registr",
                 "tooltip": ""
             },
             "IDENTITY": {

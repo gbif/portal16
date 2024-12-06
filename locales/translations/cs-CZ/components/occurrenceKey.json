@@ -9,7 +9,7 @@
     "unknownDate": "",
     "absent": "",
     "issues": "",
-    "dataset": "",
+    "dataset": "Datová sada",
     "synced": "",
     "modified": "",
     "monthAndyear": "",
@@ -32,8 +32,8 @@
       "raw": ""
     },
     "groups": {
-      "Record": "",
-      "Occurrence": "",
+      "Record": "Záznam",
+      "Occurrence": "Výskyt",
       "Event": "",
       "Identification": "",
       "Taxon": "",
@@ -93,7 +93,7 @@
       },
       "unknownSpecies": ""
     },
-    "occurrence": "",
+    "occurrence": "Výskyt",
     "inLanguage": "",
     "sequenced": "",
     "treatment": "",

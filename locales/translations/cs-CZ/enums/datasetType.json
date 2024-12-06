@@ -1,9 +1,9 @@
 {
   "datasetType": {
-    "OCCURRENCE": "",
+    "OCCURRENCE": "Výskyt",
     "CHECKLIST": "",
     "SAMPLING_EVENT": "",
-    "METADATA": "",
+    "METADATA": "Metadata",
     "undefined": ""
   },
   "datasetSubtype": {
