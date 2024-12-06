@@ -53,13 +53,13 @@
       "volunteer": "",
       "name": "",
       "annualBadges": "",
-      "language": "",
+      "language": "Jazyk",
       "country": "",
       "affiliation": "",
       "recipient": "",
       "areasExpertise": "",
       "orcId": "",
-      "year": "",
+      "year": "Rok",
       "email": ""
     },
     "award": {
@@ -69,6 +69,6 @@
       "EBBE3RD": ""
     },
     "prize": "",
-    "year": ""
+    "year": "Rok"
   }
 }
