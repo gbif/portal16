@@ -12,10 +12,10 @@
         "relevance": "",
         "language": "",
         "year": "",
-        "datasetKey": "",
+        "datasetKey": "Datová sada",
         "publishingOrg": "",
         "peerReview": "",
-        "openAccess": "",
+        "openAccess": "Otevřený přístup",
         "gbifDownloadKey": ""
       },
       "contentType": {
@@ -66,7 +66,7 @@
           "CITIZEN_SCIENCE": "",
           "CLIMATE_CHANGE": "",
           "CONSERVATION": "",
-          "DATA_MANAGEMENT": "",
+          "DATA_MANAGEMENT": "Správa dat",
           "DATA_PAPER": "",
           "ECOLOGY": "",
           "ECOSYSTEM_SERVICES": "",
@@ -82,7 +82,7 @@
           "TAXONOMY": ""
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "",
+          "CAPACITY_ENHANCEMENT": "Zvyšování kapacity",
           "DATA_ACCESS": "",
           "DATA_ANALYSIS": "",
           "DATA_CURATION_QUALITY": "",
