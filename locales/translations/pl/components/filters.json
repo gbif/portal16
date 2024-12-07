@@ -19,7 +19,7 @@
             "options": {
                 "yes": "",
                 "no": "",
-                "all": ""
+                "all": "Wszystko"
             }
         },
         "ternary": {
