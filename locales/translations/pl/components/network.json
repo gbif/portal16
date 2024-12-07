@@ -2,11 +2,11 @@
   "network": {
     "network": "",
     "tabs": {
-      "summary": "",
+      "summary": "Podsumowanie",
       "homepage": "",
       "metrics": "",
       "datasets": "Zbiory danych",
-      "publishers": ""
+      "publishers": "Wydawcy"
     },
     "registeredDate": "",
     "nParticipatingDatasets": "",
