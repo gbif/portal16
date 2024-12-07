@@ -12,15 +12,15 @@
         "relevance": "",
         "language": "",
         "year": "",
-        "datasetKey": "",
+        "datasetKey": "Zbiór danych",
         "publishingOrg": "",
         "peerReview": "",
-        "openAccess": "",
+        "openAccess": "Otwarty dostęp",
         "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "",
-        "news": "",
+        "news": "Aktualności",
         "resource": "",
         "dataUse": "",
         "project": "",
@@ -66,7 +66,7 @@
           "CITIZEN_SCIENCE": "",
           "CLIMATE_CHANGE": "",
           "CONSERVATION": "",
-          "DATA_MANAGEMENT": "",
+          "DATA_MANAGEMENT": "Zarządzanie danymi",
           "DATA_PAPER": "",
           "ECOLOGY": "",
           "ECOSYSTEM_SERVICES": "",
@@ -82,7 +82,7 @@
           "TAXONOMY": ""
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "",
+          "CAPACITY_ENHANCEMENT": "Zwiększanie pojemności",
           "DATA_ACCESS": "",
           "DATA_ANALYSIS": "",
           "DATA_CURATION_QUALITY": "",
@@ -112,12 +112,12 @@
           "bill": ""
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Eksperci ds. wiedzy o bioróżnorodności",
           "DATA_HOLDERS": "",
-          "DATA_USERS": "",
+          "DATA_USERS": "Użytkownicy danych",
           "DECISION_MAKERS": "",
-          "GBIF_NETWORK": "",
-          "PUBLIC_STAKEHOLDERS": ""
+          "GBIF_NETWORK": "Sieć GBIF",
+          "PUBLIC_STAKEHOLDERS": "Interesariusze"
         }
       }
     }
