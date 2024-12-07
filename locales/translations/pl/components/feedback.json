@@ -23,12 +23,12 @@
       "title": "Dział pomocy",
       "example": "Na przykład: Jak chronicie dane na temat rzadkich gatunków? Czy możecie mi pomóc znaleźć wszystkie zapisy dotyczące występowania tego gatunku w wodach międzynarodowych?",
       "description": "Na wszystkie pytania odpowiada dział pomocy technicznej pod adresem helpdesk@gbif.org",
-      "comment": ""
+      "comment": "Z zapytaniami prywatnymi oraz pytaniami technicznymi możesz zwrócić się do [info@gbif.org] (mailto:info@gbif.org), a w sprawach medialnych do [communication@gbif.org](mailto:communication@gbif.org) ."
     },
     "confirmation": {
       "title": "Dziękujemy",
-      "example": "",
-      "seeIssue": ""
+      "example": "Twoja informacja zwrotna zapisana jako problem w Github. Jeżeli jest to potrzebne, a dane kontaktowe były dostarczone, skontaktujemy się z Tobą w celu otrzymania dodatkowej informacji. Możesz śledzić postęp, wchodząc na stronę GitHub. ",
+      "seeIssue": "Wyświetl problem"
     },
     "issues": {
       "title": "Problemy z zawartością",
@@ -41,8 +41,8 @@
       "username": "Twój adres e-mail albo nazwa użytkownika GitHub (publiczna)"
     },
     "markdownSupport": "Wsparcie Markdown",
-    "issueTracking": "Wszystkie wydania są dostępne publicznie na [Github](https://github.com/gbif/portal-feedback/issues)",
-    "failure": "System informacji zwrotnej nie działa. Prosimy o wiadmość mailową albo wejście na stronę[Github](https://github.com/gbif/portal-feedback/issues). Przepraszamy za kłopot.",
+    "issueTracking": "Wszystkie zgłoszone problemy są dostępne publicznie na [Github] (https://github.com/gbif/portal-feedback/issues)",
+    "failure": "System informacji zwrotnej nie działa. Prosimy o wiadmość mailową albo wejście na stronę [Github](https://github.com/gbif/portal-feedback/issues). Przepraszamy za kłopot.",
     "weRecommendX": "Rekomendujemy użycie [{NAME}] ({LINK})",
     "tellGbif": "Powiedz GBIF",
     "submit": "Wyślij",
