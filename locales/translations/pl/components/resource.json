@@ -1,6 +1,6 @@
 {
   "resource": {
-    "resources": "",
+    "resources": "Zasoby",
     "contactHelpdesk": "",
     "addToCalendar": "",
     "venue": "",
@@ -11,7 +11,7 @@
     "howToLinkDatasets": "",
     "howToLinkEvents": "",
     "when": "",
-    "language": "",
+    "language": "Język",
     "viewOnGBIF": "",
     "published": "",
     "programme": "",
@@ -20,6 +20,6 @@
     "datasets": "",
     "gbifWillAttend": "",
     "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "resourceDescription": "Wyszukiwanie zasobów w Światowej Sieci Informacji o Bioróżnorodności. Darmowy i otwarty dostęp do danych o bioróżnorodności."
   }
 }
