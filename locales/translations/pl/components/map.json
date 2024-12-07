@@ -1,27 +1,27 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED}{NUMBER, plural,one{zapis georeferencyjny}other{zapisy georeferencyjne}}",
     "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
+    "clickToSearchArea": "Kliknij, aby wyszukać obszar",
+    "generatedDateAgo": "Wygenerowano {DATE_AGO}",
+    "anyYear": "Dowolny rok",
+    "exploreArea": "Przeglądaj obszar",
+    "explore": "Badać\n",
+    "style": "Styl",
+    "filters": "Filtry",
+    "projection": "Rzutowanie",
+    "select": "Wybierz",
+    "custom": "Ustawienia niestandardowe",
+    "baseMap": "Mapa podstawowa",
+    "binning": "Grupowanie",
     "year": "Rok",
     "chooseColors": "Kolory",
     "predefined": {
       "CLASSIC_HEX": "",
       "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "STREETS": "Ulice",
+      "GLACIER": "Lodowiec",
+      "CUSTOM": "Niestandardowe"
     },
     "basemap": {
       "CLASSIC": "",
@@ -29,25 +29,25 @@
       "LIGHT_DETAILS": "",
       "DARK": "",
       "DARK_DETAILS": "",
-      "OSM": ""
+      "OSM": "Drogi"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Punkty",
+      "SMALL_HEX": "Małe sześciokąty",
+      "LARGE_HEX": "Sześciokąty",
+      "SMALL_SQUARE": "Małe kwadraty",
+      "LARGE_SQUARE": "Kwadraty"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "GREEN_POINT": "",
+      "CLASSIC": "Klasyczny",
+      "FIRE": "Ogień",
+      "GLACIER": "Lodowiec",
+      "GREEN_POINT": "Zielony",
       "PURPLE_YELLOW": "",
       "PURPLE_HEAT": "",
       "BLUE_HEAT": "",
       "ORANGE_HEAT": "",
-      "GREEN": "",
+      "GREEN": "Zielony",
       "BLUE_CLUSTER": "",
       "ORANGE_CLUSTER": ""
     },
@@ -57,11 +57,11 @@
       "addRectangleFilter": "",
       "addPolygonFilter": "",
       "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "zoomIn": "Powiększ",
+      "zoomOut": "Pomniejsz"
     },
     "errors": {
-      "413": ""
+      "413": "Plik geometrii jest zbyt duży, aby można go było przetworzyć za pomocą interfejsu API danych."
     }
   }
 }
