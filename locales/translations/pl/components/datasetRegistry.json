@@ -3,7 +3,7 @@
         "registry": {
             "failedSinceSuccess": "",
             "lastFailed": "",
-            "registrationDate": "",
+            "registrationDate": "Data rejestracji",
             "lastSuccess": "",
             "lastWithChange": "",
             "noEntries": "",
@@ -12,7 +12,7 @@
             "completionReasons": "",
             "unfinished": "",
             "total": "",
-            "endpoints": "",
+            "endpoints": "Punkty końcowe",
             "installationContacts": "",
             "installation": "",
             "dataLastChanged": "",
@@ -36,14 +36,14 @@
             "gbifIngestionStatus": "",
             "lastIngestionSuccess": "",
             "lastIngestionFailed": "",
-            "outOfSync": "",
+            "outOfSync": "Zdesynchronizowany",
             "becauseTrustedContact": ""
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Normalny",
+                "ABORT": "Przerwij",
+                "NOT_MODIFIED": "Niezmodyfikowany"
             }
         }
     }
