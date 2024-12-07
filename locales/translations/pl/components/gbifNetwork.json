@@ -45,7 +45,7 @@
     "memberSince": "Członek od",
     "participant": "Uczestnik",
     "pPublishers": "{NUMBER, plural,one{wydawca} other{wydawcy}}",
-    "pOccurrence": "",
+    "pOccurrence": "{NUMBER, plural, one{Występowanie} other{występowania}}",
     "occurrenceDatasets": "",
     "occurrences": "",
     "occurrencesHostedBy": ""
