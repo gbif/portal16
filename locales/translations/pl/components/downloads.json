@@ -70,7 +70,7 @@
         "not": ""
       },
       "and": "",
-      "or": "",
+      "or": "lub",
       "not": "",
       "isNotNull": "",
       "isNull": ""
