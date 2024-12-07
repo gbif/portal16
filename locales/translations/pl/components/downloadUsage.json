@@ -2,14 +2,14 @@
     "downloadUsage": {
         "title": "",
         "form": {
-            "title": "",
+            "title": "Tytuł",
             "titlePlaceholder": "",
             "type": "Typ",
             "authors": "",
             "authorsPlaceholder": "",
-            "link": "",
+            "link": "URL",
             "linkPlaceholder": "",
-            "date": "",
+            "date": "Data",
             "comments": "Komentarze",
             "commentsPlaceholder": "",
             "submit": "Wyślij",
@@ -37,7 +37,7 @@
             "CASE": "",
             "FILM": "film",
             "BILL": "",
-            "OTHER": "inne"
+            "OTHER": "inne (rozwiń proszę w komentarzach)"
         }
     }
 }
