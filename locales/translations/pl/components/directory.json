@@ -15,7 +15,7 @@
         "description": ""
       },
       "nsg": {
-        "title": "Komitet Sterujący Węzłami",
+        "title": "Komisja Sterująca Węzłów",
         "description": ""
       },
       "nodesCommittee": {
@@ -27,7 +27,7 @@
         "description": ""
       },
       "voting": {
-        "title": "",
+        "title": "Członkowie głosujący",
         "description": ""
       },
       "associateCountries": {
@@ -47,7 +47,7 @@
     },
     "details": "",
     "roles": "",
-    "sinceDate": "",
+    "sinceDate": "Od",
     "showAllContacts": "",
     "person": {
       "volunteer": "",
