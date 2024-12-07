@@ -1,7 +1,7 @@
 {
   "basisOfRecord": {
     "PRESERVED_SPECIMEN": "Zachowany okaz",
-    "FOSSIL_SPECIMEN": "Kopalny okaz",
+    "FOSSIL_SPECIMEN": "Okaz kopalny",
     "LIVING_SPECIMEN": "Żywy okaz ",
     "OBSERVATION": "Obserwacja",
     "HUMAN_OBSERVATION": "",
@@ -10,7 +10,7 @@
     "MATERIAL_CITATION": "",
     "LITERATURE": "Literatura",
     "UNKNOWN": "Nieznane",
-    "OCCURRENCE": "Występowanie",
+    "OCCURRENCE": "Występowanie/zdarzenie",
     "undefined": "Nieznane"
   }
 }
