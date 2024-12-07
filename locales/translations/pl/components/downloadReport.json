@@ -1,15 +1,15 @@
 {
   "downloadReport": {
-    "title": "",
-    "knownIssues": "",
+    "title": "Pobierz raport",
+    "knownIssues": "Znane problemy",
     "knownIssuesDescription": "",
-    "FossilsIncluded": "",
+    "FossilsIncluded": "Skamieniałości",
     "FossilsIncludedDescription": "",
     "livingSpecimensIncluded": "",
     "livingSpecimensIncludedDescription": "",
     "yearRange": "",
     "total": "",
-    "license": "",
+    "license": "Licencja",
     "withTaxonMatch": "",
     "withCoordinates": "",
     "withYear": "",
@@ -18,7 +18,7 @@
     "promoteTransperant": "",
     "cancel": "",
     "proceed": "",
-    "understood": "",
+    "understood": "Rozumiem",
     "largeDownload": "",
     "requestingFullDownload": "",
     "occFiltersExplainedHere": "",
@@ -29,18 +29,18 @@
     "datasetHasNumRows": "",
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
-    "hours": "",
-    "minute": "",
-    "minutes": ""
+    "hours": "Godziny",
+    "minute": "Minuta",
+    "minutes": "Minuty"
   },
   "downloadOptions": {
     "title": "",
     "content": {
-      "rawData": "",
+      "rawData": "Surowe dane",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "images": "Multimedia",
+      "coordinates": "Koordynaty",
+      "fileFormat": "Format",
       "estimatedSize": ""
     },
     "fileFormats": {
