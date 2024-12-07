@@ -2,7 +2,7 @@
   "gbifNetwork": {
     "gbifNetwork": "",
     "title": "",
-    "contact": "",
+    "contact": "Kontakt",
     "voting_participant": {
       "one": "",
       "other": ""
@@ -39,9 +39,9 @@
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Przewodniczący delegacji",
-      "NODE_MANAGER": ""
+      "NODE_MANAGER": "Manager węzła"
     },
-    "publishers": "",
+    "publishers": "Wydawcy",
     "memberSince": "",
     "participant": "",
     "pPublishers": "",
