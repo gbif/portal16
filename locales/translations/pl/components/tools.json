@@ -4,13 +4,13 @@
         "categoryFeatured": "",
         "suggestDataset": {
             "NOT_OPEN": "",
-            "title": "",
+            "title": "Zaproponuj zbiór danych",
             "pleaseDescribeTheDataset": "",
-            "thankYou": "",
+            "thankYou": "Dziękujemy",
             "form": {
-                "title": "",
+                "title": "Tytuł",
                 "link": "",
-                "region": "",
+                "region": "Zasięg geograficzny",
                 "taxon": "",
                 "whyImportant": "",
                 "howWouldYouRateIt": "",
@@ -18,13 +18,13 @@
                 "medium": "",
                 "low": "",
                 "bibliographicRef": "",
-                "type": "",
+                "type": "Typ zbioru danych",
                 "license": "",
                 "dataHolderContact": "",
                 "publicAlert": "",
                 "yourContact": "",
-                "comments": "",
-                "submit": "",
+                "comments": "Komentarze",
+                "submit": "Wyślij",
                 "followDiscussionBelow": "",
                 "followIssue": "",
                 "suggestAnother": "",
@@ -35,13 +35,13 @@
             "drawerTitle": "",
             "intro": "",
             "aboutLink": "",
-            "selectSpecies": "",
+            "selectSpecies": "Wybierz gatunek",
             "noData": "",
             "selectHigherTaxa": "",
             "selectArea": "",
-            "hexagon": "",
+            "hexagon": "Sześciokąt",
             "draw": "",
-            "clear": "",
+            "clear": "Wyczyść",
             "resultIntro": "",
             "embedIntro": ""
         },
@@ -50,7 +50,7 @@
             "title": ""
         },
         "ipt": {
-            "description": "",
+            "description": "Zintegrowany zestaw narzędzi do publikowania (IPT) jest darmowym ogólnodostępnym oprogramowaniem napisanym w języku Java, używanym do publikowania zbiorów danych o bioróżnorodności przez sieć GBIF. IPT może być również zintegrowany z kontem DataCite lub EZID, aby nadać zbiorom danych numery DOI i przekształcić je w repozytoria danych.",
             "dontSeeYourIpt": ""
         },
         "dataRepository": {
@@ -61,19 +61,19 @@
         },
         "machineVision": {
             "tabs": {
-                "demo": "",
+                "demo": "Demo",
                 "statement": ""
             }
         },
         "derivedDataset": {
             "title": "",
-            "titleField": "",
+            "titleField": "Tytuł",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
             "datasetKey": "",
             "occurrenceCount": "",
-            "submit": "",
+            "submit": "Wyślij",
             "pleaseFill": "",
             "loginToCreate": "",
             "myDatasets": "",
@@ -89,7 +89,7 @@
             "newRegistration": "",
             "goToDataset": "",
             "yourDerivedDatasets": "",
-            "backToEdit": "",
+            "backToEdit": "Powrót do edycji",
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": ""
