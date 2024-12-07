@@ -5,7 +5,7 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "Podsumowanie",
       "homepage": "",
       "metrics": ""
     },
@@ -42,7 +42,7 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
+      "summary": "Podsumowanie",
       "homepage": "",
       "metrics": ""
     },
@@ -111,7 +111,7 @@
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Kraj"
     }
   }
 }
