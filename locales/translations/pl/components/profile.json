@@ -2,16 +2,16 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": "",
-        "GOOGLE": ""
+        "FACEBOOK": "Nie udało się połączyć z Facebookiem",
+        "GITHUB": "Nie udało się połączyć z  Githubem",
+        "GOOGLE": "Nie udało się połączyć z Google"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": "",
-        "GOOGLE": ""
+        "FACEBOOK": "Nie udało się zalogować za pomocą konta Facebook",
+        "GITHUB": "Nie udało się zalogować za pomocą konta Github",
+        "GOOGLE": "Nie udało się zalogować za pomocą konta Google"
       }
     },
     "error": {
@@ -34,7 +34,7 @@
     "setPassword": "",
     "newPassword": "",
     "invalidLinkMessage": "",
-    "logout": "",
+    "logout": "Wyloguj się",
     "profile": "",
     "invalidLink": "",
     "noDownloads": "",
@@ -43,11 +43,11 @@
     "accountConfirmed": "",
     "emailVerification": "",
     "verifyAccount": "",
-    "userProfile": "",
-    "usernameEmail": "",
-    "password": "",
-    "continue": "",
-    "forgotPassword": "",
+    "userProfile": "Profil użytkownika",
+    "usernameEmail": "Nazwa użytkownika lub adres e-mail",
+    "password": "Hasło",
+    "continue": "Kontynuuj",
+    "forgotPassword": "Nie pamiętasz hasła?",
     "unknownUser": "",
     "signIn": "",
     "or": "",
@@ -56,7 +56,7 @@
     "connectWithProvider": "",
     "disconnectWithProvider": "",
     "signInAgreement": "",
-    "country": "",
+    "country": "Kraj",
     "countryRequired": "",
     "email": "",
     "emailRequired": "",
@@ -78,7 +78,7 @@
     "stopEditing": "",
     "firstName": "",
     "lastName": "",
-    "language": "",
+    "language": "Język",
     "save": "",
     "currentPassword": "",
     "invalidProfileUpdate": "",
