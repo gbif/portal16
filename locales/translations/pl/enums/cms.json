@@ -26,7 +26,7 @@
         "project": "Projekt",
         "participant": "",
         "programme": "",
-        "document": "",
+        "document": "Dokument",
         "tool": "Narzędzie",
         "literature": "Literatura"
       },
@@ -43,7 +43,7 @@
         },
         "projectStatus": {
           "APPROVED": "",
-          "CLOSED": "",
+          "CLOSED": "Zamknięte",
           "IN_PROGRESS": "",
           "DISCONTINUED": "",
           "undefined": ""
@@ -60,17 +60,17 @@
           "GBIF_FUNDED": ""
         },
         "topics": {
-          "AGRICULTURE": "",
+          "AGRICULTURE": "Rolnictwo",
           "BIODIVERSITY_SCIENCE": "",
           "BIOGEOGRAPHY": "",
           "CITIZEN_SCIENCE": "",
           "CLIMATE_CHANGE": "",
-          "CONSERVATION": "",
+          "CONSERVATION": "Ochrona przyrody",
           "DATA_MANAGEMENT": "Zarządzanie danymi",
           "DATA_PAPER": "",
-          "ECOLOGY": "",
+          "ECOLOGY": "Ekologia",
           "ECOSYSTEM_SERVICES": "",
-          "EVOLUTION": "",
+          "EVOLUTION": "Ewolucja",
           "FRESHWATER": "",
           "HUMAN_HEALTH": "",
           "INVASIVES": "",
@@ -78,7 +78,7 @@
           "PHYLOGENETICS": "",
           "SPECIES_DISTRIBUTIONS": "",
           "INFRASTRUCTURE": "",
-          "DNA": "",
+          "DNA": "DNA",
           "TAXONOMY": ""
         },
         "purposes": {
