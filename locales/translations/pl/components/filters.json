@@ -44,10 +44,10 @@
             "wktPlaceholder": "WKT lub GeoJSON",
             "invalidTextInput": "",
             "tooLarge": "",
-            "tooLargeSuggestion": "",
+            "tooLargeSuggestion": "Spróbuj użyć pola ograniczającego lub lokalnie zainstalowanych filtrów",
             "aboutWktAndGeoJson": "",
             "simplificationWarning": "",
-            "invalidRange": ""
+            "invalidRange": "Nieprawidłowe pole ograniczające"
         }
     }
 }
