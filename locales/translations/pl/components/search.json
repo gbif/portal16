@@ -1,9 +1,9 @@
 {
   "search": {
     "title": "Szukaj",
-    "placeholder": "",
-    "noSearchTermsEntered": "",
-    "notSureWhatYouAreLookingFor": "",
+    "placeholder": "Występowanie, gatunki, wiadomości...",
+    "noSearchTermsEntered": "Nie wpisano terminów wyszukiwania",
+    "notSureWhatYouAreLookingFor": "Nie masz pewności, czego szukasz? Co powiesz na kilka zdjęć wystąpień gatunków?",
     "cannotFindWhatYouAreLookingFor": "Nie możesz znaleźć tego, czego szukasz?",
     "trySpecifyingAType": "Spróbuj określić typ",
     "everything": "Wszystko",
@@ -15,20 +15,20 @@
     "participants": "Uczestnicy",
     "search": "Szukaj",
     "clearFilters": "Wyczyść filtry",
-    "filters": "Filtruj",
-    "simple": "",
+    "filters": "Filtry",
+    "simple": "Podstawowe filtry",
     "advanced": "Wszystkie filtry",
-    "backbone": "",
-    "allChecklists": "",
-    "allResultTypes": "",
-    "suggestions": "",
+    "backbone": "Rdzeń ",
+    "allChecklists": "Wszystkie listy kontrolne",
+    "allResultTypes": "Wszystko",
+    "suggestions": "Sugestie",
     "header": {
-      "searchDatasets": "",
-      "searchPublishers": "",
-      "searchSpecies": "",
-      "searchResources": "",
-      "searchOccurrences": ""
+      "searchDatasets": "Szukaj zbiorów danych",
+      "searchPublishers": "Szukaj wydawców",
+      "searchSpecies": "Szukaj gatunków",
+      "searchResources": "Szukaj zasobów",
+      "searchOccurrences": "Szukaj wystąpień"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, plural, one{wyszukiwanie} other{wyszukiwania}}"
   }
 }
