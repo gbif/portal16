@@ -7,8 +7,8 @@
             "literature": "Recenzowane publikacje wykorzystujące dane"
         },
         "aboutGbifCountry": "O GBIF {COUNTRY}",
-        "summary": "Bezpłatne i ogólnodostępne dane o różnorodności biologicznej",
-        "whatIsGbif": "Co to jest GBIF?",
+        "summary": "Wolny dostęp do danych o bioróżnorodności",
+        "whatIsGbif": "Czym jest GBIF?",
         "featureTypes": {
             "event": "Wydarzenia",
             "news": "Aktualności",
