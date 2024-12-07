@@ -25,7 +25,7 @@
     },
     "role": "",
     "group": {},
-    "gbif_secretariat": "",
+    "gbif_secretariat": "Sekretariat GBIF",
     "membershipType": "",
     "name": "",
     "endorsedDataPublisher": "",
@@ -38,7 +38,7 @@
       "gbifAffiliates": ""
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
+      "HEAD_OF_DELEGATION": "Przewodniczący delegacji",
       "NODE_MANAGER": ""
     },
     "publishers": "",
