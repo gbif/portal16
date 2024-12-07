@@ -4,11 +4,11 @@
       "summary": "Podsumowanie",
       "dataPublishing": "Publikacja danych",
       "dataAbout": "Dane na temat",
-      "participartion": "",
+      "participartion": "Uczestnictwo",
       "publicationsFrom": "Publikacje z",
       "publicationsAbout": "Publikacje o",
       "news": "Aktualności",
-      "invasives": "",
+      "invasives": "Gatunki obce",
       "more": "Więcej...",
       "projects": "Projekty"
     },
@@ -16,27 +16,27 @@
     "dataFrom": "Dane z: {TRANSLATED_COUNTRY}",
     "dataAboutCountry": "Dane na temat: {TRANSLATED_COUNTRY}",
     "publishingTrends": "Trendy wydawnicze",
-    "noDataPublishingActivity": "",
-    "noInstitutionsHavePublished": "",
+    "noDataPublishingActivity": "Brak aktywności dotyczącej publikacji danych",
+    "noInstitutionsHavePublished": "W tym państwie/rejonie nie ma instytucji, które opublikowały dane przez GBIF",
     "trendsAboutCountry": "Trendy dotyczące: {TRANSLATED_COUNTRY}",
     "nFrom": "{NUMBER_FORMATTED} od",
     "nAbout": "{NUMBER_FORMATTED} na temat",
     "viewAllN": "Zobacz wszystkie {NUMBER_FORMATTED}",
     "noPublications": "Brak publikacji",
     "noProjects": "Brak projektów ",
-    "notParticipant": "Brak uczestnictwa",
-    "notParticipantDescription": "To państwo nie uczestniczy w GBIF",
-    "countryNamingDisclaimer": "",
+    "notParticipant": "Nie jest uczestnikiem",
+    "notParticipantDescription": "To nie jest kraj członkowski GBIF",
+    "countryNamingDisclaimer": "Nazwy krajów i obszarów oparte są na [ISO 3166-1 standard](https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "",
       "datasets": "",
       "publishers": "",
       "countriesAndAreasContributeData": "",
       "publishedOccurrences": "",
-      "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "publishedDatasets": "Opublikowane zbiory danych",
+      "countriesAndAreasCoveredByDataFrom": "Kraje i obszary zawarte w danych z {TRANSLATED_COUNTRY}",
+      "publishersFrom": "Wydawcy z {TRANSLATED_COUNTRY}"
     },
-    "activityReport": ""
+    "activityReport": "Raport działań"
   }
 }
