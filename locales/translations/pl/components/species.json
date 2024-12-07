@@ -1,7 +1,7 @@
 {
   "treatment": {
-    "distribution": "",
-    "figures": ""
+    "distribution": "Rozkład",
+    "figures": "Wykres"
   },
   "species": {
     "literature": {
@@ -29,14 +29,14 @@
       "invasiveIn": "",
       "accordingTo": "",
       "occurrenceCount": "",
-      "seeAllCountries": "",
+      "seeAllCountries": "Pokaż całość",
       "isInvasive": "",
       "isInvasive_yes": "",
       "isInvasive_no": ""
     },
     "treatment": {
       "distribution": "",
-      "figures": ""
+      "figures": "Wykres"
     },
     "as": "",
     "in": "",
