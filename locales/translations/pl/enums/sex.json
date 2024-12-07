@@ -1,6 +1,6 @@
 {
     "sex": {
-        "NONE": "",
+        "NONE": "Żadne",
         "MALE": "Samiec",
         "FEMALE": "Samica",
         "HERMAPHRODITE": "hermafrodyta"
