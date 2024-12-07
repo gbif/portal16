@@ -1,6 +1,6 @@
 {
     "healthSummary": {
-        "systemHealth": "Sprawdzanie wydajności systemu",
+        "systemHealth": "Sprawność systemu",
         "description": "Status poszczególnych usług GBIF",
         "updatedTimeAgo": "Zaktualizowano {TIME_AGO}",
         "statusSummary": {
