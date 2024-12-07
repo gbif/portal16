@@ -47,12 +47,12 @@
     "vernacularNames": "",
     "majorRanksPlural": {
       "KINGDOM": "Królestwa",
-      "PHYLUM": "Typy",
+      "PHYLUM": "Typ",
       "CLASS": "Gromady",
       "ORDER": "Rzędy",
       "FAMILY": "Rodziny",
       "GENUS": "Rodzaje",
-      "SPECIES": "Gatunki"
+      "SPECIES": "Gatunek"
     }
   }
 }
