@@ -3,7 +3,7 @@
         "counts": {
             "occurrences": "Stwierdzenia",
             "datasets": "Zbiory danych",
-            "publishers": "Publikujących dane",
+            "publishers": "Instytucji publikujących dane",
             "literature": "Recenzowane publikacje wykorzystujące dane"
         },
         "aboutGbifCountry": "O GBIF {COUNTRY}",
