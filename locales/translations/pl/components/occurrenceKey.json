@@ -32,7 +32,7 @@
       "raw": ""
     },
     "groups": {
-      "Record": "",
+      "Record": "stwierdzenie",
       "Occurrence": "Występowanie",
       "Event": "",
       "Identification": "",
@@ -50,7 +50,7 @@
     "highlights": {
       "location": "",
       "specimenType": "",
-      "publisher": "",
+      "publisher": "Wydawca",
       "reference": "",
       "verbatimName": ""
     },
