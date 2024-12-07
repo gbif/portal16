@@ -111,7 +111,7 @@
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
     "coreRowType": "",
-    "submit": "",
+    "submit": "Wyślij",
     "dropHere": "",
     "or": "",
     "selectFile": "",
@@ -123,7 +123,7 @@
       "about": "",
       "darwinCoreExtensions": "",
       "metaData": "",
-      "summary": "",
+      "summary": "Podsumowanie",
       "myValidations": ""
     },
     "steps": {
