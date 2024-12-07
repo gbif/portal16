@@ -8,8 +8,8 @@
       "introText": ""
     },
     "distribution": {
-      "presentIn": "",
-      "presentInNonCountry": "",
+      "presentIn": "w",
+      "presentInNonCountry": "w",
       "threatStatus": "",
       "establishmentMeans": "",
       "distributionPlural": "",
@@ -19,7 +19,7 @@
     "tabs": {
       "overview": "",
       "treatment": "",
-      "metrics": "",
+      "metrics": "Statystyki",
       "referenceTaxon": "",
       "literature": "Literatura",
       "verbatim": ""
@@ -53,8 +53,8 @@
     "synonym": "Synonim",
     "description": "Opis",
     "synonyms": "Synonimy",
-    "synonymOf": "",
-    "basionymOf": "",
+    "synonymOf": "Synonim",
+    "basionymOf": "Bazonim",
     "homotypicSynonymOf": "",
     "immediateChildren": "Bezpośrednio podporządkowane taksony",
     "descendants": "",
