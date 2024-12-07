@@ -1,6 +1,6 @@
 {
     "error": {
-        "USER_ALREADY_EXIST": "",
-        "CONSTRAINT_VIOLATION": ""
+        "USER_ALREADY_EXIST": "Użytkownik już istnieje. Użyj innej nazwy użytkownika lub adresu email.",
+        "CONSTRAINT_VIOLATION": "Nieprawidłowe lub niewystarczające informacje"
     }
 }
