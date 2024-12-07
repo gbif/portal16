@@ -7,23 +7,23 @@
             "literature": "Recenzowane publikacje wykorzystujące dane"
         },
         "aboutGbifCountry": "O GBIF {COUNTRY}",
-        "summary": "Wolny dostęp do danych o bioróżnorodności",
+        "summary": "Darmowy i otwarty dostęp do danych o bioróżnorodności",
         "whatIsGbif": "Czym jest GBIF?",
         "featureTypes": {
-            "event": "Wydarzenia",
+            "event": "Zdarzenie",
             "news": "Aktualności",
-            "resource": "Źródła",
+            "resource": "Zasób",
             "dataUse": "Wykorzystanie danych",
             "project": "Projekty",
             "programme": "Programy",
-            "document": "Dokumenty",
-            "tool": "Narzędzia",
+            "document": "Dokument",
+            "tool": "Narzędzie",
             "literature": "Literatura",
             "treatment": "Taksonomia",
             "blog": "Blog",
-            "guidance": "Wskazówki",
+            "guidance": "Wskazówki / wytyczne",
             "data": "Dane",
-            "video": "Flimy"
+            "video": "Film"
         }
     }
 }
