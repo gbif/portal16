@@ -5,12 +5,12 @@
         "messages": "",
         "version": "",
         "releaseNotes": "",
-        "nInQueue": "",
+        "nInQueue": "{NUMBER} w kolejce",
         "status": {
             "OPERATIONAL": "",
-            "WARNING": "",
+            "WARNING": "Niestabilne",
             "CRITICAL": "",
-            "INFO": ""
+            "INFO": "Aktualizacja systemu"
         },
         "components": {
             "OCCURRENCE": {
@@ -30,7 +30,7 @@
                 "tooltip": ""
             },
             "MAPS": {
-                "name": "",
+                "name": "Mapy",
                 "tooltip": ""
             },
             "CONTENTFUL": {
