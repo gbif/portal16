@@ -1,13 +1,13 @@
 {
   "iucnStatus": {
-    "EX": "",
-    "EW": "",
-    "CR": "",
-    "EN": "",
-    "VU": "",
-    "NT": "",
-    "LC": "",
-    "DD": "",
+    "EX": "Wymarły",
+    "EW": "Wymarły na wolności",
+    "CR": "Krytycznie zagrożony",
+    "EN": "Zagrożony",
+    "VU": "Narażony",
+    "NT": "Bliskie zagrożenia",
+    "LC": "Najmniejszej troski",
+    "DD": "Niewystarczająca ilość danych",
     "NE": ""
   }
 }
