@@ -5,10 +5,10 @@
     "knownIssuesDescription": "",
     "FossilsIncluded": "Skamieniałości",
     "FossilsIncludedDescription": "",
-    "livingSpecimensIncluded": "",
+    "livingSpecimensIncluded": "Żywe okazy ",
     "livingSpecimensIncludedDescription": "",
     "yearRange": "",
-    "total": "",
+    "total": "Podsumowanie",
     "license": "Licencja",
     "withTaxonMatch": "",
     "withCoordinates": "",
@@ -23,7 +23,7 @@
     "requestingFullDownload": "",
     "occFiltersExplainedHere": "",
     "estSizeIs": "",
-    "estDLtimes": "",
+    "estDLtimes": "Przewidywany czas pobierania:",
     "nMbitConn": "",
     "onceDownloaded": "",
     "datasetHasNumRows": "",
@@ -47,10 +47,10 @@
       "tabCsv": ""
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (jeśli dostępne)",
+      "yesLinks": "✔ (linki)",
+      "no": "✘"
     }
   }
 }
