@@ -1,45 +1,45 @@
 {
   "cms": {
     "project": {
-      "project": "",
-      "projectId": "",
-      "projectIdentifier": "",
-      "grantType": "",
-      "duration": "",
-      "title": "",
-      "start": "",
-      "end": "",
-      "fundsAllocated": "",
-      "matchingFunds": "",
-      "funding": "",
-      "coFunding": "",
-      "fundedBy": "",
-      "coFundedBy": "",
-      "typeOfGrant": "",
-      "projectStart": "",
-      "status": "",
-      "programme": "",
-      "contractCountry": "",
-      "newsAndEvents": "",
-      "call": "",
-      "projectLead": "",
-      "contactDetalils": "",
-      "partners": ""
+      "project": "Projekt",
+      "projectId": "Numer projektu",
+      "projectIdentifier": "Identyfikator projektu",
+      "grantType": "Rodzaj grantu",
+      "duration": "Czas trwania",
+      "title": "Tytuł",
+      "start": "Początek",
+      "end": "Koniec",
+      "fundsAllocated": "Przydzielone dofinansowanie",
+      "matchingFunds": "Szacowane współfinansowanie",
+      "funding": "Finansowanie",
+      "coFunding": "Współfinansowanie",
+      "fundedBy": "Ufundowane przez",
+      "coFundedBy": "Współfinansowany przez",
+      "typeOfGrant": "Rodzaj grantu",
+      "projectStart": "Rozpoczęcie projektu",
+      "status": "Status",
+      "programme": "Program",
+      "contractCountry": "Kraj lub obszar",
+      "newsAndEvents": "Aktualności i wydarzenia",
+      "call": "Ogłoszenie projektu",
+      "projectLead": "Kierownik projektu",
+      "contactDetalils": "Dane kontaktowe",
+      "partners": "Partnerzy"
     },
     "datause": {
-      "dataViaGbif": ""
+      "dataViaGbif": "Zasoby danych udostępnione przez GBIF"
     },
     "literature": {
-      "keywords": ""
+      "keywords": "Słowa kluczowe"
     },
     "auxiliary": {
-      "subject": "",
+      "subject": "Temat",
       "citation": "Cytowanie",
-      "organisingParticipants": ""
+      "organisingParticipants": "Uczestniczy organizujący"
     },
     "document": {
       "download": "Pobierz",
-      "readDocument": ""
+      "readDocument": "Przejdź do dokumentu"
     }
   }
 }
