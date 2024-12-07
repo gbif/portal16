@@ -15,7 +15,7 @@
         "description": ""
       },
       "nsg": {
-        "title": "",
+        "title": "Komitet Sterujący Węzłami",
         "description": ""
       },
       "nodesCommittee": {
@@ -51,7 +51,7 @@
     "showAllContacts": "",
     "person": {
       "volunteer": "",
-      "name": "Imię i nazwisko/nazwa",
+      "name": "Imię",
       "annualBadges": "",
       "language": "Język",
       "country": "Państwo lub obszar",
