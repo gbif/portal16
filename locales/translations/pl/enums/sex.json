@@ -1,8 +1,8 @@
 {
     "sex": {
         "NONE": "",
-        "MALE": "",
-        "FEMALE": "",
-        "HERMAPHRODITE": ""
+        "MALE": "Samiec",
+        "FEMALE": "Samica",
+        "HERMAPHRODITE": "hermafrodyta"
     }
 }
