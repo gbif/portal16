@@ -8,6 +8,6 @@
         "NEAR_THREATENED": "Bliskie zagrożenia",
         "LEAST_CONCERN": "Najmniejszej troski",
         "DATA_DEFICIENT": "Niewystarczająca ilość danych",
-        "NOT_EVALUATED": ""
+        "NOT_EVALUATED": "Niepoddane ocenie"
     }
 }
