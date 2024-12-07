@@ -10,10 +10,10 @@
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": "",
-        "year": "",
+        "language": "Język",
+        "year": "Rok",
         "datasetKey": "Zbiór danych",
-        "publishingOrg": "",
+        "publishingOrg": "Wydawca",
         "peerReview": "",
         "openAccess": "Otwarty dostęp",
         "gbifDownloadKey": ""
@@ -23,11 +23,11 @@
         "news": "Aktualności",
         "resource": "",
         "dataUse": "",
-        "project": "",
+        "project": "Projekt",
         "participant": "",
         "programme": "",
         "document": "",
-        "tool": "",
+        "tool": "Narzędzie",
         "literature": "Literatura"
       },
       "vocabularyTerms": {
