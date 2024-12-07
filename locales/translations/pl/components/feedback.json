@@ -12,7 +12,7 @@
       "contactPerMail": ""
     },
     "bug": {
-      "title": "",
+      "title": "Błąd",
       "example": ""
     },
     "idea": {
@@ -20,7 +20,7 @@
       "example": ""
     },
     "question": {
-      "title": "",
+      "title": "Dział pomocy",
       "example": "",
       "description": "",
       "comment": ""
