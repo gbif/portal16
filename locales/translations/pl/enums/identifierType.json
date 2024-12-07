@@ -1,7 +1,7 @@
 {
   "enum": {
     "identifierType": {
-      "URL": "",
+      "URL": "URL",
       "LSID": "",
       "HANDLER": "",
       "DOI": "",
