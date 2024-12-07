@@ -1,11 +1,11 @@
 {
   "gbifNetwork": {
-    "gbifNetwork": "",
+    "gbifNetwork": "sieć GBIF",
     "title": "",
     "contact": "Kontakt",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Członek głosujący",
+      "other": "Członkowie głosujący"
     },
     "associate_country_participant": {
       "one": "",
@@ -23,11 +23,11 @@
       "one": "",
       "other": ""
     },
-    "role": "",
+    "role": "Rola",
     "group": {},
     "gbif_secretariat": "Sekretariat GBIF",
-    "membershipType": "",
-    "name": "",
+    "membershipType": "Członkostwo",
+    "name": "Imię",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
@@ -39,12 +39,12 @@
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Przewodniczący delegacji",
-      "NODE_MANAGER": "Manager węzła"
+      "NODE_MANAGER": "Menedżer węzła"
     },
     "publishers": "Wydawcy",
-    "memberSince": "",
-    "participant": "",
-    "pPublishers": "",
+    "memberSince": "Członek od",
+    "participant": "Uczestnik",
+    "pPublishers": "{NUMBER, plural,one{wydawca} other{wydawcy}}",
     "pOccurrence": "",
     "occurrenceDatasets": "",
     "occurrences": "",
