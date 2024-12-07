@@ -6,7 +6,7 @@
     },
     "tabs": {
       "summary": "Podsumowanie",
-      "homepage": "",
+      "homepage": "Strona główna",
       "metrics": ""
     },
     "headerTitle": "",
@@ -17,8 +17,8 @@
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Tak",
+      "false": "Nie"
     },
     "accessionStatus": "",
     "contentTypes": "",
@@ -28,7 +28,7 @@
     "catalogUrl": "",
     "identifiers": "",
     "collectionMailingAddress": "",
-    "status": "",
+    "status": "Status",
     "name": "",
     "isActive": {
       "true": "",
@@ -43,7 +43,7 @@
     },
     "tabs": {
       "summary": "Podsumowanie",
-      "homepage": "",
+      "homepage": "Strona główna",
       "metrics": ""
     },
     "headerTitle": "",
@@ -67,8 +67,8 @@
       "true": "",
       "false": ""
     },
-    "true": "",
-    "false": ""
+    "true": "Tak",
+    "false": "Nie"
   },
   "grscicollPerson": {
     "title": "",
@@ -77,8 +77,8 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
     "fullName": "",
     "position": "",
     "affiliations": "",
@@ -102,7 +102,7 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Adres e-mail",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
