@@ -6,7 +6,7 @@
     "generatedDateAgo": "",
     "anyYear": "",
     "exploreArea": "",
-    "explore": "",
+    "explore": "Procházet",
     "style": "Styl",
     "filters": "Filtry",
     "projection": "Projekce",
@@ -52,8 +52,8 @@
       "ORANGE_CLUSTER": ""
     },
     "tooltips": {
-      "toggleStyle": "",
-      "searchArea": "",
+      "toggleStyle": "Přepnout styl mapy",
+      "searchArea": "Oblast pro hledání",
       "addRectangleFilter": "",
       "addPolygonFilter": "",
       "removeGeometryFilter": "",
