@@ -19,7 +19,7 @@
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "",
     "http://rs.tdwg.org/dwc/terms/Identification": "",
     "http://rs.gbif.org/terms/1.0/Identifier": "",
-    "http://rs.gbif.org/terms/1.0/Image": "",
+    "http://rs.gbif.org/terms/1.0/Image": "Obraz",
     "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "",
     "http://rs.gbif.org/terms/1.0/Multimedia": "",
     "http://rs.gbif.org/terms/1.0/Reference": "",
