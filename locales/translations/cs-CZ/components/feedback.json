@@ -6,7 +6,7 @@
       "example": ""
     },
     "data content": {
-      "title": "",
+      "title": "Obsah",
       "example": "",
       "annotate": "",
       "contactPerMail": ""
@@ -16,17 +16,17 @@
       "example": ""
     },
     "idea": {
-      "title": "",
+      "title": "Nápad",
       "example": ""
     },
     "question": {
-      "title": "",
+      "title": "Podpora",
       "example": "",
       "description": "",
       "comment": ""
     },
     "confirmation": {
-      "title": "",
+      "title": "Děkujeme",
       "example": "",
       "seeIssue": ""
     },
@@ -36,7 +36,7 @@
       "create": ""
     },
     "placeholders": {
-      "summary": "",
+      "summary": "Shrnutí",
       "description": "",
       "username": ""
     },
@@ -45,8 +45,8 @@
     "failure": "",
     "weRecommendX": "",
     "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
+    "submit": "Odeslat",
+    "seeAllComments": "Zobrazit vše",
     "recommendMail": "",
     "pleaseLogin": ""
   }
