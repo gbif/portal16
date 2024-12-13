@@ -3,7 +3,7 @@
     "connect": {
       "failed": {
         "FACEBOOK": "",
-        "GITHUB": "",
+        "GITHUB": "Nelze se připojit ke Githubu",
         "GOOGLE": ""
       }
     },
