@@ -10,24 +10,24 @@
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": "",
-        "year": "",
-        "datasetKey": "",
-        "publishingOrg": "",
+        "language": "Język",
+        "year": "Rok",
+        "datasetKey": "Zbiór danych",
+        "publishingOrg": "Wydawca",
         "peerReview": "",
-        "openAccess": "",
+        "openAccess": "Otwarty dostęp",
         "gbifDownloadKey": ""
       },
       "contentType": {
         "event": "",
-        "news": "",
+        "news": "Aktualności",
         "resource": "",
         "dataUse": "",
-        "project": "",
+        "project": "Projekt",
         "participant": "",
         "programme": "",
-        "document": "",
-        "tool": "",
+        "document": "Dokument",
+        "tool": "Narzędzie",
         "literature": "Literatura"
       },
       "vocabularyTerms": {
@@ -43,7 +43,7 @@
         },
         "projectStatus": {
           "APPROVED": "",
-          "CLOSED": "",
+          "CLOSED": "Zamknięte",
           "IN_PROGRESS": "",
           "DISCONTINUED": "",
           "undefined": ""
@@ -60,29 +60,29 @@
           "GBIF_FUNDED": ""
         },
         "topics": {
-          "AGRICULTURE": "",
+          "AGRICULTURE": "Rolnictwo",
           "BIODIVERSITY_SCIENCE": "",
           "BIOGEOGRAPHY": "",
           "CITIZEN_SCIENCE": "",
           "CLIMATE_CHANGE": "",
-          "CONSERVATION": "",
-          "DATA_MANAGEMENT": "",
+          "CONSERVATION": "Ochrona przyrody",
+          "DATA_MANAGEMENT": "Zarządzanie danymi",
           "DATA_PAPER": "",
-          "ECOLOGY": "",
+          "ECOLOGY": "Ekologia",
           "ECOSYSTEM_SERVICES": "",
-          "EVOLUTION": "",
+          "EVOLUTION": "Ewolucja",
           "FRESHWATER": "",
           "HUMAN_HEALTH": "",
           "INVASIVES": "",
-          "MARINE": "",
+          "MARINE": "Morskie",
           "PHYLOGENETICS": "",
           "SPECIES_DISTRIBUTIONS": "",
           "INFRASTRUCTURE": "",
-          "DNA": "",
+          "DNA": "DNA",
           "TAXONOMY": ""
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "",
+          "CAPACITY_ENHANCEMENT": "Zwiększanie pojemności",
           "DATA_ACCESS": "",
           "DATA_ANALYSIS": "",
           "DATA_CURATION_QUALITY": "",
@@ -112,12 +112,12 @@
           "bill": ""
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Eksperci ds. wiedzy o bioróżnorodności",
           "DATA_HOLDERS": "",
-          "DATA_USERS": "",
+          "DATA_USERS": "Użytkownicy danych",
           "DECISION_MAKERS": "",
-          "GBIF_NETWORK": "",
-          "PUBLIC_STAKEHOLDERS": ""
+          "GBIF_NETWORK": "Sieć GBIF",
+          "PUBLIC_STAKEHOLDERS": "Interesariusze"
         }
       }
     }

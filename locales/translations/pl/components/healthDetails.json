@@ -5,24 +5,24 @@
         "messages": "",
         "version": "",
         "releaseNotes": "",
-        "nInQueue": "",
+        "nInQueue": "{NUMBER} w kolejce",
         "status": {
             "OPERATIONAL": "",
-            "WARNING": "",
+            "WARNING": "Niestabilne",
             "CRITICAL": "",
-            "INFO": ""
+            "INFO": "Aktualizacja systemu"
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
+                "name": "Występowanie",
                 "tooltip": ""
             },
             "SPECIES": {
-                "name": "",
+                "name": "Gatunek\n",
                 "tooltip": ""
             },
             "REGISTRY": {
-                "name": "",
+                "name": "Rejestr",
                 "tooltip": ""
             },
             "IDENTITY": {
@@ -30,7 +30,7 @@
                 "tooltip": ""
             },
             "MAPS": {
-                "name": "",
+                "name": "Mapy",
                 "tooltip": ""
             },
             "CONTENTFUL": {
@@ -58,7 +58,7 @@
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
+                "name": "Pobrania",
                 "tooltip": ""
             }
         }

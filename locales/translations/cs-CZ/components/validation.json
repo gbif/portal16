@@ -40,7 +40,7 @@
     "fileType": {
       "title": "",
       "CORE": {
-        "title": ""
+        "title": "Jádro"
       },
       "EXTENSION": {
         "title": ""
@@ -123,7 +123,7 @@
       "about": "",
       "darwinCoreExtensions": "",
       "metaData": "",
-      "summary": "",
+      "summary": "Shrnutí",
       "myValidations": ""
     },
     "steps": {

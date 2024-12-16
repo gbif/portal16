@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "Sprawdzanie wydajności systemu",
-        "description": "",
+        "systemHealth": "Sprawność systemu",
+        "description": "Status poszczególnych usług GBIF",
         "updatedTimeAgo": "Zaktualizowano {TIME_AGO}",
         "statusSummary": {
             "OPERATIONAL": "Wszystkie systemy sprawne.",
             "INFO": "Wszystkie systemy sprawne.",
-            "WARNING": "",
-            "CRITICAL": ""
+            "WARNING": "Doświadczamy niestabilności lub spowolnień systemów",
+            "CRITICAL": "Doświadczamy częściowej awarii"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Usługi niestabilne",
+                "summary": "Obecnie doświadczamy niestabilności lub spowolnień systemów"
             },
             "CRITICAL": {
-                "title": "",
-                "summary": ""
+                "title": "Usługi niedostępne",
+                "summary": "Doświadczamy częściowej awarii"
             }
         }
     }

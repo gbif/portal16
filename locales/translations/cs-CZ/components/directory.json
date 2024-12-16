@@ -23,7 +23,7 @@
         "description": ""
       },
       "secretariat": {
-        "title": "",
+        "title": "GBIF Sekretariát",
         "description": ""
       },
       "voting": {
@@ -53,14 +53,14 @@
       "volunteer": "",
       "name": "",
       "annualBadges": "",
-      "language": "",
+      "language": "Jazyk",
       "country": "",
       "affiliation": "",
       "recipient": "",
       "areasExpertise": "",
       "orcId": "",
-      "year": "",
-      "email": ""
+      "year": "Rok",
+      "email": "E-mail"
     },
     "award": {
       "GRA": "",
@@ -69,6 +69,6 @@
       "EBBE3RD": ""
     },
     "prize": "",
-    "year": ""
+    "year": "Rok"
   }
 }

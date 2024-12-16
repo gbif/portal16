@@ -10,12 +10,12 @@
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": "",
-        "year": "",
-        "datasetKey": "",
-        "publishingOrg": "",
+        "language": "Jazyk",
+        "year": "Rok",
+        "datasetKey": "Datová sada",
+        "publishingOrg": "Vydavatel",
         "peerReview": "",
-        "openAccess": "",
+        "openAccess": "Otevřený přístup",
         "gbifDownloadKey": ""
       },
       "contentType": {
@@ -66,7 +66,7 @@
           "CITIZEN_SCIENCE": "",
           "CLIMATE_CHANGE": "",
           "CONSERVATION": "",
-          "DATA_MANAGEMENT": "",
+          "DATA_MANAGEMENT": "Správa dat",
           "DATA_PAPER": "",
           "ECOLOGY": "",
           "ECOSYSTEM_SERVICES": "",
@@ -82,7 +82,7 @@
           "TAXONOMY": ""
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "",
+          "CAPACITY_ENHANCEMENT": "Zvyšování kapacity",
           "DATA_ACCESS": "",
           "DATA_ANALYSIS": "",
           "DATA_CURATION_QUALITY": "",
@@ -116,7 +116,7 @@
           "DATA_HOLDERS": "",
           "DATA_USERS": "",
           "DECISION_MAKERS": "",
-          "GBIF_NETWORK": "",
+          "GBIF_NETWORK": "GBIF síť",
           "PUBLIC_STAKEHOLDERS": ""
         }
       }

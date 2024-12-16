@@ -22,26 +22,26 @@
             "invalid": "",
             "select": {
                 "equals": "",
-                "between": "",
+                "between": "Pomiędzy",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Jest {from}",
+            "between": "Pomiędzy {od} i {do}",
+            "lessThanOrEquals": "Mniejszy lub równy {to}",
+            "greaterThanOrEquals": "Większy lub równy {from}",
+            "invalid": "Błędny",
             "select": {
                 "equals": "",
-                "between": "",
+                "between": "Pomiędzy",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
         },
         "year": {
-            "equals": "",
+            "equals": "Jest {from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
@@ -54,7 +54,7 @@
             }
         },
         "default": {
-            "equals": "",
+            "equals": "Jest {from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",

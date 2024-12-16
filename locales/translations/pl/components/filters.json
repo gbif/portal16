@@ -1,15 +1,15 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
-        "clear": "",
-        "add": "",
+        "searchPlaceholder": "Wyszukaj",
+        "noPreference": "Brak preferencji ",
+        "invert": "Odwróć",
+        "clear": "Wyczyść",
+        "add": "Dodaj",
         "repatriation": {
             "description": ""
         },
         "isClustered": {
-            "description": ""
+            "description": "Ta eksperymentalna funkcja podkreślana możliwe duplikaty i/lub powiązane występowania."
         },
         "isSequenced": {
             "description": ""
@@ -17,37 +17,37 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
-                "no": "",
-                "all": ""
+                "yes": "Obecne",
+                "no": "Nieobecne",
+                "all": "Wszystkie"
             }
         },
         "ternary": {
-            "yes": "",
-            "no": "",
-            "all": ""
+            "yes": "Tak",
+            "no": "Nie",
+            "all": "Wszystkie"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
-            "includeFlaggedAsSuspicious": "",
-            "onlyShowFlagged": "",
-            "past": "",
-            "geojson": "",
+            "north": "Północ",
+            "south": "Południe",
+            "west": "Zachód",
+            "east": "Wschód",
+            "withCoordinates": "Z uwzględnieniem współrzędnych",
+            "withoutCoordinates": "Bez współrzędnych",
+            "includeFlaggedAsSuspicious": "Uwzględnij stwierdzenia, w których współrzędne są oznaczone jako podejrzane",
+            "onlyShowFlagged": "Pokazuj jedynie stwierdzenia oznaczone jako podejrzane",
+            "past": "Ostatnio używane",
+            "geojson": "GeoJSON",
             "geometry": "Geometria",
-            "range": "",
+            "range": "Zasięg",
             "noFiltersAdded": "",
-            "wktPlaceholder": "",
+            "wktPlaceholder": "WKT lub GeoJSON",
             "invalidTextInput": "",
             "tooLarge": "",
-            "tooLargeSuggestion": "",
+            "tooLargeSuggestion": "Spróbuj użyć pola ograniczającego lub lokalnie zainstalowanych filtrów",
             "aboutWktAndGeoJson": "",
             "simplificationWarning": "",
-            "invalidRange": ""
+            "invalidRange": "Nieprawidłowe pole ograniczające"
         }
     }
 }

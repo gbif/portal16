@@ -31,8 +31,8 @@
     "readMore": "",
     "titleMissing": "",
     "underProcessing": "",
-    "citation": "",
-    "format": "",
+    "citation": "Citace",
+    "format": "Formát",
     "nRecordsAtTime": "",
     "aboutDeletionPolicy": "",
     "readDatauseAndTerms": "",
@@ -70,7 +70,7 @@
         "not": ""
       },
       "and": "",
-      "or": "",
+      "or": "Nebo",
       "not": "",
       "isNotNull": "",
       "isNull": ""

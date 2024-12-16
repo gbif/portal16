@@ -14,15 +14,15 @@
         },
         "components": {
             "OCCURRENCE": {
-                "name": "",
+                "name": "Výskyt",
                 "tooltip": ""
             },
             "SPECIES": {
-                "name": "",
+                "name": "Druh",
                 "tooltip": ""
             },
             "REGISTRY": {
-                "name": "",
+                "name": "Registr",
                 "tooltip": ""
             },
             "IDENTITY": {
@@ -58,7 +58,7 @@
                 "tooltip": ""
             },
             "DOWNLOAD": {
-                "name": "",
+                "name": "Stahování",
                 "tooltip": ""
             }
         }

@@ -13,7 +13,7 @@
     "firstName": "",
     "lastName": "",
     "thisIsRequired": "",
-    "email": "",
+    "email": "E-mail",
     "pleaseProvideAValidEmail": "",
     "phone": "",
     "rememberToPrefixWithCountryCode": "",

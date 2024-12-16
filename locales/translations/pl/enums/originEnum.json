@@ -1,6 +1,6 @@
 {
   "originEnum": {
-    "SOURCE": "",
+    "SOURCE": "Źródło",
     "DENORMED_CLASSIFICATION": "",
     "VERBATIM_PARENT": "",
     "VERBATIM_ACCEPTED": "",
@@ -11,6 +11,6 @@
     "MISSING_ACCEPTED": "",
     "BASIONYM_PLACEHOLDER": "",
     "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "OTHER": "Inne"
   }
 }
