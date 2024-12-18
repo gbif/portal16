@@ -77,17 +77,13 @@ function phyloTreeDirective() {
                 }
                 if (nwk) {
                     vm.tree = new phylotree.phylotree(nwk);
+                    
                     if (tipTranslation) {
-                        var internals = vm.tree.getInternals();
-                        var tips = vm.tree.getTips();
-                        [internals, tips].forEach(function(nodes) {
-                            for (var i = 0; i < nodes.length; i++) {
-                                if (tipTranslation[_.get(nodes[i], 'data.name')]) {
-                                  nodes[i].data.name = tipTranslation[nodes[i].data.name];
-                                }
-                              }
+                        Object.keys(tipTranslation).forEach(function(key) {
+                            var n = vm.tree.getNodeByName(key);
+                            n.data.name = tipTranslation[key];
                         });
-                      }
+                    }
 
                     vm.selectedNode = vm.phyloTreeTipLabel ? vm.tree.getNodeByName(vm.phyloTreeTipLabel.replaceAll(' ', '_')) : null;
                     vm.edgeSelection = vm.selectedNode ? pathToRoot(vm.selectedNode) : [];
