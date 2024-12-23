@@ -2,9 +2,9 @@
   "map": {
     "nGeoreferencedRecords": "",
     "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
+    "clickToSearchArea": "Kliknutím prozkoumat oblast",
     "generatedDateAgo": "",
-    "anyYear": "",
+    "anyYear": "Jakýkoliv rok",
     "exploreArea": "",
     "explore": "Procházet",
     "style": "Styl",
@@ -36,7 +36,7 @@
       "SMALL_HEX": "",
       "LARGE_HEX": "Šestiúhelníky",
       "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "LARGE_SQUARE": "Čtverce"
     },
     "colors": {
       "CLASSIC": "Klasický",
