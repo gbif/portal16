@@ -15,7 +15,7 @@
         "description": ""
       },
       "nsg": {
-        "title": "",
+        "title": "Řídicí skupina uzlů",
         "description": ""
       },
       "nodesCommittee": {
