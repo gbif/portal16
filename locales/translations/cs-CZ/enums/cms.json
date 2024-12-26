@@ -114,7 +114,7 @@
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
           "DATA_HOLDERS": "",
-          "DATA_USERS": "",
+          "DATA_USERS": "Uživatelé dat",
           "DECISION_MAKERS": "",
           "GBIF_NETWORK": "GBIF síť",
           "PUBLIC_STAKEHOLDERS": ""
