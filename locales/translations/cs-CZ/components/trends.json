@@ -23,7 +23,7 @@
     "numSpeciesAssociatedWithObsRecords": "",
     "timeAndSeasonality": "Čas a sezónnost",
     "theseChartsIllustrate3": "Tyto grafy znázorňují změny v rozložení záznamů podle roku výskytu a podle dne v roce, což ukazuje míru možného zkreslení směrem k novějším obdobím nebo určitým ročním obdobím. Snímky jsou uvedeny pro přibližně tříleté intervaly, aby byly patrné změny v rozšíření.",
-    "speciesCountsAreBasedOnTheNumberOfBinomialScientificNames": "",
+    "speciesCountsAreBasedOnTheNumberOfBinomialScientificNames": "Počty druhů jsou založeny na počtu binomických vědeckých názvů, pro které GBIF obdržel datové záznamy, uspořádané pokud možno s využitím synonym zaznamenaných v klíčových databázích, jako je Catalogue of Life. Vzhledem k tomu, že mnoho názvů ještě není v těchto databázích zahrnuto, bude určitá část těchto názvů představovat nerozpoznaná synonyma a nebude představovat platné druhy. Proto lze tyto počty použít pouze jako ukazatel bohatství a nepředstavují skutečné počty druhů. Všechny údaje byly zpracovány za použití stejné, nejnovější verze společné páteřní taxonomie GBIF, a srovnání v čase jsou proto reálná.",
     "recordsByYearOfOccurrence": "",
     "theNumberOfOccurrenceRecordsAvailable": "",
     "speciesByYearOfOccurrence": "",
