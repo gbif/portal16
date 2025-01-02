@@ -38,8 +38,8 @@
       "gbifAffiliates": ""
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "HEAD_OF_DELEGATION": "Vedoucí delegace",
+      "NODE_MANAGER": "Správce uzlu"
     },
     "publishers": "",
     "memberSince": "",
