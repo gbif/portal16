@@ -1,16 +1,16 @@
 {
     "tools": {
-        "tools": "",
-        "categoryFeatured": "",
+        "tools": "Nástroje",
+        "categoryFeatured": "Doporučené",
         "suggestDataset": {
             "NOT_OPEN": "",
             "title": "",
             "pleaseDescribeTheDataset": "",
             "thankYou": "Děkujeme",
             "form": {
-                "title": "",
-                "link": "",
-                "region": "",
+                "title": "Název",
+                "link": "Internetový odkaz na data",
+                "region": "Geografické pokrytí",
                 "taxon": "",
                 "whyImportant": "",
                 "howWouldYouRateIt": "",
