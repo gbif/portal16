@@ -6,7 +6,7 @@
     },
     "tabs": {
       "summary": "Shrnutí",
-      "homepage": "",
+      "homepage": "Domovská stránka",
       "metrics": ""
     },
     "headerTitle": "",
@@ -43,7 +43,7 @@
     },
     "tabs": {
       "summary": "Shrnutí",
-      "homepage": "",
+      "homepage": "Domovská stránka",
       "metrics": ""
     },
     "headerTitle": "",
@@ -107,7 +107,7 @@
       "mailingAddress": "",
       "physicalAddress": "",
       "contacts": "",
-      "address": "",
+      "address": "Adresa",
       "province": "",
       "postalCode": "",
       "city": "",
