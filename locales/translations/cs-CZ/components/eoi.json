@@ -77,10 +77,10 @@
     "pleaseContactUs": "Ohledně své záležitosti nás kontaktujte na helpdesk@gbif.org.",
     "weHaveRecieved": "Obdrželi jsme vaše vyjádření zájmu stát se vydavatelem dat v síti GBIF.",
     "youWillRecieveConfEmail": "Jakmile bude vaše potvrzení schváleno, obdržíte potvrzovací e-mail.",
-    "yourOrgDetailsAreHere": "",
-    "outage": "",
+    "yourOrgDetailsAreHere": "Podrobnosti o vaší organizaci jsou zde.",
+    "outage": "Dochází k částečnému výpadku a v současné době nepřijímáme registrace.",
     "loginRequired": "",
-    "eoiDescription": "",
-    "eoiTitle": ""
+    "eoiDescription": "V rámci přípravy na publikování dat prostřednictvím GBIF žádáme potenciální nové vydavatele, aby vyplnili tento online formulář. Předtím, než GBIF indexuje vaše datové sady, musí vaše instituce získat souhlas jako vydavatel dat od jedné ze zemí nebo organizací účastnících se GBIF prostřednictvím účastnického uzlu GBIF. Pokud vaše země ještě není zapojena do GBIF, požádáme o schválení vaším jménem komunitu GBIF.",
+    "eoiTitle": "Staňte se vydavatelem"
   }
 }
