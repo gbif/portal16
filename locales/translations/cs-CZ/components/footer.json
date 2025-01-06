@@ -1,14 +1,14 @@
 {
   "footer": {
-    "whatIsGbif": "",
-    "api": "",
-    "faq": "",
-    "newsletter": "",
-    "privacy": "",
-    "terms": "",
+    "whatIsGbif": "Co je GBIF?",
+    "api": "API",
+    "faq": "Časté dotazy",
+    "newsletter": "Zpravodaj",
+    "privacy": "Soukromí",
+    "terms": "Podmínky",
     "citation": "Citace",
-    "codeOfConduct": "",
-    "acknowledgements": "",
-    "contact": ""
+    "codeOfConduct": "Etický Kodex",
+    "acknowledgements": "Poděkování",
+    "contact": "Kontakt"
   }
 }

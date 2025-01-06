@@ -2,7 +2,7 @@
   "gbifNetwork": {
     "gbifNetwork": "",
     "title": "",
-    "contact": "",
+    "contact": "Kontakt",
     "voting_participant": {
       "one": "",
       "other": ""
@@ -31,7 +31,7 @@
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
-    "datasets": "",
+    "datasets": "Datové sady",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",
