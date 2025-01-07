@@ -32,7 +32,7 @@ function metabarcodingDataToolFormDirective() {
             .then(function(data) {
               vm.participantCountries = _.sortBy(_.filter(data.results, function(e) {
                 if (e.participationStatus === 'OBSERVER' || e.participationStatus === 'FORMER') return false;
-                if (e.type !== 'COUNTRY') return false;
+                //if (e.type !== 'COUNTRY') return false;
                 return true;
               }), 'participantTitle');
               vm.participantCountriesMap = _.keyBy(vm.participantCountries, 'key');

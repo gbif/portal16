@@ -53,6 +53,7 @@ require('moment/locale/fr');
 require('moment/locale/pt');
 require('moment/locale/pl');
 require('moment/locale/uk');
+require('moment/locale/cs');
 
 require('moment/locale/da');
 require('moment/locale/de-ch');

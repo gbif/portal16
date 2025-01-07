@@ -1,27 +1,27 @@
 {
   "publisher": {
-    "searchTitle": "",
+    "searchTitle": "Wyszukiwanie wydawców",
     "tabs": {
       "aboutPublisher": "",
       "metrics": "",
-      "publishersHomepage": ""
+      "publishersHomepage": "Strona główna"
     },
     "joinedAgo": "",
-    "newPublisher": "",
+    "newPublisher": "Nowy wydawca",
     "technicalContact": "",
     "country": "",
     "hosting": "",
-    "description": "",
+    "description": "Opis",
     "endorsedBy": "",
     "pendingEndorsementBy": "",
     "endorsementWithheld": "",
     "installations": "",
     "getDownloadReport": "",
-    "contacts": "",
+    "contacts": "Kontakty",
     "administrativeContact": "",
     "header": {
-      "publisher": "",
-      "sinceDate": ""
+      "publisher": "Wydawca",
+      "sinceDate": "Od"
     }
   }
 }

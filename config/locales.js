@@ -20,6 +20,7 @@ if (env === 'local' || env === 'dev') {
 
 if (env === 'uat' || env === 'local') {
    locales.push('pl');
+   locales.push('cs');
 }
 
 // specify rtl
@@ -33,6 +34,7 @@ let contentfulLocaleMap = {}; // the contentful map should not handle locales th
 // overwrites
 contentfulLocaleMap['en'] = 'en-GB';
 contentfulLocaleMap['ja'] = 'ja';
+contentfulLocaleMap['cs'] = 'cs';
 contentfulLocaleMap['es'] = 'es';
 contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
@@ -58,6 +60,7 @@ translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['uk'] = 'ukr';
 translationMap['pt'] = 'por';
+translationMap['cs'] = 'ces';
 translationMap['pl'] = 'pol';
 translationMap['da'] = 'dan';
 translationMap['zh'] = 'zh-hans';
@@ -92,6 +95,7 @@ momentMap['zh'] = 'zh-cn';
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';
 momentMap['ar-MOCK'] = 'ar-sa';
+momentMap['cs'] = 'cs';
 
 // what locale to use for numbers
 let numberMap = {};// _.keyBy(locales); // default to use the same language codes
@@ -101,6 +105,7 @@ numberMap['zh-tw'] = 'zh-tw';
 numberMap['de-MOCK'] = 'de-ch';
 numberMap['ko-MOCK'] = 'zh-cn';
 numberMap['ar-MOCK'] = 'en';
+numberMap['cs'] = 'cs';
 
 // If the toLolaeString is using a different format, then provide it. This isn't used much on the site yet, so make sure the places you are using it works as intended
 let jsLocaleMap = _.keyBy(locales);

@@ -1,0 +1,16 @@
+{
+  "basisOfRecord": {
+    "PRESERVED_SPECIMEN": "",
+    "FOSSIL_SPECIMEN": "",
+    "LIVING_SPECIMEN": "",
+    "OBSERVATION": "",
+    "HUMAN_OBSERVATION": "",
+    "MACHINE_OBSERVATION": "",
+    "MATERIAL_SAMPLE": "",
+    "MATERIAL_CITATION": "",
+    "LITERATURE": "",
+    "UNKNOWN": "",
+    "OCCURRENCE": "",
+    "undefined": ""
+  }
+}

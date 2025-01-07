@@ -3,27 +3,27 @@
         "counts": {
             "occurrences": "Stwierdzenia",
             "datasets": "Zbiory danych",
-            "publishers": "Publikujących dane",
+            "publishers": "Instytucji publikujących dane",
             "literature": "Recenzowane publikacje wykorzystujące dane"
         },
         "aboutGbifCountry": "O GBIF {COUNTRY}",
-        "summary": "Bezpłatne i ogólnodostępne dane o różnorodności biologicznej",
-        "whatIsGbif": "Co to jest GBIF?",
+        "summary": "Darmowy i otwarty dostęp do danych o bioróżnorodności",
+        "whatIsGbif": "Czym jest GBIF?",
         "featureTypes": {
-            "event": "Wydarzenia",
+            "event": "Zdarzenie",
             "news": "Aktualności",
-            "resource": "Źródła",
+            "resource": "Zasób",
             "dataUse": "Wykorzystanie danych",
             "project": "Projekty",
             "programme": "Programy",
-            "document": "Dokumenty",
-            "tool": "Narzędzia",
+            "document": "Dokument",
+            "tool": "Narzędzie",
             "literature": "Literatura",
             "treatment": "Taksonomia",
             "blog": "Blog",
-            "guidance": "Wskazówki",
+            "guidance": "Wskazówki / wytyczne",
             "data": "Dane",
-            "video": "Flimy"
+            "video": "Film"
         }
     }
 }

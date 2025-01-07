@@ -22,9 +22,9 @@
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
       "UNKNOWN_TERM": "",
       "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
+      "TITLE_MISSING_OR_TOO_SHORT": "Brak tytułu bazy danych lub jest on zbyt krótki",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
-      "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
+      "DESCRIPTION_MISSING_OR_TOO_SHORT": "Brak opisu bazy danych lub jest on zbyt krótki",
       "LICENSE_MISSING_OR_UNKNOWN": "",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
       "UNREADABLE_SECTION_ERROR": "",
@@ -40,7 +40,7 @@
     "fileType": {
       "title": "",
       "CORE": {
-        "title": ""
+        "title": "Rdzeń"
       },
       "EXTENSION": {
         "title": ""
@@ -65,13 +65,13 @@
     "issues": "",
     "fileHasIssues": "",
     "fileHasNoIssues": "",
-    "error": "",
+    "error": "Błąd",
     "errors": {
-      "401": "",
-      "400": "",
+      "401": "Aby wyświetlić tę stronę musisz się zalogować. ",
+      "400": "Nie można przetworzyć pliku lub może go brakować, jeśli podano adres URL.",
       "404": "",
-      "413": "",
-      "415": ""
+      "413": "Plik jest za duży, aby mógł zostać przetworzony przez walidator danych.",
+      "415": "Nieobsługiwany typ pliku. Plik nie mógł zostać przetworzony."
     },
     "backToValidator": "",
     "termsFrequency": {
@@ -91,39 +91,39 @@
       "title": ""
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
+      "title": "Status",
+      "SUBMITTED": "Wysyłanie pliku",
       "FETCHING": "",
       "ACCEPTED": "",
       "RUNNING": "",
       "FINISHED": "",
-      "FAILED": "",
+      "FAILED": "Weryfikacja się nie powiodła. Sprawdź rodzaj pliku, lub jeśli udostępniasz adres URL, sprawdź, czy podany plik istnieje w tej lokalizacji.",
       "CONTACTING_SERVER": ""
     },
     "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
-    "numberOfLines": "",
+    "indexeable": "Plik może być zindeksowany przez GBIF",
+    "notIndexeable": "Plik nie może być zindeksowany przez GBIF",
+    "numberOfLines": "Liczba linii",
     "reportProducedByGbifDataValidator": "",
     "validationReport": "",
     "dataValidator": "",
     "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
+    "thisIsAnEarlyAccessVersion": "Prosimy o zgłaszanie problemów i opinii za pomocą",
     "here": "",
     "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
+    "submit": "Wyślij",
+    "dropHere": "Upuść tutaj",
+    "or": "lub",
+    "selectFile": "Wybierz plik",
     "fetchFileFromLocation": "",
-    "started": "",
+    "started": "Rozpoczęto",
     "tabs": {
       "newDataValidation": "",
       "newValidation": "",
       "about": "",
       "darwinCoreExtensions": "",
       "metaData": "",
-      "summary": "",
+      "summary": "Podsumowanie",
       "myValidations": ""
     },
     "steps": {

@@ -1,0 +1,101 @@
+{
+    "tools": {
+        "tools": "Nástroje",
+        "categoryFeatured": "Doporučené",
+        "suggestDataset": {
+            "NOT_OPEN": "",
+            "title": "",
+            "pleaseDescribeTheDataset": "",
+            "thankYou": "Děkujeme",
+            "form": {
+                "title": "Název",
+                "link": "Internetový odkaz na data",
+                "region": "Geografické pokrytí",
+                "taxon": "",
+                "whyImportant": "",
+                "howWouldYouRateIt": "",
+                "high": "",
+                "medium": "",
+                "low": "",
+                "bibliographicRef": "",
+                "type": "",
+                "license": "",
+                "dataHolderContact": "",
+                "publicAlert": "",
+                "yourContact": "",
+                "comments": "",
+                "submit": "",
+                "followDiscussionBelow": "",
+                "followIssue": "",
+                "suggestAnother": "",
+                "saveFailure": ""
+            }
+        },
+        "observationTrends": {
+            "drawerTitle": "",
+            "intro": "",
+            "aboutLink": "",
+            "selectSpecies": "",
+            "noData": "",
+            "selectHigherTaxa": "",
+            "selectArea": "",
+            "hexagon": "",
+            "draw": "",
+            "clear": "Vymazat",
+            "resultIntro": "",
+            "embedIntro": ""
+        },
+        "speciesLookup": {
+            "description": "",
+            "title": ""
+        },
+        "ipt": {
+            "description": "",
+            "dontSeeYourIpt": ""
+        },
+        "dataRepository": {
+            "title": ""
+        },
+        "sequenceId": {
+            "title": ""
+        },
+        "machineVision": {
+            "tabs": {
+                "demo": "",
+                "statement": ""
+            }
+        },
+        "derivedDataset": {
+            "title": "",
+            "titleField": "",
+            "sourceUrl": "",
+            "originalDownloadDOI": "",
+            "registrationDate": "",
+            "datasetKey": "",
+            "occurrenceCount": "",
+            "submit": "",
+            "pleaseFill": "",
+            "loginToCreate": "",
+            "myDatasets": "",
+            "register": "",
+            "about": "",
+            "optionalDescription": "",
+            "registerNew": "",
+            "editDataset": "",
+            "editFailed": "",
+            "registrationFailed": "",
+            "registrationCompleted": "",
+            "editCompleted": "",
+            "newRegistration": "",
+            "goToDataset": "",
+            "yourDerivedDatasets": "",
+            "backToEdit": "",
+            "mintingDoi": "",
+            "attachCsvLabel": "",
+            "orEnterLabel": ""
+        },
+        "occurrenceSnapshots": {
+            "title": ""
+        }
+    }
+}

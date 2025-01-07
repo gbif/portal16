@@ -96,6 +96,6 @@
     "VERNACULAR_NAME_INVALID": "Au moins un des enregistrements de l'extension de nom vernaculaire lié à ce nom utilisé est invalide.",
     "DESCRIPTION_INVALID": "Au moins un des enregistrements de l'extension description attaché à ce nom utilisé est non-valide.",
     "REFERENCES_URI_INVALID": "Un uri non valide est donné pour dc:references.",
-    "UNHANDLED_ERROR": ""
+    "UNHANDLED_ERROR": "Une erreur non gérée s'est produite"
   }
 }

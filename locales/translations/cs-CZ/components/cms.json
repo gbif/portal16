@@ -1,0 +1,45 @@
+{
+  "cms": {
+    "project": {
+      "project": "",
+      "projectId": "",
+      "projectIdentifier": "",
+      "grantType": "",
+      "duration": "",
+      "title": "",
+      "start": "",
+      "end": "",
+      "fundsAllocated": "",
+      "matchingFunds": "",
+      "funding": "",
+      "coFunding": "",
+      "fundedBy": "",
+      "coFundedBy": "",
+      "typeOfGrant": "",
+      "projectStart": "",
+      "status": "",
+      "programme": "",
+      "contractCountry": "",
+      "newsAndEvents": "",
+      "call": "",
+      "projectLead": "",
+      "contactDetalils": "",
+      "partners": ""
+    },
+    "datause": {
+      "dataViaGbif": ""
+    },
+    "literature": {
+      "keywords": ""
+    },
+    "auxiliary": {
+      "subject": "Předmět",
+      "citation": "Citace",
+      "organisingParticipants": ""
+    },
+    "document": {
+      "download": "",
+      "readDocument": ""
+    }
+  }
+}

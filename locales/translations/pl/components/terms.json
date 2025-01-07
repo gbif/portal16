@@ -1,9 +1,9 @@
 {
   "terms": {
-    "headline": "",
-    "description": "",
-    "readTerms": "",
-    "accept": "",
-    "reject": ""
+    "headline": "Informacje na temat plików cookies na GBIF ",
+    "description": "Strona GBIF używa plików cookies i podobnych technologii w celu analizy statystycznej, poprawy jakości i użyteczności naszej strony, dopasowania zawartości do twoich zainteresowań oraz zaangażowania w mediach społecznościowych. Możesz odrzucić opcjonalne pliki cookies wybierając \"odrzuć\"",
+    "readTerms": "Przeczytaj warunki użytkowania",
+    "accept": "Akceptuj",
+    "reject": "Odrzuć"
   }
 }

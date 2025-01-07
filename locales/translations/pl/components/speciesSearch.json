@@ -4,12 +4,12 @@
         "youAreCurrentlySearchingInGBIFtaxonomy": "",
         "SearchAcrossChecklists": "",
         "freeTextSearchFor": "",
-        "limitSearchTo": "",
+        "limitSearchTo": "Ogranicz wyszukiwanie do",
         "limitResultsTo": {
             "all": "",
-            "scientificNames": "",
-            "vernacularNames": "",
-            "descriptions": ""
+            "scientificNames": "Nazwy naukowe",
+            "vernacularNames": "Nazwy zwyczajowe",
+            "descriptions": "Opisy"
         }
     }
 }

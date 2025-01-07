@@ -1,0 +1,40 @@
+{
+    "participationStatus": {
+        "longForm": {
+            "VOTING": "",
+            "ASSOCIATE": "",
+            "OBSERVER": "",
+            "AFFILIATE": "",
+            "FORMER": "",
+            "undefined": ""
+        },
+        "description": {
+            "VOTING": "",
+            "ASSOCIATE": "",
+            "OBSERVER": "",
+            "AFFILIATE": "",
+            "FORMER": "",
+            "undefined": ""
+        },
+        "type": {
+            "OTHER": {
+                "description": {
+                    "VOTING": "",
+                    "ASSOCIATE": "",
+                    "OBSERVER": "",
+                    "AFFILIATE": "",
+                    "FORMER": "",
+                    "undefined": ""
+                },
+                "longForm": {
+                    "VOTING": "",
+                    "ASSOCIATE": "",
+                    "OBSERVER": "",
+                    "AFFILIATE": "",
+                    "FORMER": "",
+                    "undefined": ""
+                }
+            }
+        }
+    }
+}
