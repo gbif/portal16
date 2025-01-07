@@ -2,8 +2,8 @@
     "nameParser": {
         "loadTestNames": "",
         "parse": "",
-        "or": "",
-        "selectFile": "",
+        "or": "nebo",
+        "selectFile": "Vybrat soubor",
         "pasteNamesToParse": "",
         "about": "",
         "parser": "",
