@@ -113,8 +113,8 @@
     "coreRowType": "",
     "submit": "",
     "dropHere": "",
-    "or": "",
-    "selectFile": "",
+    "or": "nebo",
+    "selectFile": "Vybrat soubor",
     "fetchFileFromLocation": "",
     "started": "",
     "tabs": {
