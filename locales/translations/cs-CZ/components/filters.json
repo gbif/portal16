@@ -23,8 +23,8 @@
             }
         },
         "ternary": {
-            "yes": "",
-            "no": "",
+            "yes": "Ano",
+            "no": "Ne",
             "all": ""
         },
         "location": {
@@ -37,9 +37,9 @@
             "includeFlaggedAsSuspicious": "",
             "onlyShowFlagged": "",
             "past": "",
-            "geojson": "",
-            "geometry": "",
-            "range": "",
+            "geojson": "GeoJSON",
+            "geometry": "Geometrie",
+            "range": "Rozsah",
             "noFiltersAdded": "",
             "wktPlaceholder": "",
             "invalidTextInput": "",
