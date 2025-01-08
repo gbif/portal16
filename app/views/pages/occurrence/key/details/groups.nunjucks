@@ -35,12 +35,6 @@
                                     <span translate="taxonRank.{$ occurrence.record.taxonRank $}"></span>
                                 {% elif term.simpleName == "taxonomicStatus" %}
                                     <span translate="taxonomicStatus.{$ occurrence.record.taxonomicStatus $}"></span>
-                                {% elif term.simpleName == "typeStatus" %}
-                                    {% if (occurrence.record.typeStatusArray | length < 2) and occurrence.record.typifiedName and occurrence.record.typifiedName !== occurrence.record.scientificName %}
-                                        <span translate="occurrence.typeOf" translate-values="{TYPE: '{$ occurrence.record.typeStatus $}', NAME: '{$ occurrence.record.typifiedName $}' }"></span>
-                                    {% else %}
-                                        <span>{$ occurrence.record.typeStatus $}</span>
-                                    {% endif %}
                                 {% elif term.simpleName == "recordedByID" %}
                                     <ul class="inline-bullet-list">
                                     {% for id in occurrence.record.recordedByID %}
