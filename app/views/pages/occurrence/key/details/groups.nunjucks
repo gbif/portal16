@@ -75,6 +75,10 @@
                                   <span concept vocabulary="DegreeOfEstablishment" name="{$ occurrence.record.degreeOfEstablishment $}"></span>
                                 {% elif term.simpleName == "pathway" %}
                                   <span concept vocabulary="Pathway" name="{$ occurrence.record.pathway $}"></span>
+                                {% elif term.simpleName == "sex" %}
+                                  <span concept vocabulary="Sex" name="{$ occurrence.record.sex $}"></span>
+                                {% elif term.simpleName == "typeStatus" %}
+                                  <span concept vocabulary="TypeStatus" name="{$ occurrence.record.typeStatus $}"></span>
                                 {% else %}
                                     {$ shorten.shorten(occurrence.record[term.simpleName]) $}
                                 {% endif %}
