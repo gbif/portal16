@@ -21,7 +21,7 @@
       "treatment": "",
       "metrics": "",
       "referenceTaxon": "",
-      "literature": "",
+      "literature": "Literatura",
       "verbatim": ""
     },
     "invasives": {
@@ -84,7 +84,7 @@
     "noChildren": "",
     "youAreBrowsing": "",
     "lastCrawled": "",
-    "extensions": "",
+    "extensions": "Rozšíření",
     "taxa": "",
     "mediatedThrough": "",
     "taxonIdentifiers": "",
