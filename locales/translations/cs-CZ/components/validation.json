@@ -1,9 +1,9 @@
 {
   "validation": {
     "category": {
-      "RESOURCE_STRUCTURE": "",
-      "RESOURCE_INTEGRITY": "",
-      "RECORD_STRUCTURE": "",
+      "RESOURCE_STRUCTURE": "Struktura zdrojů",
+      "RESOURCE_INTEGRITY": "Integrita zdroje",
+      "RECORD_STRUCTURE": "Struktur záznamu",
       "OCC_INTERPRETATION_BASED": "",
       "METADATA_CONTENT": "",
       "CLB_INTERPRETATION_BASED": ""
@@ -43,7 +43,7 @@
         "title": "Jádro"
       },
       "EXTENSION": {
-        "title": ""
+        "title": "Rozšíření"
       },
       "METADATA": {
         "description": "",
@@ -54,10 +54,10 @@
         "title": ""
       }
     },
-    "fileSize": "",
+    "fileSize": "Velikost souboru",
     "fileSizeLimit": "",
-    "receivedMediaType": "",
-    "uniqueIdentifier": "",
+    "receivedMediaType": "Typ média",
+    "uniqueIdentifier": "Jedinečný identifikátor",
     "reportLocation": "",
     "reportDeletion": "",
     "reportGenerated": "",
@@ -77,9 +77,9 @@
     "termsFrequency": {
       "title": "",
       "term": "",
-      "count": "",
-      "percentage": "",
-      "interpreted": ""
+      "count": "Počet",
+      "percentage": "Procentuálně",
+      "interpreted": "Interpretováno"
     },
     "interpretedCounts": {
       "indexed": "",
@@ -91,8 +91,8 @@
       "title": ""
     },
     "status": {
-      "title": "",
-      "SUBMITTED": "",
+      "title": "Stav",
+      "SUBMITTED": "Odesílání souborů",
       "FETCHING": "",
       "ACCEPTED": "",
       "RUNNING": "",
@@ -111,26 +111,26 @@
     "thisIsAnEarlyAccessVersion": "",
     "here": "",
     "coreRowType": "",
-    "submit": "",
-    "dropHere": "",
-    "or": "",
-    "selectFile": "",
+    "submit": "Odeslat",
+    "dropHere": "Přetáhněte sem",
+    "or": "nebo",
+    "selectFile": "Vybrat soubor",
     "fetchFileFromLocation": "",
     "started": "",
     "tabs": {
       "newDataValidation": "",
       "newValidation": "",
-      "about": "",
+      "about": "O",
       "darwinCoreExtensions": "",
-      "metaData": "",
+      "metaData": "Metadata",
       "summary": "Shrnutí",
       "myValidations": ""
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
+        "RUNNING": "Nahrávání archivu",
+        "FINISHED": "Archiv nahrán",
+        "PENDING": "Nahrát archiv",
         "FAILED": "",
         "QUEUED": ""
       },

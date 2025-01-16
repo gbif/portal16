@@ -6,7 +6,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "Neznámý"
         },
         "description": {
             "VOTING": "",
@@ -14,7 +14,7 @@
             "OBSERVER": "",
             "AFFILIATE": "",
             "FORMER": "",
-            "undefined": ""
+            "undefined": "Neznámý"
         },
         "type": {
             "OTHER": {
@@ -24,7 +24,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "Neznámý"
                 },
                 "longForm": {
                     "VOTING": "",
@@ -32,7 +32,7 @@
                     "OBSERVER": "",
                     "AFFILIATE": "",
                     "FORMER": "",
-                    "undefined": ""
+                    "undefined": "Neznámý"
                 }
             }
         }

@@ -10,9 +10,9 @@
             "link": "",
             "linkPlaceholder": "",
             "date": "",
-            "comments": "",
+            "comments": "Komentáře",
             "commentsPlaceholder": "",
-            "submit": "",
+            "submit": "Odeslat",
             "saveFailure": "",
             "saveSuccess": ""
         },

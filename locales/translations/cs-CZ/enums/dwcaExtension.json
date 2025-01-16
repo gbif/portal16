@@ -7,7 +7,7 @@
     "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "",
     "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "",
     "http://data.ggbn.org/schemas/ggbn/terms/Loan": "",
-    "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "",
+    "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "Vzorek materiálu",
     "http://data.ggbn.org/schemas/ggbn/terms/Permit": "",
     "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "",
     "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "",

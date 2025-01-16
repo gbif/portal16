@@ -21,7 +21,7 @@
       "treatment": "",
       "metrics": "",
       "referenceTaxon": "",
-      "literature": "",
+      "literature": "Literatura",
       "verbatim": ""
     },
     "invasives": {
@@ -31,8 +31,8 @@
       "occurrenceCount": "",
       "seeAllCountries": "",
       "isInvasive": "",
-      "isInvasive_yes": "",
-      "isInvasive_no": ""
+      "isInvasive_yes": "Ano",
+      "isInvasive_no": "Ne"
     },
     "treatment": {
       "distribution": "",
@@ -84,7 +84,7 @@
     "noChildren": "",
     "youAreBrowsing": "",
     "lastCrawled": "",
-    "extensions": "",
+    "extensions": "Rozšíření",
     "taxa": "",
     "mediatedThrough": "",
     "taxonIdentifiers": "",

@@ -17,8 +17,8 @@
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Ano",
+      "false": "Ne"
     },
     "accessionStatus": "",
     "contentTypes": "",
@@ -28,7 +28,7 @@
     "catalogUrl": "",
     "identifiers": "",
     "collectionMailingAddress": "",
-    "status": "",
+    "status": "Stav",
     "name": "",
     "isActive": {
       "true": "",
@@ -67,8 +67,8 @@
       "true": "",
       "false": ""
     },
-    "true": "",
-    "false": ""
+    "true": "Ano",
+    "false": "Ne"
   },
   "grscicollPerson": {
     "title": "",
@@ -106,7 +106,7 @@
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
+      "contacts": "Kontakty",
       "address": "Adresa",
       "province": "",
       "postalCode": "",
