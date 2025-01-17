@@ -9,6 +9,12 @@ let AnnosysBaseUrl = env === 'prod' ? 'http://annosys.bgbm.fu-berlin.de/AnnoSys/
 // TODO make environment dependent to allow for test annotations?
 let config = {
     publisher: {
+        'bb646dff-a905-4403-a49b-6d378c2cf0d9': {
+            url: '{{references}}',
+            keys: ['references'],
+            name: 'naturgucker',
+            abbrivation: 'na'
+        },
         '28eb1a3f-1c15-4a95-931a-4af90ecb574d': {
             url: '{{references}}',
             keys: ['references'],
