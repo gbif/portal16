@@ -1,17 +1,17 @@
 {
   "collection": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Sbírky",
+      "description": "**Institucionální sbírky** jsou ty, které byly formálně připojeny k instituci a dostávají určitou institucionální podporu.\n\n**Projektové sbírky** jsou sbírky shromážděné výzkumným pracovníkem spojeným s institucí, které nemusí být formálně zařazeny do jejích sbírek. Projektové sbírky se mohou nakonec stát součástí institucionálních sbírek nebo mohou zůstat pod správou a kontrolou jednotlivých badatelů.\n\n**Osobní sbírky** jsou pod kontrolou jednotlivých badatelů a nejsou formálně spojeny s institucí ani do ní nejsou zařazeny. Mohou být osobním majetkem soukromého sběratele nebo jinak osiřelé."
     },
     "tabs": {
       "summary": "Shrnutí",
       "homepage": "Domovská stránka",
-      "metrics": ""
+      "metrics": "Metriky"
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
+    "headerTitle": "Sbírka",
+    "description": "Popis",
+    "institutionName": "Název instituce",
     "code": "",
     "alternativeCodes": "",
     "statusOfCollection": "",
@@ -97,7 +97,7 @@
     "tabs": {
       "about": "",
       "institutions": "",
-      "collections": "",
+      "collections": "Sbírky",
       "people": ""
     },
     "contact": {
