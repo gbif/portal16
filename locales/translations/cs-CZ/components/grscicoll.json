@@ -12,49 +12,49 @@
     "headerTitle": "Sbírka",
     "description": "Popis",
     "institutionName": "Název instituce",
-    "code": "",
+    "code": "Kód",
     "alternativeCodes": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "statusOfCollection": "Stav sbírky",
+    "personalCollection": "Osobní sbírka",
     "isPersonalCollection": {
       "true": "Ano",
       "false": "Ne"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
-    "apiUrl": "",
-    "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
+    "accessionStatus": "Stav přírůstku",
+    "contentTypes": "Typ obsahu",
+    "preservationTypes": "Typy konzervace",
+    "homepage": "Hlavní stránka",
+    "apiUrl": "URL pro Webové služby Sbírek",
+    "catalogUrl": "URL pro Katalog / Databázi vzorků Sbírek",
+    "identifiers": "Identifikátory",
+    "collectionMailingAddress": "E-mailová adresa",
     "status": "Stav",
-    "name": "",
+    "name": "Jméno",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Aktivní",
+      "false": "Neaktivní"
     }
   },
   "institution": {
-    "title": "",
+    "title": "Instituce",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Instituce",
+      "description": "**Instituce** označuje jakoukoli instituci nebo organizaci, která vlastní a spravuje vědecké sbírky. Patří sem mimo jiné herbáře, muzea, zoologické zahrady, botanické zahrady a biobanky. Instituce může obsahovat více sbírek, v takovém případě by měly být tyto sbírky zadány samostatně v položce **Institucionální/projektové sbírky** a propojeny s nadřazenou institucí."
     },
     "tabs": {
       "summary": "Shrnutí",
       "homepage": "Domovská stránka",
-      "metrics": ""
+      "metrics": "Metriky"
     },
-    "headerTitle": "",
+    "headerTitle": "Instituce",
     "indexHerbariorumIdentifier": "",
-    "numberSpecimens": "",
-    "code": "",
-    "alternativeCodes": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "numberSpecimens": "Počet exemplářů",
+    "code": "Kód instituce",
+    "alternativeCodes": "Alternativní kódy",
+    "statusOfInstitution": "Status instituce",
+    "additionalNames": "Další jména",
+    "description": "Popis",
+    "homepage": "Hlavní stránka",
     "foundingDate": "",
     "geographicDescription": "",
     "taxonomicDescription": "",
@@ -62,10 +62,10 @@
     "disciplines": "",
     "institutionalGovernance": "",
     "type": "",
-    "identifiers": "",
+    "identifiers": "Identifikátory",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Aktivní",
+      "false": "Neaktivní"
     },
     "true": "Ano",
     "false": "Ne"
@@ -96,7 +96,7 @@
     "suggestNewInstitution": "",
     "tabs": {
       "about": "",
-      "institutions": "",
+      "institutions": "Instituce",
       "collections": "Sbírky",
       "people": ""
     },
@@ -104,7 +104,7 @@
       "phone": "",
       "email": "E-mail",
       "fax": "",
-      "mailingAddress": "",
+      "mailingAddress": "E-mailová adresa",
       "physicalAddress": "",
       "contacts": "Kontakty",
       "address": "Adresa",
