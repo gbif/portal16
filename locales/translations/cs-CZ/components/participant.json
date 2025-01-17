@@ -8,12 +8,12 @@
         "gbifParticipantSince": "",
         "headOfDelegation": "Vedoucí delegace",
         "gbifRegion": "",
-        "countryOrArea": "",
+        "countryOrArea": "Země nebo oblast",
         "nodeName": "",
         "nodeEstablished": "",
-        "website": "",
+        "website": "Webová stránka",
         "participantNodeManager": "",
-        "pending": "",
+        "pending": "Čekající",
         "latestDatasetsPublished": "",
         "noDatasets": ""
     }
