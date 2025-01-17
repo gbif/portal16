@@ -12,19 +12,19 @@
             "completionReasons": "",
             "unfinished": "",
             "total": "",
-            "endpoints": "",
+            "endpoints": "Koncové body",
             "installationContacts": "",
-            "installation": "",
+            "installation": "Instalace",
             "dataLastChanged": "",
-            "pubDate": "",
-            "hostedBy": "",
-            "hostingStatus": "",
-            "metdataLastModified": "",
+            "pubDate": "Datum zveřejnění",
+            "hostedBy": "Hostuje",
+            "hostingStatus": "Stav hostování",
+            "metdataLastModified": "Poslední úprava metadat",
             "preferredIdentifier": "",
             "alternativeIdentifier": "",
-            "orphaned": "",
+            "orphaned": "Opuštěná datová sada",
             "rescued": "",
-            "adopted": "",
+            "adopted": "Adoptovaná datová sada",
             "neverIngested": "",
             "inIngestionQueue": "",
             "addingToQueue": "",
@@ -36,14 +36,14 @@
             "gbifIngestionStatus": "",
             "lastIngestionSuccess": "",
             "lastIngestionFailed": "",
-            "outOfSync": "",
+            "outOfSync": "Nesynchronizované",
             "becauseTrustedContact": ""
         },
         "crawl": {
             "finishReason": {
-                "NORMAL": "",
-                "ABORT": "",
-                "NOT_MODIFIED": ""
+                "NORMAL": "Normální",
+                "ABORT": "Přerušit",
+                "NOT_MODIFIED": "Nezměněno"
             }
         }
     }
