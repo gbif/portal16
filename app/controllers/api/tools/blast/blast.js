@@ -50,6 +50,7 @@ async function blastBatch(seq, verbose = false) {
   if (seq.marker && markerToDB[seq.marker]) {
     body.database = markerToDB[seq.marker];
   }
+  try {
    let url = apiConfig.blast.url + `/search?includeAlignment=true${verbose ? '&verbose=true' : ''}`;
     let response = await request({
         method: 'POST',
@@ -57,8 +58,7 @@ async function blastBatch(seq, verbose = false) {
         body: body,
         json: true
     });
-  
-    try {
+   
         const promises = response.body.map(async (result) => {
             if (result.matchType) {
                 try {

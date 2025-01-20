@@ -103,7 +103,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://localhost:9002', //'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://localhost:9002', //'http://blast.gbif-dev.org',
         graphQL: `http://graphql.gbif${localEnvironmentPostFix}.org/graphql`,
         reactComponents: `//react-components.gbif${localEnvironmentPostFix}.org/lib/gbif-react-components.js`,
         healthUpdateFrequency: 240000
@@ -147,7 +147,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-dev.org/graphql',
         reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
@@ -192,7 +192,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-dev2.org/graphql',
         reactComponents: '//react-components.gbif-dev2.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
@@ -236,7 +236,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-uat.org/graphql',
         reactComponents: '//react-components.gbif-uat.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
@@ -280,7 +280,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-uat2.org/graphql',
         reactComponents: '//react-components.gbif-uat2.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
@@ -324,7 +324,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-staging.org/graphql',
         reactComponents: '//react-components.gbif-staging.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
@@ -368,7 +368,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif.org/graphql',
         reactComponents: '//react-components.gbif.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
@@ -410,7 +410,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
+        blastApi: 'http://sequence-search.gbif-dev.org', //'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-dev.org/graphql',
         reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency
