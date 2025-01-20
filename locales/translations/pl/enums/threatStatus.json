@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
-        "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
-        "VULNERABLE": "",
-        "NEAR_THREATENED": "",
-        "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "EXTINCT": "Wymarły",
+        "EXTINCT_IN_THE_WILD": "Wymarły na wolności",
+        "CRITICALLY_ENDANGERED": "Krytycznie zagrożony",
+        "ENDANGERED": "Zagrożony",
+        "VULNERABLE": "Narażony",
+        "NEAR_THREATENED": "Bliskie zagrożenia",
+        "LEAST_CONCERN": "Najmniejszej troski",
+        "DATA_DEFICIENT": "Niewystarczająca ilość danych",
+        "NOT_EVALUATED": "Niepoddane ocenie"
     }
 }

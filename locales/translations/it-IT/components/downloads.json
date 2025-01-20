@@ -1,0 +1,91 @@
+{
+  "derivedDatasetKey": {
+    "nRecordsAtTime": "",
+    "derivedDataset": "",
+    "sourceUrl": "",
+    "headlineDatasets": "",
+    "headlineOccurrences": "",
+    "title": "",
+    "description": "",
+    "originalDownloadDOI": ""
+  },
+  "downloadKey": {
+    "nOccurrencesDownloaded": "",
+    "nRecordsDownloaded": "",
+    "nRowsDownloaded": "",
+    "nConstituentDatasets": "",
+    "fileNotAvailable": "",
+    "downloadDeletionWarning": "",
+    "occurrenceDownload": "",
+    "brokenDownload": "",
+    "contactHelpdesk": "",
+    "cancelled": "",
+    "cancel": "",
+    "download": "",
+    "records": "",
+    "occurrences": "",
+    "largeQueryMessage": "",
+    "date": "",
+    "show": "",
+    "license": "",
+    "readMore": "",
+    "titleMissing": "",
+    "underProcessing": "",
+    "citation": "",
+    "format": "",
+    "nRecordsAtTime": "",
+    "aboutDeletionPolicy": "",
+    "readDatauseAndTerms": "",
+    "filterApplied": "",
+    "rerunQuery": "",
+    "postpone": "",
+    "deleteDownload": "",
+    "tellUs": "",
+    "downloadKilled": "",
+    "downloadDeleted": "",
+    "storageDurationTeaser": "",
+    "predatesDoi": "",
+    "file": "",
+    "constituentDatasets": "",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
+    "noFiltersApplied": "",
+    "apiUsageDescription": "",
+    "apiFilterView": "",
+    "humanFilterView": "",
+    "downloadStarted": "",
+    "downloadExpectTime": "",
+    "notificationEmailAddresses": "",
+    "status": {
+      "PREPARING": "",
+      "SUSPENDED": "",
+      "RUNNING": "",
+      "CANCELLED": "",
+      "KILLED": ""
+    },
+    "predicate": {
+      "joinDescriptions": {
+        "and": "",
+        "or": "",
+        "not": ""
+      },
+      "and": "",
+      "or": "",
+      "not": "",
+      "isNotNull": "",
+      "isNull": ""
+    }
+  },
+  "myDownloads": {
+    "title": ""
+  },
+  "customDownload": {
+    "invalidFilter": "",
+    "seeDocumentation": "",
+    "reformat": "",
+    "invalidJson": "",
+    "title": "",
+    "invalidUrlPredicate": "",
+    "redirectNotice": ""
+  }
+}

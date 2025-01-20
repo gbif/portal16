@@ -1,15 +1,15 @@
 {
   "downloadReport": {
-    "title": "",
-    "knownIssues": "",
+    "title": "Pobierz raport",
+    "knownIssues": "Znane problemy",
     "knownIssuesDescription": "",
-    "FossilsIncluded": "",
+    "FossilsIncluded": "Skamieniałości",
     "FossilsIncludedDescription": "",
-    "livingSpecimensIncluded": "",
+    "livingSpecimensIncluded": "Żywe okazy ",
     "livingSpecimensIncludedDescription": "",
     "yearRange": "",
-    "total": "",
-    "license": "",
+    "total": "Ogółem",
+    "license": "Licencja",
     "withTaxonMatch": "",
     "withCoordinates": "",
     "withYear": "",
@@ -18,39 +18,39 @@
     "promoteTransperant": "",
     "cancel": "",
     "proceed": "",
-    "understood": "",
+    "understood": "Rozumiem",
     "largeDownload": "",
     "requestingFullDownload": "",
     "occFiltersExplainedHere": "",
     "estSizeIs": "",
-    "estDLtimes": "",
+    "estDLtimes": "Przewidywany czas pobierania:",
     "nMbitConn": "",
     "onceDownloaded": "",
     "datasetHasNumRows": "",
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
-    "hours": "",
-    "minute": "",
-    "minutes": ""
+    "hours": "Godziny",
+    "minute": "Minuta",
+    "minutes": "Minuty"
   },
   "downloadOptions": {
     "title": "",
     "content": {
-      "rawData": "",
+      "rawData": "Surowe dane",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "images": "Multimedia",
+      "coordinates": "Koordynaty",
+      "fileFormat": "Format",
       "estimatedSize": ""
     },
     "fileFormats": {
       "tabCsv": ""
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
-      "yesLinks": "",
-      "no": ""
+      "yes": "✔",
+      "yesIfAvailable": "✔ (jeśli dostępne)",
+      "yesLinks": "✔ (linki)",
+      "no": "✘"
     }
   }
 }

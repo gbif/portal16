@@ -1,0 +1,34 @@
+{
+  "search": {
+    "title": "",
+    "placeholder": "",
+    "noSearchTermsEntered": "",
+    "notSureWhatYouAreLookingFor": "",
+    "cannotFindWhatYouAreLookingFor": "",
+    "trySpecifyingAType": "",
+    "everything": "",
+    "occurrences": "",
+    "species": "Druh",
+    "datasets": "Datové sady",
+    "resources": "",
+    "publishers": "",
+    "participants": "",
+    "search": "",
+    "clearFilters": "",
+    "filters": "",
+    "simple": "",
+    "advanced": "",
+    "backbone": "",
+    "allChecklists": "",
+    "allResultTypes": "",
+    "suggestions": "",
+    "header": {
+      "searchDatasets": "",
+      "searchPublishers": "",
+      "searchSpecies": "",
+      "searchResources": "",
+      "searchOccurrences": ""
+    },
+    "nResults": ""
+  }
+}

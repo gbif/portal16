@@ -1,0 +1,10 @@
+{
+    "participationStatus": {
+        "VOTING": "Hlasování",
+        "ASSOCIATE": "",
+        "OBSERVER": "",
+        "AFFILIATE": "",
+        "FORMER": "",
+        "undefined": "Neznámý"
+    }
+}

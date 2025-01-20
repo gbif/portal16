@@ -2,52 +2,52 @@
   "feedback": {
     "leaveFeedback": "Wystaw opinię",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Informacje zwrotne i zapytania",
+      "example": "Pomóż nam rozwiązać wszelkie problemy, wybierając rodzaj przekazywanej informacji zwrotnej. Prosimy o przesyłanie informacji zwrotnych, jeśli to możliwe, w języku angielskim. Postaramy się odpowiedzieć w ciągu dwóch dni roboczych."
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "title": "Zawartość",
+      "example": "Przykładowo: Ta strona zawiera błąd ortograficzny. Ten gatunek nie istnieje. Ta lokalizacja wydaje się podejrzana. Nowy adres URL tej organizacji to...",
+      "annotate": "Ten wydawca ma stronę zadedykowaną obsłudze informacji zwrotnej, którą zalecamy użyć. ",
+      "contactPerMail": "Skontaktuj się z osobą nadzorującą ten zbiór danych"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "Błąd",
+      "example": "Przykładowo: Przycisk wyszukiwania nie działa. Strona się nie ładuje. Nie widzę informacji na stronie, ponieważ kolumny nachodzą nas siebie."
     },
     "idea": {
-      "title": "",
-      "example": ""
+      "title": "Pomysł",
+      "example": "Na przykład: Potrzebuję linki dotyczące danych sekwencji DNA. Pokaż wszystkie artykuły w wolnym dostępie."
     },
     "question": {
-      "title": "",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "title": "Dział pomocy",
+      "example": "Na przykład: Jak chronicie dane na temat rzadkich gatunków? Czy możecie mi pomóc znaleźć wszystkie zapisy dotyczące występowania tego gatunku w wodach międzynarodowych?",
+      "description": "Na wszystkie pytania odpowiada dział pomocy technicznej pod adresem helpdesk@gbif.org",
+      "comment": "Z zapytaniami prywatnymi oraz pytaniami technicznymi możesz zwrócić się do [info@gbif.org] (mailto:info@gbif.org), a w sprawach medialnych do [communication@gbif.org](mailto:communication@gbif.org) ."
     },
     "confirmation": {
-      "title": "",
-      "example": "",
-      "seeIssue": ""
+      "title": "Dziękujemy",
+      "example": "Twoja informacja zwrotna zapisana jako problem w Github. Jeżeli jest to potrzebne, a dane kontaktowe były dostarczone, skontaktujemy się z Tobą w celu otrzymania dodatkowej informacji. Możesz śledzić postęp, wchodząc na stronę GitHub. ",
+      "seeIssue": "Wyświetl problem"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "Problemy z zawartością",
+      "description": "Problemy z zawartością zgłoszone przez innych użytkowników",
+      "create": "Zostaw opinię"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "Podsumowanie",
+      "description": "Opis szczegółowy. Proszę zamieszczać odniesienia do źródeł używanej taksonomii. Prosimy o informację zwrotną w języku angielskim w miarę możliwości.",
+      "username": "Twój adres e-mail albo nazwa użytkownika GitHub (publiczna)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
-    "pleaseLogin": ""
+    "markdownSupport": "Wsparcie Markdown",
+    "issueTracking": "Wszystkie zgłoszone problemy są dostępne publicznie na [Github] (https://github.com/gbif/portal-feedback/issues)",
+    "failure": "System informacji zwrotnej nie działa. Prosimy o wiadmość mailową albo wejście na stronę [Github](https://github.com/gbif/portal-feedback/issues). Przepraszamy za kłopot.",
+    "weRecommendX": "Rekomendujemy użycie [{NAME}] ({LINK})",
+    "tellGbif": "Powiedz GBIF",
+    "submit": "Wyślij",
+    "seeAllComments": "Zobacz wszystko",
+    "recommendMail": "Zalecamy wysłanie wiadomości mailowej na adres",
+    "pleaseLogin": "Zaloguj się, aby wystawić nam opinię. Alternatywnie możesz skorzystać z [Github](https://github.com/gbif/portal-feedback/issues) lub wysłać e-mail na adres [helpdesk@gbif.org](mailto:helpdesk@gbif.org).\n\nDlaczego? W ostatnim czasie zauważyliśmy, że w naszym systemie opinii pojawia się wiele spamu. Brak weryfikacji użytkowników pogarsza ten problem, dlatego prosimy o zalogowanie się."
   }
 }

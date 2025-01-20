@@ -1,0 +1,18 @@
+{
+    "nameParser": {
+        "loadTestNames": "",
+        "parse": "",
+        "or": "nebo",
+        "selectFile": "Vybrat soubor",
+        "pasteNamesToParse": "",
+        "about": "",
+        "parser": "",
+        "nameParserTitle": "",
+        "dropHere": "Přetáhněte sem",
+        "excludeUnparsed": "",
+        "generateCsv": "",
+        "parsingNames": "",
+        "nameParserDescription": "",
+        "nameParserRequirements": ""
+    }
+}

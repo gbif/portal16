@@ -1,0 +1,16 @@
+{
+  "basisOfRecord": {
+    "PRESERVED_SPECIMEN": "",
+    "FOSSIL_SPECIMEN": "",
+    "LIVING_SPECIMEN": "",
+    "OBSERVATION": "Pozorování",
+    "HUMAN_OBSERVATION": "Pozorování člověkem",
+    "MACHINE_OBSERVATION": "",
+    "MATERIAL_SAMPLE": "Vzorek materiálu",
+    "MATERIAL_CITATION": "Citace materiálu",
+    "LITERATURE": "Literatura",
+    "UNKNOWN": "Neznámý",
+    "OCCURRENCE": "Výskyt",
+    "undefined": "Neznámý"
+  }
+}

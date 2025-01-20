@@ -1,25 +1,25 @@
 {
   "resource": {
-    "resources": "",
+    "resources": "Zasoby",
     "contactHelpdesk": "",
     "addToCalendar": "",
     "venue": "",
-    "location": "",
+    "location": "Lokalizacja",
     "country": "",
     "noDatasets": "",
     "noNewsOrEvents": "",
     "howToLinkDatasets": "",
     "howToLinkEvents": "",
-    "when": "",
-    "language": "",
+    "when": "Kiedy",
+    "language": "Język",
     "viewOnGBIF": "",
     "published": "",
     "programme": "",
-    "fundedBy": "",
+    "fundedBy": "Sfinansowane przez",
     "about": "",
     "datasets": "",
     "gbifWillAttend": "",
     "dataUsedInStudy": "",
-    "resourceDescription": ""
+    "resourceDescription": "Wyszukiwanie zasobów w Światowej Sieci Informacji o Bioróżnorodności (GBIF). Darmowy i otwarty dostęp do danych o bioróżnorodności."
   }
 }

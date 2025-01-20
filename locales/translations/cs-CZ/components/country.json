@@ -1,0 +1,42 @@
+{
+  "countryKey": {
+    "tabs": {
+      "summary": "Shrnutí",
+      "dataPublishing": "",
+      "dataAbout": "",
+      "participartion": "",
+      "publicationsFrom": "",
+      "publicationsAbout": "",
+      "news": "",
+      "invasives": "",
+      "more": "",
+      "projects": "Projekty"
+    },
+    "memberSince": "",
+    "dataFrom": "",
+    "dataAboutCountry": "",
+    "publishingTrends": "",
+    "noDataPublishingActivity": "",
+    "noInstitutionsHavePublished": "",
+    "trendsAboutCountry": "",
+    "nFrom": "",
+    "nAbout": "",
+    "viewAllN": "",
+    "noPublications": "",
+    "noProjects": "",
+    "notParticipant": "",
+    "notParticipantDescription": "",
+    "countryNamingDisclaimer": "",
+    "counts": {
+      "occurrences": "",
+      "datasets": "",
+      "publishers": "",
+      "countriesAndAreasContributeData": "",
+      "publishedOccurrences": "",
+      "publishedDatasets": "",
+      "countriesAndAreasCoveredByDataFrom": "",
+      "publishersFrom": ""
+    },
+    "activityReport": ""
+  }
+}

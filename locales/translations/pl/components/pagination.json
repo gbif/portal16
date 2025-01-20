@@ -1,7 +1,7 @@
 {
     "pagination": {
-        "previous": "",
-        "next": "",
+        "previous": "Poprzednia strona",
+        "next": "Następna strona",
         "first": ""
     }
 }

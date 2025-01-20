@@ -1,0 +1,12 @@
+{
+  "datasetType": {
+    "OCCURRENCE": "Výskyt",
+    "CHECKLIST": "",
+    "SAMPLING_EVENT": "",
+    "METADATA": "Metadata",
+    "undefined": "Neznámý"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
+  }
+}

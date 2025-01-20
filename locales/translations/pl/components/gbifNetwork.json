@@ -1,11 +1,11 @@
 {
   "gbifNetwork": {
-    "gbifNetwork": "",
+    "gbifNetwork": "sieć GBIF",
     "title": "",
-    "contact": "",
+    "contact": "Kontakt",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Członek głosujący",
+      "other": "Członkowie głosujący"
     },
     "associate_country_participant": {
       "one": "",
@@ -23,11 +23,11 @@
       "one": "",
       "other": ""
     },
-    "role": "",
+    "role": "Rola",
     "group": {},
-    "gbif_secretariat": "",
-    "membershipType": "",
-    "name": "",
+    "gbif_secretariat": "Sekretariat GBIF",
+    "membershipType": "Członkostwo",
+    "name": "Imię",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
@@ -38,14 +38,14 @@
       "gbifAffiliates": ""
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "HEAD_OF_DELEGATION": "Przewodniczący delegacji",
+      "NODE_MANAGER": "Menedżer węzła"
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
-    "pPublishers": "",
-    "pOccurrence": "",
+    "publishers": "Wydawcy",
+    "memberSince": "Członek od",
+    "participant": "Uczestnik",
+    "pPublishers": "{NUMBER, plural,one{wydawca} other{wydawcy}}",
+    "pOccurrence": "{NUMBER, plural, one{Występowanie} other{występowania}}",
     "occurrenceDatasets": "",
     "occurrences": "",
     "occurrencesHostedBy": ""

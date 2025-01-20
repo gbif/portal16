@@ -1,0 +1,117 @@
+{
+  "collection": {
+    "search": {
+      "title": "",
+      "description": ""
+    },
+    "tabs": {
+      "summary": "Shrnutí",
+      "homepage": "Domovská stránka",
+      "metrics": ""
+    },
+    "headerTitle": "",
+    "description": "",
+    "institutionName": "",
+    "code": "",
+    "alternativeCodes": "",
+    "statusOfCollection": "",
+    "personalCollection": "",
+    "isPersonalCollection": {
+      "true": "Ano",
+      "false": "Ne"
+    },
+    "accessionStatus": "",
+    "contentTypes": "",
+    "preservationTypes": "",
+    "homepage": "",
+    "apiUrl": "",
+    "catalogUrl": "",
+    "identifiers": "",
+    "collectionMailingAddress": "",
+    "status": "Stav",
+    "name": "",
+    "isActive": {
+      "true": "",
+      "false": ""
+    }
+  },
+  "institution": {
+    "title": "",
+    "search": {
+      "title": "",
+      "description": ""
+    },
+    "tabs": {
+      "summary": "Shrnutí",
+      "homepage": "Domovská stránka",
+      "metrics": ""
+    },
+    "headerTitle": "",
+    "indexHerbariorumIdentifier": "",
+    "numberSpecimens": "",
+    "code": "",
+    "alternativeCodes": "",
+    "statusOfInstitution": "",
+    "additionalNames": "",
+    "description": "",
+    "homepage": "",
+    "foundingDate": "",
+    "geographicDescription": "",
+    "taxonomicDescription": "",
+    "citesPermitNumber": "",
+    "disciplines": "",
+    "institutionalGovernance": "",
+    "type": "",
+    "identifiers": "",
+    "isActive": {
+      "true": "",
+      "false": ""
+    },
+    "true": "Ano",
+    "false": "Ne"
+  },
+  "grscicollPerson": {
+    "title": "",
+    "search": {
+      "title": "",
+      "description": ""
+    },
+    "headerTitle": "",
+    "firstName": "",
+    "lastName": "",
+    "fullName": "",
+    "position": "",
+    "affiliations": "",
+    "areaResponsibility": "",
+    "researchPursuits": "",
+    "primaryInstitution": "",
+    "primaryCollection": "",
+    "affiliateInstitutions": "",
+    "affiliateCollections": ""
+  },
+  "grscicoll": {
+    "title": "",
+    "suggestChange": "",
+    "suggestNewCollection": "",
+    "suggestNewInstitution": "",
+    "tabs": {
+      "about": "",
+      "institutions": "",
+      "collections": "",
+      "people": ""
+    },
+    "contact": {
+      "phone": "",
+      "email": "E-mail",
+      "fax": "",
+      "mailingAddress": "",
+      "physicalAddress": "",
+      "contacts": "Kontakty",
+      "address": "Adresa",
+      "province": "",
+      "postalCode": "",
+      "city": "",
+      "country": "Země"
+    }
+  }
+}

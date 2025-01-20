@@ -1,0 +1,45 @@
+{
+  "cms": {
+    "project": {
+      "project": "Projekt",
+      "projectId": "",
+      "projectIdentifier": "",
+      "grantType": "",
+      "duration": "Doba trvání",
+      "title": "Název",
+      "start": "Začátek",
+      "end": "Konec",
+      "fundsAllocated": "",
+      "matchingFunds": "",
+      "funding": "Financování",
+      "coFunding": "Spolufinancování",
+      "fundedBy": "Financován",
+      "coFundedBy": "",
+      "typeOfGrant": "",
+      "projectStart": "",
+      "status": "Stav",
+      "programme": "Program",
+      "contractCountry": "",
+      "newsAndEvents": "",
+      "call": "",
+      "projectLead": "",
+      "contactDetalils": "",
+      "partners": ""
+    },
+    "datause": {
+      "dataViaGbif": ""
+    },
+    "literature": {
+      "keywords": ""
+    },
+    "auxiliary": {
+      "subject": "Předmět",
+      "citation": "Citace",
+      "organisingParticipants": ""
+    },
+    "document": {
+      "download": "",
+      "readDocument": ""
+    }
+  }
+}

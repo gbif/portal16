@@ -1,0 +1,116 @@
+{
+  "occurrence": {
+    "tabs": {
+      "details": "",
+      "cluster": ""
+    },
+    "typeOf": "",
+    "coordinates": "",
+    "unknownDate": "",
+    "absent": "",
+    "issues": "",
+    "dataset": "Datová sada",
+    "synced": "",
+    "modified": "Změněno",
+    "monthAndyear": "",
+    "coordinateUncertainty": "",
+    "citation": "Citace",
+    "readFullDescription": "",
+    "showMoreInfo": "",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "",
+    "noLocationInformation": "",
+    "deletedMessage": "",
+    "deletedDescription": "",
+    "subMenu": {
+      "diagnostics": "",
+      "menu": "",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "",
+      "raw": ""
+    },
+    "groups": {
+      "Record": "Záznam",
+      "Occurrence": "Výskyt",
+      "Event": "",
+      "Identification": "",
+      "Taxon": "",
+      "Location": "Poloha",
+      "Organism": "",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
+    },
+    "term": "",
+    "interpreted": "Interpretováno",
+    "original": "",
+    "remarks": "",
+    "highlights": {
+      "location": "Poloha",
+      "specimenType": "",
+      "publisher": "Vydavatel",
+      "reference": "",
+      "verbatimName": ""
+    },
+    "media": {
+      "noIdentifier": "",
+      "noPlaybackSupport": "",
+      "takeMeThere": "",
+      "notWorkingTryPublishers": "",
+      "download": "",
+      "byRightsHolder": "",
+      "licensedUnder": "",
+      "suggestedCitation": ""
+    },
+    "title": {
+      "inCountry": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "MATERIAL_CITATION": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownLocation": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "MATERIAL_CITATION": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownSpecies": ""
+    },
+    "occurrence": "Výskyt",
+    "inLanguage": "",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
+  },
+  "interpretationRemarks": {
+    "comments": {
+      "EXCLUDED": "",
+      "AUTHORED": "",
+      "INFERED": ""
+    }
+  }
+}

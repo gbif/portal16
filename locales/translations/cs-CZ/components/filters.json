@@ -1,0 +1,53 @@
+{
+    "filters": {
+        "searchPlaceholder": "",
+        "noPreference": "",
+        "invert": "",
+        "clear": "Vymazat",
+        "add": "",
+        "repatriation": {
+            "description": ""
+        },
+        "isClustered": {
+            "description": ""
+        },
+        "isSequenced": {
+            "description": ""
+        },
+        "occurrenceStatus": {
+            "description": "",
+            "options": {
+                "yes": "",
+                "no": "",
+                "all": ""
+            }
+        },
+        "ternary": {
+            "yes": "Ano",
+            "no": "Ne",
+            "all": ""
+        },
+        "location": {
+            "north": "",
+            "south": "",
+            "west": "",
+            "east": "",
+            "withCoordinates": "",
+            "withoutCoordinates": "",
+            "includeFlaggedAsSuspicious": "",
+            "onlyShowFlagged": "",
+            "past": "",
+            "geojson": "GeoJSON",
+            "geometry": "Geometrie",
+            "range": "Rozsah",
+            "noFiltersAdded": "",
+            "wktPlaceholder": "",
+            "invalidTextInput": "",
+            "tooLarge": "",
+            "tooLargeSuggestion": "",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
+            "invalidRange": ""
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "nameTypeEnum": {
+    "SCIENTIFIC": "Vědecký název",
+    "DOUBTFUL": "",
+    "BLACKLISTED": "",
+    "VIRUS": "",
+    "HYBRID": "",
+    "INFORMAL": "",
+    "OTU": "",
+    "CULTIVAR": "",
+    "CANDIDATUS": "",
+    "PLACEHOLDER": "",
+    "NO_NAME": ""
+  }
+}

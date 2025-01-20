@@ -1,0 +1,49 @@
+{
+    "resourceSearch": {
+        "title": "",
+        "upcoming": "",
+        "past": "",
+        "searchForNewsEventsDocuments": "",
+        "occurrenceSearch": "",
+        "subscribeToCalendar": "",
+        "suggestEvent": "",
+        "citationExplainer": "",
+        "types": {
+            "events": "Události",
+            "news": "Novinky",
+            "resources": "Zdroje",
+            "projects": "Projekty",
+            "programmes": "Programy",
+            "documents": "Dokumenty",
+            "tools": "Nástroje",
+            "dataUse": "Užití dat",
+            "literature": "Literatura"
+        },
+        "filters": {
+            "countriesOfCoverage": "",
+            "countriesOfResearcher": "",
+            "literatureType": "",
+            "contractCountry": "",
+            "topics": "Téma",
+            "audiences": "",
+            "purposes": "Účel",
+            "relevance": "Relevance",
+            "language": "Jazyk",
+            "year": "",
+            "gbifDatasetKey": "Datová sada",
+            "publishingOrganizationKey": "Vydavatel",
+            "networkKey": "",
+            "peerReview": "",
+            "openAccess": "Otevřený přístup",
+            "gbifDownloadKey": "",
+            "gbifDerivedDatasetDoi": "",
+            "paperDoi": "",
+            "litSource": "",
+            "gbifTaxonKey": "Vědecký název",
+            "litPublisher": ""
+        },
+        "helpText": {
+            "gbifTaxonKey": ""
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+  "downloadReport": {
+    "title": "",
+    "knownIssues": "",
+    "knownIssuesDescription": "",
+    "FossilsIncluded": "",
+    "FossilsIncludedDescription": "",
+    "livingSpecimensIncluded": "",
+    "livingSpecimensIncludedDescription": "",
+    "yearRange": "",
+    "total": "",
+    "license": "",
+    "withTaxonMatch": "",
+    "withCoordinates": "",
+    "withYear": "",
+    "sizeZippedForDownload": "",
+    "freeOfCost": "",
+    "promoteTransperant": "",
+    "cancel": "",
+    "proceed": "",
+    "understood": "",
+    "largeDownload": "",
+    "requestingFullDownload": "",
+    "occFiltersExplainedHere": "",
+    "estSizeIs": "",
+    "estDLtimes": "",
+    "nMbitConn": "",
+    "onceDownloaded": "",
+    "datasetHasNumRows": "",
+    "youWillNotBeAble": "",
+    "difficultToAnalyse": "",
+    "hours": "",
+    "minute": "",
+    "minutes": ""
+  },
+  "downloadOptions": {
+    "title": "",
+    "content": {
+      "rawData": "",
+      "interpretedData": "",
+      "images": "",
+      "coordinates": "",
+      "fileFormat": "",
+      "estimatedSize": ""
+    },
+    "fileFormats": {
+      "tabCsv": ""
+    },
+    "tableValues": {
+      "yes": "",
+      "yesIfAvailable": "",
+      "yesLinks": "",
+      "no": ""
+    }
+  }
+}

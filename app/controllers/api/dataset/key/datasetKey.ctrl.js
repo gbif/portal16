@@ -90,12 +90,12 @@ async function getDataset(key) {
 }
 
 function clean(obj) {
-    cleanMarkdownField(obj, 'description');
-    cleanMarkdownField(obj, 'purpose');
-    cleanMarkdownField(obj, 'samplingDescription.studyExtent');
-    cleanMarkdownField(obj, 'samplingDescription.sampling');
-    cleanMarkdownField(obj, 'samplingDescription.qualityControl');
-    cleanMarkdownField(obj, 'additionalInfo');
+    cleanMarkdownField(obj, 'description', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'purpose', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'samplingDescription.studyExtent', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'samplingDescription.sampling', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'samplingDescription.qualityControl', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
+    cleanMarkdownField(obj, 'additionalInfo', ['a', 'i', 'ul', 'ol', 'p', 'li'], ['href']);
 
     cleanArray(obj, 'samplingDescription.methodSteps');
 

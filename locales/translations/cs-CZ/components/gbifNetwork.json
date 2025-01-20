@@ -1,0 +1,53 @@
+{
+  "gbifNetwork": {
+    "gbifNetwork": "",
+    "title": "",
+    "contact": "Kontakt",
+    "voting_participant": {
+      "one": "",
+      "other": ""
+    },
+    "associate_country_participant": {
+      "one": "",
+      "other": ""
+    },
+    "other_associate_participant": {
+      "one": "",
+      "other": ""
+    },
+    "former_participant": {
+      "one": "",
+      "other": ""
+    },
+    "gbif_affiliate": {
+      "one": "",
+      "other": ""
+    },
+    "role": "",
+    "group": {},
+    "gbif_secretariat": "GBIF Sekretariát",
+    "membershipType": "",
+    "name": "",
+    "endorsedDataPublisher": "",
+    "nParticipants": "",
+    "dataset": "",
+    "datasets": "Datové sady",
+    "regionalRepresentative": "",
+    "participation": {
+      "nonCountryParticipants": "",
+      "gbifAffiliates": ""
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "Vedoucí delegace",
+      "NODE_MANAGER": "Správce uzlu"
+    },
+    "publishers": "",
+    "memberSince": "",
+    "participant": "",
+    "pPublishers": "",
+    "pOccurrence": "",
+    "occurrenceDatasets": "",
+    "occurrences": "",
+    "occurrencesHostedBy": ""
+  }
+}

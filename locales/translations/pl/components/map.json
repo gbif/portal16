@@ -1,67 +1,67 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED}{NUMBER, plural,one{zapis georeferencyjny}other{zapisy georeferencyjne}}",
+    "noOccurrencesWithCoordinates": "Brak stwierdzeń ze współrzędnymi",
+    "clickToSearchArea": "Kliknij, aby wyszukać obszar",
+    "generatedDateAgo": "Wygenerowano {DATE_AGO}",
+    "anyYear": "Dowolny rok",
+    "exploreArea": "Przeglądaj obszar",
+    "explore": "Badać\n",
+    "style": "Styl",
+    "filters": "Filtry",
+    "projection": "Rzutowanie",
+    "select": "Wybierz",
+    "custom": "Ustawienia niestandardowe",
+    "baseMap": "Mapa podstawowa",
+    "binning": "Grupowanie",
     "year": "Rok",
     "chooseColors": "Kolory",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "Klasyczny sześciokąt",
+      "CLASSIC": "Klasyczne punkty",
+      "STREETS": "Ulice",
+      "GLACIER": "Lodowiec",
+      "CUSTOM": "Niestandardowe"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "Magenta",
+      "LIGHT": "Jasny (bez etykiet)",
+      "LIGHT_DETAILS": "Jasny",
+      "DARK": "Ciemny (bez etykiet)",
+      "DARK_DETAILS": "Ciemny",
+      "OSM": "Drogi"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "Punkty",
+      "SMALL_HEX": "Małe sześciokąty",
+      "LARGE_HEX": "Sześciokąty",
+      "SMALL_SQUARE": "Małe kwadraty",
+      "LARGE_SQUARE": "Kwadraty"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "GREEN_POINT": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "Klasyczny",
+      "FIRE": "Ogień",
+      "GLACIER": "Lodowiec",
+      "GREEN_POINT": "Zielony",
+      "PURPLE_YELLOW": "fioletowo-żółty (spektrum)",
+      "PURPLE_HEAT": "Fioletowy gradient",
+      "BLUE_HEAT": "Niebieski gradient",
+      "ORANGE_HEAT": "Pomarańczowy gradient",
+      "GREEN": "Zielony",
+      "BLUE_CLUSTER": "Grupy (niebieski)",
+      "ORANGE_CLUSTER": "Grupy (pomarańczowy)"
     },
     "tooltips": {
       "toggleStyle": "",
-      "searchArea": "",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
+      "searchArea": "Przeszukaj obszar",
+      "addRectangleFilter": "Narysuj prostokąt i dodaj jako filtr",
+      "addPolygonFilter": "Narysuj obszar i dodaj jako filtr",
       "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "zoomIn": "Powiększ",
+      "zoomOut": "Pomniejsz"
     },
     "errors": {
-      "413": ""
+      "413": "Plik geometrii jest zbyt duży, aby można go było przetworzyć za pomocą interfejsu API danych."
     }
   }
 }

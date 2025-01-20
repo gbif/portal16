@@ -1,0 +1,74 @@
+{
+  "directory": {
+    "title": "",
+    "group": {
+      "executiveCommittee": {
+        "title": "",
+        "description": ""
+      },
+      "scienceCommittee": {
+        "title": "",
+        "description": ""
+      },
+      "budgetCommittee": {
+        "title": "",
+        "description": ""
+      },
+      "nsg": {
+        "title": "Řídicí skupina uzlů",
+        "description": ""
+      },
+      "nodesCommittee": {
+        "title": "",
+        "description": ""
+      },
+      "secretariat": {
+        "title": "GBIF Sekretariát",
+        "description": ""
+      },
+      "voting": {
+        "title": "",
+        "description": ""
+      },
+      "associateCountries": {
+        "title": "",
+        "description": ""
+      },
+      "associateParticipants": {
+        "title": "",
+        "description": ""
+      }
+    },
+    "columns": {
+      "role": "",
+      "name": "",
+      "participant": "",
+      "participationStatus": ""
+    },
+    "details": "",
+    "roles": "",
+    "sinceDate": "",
+    "showAllContacts": "",
+    "person": {
+      "volunteer": "",
+      "name": "",
+      "annualBadges": "",
+      "language": "Jazyk",
+      "country": "",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
+      "year": "Rok",
+      "email": "E-mail"
+    },
+    "award": {
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
+    },
+    "prize": "",
+    "year": "Rok"
+  }
+}

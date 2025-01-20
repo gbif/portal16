@@ -1,0 +1,29 @@
+{
+    "homepage": {
+        "counts": {
+            "occurrences": "Záznamy o výskytu",
+            "datasets": "Datové sady",
+            "publishers": "",
+            "literature": ""
+        },
+        "aboutGbifCountry": "O GBIF {COUNTRY}",
+        "summary": "Volný a otevřený přístup k údajům o biologické rozmanitosti",
+        "whatIsGbif": "Co je GBIF?",
+        "featureTypes": {
+            "event": "Událost",
+            "news": "Novinky",
+            "resource": "Zdroj",
+            "dataUse": "Užití dat",
+            "project": "Projekt",
+            "programme": "Program",
+            "document": "Dokument",
+            "tool": "Nástroj",
+            "literature": "Literatura",
+            "treatment": "",
+            "blog": "",
+            "guidance": "",
+            "data": "",
+            "video": ""
+        }
+    }
+}

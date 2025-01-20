@@ -1,0 +1,13 @@
+{
+  "downloadFormat": {
+    "SIMPLE_AVRO": "",
+    "SIMPLE_CSV": "",
+    "DWCA": "",
+    "SPECIES_LIST": "",
+    "SIMPLE_WITH_VERBATIM_AVRO": "",
+    "MAP_OF_LIFE": "",
+    "IUCN": "",
+    "BIONOMIA": "",
+    "SIMPLE_PARQUET": ""
+  }
+}

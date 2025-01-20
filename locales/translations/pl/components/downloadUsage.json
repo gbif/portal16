@@ -2,17 +2,17 @@
     "downloadUsage": {
         "title": "",
         "form": {
-            "title": "",
+            "title": "Tytuł",
             "titlePlaceholder": "",
             "type": "Typ",
             "authors": "",
             "authorsPlaceholder": "",
-            "link": "",
+            "link": "URL",
             "linkPlaceholder": "",
-            "date": "",
-            "comments": "",
+            "date": "Data",
+            "comments": "Komentarze",
             "commentsPlaceholder": "",
-            "submit": "",
+            "submit": "Wyślij",
             "saveFailure": "",
             "saveSuccess": ""
         },
@@ -37,7 +37,7 @@
             "CASE": "",
             "FILM": "film",
             "BILL": "",
-            "OTHER": "inne"
+            "OTHER": "inne (rozwiń proszę w komentarzach)"
         }
     }
 }
