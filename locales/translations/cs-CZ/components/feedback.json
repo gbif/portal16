@@ -2,14 +2,14 @@
   "feedback": {
     "leaveFeedback": "Zašlete svůj názor",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "Zpětná vazba a dotazy",
+      "example": "Pomozte nám vyřešit případné problémy tím, že vyberete typ zpětné vazby, kterou poskytujete. Pokud je to možné, pošlete prosím zpětnou vazbu v angličtině. Naším cílem je odpovědět do 2 pracovních dnů."
     },
     "data content": {
       "title": "Obsah",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "example": "Například: Tato stránka obsahuje překlep. Tento druh neexistuje. Tato lokalita se zdá být podezřelá. Nová URL adresa této organizace je...",
+      "annotate": "Tento vydavatel má webové stránky pro zpracování zpětné vazby. Doporučujeme je použít.",
+      "contactPerMail": "Buďte v kontaktu s kontaktní osobou pro datovou sadu"
     },
     "bug": {
       "title": "",
