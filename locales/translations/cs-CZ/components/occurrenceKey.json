@@ -1,7 +1,7 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "",
+      "details": "Detaily",
       "cluster": ""
     },
     "typeOf": "",
@@ -15,17 +15,17 @@
     "monthAndyear": "",
     "coordinateUncertainty": "",
     "citation": "Citace",
-    "readFullDescription": "",
-    "showMoreInfo": "",
-    "noTaxonMatch": "",
+    "readFullDescription": "více",
+    "showMoreInfo": "více",
+    "noTaxonMatch": "žádný",
     "gbifTaxonInterpretation": "",
     "aboutTheDataset": "",
     "noLocationInformation": "",
     "deletedMessage": "",
     "deletedDescription": "",
     "subMenu": {
-      "diagnostics": "",
-      "menu": "",
+      "diagnostics": "Diagnostika",
+      "menu": "Nabídka",
       "showDiagnostics": "",
       "hideDiagnostics": "",
       "aboutDarwinCore": "",
@@ -34,14 +34,14 @@
     "groups": {
       "Record": "Záznam",
       "Occurrence": "Výskyt",
-      "Event": "",
-      "Identification": "",
-      "Taxon": "",
+      "Event": "Událost",
+      "Identification": "Identifikace",
+      "Taxon": "Taxon",
       "Location": "Poloha",
       "Organism": "",
       "MaterialSample": "",
       "GeologicalContext": "",
-      "other": ""
+      "other": "Jiné"
     },
     "term": "",
     "interpreted": "Interpretováno",

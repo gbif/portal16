@@ -1,29 +1,29 @@
 {
     "health": {
         "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "releaseNotes": "",
+        "systemLoad": "Zatížení systému",
+        "messages": "Zprávy",
+        "version": "Verze",
+        "releaseNotes": "Poznámky k vydání",
         "nInQueue": "",
         "status": {
-            "OPERATIONAL": "",
-            "WARNING": "",
-            "CRITICAL": "",
-            "INFO": ""
+            "OPERATIONAL": "V provozu",
+            "WARNING": "Nestabilní",
+            "CRITICAL": "Nepoužitelné",
+            "INFO": "Aktualizace systému"
         },
         "components": {
             "OCCURRENCE": {
                 "name": "Výskyt",
-                "tooltip": ""
+                "tooltip": "Např. vyhledávání a prohlížení výskytů."
             },
             "SPECIES": {
                 "name": "Druh",
-                "tooltip": ""
+                "tooltip": "Např. vyhledávání a prohlížení druhů, návrhy druhů"
             },
             "REGISTRY": {
                 "name": "Registr",
-                "tooltip": ""
+                "tooltip": "Např. datové sady, vydavatelé, instalace, země, účastníci a sítě."
             },
             "IDENTITY": {
                 "name": "",
@@ -54,7 +54,7 @@
                 "tooltip": ""
             },
             "CLUSTER": {
-                "name": "",
+                "name": "Zatížení systému",
                 "tooltip": ""
             },
             "DOWNLOAD": {

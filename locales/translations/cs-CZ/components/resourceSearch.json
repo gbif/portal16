@@ -23,7 +23,7 @@
             "countriesOfCoverage": "",
             "countriesOfResearcher": "",
             "literatureType": "",
-            "contractCountry": "",
+            "contractCountry": "Země nebo oblast",
             "topics": "Téma",
             "audiences": "",
             "purposes": "Účel",
@@ -37,7 +37,7 @@
             "openAccess": "Otevřený přístup",
             "gbifDownloadKey": "",
             "gbifDerivedDatasetDoi": "",
-            "paperDoi": "",
+            "paperDoi": "DOI",
             "litSource": "",
             "gbifTaxonKey": "Vědecký název",
             "litPublisher": ""

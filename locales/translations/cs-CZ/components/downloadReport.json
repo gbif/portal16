@@ -29,7 +29,7 @@
     "datasetHasNumRows": "",
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
-    "hours": "",
+    "hours": "Hodin",
     "minute": "",
     "minutes": ""
   },
@@ -38,8 +38,8 @@
     "content": {
       "rawData": "",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
+      "images": "Multimédia",
+      "coordinates": "Souřadnice",
       "fileFormat": "Formát",
       "estimatedSize": ""
     },
@@ -47,10 +47,10 @@
       "tabCsv": ""
     },
     "tableValues": {
-      "yes": "",
+      "yes": "✔",
       "yesIfAvailable": "",
       "yesLinks": "",
-      "no": ""
+      "no": "✘"
     }
   }
 }
