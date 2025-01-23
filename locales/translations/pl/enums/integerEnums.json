@@ -23,14 +23,14 @@
     "6": "Sobota"
   },
   "kingdomKey": {
-    "0": "",
-    "1": "",
-    "2": "",
-    "3": "",
-    "4": "",
-    "5": "",
-    "6": "",
-    "7": "",
+    "0": "Incertae sedis",
+    "1": "Animalia",
+    "2": "Archaea",
+    "3": "Bacteria",
+    "4": "Chromista",
+    "5": "Fungi",
+    "6": "Plantae",
+    "7": "Protozoa",
     "8": "Wirusy"
   }
 }
