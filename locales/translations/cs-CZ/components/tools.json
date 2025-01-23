@@ -62,7 +62,7 @@
         "machineVision": {
             "tabs": {
                 "demo": "",
-                "statement": ""
+                "statement": "O"
             }
         },
         "derivedDataset": {
