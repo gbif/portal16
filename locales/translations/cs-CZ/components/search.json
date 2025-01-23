@@ -1,12 +1,12 @@
 {
   "search": {
-    "title": "",
+    "title": "Hledat",
     "placeholder": "",
     "noSearchTermsEntered": "",
     "notSureWhatYouAreLookingFor": "",
     "cannotFindWhatYouAreLookingFor": "",
     "trySpecifyingAType": "",
-    "everything": "",
+    "everything": "Vše",
     "occurrences": "",
     "species": "Druh",
     "datasets": "Datové sady",
