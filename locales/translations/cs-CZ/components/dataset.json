@@ -75,13 +75,13 @@
     "processedOccurrences": "",
     "noDescriptionProvided": "",
     "pNetwork": "",
-    "parentEvent": "",
-    "eventDescription": "",
+    "parentEvent": "Nadřazená událost",
+    "eventDescription": "Popis události",
     "siblingEvents": "",
-    "childEvents": "",
+    "childEvents": "Podřazená událost",
     "events": "Události",
-    "occurrenceCount": "",
-    "inDataset": "",
+    "occurrenceCount": "Počet výskytů",
+    "inDataset": "V",
     "samplingArticleLink": "",
     "getDownloadReport": ""
   }
