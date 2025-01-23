@@ -1,10 +1,10 @@
 {
   "establishmentMeans": {
-    "NATIVE": "",
-    "INTRODUCED": "",
-    "NATURALISED": "",
-    "INVASIVE": "",
-    "MANAGED": "",
-    "UNCERTAIN": ""
+    "NATIVE": "Rodzimy",
+    "INTRODUCED": "Introdukowany",
+    "NATURALISED": "Naturalizowany",
+    "INVASIVE": "Inwazyjny",
+    "MANAGED": "Zarządzany",
+    "UNCERTAIN": "Niepewny"
   }
 }
