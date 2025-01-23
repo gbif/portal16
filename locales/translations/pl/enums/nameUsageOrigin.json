@@ -1,10 +1,10 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "",
+    "SOURCE": "Zapis pochodzi bezpośrednio z zapisu źródłowego.",
+    "DENORMED_CLASSIFICATION": "Ukryte użycie zdenormalizowanej klasyfikacji.",
+    "VERBATIM_PARENT": "Ukryte użycie dosłownej nazwy macierzystej.",
+    "VERBATIM_ACCEPTED": "Ukryte użycie dosłownej przyjętej nazwy macierzystej.",
+    "VERBATIM_BASIONYM": "Ukryte użycie dosłownego bazonimu/oryginalnej nazwy.",
     "PROPARTE": "",
     "AUTONYM": "",
     "IMPLICIT_NAME": "",
