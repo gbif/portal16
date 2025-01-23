@@ -77,8 +77,8 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Jméno",
+    "lastName": "Příjmení",
     "fullName": "",
     "position": "",
     "affiliations": "",

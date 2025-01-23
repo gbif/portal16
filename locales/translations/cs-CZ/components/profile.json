@@ -2,16 +2,16 @@
   "profile": {
     "connect": {
       "failed": {
-        "FACEBOOK": "",
+        "FACEBOOK": "Nelze se připojit k Facebooku",
         "GITHUB": "Nelze se připojit ke Githubu",
-        "GOOGLE": ""
+        "GOOGLE": "Nelze se připojit pomocí Google"
       }
     },
     "login": {
       "failed": {
-        "FACEBOOK": "",
-        "GITHUB": "",
-        "GOOGLE": ""
+        "FACEBOOK": "Nelze se přihlásit s Facebookem",
+        "GITHUB": "Nelze se přihlásit s Githubem",
+        "GOOGLE": "Nelze se přihlásit s Google"
       }
     },
     "error": {
@@ -19,7 +19,7 @@
       "LOGIN_UNKNOWN": "",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "",
-      "EMAIL_IN_USE": "",
+      "EMAIL_IN_USE": "Tento e-mail je již používán",
       "NO_EMAIL_PROVIDED": "",
       "FAILED": ""
     },
@@ -42,9 +42,9 @@
     "welcome": "",
     "accountConfirmed": "",
     "emailVerification": "",
-    "verifyAccount": "",
-    "userProfile": "",
-    "usernameEmail": "",
+    "verifyAccount": "Ověřit",
+    "userProfile": "Uživatelský profil",
+    "usernameEmail": "Uživatelské jméno nebo e-mail",
     "password": "Heslo",
     "continue": "Pokračovat",
     "forgotPassword": "Zapomněli jste heslo?",
@@ -52,7 +52,7 @@
     "signIn": "Přihlásit se",
     "or": "Nebo",
     "continueWithProvider": "Pokračovat s {PROVIDER}",
-    "signUpWithProvider": "",
+    "signUpWithProvider": "Připojit se s {PROVIDER}",
     "connectWithProvider": "Připojit se s {PROVIDER}",
     "disconnectWithProvider": "Odpojit {PROVIDER}",
     "signInAgreement": "",
@@ -76,8 +76,8 @@
     "back": "Zpět",
     "startEditing": "",
     "stopEditing": "",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Jméno",
+    "lastName": "Příjmení",
     "language": "Jazyk",
     "save": "Uložit",
     "currentPassword": "Aktuální heslo",
