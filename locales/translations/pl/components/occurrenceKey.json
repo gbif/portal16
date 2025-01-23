@@ -34,7 +34,7 @@
     "groups": {
       "Record": "stwierdzenie",
       "Occurrence": "Występowanie",
-      "Event": "",
+      "Event": "Zdarzenie",
       "Identification": "",
       "Taxon": "",
       "Location": "Lokalizacja",
