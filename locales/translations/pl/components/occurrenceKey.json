@@ -34,7 +34,7 @@
     "groups": {
       "Record": "stwierdzenie",
       "Occurrence": "Występowanie",
-      "Event": "",
+      "Event": "Zdarzenie",
       "Identification": "",
       "Taxon": "",
       "Location": "Lokalizacja",
@@ -51,7 +51,7 @@
       "location": "Lokalizacja",
       "specimenType": "",
       "publisher": "Wydawca",
-      "reference": "",
+      "reference": "Odwołania",
       "verbatimName": ""
     },
     "media": {

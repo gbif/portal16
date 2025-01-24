@@ -1,17 +1,17 @@
 {
   "enum": {
     "institutionGovernance": {
-      "ACADEMIC_FEDERAL": "",
-      "ACADEMIC_FOR_PROFIT": "",
-      "ACADEMIC_LOCAL": "",
-      "ACADEMIC_NON_PROFIT": "",
-      "ACADEMIC_STATE": "",
-      "FEDERAL": "",
-      "FOR_PROFIT": "",
-      "LOCAL": "",
-      "NON_PROFIT": "",
-      "OTHER": "",
-      "STATE": ""
+      "ACADEMIC_FEDERAL": "Akademickie federalne",
+      "ACADEMIC_FOR_PROFIT": "Akademickie komercyjne",
+      "ACADEMIC_LOCAL": "Akademickie lokalne",
+      "ACADEMIC_NON_PROFIT": "Akademickie non-profit",
+      "ACADEMIC_STATE": "Akademickie krajowe",
+      "FEDERAL": "Federalne",
+      "FOR_PROFIT": "Komercyjne",
+      "LOCAL": "Lokalne",
+      "NON_PROFIT": "Non-profit",
+      "OTHER": "Inne",
+      "STATE": "Państwowe"
     }
   }
 }

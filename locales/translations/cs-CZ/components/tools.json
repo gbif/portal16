@@ -62,7 +62,7 @@
         "machineVision": {
             "tabs": {
                 "demo": "",
-                "statement": ""
+                "statement": "O"
             }
         },
         "derivedDataset": {
@@ -72,7 +72,7 @@
             "originalDownloadDOI": "",
             "registrationDate": "",
             "datasetKey": "",
-            "occurrenceCount": "",
+            "occurrenceCount": "Počet výskytů",
             "submit": "Odeslat",
             "pleaseFill": "",
             "loginToCreate": "",
