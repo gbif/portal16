@@ -42,7 +42,7 @@
     "occurrenceId": "",
     "hasCoordinate": "Má souřadnici",
     "repatriated": "",
-    "typeStatus": "",
+    "typeStatus": "Typ statusu",
     "geometry": "",
     "decimalLatitude": "Desetinná zeměpisná šířka",
     "decimalLongitude": "Desetinná zeměpisná délka",
@@ -111,7 +111,7 @@
     "_group": "Skupina",
     "formation": "Formace",
     "member": "Člen",
-    "bed": "",
+    "bed": "Podloží",
     "gbifRegion": "",
     "publishedByGbifRegion": "",
     "taxonConceptId": ""
