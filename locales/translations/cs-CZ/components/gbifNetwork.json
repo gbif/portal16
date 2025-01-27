@@ -16,12 +16,12 @@
       "other": ""
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Bývalý účastník",
+      "other": "Bývalí účastníci"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Přidružení GBIF",
+      "other": "Přidružení GBIF"
     },
     "role": "Role",
     "group": {},
@@ -34,8 +34,8 @@
     "datasets": "Datové sady",
     "regionalRepresentative": "",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Účastnická organizace",
+      "gbifAffiliates": "Přidružení GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Vedoucí delegace",
