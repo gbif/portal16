@@ -17,7 +17,7 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
+                "yes": "Přítomen",
                 "no": "",
                 "all": "Vše"
             }
