@@ -42,12 +42,12 @@
       "NODE_MANAGER": "Správce uzlu"
     },
     "publishers": "Vydavatelé",
-    "memberSince": "",
-    "participant": "",
+    "memberSince": "Členem od",
+    "participant": "Účastník",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": "",
+    "occurrenceDatasets": "Datové sady výskytu",
+    "occurrences": "Výskyty",
     "occurrencesHostedBy": ""
   }
 }
