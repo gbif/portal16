@@ -8,8 +8,8 @@
       "introText": ""
     },
     "distribution": {
-      "presentIn": "",
-      "presentInNonCountry": "",
+      "presentIn": "{status} v {country}",
+      "presentInNonCountry": "{status} v {location}",
       "threatStatus": "",
       "establishmentMeans": "",
       "distributionPlural": "Rozmístění",
@@ -20,13 +20,13 @@
       "overview": "Přehled",
       "treatment": "Ošetření",
       "metrics": "Metriky",
-      "referenceTaxon": "",
+      "referenceTaxon": "Referenční taxon",
       "literature": "Literatura",
       "verbatim": ""
     },
     "invasives": {
       "nInvadedCountries": "",
-      "invasiveIn": "",
+      "invasiveIn": "Zaznamenáno jako zavedené v",
       "accordingTo": "",
       "occurrenceCount": "",
       "seeAllCountries": "",
@@ -41,9 +41,9 @@
     "as": "",
     "in": "",
     "origin": "Původ",
-    "issues": "",
+    "issues": "Problémy",
     "citation": "",
-    "remarks": "",
+    "remarks": "Poznámky",
     "term": "",
     "value": "Hodnota",
     "classification": "Klasifikace",
