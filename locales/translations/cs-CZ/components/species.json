@@ -1,6 +1,6 @@
 {
   "treatment": {
-    "distribution": "",
+    "distribution": "Rozmístění",
     "figures": ""
   },
   "species": {
@@ -12,14 +12,14 @@
       "presentInNonCountry": "",
       "threatStatus": "",
       "establishmentMeans": "",
-      "distributionPlural": "",
-      "PRESENT": "",
-      "ABSENT": ""
+      "distributionPlural": "Rozmístění",
+      "PRESENT": "Přítomen",
+      "ABSENT": "Chybí"
     },
     "tabs": {
-      "overview": "",
-      "treatment": "",
-      "metrics": "",
+      "overview": "Přehled",
+      "treatment": "Ošetření",
+      "metrics": "Metriky",
       "referenceTaxon": "",
       "literature": "Literatura",
       "verbatim": ""
