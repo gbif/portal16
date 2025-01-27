@@ -17,7 +17,7 @@
         "depth": {
             "equals": "Je {from}m",
             "between": "Mezi {from} a {to}m",
-            "lessThanOrEquals": "",
+            "lessThanOrEquals": "Nad hloubkou {to}m",
             "greaterThanOrEquals": "",
             "invalid": "Neplatné",
             "select": {
@@ -28,20 +28,20 @@
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
+            "equals": "Je {from}",
+            "between": "Mezi {from} a {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "Neplatné",
             "select": {
                 "equals": "Je",
                 "between": "Mezi",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Menší nebo rovno",
+                "greaterThanOrEquals": "Větší nebo rovno"
             }
         },
         "year": {
-            "equals": "",
+            "equals": "Je {from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
@@ -54,16 +54,16 @@
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
+            "equals": "Je {from}",
+            "between": "Mezi {from} a {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
             "invalid": "Neplatné",
             "select": {
                 "equals": "Je",
                 "between": "Mezi",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Menší nebo rovno",
+                "greaterThanOrEquals": "Větší nebo rovno"
             }
         }
     }
