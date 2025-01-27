@@ -1,28 +1,28 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Žádný filtr",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Je {from}m",
+            "between": "Mezi {from} a {to}m",
+            "lessThanOrEquals": "Pod {to}m",
+            "greaterThanOrEquals": "Nad {from}m",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Je",
+                "between": "Mezi",
+                "lessThanOrEquals": "Pod",
+                "greaterThanOrEquals": "Nad"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
+            "equals": "Je {from}m",
+            "between": "Mezi {from} a {to}m",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Je",
+                "between": "Mezi",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -32,10 +32,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Je",
+                "between": "Mezi",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -45,10 +45,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Je",
+                "between": "Mezi",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
@@ -58,10 +58,10 @@
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Je",
+                "between": "Mezi",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
