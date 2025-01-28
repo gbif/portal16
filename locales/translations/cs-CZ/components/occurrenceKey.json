@@ -61,7 +61,7 @@
       "notWorkingTryPublishers": "Přehrávání médií nefunguje tak, jak má?",
       "download": "Stáhnout média",
       "byRightsHolder": "od {RIGHTSHOLDER}",
-      "licensedUnder": "",
+      "licensedUnder": "licencováno pod {{LICENSE}}",
       "suggestedCitation": "Navrhované přiřazení"
     },
     "title": {
