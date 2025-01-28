@@ -15,7 +15,7 @@
       }
     },
     "error": {
-      "USERNAME_NOT_UNIQUE": "",
+      "USERNAME_NOT_UNIQUE": "Toto uživatelské jméno je již použito",
       "LOGIN_UNKNOWN": "",
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "",
@@ -69,7 +69,7 @@
     "passwordMaxLength": "",
     "next": "Další",
     "pleaseFillForm": "",
-    "selectAllImages": "",
+    "selectAllImages": "Vyberte všechny obrázky níže, jako je tento",
     "signUp": "Registrovat se",
     "cancel": "Zrušit",
     "resetPassword": "Obnovit heslo",

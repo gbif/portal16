@@ -1,69 +1,69 @@
 {
     "intervals": {
-        "noFilter": "",
+        "noFilter": "Žádný filtr",
         "elevation": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
-            "invalid": "",
+            "equals": "Je {from}m",
+            "between": "Mezi {from} a {to}m",
+            "lessThanOrEquals": "Pod {to}m",
+            "greaterThanOrEquals": "Nad {from}m",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Je",
+                "between": "Mezi",
+                "lessThanOrEquals": "Pod",
+                "greaterThanOrEquals": "Nad"
             }
         },
         "depth": {
-            "equals": "",
-            "between": "",
-            "lessThanOrEquals": "",
+            "equals": "Je {from}m",
+            "between": "Mezi {from} a {to}m",
+            "lessThanOrEquals": "Nad hloubkou {to}m",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Je",
+                "between": "Mezi",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
         },
         "coordinateUncertaintyInMeters": {
-            "equals": "",
-            "between": "",
+            "equals": "Je {from}",
+            "between": "Mezi {from} a {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Je",
+                "between": "Mezi",
+                "lessThanOrEquals": "Menší nebo rovno",
+                "greaterThanOrEquals": "Větší nebo rovno"
             }
         },
         "year": {
-            "equals": "",
+            "equals": "Je {from}",
             "between": "",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
+                "equals": "Je",
+                "between": "Mezi",
                 "lessThanOrEquals": "",
                 "greaterThanOrEquals": ""
             }
         },
         "default": {
-            "equals": "",
-            "between": "",
+            "equals": "Je {from}",
+            "between": "Mezi {from} a {to}",
             "lessThanOrEquals": "",
             "greaterThanOrEquals": "",
-            "invalid": "",
+            "invalid": "Neplatné",
             "select": {
-                "equals": "",
-                "between": "",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "equals": "Je",
+                "between": "Mezi",
+                "lessThanOrEquals": "Menší nebo rovno",
+                "greaterThanOrEquals": "Větší nebo rovno"
             }
         }
     }

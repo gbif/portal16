@@ -1,30 +1,30 @@
 {
   "directory": {
-    "title": "",
+    "title": "Adresář",
     "group": {
       "executiveCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Výkonný výbor",
+        "description": "Výkonný výbor jedná jménem správní rady v době, kdy správní rada nezasedá, a v rámci oblastí odpovědnosti, které na něj správní rada přenesla. Mezi jeho funkce patří sledování výkonnosti sekretariátu při provádění rozhodnutí přijatých správní radou, včetně provádění strategického plánu a pracovního programu, a řízení rozpočtu."
       },
       "scienceCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Vědecký výbor",
+        "description": "Vědecký výbor GBIF je poradní výbor, který dohlíží na vývoj a pokrok pracovního programu GBIF a vydává doporučení správní radě, výkonnému výboru a sekretariátu. Jeho mandát si můžete přečíst [zde](/document/80877/current-terms-of-reference-for-the-science-committee)."
       },
       "budgetCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Rozpočtový výbor",
+        "description": "Rozpočtový výbor je poradní výbor, který se zabývá různými finančními otázkami souvisejícími se správou prostředků GBIF. Mimo jiné dohlíží na audit roční účetní závěrky předkládané správní radě a poskytuje pokyny pro výběr auditorské společnosti GBIF. Výbor předkládá doporučení správní radě, výkonnému výboru a sekretariátu. Jeho mandát je k dispozici [zde](/document/80669/terms-of-reference-for-the-gbif-budget-committee)."
       },
       "nsg": {
         "title": "Řídicí skupina uzlů",
-        "description": ""
+        "description": "Řídicí skupina uzlů (NSG) byla založena v roce 2011 a skládá se z předsedy a místopředsedů [Výboru manažerů účastnických uzlů](/contact-us/directory? group=nodesCommittee), k nimž se připojil regionální zástupce z každého ze šesti regionů GBIF ([Afrika](/the-gbif-network/africa), [Asie](/the-gbif-network/asia), [Evropa a střední Asie](/the-gbif-network/europe), [Latinská Amerika/Karibik](/the-gbif-network/latin-america), [Severní Amerika](/the-gbif-network/north-america) a [Oceánie](/the-gbif-network/oceania)). Cílem NSG je formulovat konkrétní doporučení příslušným orgánům GBIF na základě zpětné vazby poskytnuté účastnickými uzly a poskytovat poradenství ohledně ročních pracovních programů GBIF, které se týkají úsilí uzlů GBIF."
       },
       "nodesCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Výbor správců uzlů",
+        "description": "Výbor manažerů účastnických uzlů (nebo Výbor uzlů) je dynamická skupina tvořená manažery uzlů jmenovanými všemi účastníky (zeměmi a mezinárodními organizacemi). Výbor zahrnuje tři pozice předsedů, které jsou ustanoveny na základě hlasování správní rady na maximálně dvě dvouletá funkční období. Jeho mandát si můžete přečíst [zde](/document/80571/terms-of-reference-for-the-participant-node-managers-committee-nodes)."
       },
       "secretariat": {
         "title": "GBIF Sekretariát",
-        "description": ""
+        "description": "Sekretariát GBIF, který sídlí v Přírodovědeckém muzeu v Kodani, je pověřen přípravou, realizací a podáváním zpráv o pracovním programu GBIF. Mezi úkoly sekretariátu patří:\n - provoz portálu GBIF a související informatiky\n - koordinace činností sítě souvisejících s mobilizací, zveřejňováním a správou údajů\n - monitorování nedostatků v údajích a využívání údajů zprostředkovaných GBIF pro vědu a\n - provozování centrálních služeb pro komunikaci a spolupráci"
       },
       "voting": {
         "title": "",
@@ -40,18 +40,18 @@
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
+      "role": "Role",
+      "name": "Jméno",
+      "participant": "Účastník",
       "participationStatus": ""
     },
-    "details": "",
-    "roles": "",
+    "details": "Detaily",
+    "roles": "Role",
     "sinceDate": "Od {DATE}",
-    "showAllContacts": "",
+    "showAllContacts": "Vše",
     "person": {
       "volunteer": "",
-      "name": "",
+      "name": "Jméno",
       "annualBadges": "",
       "language": "Jazyk",
       "country": "Země nebo oblast",

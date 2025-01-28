@@ -17,8 +17,8 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
-                "no": "",
+                "yes": "Přítomen",
+                "no": "Chybí",
                 "all": "Vše"
             }
         },

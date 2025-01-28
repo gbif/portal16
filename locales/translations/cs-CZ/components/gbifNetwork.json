@@ -16,12 +16,12 @@
       "other": ""
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Bývalý účastník",
+      "other": "Bývalí účastníci"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Přidružení GBIF",
+      "other": "Přidružení GBIF"
     },
     "role": "Role",
     "group": {},
@@ -34,20 +34,20 @@
     "datasets": "Datové sady",
     "regionalRepresentative": "",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Účastnická organizace",
+      "gbifAffiliates": "Přidružení GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Vedoucí delegace",
       "NODE_MANAGER": "Správce uzlu"
     },
     "publishers": "Vydavatelé",
-    "memberSince": "",
-    "participant": "",
+    "memberSince": "Členem od",
+    "participant": "Účastník",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": "",
+    "occurrenceDatasets": "Datové sady výskytu",
+    "occurrences": "Výskyty",
     "occurrencesHostedBy": ""
   }
 }

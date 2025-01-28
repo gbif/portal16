@@ -1,6 +1,6 @@
 {
   "occurrenceStatus": {
-    "PRESENT": "",
-    "ABSENT": ""
+    "PRESENT": "Přítomen",
+    "ABSENT": "Chybí"
   }
 }

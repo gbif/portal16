@@ -8,7 +8,7 @@
       "datasets": "Datové sady",
       "publishers": "Vydavatelé"
     },
-    "registeredDate": "",
+    "registeredDate": "Registrováno {DATE}",
     "nParticipatingDatasets": "",
     "nParticipatingPublishers": ""
   }
