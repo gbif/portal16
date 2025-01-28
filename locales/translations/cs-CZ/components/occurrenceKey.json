@@ -82,35 +82,35 @@
         "PRESERVED_SPECIMEN": "Sbíráno na neznámém místě",
         "FOSSIL_SPECIMEN": "Sbíráno na neznámém místě",
         "LIVING_SPECIMEN": "Sbíráno na neznámém místě",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
+        "HUMAN_OBSERVATION": "Pozorováno na neznámém místě",
+        "MACHINE_OBSERVATION": "Pozorováno na neznámém místě",
         "MATERIAL_SAMPLE": "Sbíráno na neznámém místě",
-        "MATERIAL_CITATION": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "MATERIAL_CITATION": "Zaznamenáno na neznámém místě",
+        "OCCURRENCE": "Zaznamenáno na neznámém místě",
+        "OBSERVATION": "Pozorováno na neznámém místě",
+        "LITERATURE": "Zaznamenáno na neznámém místě",
+        "UNKNOWN": "Zaznamenáno na neznámém místě"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "neznámý druh"
     },
     "occurrence": "Výskyt",
-    "inLanguage": "",
-    "sequenced": "",
+    "inLanguage": "V {LANGUAGE_TRANSLATED}",
+    "sequenced": "Sekvencované",
     "treatment": "Ošetření",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "Aktuální",
+      "relatedOccurrences": "Související výskyty",
+      "similarBecause": "Podobné, protože",
+      "matchedRecord": "Shodný záznam",
+      "noMatches": "Žádné vztahy s kandidáty",
+      "explainer": "Toto je experimentální funkce, která upozorňuje na možné duplicitní a/nebo související výskyty."
     }
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "Vyloučeno",
+      "AUTHORED": "Změněno",
+      "INFERED": "Odvozeno"
     }
   }
 }
