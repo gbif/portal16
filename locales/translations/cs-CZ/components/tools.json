@@ -67,7 +67,7 @@
         },
         "derivedDataset": {
             "title": "",
-            "titleField": "",
+            "titleField": "Název",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
