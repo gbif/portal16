@@ -5,12 +5,12 @@
   },
   "species": {
     "literature": {
-      "introText": ""
+      "introText": "[GBIF-relevant](/faq?question=literature-relevant) literatura výslovně zaměřená na taxon"
     },
     "distribution": {
       "presentIn": "{status} v {country}",
       "presentInNonCountry": "{status} v {location}",
-      "threatStatus": "",
+      "threatStatus": "Stav ohrožení: {status}",
       "establishmentMeans": "",
       "distributionPlural": "Rozmístění",
       "PRESENT": "Přítomen",
