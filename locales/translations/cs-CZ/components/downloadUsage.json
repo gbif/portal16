@@ -2,7 +2,7 @@
     "downloadUsage": {
         "title": "",
         "form": {
-            "title": "",
+            "title": "Název",
             "titlePlaceholder": "",
             "type": "Typ",
             "authors": "",
