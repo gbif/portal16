@@ -1,13 +1,13 @@
 {
   "derivedDatasetKey": {
     "nRecordsAtTime": "",
-    "derivedDataset": "",
+    "derivedDataset": "Odvozená datová sada",
     "sourceUrl": "",
     "headlineDatasets": "",
     "headlineOccurrences": "",
     "title": "Název",
     "description": "",
-    "originalDownloadDOI": ""
+    "originalDownloadDOI": "Datová sada odvozená ze stažení"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "",
@@ -18,9 +18,9 @@
     "downloadDeletionWarning": "",
     "occurrenceDownload": "",
     "brokenDownload": "",
-    "contactHelpdesk": "",
-    "cancelled": "",
-    "cancel": "",
+    "contactHelpdesk": "Kontakt na helpdesk",
+    "cancelled": "Zrušeno",
+    "cancel": "Zrušit",
     "download": "Stáhnout",
     "records": "Záznamy",
     "occurrences": "Výskyty",
