@@ -4,9 +4,9 @@
     "DISTRIBUTION": "",
     "IDENTIFIER": "",
     "MULTIMEDIA": "",
-    "REFERENCE": "",
-    "SPECIES_PROFILE": "",
-    "TYPES_AND_SPECIMEN": "",
-    "VERNACULAR_NAME": ""
+    "REFERENCE": "Reference",
+    "SPECIES_PROFILE": "Profil druhu",
+    "TYPES_AND_SPECIMEN": "Typy a exempláře",
+    "VERNACULAR_NAME": "Místní název"
   }
 }
