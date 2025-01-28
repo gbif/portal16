@@ -1,9 +1,9 @@
 {
   "datasetMetrics": {
-    "countByKingdom": "",
-    "countByRank": "",
-    "countNamesByLanguage": "",
-    "countExtRecordsByExtension": "",
+    "countByKingdom": "Počet podle říše",
+    "countByRank": "Počet podle pozice",
+    "countNamesByLanguage": "Počet názvů podle jazyka",
+    "countExtRecordsByExtension": "Počet rozšíření podle typu rozšíření",
     "countByOrigin": "",
     "countByIssue": ""
   },
