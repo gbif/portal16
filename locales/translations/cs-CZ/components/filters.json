@@ -1,10 +1,10 @@
 {
     "filters": {
-        "searchPlaceholder": "",
-        "noPreference": "",
-        "invert": "",
+        "searchPlaceholder": "Hledat",
+        "noPreference": "Bez preferencí",
+        "invert": "Obráceně",
         "clear": "Vymazat",
-        "add": "",
+        "add": "Přidat",
         "repatriation": {
             "description": ""
         },
@@ -25,15 +25,15 @@
         "ternary": {
             "yes": "Ano",
             "no": "Ne",
-            "all": ""
+            "all": "Vše"
         },
         "location": {
-            "north": "",
-            "south": "",
-            "west": "",
-            "east": "",
-            "withCoordinates": "",
-            "withoutCoordinates": "",
+            "north": "Sever",
+            "south": "Jih",
+            "west": "Západ",
+            "east": "Východ",
+            "withCoordinates": "Včetně souřadnic",
+            "withoutCoordinates": "Bez souřadnic",
             "includeFlaggedAsSuspicious": "",
             "onlyShowFlagged": "",
             "past": "",
@@ -41,7 +41,7 @@
             "geometry": "Geometrie",
             "range": "Rozsah",
             "noFiltersAdded": "",
-            "wktPlaceholder": "",
+            "wktPlaceholder": "WKT nebo GeoJSON",
             "invalidTextInput": "",
             "tooLarge": "",
             "tooLargeSuggestion": "",
