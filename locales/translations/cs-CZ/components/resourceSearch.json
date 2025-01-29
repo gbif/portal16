@@ -2,9 +2,9 @@
     "resourceSearch": {
         "title": "",
         "upcoming": "",
-        "past": "",
+        "past": "Minulé",
         "searchForNewsEventsDocuments": "",
-        "occurrenceSearch": "",
+        "occurrenceSearch": "Hledání výskytu",
         "subscribeToCalendar": "",
         "suggestEvent": "",
         "citationExplainer": "",
