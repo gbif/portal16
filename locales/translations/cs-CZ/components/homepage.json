@@ -20,10 +20,10 @@
             "tool": "Nástroj",
             "literature": "Literatura",
             "treatment": "Taxonomie",
-            "blog": "",
-            "guidance": "",
-            "data": "",
-            "video": ""
+            "blog": "Blog",
+            "guidance": "Návod",
+            "data": "Data",
+            "video": "Video"
         }
     }
 }
