@@ -20,30 +20,30 @@
             "literature": "Literatura"
         },
         "filters": {
-            "countriesOfCoverage": "",
-            "countriesOfResearcher": "",
-            "literatureType": "",
+            "countriesOfCoverage": "Země nebo oblast pokrytí",
+            "countriesOfResearcher": "Země nebo oblast výzkumného pracovníka",
+            "literatureType": "Typ literatury",
             "contractCountry": "Země nebo oblast",
             "topics": "Téma",
-            "audiences": "",
+            "audiences": "Sledovanost",
             "purposes": "Účel",
             "relevance": "Relevance",
             "language": "Jazyk",
-            "year": "",
+            "year": "Rok vydání",
             "gbifDatasetKey": "Datová sada",
             "publishingOrganizationKey": "Vydavatel",
             "networkKey": "Síť",
-            "peerReview": "",
+            "peerReview": "Recenzované",
             "openAccess": "Otevřený přístup",
-            "gbifDownloadKey": "",
-            "gbifDerivedDatasetDoi": "",
+            "gbifDownloadKey": "Stáhnout klíč",
+            "gbifDerivedDatasetDoi": "Odvozený soubor dat DOI",
             "paperDoi": "DOI",
-            "litSource": "",
+            "litSource": "Recenzovaný časopis",
             "gbifTaxonKey": "Vědecký název",
-            "litPublisher": ""
+            "litPublisher": "Vydavatel recenzovaného časopisu"
         },
         "helpText": {
-            "gbifTaxonKey": ""
+            "gbifTaxonKey": "Poznámka: Při použití tohoto filtru budou vyloučeny práce, které nejsou výslovně zaměřeny na (a) konkrétní taxon/taxa."
         }
     }
 }
