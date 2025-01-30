@@ -21,20 +21,20 @@
                 "type": "Typ datové sady",
                 "license": "",
                 "dataHolderContact": "",
-                "publicAlert": "",
-                "yourContact": "",
+                "publicAlert": "Tyto údaje budou veřejné",
+                "yourContact": "Vaše kontaktní údaje",
                 "comments": "Komentáře",
                 "submit": "Odeslat",
-                "followDiscussionBelow": "",
-                "followIssue": "",
-                "suggestAnother": "",
-                "saveFailure": ""
+                "followDiscussionBelow": "Sledujte nebo se zapojte do další diskuse na níže uvedeném odkazu.",
+                "followIssue": "Viz návrh na githubu",
+                "suggestAnother": "Navrhnout další datovou sadu",
+                "saveFailure": "To není dobré. Váš návrh jsme nemohli uložit. Zkuste to prosím později nebo přejděte přímo na [Github](https://github.com/gbif/data-mobilization/issues), kde jsou návrhy spravovány."
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
-            "intro": "",
-            "aboutLink": "",
+            "drawerTitle": "Relativní trendy pozorování",
+            "intro": "Pilotní projekt s cílem zjistit, zda relativní trendy pozorování druhů v rámci GBIF poskytují užitečné informace pro výzkumné pracovníky.",
+            "aboutLink": "Přečtěte si o tomto nástroji",
             "selectSpecies": "Vybrat druhy",
             "noData": "O vybraných druzích po roce 1900 nemáme žádné georeferencované údaje.",
             "selectHigherTaxa": "Vybrat vyšší taxon",
@@ -42,22 +42,22 @@
             "hexagon": "Šestiúhelník",
             "draw": "",
             "clear": "Vymazat",
-            "resultIntro": "",
-            "embedIntro": ""
+            "resultIntro": "Změna relativní četnosti pozorování pro vybranou oblast",
+            "embedIntro": "Všechna data zprostředkovaná prostřednictvím {GBIF network}"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "Normalizace názvů druhů ze souboru CSV podle páteře GBIF. Očekává se, že soubor bude obsahovat sloupec \"scientificName\" a nepovinné sloupce \"kingdom\" a \"id\".",
+            "title": "Shoda názvů druhů"
         },
         "ipt": {
-            "description": "",
-            "dontSeeYourIpt": ""
+            "description": "Integrated Publishing Toolkit (IPT) je bezplatný open source softwarový nástroj napsaný v jazyce Java, který se používá k publikování a sdílení souborů dat o biologické rozmanitosti prostřednictvím sítě GBIF. IPT lze také nakonfigurovat s účtem DataCite nebo EZID, aby bylo možné datovým sadám přidělovat DOI a přeměnit jej tak na datový repozitář.",
+            "dontSeeYourIpt": "Nevidíte svůj IPT? Pošlete [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") své souřadnice."
         },
         "dataRepository": {
-            "title": ""
+            "title": "Úložiště dat"
         },
         "sequenceId": {
-            "title": ""
+            "title": "Sequence ID"
         },
         "machineVision": {
             "tabs": {
