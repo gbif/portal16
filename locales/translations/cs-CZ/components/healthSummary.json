@@ -1,22 +1,22 @@
 {
     "healthSummary": {
-        "systemHealth": "",
-        "description": "",
-        "updatedTimeAgo": "",
+        "systemHealth": "Zdraví systému",
+        "description": "Jaký je stav různých služeb GBIF",
+        "updatedTimeAgo": "Aktualizováno {TIME_AGO}",
         "statusSummary": {
-            "OPERATIONAL": "",
-            "INFO": "",
-            "WARNING": "",
-            "CRITICAL": ""
+            "OPERATIONAL": "Všechny systémy funkční",
+            "INFO": "Všechny systémy funkční",
+            "WARNING": "Máme nestabilní nebo pomalé systémy",
+            "CRITICAL": "Došlo k částečnému výpadku"
         },
         "notifications": {
             "WARNING": {
-                "title": "",
-                "summary": ""
+                "title": "Služby jsou nestabilní",
+                "summary": "V současné době se potýkáme s pomalými nebo nestabilními službami."
             },
             "CRITICAL": {
                 "title": "Služba je nedostupná",
-                "summary": ""
+                "summary": "Došlo k částečnému výpadku"
             }
         }
     }
