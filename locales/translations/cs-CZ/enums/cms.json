@@ -2,12 +2,12 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
+        "countriesOfCoverage": "Země nebo oblast pokrytí",
+        "countriesOfResearcher": "Země nebo oblast výzkumného pracovníka",
+        "literatureType": "Typ literatury",
         "contractCountry": "Země nebo oblast",
         "topics": "Téma",
-        "audiences": "",
+        "audiences": "Sledovanost",
         "purposes": "Účel",
         "relevance": "Relevance",
         "language": "Jazyk",
@@ -16,7 +16,7 @@
         "publishingOrg": "Vydavatel",
         "peerReview": "",
         "openAccess": "Otevřený přístup",
-        "gbifDownloadKey": ""
+        "gbifDownloadKey": "Stáhnout klíč"
       },
       "contentType": {
         "event": "",
