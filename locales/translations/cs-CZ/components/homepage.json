@@ -3,8 +3,8 @@
         "counts": {
             "occurrences": "Záznamy o výskytu",
             "datasets": "Datové sady",
-            "publishers": "",
-            "literature": ""
+            "publishers": "Vydavatelské instituce",
+            "literature": "Recenzované práce využívající data"
         },
         "aboutGbifCountry": "O GBIF {COUNTRY}",
         "summary": "Volný a otevřený přístup k údajům o biologické rozmanitosti",
