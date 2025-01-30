@@ -18,20 +18,20 @@
             "equals": "Je {from}m",
             "between": "Mezi {from} a {to}m",
             "lessThanOrEquals": "Nad hloubkou {to}m",
-            "greaterThanOrEquals": "",
+            "greaterThanOrEquals": "Hlouběji než {from}m",
             "invalid": "Neplatné",
             "select": {
                 "equals": "Je",
                 "between": "Mezi",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Méně než",
+                "greaterThanOrEquals": "Hlouběji než"
             }
         },
         "coordinateUncertaintyInMeters": {
             "equals": "Je {from}",
             "between": "Mezi {from} a {to}",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "lessThanOrEquals": "Méně nebo rovno {to}",
+            "greaterThanOrEquals": "Více nebo rovno {from}",
             "invalid": "Neplatné",
             "select": {
                 "equals": "Je",
@@ -42,22 +42,22 @@
         },
         "year": {
             "equals": "Je {from}",
-            "between": "",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "between": "Mezi počátkem {from} a koncem {to}",
+            "lessThanOrEquals": "Před koncem {to}",
+            "greaterThanOrEquals": "Po začátku {from}",
             "invalid": "Neplatné",
             "select": {
                 "equals": "Je",
                 "between": "Mezi",
-                "lessThanOrEquals": "",
-                "greaterThanOrEquals": ""
+                "lessThanOrEquals": "Před koncem",
+                "greaterThanOrEquals": "Po začátku"
             }
         },
         "default": {
             "equals": "Je {from}",
             "between": "Mezi {from} a {to}",
-            "lessThanOrEquals": "",
-            "greaterThanOrEquals": "",
+            "lessThanOrEquals": "Méně nebo rovno {to}",
+            "greaterThanOrEquals": "Více nebo rovno {from}",
             "invalid": "Neplatné",
             "select": {
                 "equals": "Je",

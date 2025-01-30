@@ -2,14 +2,14 @@
     "downloadUsage": {
         "title": "",
         "form": {
-            "title": "",
+            "title": "Název",
             "titlePlaceholder": "",
             "type": "Typ",
             "authors": "",
             "authorsPlaceholder": "",
             "link": "URL",
             "linkPlaceholder": "",
-            "date": "",
+            "date": "Datum",
             "comments": "Komentáře",
             "commentsPlaceholder": "",
             "submit": "Odeslat",

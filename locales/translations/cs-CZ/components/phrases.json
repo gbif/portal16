@@ -2,7 +2,7 @@
   "phrases": {
     "pleaseCiteAs": "",
     "copy": "Kopírovat",
-    "contactHelpdesk": "",
+    "contactHelpdesk": "Kontakt na helpdesk",
     "defaultPageTitle": "GBIF",
     "defaultPageDescription": "",
     "deletedOnDate": "Smazáno {DATE}",
@@ -19,11 +19,11 @@
     "noJavascriptEnabled": "",
     "isSplashScreen": "",
     "404Text": "",
-    "changeLanguage": "",
-    "noData": "",
+    "changeLanguage": "Změnit jazyk",
+    "noData": "Žádná data",
     "payloadTooLarge": "",
     "readMore": "Zobrazit více",
-    "share": "",
+    "share": "Sdílet",
     "testSiteWarning": "",
     "loginRequiredDueToSpam": "",
     "loginRequiredExplainer": ""

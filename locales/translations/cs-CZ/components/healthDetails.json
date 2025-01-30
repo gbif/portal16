@@ -26,11 +26,11 @@
                 "tooltip": "Např. datové sady, vydavatelé, instalace, země, účastníci a sítě."
             },
             "IDENTITY": {
-                "name": "",
+                "name": "Identita",
                 "tooltip": ""
             },
             "MAPS": {
-                "name": "",
+                "name": "Mapy",
                 "tooltip": ""
             },
             "CONTENTFUL": {

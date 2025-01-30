@@ -7,18 +7,18 @@
       "publishersHomepage": "Domovská stránka"
     },
     "joinedAgo": "",
-    "newPublisher": "",
+    "newPublisher": "Nový vydavatel",
     "technicalContact": "Technický kontakt",
     "country": "Země nebo oblast",
     "hosting": "Hosting",
     "description": "Popis",
-    "endorsedBy": "",
-    "pendingEndorsementBy": "",
-    "endorsementWithheld": "",
+    "endorsedBy": "Schváleno od",
+    "pendingEndorsementBy": "Čeká se na schválení od",
+    "endorsementWithheld": "Schválení odmítnuto",
     "installations": "Instalace",
     "getDownloadReport": "",
     "contacts": "Kontakty",
-    "administrativeContact": "",
+    "administrativeContact": "Administrativní kontakt",
     "header": {
       "publisher": "Vydavatel",
       "sinceDate": "Od {DATE}"

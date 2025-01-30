@@ -49,7 +49,7 @@
     "remarks": "Poznámky",
     "highlights": {
       "location": "Poloha",
-      "specimenType": "",
+      "specimenType": "Typ vzorku",
       "publisher": "Vydavatel",
       "reference": "Reference",
       "verbatimName": "Doslovný název"
@@ -61,56 +61,56 @@
       "notWorkingTryPublishers": "Přehrávání médií nefunguje tak, jak má?",
       "download": "Stáhnout média",
       "byRightsHolder": "od {RIGHTSHOLDER}",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "licensedUnder": "licencováno pod {{LICENSE}}",
+      "suggestedCitation": "Navrhované přiřazení"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "MATERIAL_CITATION": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Sbíráno v {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Sbíráno v {COUNTRY}",
+        "LIVING_SPECIMEN": "Sbíráno v {COUNTRY}",
+        "HUMAN_OBSERVATION": "Pozorováno v {COUNTRY}",
+        "MACHINE_OBSERVATION": "Pozorováno v {COUNTRY}",
+        "MATERIAL_SAMPLE": "Sbíráno v {COUNTRY}",
+        "MATERIAL_CITATION": "Zaznamenáno v {COUNTRY}",
+        "OCCURRENCE": "Zaznamenáno v {COUNTRY}",
+        "OBSERVATION": "Pozorováno v {COUNTRY}",
+        "LITERATURE": "Zaznamenáno v {COUNTRY}",
+        "UNKNOWN": "Zaznamenáno v {COUNTRY}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "MATERIAL_CITATION": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Sbíráno na neznámém místě",
+        "FOSSIL_SPECIMEN": "Sbíráno na neznámém místě",
+        "LIVING_SPECIMEN": "Sbíráno na neznámém místě",
+        "HUMAN_OBSERVATION": "Pozorováno na neznámém místě",
+        "MACHINE_OBSERVATION": "Pozorováno na neznámém místě",
+        "MATERIAL_SAMPLE": "Sbíráno na neznámém místě",
+        "MATERIAL_CITATION": "Zaznamenáno na neznámém místě",
+        "OCCURRENCE": "Zaznamenáno na neznámém místě",
+        "OBSERVATION": "Pozorováno na neznámém místě",
+        "LITERATURE": "Zaznamenáno na neznámém místě",
+        "UNKNOWN": "Zaznamenáno na neznámém místě"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "neznámý druh"
     },
     "occurrence": "Výskyt",
-    "inLanguage": "",
-    "sequenced": "",
+    "inLanguage": "V {LANGUAGE_TRANSLATED}",
+    "sequenced": "Sekvencované",
     "treatment": "Ošetření",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "Aktuální",
+      "relatedOccurrences": "Související výskyty",
+      "similarBecause": "Podobné, protože",
+      "matchedRecord": "Shodný záznam",
+      "noMatches": "Žádné vztahy s kandidáty",
+      "explainer": "Toto je experimentální funkce, která upozorňuje na možné duplicitní a/nebo související výskyty."
     }
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "Vyloučeno",
+      "AUTHORED": "Změněno",
+      "INFERED": "Odvozeno"
     }
   }
 }

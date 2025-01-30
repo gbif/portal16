@@ -4,12 +4,12 @@
         "youAreCurrentlySearchingInGBIFtaxonomy": "",
         "SearchAcrossChecklists": "",
         "freeTextSearchFor": "",
-        "limitSearchTo": "",
+        "limitSearchTo": "Omezit hledání na",
         "limitResultsTo": {
-            "all": "",
-            "scientificNames": "",
-            "vernacularNames": "",
-            "descriptions": ""
+            "all": "Vše",
+            "scientificNames": "Vědecké názvy",
+            "vernacularNames": "Místní názvy",
+            "descriptions": "Popis"
         }
     }
 }

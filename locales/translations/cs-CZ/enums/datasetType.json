@@ -2,7 +2,7 @@
   "datasetType": {
     "OCCURRENCE": "Výskyt",
     "CHECKLIST": "",
-    "SAMPLING_EVENT": "",
+    "SAMPLING_EVENT": "Událost odběru vzorku",
     "METADATA": "Metadata",
     "undefined": "Neznámý"
   },

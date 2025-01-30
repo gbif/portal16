@@ -28,22 +28,22 @@
       },
       "voting": {
         "title": "",
-        "description": ""
+        "description": "Země, které podepsaly Memorandum o porozumění GBIF a souhlasí se základním finančním příspěvkem do základních fondů GBIF."
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "Účastníci z přidružených zemí",
+        "description": "Země, které podepsaly Memorandum o porozumění GBIF, ale neposkytují finanční příspěvky do základních fondů GBIF a nemají hlasovací právo ve správní radě GBIF."
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "Ostatní přidružení účastníci",
+        "description": "Mezivládní organizace, mezinárodní organizace a další organizace s mezinárodní působností a ekonomiky, které podepsaly Memorandum o porozumění GBIF."
       }
     },
     "columns": {
       "role": "Role",
       "name": "Jméno",
       "participant": "Účastník",
-      "participationStatus": ""
+      "participationStatus": "Stav účastníka"
     },
     "details": "Detaily",
     "roles": "Role",

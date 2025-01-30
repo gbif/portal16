@@ -47,15 +47,15 @@
       "metrics": "Estadísticas"
     },
     "headerTitle": "Institución",
-    "indexHerbariorumIdentifier": "",
-    "numberSpecimens": "",
+    "indexHerbariorumIdentifier": "Identificador del Index Herbariorum",
+    "numberSpecimens": "Número de especímenes",
     "code": "Código de la institución",
     "alternativeCodes": "Códigos alternativos",
     "statusOfInstitution": "Estado de la institución",
     "additionalNames": "Nombre adicional",
     "description": "Descripción",
     "homepage": "Página Principal",
-    "foundingDate": "",
+    "foundingDate": "Fecha de fundación",
     "geographicDescription": "Descripción geográfica",
     "taxonomicDescription": "Descripción taxonómica",
     "citesPermitNumber": "Número de permisos de citas",
@@ -87,28 +87,28 @@
     "primaryInstitution": "Nombre de la Institución primaria",
     "primaryCollection": "Nombre de la colección primaria",
     "affiliateInstitutions": "Instituciones afiliadas adicionales",
-    "affiliateCollections": ""
+    "affiliateCollections": "Instituciones afiliadas adicionales"
   },
   "grscicoll": {
-    "title": "",
+    "title": "GRSciColl",
     "suggestChange": "Sugiere un cambio",
-    "suggestNewCollection": "",
-    "suggestNewInstitution": "",
+    "suggestNewCollection": "Sugerir una nueva colección",
+    "suggestNewInstitution": "Sugerir una nueva institución",
     "tabs": {
       "about": "Acerca De",
       "institutions": "Instituciones",
       "collections": "Colecciones",
-      "people": ""
+      "people": "Miembros del personal"
     },
     "contact": {
       "phone": "Teléfono",
       "email": "Correo electrónico",
       "fax": "Número de Fax",
       "mailingAddress": "Dirección postal",
-      "physicalAddress": "",
+      "physicalAddress": "Dirección postal",
       "contacts": "Contactos",
       "address": "Dirección",
-      "province": "",
+      "province": "Estado/Provincia",
       "postalCode": "Código postal",
       "city": "Ciudad/Pueblo",
       "country": "País"

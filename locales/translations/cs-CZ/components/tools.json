@@ -36,10 +36,10 @@
             "intro": "",
             "aboutLink": "",
             "selectSpecies": "Vybrat druhy",
-            "noData": "",
+            "noData": "O vybraných druzích po roce 1900 nemáme žádné georeferencované údaje.",
             "selectHigherTaxa": "Vybrat vyšší taxon",
-            "selectArea": "",
-            "hexagon": "",
+            "selectArea": "Vybrat oblast",
+            "hexagon": "Šestiúhelník",
             "draw": "",
             "clear": "Vymazat",
             "resultIntro": "",
@@ -61,14 +61,14 @@
         },
         "machineVision": {
             "tabs": {
-                "demo": "",
+                "demo": "Demo",
                 "statement": "O"
             }
         },
         "derivedDataset": {
-            "title": "",
-            "titleField": "",
-            "sourceUrl": "",
+            "title": "Odvozená datová sada",
+            "titleField": "Název",
+            "sourceUrl": "URL adresa, na které je možné získat přístup k odvozenému souboru dat.",
             "originalDownloadDOI": "",
             "registrationDate": "",
             "datasetKey": "",

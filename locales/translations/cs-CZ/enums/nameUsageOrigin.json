@@ -1,7 +1,7 @@
 {
   "nameUsageOrigin": {
-    "SOURCE": "",
-    "DENORMED_CLASSIFICATION": "",
+    "SOURCE": "Záznam pochází přímo ze zdrojového záznamu.",
+    "DENORMED_CLASSIFICATION": "Implicitní použití z denormalizované klasifikace.",
     "VERBATIM_PARENT": "",
     "VERBATIM_ACCEPTED": "",
     "VERBATIM_BASIONYM": "",
@@ -11,6 +11,6 @@
     "MISSING_ACCEPTED": "",
     "BASIONYM_PLACEHOLDER": "",
     "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "OTHER": "Jiný původ"
   }
 }
