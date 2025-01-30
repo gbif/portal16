@@ -39,14 +39,14 @@
           "SMALL": "",
           "NATIONAL": "",
           "DATA_USE": "",
-          "undefined": ""
+          "undefined": "Nespecifikováno"
         },
         "projectStatus": {
           "APPROVED": "",
           "CLOSED": "",
           "IN_PROGRESS": "",
           "DISCONTINUED": "",
-          "undefined": ""
+          "undefined": "Nespecifikováno"
         },
         "relevance": {
           "GBIF_USED": "",
