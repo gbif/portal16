@@ -1,7 +1,7 @@
 {
   "taxonomicStatus": {
     "ACCEPTED": "",
-    "DOUBTFUL": "",
+    "DOUBTFUL": "Pochybný",
     "SYNONYM": "Synonymum",
     "HETEROTYPIC_SYNONYM": "",
     "HOMOTYPIC_SYNONYM": "",
