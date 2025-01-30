@@ -1,20 +1,20 @@
 {
     "participant": {
         "participant": "Účastník",
-        "participantSummary": "",
-        "endorsedPublishers": "",
-        "noEndorsedPublishers": "",
-        "memberStatus": "",
-        "gbifParticipantSince": "",
+        "participantSummary": "Shrnutí účastníků",
+        "endorsedPublishers": "Schválení vydavatelé",
+        "noEndorsedPublishers": "Nejsou schváleni žádní vydavatelé",
+        "memberStatus": "Status člena",
+        "gbifParticipantSince": "Účastník GBIF od",
         "headOfDelegation": "Vedoucí delegace",
-        "gbifRegion": "",
+        "gbifRegion": "Region GBIF",
         "countryOrArea": "Země nebo oblast",
         "nodeName": "Název uzlu",
-        "nodeEstablished": "",
+        "nodeEstablished": "Založení uzlu",
         "website": "Webová stránka",
-        "participantNodeManager": "",
+        "participantNodeManager": "Správce účastnického uzlu",
         "pending": "Čekající",
-        "latestDatasetsPublished": "",
-        "noDatasets": ""
+        "latestDatasetsPublished": "Nejnovější zveřejněné datové sady",
+        "noDatasets": "Nejnovější zveřejněné datové sady"
     }
 }
