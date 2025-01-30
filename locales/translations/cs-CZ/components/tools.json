@@ -4,8 +4,8 @@
         "categoryFeatured": "Doporučené",
         "suggestDataset": {
             "NOT_OPEN": "Není otevřená licence",
-            "title": "",
-            "pleaseDescribeTheDataset": "",
+            "title": "Navrhnout datovou sadu",
+            "pleaseDescribeTheDataset": "Popište prosím datovou sadu",
             "thankYou": "Děkujeme",
             "form": {
                 "title": "Název",
