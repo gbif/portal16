@@ -1,13 +1,13 @@
 {
     "resourceSearch": {
-        "title": "",
-        "upcoming": "",
+        "title": "Vyhledávání zdrojů",
+        "upcoming": "Nadcházející",
         "past": "Minulé",
-        "searchForNewsEventsDocuments": "",
+        "searchForNewsEventsDocuments": "Vyhledávejte novinky, události, dokumenty a mnoho dalšího. Pokud hledáte výskyty druhů, zkuste naše vyhledávání výskytů.",
         "occurrenceSearch": "Hledání výskytu",
-        "subscribeToCalendar": "",
-        "suggestEvent": "",
-        "citationExplainer": "",
+        "subscribeToCalendar": "Přihlaste se k odběru kalendáře",
+        "suggestEvent": "Navrhnout událost",
+        "citationExplainer": "Přečtěte si více o literatuře, jejím vyhledávání a propojení s daty zprostředkovanými GBIF.",
         "types": {
             "events": "Události",
             "news": "Novinky",
