@@ -112,7 +112,7 @@
     "formation": "Formace",
     "member": "Člen",
     "bed": "Podloží",
-    "gbifRegion": "",
+    "gbifRegion": "Region GBIF",
     "publishedByGbifRegion": "",
     "taxonConceptId": ""
   }
