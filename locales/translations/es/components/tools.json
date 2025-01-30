@@ -54,7 +54,7 @@
             "dontSeeYourIpt": "¿No encuentras tu IPT? Enviar [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") sus coordenadas."
         },
         "dataRepository": {
-            "title": ""
+            "title": "Repositorio de datos"
         },
         "sequenceId": {
             "title": "ID de secuencia"
@@ -69,8 +69,8 @@
             "title": "Conjunto de datos derivado",
             "titleField": "Título",
             "sourceUrl": "URL de donde se puede acceder al conjunto de datos derivado",
-            "originalDownloadDOI": "",
-            "registrationDate": "",
+            "originalDownloadDOI": "DOI de descarga original",
+            "registrationDate": "Fecha de Registro",
             "datasetKey": "ID del conjunto de datos",
             "occurrenceCount": "Número (cantidad) de registros",
             "submit": "Enviar",
@@ -78,8 +78,8 @@
             "loginToCreate": "Inicia sesión para crear un conjunto de datos derivado",
             "myDatasets": "Mis conjuntos de datos derivados",
             "register": "",
-            "about": "",
-            "optionalDescription": "",
+            "about": "acerca de",
+            "optionalDescription": "Descripción opcional",
             "registerNew": "Registrar nuevo conjunto de datos derivado",
             "editDataset": "",
             "editFailed": "",
