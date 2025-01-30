@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
     "SCIENTIFIC": "Vědecký název",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
+    "DOUBTFUL": "Pochybný",
+    "BLACKLISTED": "Zakázán",
+    "VIRUS": "Virus",
     "HYBRID": "",
-    "INFORMAL": "",
+    "INFORMAL": "Neformální ",
     "OTU": "",
-    "CULTIVAR": "",
-    "CANDIDATUS": "",
-    "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "CULTIVAR": "Kultivar",
+    "CANDIDATUS": "Kandidát",
+    "PLACEHOLDER": "Zástupce",
+    "NO_NAME": "Bez názvu"
   }
 }
