@@ -70,7 +70,7 @@
             "titleField": "Název",
             "sourceUrl": "URL adresa, na které je možné získat přístup k odvozenému souboru dat.",
             "originalDownloadDOI": "",
-            "registrationDate": "",
+            "registrationDate": "Datum registrace",
             "datasetKey": "",
             "occurrenceCount": "Počet výskytů",
             "submit": "Odeslat",
