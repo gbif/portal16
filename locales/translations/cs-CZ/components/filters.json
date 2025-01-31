@@ -6,7 +6,7 @@
         "clear": "Vymazat",
         "add": "Přidat",
         "repatriation": {
-            "description": "O repatriaci údajů se hovoří tehdy, pokud jsou zveřejněny institucí v jedné zemi, ale týkají se biologické rozmanitosti vyskytující se v jiné zemi."
+            "description": "O repatriaci dat se hovoří tehdy, pokud jsou zveřejněny institucí v jedné zemi, ale týkají se biologické rozmanitosti vyskytující se v jiné zemi."
         },
         "isClustered": {
             "description": "Tato experimentální funkce upozorňuje na možné duplicitní a/nebo související výskyty."
