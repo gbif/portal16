@@ -18,16 +18,16 @@
     "filters": "Filtry",
     "simple": "",
     "advanced": "Všechny filtry",
-    "backbone": "",
+    "backbone": "Páteř",
     "allChecklists": "",
     "allResultTypes": "Vše",
     "suggestions": "Návrhy",
     "header": {
       "searchDatasets": "Hledat datové sady",
       "searchPublishers": "Hledat vydavatele",
-      "searchSpecies": "",
+      "searchSpecies": "Vyhledat druhy",
       "searchResources": "",
-      "searchOccurrences": ""
+      "searchOccurrences": "Vyhledat výskyty"
     },
     "nResults": ""
   }
