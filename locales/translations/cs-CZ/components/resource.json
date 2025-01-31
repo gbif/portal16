@@ -1,15 +1,15 @@
 {
   "resource": {
     "resources": "Zdroje",
-    "contactHelpdesk": "",
+    "contactHelpdesk": "Kontakt na helpdesk",
     "addToCalendar": "Přidat do kalendáře",
     "venue": "Místo konání",
     "location": "Poloha",
     "country": "Země nebo oblast",
-    "noDatasets": "",
+    "noDatasets": "Nejsou žádné datové sady k zobrazení",
     "noNewsOrEvents": "",
-    "howToLinkDatasets": "",
-    "howToLinkEvents": "",
+    "howToLinkDatasets": "Jak propojit datovou sadu s projektem",
+    "howToLinkEvents": "Jak přidat události na stránku projektu",
     "when": "Kdy",
     "language": "Jazyk",
     "viewOnGBIF": "Zobrazit na GBIF",
@@ -19,7 +19,7 @@
     "about": "O",
     "datasets": "datové sady",
     "gbifWillAttend": "",
-    "dataUsedInStudy": "",
+    "dataUsedInStudy": "Data uvedená ve studii",
     "resourceDescription": ""
   }
 }
