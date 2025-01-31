@@ -24,10 +24,10 @@
       },
       "secretariat": {
         "title": "GBIF Sekretariát",
-        "description": "Sekretariát GBIF, který sídlí v Přírodovědeckém muzeu v Kodani, je pověřen přípravou, realizací a podáváním zpráv o pracovním programu GBIF. Mezi úkoly sekretariátu patří:\n - provoz portálu GBIF a související informatiky\n - koordinace činností sítě souvisejících s mobilizací, zveřejňováním a správou údajů\n - monitorování nedostatků v údajích a využívání údajů zprostředkovaných GBIF pro vědu a\n - provozování centrálních služeb pro komunikaci a spolupráci"
+        "description": "Sekretariát GBIF, který sídlí v Přírodovědeckém muzeu v Kodani, je pověřen přípravou, realizací a podáváním zpráv o pracovním programu GBIF. Mezi úkoly sekretariátu patří:\n - provoz portálu GBIF a související informatiky\n - koordinace činností sítě souvisejících s mobilizací, zveřejňováním a správou dat\n - monitorování nedostatků v údajích a využívání údajů zprostředkovaných GBIF pro vědu a\n - provozování centrálních služeb pro komunikaci a spolupráci"
       },
       "voting": {
-        "title": "",
+        "title": "Hlasující účastníci",
         "description": "Země, které podepsaly Memorandum o porozumění GBIF a souhlasí se základním finančním příspěvkem do základních fondů GBIF."
       },
       "associateCountries": {
