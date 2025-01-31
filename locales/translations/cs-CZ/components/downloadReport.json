@@ -1,13 +1,13 @@
 {
   "downloadReport": {
     "title": "Stáhnout zprávu",
-    "knownIssues": "",
+    "knownIssues": "Známé problémy",
     "knownIssuesDescription": "",
-    "FossilsIncluded": "",
+    "FossilsIncluded": "Fosílie",
     "FossilsIncludedDescription": "",
-    "livingSpecimensIncluded": "",
-    "livingSpecimensIncludedDescription": "",
-    "yearRange": "",
+    "livingSpecimensIncluded": "Živé exempláře",
+    "livingSpecimensIncludedDescription": "Vaše vyhledávání zahrnuje i živé exempláře, například výskyty v botanických a zoologických zahradách.",
+    "yearRange": "Rozsah let",
     "total": "",
     "license": "Licence",
     "withTaxonMatch": "",
@@ -41,7 +41,7 @@
       "images": "Multimédia",
       "coordinates": "Souřadnice",
       "fileFormat": "Formát",
-      "estimatedSize": ""
+      "estimatedSize": "Odhadovaná velikost dat"
     },
     "fileFormats": {
       "tabCsv": ""
