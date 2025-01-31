@@ -20,7 +20,7 @@
       "PROVIDER_ACCOUNT_ALREADY_IN_USE": "",
       "USER_ALREADY_LOGGED_IN": "",
       "EMAIL_IN_USE": "Tento e-mail je již používán",
-      "NO_EMAIL_PROVIDED": "",
+      "NO_EMAIL_PROVIDED": "Nebyl uveden žádný e-mail",
       "FAILED": ""
     },
     "loginText": "Přihlášení",
