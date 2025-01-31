@@ -8,7 +8,7 @@
     "charts": "Metriky",
     "download": "Stáhnout",
     "searchAllFields": "Prohledat všechna pole",
-    "description": "Vyhledávání výskytů v Global Biodiversity Information Facility. Volný a otevřený přístup k údajům o biologické rozmanitosti.",
+    "description": "Vyhledávání výskytů v Global Biodiversity Information Facility. Volný a otevřený přístup k datům o biologické rozmanitosti.",
     "nWithCoordinates": "",
     "nWithImages": "",
     "failedSearch": "",
@@ -31,6 +31,6 @@
     "polygonSimplifiedToFewerPoints": "Polygon byl zjednodušen: počet bodů byl snížen.",
     "largeQueryLengthWarning": "URL adresa vašeho dotazu přesahuje 2000 znaků a nemusí správně fungovat ve všech prohlížečích. V případě rozsáhlých a/nebo složitých dotazů zvažte použití rozhraní API pro stahování.",
     "didYouMean": "Vaše hledání odpovídá {RANK}: '{NAME}'. Chcete omezit vyhledávání pouze na tento taxon?",
-    "clickToUseAcceptedTaxon": "Klepnutím na tlačítko vyhledáte podle přijatého názvu taxonu. Pravděpodobně se zobrazí více údajů, protože to zahrnuje údaje o všech synonymních užitích."
+    "clickToUseAcceptedTaxon": "Klepnutím na tlačítko vyhledáte podle přijatého názvu taxonu. Pravděpodobně se zobrazí více dat, protože to zahrnuje data o všech synonymních užitích."
   }
 }
