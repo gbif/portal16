@@ -66,8 +66,8 @@
     "COLLECTION_MATCH_NONE": "Shoda sbírek žádná",
     "INSTITUTION_MATCH_FUZZY": "Shoda institucí neurčitá",
     "COLLECTION_MATCH_FUZZY": "Shoda sbírek neurčitá",
-    "INSTITUTION_COLLECTION_MISMATCH": "",
+    "INSTITUTION_COLLECTION_MISMATCH": "Sbírka instituce v nesouladu",
     "POSSIBLY_ON_LOAN": "Možné zapůjčení",
-    "DIFFERENT_OWNER_INSTITUTION": ""
+    "DIFFERENT_OWNER_INSTITUTION": "Jiný vlastník instituce"
   }
 }
