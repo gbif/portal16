@@ -88,7 +88,7 @@
     "passwordChangeInvalid": "Neplatné heslo - pokud jste zapomněli heslo, odhlaste se a použijte obnovení hesla",
     "verficationLinkSent": "Na zadanou e-mailovou adresu byl odeslán e-mail s odkazem, na který je třeba kliknout pro aktivaci účtu.",
     "resetPasswordRequest": "Žádost o resetování hesla",
-    "resetPasswordMessage": "",
-    "derivedDatasets": ""
+    "resetPasswordMessage": "Zaslali jsme vám e-mail s odkazem na obnovení hesla. Pokud zprávu neobdržíte, kontaktujte helpdesk.",
+    "derivedDatasets": "Odvozené datové sady"
   }
 }
