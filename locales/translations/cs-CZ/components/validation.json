@@ -4,15 +4,15 @@
       "RESOURCE_STRUCTURE": "Struktura zdrojů",
       "RESOURCE_INTEGRITY": "Integrita zdroje",
       "RECORD_STRUCTURE": "Struktur záznamu",
-      "OCC_INTERPRETATION_BASED": "",
-      "METADATA_CONTENT": "",
-      "CLB_INTERPRETATION_BASED": ""
+      "OCC_INTERPRETATION_BASED": "Výklad výskytu v GBIF",
+      "METADATA_CONTENT": "Obsah metadat",
+      "CLB_INTERPRETATION_BASED": "Interpretace taxonů GBIF"
     },
     "issueType": {
-      "DWCA_UNREADABLE": "",
-      "DWCA_META_XML_NOT_FOUND": "",
-      "DWCA_META_XML_SCHEMA": "",
-      "RECORD_IDENTIFIER_NOT_FOUND": "",
+      "DWCA_UNREADABLE": "Archiv Darwin Core je nečitelný",
+      "DWCA_META_XML_NOT_FOUND": "Soubor Meta.xml nenalezen",
+      "DWCA_META_XML_SCHEMA": "Ověření schématu meta.xml selhalo",
+      "RECORD_IDENTIFIER_NOT_FOUND": "V souboru nebyl nalezen žádný identifikátor záznamu",
       "CORE_ROWTYPE_UNDETERMINED": "",
       "EML_NOT_FOUND": "",
       "EML_GBIF_SCHEMA": "",
