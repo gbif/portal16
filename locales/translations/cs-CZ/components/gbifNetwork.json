@@ -1,11 +1,11 @@
 {
   "gbifNetwork": {
-    "gbifNetwork": "",
-    "title": "",
+    "gbifNetwork": "GBIF síť",
+    "title": "Adresář",
     "contact": "Kontakt",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Hlasující účastník",
+      "other": "Hlasující účastníci"
     },
     "associate_country_participant": {
       "one": "",

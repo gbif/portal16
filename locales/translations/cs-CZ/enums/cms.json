@@ -2,32 +2,32 @@
   "enums": {
     "cms": {
       "filters": {
-        "countriesOfCoverage": "",
-        "countriesOfResearcher": "",
-        "literatureType": "",
+        "countriesOfCoverage": "Země nebo oblast pokrytí",
+        "countriesOfResearcher": "Země nebo oblast výzkumného pracovníka",
+        "literatureType": "Typ literatury",
         "contractCountry": "Země nebo oblast",
         "topics": "Téma",
-        "audiences": "",
+        "audiences": "Sledovanost",
         "purposes": "Účel",
         "relevance": "Relevance",
         "language": "Jazyk",
         "year": "Rok",
         "datasetKey": "Datová sada",
         "publishingOrg": "Vydavatel",
-        "peerReview": "",
+        "peerReview": "Recenzováno",
         "openAccess": "Otevřený přístup",
-        "gbifDownloadKey": ""
+        "gbifDownloadKey": "Stáhnout klíč"
       },
       "contentType": {
-        "event": "",
-        "news": "",
-        "resource": "",
-        "dataUse": "",
+        "event": "Událost",
+        "news": "Novinky",
+        "resource": "Zdroj",
+        "dataUse": "Užití dat",
         "project": "Projekt",
         "participant": "Účastník",
         "programme": "Program",
-        "document": "",
-        "tool": "",
+        "document": "Dokument",
+        "tool": "Nástroj",
         "literature": "Literatura"
       },
       "vocabularyTerms": {
@@ -35,17 +35,17 @@
           "Nodes guidance": ""
         },
         "projectGrantType": {
-          "REGIONAL": "",
-          "SMALL": "",
-          "NATIONAL": "",
-          "DATA_USE": "",
+          "REGIONAL": "Regionální granty na mobilizaci dat o biologické rozmanitosti",
+          "SMALL": "Grant na mobilizaci dat o biologické rozmanitosti na úrovni institucí",
+          "NATIONAL": "Národní granty na mobilizaci dat o biologické rozmanitosti",
+          "DATA_USE": "Grant na využití dat",
           "undefined": "Nespecifikováno"
         },
         "projectStatus": {
-          "APPROVED": "",
-          "CLOSED": "",
-          "IN_PROGRESS": "",
-          "DISCONTINUED": "",
+          "APPROVED": "Schváleno",
+          "CLOSED": "Uzavřeno",
+          "IN_PROGRESS": "Probíhá",
+          "DISCONTINUED": "Zrušeno",
           "undefined": "Nespecifikováno"
         },
         "relevance": {
@@ -93,10 +93,10 @@
           "journal": "Článek v odborném časopise",
           "book": "Kniha",
           "generic": "Obecné",
-          "book_section": "",
+          "book_section": "Kapitola knihy",
           "conference_proceedings": "Sborník z konference",
-          "working_paper": "",
-          "report": "",
+          "working_paper": "Předtisk",
+          "report": "Zpráva",
           "web_page": "Webová stránka",
           "thesis": "Diplomová práce",
           "magazine_article": "Článek v časopise",

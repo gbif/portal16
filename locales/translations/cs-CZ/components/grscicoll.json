@@ -55,13 +55,13 @@
     "additionalNames": "Další jména",
     "description": "Popis",
     "homepage": "Hlavní stránka",
-    "foundingDate": "",
+    "foundingDate": "Datum založení",
     "geographicDescription": "",
-    "taxonomicDescription": "",
+    "taxonomicDescription": "Taxonomický popis",
     "citesPermitNumber": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
+    "disciplines": "Institucionální disciplíny",
+    "institutionalGovernance": "Institucionální správa",
+    "type": "Typ instituce",
     "identifiers": "Identifikátory",
     "isActive": {
       "true": "Aktivní",
@@ -101,16 +101,16 @@
       "people": ""
     },
     "contact": {
-      "phone": "",
+      "phone": "Telefonní číslo",
       "email": "E-mail",
-      "fax": "",
+      "fax": "Faxové číslo",
       "mailingAddress": "E-mailová adresa",
-      "physicalAddress": "",
+      "physicalAddress": "Fyzická adresa",
       "contacts": "Kontakty",
       "address": "Adresa",
       "province": "",
       "postalCode": "",
-      "city": "",
+      "city": "Město/obec",
       "country": "Země"
     }
   }

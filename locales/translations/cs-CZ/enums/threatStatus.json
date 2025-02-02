@@ -7,7 +7,7 @@
         "VULNERABLE": "Zranitelný",
         "NEAR_THREATENED": "Téměř ohrožený",
         "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "Chybějící údaje",
+        "DATA_DEFICIENT": "Chybějící data",
         "NOT_EVALUATED": "Není hodnoceno"
     }
 }

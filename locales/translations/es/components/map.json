@@ -53,12 +53,12 @@
     },
     "tooltips": {
       "toggleStyle": "",
-      "searchArea": "",
+      "searchArea": "Área de búsqueda",
       "addRectangleFilter": "",
       "addPolygonFilter": "",
       "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "zoomIn": "Acercar",
+      "zoomOut": "Alejar"
     },
     "errors": {
       "413": "El archivo geométrico es demasiado grande para ser procesado por la API de datos"

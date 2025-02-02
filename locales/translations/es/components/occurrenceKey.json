@@ -98,12 +98,12 @@
     "sequenced": "",
     "treatment": "Tratamiento",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
+      "current": "Actual",
+      "relatedOccurrences": "Registros asociados",
+      "similarBecause": "Similar porque",
       "matchedRecord": "",
       "noMatches": "",
-      "explainer": ""
+      "explainer": "Esta característica experimental resalta posibles registros biológicos duplicados o relacionados."
     }
   },
   "interpretationRemarks": {

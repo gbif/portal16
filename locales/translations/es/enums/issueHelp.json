@@ -64,7 +64,7 @@
     "GEODETIC_DATUM_ASSUMED_WGS84": "Indica que para las coordenadas interpretadas se asume el datum WGS84 ya que el datum no fue documentado o no fue posible intérpretarlo.Consulte GEODETIC_DATUM_INVALID.",
     "COUNTRY_MISMATCH": "El país interpretado para dwc:country y dwc:countryCode se contradicen.",
     "UNKNOWN_ROWTYPE": "El rowType utilizado para el núcleo/extensión es desconocido",
-    "BIB_REFERENCE_INVALID": "",
+    "BIB_REFERENCE_INVALID": "Al menos un registro de extensión de referencia bibliográfica adjunto al uso de este nombre no es válido.",
     "CHAINED_SYNOYM": "",
     "ELEVATION_MIN_MAX_SWAPPED": "Establecer si se suministra mínimo > elevación máxima",
     "MULTIMEDIA_DATE_INVALID": "",
@@ -93,7 +93,7 @@
     "HOMONYM": "",
     "ORTHOGRAPHIC_VARIANT": "",
     "CONTINENT_INVALID": "",
-    "VERNACULAR_NAME_INVALID": "",
+    "VERNACULAR_NAME_INVALID": "Al menos un registro de extensión de nombre común adjunto a este uso de nombre no es válido.",
     "DESCRIPTION_INVALID": "",
     "REFERENCES_URI_INVALID": "Un uri inválido es dado para dc:references.",
     "UNHANDLED_ERROR": ""

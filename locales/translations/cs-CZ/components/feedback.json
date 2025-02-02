@@ -13,11 +13,11 @@
     },
     "bug": {
       "title": "",
-      "example": ""
+      "example": "Například: Tlačítko vyhledávání nefunguje. Stránka se nenačte. Nemohu to přečíst, protože se sloupce překrývají."
     },
     "idea": {
       "title": "Nápad",
-      "example": ""
+      "example": "Například: Chci odkazy na související data genetických sekvencí. Ukažte mi všechny články s otevřeným přístupem."
     },
     "question": {
       "title": "Podpora",

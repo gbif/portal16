@@ -5,7 +5,7 @@
         "messages": "Zprávy",
         "version": "Verze",
         "releaseNotes": "Poznámky k vydání",
-        "nInQueue": "",
+        "nInQueue": "{NUMBER} ve frontě",
         "status": {
             "OPERATIONAL": "V provozu",
             "WARNING": "Nestabilní",
@@ -27,39 +27,39 @@
             },
             "IDENTITY": {
                 "name": "Identita",
-                "tooltip": ""
+                "tooltip": "Pro přihlašování a odhlašování, připojování účtů atd."
             },
             "MAPS": {
                 "name": "Mapy",
-                "tooltip": ""
+                "tooltip": "Slouží k zobrazování obrázků map a získávání informací o mapě."
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "Systém správy obsahu (externí systém)",
+                "tooltip": "Např. novinky a články"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Obrazová mezipaměť",
+                "tooltip": "Odpovědnost za většinu obrázků na webu"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "Github (externí systém)",
+                "tooltip": "Zpětná vazba, návrhy datových sad"
             },
             "CRAWLER": {
-                "name": "",
-                "tooltip": ""
+                "name": "Ingesce",
+                "tooltip": "Pro aktualizaci datových sad - nových i starých."
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "Hledání zdrojů",
+                "tooltip": "Např. pro vyhledávání literatury, zpráv."
             },
             "CLUSTER": {
                 "name": "Zatížení systému",
-                "tooltip": ""
+                "tooltip": "Backend pro zpracování stahování, přijímání a mnoho dalšího."
             },
             "DOWNLOAD": {
                 "name": "Stahování",
-                "tooltip": ""
+                "tooltip": "Pro zpracování úloh stahování a zasílání oznámení uživatelům"
             }
         }
     }

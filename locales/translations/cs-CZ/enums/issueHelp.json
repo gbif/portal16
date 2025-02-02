@@ -75,7 +75,7 @@
     "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
     "ELEVATION_NOT_METRIC": "",
     "PRESUMED_NEGATED_LONGITUDE": "",
-    "RECORD_IDENTIFIER_NOT_FOUND": "",
+    "RECORD_IDENTIFIER_NOT_FOUND": "V souboru nebyl nalezen žádný identifikátor záznamu",
     "DWCA_META_XML_SCHEMA": "",
     "COORDINATE_REPROJECTED": "",
     "RECORDED_DATE_MISMATCH": "",

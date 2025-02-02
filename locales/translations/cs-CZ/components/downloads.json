@@ -43,7 +43,7 @@
     "tellUs": "Řekněte nám o použití",
     "downloadKilled": "Žádost o stažení byla neúspěšná. Zkuste to prosím znovu nebo se s námi spojte.",
     "downloadDeleted": "Tento soubor byl odstraněn. Stále máte přístup ke všem metadatům původního dotazu a můžete znovu spustit stejný dotaz na aktuálně dostupných datech.",
-    "storageDurationTeaser": "Jak dlouho bude GBIF tyto údaje uchovávat?",
+    "storageDurationTeaser": "Jak dlouho bude GBIF tyto data uchovávat?",
     "predatesDoi": "Tento soubor byl stažen dříve, než jsme začali používat DOI. Pokud si přejete toto stažení citovat, kontaktujte nás, prosím.",
     "file": "Soubor",
     "constituentDatasets": "Zapojené datové sady",
