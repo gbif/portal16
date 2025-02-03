@@ -49,9 +49,9 @@
           "undefined": "Nespecifikováno"
         },
         "relevance": {
-          "GBIF_USED": "",
-          "GBIF_CITED": "",
-          "GBIF_DISCUSSED": "",
+          "GBIF_USED": "GBIF použito",
+          "GBIF_CITED": "GBIF citováno",
+          "GBIF_DISCUSSED": "GBIF diskutováno",
           "GBIF_PRIMARY": "",
           "GBIF_ACKNOWLEDGED": "",
           "GBIF_PUBLISHED": "",
