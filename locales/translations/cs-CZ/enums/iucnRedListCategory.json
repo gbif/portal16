@@ -1,13 +1,13 @@
 {
   "iucnRedListCategory": {
-    "EX": "",
-    "EW": "",
-    "CR": "",
-    "EN": "",
-    "VU": "",
-    "NT": "",
-    "LC": "",
-    "DD": "",
-    "NE": ""
+    "EX": "Vyhynulé (EX)",
+    "EW": "Vyhynulý ve volné přírodě (EW)",
+    "CR": "Kriticky ohrožený (CR)",
+    "EN": "Ohrožený (EN)",
+    "VU": "Zranitelný (VU)",
+    "NT": "Téměř ohrožený (NT)",
+    "LC": "Nejméně dotčený (LC)",
+    "DD": "Nedostatek dat (DD)",
+    "NE": "Nehodnoceno (NE)"
   }
 }
