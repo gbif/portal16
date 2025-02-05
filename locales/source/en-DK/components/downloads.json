@@ -121,12 +121,12 @@
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
-        "25": "25m",
-        "100": "100m",
-        "250": "250m",
-        "1000": "1km",
-        "10000": "10km",
-        "100000": "100km"
+        "25": "25 m",
+        "100": "100 m",
+        "250": "250 m",
+        "1000": "1 km",
+        "10000": "10 km",
+        "100000": "100 km"
       },
       "EXTENDED_QUARTER_DEGREE_GRID": {
         "0": "Level 0",
@@ -163,12 +163,12 @@
         "22": "Level 22"
       },
       "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "Finest resolution",
         "1": "1 meter",
         "10": "10 meters",
         "100": "100 meters",
         "1000": "1000 meters",
-        "10000": "10000 meters",
-        "0": "Finest resolution"
+        "10000": "10000 meters"
       }
     },
     "noneSelected": "None selected",
@@ -178,7 +178,7 @@
     "spatialDimension": "Spatial dimension",
     "spatialResolution": "Spatial resolution",
     "randomPoints": "Randomize points within uncertainty circle",
-    "measurements": "Measurements",
+    "measurements": "Measures",
     "countHigherTaxonomy": "Occurrence count at higher taxonomic level",
     "coordinateUncertainty": "Include minimum coordinate uncertainty",
     "errorMinimumDimension": "At least one dimension must be selected",
@@ -186,19 +186,19 @@
     "temporalUncertainty": "Include minimum temporal uncertainty",
     "documentation": "Documentation",
     "help": {
-      "whatIsThis": "This download format allows you to create an aggregate report of species occurrence counts summarized at the taxonomic, geospatial and temporal levels. For example, a data cube can be configured to summarise the record count per family, per month within each cell of the European Environment Agency grid. \n\nOnce configured, a SQL query will be created to generate the data cube. For more advanced use, it is possible to further customize the query by editing the created SQL.\n\nYou can read more about species occurrence cubes [here](/occurrence-cubes).",
-      "dimensions": "A dimension represents an aspect along which data can be measured or organized, such as time, location, or species type.",
-      "taxonomicDimension": "This dimension categorizes data by species and taxonomic groups, organizing occurrences by biological classification.",
-      "temporalDimension": "The temporal dimension captures when an occurrence happened, structuring data over specific timeframes.",
-      "grid": "A grid divides geographic space into cells, enabling spatial organization.",
-      "gridResolution": "Grid resolution defines the size of each cell, affecting data detail level.",
+      "whatIsThis": "This download format allows you to aggregate occurrences by their taxonomic, temporal and/or spatial properties. For example, a data cube can be configured to aggregate occurrences by family, month and grid cell of the European Environment Agency reference grid (three dimensions) and count the number of occurrences (a measure) per combination. The result is a CSV file.\n\nOnce configured, a SQL query will be created to generate the data cube. For more advanced use, it is possible to further customize the query by editing the created SQL.",
+      "dimensions": "A dimension represents an aspect along which data can be aggregated. Selecting a higher resolution (e.g. species over family, date over year, 100 m over 10 km) will result in more categories and therefore more records.",
+      "taxonomicDimension": "This dimension aggregates occurrences by their taxonomic rank.",
+      "temporalDimension": "This dimension aggregates occurrences by time.",
+      "grid": "This dimension aggregates occurrences in a spatial grid.",
+      "gridResolution": "The size of each grid cell.",
       "randomizePoints": "For occurrence records with a coordinate uncertainty that covers more than one grid cell, should a random cell be chosen? If no is chosen, then the cell containing the centroid of the record is used.",
-      "measurements": "A quantitative or qualitative value derived from data, representing aspects like occurrence counts or uncertainty levels.",
-      "occurrenceCount": "The number of recorded instances for a species within the selected dimensions of the cube.",
-      "higherTaxonomy": "Select any additional higher taxonomic ranks that should have counts included in the data cube.",
-      "minCoorindateUncertainty": "The smallest level of spatial inaccuracy recorded, indicating precision of location data.",
-      "minTemporalUncertainty": "The lowest level of temporal inaccuracy, representing precision of date or time information.",
-      "editSql": "This option allows experts to customize SQL queries within the occurrence cube, enabling advanced, fine-grained data manipulation tailored to specific research needs."
+      "measurements": "A calculated quantitative value for each combination of dimensions.",
+      "occurrenceCount": "The number of occurrences.",
+      "higherTaxonomy": "Additional higher taxonomic ranks for which the number of occurrences should also be included. Useful to assert sampling bias.",
+      "minCoorindateUncertainty": "The lowest recorded coordinate uncertainty (in meters). Useful to assert the spatial precision of the data.",
+      "minTemporalUncertainty": "The lowest recorded temporal uncertainty (in seconds). Useful to assert the temporal precision of the data.",
+      "editSql": "The easiest way to download and explore data is via the occurrence search user interface. But for complex queries and aggregations, the SQL editor provides more freedom."
     }
   }
 }
