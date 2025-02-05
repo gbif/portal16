@@ -57,7 +57,7 @@
     "SCIENCE_COMMITTEE_MEMBER": "Člen vědeckého výboru",
     "TEMPORARY_DELEGATE": "Dočasný zástupce",
     "TEMPORARY_HEAD_OF_DELEGATION": "Dočasný vedoucí delegace",
-    "ALTERNATE_HEAD_OF_DELEGATION": "",
-    "HEAD_OF_DELEGATION_ADMINISTRATIVE_CONTACT": ""
+    "ALTERNATE_HEAD_OF_DELEGATION": "Zástupce vedoucího delegace",
+    "HEAD_OF_DELEGATION_ADMINISTRATIVE_CONTACT": "Kontaktní osoba vedoucího delegace"
   }
 }
