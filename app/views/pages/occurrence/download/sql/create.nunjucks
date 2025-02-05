@@ -1,0 +1,78 @@
+<div ng-if="!occCustomDownload.hash || occCustomDownload.hash === 'create'">
+  <div class="horizontal-stripe light-background p-t-0 seperator">
+    
+    <div class="container--normal ng-cloak" ng-if="!occCustomDownload.hasUser">
+      <div class="m-t-1 text-center" translate="customDownload.redirectNotice">
+        It looks like you you have been directed here from another site. To download you need to login or register first.
+      </div>
+    </div>
+    <div class="container--normal ng-cloak">
+      <div class="card card--login m-t-1" ng-if="!occCustomDownload.hasUser">
+          <div user-login></div>
+      </div>
+      <section ng-if="occCustomDownload.hasUser">
+        <div class="card-header-flex">
+          <div class="card-header-flex__spacer"></div>
+          <div class="switch-group card-header-flex__item">
+            <p class="small" ng-if="!occCustomDownload.inEditMode" translate="profile.startEditing"></p>
+            <p class="small" ng-if="occCustomDownload.inEditMode" translate="profile.stopEditing"></p>
+            <input id="downloadEditMode" type="checkbox" ng-model="occCustomDownload.inEditMode"
+                  aria-label="Edit" ng-change="occCustomDownload.editModeChanged()"/>
+            <label for="downloadEditMode" class="switch"></label>
+          </div>
+        </div>
+        <div class="card card--spaced">
+          <div class="card__stripe rtl-supported">
+            <div class="card__content" ng-if="!occCustomDownload.inEditMode">
+              <div class="predicates">
+                <div ng-if="!occCustomDownload.sqlLoaded && !occCustomDownload.invalidInput">
+                  <div class="emptyInfo">
+                      <h3 translate="phrases.loading"></h3>
+                  </div>
+                </div>
+                <div ng-if="!occCustomDownload.invalidInput" class="gb-sqlInput">
+<ng-include src="'/api/occurrence/downloadSql.html?' + occCustomDownload.getSerializedQuery()" onload="occCustomDownload.sqlLoaded = true"></ng-include>
+                </div>
+                <div ng-if="occCustomDownload.invalidInput">
+                  <div class="text-error"><div translate="customSqlDownload.invalidSQL"></div><div ng-if="occCustomDownload.errorMessage">{{occCustomDownload.errorMessage}}</div></div>
+                  <pre>
+{{ occCustomDownload.input }}</pre>
+                </div>
+              </div>
+            </div>
+            <div ng-if="occCustomDownload.inEditMode">
+              <div>
+                <div class="clearfix seperator--b">
+                  <span ng-if="occCustomDownload.invalidInput && occCustomDownload.input" class="badge--error badge" style="margin: 4px;" translate="customSqlDownload.invalidSQL">Invalid SQL</span>
+                  <a href="" ng-click="occCustomDownload.prettify()" class="pull-right gb-button--flat text-uppercase" translate="customDownload.reformat">Reformat</a>
+                </div>
+                <div style="position: relative;">
+                  <textarea ng-change="occCustomDownload.invalidInput = false" placeholder="Enter your SQL" class="gb-sqlInput textarea--noBorder--vertical" ng-model="occCustomDownload.input"></textarea>
+                </div>
+              </div>
+              <div class="text-error" style="margin: 4px;" ng-if="occCustomDownload.errorMessage">{{occCustomDownload.errorMessage}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-t-1" style="flex-wrap: nowrap; display: flex;" ng-if="occCustomDownload.inEditMode">
+          <a 
+            ng-href="https://techdocs.gbif.org/en/data-use/api-sql-downloads#sql" 
+            class="gb-button gb-button--brand" translate="customDownload.seeDocumentation">Read the documentation</a>
+            <div style="flex: 1 1 auto;"></div>
+          {# <select placeholder="Examples" ng-model="occCustomDownload.selectedExample" ng-change="occCustomDownload.selectExample()" style="width: 200px; padding: 3px;" class="gb-select">
+            <option value="" ztranslate="sqlDownload.examples">Examples</option>
+            <option value="{{example.name}}" ng-repeat="example in occCustomDownload.examples track by $index" translate="sqlDownload.examples.{{example.name}}">{{example.sql}}</option>
+          </select> #}
+        </div>
+      </section>
+      <section class="m-t-1 ng-cloak" ng-if="!occCustomDownload.inEditMode && occCustomDownload.hasUser && !occCustomDownload.invalidInput">
+        <a  ng-click="occCustomDownload.open('SQL_TSV_ZIP')"
+            class="gb-button gb-button--brand m-t-1" translate="downloadKey.download">Download</a>
+        <div class="m-t-2">
+          <div translate="customSqlDownload.notification">The easiest way to download and explore data is via the <a href="/occurrence/search">Occurrence search</a>. But for complex queries and aggregations, then the SQL editor provides more freedom.</div>
+          <a ng-href="{{ portal.urlPrefix }}/occurrence/search" class="gb-button m-t-05" translate="customSqlDownload.occurrenceSearch">Occurrence search</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

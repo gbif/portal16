@@ -1,0 +1,3 @@
+<div class="white-background" ng-if="occCustomDownload.hash === 'about'">
+    <ng-include src="portal.urlPrefix + '/api/resource/tool?content_type=Tool&fields.machineIdentifier=occurrence_cube'" ></ng-include>
+</div>

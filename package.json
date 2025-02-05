@@ -184,6 +184,7 @@
     "sanitize-html": "^1.13.0",
     "simplemde": "^1.11.2",
     "slug": "^0.9.1",
+    "sql-highlight": "^6.0.0",
     "topojson": "^1.6.27",
     "turf": "^3.0.14",
     "url-join": "^1.1.0",

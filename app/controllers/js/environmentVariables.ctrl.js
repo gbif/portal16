@@ -22,6 +22,7 @@ let environment = {
     dataApi: config.dataApi,
     sourceArchive: config.sourceArchive,
     graphQLApi: config.graphQLApi,
+    webUtils: config.webUtils,
     tileApi: config.tileApi,
     basemapTileApi: config.basemapTileApi,
     analyticsImg: config.analyticsImg,

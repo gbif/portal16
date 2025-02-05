@@ -180,6 +180,7 @@
         "sanitize-html": "^1.13.0",
         "simplemde": "^1.11.2",
         "slug": "^0.9.1",
+        "sql-highlight": "^6.0.0",
         "topojson": "^1.6.27",
         "turf": "^3.0.14",
         "url-join": "^1.1.0",
@@ -23634,6 +23635,21 @@
       "resolved": "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz",
       "integrity": "sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw="
     },
+    "node_modules/sql-highlight": {
+      "version": "6.0.0",
+      "resolved": "https://registry.npmjs.org/sql-highlight/-/sql-highlight-6.0.0.tgz",
+      "integrity": "sha512-+fLpbAbWkQ+d0JEchJT/NrRRXbYRNbG15gFpANx73EwxQB1PRjj+k/OI0GTU0J63g8ikGkJECQp9z8XEJZvPRw==",
+      "funding": [
+        "https://github.com/scriptcoded/sql-highlight?sponsor=1",
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/scriptcoded"
+        }
+      ],
+      "engines": {
+        "node": ">=14"
+      }
+    },
     "node_modules/sshpk": {
       "version": "1.10.1",
       "resolved": "https://registry.npmjs.org/sshpk/-/sshpk-1.10.1.tgz",
@@ -46750,6 +46766,11 @@
       "version": "1.0.3",
       "resolved": "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz",
       "integrity": "sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw="
+    },
+    "sql-highlight": {
+      "version": "6.0.0",
+      "resolved": "https://registry.npmjs.org/sql-highlight/-/sql-highlight-6.0.0.tgz",
+      "integrity": "sha512-+fLpbAbWkQ+d0JEchJT/NrRRXbYRNbG15gFpANx73EwxQB1PRjj+k/OI0GTU0J63g8ikGkJECQp9z8XEJZvPRw=="
     },
     "sshpk": {
       "version": "1.10.1",
