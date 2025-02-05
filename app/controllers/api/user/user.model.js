@@ -273,7 +273,8 @@ async function createSqlDownload(user, query, source) {
             notificationAddresses: email ? [email] : undefined,
             sendNotification: true,
             format: query.format || 'SQL_TSV_ZIP',
-            sql: query.sql
+            sql: query.sql,
+            machineDescription: query.machineDescription
         },
         userName: user.userName,
         method: 'POST'

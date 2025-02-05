@@ -253,7 +253,8 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
         try {
             var data = {
                 format: downloadOptions.format,
-                sql: downloadOptions.sql
+                sql: downloadOptions.sql,
+                machineDescription: downloadOptions.machineDescription
             };
           $http.post(endpoints.sqlDownload, data).then(function (response) {
             window.location.href = 'download/' + response.data.downloadKey;
@@ -500,10 +501,25 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
     };
 
     vm.download = function() {
+        var machineDescription = {
+            type: 'CUBE',
+            parameters: {
+                taxonomy: vm.taxonomy,
+                temporal: vm.temporal,
+                spatial: vm.spatial,
+                resolution: vm.resolution,
+                randomize: vm.randomize,
+                higherGroups: vm.selectedHigherTaxonomyGroups,
+                includeTemporalUncertainty: vm.includeTemporalUncertainty,
+                includeSpatialUncertainty: vm.includeSpatialUncertainty
+            },
+            predicate: vm.predicate
+        };
         vm.generateSql().then(function(sql) {
             $uibModalInstance.close({
                 format: 'SQL_TSV_ZIP',
-                sql: sql
+                sql: sql,
+                machineDescription: machineDescription
             });
         }).catch(function(err) {
             toastService.error({translate: 'phrases.criticalErrorMsg'});
