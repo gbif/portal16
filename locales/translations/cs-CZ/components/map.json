@@ -1,0 +1,67 @@
+{
+  "map": {
+    "nGeoreferencedRecords": "{NUMBER_FORMATED} {NUMBER, plural, one{georeferencovaný záznam} few {georeferencované záznamy} many {georeferencovaných záznamů} other{georeferencovaných záznamů}}",
+    "noOccurrencesWithCoordinates": "Žádné výskyty se souřadnicemi",
+    "clickToSearchArea": "Kliknutím prozkoumat oblast",
+    "generatedDateAgo": "Generováno {DATE_AGO}",
+    "anyYear": "Jakýkoliv rok",
+    "exploreArea": "Prozkoumat oblast",
+    "explore": "Procházet",
+    "style": "Styl",
+    "filters": "Filtry",
+    "projection": "Projekce",
+    "select": "Vybrat",
+    "custom": "Vlastní",
+    "baseMap": "Základní mapa",
+    "binning": "Binning",
+    "year": "Rok",
+    "chooseColors": "Barvy",
+    "predefined": {
+      "CLASSIC_HEX": "Klasické šestiúhelníky",
+      "CLASSIC": "Klasické body",
+      "STREETS": "Ulice",
+      "GLACIER": "Ledovec",
+      "CUSTOM": "Vlastní"
+    },
+    "basemap": {
+      "CLASSIC": "Magenta",
+      "LIGHT": "Světlá (bez popisků)",
+      "LIGHT_DETAILS": "Světlý",
+      "DARK": "Tmavá (bez popisků)",
+      "DARK_DETAILS": "Tmavý",
+      "OSM": "Silnice"
+    },
+    "bin": {
+      "PIXEL": "Body",
+      "SMALL_HEX": "Malé šestiúhelníky",
+      "LARGE_HEX": "Šestiúhelníky",
+      "SMALL_SQUARE": "Malé čtverce",
+      "LARGE_SQUARE": "Čtverce"
+    },
+    "colors": {
+      "CLASSIC": "Klasický",
+      "FIRE": "Oheň",
+      "GLACIER": "Ledovec",
+      "GREEN_POINT": "Zelená",
+      "PURPLE_YELLOW": "Purpurovo žlutá",
+      "PURPLE_HEAT": "Purpurová",
+      "BLUE_HEAT": "Modrá",
+      "ORANGE_HEAT": "Oranžová",
+      "GREEN": "Zelená",
+      "BLUE_CLUSTER": "Modrý shluk",
+      "ORANGE_CLUSTER": "Oranžový shluk"
+    },
+    "tooltips": {
+      "toggleStyle": "Přepnout styl mapy",
+      "searchArea": "Oblast pro hledání",
+      "addRectangleFilter": "Nakreslete obdélník a přidejte jej jako filtr",
+      "addPolygonFilter": "Nakreslete plochu a přidejte ji jako filtr",
+      "removeGeometryFilter": "Odstranit geometrický filtr",
+      "zoomIn": "Přiblížit",
+      "zoomOut": "Oddálit"
+    },
+    "errors": {
+      "413": "Soubor s geometrií je příliš velký na to, aby jej datové API mohlo zpracovat."
+    }
+  }
+}

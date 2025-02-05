@@ -1,0 +1,12 @@
+{
+  "datasetType": {
+    "OCCURRENCE": "Výskyt",
+    "CHECKLIST": "Kontrolní seznam",
+    "SAMPLING_EVENT": "Událost odběru vzorku",
+    "METADATA": "Metadata",
+    "undefined": "Neznámý"
+  },
+  "datasetSubtype": {
+    "TREATMENT_ARTICLE": ""
+  }
+}

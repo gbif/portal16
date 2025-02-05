@@ -144,7 +144,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
         isSearchable: true,
-        suggestEndpoint: suggestEndpoints.identifiedBy
+        suggestEndpoint: suggestEndpoints.identifiedBy,
+        defaultParams: {limit: 50}
     }
   };
 
@@ -172,7 +173,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.occurrenceId
+      suggestEndpoint: suggestEndpoints.occurrenceId,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -195,7 +197,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.recordNumber
+      suggestEndpoint: suggestEndpoints.recordNumber,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -209,7 +212,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.organismId
+      suggestEndpoint: suggestEndpoints.organismId,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -239,7 +243,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.locality
+      suggestEndpoint: suggestEndpoints.locality,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -253,7 +258,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.waterBody
+      suggestEndpoint: suggestEndpoints.waterBody,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -267,7 +273,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.stateProvince
+      suggestEndpoint: suggestEndpoints.stateProvince,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -285,7 +292,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     },
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.institutionCode
+      suggestEndpoint: suggestEndpoints.institutionCode,
+      defaultParams: {limit: 50}
     }
   };
 
@@ -336,7 +344,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.eventId
+      suggestEndpoint: suggestEndpoints.eventId,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -350,7 +359,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.parentEventId
+      suggestEndpoint: suggestEndpoints.parentEventId,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -364,7 +374,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.samplingProtocol
+      suggestEndpoint: suggestEndpoints.samplingProtocol,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,
@@ -401,7 +412,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.programme
+      suggestEndpoint: suggestEndpoints.programme,
+      defaultParams: {limit: 50}
     }
   };
   vm.filters.project_id = {
@@ -410,7 +422,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.projectId
+      suggestEndpoint: suggestEndpoints.projectId,
+      defaultParams: {limit: 50}
     }
   };
   vm.filters.verbatim_scientific_name = {
@@ -419,7 +432,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.verbatim_scientific_name
+      suggestEndpoint: suggestEndpoints.verbatim_scientific_name,
+      defaultParams: {limit: 50}
     }
   };
   vm.filters.taxon_id = {
@@ -428,7 +442,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.taxon_id
+      suggestEndpoint: suggestEndpoints.taxon_id,
+      defaultParams: {limit: 50}
     }
   };
   vm.filters.taxonConceptId = {
@@ -437,7 +452,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.taxon_concept_id
+      suggestEndpoint: suggestEndpoints.taxon_concept_id,
+      defaultParams: {limit: 50}
     }
   };
   vm.filters.organism_quantity = {
@@ -458,7 +474,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.organism_quantity_type
+      suggestEndpoint: suggestEndpoints.organism_quantity_type,
+      defaultParams: {limit: 50}
     }
   };
   vm.filters.sample_size_unit = {
@@ -467,7 +484,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.sample_size_unit
+      suggestEndpoint: suggestEndpoints.sample_size_unit,
+      defaultParams: {limit: 50}
     }
   };
   vm.filters.sample_size_value = {
@@ -555,7 +573,8 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
     filter: OccurrenceFilter,
     search: {
       isSearchable: true,
-      suggestEndpoint: suggestEndpoints.installationKey
+      suggestEndpoint: suggestEndpoints.installationKey,
+      defaultParams: {limit: 50}
     },
     facets: {
       hasFacets: false,

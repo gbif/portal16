@@ -1,0 +1,43 @@
+{
+    "downloadUsage": {
+        "title": "",
+        "form": {
+            "title": "Název",
+            "titlePlaceholder": "",
+            "type": "Typ",
+            "authors": "",
+            "authorsPlaceholder": "",
+            "link": "URL",
+            "linkPlaceholder": "",
+            "date": "Datum",
+            "comments": "Komentáře",
+            "commentsPlaceholder": "",
+            "submit": "Odeslat",
+            "saveFailure": "",
+            "saveSuccess": ""
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "",
+            "BOOK": "",
+            "BOOK_CHAPTER": "",
+            "CONFERENCE_PAPER_PROCEEDINGS": "",
+            "PREPRINT_WORKING_PAPER": "",
+            "REPORT": "",
+            "WEB_PAGE": "",
+            "THESIS_DISSERTATION": "",
+            "COURSE_TEACHING_MATERIALS": "",
+            "MAGAZINE_ARTICLE": "",
+            "STATUTE": "",
+            "PATENT": "",
+            "NEWSPAPER_ARTICLE": "",
+            "SOFTWARE_COMPUTER_PROGRAM": "",
+            "HEARING": "",
+            "TELEVISION_BROADCAST": "",
+            "ENCYCLOPEDIA_ARTICLE": "",
+            "CASE": "",
+            "FILM": "",
+            "BILL": "",
+            "OTHER": ""
+        }
+    }
+}

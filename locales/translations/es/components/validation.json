@@ -54,7 +54,7 @@
         "title": "Meta descriptor"
       }
     },
-    "fileSize": "",
+    "fileSize": "Tamaño del archivo",
     "fileSizeLimit": "Límite de tamaño del archivo: 100 mb",
     "receivedMediaType": "Tipo de medio",
     "uniqueIdentifier": "Identificador único",
@@ -82,7 +82,7 @@
       "interpreted": "Interpretado"
     },
     "interpretedCounts": {
-      "indexed": "",
+      "indexed": "Número de registros digitalizados",
       "date": "Número de fechas interpretadas",
       "taxon": "Número de filas con taxonomía interpretada",
       "location": "Número de coordenadas interpretadas"
@@ -124,13 +124,13 @@
       "darwinCoreExtensions": "Extensiones de Darwin Core",
       "metaData": "Metadatos",
       "summary": "Resumen",
-      "myValidations": ""
+      "myValidations": "Informes de validación"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
         "RUNNING": "",
         "FINISHED": "",
-        "PENDING": "",
+        "PENDING": "Subir archivo",
         "FAILED": "",
         "QUEUED": ""
       },

@@ -1,0 +1,42 @@
+{
+  "countryKey": {
+    "tabs": {
+      "summary": "Shrnutí",
+      "dataPublishing": "",
+      "dataAbout": "",
+      "participartion": "Účast",
+      "publicationsFrom": "",
+      "publicationsAbout": "",
+      "news": "Novinky",
+      "invasives": "",
+      "more": "Více ...",
+      "projects": "Projekty"
+    },
+    "memberSince": "Členem od",
+    "dataFrom": "",
+    "dataAboutCountry": "",
+    "publishingTrends": "",
+    "noDataPublishingActivity": "Žádná aktivita zveřejňování dat",
+    "noInstitutionsHavePublished": "",
+    "trendsAboutCountry": "",
+    "nFrom": "",
+    "nAbout": "",
+    "viewAllN": "",
+    "noPublications": "Žádné publikace",
+    "noProjects": "Žádné projekty",
+    "notParticipant": "Není účastník",
+    "notParticipantDescription": "",
+    "countryNamingDisclaimer": "",
+    "counts": {
+      "occurrences": "",
+      "datasets": "",
+      "publishers": "",
+      "countriesAndAreasContributeData": "",
+      "publishedOccurrences": "",
+      "publishedDatasets": "",
+      "countriesAndAreasCoveredByDataFrom": "",
+      "publishersFrom": ""
+    },
+    "activityReport": ""
+  }
+}

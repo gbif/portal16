@@ -1,0 +1,53 @@
+{
+  "gbifNetwork": {
+    "gbifNetwork": "GBIF síť",
+    "title": "Adresář",
+    "contact": "Kontakt",
+    "voting_participant": {
+      "one": "Hlasující účastník",
+      "other": "Hlasující účastníci"
+    },
+    "associate_country_participant": {
+      "one": "",
+      "other": ""
+    },
+    "other_associate_participant": {
+      "one": "",
+      "other": ""
+    },
+    "former_participant": {
+      "one": "Bývalý účastník",
+      "other": "Bývalí účastníci"
+    },
+    "gbif_affiliate": {
+      "one": "Přidružení GBIF",
+      "other": "Přidružení GBIF"
+    },
+    "role": "Role",
+    "group": {},
+    "gbif_secretariat": "GBIF Sekretariát",
+    "membershipType": "Členství",
+    "name": "Název",
+    "endorsedDataPublisher": "",
+    "nParticipants": "",
+    "dataset": "",
+    "datasets": "Datové sady",
+    "regionalRepresentative": "",
+    "participation": {
+      "nonCountryParticipants": "Účastnická organizace",
+      "gbifAffiliates": "Přidružení GBIF"
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "Vedoucí delegace",
+      "NODE_MANAGER": "Správce uzlu"
+    },
+    "publishers": "Vydavatelé",
+    "memberSince": "Členem od",
+    "participant": "Účastník",
+    "pPublishers": "",
+    "pOccurrence": "",
+    "occurrenceDatasets": "Datové sady výskytu",
+    "occurrences": "Výskyty",
+    "occurrencesHostedBy": ""
+  }
+}

@@ -4,8 +4,8 @@
         "pCitations": "{NUMBER, select, 1{¡cita} other{¡citas}}",
         "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{registro} other{registros}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultado} other{resultados}}",
-        "nCollections": "",
-        "nInstitutions": "",
+        "nCollections": "{NUMBER_FORMATED}{NUMBER, plural, one{colección} other{colecciones}}",
+        "nInstitutions": "{NUMBER_FORMATED}{NUMBER, plural, one{institución} other{instituciones}}",
         "nEvents": "{NUMBER_FORMATED} {NUMBER, select, 1{evento} other{eventos}}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, select, 1{instalación} other{instalaciones}}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, select, 1{registro} other{registros}}",
@@ -27,6 +27,6 @@
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, 1{tratamiento} other{tratamientos}}",
         "nAbsent": "",
         "nImages": "{NUMBER_FORMATED} con {NUMBER, select, 1{imagen} other{imágenes}}",
-        "nMore": ""
+        "nMore": "{NUMBER_FORMATED} {NUMBER, plural, one{más} other{más}}"
     }
 }

@@ -1,0 +1,56 @@
+{
+  "downloadReport": {
+    "title": "Stáhnout zprávu",
+    "knownIssues": "Známé problémy",
+    "knownIssuesDescription": "",
+    "FossilsIncluded": "Fosílie",
+    "FossilsIncludedDescription": "",
+    "livingSpecimensIncluded": "Živé exempláře",
+    "livingSpecimensIncludedDescription": "Vaše vyhledávání zahrnuje i živé exempláře, například výskyty v botanických a zoologických zahradách.",
+    "yearRange": "Rozsah let",
+    "total": "",
+    "license": "Licence",
+    "withTaxonMatch": "",
+    "withCoordinates": "",
+    "withYear": "",
+    "sizeZippedForDownload": "",
+    "freeOfCost": "",
+    "promoteTransperant": "",
+    "cancel": "",
+    "proceed": "",
+    "understood": "",
+    "largeDownload": "",
+    "requestingFullDownload": "",
+    "occFiltersExplainedHere": "",
+    "estSizeIs": "",
+    "estDLtimes": "",
+    "nMbitConn": "",
+    "onceDownloaded": "",
+    "datasetHasNumRows": "",
+    "youWillNotBeAble": "",
+    "difficultToAnalyse": "",
+    "hours": "Hodin",
+    "minute": "",
+    "minutes": ""
+  },
+  "downloadOptions": {
+    "title": "",
+    "content": {
+      "rawData": "",
+      "interpretedData": "",
+      "images": "Multimédia",
+      "coordinates": "Souřadnice",
+      "fileFormat": "Formát",
+      "estimatedSize": "Odhadovaná velikost dat"
+    },
+    "fileFormats": {
+      "tabCsv": ""
+    },
+    "tableValues": {
+      "yes": "✔",
+      "yesIfAvailable": "",
+      "yesLinks": "",
+      "no": "✘"
+    }
+  }
+}

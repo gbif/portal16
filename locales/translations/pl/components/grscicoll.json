@@ -5,30 +5,30 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
+      "summary": "Podsumowanie",
+      "homepage": "Strona główna",
       "metrics": ""
     },
     "headerTitle": "",
-    "description": "",
+    "description": "Opis",
     "institutionName": "",
     "code": "",
     "alternativeCodes": "",
     "statusOfCollection": "",
     "personalCollection": "",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Tak",
+      "false": "Nie"
     },
     "accessionStatus": "",
     "contentTypes": "",
     "preservationTypes": "",
-    "homepage": "",
+    "homepage": "Strona główna",
     "apiUrl": "",
     "catalogUrl": "",
     "identifiers": "",
     "collectionMailingAddress": "",
-    "status": "",
+    "status": "Status",
     "name": "",
     "isActive": {
       "true": "",
@@ -42,8 +42,8 @@
       "description": ""
     },
     "tabs": {
-      "summary": "",
-      "homepage": "",
+      "summary": "Podsumowanie",
+      "homepage": "Strona główna",
       "metrics": ""
     },
     "headerTitle": "",
@@ -53,8 +53,8 @@
     "alternativeCodes": "",
     "statusOfInstitution": "",
     "additionalNames": "",
-    "description": "",
-    "homepage": "",
+    "description": "Opis",
+    "homepage": "Strona główna",
     "foundingDate": "",
     "geographicDescription": "",
     "taxonomicDescription": "",
@@ -67,8 +67,8 @@
       "true": "",
       "false": ""
     },
-    "true": "",
-    "false": ""
+    "true": "Tak",
+    "false": "Nie"
   },
   "grscicollPerson": {
     "title": "",
@@ -77,10 +77,10 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
     "fullName": "",
-    "position": "",
+    "position": "Stanowisko",
     "affiliations": "",
     "areaResponsibility": "",
     "researchPursuits": "",
@@ -102,16 +102,16 @@
     },
     "contact": {
       "phone": "",
-      "email": "",
+      "email": "Adres e-mail",
       "fax": "",
       "mailingAddress": "",
       "physicalAddress": "",
-      "contacts": "",
-      "address": "",
+      "contacts": "Kontakty",
+      "address": "Adres",
       "province": "",
       "postalCode": "",
       "city": "",
-      "country": ""
+      "country": "Kraj"
     }
   }
 }

@@ -11,7 +11,7 @@
     "issues": "",
     "extensions": "",
     "taxa": "Taksony",
-    "other": "",
+    "other": "Inne",
     "checklistMetrics": "",
     "occurrenceMetrics": "",
     "explore": "",
@@ -19,16 +19,16 @@
     "failedToLoad": "",
     "noChildren": "",
     "noOccurrences": "",
-    "nothingSelected": "",
+    "nothingSelected": "Żadne",
     "occurrences": "",
     "citations": "",
-    "otherOrUknown": "",
+    "otherOrUknown": "Inne lub nieznane",
     "occurrencesPerField": "",
     "occurrencesBreakdownPerField": "",
     "occurrencesPerFieldx2": "",
     "customFilters": "",
     "linear": "",
-    "count": "",
+    "count": "Liczba",
     "intervalSize": "",
     "intervalDiffers": "",
     "showOccPer": "",
@@ -44,15 +44,15 @@
     "groupByX": "",
     "pOtherOrUknown": "",
     "unknownRank": "",
-    "vernacularNames": "",
+    "vernacularNames": "Nazwy zwyczajowe",
     "majorRanksPlural": {
       "KINGDOM": "Królestwa",
-      "PHYLUM": "Typy",
+      "PHYLUM": "Typ",
       "CLASS": "Gromady",
       "ORDER": "Rzędy",
       "FAMILY": "Rodziny",
       "GENUS": "Rodzaje",
-      "SPECIES": "Gatunki"
+      "SPECIES": "Gatunek"
     }
   }
 }

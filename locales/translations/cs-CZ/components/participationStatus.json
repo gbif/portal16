@@ -1,0 +1,40 @@
+{
+    "participationStatus": {
+        "longForm": {
+            "VOTING": "Hlasující účastník",
+            "ASSOCIATE": "",
+            "OBSERVER": "",
+            "AFFILIATE": "Přidružený partner ",
+            "FORMER": "Bývalý účastník",
+            "undefined": "Neznámý"
+        },
+        "description": {
+            "VOTING": "Účastník hlasování GBIF z {REGION}",
+            "ASSOCIATE": "Přidružený účastník z {REGION}",
+            "OBSERVER": "Pozorovatelská země GBIF z {REGION}",
+            "AFFILIATE": "Pobočka z {REGION}",
+            "FORMER": "Bývalý účastník GBIF z {REGION}",
+            "undefined": "Neznámý"
+        },
+        "type": {
+            "OTHER": {
+                "description": {
+                    "VOTING": "Organizace účastnící se hlasování GBIF z {REGION}",
+                    "ASSOCIATE": "Přidružená účastnická organizace z {REGION}",
+                    "OBSERVER": "Pozorující účastnická organizace z {REGION}",
+                    "AFFILIATE": "Přidružená organizace z {REGION}",
+                    "FORMER": "Bývalá účastnická organizace z {REGION}",
+                    "undefined": "Neznámý"
+                },
+                "longForm": {
+                    "VOTING": "Hlasující organizace účastníků",
+                    "ASSOCIATE": "Přidružená organizace účastníků",
+                    "OBSERVER": "Pozorovatelská organizace",
+                    "AFFILIATE": "Přidružená organizace",
+                    "FORMER": "Bývalá účastnická organizace",
+                    "undefined": "Neznámý"
+                }
+            }
+        }
+    }
+}

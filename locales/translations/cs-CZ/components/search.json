@@ -1,0 +1,34 @@
+{
+  "search": {
+    "title": "Hledat",
+    "placeholder": "",
+    "noSearchTermsEntered": "",
+    "notSureWhatYouAreLookingFor": "",
+    "cannotFindWhatYouAreLookingFor": "",
+    "trySpecifyingAType": "",
+    "everything": "Vše",
+    "occurrences": "Výskyty",
+    "species": "Druh",
+    "datasets": "Datové sady",
+    "resources": "Zdroje",
+    "publishers": "Vydavatelé",
+    "participants": "Účastníci",
+    "search": "Hledat",
+    "clearFilters": "Vymazat filtry",
+    "filters": "Filtry",
+    "simple": "",
+    "advanced": "Všechny filtry",
+    "backbone": "Páteř",
+    "allChecklists": "",
+    "allResultTypes": "Vše",
+    "suggestions": "Návrhy",
+    "header": {
+      "searchDatasets": "Hledat datové sady",
+      "searchPublishers": "Hledat vydavatele",
+      "searchSpecies": "Vyhledat druhy",
+      "searchResources": "",
+      "searchOccurrences": "Vyhledat výskyty"
+    },
+    "nResults": ""
+  }
+}

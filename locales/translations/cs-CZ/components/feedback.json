@@ -1,0 +1,53 @@
+{
+  "feedback": {
+    "leaveFeedback": "Zašlete svůj názor",
+    "intro": {
+      "title": "Zpětná vazba a dotazy",
+      "example": "Pomozte nám vyřešit případné problémy tím, že vyberete typ zpětné vazby, kterou poskytujete. Pokud je to možné, pošlete prosím zpětnou vazbu v angličtině. Naším cílem je odpovědět do 2 pracovních dnů."
+    },
+    "data content": {
+      "title": "Obsah",
+      "example": "Například: Tato stránka obsahuje překlep. Tento druh neexistuje. Tato lokalita se zdá být podezřelá. Nová URL adresa této organizace je...",
+      "annotate": "Tento vydavatel má webové stránky pro zpracování zpětné vazby. Doporučujeme je použít.",
+      "contactPerMail": "Buďte v kontaktu s kontaktní osobou pro datovou sadu"
+    },
+    "bug": {
+      "title": "",
+      "example": "Například: Tlačítko vyhledávání nefunguje. Stránka se nenačte. Nemohu to přečíst, protože se sloupce překrývají."
+    },
+    "idea": {
+      "title": "Nápad",
+      "example": "Například: Chci odkazy na související data genetických sekvencí. Ukažte mi všechny články s otevřeným přístupem."
+    },
+    "question": {
+      "title": "Podpora",
+      "example": "Například: Jak chráníte data o vzácných druzích? Můžete mi pomoci najít všechny záznamy o výskytu tohoto druhu v mezinárodních vodách?",
+      "description": "Všechny dotazy zodpoví náš helpdesk na adrese helpdesk@gbif.org",
+      "comment": "V případě soukromých dotazů a otázek, které se netýkají technických záležitostí, nás můžete kontaktovat na [info@gbif.org](mailto:info@gbif.org) nebo na [communication@gbif.org](mailto:communication@gbif.org) v případě tiskových záležitostí."
+    },
+    "confirmation": {
+      "title": "Děkujeme",
+      "example": "Vaše zpětná vazba byla zaznamenána jako problém v Githubu. Pokud to bude nutné a pokud byly uvedeny kontaktní údaje, můžeme vás kontaktovat pro další informace. Pokrok můžete sledovat na stránce problému.",
+      "seeIssue": "Zobrazit problém"
+    },
+    "issues": {
+      "title": "Problémy s obsahem",
+      "description": "Problémy s obsahem hlášené jinými uživateli",
+      "create": "Zanechte zpětnou vazbu"
+    },
+    "placeholders": {
+      "summary": "Shrnutí",
+      "description": "Podrobný popis. U taxonomických tvrzení uveďte odkaz. Pokud je to možné, zašlete své připomínky v angličtině.",
+      "username": "Váš e-mail nebo uživatelské jméno Github (veřejné)"
+    },
+    "markdownSupport": "Podporuje Markdown",
+    "issueTracking": "Všechny problémy jsou veřejné a dostupné prostřednictvím [Github](https://github.com/gbif/portal-feedback/issues)",
+    "failure": "To není dobře - systém zpětné vazby nefunguje. Pošlete nám prosím e-mail nebo jděte přímo na [Github](https://github.com/gbif/portal-feedback/issues). Za potíže se omlouváme.",
+    "weRecommendX": "Doporučujeme použít [{NAME}]({LINK})",
+    "tellGbif": "Nahlašte GBIF",
+    "submit": "Odeslat",
+    "seeAllComments": "Zobrazit vše",
+    "recommendMail": "Doporučujeme zaslat e-mail na ",
+    "pleaseLogin": "Pro zanechání zpětné vazby se prosím přihlaste. Případně můžete použít [Github](https://github.com/gbif/portal-feedback/issues) nebo [helpdesk@gbif.org](mailto:helpdesk@gbif.org).\n\n\nProč? Bohužel se v našem systému zpětné vazby setkáváme s velkým množstvím nevyžádané reklamy, pokud po uživatelích nevyžadujeme přihlášení."
+  }
+}

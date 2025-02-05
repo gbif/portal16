@@ -1,0 +1,20 @@
+{
+    "participant": {
+        "participant": "Účastník",
+        "participantSummary": "Shrnutí účastníků",
+        "endorsedPublishers": "Schválení vydavatelé",
+        "noEndorsedPublishers": "Nejsou schváleni žádní vydavatelé",
+        "memberStatus": "Status člena",
+        "gbifParticipantSince": "Účastník GBIF od",
+        "headOfDelegation": "Vedoucí delegace",
+        "gbifRegion": "Region GBIF",
+        "countryOrArea": "Země nebo oblast",
+        "nodeName": "Název uzlu",
+        "nodeEstablished": "Založení uzlu",
+        "website": "Webová stránka",
+        "participantNodeManager": "Správce účastnického uzlu",
+        "pending": "Čekající",
+        "latestDatasetsPublished": "Nejnovější zveřejněné datové sady",
+        "noDatasets": "Nejnovější zveřejněné datové sady"
+    }
+}

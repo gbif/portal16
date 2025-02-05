@@ -22,7 +22,7 @@
     "cancelled": "Cancelada",
     "cancel": "Cancelar",
     "download": "Descargar",
-    "records": "",
+    "records": "Registros",
     "occurrences": "Registros de presencia",
     "largeQueryMessage": "Filtro demasiado grande. Consulta la descarga para obtener más detalles.",
     "date": "Fecha",
@@ -80,10 +80,10 @@
     "title": "Mis descargas"
   },
   "customDownload": {
-    "invalidFilter": "",
-    "seeDocumentation": "",
+    "invalidFilter": "Filtro no válido",
+    "seeDocumentation": "Leer la documentación",
     "reformat": "",
-    "invalidJson": "",
+    "invalidJson": "JSON inválido",
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""

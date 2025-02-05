@@ -1,0 +1,8 @@
+{
+  "projections": {
+    "ARCTIC": "Arktický",
+    "MERCATOR": "Mercator",
+    "ANTARCTIC": "",
+    "PLATE_CAREE": "Čtvercová projekce"
+  }
+}

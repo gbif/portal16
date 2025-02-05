@@ -1,0 +1,66 @@
+{
+    "health": {
+        "automatedMonitoring": "",
+        "systemLoad": "Zatížení systému",
+        "messages": "Zprávy",
+        "version": "Verze",
+        "releaseNotes": "Poznámky k vydání",
+        "nInQueue": "{NUMBER} ve frontě",
+        "status": {
+            "OPERATIONAL": "V provozu",
+            "WARNING": "Nestabilní",
+            "CRITICAL": "Nepoužitelné",
+            "INFO": "Aktualizace systému"
+        },
+        "components": {
+            "OCCURRENCE": {
+                "name": "Výskyt",
+                "tooltip": "Např. vyhledávání a prohlížení výskytů."
+            },
+            "SPECIES": {
+                "name": "Druh",
+                "tooltip": "Např. vyhledávání a prohlížení druhů, návrhy druhů"
+            },
+            "REGISTRY": {
+                "name": "Registr",
+                "tooltip": "Např. datové sady, vydavatelé, instalace, země, účastníci a sítě."
+            },
+            "IDENTITY": {
+                "name": "Identita",
+                "tooltip": "Pro přihlašování a odhlašování, připojování účtů atd."
+            },
+            "MAPS": {
+                "name": "Mapy",
+                "tooltip": "Slouží k zobrazování obrázků map a získávání informací o mapě."
+            },
+            "CONTENTFUL": {
+                "name": "Systém správy obsahu (externí systém)",
+                "tooltip": "Např. novinky a články"
+            },
+            "IMAGE_CACHE": {
+                "name": "Obrazová mezipaměť",
+                "tooltip": "Odpovědnost za většinu obrázků na webu"
+            },
+            "GITHUB": {
+                "name": "Github (externí systém)",
+                "tooltip": "Zpětná vazba, návrhy datových sad"
+            },
+            "CRAWLER": {
+                "name": "Ingesce",
+                "tooltip": "Pro aktualizaci datových sad - nových i starých."
+            },
+            "RESOURCE_SEARCH": {
+                "name": "Hledání zdrojů",
+                "tooltip": "Např. pro vyhledávání literatury, zpráv."
+            },
+            "CLUSTER": {
+                "name": "Zatížení systému",
+                "tooltip": "Backend pro zpracování stahování, přijímání a mnoho dalšího."
+            },
+            "DOWNLOAD": {
+                "name": "Stahování",
+                "tooltip": "Pro zpracování úloh stahování a zasílání oznámení uživatelům"
+            }
+        }
+    }
+}

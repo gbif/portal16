@@ -1,12 +1,12 @@
 {
   "installationType": {
-    "IPT_INSTALLATION": "",
-    "DIGIR_INSTALLATION": "",
-    "TAPIR_INSTALLATION": "",
-    "BIOCASE_INSTALLATION": "",
-    "HTTP_INSTALLATION": "",
-    "SYMBIOTA_INSTALLATION": "",
-    "EARTHCAPE_INSTALLATION": "",
+    "IPT_INSTALLATION": "Instalacja IPT",
+    "DIGIR_INSTALLATION": "Instalacja DiGIR",
+    "TAPIR_INSTALLATION": "Instalacja Tapir",
+    "BIOCASE_INSTALLATION": "Instalacja Biocase",
+    "HTTP_INSTALLATION": "Instalacja http",
+    "SYMBIOTA_INSTALLATION": "Instalacja Symbiota",
+    "EARTHCAPE_INSTALLATION": "EarthCape",
     "MDT_INSTALLATION": ""
   }
 }

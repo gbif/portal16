@@ -1,0 +1,15 @@
+{
+  "network": {
+    "network": "Síť",
+    "tabs": {
+      "summary": "Shrnutí",
+      "homepage": "Domovská stránka",
+      "metrics": "Metriky",
+      "datasets": "Datové sady",
+      "publishers": "Vydavatelé"
+    },
+    "registeredDate": "Registrováno {DATE}",
+    "nParticipatingDatasets": "",
+    "nParticipatingPublishers": ""
+  }
+}

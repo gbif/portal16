@@ -14,7 +14,7 @@
     "description": "Descripción",
     "endorsedBy": "Respaldado por",
     "pendingEndorsementBy": "Pendiente de respaldo por",
-    "endorsementWithheld": "",
+    "endorsementWithheld": "Aval denegado",
     "installations": "Instalaciones",
     "getDownloadReport": "",
     "contacts": "Contactos",

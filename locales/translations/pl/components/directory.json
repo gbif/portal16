@@ -7,7 +7,7 @@
         "description": ""
       },
       "scienceCommittee": {
-        "title": "",
+        "title": "Komisja naukowa",
         "description": ""
       },
       "budgetCommittee": {
@@ -15,7 +15,7 @@
         "description": ""
       },
       "nsg": {
-        "title": "",
+        "title": "Komisja Sterująca Węzłów",
         "description": ""
       },
       "nodesCommittee": {
@@ -23,11 +23,11 @@
         "description": ""
       },
       "secretariat": {
-        "title": "",
+        "title": "Sekretariat GBIF",
         "description": ""
       },
       "voting": {
-        "title": "",
+        "title": "Członkowie głosujący",
         "description": ""
       },
       "associateCountries": {
@@ -47,11 +47,11 @@
     },
     "details": "",
     "roles": "",
-    "sinceDate": "",
+    "sinceDate": "Od",
     "showAllContacts": "",
     "person": {
       "volunteer": "",
-      "name": "Imię i nazwisko/nazwa",
+      "name": "Imię",
       "annualBadges": "",
       "language": "Język",
       "country": "Państwo lub obszar",

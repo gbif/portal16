@@ -1,13 +1,13 @@
 {
   "downloadFormat": {
-    "SIMPLE_AVRO": "",
-    "SIMPLE_CSV": "",
-    "DWCA": "",
-    "SPECIES_LIST": "",
-    "SIMPLE_WITH_VERBATIM_AVRO": "",
-    "MAP_OF_LIFE": "",
-    "IUCN": "",
-    "BIONOMIA": "",
-    "SIMPLE_PARQUET": ""
+    "SIMPLE_AVRO": "Apache Avro",
+    "SIMPLE_CSV": "Zwykły",
+    "DWCA": "Darwin Core Archive",
+    "SPECIES_LIST": "Lista gatunków",
+    "SIMPLE_WITH_VERBATIM_AVRO": "Apache Avro z powszechnie interpretowanymi obszarami i wszystkimi obszarami verbatim",
+    "MAP_OF_LIFE": "Eksport Map of Life",
+    "IUCN": "Eksport IUCN",
+    "BIONOMIA": "Eksport Bionomia",
+    "SIMPLE_PARQUET": "Simple Parquet"
   }
 }

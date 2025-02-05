@@ -1,24 +1,24 @@
 <div class="publisherDatasetTable whiteDataTable">
 
-    <div ng-if="vm.config.summaryColumns.length > 0 && !vm.loading" class="m-t-2">
+    <div ng-if="vm.config.summaryColumns.length > 0 && !vm.loading" class="m-t-2" style="margin-bottom: 40px;">
         <h4 ng-if="vm.config.summaryTitle" class="card-header">{{vm.config.summaryTitle}}</h4>
         <div class="scrollable-y" ng-if="vm.results">
             <div class="table-container rtl-bootstrap">
                 <table class="table search-table smaller">
                     <thead>
                         <tr>
-                            <th ng-repeat="col in vm.config.summaryColumns">
-                                <span class="inline-block text-nowrap">
+                            <th ng-repeat="col in vm.config.summaryColumns" style="width: 33%;">
+                                <span class="inline-block text-nowrap text-end">
                                     <span>{{col.title}}</span>
                                 </span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td ng-repeat="col in vm.config.summaryColumns">
+                        <tr style="font-weight: 800;">
+                            <td ng-repeat="col in vm.config.summaryColumns" style="width: 33%;">
                                 <span
-                                    class=""
+                                    class="text-end"
                                     ng-if="col.type === 'DATASET_COUNT'"
                                     >{{vm.summaryCounts.datasetCount |
                                     localNumber}}</span

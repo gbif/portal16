@@ -1,0 +1,50 @@
+{
+    "dataset": {
+        "registry": {
+            "failedSinceSuccess": "",
+            "lastFailed": "",
+            "registrationDate": "Datum registrace",
+            "lastSuccess": "",
+            "lastWithChange": "",
+            "noEntries": "",
+            "lastWithDataChange": "",
+            "occInLastIngestion": "",
+            "completionReasons": "",
+            "unfinished": "",
+            "total": "",
+            "endpoints": "Koncové body",
+            "installationContacts": "",
+            "installation": "Instalace",
+            "dataLastChanged": "",
+            "pubDate": "Datum zveřejnění",
+            "hostedBy": "Hostuje",
+            "hostingStatus": "Stav hostování",
+            "metdataLastModified": "Poslední úprava metadat",
+            "preferredIdentifier": "",
+            "alternativeIdentifier": "",
+            "orphaned": "Opuštěná datová sada",
+            "rescued": "",
+            "adopted": "Adoptovaná datová sada",
+            "neverIngested": "",
+            "inIngestionQueue": "",
+            "addingToQueue": "",
+            "unableToStart": "Nelze zahájit ingesce",
+            "ingestionChartExplainer": "Poslední ingesce. Vlevo nahoře je nejnovější.",
+            "ingestionStatus": "Stav ingesce",
+            "itemInIngestionQueue": "Položky ve frontě ingesce",
+            "datasetIngestionStatus": "",
+            "gbifIngestionStatus": "",
+            "lastIngestionSuccess": "",
+            "lastIngestionFailed": "",
+            "outOfSync": "Nesynchronizované",
+            "becauseTrustedContact": ""
+        },
+        "crawl": {
+            "finishReason": {
+                "NORMAL": "Normální",
+                "ABORT": "Přerušit",
+                "NOT_MODIFIED": "Nezměněno"
+            }
+        }
+    }
+}

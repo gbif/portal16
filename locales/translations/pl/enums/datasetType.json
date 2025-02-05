@@ -1,12 +1,12 @@
 {
   "datasetType": {
-    "OCCURRENCE": "",
-    "CHECKLIST": "",
-    "SAMPLING_EVENT": "",
-    "METADATA": "",
+    "OCCURRENCE": "Występowanie",
+    "CHECKLIST": "Checklista",
+    "SAMPLING_EVENT": "Próbkowanie",
+    "METADATA": "Metadane",
     "undefined": "Nieznane"
   },
   "datasetSubtype": {
-    "TREATMENT_ARTICLE": ""
+    "TREATMENT_ARTICLE": "Artykuł tematyczny"
   }
 }

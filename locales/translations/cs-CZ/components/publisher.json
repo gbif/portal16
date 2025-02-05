@@ -1,0 +1,27 @@
+{
+  "publisher": {
+    "searchTitle": "",
+    "tabs": {
+      "aboutPublisher": "O",
+      "metrics": "Metriky",
+      "publishersHomepage": "Domovská stránka"
+    },
+    "joinedAgo": "",
+    "newPublisher": "Nový vydavatel",
+    "technicalContact": "Technický kontakt",
+    "country": "Země nebo oblast",
+    "hosting": "Hosting",
+    "description": "Popis",
+    "endorsedBy": "Schváleno od",
+    "pendingEndorsementBy": "Čeká se na schválení od",
+    "endorsementWithheld": "Schválení odmítnuto",
+    "installations": "Instalace",
+    "getDownloadReport": "",
+    "contacts": "Kontakty",
+    "administrativeContact": "Administrativní kontakt",
+    "header": {
+      "publisher": "Vydavatel",
+      "sinceDate": "Od {DATE}"
+    }
+  }
+}
