@@ -39,6 +39,10 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
     // FROM occurrence_download WHERE status = 'SUCCEEDED' AND size > 1e9 AND total_records > 1e6 AND created > '2020-09-01' GROUP BY format ORDER BY format;
     vm.estKbDwcA = 0.35535033259423503330;
     vm.estKbCsv = 0.11619487179487179490;
+    // if there is a search param called featurePreview, then we are in feature preview mode. Use url state params over angular, as angular only includes params configured in the route
+    // first get prams fom the url
+    var urlParams = new URLSearchParams(window.location.search);
+    vm.featurePreview = urlParams.has('preview');
 
     vm.adhocTileApi = env.dataApiV2;
 
