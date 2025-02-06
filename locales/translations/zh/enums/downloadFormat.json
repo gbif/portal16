@@ -2,12 +2,14 @@
   "downloadFormat": {
     "SIMPLE_AVRO": "Apache Avro",
     "SIMPLE_CSV": "CSV",
+    "CUBE": "等于 {is}",
     "DWCA": "达尔文核心（Darwin Core Archive）",
     "SPECIES_LIST": "物种列表",
     "SIMPLE_WITH_VERBATIM_AVRO": "具有通用解释字段和所有逐字字段的 Apache Avro",
     "MAP_OF_LIFE": "生命地图导出",
     "IUCN": "世界自然保护联盟（IUCN）导出",
     "BIONOMIA": "生物群落导出",
+    "SQL_TSV_ZIP": "等于 {is}",
     "SIMPLE_PARQUET": "简单列式格式(Parquet)"
   }
 }
