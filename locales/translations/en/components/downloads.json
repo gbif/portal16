@@ -116,7 +116,7 @@
       "YES": "Yes",
       "NO": "No"
     },
-    "sqlMachineDescriptionIntro": "",
+    "sqlMachineDescriptionIntro": "The SQL download was generated based on parameters provided the user",
     "occurrenceMeasurements": "Occurrence count (always included)",
     "grid": {
       "EEA_REFERENCE_GRID": "EEA reference grid - Europe only",
@@ -201,7 +201,7 @@
       "measurements": "",
       "occurrenceCount": "",
       "higherTaxonomy": "",
-      "minCoordinateUncertainty": "",
+      "minCoordinateUncertainty": "The lowest recorded coordinate uncertainty (in meters). Useful to assert the spatial precision of the data.",
       "minTemporalUncertainty": "",
       "editSql": ""
     }
