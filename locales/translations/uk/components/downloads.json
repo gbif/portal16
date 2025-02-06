@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural,\n0 {знахідок}\none {знахідка}\nfew {знахідки}\nmany {знахідок}\nother {знахідок}\n} завантажено",
     "nRecordsDownloaded": "{NUMBER_FORMATED} {NUMBER, select,\n0 {записів}\none {запис}\nfew {записи}\nmany {записів}\nother {записів}\n} завантажено",
-    "nRowsDownloaded": "Архів анотований GBIF",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "Включає записи з {NUMBER_FORMATTED} {NUMBER, select, \n0 {наборів даних}\none {набору даних}\nfew {наборів даних}\nmany {наборів даних}\nother {наборів даних}\n}",
     "fileNotAvailable": "Цей файл більше не доступний для завантаження",
     "downloadDeletionWarning": "Якщо GBIF не [віднайде цитування](/literature-tracking) цього завантаження, файл даних підлягає видаленню після {DATE}.",
@@ -47,8 +47,8 @@
     "predatesDoi": "Це завантаження випереджає впровадження нами DOI. Будь ласка, зв'яжіться з нами, якщо ви хочете процитувати це завантаження",
     "file": "Файл",
     "constituentDatasets": "Залучені набори даних",
-    "constituentOrganizations": "Архів анотований GBIF",
-    "constituentPublishingCountries": "Архів анотований GBIF",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "Не використано жодних фільтрів",
     "apiUsageDescription": "Для повторення завантаження сьогоднішніх даних за допомогою API, ви можете скористатися наступним запитом.",
     "apiFilterView": "API",
@@ -87,5 +87,118 @@
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "Пошук знахідок",
+    "taxon": {
+      "KINGDOM": "Царство",
+      "PHYLUM": "Відділ/тип",
+      "CLASS": "Клас",
+      "ORDER": "Порядок/ряд",
+      "FAMILY": "Родина",
+      "GENUS": "Рід",
+      "SPECIES": "Вид",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "Детальніше",
+    "time": {
+      "YEAR": "Рік",
+      "YEARMONTH": "",
+      "DATE": "Дата"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "",
+        "17": "",
+        "18": "",
+        "19": "",
+        "20": "",
+        "21": "",
+        "22": ""
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "",
+        "1": "",
+        "10": "",
+        "100": "",
+        "1000": "",
+        "10000": ""
+      }
+    },
+    "noneSelected": "",
+    "dimensions": "",
+    "taxonomicDimension": "",
+    "temporalDimension": "",
+    "spatialDimension": "",
+    "spatialResolution": "",
+    "randomPoints": "",
+    "measurements": "",
+    "countHigherTaxonomy": "",
+    "coordinateUncertainty": "",
+    "errorMinimumDimension": "",
+    "editSql": "",
+    "temporalUncertainty": "",
+    "documentation": "",
+    "help": {
+      "whatIsThis": "",
+      "dimensions": "",
+      "taxonomicDimension": "",
+      "temporalDimension": "",
+      "grid": "",
+      "gridResolution": "",
+      "randomizePoints": "",
+      "measurements": "",
+      "occurrenceCount": "",
+      "higherTaxonomy": "",
+      "minCoorindateUncertainty": "",
+      "minTemporalUncertainty": "",
+      "editSql": ""
+    }
   }
 }
