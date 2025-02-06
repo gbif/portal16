@@ -89,9 +89,9 @@
     "redirectNotice": ""
   },
   "customSqlDownload": {
-    "invalidSQL": "",
-    "title": "",
-    "notification": "",
+    "invalidSQL": "SQL inválido",
+    "title": "Crear nueva descarga de SQL",
+    "notification": "La forma más sencilla de descargar y explorar datos es a través de la interfaz de usuario de búsqueda de registros biológicos. Pero para consultas y agregaciones complejas, el editor SQL ofrece más libertad.",
     "occurrenceSearch": "Buscador de registro de presencia",
     "taxon": {
       "KINGDOM": "Reino",
@@ -101,47 +101,47 @@
       "FAMILY": "Familia",
       "GENUS": "Género",
       "SPECIES": "Especies",
-      "ACCEPTED_TAXON": "",
-      "EXACT_TAXON": ""
+      "ACCEPTED_TAXON": "Taxón aceptado",
+      "EXACT_TAXON": "Taxón exacto"
     },
-    "cubeTitle": "",
-    "cubeDescription": "",
+    "cubeTitle": "Descargar cubo",
+    "cubeDescription": "Marcador de posición de descripción",
     "readMore": "Leer más",
     "time": {
       "YEAR": "Año",
-      "YEARMONTH": "",
+      "YEARMONTH": "Año y mes",
       "DATE": "Fecha"
     },
-    "occurrenceMeasurements": "",
+    "occurrenceMeasurements": "Recuento de registros biológicos (siempre incluido)",
     "grid": {
-      "EEA_REFERENCE_GRID": "",
-      "EXTENDED_QUARTER_DEGREE_GRID": "",
-      "ISEA3H_GRID": "",
-      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+      "EEA_REFERENCE_GRID": "Cuadrícula de referencia del EEE - solo Europa",
+      "EXTENDED_QUARTER_DEGREE_GRID": "Cuadrícula extendida de un cuarto de grado (QDGC)",
+      "ISEA3H_GRID": "Grilla ISEA3H",
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Sistemas de referencia de red militar (MGRS)"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
-        "25": "",
-        "100": "",
-        "250": "",
-        "1000": "",
-        "10000": "",
-        "100000": ""
+        "25": "25 m",
+        "100": "100 m",
+        "250": "250 m",
+        "1000": "1 km",
+        "10000": "10 km",
+        "100000": "100 km"
       },
       "EXTENDED_QUARTER_DEGREE_GRID": {
-        "0": "",
-        "1": "",
-        "2": "",
-        "3": "",
+        "0": "Nivel 0",
+        "1": "Nivel 1",
+        "2": "Nivel 2",
+        "3": "Nivel 3",
         "4": "",
         "5": "",
         "6": ""
       },
       "ISEA3H_GRID": {
-        "0": "",
-        "1": "",
-        "2": "",
-        "3": "",
+        "0": "Nivel 0",
+        "1": "Nivel 1",
+        "2": "Nivel 2",
+        "3": "Nivel 3",
         "4": "",
         "5": "",
         "6": "",
