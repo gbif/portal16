@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "",
     "nRecordsDownloaded": "",
-    "nRowsDownloaded": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "",
     "fileNotAvailable": "",
     "downloadDeletionWarning": "",
@@ -47,8 +47,8 @@
     "predatesDoi": "",
     "file": "Bestand",
     "constituentDatasets": "",
-    "constituentOrganizations": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
-    "constituentPublishingCountries": "Vindt objecten met overeenkomende tekst in een van alle tekstvelden. Gebruik een specifiek filter om tekst in een specifiek veld te doorzoeken, zoals het filter voor \"Wetenschappelijke Naam\".",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "Geen filters ingesteld",
     "apiUsageDescription": "",
     "apiFilterView": "API",
@@ -87,5 +87,118 @@
     "title": "Creëer nieuwe download",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "",
+    "taxon": {
+      "KINGDOM": "Rijk",
+      "PHYLUM": "",
+      "CLASS": "Klasse",
+      "ORDER": "",
+      "FAMILY": "Familie",
+      "GENUS": "",
+      "SPECIES": "Soorten",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "Lees meer",
+    "time": {
+      "YEAR": "Jaar",
+      "YEARMONTH": "",
+      "DATE": "Datum"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "Gelijk aan {is}",
+        "17": "Gelijk aan {is}",
+        "18": "Gelijk aan {is}",
+        "19": "Gelijk aan {is}",
+        "20": "Gelijk aan {is}",
+        "21": "Gelijk aan {is}",
+        "22": "Gelijk aan {is}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "Gelijk aan {is}",
+        "1": "Gelijk aan {is}",
+        "10": "Gelijk aan {is}",
+        "100": "Gelijk aan {is}",
+        "1000": "Gelijk aan {is}",
+        "10000": "Gelijk aan {is}"
+      }
+    },
+    "noneSelected": "Gelijk aan {is}",
+    "dimensions": "Gelijk aan {is}",
+    "taxonomicDimension": "Gelijk aan {is}",
+    "temporalDimension": "Gelijk aan {is}",
+    "spatialDimension": "Gelijk aan {is}",
+    "spatialResolution": "Gelijk aan {is}",
+    "randomPoints": "Gelijk aan {is}",
+    "measurements": "Gelijk aan {is}",
+    "countHigherTaxonomy": "Gelijk aan {is}",
+    "coordinateUncertainty": "Gelijk aan {is}",
+    "errorMinimumDimension": "Gelijk aan {is}",
+    "editSql": "Gelijk aan {is}",
+    "temporalUncertainty": "Gelijk aan {is}",
+    "documentation": "Gelijk aan {is}",
+    "help": {
+      "whatIsThis": "Gelijk aan {is}",
+      "dimensions": "Gelijk aan {is}",
+      "taxonomicDimension": "Gelijk aan {is}",
+      "temporalDimension": "Gelijk aan {is}",
+      "grid": "Gelijk aan {is}",
+      "gridResolution": "Gelijk aan {is}",
+      "randomizePoints": "Gelijk aan {is}",
+      "measurements": "Gelijk aan {is}",
+      "occurrenceCount": "Gelijk aan {is}",
+      "higherTaxonomy": "Gelijk aan {is}",
+      "minCoorindateUncertainty": "Gelijk aan {is}",
+      "minTemporalUncertainty": "Gelijk aan {is}",
+      "editSql": "Gelijk aan {is}"
+    }
   }
 }
