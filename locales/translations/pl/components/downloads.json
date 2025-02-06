@@ -87,5 +87,118 @@
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "",
+    "taxon": {
+      "KINGDOM": "",
+      "PHYLUM": "",
+      "CLASS": "",
+      "ORDER": "",
+      "FAMILY": "",
+      "GENUS": "",
+      "SPECIES": "Gatunek\n",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "",
+    "time": {
+      "YEAR": "Rok",
+      "YEARMONTH": "",
+      "DATE": "Data"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "Równy {from}",
+        "17": "Równy {from}",
+        "18": "Równy {from}",
+        "19": "Równy {from}",
+        "20": "Równy {from}",
+        "21": "Równy {from}",
+        "22": "Równy {from}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "Równy {from}",
+        "1": "Równy {from}",
+        "10": "Równy {from}",
+        "100": "Równy {from}",
+        "1000": "Równy {from}",
+        "10000": "Równy {from}"
+      }
+    },
+    "noneSelected": "Równy {from}",
+    "dimensions": "Równy {from}",
+    "taxonomicDimension": "Równy {from}",
+    "temporalDimension": "Równy {from}",
+    "spatialDimension": "Równy {from}",
+    "spatialResolution": "Równy {from}",
+    "randomPoints": "Równy {from}",
+    "measurements": "Równy {from}",
+    "countHigherTaxonomy": "Równy {from}",
+    "coordinateUncertainty": "Równy {from}",
+    "errorMinimumDimension": "Równy {from}",
+    "editSql": "Równy {from}",
+    "temporalUncertainty": "Równy {from}",
+    "documentation": "Równy {from}",
+    "help": {
+      "whatIsThis": "Równy {from}",
+      "dimensions": "Równy {from}",
+      "taxonomicDimension": "Równy {from}",
+      "temporalDimension": "Równy {from}",
+      "grid": "Równy {from}",
+      "gridResolution": "Równy {from}",
+      "randomizePoints": "Równy {from}",
+      "measurements": "Równy {from}",
+      "occurrenceCount": "Równy {from}",
+      "higherTaxonomy": "Równy {from}",
+      "minCoorindateUncertainty": "Równy {from}",
+      "minTemporalUncertainty": "Równy {from}",
+      "editSql": "Równy {from}"
+    }
   }
 }
