@@ -50,25 +50,25 @@
     "sinceDate": "Desde {DATE}",
     "showAllContacts": "Todos",
     "person": {
-      "volunteer": "Aquí debe colocarse una breve descripción del componente",
+      "volunteer": "",
       "name": "Nombre",
-      "annualBadges": "Aquí debe colocarse una breve descripción del componente",
+      "annualBadges": "",
       "language": "Idioma",
       "country": "País o área",
-      "affiliation": "Aquí debe colocarse una breve descripción del componente",
-      "recipient": "Aquí debe colocarse una breve descripción del componente",
-      "areasExpertise": "Aquí debe colocarse una breve descripción del componente",
-      "orcId": "Aquí debe colocarse una breve descripción del componente",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
       "year": "Año",
       "email": "Correo electrónico"
     },
     "award": {
-      "GRA": "Aquí debe colocarse una breve descripción del componente",
-      "EBBE1ST": "Aquí debe colocarse una breve descripción del componente",
-      "EBBE2ND": "Aquí debe colocarse una breve descripción del componente",
-      "EBBE3RD": "Aquí debe colocarse una breve descripción del componente"
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
     },
-    "prize": "Aquí debe colocarse una breve descripción del componente",
+    "prize": "",
     "year": "Año"
   }
 }
