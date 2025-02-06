@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{出现记录} other{出现记录}}",
     "nRecordsDownloaded": "已下载 {NUMBER_FORMATTED} 条{NUMBER, select, one{记录} other{记录}}",
-    "nRowsDownloaded": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "包含来自 {NUMBER_FORMATTED} 个{NUMBER, select, one {数据集} other{数据集}} 的记录",
     "fileNotAvailable": "此文件不再可供下载。",
     "downloadDeletionWarning": "除非此次下载被 [GBIF发现有引用](/literature-tracking), 这个数据文件可以在 {DATE} 后删除。",
@@ -47,8 +47,8 @@
     "predatesDoi": "此下载早于我们使用 DOIs。如果您想引用这个下载的话，请联系我们。",
     "file": "文件",
     "constituentDatasets": "涉及的数据集",
-    "constituentOrganizations": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
-    "constituentPublishingCountries": "在文本字段中查找具有相似匹配文本的记录。对于特定字段中的匹配文本，请使用相应的过滤器，例如“科学名称”的过滤器。",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "没有设置筛选",
     "apiUsageDescription": "您可使用以下的 API 再次下载今天的数据。",
     "apiFilterView": "API",
@@ -87,5 +87,118 @@
     "title": "创建新的下载",
     "invalidUrlPredicate": "URL中的谓词无效",
     "redirectNotice": "看起来您是从另一个站点被引导到这里的。 要下载，您需要先登录或注册。"
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "出现记录搜索",
+    "taxon": {
+      "KINGDOM": "界",
+      "PHYLUM": "门",
+      "CLASS": "纲",
+      "ORDER": "目",
+      "FAMILY": "科",
+      "GENUS": "属",
+      "SPECIES": "物种",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "阅读更多",
+    "time": {
+      "YEAR": "年份",
+      "YEARMONTH": "",
+      "DATE": "日期"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "等于 {is}",
+        "17": "等于 {is}",
+        "18": "等于 {is}",
+        "19": "等于 {is}",
+        "20": "等于 {is}",
+        "21": "等于 {is}",
+        "22": "等于 {is}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "等于 {is}",
+        "1": "等于 {is}",
+        "10": "等于 {is}",
+        "100": "等于 {is}",
+        "1000": "等于 {is}",
+        "10000": "等于 {is}"
+      }
+    },
+    "noneSelected": "等于 {is}",
+    "dimensions": "等于 {is}",
+    "taxonomicDimension": "等于 {is}",
+    "temporalDimension": "等于 {is}",
+    "spatialDimension": "等于 {is}",
+    "spatialResolution": "等于 {is}",
+    "randomPoints": "等于 {is}",
+    "measurements": "等于 {is}",
+    "countHigherTaxonomy": "等于 {is}",
+    "coordinateUncertainty": "等于 {is}",
+    "errorMinimumDimension": "等于 {is}",
+    "editSql": "等于 {is}",
+    "temporalUncertainty": "等于 {is}",
+    "documentation": "等于 {is}",
+    "help": {
+      "whatIsThis": "等于 {is}",
+      "dimensions": "等于 {is}",
+      "taxonomicDimension": "等于 {is}",
+      "temporalDimension": "等于 {is}",
+      "grid": "等于 {is}",
+      "gridResolution": "等于 {is}",
+      "randomizePoints": "等于 {is}",
+      "measurements": "等于 {is}",
+      "occurrenceCount": "等于 {is}",
+      "higherTaxonomy": "等于 {is}",
+      "minCoorindateUncertainty": "等于 {is}",
+      "minTemporalUncertainty": "等于 {is}",
+      "editSql": "等于 {is}"
+    }
   }
 }
