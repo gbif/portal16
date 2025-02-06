@@ -50,25 +50,25 @@
     "sinceDate": "{DATE} から",
     "showAllContacts": "すべて",
     "person": {
-      "volunteer": "GBIFがアノーテーションしたアーカイブ",
+      "volunteer": "",
       "name": "名前",
-      "annualBadges": "GBIFがアノーテーションしたアーカイブ",
+      "annualBadges": "",
       "language": "言語",
       "country": "国または地域",
-      "affiliation": "GBIFがアノーテーションしたアーカイブ",
-      "recipient": "GBIFがアノーテーションしたアーカイブ",
-      "areasExpertise": "GBIFがアノーテーションしたアーカイブ",
-      "orcId": "GBIFがアノーテーションしたアーカイブ",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
       "year": "年",
       "email": "メールアドレス"
     },
     "award": {
-      "GRA": "GBIFがアノーテーションしたアーカイブ",
-      "EBBE1ST": "GBIFがアノーテーションしたアーカイブ",
-      "EBBE2ND": "GBIFがアノーテーションしたアーカイブ",
-      "EBBE3RD": "GBIFがアノーテーションしたアーカイブ"
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
     },
-    "prize": "GBIFがアノーテーションしたアーカイブ",
+    "prize": "",
     "year": "年"
   }
 }
