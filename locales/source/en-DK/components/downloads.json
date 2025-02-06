@@ -112,6 +112,11 @@
       "YEARMONTH": "Year and month",
       "DATE": "Date"
     },
+    "boolean": {
+      "YES": "Yes",
+      "NO": "No"
+    },
+    "sqlMachineDescriptionIntro": "The SQL download was generated based on user provided parameters",
     "occurrenceMeasurements": "Occurrence count (always included)",
     "grid": {
       "EEA_REFERENCE_GRID": "EEA reference grid - Europe only",
@@ -196,7 +201,7 @@
       "measurements": "A calculated quantitative value for each combination of dimensions.",
       "occurrenceCount": "The number of occurrences.",
       "higherTaxonomy": "Additional higher taxonomic ranks for which the number of occurrences should also be included. Useful to assert sampling bias.",
-      "minCoorindateUncertainty": "The lowest recorded coordinate uncertainty (in meters). Useful to assert the spatial precision of the data.",
+      "minCoordinateUncertainty": "The lowest recorded coordinate uncertainty (in meters). Useful to assert the spatial precision of the data.",
       "minTemporalUncertainty": "The lowest recorded temporal uncertainty (in seconds). Useful to assert the temporal precision of the data.",
       "editSql": "The easiest way to download and explore data is via the occurrence search user interface. But for complex queries and aggregations, the SQL editor provides more freedom."
     }
