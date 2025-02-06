@@ -1,15 +1,15 @@
 {
   "downloadReport": {
-    "title": "",
-    "knownIssues": "",
+    "title": "Stáhnout zprávu",
+    "knownIssues": "Známé problémy",
     "knownIssuesDescription": "",
-    "FossilsIncluded": "",
+    "FossilsIncluded": "Fosílie",
     "FossilsIncludedDescription": "",
-    "livingSpecimensIncluded": "",
-    "livingSpecimensIncludedDescription": "",
-    "yearRange": "",
+    "livingSpecimensIncluded": "Živé exempláře",
+    "livingSpecimensIncludedDescription": "Vaše vyhledávání zahrnuje i živé exempláře, například výskyty v botanických a zoologických zahradách.",
+    "yearRange": "Rozsah let",
     "total": "",
-    "license": "",
+    "license": "Licence",
     "withTaxonMatch": "",
     "withCoordinates": "",
     "withYear": "",
@@ -29,7 +29,7 @@
     "datasetHasNumRows": "",
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
-    "hours": "",
+    "hours": "Hodin",
     "minute": "",
     "minutes": ""
   },
@@ -38,19 +38,19 @@
     "content": {
       "rawData": "",
       "interpretedData": "",
-      "images": "",
-      "coordinates": "",
+      "images": "Multimédia",
+      "coordinates": "Souřadnice",
       "fileFormat": "Formát",
-      "estimatedSize": ""
+      "estimatedSize": "Odhadovaná velikost dat"
     },
     "fileFormats": {
       "tabCsv": ""
     },
     "tableValues": {
-      "yes": "",
+      "yes": "✔",
       "yesIfAvailable": "",
       "yesLinks": "",
-      "no": ""
+      "no": "✘"
     }
   }
 }

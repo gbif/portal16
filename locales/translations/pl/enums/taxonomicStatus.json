@@ -1,7 +1,7 @@
 {
   "taxonomicStatus": {
     "ACCEPTED": "",
-    "DOUBTFUL": "",
+    "DOUBTFUL": "Wątpliwy",
     "SYNONYM": "Synonim",
     "HETEROTYPIC_SYNONYM": "Synonim heterotypowy",
     "HOMOTYPIC_SYNONYM": "",

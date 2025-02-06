@@ -1,12 +1,12 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "",
-    "DOUBTFUL": "",
-    "SYNONYM": "",
+    "ACCEPTED": "Přijato",
+    "DOUBTFUL": "Pochybný",
+    "SYNONYM": "Synonymum",
     "HETEROTYPIC_SYNONYM": "",
     "HOMOTYPIC_SYNONYM": "",
     "PROPARTE_SYNONYM": "",
-    "MISAPPLIED": "",
+    "MISAPPLIED": "Nesprávné použití",
     "INTERMEDIATE_RANK_SYNONYM": "",
     "DETERMINATION_SYNONYM": ""
   }

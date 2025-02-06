@@ -1,19 +1,24 @@
 {
   "endpointType": {
-    "EML": "",
-    "FEED": "",
-    "WFS": "",
-    "WMS": "",
-    "TCS_RDF": "",
-    "TCS_XML": "",
-    "DWC_ARCHIVE": "",
-    "DIGIR": "",
+    "EML": "EML",
+    "FEED": "Kanał RSS",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
+    "DWC_ARCHIVE": "Darwin Core Archive",
+    "DIGIR": "DiGIR",
     "CAMTRAP_DP": "Pakiet danych dla fotopułapek",
-    "DIGIR_MANIS": "",
-    "TAPIR": "",
-    "BIOCASE": "",
-    "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
-    "OTHER": ""
+    "DIGIR_MANIS": "DiGIR MANIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BioCASe",
+    "BIOCASE_XML_ARCHIVE": "Archiwum BioCASe XML",
+    "OAI_PMH": "OAI-PMH",
+    "COLDP": "",
+    "BIOM_1_0": "",
+    "BIOM_2_1": "",
+    "ACEF": "",
+    "TEXT_TREE": "",
+    "OTHER": "Inne"
   }
 }

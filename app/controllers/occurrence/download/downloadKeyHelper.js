@@ -306,8 +306,8 @@ function requestPromise(queryOptions) {
 async function getDownload(key, username) {
     let options = {
         method: 'GET',
-        url: apiConfig.occurrenceDownload.url + key + '?statistics=true',
-        canonicalPath: apiConfig.occurrenceDownload.canonical,
+        url: apiConfig.registryOccurrenceDownload.url + key + '?statistics=true',
+        canonicalPath: apiConfig.registryOccurrenceDownload.canonical,
         userName: username,
         json: true
     };

@@ -1,17 +1,17 @@
 {
   "enum": {
     "institutionType": {
-      "BIOMEDICAL_RESEARCH_INSTITUTE": "",
-      "BOTANICAL_GARDEN": "",
-      "HERBARIUM": "",
-      "LIVING_ORGANISM_COLLECTION": "",
-      "MEDICAL_RESEARCH_INSTITUTE": "",
-      "MUSEUM": "",
-      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "",
-      "OTHER_INSTITUTIONAL_TYPE": "",
-      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "",
-      "UNIVERSITY_COLLEGE": "",
-      "ZOO_AQUARIUM": ""
+      "BIOMEDICAL_RESEARCH_INSTITUTE": "Biomedyczny instytut badawczy",
+      "BOTANICAL_GARDEN": "Ogród botaniczny",
+      "HERBARIUM": "Herbarium",
+      "LIVING_ORGANISM_COLLECTION": "Kolekcja żywych organizmów",
+      "MEDICAL_RESEARCH_INSTITUTE": "Medyczny instytut badawczy",
+      "MUSEUM": "Muzeum",
+      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "Muzeum herbarium prywatne non-profit",
+      "OTHER_INSTITUTIONAL_TYPE": "Inne rodzaje instytucji",
+      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "Inne typy biorepozytoriów instytucji badawczych",
+      "UNIVERSITY_COLLEGE": "Uniwersytet",
+      "ZOO_AQUARIUM": "Ogród zoologiczny lub akwarium"
     }
   }
 }

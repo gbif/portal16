@@ -14,6 +14,11 @@
     "BIOCASE": "BioCASe",
     "BIOCASE_XML_ARCHIVE": "BioCASe XML Archive",
     "OAI_PMH": "OAI PMH",
+    "COLDP": "",
+    "BIOM_1_0": "BIOM 1.0",
+    "BIOM_2_1": "BIOM 2.1",
+    "ACEF": "ACEF",
+    "TEXT_TREE": "Text Tree",
     "OTHER": "Other"
   }
 }

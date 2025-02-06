@@ -1,15 +1,15 @@
 {
   "nameTypeEnum": {
     "SCIENTIFIC": "Vědecký název",
-    "DOUBTFUL": "",
-    "BLACKLISTED": "",
-    "VIRUS": "",
-    "HYBRID": "",
-    "INFORMAL": "",
-    "OTU": "",
-    "CULTIVAR": "",
-    "CANDIDATUS": "",
-    "PLACEHOLDER": "",
-    "NO_NAME": ""
+    "DOUBTFUL": "Pochybný",
+    "BLACKLISTED": "Zakázán",
+    "VIRUS": "Virus",
+    "HYBRID": "Hybridní vzorec",
+    "INFORMAL": "Neformální ",
+    "OTU": "Provozní taxonomická jednotka",
+    "CULTIVAR": "Kultivar",
+    "CANDIDATUS": "Kandidát",
+    "PLACEHOLDER": "Zástupce",
+    "NO_NAME": "Bez názvu"
   }
 }

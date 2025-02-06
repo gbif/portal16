@@ -1,11 +1,11 @@
 {
   "gbifNetwork": {
-    "gbifNetwork": "",
-    "title": "",
+    "gbifNetwork": "GBIF síť",
+    "title": "Adresář",
     "contact": "Kontakt",
     "voting_participant": {
-      "one": "",
-      "other": ""
+      "one": "Hlasující účastník",
+      "other": "Hlasující účastníci"
     },
     "associate_country_participant": {
       "one": "",
@@ -16,38 +16,38 @@
       "other": ""
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Bývalý účastník",
+      "other": "Bývalí účastníci"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Přidružení GBIF",
+      "other": "Přidružení GBIF"
     },
-    "role": "",
+    "role": "Role",
     "group": {},
     "gbif_secretariat": "GBIF Sekretariát",
-    "membershipType": "",
-    "name": "",
+    "membershipType": "Členství",
+    "name": "Název",
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
     "datasets": "Datové sady",
     "regionalRepresentative": "",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Účastnická organizace",
+      "gbifAffiliates": "Přidružení GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Vedoucí delegace",
       "NODE_MANAGER": "Správce uzlu"
     },
-    "publishers": "",
-    "memberSince": "",
-    "participant": "",
+    "publishers": "Vydavatelé",
+    "memberSince": "Členem od",
+    "participant": "Účastník",
     "pPublishers": "",
     "pOccurrence": "",
-    "occurrenceDatasets": "",
-    "occurrences": "",
+    "occurrenceDatasets": "Datové sady výskytu",
+    "occurrences": "Výskyty",
     "occurrencesHostedBy": ""
   }
 }

@@ -14,6 +14,11 @@
     "BIOCASE": "BioCASe",
     "BIOCASE_XML_ARCHIVE": "Архів BioCASe XML",
     "OAI_PMH": "OAI PMH",
+    "COLDP": "Архів анотований GBIF",
+    "BIOM_1_0": "Архів анотований GBIF",
+    "BIOM_2_1": "Архів анотований GBIF",
+    "ACEF": "Архів анотований GBIF",
+    "TEXT_TREE": "Архів анотований GBIF",
     "OTHER": "Інше"
   }
 }

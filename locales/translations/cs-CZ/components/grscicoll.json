@@ -1,74 +1,74 @@
 {
   "collection": {
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Sbírky",
+      "description": "**Institucionální sbírky** jsou ty, které byly formálně připojeny k instituci a dostávají určitou institucionální podporu.\n\n**Projektové sbírky** jsou sbírky shromážděné výzkumným pracovníkem spojeným s institucí, které nemusí být formálně zařazeny do jejích sbírek. Projektové sbírky se mohou nakonec stát součástí institucionálních sbírek nebo mohou zůstat pod správou a kontrolou jednotlivých badatelů.\n\n**Osobní sbírky** jsou pod kontrolou jednotlivých badatelů a nejsou formálně spojeny s institucí ani do ní nejsou zařazeny. Mohou být osobním majetkem soukromého sběratele nebo jinak osiřelé."
     },
     "tabs": {
       "summary": "Shrnutí",
       "homepage": "Domovská stránka",
-      "metrics": ""
+      "metrics": "Metriky"
     },
-    "headerTitle": "",
-    "description": "",
-    "institutionName": "",
-    "code": "",
+    "headerTitle": "Sbírka",
+    "description": "Popis",
+    "institutionName": "Název instituce",
+    "code": "Kód",
     "alternativeCodes": "",
-    "statusOfCollection": "",
-    "personalCollection": "",
+    "statusOfCollection": "Stav sbírky",
+    "personalCollection": "Osobní sbírka",
     "isPersonalCollection": {
-      "true": "",
-      "false": ""
+      "true": "Ano",
+      "false": "Ne"
     },
-    "accessionStatus": "",
-    "contentTypes": "",
-    "preservationTypes": "",
-    "homepage": "",
-    "apiUrl": "",
-    "catalogUrl": "",
-    "identifiers": "",
-    "collectionMailingAddress": "",
-    "status": "",
-    "name": "",
+    "accessionStatus": "Stav přírůstku",
+    "contentTypes": "Typ obsahu",
+    "preservationTypes": "Typy konzervace",
+    "homepage": "Hlavní stránka",
+    "apiUrl": "URL pro Webové služby Sbírek",
+    "catalogUrl": "URL pro Katalog / Databázi vzorků Sbírek",
+    "identifiers": "Identifikátory",
+    "collectionMailingAddress": "E-mailová adresa",
+    "status": "Stav",
+    "name": "Jméno",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Aktivní",
+      "false": "Neaktivní"
     }
   },
   "institution": {
-    "title": "",
+    "title": "Instituce",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Instituce",
+      "description": "**Instituce** označuje jakoukoli instituci nebo organizaci, která vlastní a spravuje vědecké sbírky. Patří sem mimo jiné herbáře, muzea, zoologické zahrady, botanické zahrady a biobanky. Instituce může obsahovat více sbírek, v takovém případě by měly být tyto sbírky zadány samostatně v položce **Institucionální/projektové sbírky** a propojeny s nadřazenou institucí."
     },
     "tabs": {
       "summary": "Shrnutí",
       "homepage": "Domovská stránka",
-      "metrics": ""
+      "metrics": "Metriky"
     },
-    "headerTitle": "",
+    "headerTitle": "Instituce",
     "indexHerbariorumIdentifier": "",
-    "numberSpecimens": "",
-    "code": "",
-    "alternativeCodes": "",
-    "statusOfInstitution": "",
-    "additionalNames": "",
-    "description": "",
-    "homepage": "",
-    "foundingDate": "",
+    "numberSpecimens": "Počet exemplářů",
+    "code": "Kód instituce",
+    "alternativeCodes": "Alternativní kódy",
+    "statusOfInstitution": "Status instituce",
+    "additionalNames": "Další jména",
+    "description": "Popis",
+    "homepage": "Hlavní stránka",
+    "foundingDate": "Datum založení",
     "geographicDescription": "",
-    "taxonomicDescription": "",
+    "taxonomicDescription": "Taxonomický popis",
     "citesPermitNumber": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
-    "identifiers": "",
+    "disciplines": "Institucionální disciplíny",
+    "institutionalGovernance": "Institucionální správa",
+    "type": "Typ instituce",
+    "identifiers": "Identifikátory",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Aktivní",
+      "false": "Neaktivní"
     },
-    "true": "",
-    "false": ""
+    "true": "Ano",
+    "false": "Ne"
   },
   "grscicollPerson": {
     "title": "",
@@ -77,8 +77,8 @@
       "description": ""
     },
     "headerTitle": "",
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Jméno",
+    "lastName": "Příjmení",
     "fullName": "",
     "position": "",
     "affiliations": "",
@@ -95,22 +95,22 @@
     "suggestNewCollection": "",
     "suggestNewInstitution": "",
     "tabs": {
-      "about": "",
-      "institutions": "",
-      "collections": "",
+      "about": "O",
+      "institutions": "Instituce",
+      "collections": "Sbírky",
       "people": ""
     },
     "contact": {
-      "phone": "",
+      "phone": "Telefonní číslo",
       "email": "E-mail",
-      "fax": "",
-      "mailingAddress": "",
-      "physicalAddress": "",
-      "contacts": "",
+      "fax": "Faxové číslo",
+      "mailingAddress": "E-mailová adresa",
+      "physicalAddress": "Fyzická adresa",
+      "contacts": "Kontakty",
       "address": "Adresa",
       "province": "",
       "postalCode": "",
-      "city": "",
+      "city": "Město/obec",
       "country": "Země"
     }
   }

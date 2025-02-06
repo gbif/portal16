@@ -41,7 +41,7 @@
       "images": "Multimedia",
       "coordinates": "Coordenadas",
       "fileFormat": "Formato",
-      "estimatedSize": ""
+      "estimatedSize": "Tamaño de datos estimados"
     },
     "fileFormats": {
       "tabCsv": ""

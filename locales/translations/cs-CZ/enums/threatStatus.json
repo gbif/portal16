@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
-        "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
-        "VULNERABLE": "",
-        "NEAR_THREATENED": "",
+        "EXTINCT": "Vyhynulý",
+        "EXTINCT_IN_THE_WILD": "Vyhynulý ve volné přírodě",
+        "CRITICALLY_ENDANGERED": "Kriticky ohrožený",
+        "ENDANGERED": "Ohrožený",
+        "VULNERABLE": "Zranitelný",
+        "NEAR_THREATENED": "Téměř ohrožený",
         "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "DATA_DEFICIENT": "Chybějící data",
+        "NOT_EVALUATED": "Není hodnoceno"
     }
 }

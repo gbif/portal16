@@ -1,10 +1,10 @@
 {
     "participationStatus": {
-        "VOTING": "",
-        "ASSOCIATE": "",
-        "OBSERVER": "",
-        "AFFILIATE": "",
-        "FORMER": "",
-        "undefined": ""
+        "VOTING": "Hlasování",
+        "ASSOCIATE": "Spolupracovník",
+        "OBSERVER": "Pozorovatel",
+        "AFFILIATE": "Přidružený partner ",
+        "FORMER": "Bývalý",
+        "undefined": "Neznámý"
     }
 }

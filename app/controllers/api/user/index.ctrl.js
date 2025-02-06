@@ -21,4 +21,5 @@ router.get('/logout', user.logout);
 router.get('/myDownloads', auth.isAuthenticated(), user.getDownloads);
 router.get('/download', auth.isAuthenticated(), user.createSimpleDownload);
 router.post('/download/predicate', auth.isAuthenticated(), user.createPredicateDownload);
+router.post('/download/sql', auth.isAuthenticated(), user.createSqlDownload);
 router.get('/cancelDownload/:key', auth.isAuthenticated(), user.cancelDownload);

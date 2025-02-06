@@ -27,7 +27,7 @@
     },
     "confirmation": {
       "title": "Gracias",
-      "example": "Tu opinión ha registrado como un asunto en Github. Si es necesario y si se proporcionan los detalles de contacto, podríamos llegar a contactarte para obtener más información. Puedes seguir el progreso visitando la página de incidencias.",
+      "example": "Tu opinión se ha registrado como un asunto en Github. Si es necesario y si se proporcionan los detalles de contacto, podríamos llegar a contactarte para obtener más información. Puedes seguir el progreso visitando la página de incidencias.",
       "seeIssue": "Ver incidencia"
     },
     "issues": {

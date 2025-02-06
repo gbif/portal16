@@ -1,13 +1,13 @@
 {
   "iucnStatus": {
-    "EX": "",
-    "EW": "",
-    "CR": "",
-    "EN": "",
-    "VU": "",
-    "NT": "",
+    "EX": "Vyhynulý",
+    "EW": "Vyhynulý ve volné přírodě",
+    "CR": "Kriticky ohrožený",
+    "EN": "Ohrožený",
+    "VU": "Zranitelný",
+    "NT": "Téměř ohrožený",
     "LC": "",
-    "DD": "",
-    "NE": ""
+    "DD": "Chybějící údaje",
+    "NE": "Není hodnoceno"
   }
 }

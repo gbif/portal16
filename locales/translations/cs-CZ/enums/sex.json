@@ -1,8 +1,8 @@
 {
     "sex": {
-        "NONE": "",
-        "MALE": "",
-        "FEMALE": "",
-        "HERMAPHRODITE": ""
+        "NONE": "Žádný",
+        "MALE": "Muž",
+        "FEMALE": "Žena",
+        "HERMAPHRODITE": "Hermaphrodite"
     }
 }

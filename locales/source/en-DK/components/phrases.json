@@ -24,6 +24,8 @@
     "payloadTooLarge": "The request is too large - try to simplify your query.",
     "readMore": "Read more",
     "share": "Share",
+    "download": "Download",
+    "cancel": "Cancel",
     "testSiteWarning": "This is a test site. The production site with full data is available on GBIF.org",
     "loginRequiredDueToSpam": "Please login to proceed.",
     "loginRequiredExplainer": "We receive spam and other disruptive attempts when login is not required. We apologize for any inconvenience this may cause."

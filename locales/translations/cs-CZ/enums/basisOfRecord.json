@@ -3,14 +3,14 @@
     "PRESERVED_SPECIMEN": "",
     "FOSSIL_SPECIMEN": "",
     "LIVING_SPECIMEN": "",
-    "OBSERVATION": "",
-    "HUMAN_OBSERVATION": "",
+    "OBSERVATION": "Pozorování",
+    "HUMAN_OBSERVATION": "Pozorování člověkem",
     "MACHINE_OBSERVATION": "",
-    "MATERIAL_SAMPLE": "",
-    "MATERIAL_CITATION": "",
-    "LITERATURE": "",
-    "UNKNOWN": "",
+    "MATERIAL_SAMPLE": "Vzorek materiálu",
+    "MATERIAL_CITATION": "Citace materiálu",
+    "LITERATURE": "Literatura",
+    "UNKNOWN": "Neznámý",
     "OCCURRENCE": "Výskyt",
-    "undefined": ""
+    "undefined": "Neznámý"
   }
 }

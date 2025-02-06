@@ -97,7 +97,7 @@
                 {$ predicate.print(download.record.request.predicate, __) $}
             </div>
         {% elif download.record.request.sql %}
-            {$ download.record.request.sql $}
+            <div style="white-space: pre-line; font-family: monospace;">{$ download.record.request.sql $}</div>
         {% else %}
             {$ __('downloadKey.noFiltersApplied') $}
         {% endif %}
@@ -105,7 +105,6 @@
 </div>
 
 
-{% if (download.record.status === 'SUCCEEDED' and not download.isFileDeleted) or download.isSimple %}
 <div class="card__stripe light-background">
     <div class="card__content clearfix">
         <a href="/occurrence/download/{$ download.record.key $}" class="gb-button--flat text-uppercase pull-right small">{$ __('downloadKey.show') $}</a>
@@ -117,4 +116,3 @@
         {% endif %}
     </div>
 </div>
-{% endif %}
