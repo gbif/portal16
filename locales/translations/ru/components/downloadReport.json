@@ -49,7 +49,7 @@
     "tableValues": {
       "yes": "",
       "yesIfAvailable": "",
-      "yesIfSelected": "",
+      "yesIfSelected": "✓ (если выбрано)",
       "yesLinks": "",
       "no": ""
     }
