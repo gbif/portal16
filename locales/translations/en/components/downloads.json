@@ -112,6 +112,11 @@
       "YEARMONTH": "Year and month",
       "DATE": "Date"
     },
+    "boolean": {
+      "YES": "Yes",
+      "NO": "No"
+    },
+    "sqlMachineDescriptionIntro": "",
     "occurrenceMeasurements": "Occurrence count (always included)",
     "grid": {
       "EEA_REFERENCE_GRID": "EEA reference grid - Europe only",
@@ -196,7 +201,7 @@
       "measurements": "",
       "occurrenceCount": "",
       "higherTaxonomy": "",
-      "minCoorindateUncertainty": "",
+      "minCoordinateUncertainty": "",
       "minTemporalUncertainty": "",
       "editSql": ""
     }
