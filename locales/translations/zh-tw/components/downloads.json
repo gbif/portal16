@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "已下載 {NUMBER_FORMATTED} 筆{NUMBER, select, one{出現紀錄} other{出現紀錄}}",
     "nRecordsDownloaded": "已下載 {NUMBER_FORMATTED} 筆{NUMBER, select, one{記錄} other{記錄}}",
-    "nRowsDownloaded": "GBIF 註記的存檔",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "包含來自 {NUMBER_FORMATTED} 個{NUMBER, select, one {資料集} other{資料集}} 的紀錄",
     "fileNotAvailable": "此檔案不再提供下載",
     "downloadDeletionWarning": "此下載尚未被引用，將於 {DATE} 後刪除。",
@@ -47,8 +47,8 @@
     "predatesDoi": "此下載早於我們所使用的 DOIs",
     "file": "檔案",
     "constituentDatasets": "相關聯的資料集",
-    "constituentOrganizations": "GBIF 註記的存檔",
-    "constituentPublishingCountries": "GBIF 註記的存檔",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "未使用篩選設定",
     "apiUsageDescription": "您可使用以下的查詢透過 API 以再次下載今日資料。",
     "apiFilterView": "應用程式介面（API）",
@@ -87,5 +87,118 @@
     "title": "重新下載",
     "invalidUrlPredicate": "URL中的謂詞無效",
     "redirectNotice": "您似乎是從另一個網站被引導到這裡的。 要下載，您需要先登入或註冊。"
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "出現紀錄搜尋",
+    "taxon": {
+      "KINGDOM": "界",
+      "PHYLUM": "門",
+      "CLASS": "綱",
+      "ORDER": "目",
+      "FAMILY": "科",
+      "GENUS": "屬",
+      "SPECIES": "種",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "更多內容",
+    "time": {
+      "YEAR": "年",
+      "YEARMONTH": "",
+      "DATE": "日期"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "等於 {is}",
+        "17": "等於 {is}",
+        "18": "等於 {is}",
+        "19": "等於 {is}",
+        "20": "等於 {is}",
+        "21": "等於 {is}",
+        "22": "等於 {is}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "等於 {is}",
+        "1": "等於 {is}",
+        "10": "等於 {is}",
+        "100": "等於 {is}",
+        "1000": "等於 {is}",
+        "10000": "等於 {is}"
+      }
+    },
+    "noneSelected": "等於 {is}",
+    "dimensions": "等於 {is}",
+    "taxonomicDimension": "等於 {is}",
+    "temporalDimension": "等於 {is}",
+    "spatialDimension": "等於 {is}",
+    "spatialResolution": "等於 {is}",
+    "randomPoints": "等於 {is}",
+    "measurements": "等於 {is}",
+    "countHigherTaxonomy": "等於 {is}",
+    "coordinateUncertainty": "等於 {is}",
+    "errorMinimumDimension": "等於 {is}",
+    "editSql": "等於 {is}",
+    "temporalUncertainty": "等於 {is}",
+    "documentation": "等於 {is}",
+    "help": {
+      "whatIsThis": "等於 {is}",
+      "dimensions": "等於 {is}",
+      "taxonomicDimension": "等於 {is}",
+      "temporalDimension": "等於 {is}",
+      "grid": "等於 {is}",
+      "gridResolution": "等於 {is}",
+      "randomizePoints": "等於 {is}",
+      "measurements": "等於 {is}",
+      "occurrenceCount": "等於 {is}",
+      "higherTaxonomy": "等於 {is}",
+      "minCoorindateUncertainty": "等於 {is}",
+      "minTemporalUncertainty": "等於 {is}",
+      "editSql": "等於 {is}"
+    }
   }
 }
