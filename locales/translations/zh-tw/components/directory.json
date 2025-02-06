@@ -50,25 +50,25 @@
     "sinceDate": "始自 {DATE}",
     "showAllContacts": "全部",
     "person": {
-      "volunteer": "GBIF 註記的存檔",
+      "volunteer": "",
       "name": "名稱",
-      "annualBadges": "GBIF 註記的存檔",
+      "annualBadges": "",
       "language": "語言",
       "country": "國家或地區",
-      "affiliation": "GBIF 註記的存檔",
-      "recipient": "GBIF 註記的存檔",
-      "areasExpertise": "GBIF 註記的存檔",
-      "orcId": "GBIF 註記的存檔",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
       "year": "年",
       "email": "電子郵件"
     },
     "award": {
-      "GRA": "GBIF 註記的存檔",
-      "EBBE1ST": "GBIF 註記的存檔",
-      "EBBE2ND": "GBIF 註記的存檔",
-      "EBBE3RD": "GBIF 註記的存檔"
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
     },
-    "prize": "GBIF 註記的存檔",
+    "prize": "",
     "year": "年"
   }
 }
