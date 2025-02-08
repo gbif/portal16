@@ -82,18 +82,18 @@
       "interpreted": "Interpretováno"
     },
     "interpretedCounts": {
-      "indexed": "",
-      "date": "",
-      "taxon": "",
+      "indexed": "Počet indexovaných záznamů",
+      "date": "Počet interpretovaných dat",
+      "taxon": "Počet řádků s interpretovaným taxonem",
       "location": ""
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "Počet interpretovaných hodnot"
     },
     "status": {
       "title": "Stav",
       "SUBMITTED": "Odesílání souborů",
-      "FETCHING": "",
+      "FETCHING": "Načtení souboru",
       "ACCEPTED": "",
       "RUNNING": "",
       "FINISHED": "",
