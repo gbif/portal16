@@ -8,11 +8,11 @@
     "livingSpecimensIncluded": "Živé exempláře",
     "livingSpecimensIncludedDescription": "Vaše vyhledávání zahrnuje i živé exempláře, například výskyty v botanických a zoologických zahradách.",
     "yearRange": "Rozsah let",
-    "total": "",
+    "total": "Celkem",
     "license": "Licence",
-    "withTaxonMatch": "",
-    "withCoordinates": "",
-    "withYear": "",
+    "withTaxonMatch": "S odpovídajícím taxonem",
+    "withCoordinates": "Se souřadnicemi",
+    "withYear": "S rokem",
     "sizeZippedForDownload": "",
     "freeOfCost": "",
     "promoteTransperant": "",
@@ -30,13 +30,13 @@
     "youWillNotBeAble": "",
     "difficultToAnalyse": "",
     "hours": "Hodin",
-    "minute": "",
-    "minutes": ""
+    "minute": "Minuta",
+    "minutes": "Minuty"
   },
   "downloadOptions": {
-    "title": "",
+    "title": "Možnosti stažení",
     "content": {
-      "rawData": "",
+      "rawData": "Nezpracovaná data",
       "interpretedData": "",
       "images": "Multimédia",
       "coordinates": "Souřadnice",
@@ -50,7 +50,7 @@
       "yes": "✔",
       "yesIfAvailable": "",
       "yesIfSelected": "",
-      "yesLinks": "",
+      "yesLinks": "✔ (odkazy)",
       "no": "✘"
     }
   }
