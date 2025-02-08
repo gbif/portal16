@@ -85,7 +85,7 @@
       "indexed": "Počet indexovaných záznamů",
       "date": "Počet interpretovaných dat",
       "taxon": "Počet řádků s interpretovaným taxonem",
-      "location": ""
+      "location": "Počet interpretovaných souřadnic"
     },
     "interpretedValueCounts": {
       "title": "Počet interpretovaných hodnot"
@@ -119,7 +119,7 @@
     "started": "",
     "tabs": {
       "newDataValidation": "",
-      "newValidation": "",
+      "newValidation": "Nové ověření",
       "about": "O",
       "darwinCoreExtensions": "",
       "metaData": "Metadata",
