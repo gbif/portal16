@@ -1,19 +1,19 @@
 {
     "dataset": {
         "registry": {
-            "failedSinceSuccess": "",
-            "lastFailed": "",
+            "failedSinceSuccess": "Neúspěšné pokusy od poslední úspěšné ingesce",
+            "lastFailed": "Poslední neúspěšný pokus",
             "registrationDate": "Datum registrace",
-            "lastSuccess": "",
-            "lastWithChange": "",
-            "noEntries": "",
-            "lastWithDataChange": "",
-            "occInLastIngestion": "",
-            "completionReasons": "",
-            "unfinished": "",
-            "total": "",
+            "lastSuccess": "Poslední úspěšná ingesce",
+            "lastWithChange": "Poslední ingesce se změnami",
+            "noEntries": "Tato datová sada nemá žádné položky ingesce",
+            "lastWithDataChange": "Poslední ingesce se změnou dat",
+            "occInLastIngestion": "Výskyt v poslední ingesci",
+            "completionReasons": "Důvody dokončení ingesce",
+            "unfinished": "Nedokončené ingesce",
+            "total": "Ingesce celkem",
             "endpoints": "Koncové body",
-            "installationContacts": "",
+            "installationContacts": "Kontakty pro instalaci",
             "installation": "Instalace",
             "dataLastChanged": "Poslední změna dat",
             "pubDate": "Datum zveřejnění",
@@ -34,10 +34,10 @@
             "itemInIngestionQueue": "Položky ve frontě ingesce",
             "datasetIngestionStatus": "Stav ingesce datové sady",
             "gbifIngestionStatus": "Stav ingesce GBIF",
-            "lastIngestionSuccess": "",
-            "lastIngestionFailed": "",
+            "lastIngestionSuccess": "Poslední ingesce byla úspěšná",
+            "lastIngestionFailed": "Poslední ingesce selhala",
             "outOfSync": "Nesynchronizované",
-            "becauseTrustedContact": ""
+            "becauseTrustedContact": "Protože jste důvěryhodný kontakt"
         },
         "crawl": {
             "finishReason": {
