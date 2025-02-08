@@ -1,24 +1,24 @@
 {
   "endpointType": {
-    "EML": "",
-    "FEED": "",
-    "WFS": "",
-    "WMS": "",
-    "TCS_RDF": "",
-    "TCS_XML": "",
+    "EML": "EML",
+    "FEED": "Kanál RSS",
+    "WFS": "WFS",
+    "WMS": "WMS",
+    "TCS_RDF": "TCS RDF",
+    "TCS_XML": "TCS XML",
     "DWC_ARCHIVE": "Archiv Darwin Core",
-    "DIGIR": "",
+    "DIGIR": "DiGIR",
     "CAMTRAP_DP": "",
-    "DIGIR_MANIS": "",
-    "TAPIR": "",
-    "BIOCASE": "",
-    "BIOCASE_XML_ARCHIVE": "",
-    "OAI_PMH": "",
+    "DIGIR_MANIS": "DiGIR MANIS",
+    "TAPIR": "TAPIR",
+    "BIOCASE": "BioCASe",
+    "BIOCASE_XML_ARCHIVE": "BioCASe XML Archiv",
+    "OAI_PMH": "OAI PMH",
     "COLDP": "Rovná se {from}",
     "BIOM_1_0": "",
     "BIOM_2_1": "",
     "ACEF": "",
     "TEXT_TREE": "",
-    "OTHER": ""
+    "OTHER": "Jiné"
   }
 }
