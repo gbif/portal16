@@ -11,7 +11,7 @@
     "ELEVATION_UNLIKELY": "",
     "PARENT_NAME_NOT_UNIQUE": "",
     "TAXONOMIC_STATUS_MISMATCH": "",
-    "TITLE_MISSING_OR_TOO_SHORT": "",
+    "TITLE_MISSING_OR_TOO_SHORT": "Název datové sady chybí nebo je příliš krátký.",
     "COUNTRY_COORDINATE_MISMATCH": "",
     "IDENTIFIED_DATE_INVALID": "",
     "IDENTIFIED_DATE_UNLIKELY": "",
