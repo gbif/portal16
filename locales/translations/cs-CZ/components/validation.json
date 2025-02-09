@@ -13,11 +13,11 @@
       "DWCA_META_XML_NOT_FOUND": "Soubor Meta.xml nenalezen",
       "DWCA_META_XML_SCHEMA": "Ověření schématu meta.xml selhalo",
       "RECORD_IDENTIFIER_NOT_FOUND": "V souboru nebyl nalezen žádný identifikátor záznamu",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
+      "CORE_ROWTYPE_UNDETERMINED": "Nepodařilo se najít ani určit žádný typ řádku",
+      "EML_NOT_FOUND": "Nebyl nalezen dokument EML",
+      "EML_GBIF_SCHEMA": "Dokument EML se nevaliduje podle schématu",
+      "UNKNOWN_ROWTYPE": "RowType použitý pro core/extension je neznámý.",
+      "REQUIRED_TERM_MISSING": "Chybí požadovaný výraz pro core/extension",
       "COLUMN_MISMATCH": "",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
       "UNKNOWN_TERM": "Neznámý termín",
@@ -27,8 +27,8 @@
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
       "LICENSE_MISSING_OR_UNKNOWN": "",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Záznam není jednoznačně identifikován",
-      "UNREADABLE_SECTION_ERROR": "",
-      "UNHANDLED_ERROR": "",
+      "UNREADABLE_SECTION_ERROR": "Chyba nečitelné části",
+      "UNHANDLED_ERROR": "Neošetřená chyba",
       "NoIssuesFound": "Nebyly nalezeny žádné problémy"
     },
     "fileFormat": {
@@ -46,19 +46,19 @@
         "title": "Rozšíření"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Metadata popisující data v EML (Ecological Metadata Language)",
+        "title": "Metadatový dokument"
       },
       "META_DESCRIPTOR": {
         "description": "Sémantická anotace popisující, jak jsou data strukturována (soubory, sloupce atd.)",
-        "title": ""
+        "title": "Meta deskriptor"
       }
     },
     "fileSize": "Velikost souboru",
     "fileSizeLimit": "Limit velikosti souboru: 100 MB",
     "receivedMediaType": "Typ média",
     "uniqueIdentifier": "Jedinečný identifikátor",
-    "reportLocation": "",
+    "reportLocation": "Tato zpráva byla napsána pro",
     "reportDeletion": "A po měsíci bude smazán. Do té doby se můžete ke zprávě vracet, kdykoli se vám to hodí.",
     "reportGenerated": "Byla vygenerována",
     "summary": "Shrnutí ověření",
@@ -73,7 +73,7 @@
       "413": "Soubor je příliš velký na to, aby jej validátor dat mohl zpracovat.",
       "415": "Nepodporovaný typ souboru. Soubor nelze zpracovat."
     },
-    "backToValidator": "",
+    "backToValidator": "Zahájit nové ověření",
     "termsFrequency": {
       "title": "",
       "term": "Termín",
@@ -94,11 +94,11 @@
       "title": "Stav",
       "SUBMITTED": "Odesílání souborů",
       "FETCHING": "Načtení souboru",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "ACCEPTED": "Ověření zahájeno",
+      "RUNNING": "Ověření probíhá",
+      "FINISHED": "Ověření dokončeno",
+      "FAILED": "Ověření se nezdařilo. Zkontrolujte prosím typ souboru, nebo pokud jste odeslali adresu URL, zkontrolujte, zda soubor v daném umístění existuje.",
+      "CONTACTING_SERVER": "Kontaktování serveru..."
     },
     "jobId": "",
     "indexeable": "Soubor lze indexovat pomocí GBIF",
@@ -118,7 +118,7 @@
     "fetchFileFromLocation": "Načíst soubor z umístění",
     "started": "spuštěno",
     "tabs": {
-      "newDataValidation": "Nová validace dat",
+      "newDataValidation": "Nové ověření dat",
       "newValidation": "Nové ověření",
       "about": "O",
       "darwinCoreExtensions": "Darwin Core rozšíření",
