@@ -121,10 +121,10 @@
       "newDataValidation": "Nová validace dat",
       "newValidation": "Nové ověření",
       "about": "O",
-      "darwinCoreExtensions": "",
+      "darwinCoreExtensions": "Darwin Core rozšíření",
       "metaData": "Metadata",
       "summary": "Shrnutí",
-      "myValidations": ""
+      "myValidations": "Zprávy o ověření"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
