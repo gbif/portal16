@@ -87,5 +87,118 @@
     "title": "Vytvořit nové stažení",
     "invalidUrlPredicate": "Predikát v URL adrese je neplatný",
     "redirectNotice": "Vypadá to, že jste sem byli přesměrováni z jiné stránky. Pro stažení se musíte nejprve přihlásit nebo zaregistrovat."
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "Hledání výskytu",
+    "taxon": {
+      "KINGDOM": "Říše",
+      "PHYLUM": "Kmen",
+      "CLASS": "Třída",
+      "ORDER": "Řád",
+      "FAMILY": "Čeleď",
+      "GENUS": "Rod",
+      "SPECIES": "Druh",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "Zobrazit více",
+    "time": {
+      "YEAR": "Rok",
+      "YEARMONTH": "",
+      "DATE": "Datum"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "Rovná se {from}",
+        "17": "Rovná se {from}",
+        "18": "Rovná se {from}",
+        "19": "Rovná se {from}",
+        "20": "Rovná se {from}",
+        "21": "Rovná se {from}",
+        "22": "Rovná se {from}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "Rovná se {from}",
+        "1": "Rovná se {from}",
+        "10": "Rovná se {from}",
+        "100": "Rovná se {from}",
+        "1000": "Rovná se {from}",
+        "10000": "Rovná se {from}"
+      }
+    },
+    "noneSelected": "Rovná se {from}",
+    "dimensions": "Rovná se {from}",
+    "taxonomicDimension": "Rovná se {from}",
+    "temporalDimension": "Rovná se {from}",
+    "spatialDimension": "Rovná se {from}",
+    "spatialResolution": "Rovná se {from}",
+    "randomPoints": "Rovná se {from}",
+    "measurements": "Rovná se {from}",
+    "countHigherTaxonomy": "Rovná se {from}",
+    "coordinateUncertainty": "Rovná se {from}",
+    "errorMinimumDimension": "Rovná se {from}",
+    "editSql": "Rovná se {from}",
+    "temporalUncertainty": "Rovná se {from}",
+    "documentation": "Rovná se {from}",
+    "help": {
+      "whatIsThis": "Rovná se {from}",
+      "dimensions": "Rovná se {from}",
+      "taxonomicDimension": "Rovná se {from}",
+      "temporalDimension": "Rovná se {from}",
+      "grid": "Rovná se {from}",
+      "gridResolution": "Rovná se {from}",
+      "randomizePoints": "Rovná se {from}",
+      "measurements": "Rovná se {from}",
+      "occurrenceCount": "Rovná se {from}",
+      "higherTaxonomy": "Rovná se {from}",
+      "minCoorindateUncertainty": "Rovná se {from}",
+      "minTemporalUncertainty": "Rovná se {from}",
+      "editSql": "Rovná se {from}"
+    }
   }
 }

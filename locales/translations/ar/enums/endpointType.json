@@ -14,11 +14,11 @@
     "BIOCASE": "BioCASe",
     "BIOCASE_XML_ARCHIVE": "أرشيف XML BioCASe",
     "OAI_PMH": "OAI PMH",
-    "COLDP": "أرشيف شروح \"جيبف\"",
-    "BIOM_1_0": "أرشيف شروح \"جيبف\"",
-    "BIOM_2_1": "أرشيف شروح \"جيبف\"",
-    "ACEF": "أرشيف شروح \"جيبف\"",
-    "TEXT_TREE": "أرشيف شروح \"جيبف\"",
+    "COLDP": "التساويات { is }",
+    "BIOM_1_0": "",
+    "BIOM_2_1": "",
+    "ACEF": "",
+    "TEXT_TREE": "",
     "OTHER": "أخرى"
   }
 }

@@ -50,25 +50,25 @@
     "sinceDate": "منذ {DATE}",
     "showAllContacts": "الكل",
     "person": {
-      "volunteer": "أرشيف شروح \"جيبف\"",
+      "volunteer": "",
       "name": "الاسم",
-      "annualBadges": "أرشيف شروح \"جيبف\"",
+      "annualBadges": "",
       "language": "لغة",
       "country": "بلد او منطقة",
-      "affiliation": "أرشيف شروح \"جيبف\"",
-      "recipient": "أرشيف شروح \"جيبف\"",
-      "areasExpertise": "أرشيف شروح \"جيبف\"",
-      "orcId": "أرشيف شروح \"جيبف\"",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
       "year": "السنة",
       "email": "البريد الإلكتروني"
     },
     "award": {
-      "GRA": "أرشيف شروح \"جيبف\"",
-      "EBBE1ST": "أرشيف شروح \"جيبف\"",
-      "EBBE2ND": "أرشيف شروح \"جيبف\"",
-      "EBBE3RD": "أرشيف شروح \"جيبف\""
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
     },
-    "prize": "أرشيف شروح \"جيبف\"",
+    "prize": "",
     "year": "السنة"
   }
 }

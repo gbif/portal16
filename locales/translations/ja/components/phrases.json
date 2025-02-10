@@ -24,6 +24,8 @@
     "payloadTooLarge": "リクエストが許容範囲を超えています。減らしてから再び試してください。お困りの際はhelpdesk@gbif.orgまでご連絡ください。",
     "readMore": "もっと読む",
     "share": "共有",
+    "download": "ダウンロード",
+    "cancel": "中止",
     "testSiteWarning": "",
     "loginRequiredDueToSpam": "続行するにはログインしてください。",
     "loginRequiredExplainer": ""

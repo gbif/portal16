@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{تكرار} other{تكرارات}} تم تنزيلها",
     "nRecordsDownloaded": "{NUMBER_FORMATED}{NUMBER, select, 1{سجل} other{سجلات}} تم تنزيلها",
-    "nRowsDownloaded": "أرشيف شروح \"جيبف\"",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "يضم سجلات من {NUMBER_FORMATED} {NUMBER, select, 1{مجموعة بيانات} other{مجموعات بيانات}}",
     "fileNotAvailable": "هذا الملف لم يعد متوفر للتنزيل",
     "downloadDeletionWarning": "ما لم يكتشف الـ \"جبيف\" اقتباسات (متابعة مرجعية) من هذا التنزيل، فإن ملف البيانات سيكون مؤهلاً للحذف بعد {DATE}.",
@@ -47,8 +47,8 @@
     "predatesDoi": "هذا التنزيل يسبق استخدامنا لـ DOIs. يرجى الاتصال بنا إذا كنت ترغب في الاستشهاد بهذا التنزيل",
     "file": "ملف",
     "constituentDatasets": "مجموعات البيانات المعنية",
-    "constituentOrganizations": "أرشيف شروح \"جيبف\"",
-    "constituentPublishingCountries": "أرشيف شروح \"جيبف\"",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "لم يتم استعمال مرشِّحات",
     "apiUsageDescription": "لتكرار التنزيل على بيانات اليوم باستخدام واجهة برمجة التطبيقات (API)، يمكن استخدام الاستعلام أدناه.",
     "apiFilterView": "واجهة برمجة التطبيقات (API)",
@@ -87,5 +87,118 @@
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "البحث عن التكرار",
+    "taxon": {
+      "KINGDOM": "مملكة",
+      "PHYLUM": "الشعبة",
+      "CLASS": "الصف",
+      "ORDER": "الرتبة",
+      "FAMILY": "الفصيلة",
+      "GENUS": "الجنس",
+      "SPECIES": "نوع",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "اقرأ المزيد",
+    "time": {
+      "YEAR": "السنة",
+      "YEARMONTH": "",
+      "DATE": "التاريخ"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "التساويات { is }",
+        "17": "التساويات { is }",
+        "18": "التساويات { is }",
+        "19": "التساويات { is }",
+        "20": "التساويات { is }",
+        "21": "التساويات { is }",
+        "22": "التساويات { is }"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "التساويات { is }",
+        "1": "التساويات { is }",
+        "10": "التساويات { is }",
+        "100": "التساويات { is }",
+        "1000": "التساويات { is }",
+        "10000": "التساويات { is }"
+      }
+    },
+    "noneSelected": "التساويات { is }",
+    "dimensions": "التساويات { is }",
+    "taxonomicDimension": "التساويات { is }",
+    "temporalDimension": "التساويات { is }",
+    "spatialDimension": "التساويات { is }",
+    "spatialResolution": "التساويات { is }",
+    "randomPoints": "التساويات { is }",
+    "measurements": "التساويات { is }",
+    "countHigherTaxonomy": "التساويات { is }",
+    "coordinateUncertainty": "التساويات { is }",
+    "errorMinimumDimension": "التساويات { is }",
+    "editSql": "التساويات { is }",
+    "temporalUncertainty": "التساويات { is }",
+    "documentation": "التساويات { is }",
+    "help": {
+      "whatIsThis": "التساويات { is }",
+      "dimensions": "التساويات { is }",
+      "taxonomicDimension": "التساويات { is }",
+      "temporalDimension": "التساويات { is }",
+      "grid": "التساويات { is }",
+      "gridResolution": "التساويات { is }",
+      "randomizePoints": "التساويات { is }",
+      "measurements": "التساويات { is }",
+      "occurrenceCount": "التساويات { is }",
+      "higherTaxonomy": "التساويات { is }",
+      "minCoorindateUncertainty": "التساويات { is }",
+      "minTemporalUncertainty": "التساويات { is }",
+      "editSql": "التساويات { is }"
+    }
   }
 }

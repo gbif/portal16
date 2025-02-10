@@ -50,25 +50,25 @@
     "sinceDate": "Depuis {DATE}",
     "showAllContacts": "Tout",
     "person": {
-      "volunteer": "Archive annotée par GBIF",
+      "volunteer": "",
       "name": "Nom",
-      "annualBadges": "Archive annotée par GBIF",
+      "annualBadges": "",
       "language": "Langue",
       "country": "Pays",
-      "affiliation": "Archive annotée par GBIF",
-      "recipient": "Archive annotée par GBIF",
-      "areasExpertise": "Archive annotée par GBIF",
-      "orcId": "Archive annotée par GBIF",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
       "year": "Année",
       "email": "Courriel"
     },
     "award": {
-      "GRA": "Archive annotée par GBIF",
-      "EBBE1ST": "Archive annotée par GBIF",
-      "EBBE2ND": "Archive annotée par GBIF",
-      "EBBE3RD": "Archive annotée par GBIF"
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
     },
-    "prize": "Archive annotée par GBIF",
+    "prize": "",
     "year": "Année"
   }
 }
