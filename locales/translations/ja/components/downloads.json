@@ -112,6 +112,11 @@
       "YEARMONTH": "",
       "DATE": "日付"
     },
+    "boolean": {
+      "YES": "はい",
+      "NO": "いいえ"
+    },
+    "sqlMachineDescriptionIntro": "",
     "occurrenceMeasurements": "",
     "grid": {
       "EEA_REFERENCE_GRID": "",
@@ -196,7 +201,7 @@
       "measurements": "",
       "occurrenceCount": "",
       "higherTaxonomy": "",
-      "minCoorindateUncertainty": "",
+      "minCoordinateUncertainty": "",
       "minTemporalUncertainty": "",
       "editSql": ""
     }
