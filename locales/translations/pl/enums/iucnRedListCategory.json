@@ -1,13 +1,13 @@
 {
   "iucnRedListCategory": {
-    "EX": "",
-    "EW": "",
-    "CR": "",
-    "EN": "",
-    "VU": "",
-    "NT": "",
-    "LC": "",
-    "DD": "",
-    "NE": ""
+    "EX": "wymarłe",
+    "EW": "wymarłe w naturze",
+    "CR": "krytycznie zagrożone",
+    "EN": "zagrożone",
+    "VU": "narażone",
+    "NT": "gatunki bliskie zagrożenia",
+    "LC": "gatunki najmniejszej troski",
+    "DD": "dane niewystarczające",
+    "NE": "Niepoddane ocenie"
   }
 }
