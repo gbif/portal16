@@ -80,7 +80,7 @@
     "COORDINATE_REPROJECTED": "",
     "RECORDED_DATE_MISMATCH": "",
     "DWCA_META_XML_NOT_FOUND": "",
-    "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
+    "DESCRIPTION_MISSING_OR_TOO_SHORT": "Chybí popis datové sady nebo je příliš krátký",
     "SCIENTIFIC_NAME_ASSEMBLED": "",
     "DEPTH_NON_NUMERIC": "",
     "INTERPRETATION_ERROR": "",
