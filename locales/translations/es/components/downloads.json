@@ -116,7 +116,7 @@
       "YES": "Sí",
       "NO": "No"
     },
-    "sqlMachineDescriptionIntro": "",
+    "sqlMachineDescriptionIntro": "La descarga de SQL se generó en función de los parámetros proporcionados por el usuario.",
     "occurrenceMeasurements": "Recuento de registros biológicos (siempre incluido)",
     "grid": {
       "EEA_REFERENCE_GRID": "Cuadrícula de referencia del EEE - solo Europa",
@@ -201,7 +201,7 @@
       "measurements": "",
       "occurrenceCount": "",
       "higherTaxonomy": "",
-      "minCoordinateUncertainty": "",
+      "minCoordinateUncertainty": "La incertidumbre de coordenadas más baja registrada (en metros). Útil para afirmar la precisión espacial de los datos.",
       "minTemporalUncertainty": "",
       "editSql": "La forma más sencilla de descargar y explorar datos es a través de la interfaz de usuario de búsqueda de registros biológicos. Pero para consultas y agregaciones complejas, el editor SQL ofrece más libertad."
     }
