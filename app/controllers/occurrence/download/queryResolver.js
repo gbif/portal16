@@ -68,8 +68,10 @@ let queryResolver = {
         valueTranslation: 'occurrenceIssue.'
     },
     typeStatus: {
-        type: 'ENUM',
-        valueTranslation: 'typeStatus.'
+        type: 'ENDPOINT',
+        url: apiConfig.base.url + 'vocabularies/TypeStatus/concepts/',
+        field: 'name',
+        vocabularyEndpoint: true
     },
     protocol: {
         type: 'ENUM',
@@ -88,8 +90,10 @@ let queryResolver = {
         valueTranslation: 'gbifRegion.'
     },
     sex: {
-        type: 'ENUM',
-        valueTranslation: 'sex.'
+        type: 'ENDPOINT',
+        url: apiConfig.base.url + 'vocabularies/Sex/concepts/',
+        field: 'name',
+        vocabularyEndpoint: true
     }
 };
 

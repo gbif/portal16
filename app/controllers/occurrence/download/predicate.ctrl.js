@@ -58,7 +58,7 @@ async function getTransformedPredicate(query, __mf) {
     downloadHelper.setDepths(occurrenceRequest.predicate);
     context.isSimple = downloadHelper.getSimpleQuery(occurrenceRequest.predicate);
     downloadHelper.flattenSameType(occurrenceRequest.predicate);
-    downloadHelper.addpredicateResolveTasks(occurrenceRequest.predicate, queryResolver, promiseList, __mf);
+    downloadHelper.addpredicateResolveTasks(occurrenceRequest.predicate, queryResolver, promiseList, __mf, query.locale);
     await Promise.all(promiseList);
     context.request = occurrenceRequest;
     return context;

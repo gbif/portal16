@@ -207,7 +207,7 @@ function attachPredicatesAsParams(predicate) {
 }
 
 // returns a list of tasks to be run by async. Each task will add the looked up value to the predicate. Predicate with taxonKey will for example be attached the coresponding species
-function addpredicateResolveTasks(predicate, config, tasks, __mf) {
+function addpredicateResolveTasks(predicate, config, tasks, __mf, locale) {
     if (!predicate) {
         throw new Error('failed to parse predicate');
     } else {
@@ -216,7 +216,7 @@ function addpredicateResolveTasks(predicate, config, tasks, __mf) {
         if (keyResolver) {
             if (keyResolver.type == 'ENDPOINT') {
                 // create task
-                addEndpointTask(predicate, keyResolver, tasks);
+                addEndpointTask(predicate, keyResolver, tasks, locale);
             } else if (keyResolver.type == 'ENUM') {
                 resolveEnum(predicate, keyResolver, __mf);
             }
@@ -224,11 +224,11 @@ function addpredicateResolveTasks(predicate, config, tasks, __mf) {
 
         if (predicate.predicates) {
             predicate.predicates.forEach(function(p) {
-                addpredicateResolveTasks(p, config, tasks, __mf);
+                addpredicateResolveTasks(p, config, tasks, __mf, locale);
             });
         }
         if (predicate.predicate) {
-            addpredicateResolveTasks(predicate.predicate, config, tasks, __mf);
+            addpredicateResolveTasks(predicate.predicate, config, tasks, __mf, locale);
         }
     }
     return tasks;
@@ -259,12 +259,17 @@ function resolveEnum(predicate, config, __mf) {
     }
 }
 
-function addEndpointTask(predicate, config, tasks) {
+function addEndpointTask(predicate, config, tasks, locale) {
     if (predicate.type == 'in') {
         let listPromise = Promise.all(predicate.values.map(function(value) {
             return getResource(config.url + value);
         })).then(function(values) {
             predicate.values = _.map(values, config.field);
+            if (config.vocabularyEndpoint) {
+                predicate.values = values.map(function(value) {
+                    return getConceptLabel(value, locale);
+                });
+            }
         })
         .catch(function() {
             predicate.values = predicate.values;
@@ -273,8 +278,11 @@ function addEndpointTask(predicate, config, tasks) {
     } else {
         let itemPromise = getResource(config.url + predicate.value).then(function(e) {
                 predicate.value = e[config.field];
+                if (config.vocabularyEndpoint) {
+                    predicate.value = getConceptLabel(e, locale);
+                }
             })
-            .catch(function() {
+            .catch(function(err) {
                 predicate.value = predicate.value;
             });
         tasks.push(itemPromise);
@@ -356,6 +364,36 @@ async function setDownloadErasureDate(key, erasureDate, username) {
     if (response.statusCode !== '204') {
         throw response;
     }
+}
+
+function getConceptLabel(concept, language) {
+    // if there are any labels, then filter on the language and return the first one
+    // similarly get the english label if the requested language is not available
+    // and finally fall back to the concept name
+    // we should handle this elsewhere, but for now hardcoded here
+    const vocabLocaleLookup = {
+        'es': 'es-ES',
+        'fr': 'fr-FR',
+        'ru': 'ru-RU',
+        'pt': 'pt-PT',
+        'pl': 'pl-PL',
+        'zh-tw': 'zh-TW',
+        'ja': 'ja-JP'
+    };
+    language = vocabLocaleLookup[language] || language;
+    let label = concept.label.filter(function(l) {
+        return l.language === language;
+    })[0];
+    if (label) {
+        return label.value;
+    }
+    label = concept.label.filter(function(l) {
+        return l.language === 'en';
+    })[0];
+    if (label) {
+        return label.value;
+    }
+    return concept.name;
 }
 
 module.exports = {
