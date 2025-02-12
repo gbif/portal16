@@ -7,7 +7,7 @@
     "location": "Poloha",
     "country": "Země nebo oblast",
     "noDatasets": "Nejsou žádné datové sady k zobrazení",
-    "noNewsOrEvents": "",
+    "noNewsOrEvents": "Nejsou žádné novinky ani události",
     "howToLinkDatasets": "Jak propojit datovou sadu s projektem",
     "howToLinkEvents": "Jak přidat události na stránku projektu",
     "when": "Kdy",
