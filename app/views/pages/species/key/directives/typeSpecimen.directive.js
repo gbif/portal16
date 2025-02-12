@@ -31,8 +31,41 @@ function typeSpecimenDirective() {
             taxonKey: vm.key,
             limit: 200,
             // eslint-disable-next-line max-len
-            typeStatus: ['TYPE', 'TYPE_SPECIES', 'TYPE_GENUS', 'ALLOLECTOTYPE', 'ALLONEOTYPE', 'ALLOTYPE', 'COTYPE', 'EPITYPE', 'EXEPITYPE', 'EXHOLOTYPE', 'EXISOTYPE', 'EXLECTOTYPE', 'EXNEOTYPE', 'EXPARATYPE', 'EXSYNTYPE', 'EXTYPE', 'HAPANTOTYPE', 'HOLOTYPE', 'ICONOTYPE', 'ISOLECTOTYPE', 'ISOPARATYPE', 'ISONEOTYPE', 'ISOSYNTYPE', 'ISOTYPE', 'LECTOTYPE', 'NEOTYPE', 'PARALECTOTYPE', 'PARANEOTYPE', 'PARATYPE', 'PLASTOHOLOTYPE', 'PLASTOISOTYPE', 'PLASTOLECTOTYPE', 'PLASTONEOTYPE', 'PLASTOPARATYPE', 'PLASTOSYNTYPE', 'PLASTOTYPE', 'SECONDARYTYPE', 'SUPPLEMENTARYTYPE', 'SYNTYPE', 'TOPOTYPE', 'ORIGINALMATERIAL']
-
+            typeStatus: [
+                'Isosyntype',
+                'Isoparatype',
+                'Isoneotype',
+                'Isolectotype',
+                'Isoepitype',
+                'Iconotype',
+                'Hypotype',
+                'Hapantotype',
+                'Extype',
+                'Exsyntype',
+                'Exparatype',
+                'Exneotype',
+                'Exlectotype',
+                'Exisotype',
+                'Exholotype',
+                'Exepitype',
+                'Epitype',
+                'Cotype',
+                'Allotype',
+                'TypeSeries',
+                'Metatype',
+                'Clonotype',
+                'TypeStrain',
+                'SupplementaryType',
+                'SecondaryType',
+                'Holotype',
+                'Syntype',
+                'Neotype',
+                'Lectotype',
+                'Isotype',
+                'TypeGenus',
+                'TypeSpecies',
+                'Type'
+            ]
         }, function(data) {
             // remove higher rank matches
             // sort by type
