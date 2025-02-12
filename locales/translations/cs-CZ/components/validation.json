@@ -103,7 +103,7 @@
     "jobId": "",
     "indexeable": "Soubor lze indexovat pomocí GBIF",
     "notIndexeable": "Soubor nelze indexovat pomocí GBIF",
-    "numberOfLines": "",
+    "numberOfLines": "Počet řádek",
     "reportProducedByGbifDataValidator": "Zpráva vytvořená validátorem dat GBIF",
     "validationReport": "Zpráva o ověření",
     "dataValidator": "Validátor dat",
