@@ -67,7 +67,7 @@
           "CLIMATE_CHANGE": "Změna klimatu",
           "CONSERVATION": "Ochrana přírody",
           "DATA_MANAGEMENT": "Správa dat",
-          "DATA_PAPER": "",
+          "DATA_PAPER": "Datový dokument",
           "ECOLOGY": "Ekologie",
           "ECOSYSTEM_SERVICES": "Ekosystémové služby",
           "EVOLUTION": "Evoluce",
@@ -85,9 +85,9 @@
           "CAPACITY_ENHANCEMENT": "Zvyšování kapacity",
           "DATA_ACCESS": "Přístup k datům",
           "DATA_ANALYSIS": "Analýza dat",
-          "DATA_CURATION_QUALITY": "",
-          "DATA_DIGITIZATION": "",
-          "DATA_PUBLISHING": ""
+          "DATA_CURATION_QUALITY": "Správa a kvalita dat",
+          "DATA_DIGITIZATION": "Digitalizace dat",
+          "DATA_PUBLISHING": "Publikování dat"
         },
         "literatureType": {
           "journal": "Článek v odborném časopise",
@@ -109,7 +109,7 @@
           "encyclopedia_article": "Encyklopedický článek",
           "case": "Případ",
           "film": "Film",
-          "bill": ""
+          "bill": "Návrh zákona"
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Odborníci na znalost biodiverzity",
