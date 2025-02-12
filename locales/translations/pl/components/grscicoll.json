@@ -7,7 +7,7 @@
     "tabs": {
       "summary": "Podsumowanie",
       "homepage": "Strona główna",
-      "metrics": ""
+      "metrics": "Metryka"
     },
     "headerTitle": "",
     "description": "Opis",
@@ -44,7 +44,7 @@
     "tabs": {
       "summary": "Podsumowanie",
       "homepage": "Strona główna",
-      "metrics": ""
+      "metrics": "Metryka"
     },
     "headerTitle": "",
     "indexHerbariorumIdentifier": "",
