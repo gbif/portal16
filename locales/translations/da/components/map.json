@@ -57,8 +57,8 @@
       "addRectangleFilter": "",
       "addPolygonFilter": "",
       "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "zoomIn": "Zoom ind",
+      "zoomOut": "Zoom ud"
     },
     "errors": {
       "413": "Geometrien er for stor til at blive processeret af API'en."
