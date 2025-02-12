@@ -47,7 +47,7 @@
     "pPublishers": "{NUMBER, plural,one{wydawca} other{wydawcy}}",
     "pOccurrence": "{NUMBER, plural, one{Występowanie} other{występowania}}",
     "occurrenceDatasets": "",
-    "occurrences": "",
+    "occurrences": "Wystąpienia",
     "occurrencesHostedBy": ""
   }
 }
