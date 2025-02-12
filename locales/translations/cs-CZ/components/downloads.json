@@ -16,8 +16,8 @@
     "nConstituentDatasets": "",
     "fileNotAvailable": "",
     "downloadDeletionWarning": "",
-    "occurrenceDownload": "",
-    "brokenDownload": "",
+    "occurrenceDownload": "Stažení výskytu",
+    "brokenDownload": "Rozbité stahování",
     "contactHelpdesk": "Kontakt na helpdesk",
     "cancelled": "Zrušeno",
     "cancel": "Zrušit",
@@ -89,9 +89,9 @@
     "redirectNotice": "Vypadá to, že jste sem byli přesměrováni z jiné stránky. Pro stažení se musíte nejprve přihlásit nebo zaregistrovat."
   },
   "customSqlDownload": {
-    "invalidSQL": "",
-    "title": "",
-    "notification": "",
+    "invalidSQL": "Neplatné SQL",
+    "title": "Vytvořit nové SQL stažení",
+    "notification": "Nejjednodušší způsob stahování a zkoumání dat je prostřednictvím uživatelského rozhraní pro vyhledávání výskytů. Pro složité dotazy a agregace však editor SQL poskytuje větší volnost.",
     "occurrenceSearch": "Hledání výskytu",
     "taxon": {
       "KINGDOM": "Říše",
@@ -101,40 +101,40 @@
       "FAMILY": "Čeleď",
       "GENUS": "Rod",
       "SPECIES": "Druh",
-      "ACCEPTED_TAXON": "",
-      "EXACT_TAXON": ""
+      "ACCEPTED_TAXON": "Přijatý taxon",
+      "EXACT_TAXON": "Přesný taxon"
     },
     "cubeTitle": "",
-    "cubeDescription": "",
+    "cubeDescription": "Zástupce popisu",
     "readMore": "Zobrazit více",
     "time": {
       "YEAR": "Rok",
-      "YEARMONTH": "",
+      "YEARMONTH": "Rok a měsíc",
       "DATE": "Datum"
     },
     "boolean": {
       "YES": "Ano",
       "NO": "Ne"
     },
-    "sqlMachineDescriptionIntro": "",
-    "occurrenceMeasurements": "",
+    "sqlMachineDescriptionIntro": "Stažení SQL bylo vygenerováno na základě parametrů zadaných uživatelem.",
+    "occurrenceMeasurements": "Počet výskytů (vždy zahrnuto)",
     "grid": {
-      "EEA_REFERENCE_GRID": "",
-      "EXTENDED_QUARTER_DEGREE_GRID": "",
-      "ISEA3H_GRID": "",
-      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+      "EEA_REFERENCE_GRID": "Referenční síť EEA - pouze Evropa",
+      "EXTENDED_QUARTER_DEGREE_GRID": "Rozšířená mřížka čtvrt stupně (QDGC)",
+      "ISEA3H_GRID": "ISEA3H síť",
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Vojenské referenční systémy (MGRS)"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
-        "25": "",
-        "100": "",
-        "250": "",
-        "1000": "",
-        "10000": "",
-        "100000": ""
+        "25": "25 m",
+        "100": "100 m",
+        "250": "250 m",
+        "1000": "1 km",
+        "10000": "10 km",
+        "100000": "100 km"
       },
       "EXTENDED_QUARTER_DEGREE_GRID": {
-        "0": "",
+        "0": "Úroveň 0",
         "1": "",
         "2": "",
         "3": "",
@@ -143,7 +143,7 @@
         "6": ""
       },
       "ISEA3H_GRID": {
-        "0": "",
+        "0": "Úroveň 0",
         "1": "",
         "2": "",
         "3": "",
@@ -156,9 +156,9 @@
         "10": "",
         "11": "",
         "12": "",
-        "13": "",
-        "14": "",
-        "15": "",
+        "13": "Úroveň 13",
+        "14": "Úroveň 14",
+        "15": "Úroveň 15",
         "16": "",
         "17": "",
         "18": "",
@@ -201,9 +201,9 @@
       "measurements": "",
       "occurrenceCount": "",
       "higherTaxonomy": "",
-      "minCoordinateUncertainty": "",
+      "minCoordinateUncertainty": "Nejnižší zaznamenaná neurčitost souřadnic (v metrech). Slouží k potvrzení prostorové přesnosti dat.",
       "minTemporalUncertainty": "",
-      "editSql": ""
+      "editSql": "Nejjednodušší způsob stahování a zkoumání dat je prostřednictvím uživatelského rozhraní pro vyhledávání výskytů. Pro složité dotazy a agregace však editor SQL poskytuje větší volnost."
     }
   }
 }
