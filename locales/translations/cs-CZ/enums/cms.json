@@ -112,7 +112,7 @@
           "bill": ""
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Odborníci na znalost biodiverzity",
           "DATA_HOLDERS": "Držitelé dat",
           "DATA_USERS": "Uživatelé dat",
           "DECISION_MAKERS": "Rozhodující",
