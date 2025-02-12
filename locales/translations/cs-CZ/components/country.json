@@ -2,7 +2,7 @@
   "countryKey": {
     "tabs": {
       "summary": "Shrnutí",
-      "dataPublishing": "",
+      "dataPublishing": "Publikování dat",
       "dataAbout": "",
       "participartion": "Účast",
       "publicationsFrom": "",
@@ -21,12 +21,12 @@
     "trendsAboutCountry": "",
     "nFrom": "",
     "nAbout": "",
-    "viewAllN": "",
+    "viewAllN": "Zobrazit všech {NUMBER_FORMATTED}",
     "noPublications": "Žádné publikace",
     "noProjects": "Žádné projekty",
     "notParticipant": "Není účastník",
-    "notParticipantDescription": "",
-    "countryNamingDisclaimer": "",
+    "notParticipantDescription": "Tato země není účastníkem GBIF",
+    "countryNamingDisclaimer": "Názvy zemí a oblastí vycházejí z normy [ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
       "occurrences": "",
       "datasets": "",
