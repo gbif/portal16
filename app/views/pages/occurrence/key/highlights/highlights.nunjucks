@@ -87,10 +87,10 @@
                                         <ul class="inline-bullet-list">
                                             {% for type in occurrence.record.typeStatusArray %}
                                               <li>
-                                                  {% if (type == "HOLOTYPE") %}
-                                                  <span style="background: tomato; color: white; padding: 1px 5px" class="hoverBox" translate="typeStatus.{$ type $}">{$ type $}</span>
+                                                  {% if (type == "Holotype") %}
+                                                  <span style="background: tomato; color: white; padding: 1px 5px" class="hoverBox" concept vocabulary="TypeStatus" name="{$ type $}"></span>
                                                   {% else %}
-                                                   <span style="padding: 1px 5px;  background: #f1f1f1"  class="hoverBox" translate="typeStatus.{$ type $}">{$ type $}</span>
+                                                   <span style="padding: 1px 5px;  background: #f1f1f1"  class="hoverBox"concept vocabulary="TypeStatus" name="{$ type $}"></span>
                                                    {% endif %}
                                                 </li>
                                             {% endfor %}
