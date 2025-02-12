@@ -51,7 +51,7 @@
                     <input type="checkbox" checklist-model="vm.query" checklist-value="key"
                            ng-change="vm.add(key, checked, facet)">
                     <span class="filter-group__filter__name">
-                        <span dir="auto" class="filter-group__filter__name__title">{{facet.title}}</span>
+                        <span dir="auto" class="filter-group__filter__name__title">{{vm.usedKeys[key] || facet.title}}</span>
                         <span class="filter-group__filter__name__count" ng-if="!vm.hideFacetCounts">{{facet.count | localNumber:vm.filterState.query.locale}}</span>
                     </span>
                 </label>

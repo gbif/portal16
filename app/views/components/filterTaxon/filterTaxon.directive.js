@@ -45,7 +45,7 @@ function filterTaxonDirective(BUILD_VERSION) {
             return vm.filterState.query[vm.queryKey];
         }, function(newQuery) {
             vm.query = $filter('unique')(newQuery);
-            resolveAllKeys();
+            resolveAllKeys(vm.query);
         });
 
         $scope.$watchCollection(function() {
@@ -66,28 +66,31 @@ function filterTaxonDirective(BUILD_VERSION) {
             });
         }
 
-        function resolveAllKeys() {
-            vm.query.forEach(function(e) {
+        function resolveAllKeys(list) {
+            list.forEach(function(e) {
                 getFullResource(e);
             });
         }
 
-        resolveAllKeys();
+        resolveAllKeys(vm.query);
 
         vm.hideFacetCounts = false;
         vm.suggestions = {};
         vm.setFacetSuggestions = function() {
             if (vm.filterConfig.facets && vm.filterConfig.facets.hasFacets) {
                 vm.hideFacetCounts = true;
+                console.log('get suggestions');
                 if (vm.query.length > 0 && vm.filterState.facetMultiselect && vm.filterState.facetMultiselect.$promise) {
                     vm.filterState.facetMultiselect.$promise.then(function(data) {
                         vm.hideFacetCounts = false;
                         vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                        resolveAllKeys(Object.keys(vm.suggestions.counts));
                     });
                 } else {
                     vm.filterState.data.$promise.then(function(data) {
                         vm.hideFacetCounts = false;
                         vm.suggestions = data.facets[vm.filterConfig.facets.facetKey];
+                        resolveAllKeys(Object.keys(vm.suggestions.counts));
                     });
                 }
             }

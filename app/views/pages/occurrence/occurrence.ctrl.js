@@ -1079,7 +1079,7 @@ function occurrenceCtrl($scope, $state, $window, hotkeys, enums, DegreeOfEstabli
       expandedTitle: 'name'
     },
     facets: {
-      hasFacets: false,
+      hasFacets: true,
       facetKey: 'SEX'
     },
     search: {
