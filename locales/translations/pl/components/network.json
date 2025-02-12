@@ -4,11 +4,11 @@
     "tabs": {
       "summary": "Podsumowanie",
       "homepage": "Strona główna",
-      "metrics": "",
+      "metrics": "Metryka",
       "datasets": "Zbiory danych",
       "publishers": "Wydawcy"
     },
-    "registeredDate": "",
+    "registeredDate": "Zarejestrowano {DATE}",
     "nParticipatingDatasets": "",
     "nParticipatingPublishers": ""
   }
