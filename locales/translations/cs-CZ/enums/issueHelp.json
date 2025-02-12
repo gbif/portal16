@@ -1,7 +1,7 @@
 {
   "issueHelp": {
-    "BASIS_OF_RECORD_INVALID": "",
-    "COORDINATE_REPROJECTION_FAILED": "",
+    "BASIS_OF_RECORD_INVALID": "Hodnota basisOfRecord buď chybí, nebo je neplatná. Hodnota musí odpovídat slovníku Darwin Core Type Vocabulary.",
+    "COORDINATE_REPROJECTION_FAILED": "Zadanou desetinnou zeměpisnou šířku a délku nebylo možné na základě zadaných datových údajů přepočítat na souřadnice WGS84.",
     "NO_SPECIES": "",
     "RECORDED_DATE_INVALID": "",
     "PRESUMED_NEGATED_LATITUDE": "",
