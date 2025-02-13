@@ -1,19 +1,19 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{záznam} few {záznamy} many {záznamů} other{záznamů}} z této datové sady",
     "derivedDataset": "Odvozená datová sada",
-    "sourceUrl": "",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
+    "sourceUrl": "Přístup k odvozené datové sadě",
+    "headlineDatasets": "Záznamy z {NUMBER_FORMATED} {NUMBER, plural, one{datové sady} few {datových sad} many {datových sad} other{datových sad}} v odvozené datové sadě",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{výskyt} few {výskyty} many {výskytů} other{výskytů}} v odvozené datové sadě",
     "title": "Název",
     "description": "",
     "originalDownloadDOI": "Datová sada odvozená ze stažení"
   },
   "downloadKey": {
-    "nOccurrencesDownloaded": "",
-    "nRecordsDownloaded": "",
+    "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{výskyt} few {výskyty} many {výskytů} other{výskytů}} obsaženo v souboru ke stažení",
+    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{záznam} few {záznamy} many {záznamů} other{záznamů}} zahrnuto v souboru ke stažení",
     "nRowsDownloaded": "",
-    "nConstituentDatasets": "",
+    "nConstituentDatasets": "Zahrnuje záznamy z {NUMBER_FORMATTED} {NUMBER, plural, one{datové sady} few {datových sad} many {datových sad} other{datových sad}}",
     "fileNotAvailable": "Tento soubor již není dostupný ke stažení",
     "downloadDeletionWarning": "Pokud [GBIF nezjistí citace](/literature-tracking) tohoto stažení, je datový soubor způsobilý k vymazání po {DATE}.",
     "occurrenceDownload": "Stažení výskytu",
