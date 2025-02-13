@@ -19,7 +19,7 @@
       "UNKNOWN_ROWTYPE": "RowType použitý pro core/extension je neznámý.",
       "REQUIRED_TERM_MISSING": "Chybí požadovaný výraz pro core/extension",
       "COLUMN_MISMATCH": "",
-      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
+      "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Porušení referenční integrity záznamu",
       "UNKNOWN_TERM": "Neznámý termín",
       "DUPLICATED_TERM": "Duplicitní termín",
       "TITLE_MISSING_OR_TOO_SHORT": "Název datové sady chybí nebo je příliš krátký.",
