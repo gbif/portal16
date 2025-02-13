@@ -1,7 +1,7 @@
 {
   "collection": {
     "search": {
-      "title": "",
+      "title": "Kolekcje",
       "description": ""
     },
     "tabs": {
@@ -9,7 +9,7 @@
       "homepage": "Strona główna",
       "metrics": "Metryka"
     },
-    "headerTitle": "",
+    "headerTitle": "Kolekcja",
     "description": "Opis",
     "institutionName": "",
     "code": "",
@@ -97,7 +97,7 @@
     "tabs": {
       "about": "",
       "institutions": "",
-      "collections": "",
+      "collections": "Kolekcje",
       "people": ""
     },
     "contact": {
