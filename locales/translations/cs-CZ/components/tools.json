@@ -88,11 +88,11 @@
             "editCompleted": "Úprava dokončena",
             "newRegistration": "Nová registrace",
             "goToDataset": "Přejít na datovou sadu",
-            "yourDerivedDatasets": "",
-            "backToEdit": "",
-            "mintingDoi": "",
-            "attachCsvLabel": "",
-            "orEnterLabel": ""
+            "yourDerivedDatasets": "Vaše odvozené datové sady",
+            "backToEdit": "Zpět na úpravy",
+            "mintingDoi": "Vytváření DOI - to by nemělo trvat dlouho.",
+            "attachCsvLabel": "Připojte [soubor CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) s klíči datového souboru a počty výskytů",
+            "orEnterLabel": "Nebo zadejte klíče datové sady/DOI a počty výskytů zde"
         },
         "occurrenceSnapshots": {
             "title": ""
