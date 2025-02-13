@@ -85,79 +85,79 @@
     "reformat": "Reformatuj",
     "invalidJson": "Nieprawidłowy JSON",
     "title": "Stwórz nowe pobranie",
-    "invalidUrlPredicate": "",
+    "invalidUrlPredicate": "Nieważny predykat w adresie URL ",
     "redirectNotice": "Wygląda na to, że zostałeś przekierowany tu z innej strony. Aby pobrać, musisz najpierw się zalogować lub zarejestrować."
   },
   "customSqlDownload": {
     "invalidSQL": "Nieprawidłowy SQL",
-    "title": "",
-    "notification": "",
-    "occurrenceSearch": "",
+    "title": "Stwórz nowe pobranie SQL",
+    "notification": "Najprostszym sposobem na pobieranie i przeglądanie danych to użycie interfejsu użytkownika wyszukiwarki stwierdzeń. Jednak dla złożonych zapytań i zbiorów edytor SQL daje więcej możliwości.",
+    "occurrenceSearch": "Wyszukiwanie stwierdzeń",
     "taxon": {
-      "KINGDOM": "",
-      "PHYLUM": "",
-      "CLASS": "",
-      "ORDER": "",
-      "FAMILY": "",
-      "GENUS": "",
+      "KINGDOM": "Królestwo",
+      "PHYLUM": "Typ/Gromada",
+      "CLASS": "Klasa",
+      "ORDER": "Rząd",
+      "FAMILY": "Rodzina",
+      "GENUS": "Rodzaj",
       "SPECIES": "Gatunek\n",
-      "ACCEPTED_TAXON": "",
-      "EXACT_TAXON": ""
+      "ACCEPTED_TAXON": "Przyjęty takson",
+      "EXACT_TAXON": "Dokładny takson"
     },
     "cubeTitle": "",
-    "cubeDescription": "",
+    "cubeDescription": "Symbol zastępczy opisu",
     "readMore": "Zobacz więcej",
     "time": {
       "YEAR": "Rok",
-      "YEARMONTH": "",
+      "YEARMONTH": "Rok i miesiąc",
       "DATE": "Data"
     },
     "boolean": {
       "YES": "Tak",
       "NO": "Nie"
     },
-    "sqlMachineDescriptionIntro": "",
-    "occurrenceMeasurements": "",
+    "sqlMachineDescriptionIntro": "Pobranie SQL zostało wygenerowane w oparciu o parametry podane przez użytkownika",
+    "occurrenceMeasurements": "Liczba stwierdzeń (zawsze uwzględniona)",
     "grid": {
-      "EEA_REFERENCE_GRID": "",
-      "EXTENDED_QUARTER_DEGREE_GRID": "",
-      "ISEA3H_GRID": "",
-      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+      "EEA_REFERENCE_GRID": "Siatka odniesienia EEA - tylko Europa",
+      "EXTENDED_QUARTER_DEGREE_GRID": "Komórki siatki ćwierćstopniowej (QDGC)",
+      "ISEA3H_GRID": "Siatka ISEA3H",
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Militarne systemy siatek odniesienia (MRGS)"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
-        "25": "",
-        "100": "",
-        "250": "",
-        "1000": "",
-        "10000": "",
-        "100000": ""
+        "25": "25 m",
+        "100": "100 m",
+        "250": "250 m",
+        "1000": "1 km",
+        "10000": "10 km",
+        "100000": "100 km"
       },
       "EXTENDED_QUARTER_DEGREE_GRID": {
-        "0": "",
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "6": ""
+        "0": "Poziom 0",
+        "1": "Poziom 1",
+        "2": "Poziom 2",
+        "3": "Poziom 3",
+        "4": "Poziom 4",
+        "5": "Poziom 5",
+        "6": "Poziom 6"
       },
       "ISEA3H_GRID": {
-        "0": "",
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "6": "",
-        "7": "",
-        "8": "",
-        "9": "",
-        "10": "",
-        "11": "",
-        "12": "",
-        "13": "",
-        "14": "",
+        "0": "Poziom 0",
+        "1": "Poziom 1",
+        "2": "Poziom 2",
+        "3": "Poziom 3",
+        "4": "Poziom 4",
+        "5": "Poziom 5",
+        "6": "Poziom 6",
+        "7": "Poziom 7",
+        "8": "Poziom 8",
+        "9": "Poziom 9",
+        "10": "Poziom 10",
+        "11": "Poziom 11",
+        "12": "Poziom 12",
+        "13": "Poziom 13",
+        "14": "Poziom 14",
         "15": "",
         "16": "",
         "17": "",
@@ -203,7 +203,7 @@
       "higherTaxonomy": "",
       "minCoordinateUncertainty": "",
       "minTemporalUncertainty": "",
-      "editSql": ""
+      "editSql": "Najprostszym sposobem na pobieranie i przeglądanie danych to użycie interfejsu użytkownika wyszukiwarki stwierdzeń. Jednak dla złożonych zapytań i zbiorów edytor SQL daje więcej możliwości."
     }
   }
 }
