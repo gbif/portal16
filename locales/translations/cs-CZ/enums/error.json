@@ -1,6 +1,6 @@
 {
     "error": {
         "USER_ALREADY_EXIST": "Uživatel již existuje. Zkuste prosím jiné uživatelské jméno nebo e-mail",
-        "CONSTRAINT_VIOLATION": ""
+        "CONSTRAINT_VIOLATION": "Neplatné nebo nedostatečné informace"
     }
 }
