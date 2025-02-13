@@ -3,9 +3,9 @@
     "title": "Hledat",
     "placeholder": "Výskyty, druhy, novinky...",
     "noSearchTermsEntered": "Nebyly zadány žádné hledané výrazy",
-    "notSureWhatYouAreLookingFor": "",
-    "cannotFindWhatYouAreLookingFor": "",
-    "trySpecifyingAType": "",
+    "notSureWhatYouAreLookingFor": "Nejste si jisti, co hledáte? Co se podívat na obrázky výskytu druhů?",
+    "cannotFindWhatYouAreLookingFor": "Nemůžete najít, co hledáte?",
+    "trySpecifyingAType": "Zkuste zadat typ",
     "everything": "Vše",
     "occurrences": "Výskyty",
     "species": "Druh",
@@ -26,9 +26,9 @@
       "searchDatasets": "Hledat datové sady",
       "searchPublishers": "Hledat vydavatele",
       "searchSpecies": "Vyhledat druhy",
-      "searchResources": "",
+      "searchResources": "Hledat zdroje",
       "searchOccurrences": "Vyhledat výskyty"
     },
-    "nResults": ""
+    "nResults": "{NUMBER_FORMATED} {NUMBER, plural, one{výsledek} few {výsledky} many {výsledků} other{výsledků}}"
   }
 }
