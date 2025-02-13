@@ -31,11 +31,11 @@
       "occurrences": "",
       "datasets": "",
       "publishers": "",
-      "countriesAndAreasContributeData": "",
+      "countriesAndAreasContributeData": "Země a oblasti přispívající daty",
       "publishedOccurrences": "",
       "publishedDatasets": "",
-      "countriesAndAreasCoveredByDataFrom": "",
-      "publishersFrom": ""
+      "countriesAndAreasCoveredByDataFrom": "Země a oblasti pokryté daty z {TRANSLATED_COUNTRY}",
+      "publishersFrom": "Vydavatelé z {TRANSLATED_COUNTRY}"
     },
     "activityReport": ""
   }
