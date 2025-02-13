@@ -10,19 +10,19 @@
       "STORAGE_OTHER": "",
       "STORAGE_REFRIGERATED": "",
       "STORAGE_RECORDED": "",
-      "STORAGE_VACUUM": "",
-      "SAMPLE_CRYOPRESERVED": "",
-      "SAMPLE_DRIED": "",
-      "SAMPLE_EMBEDDED": "",
-      "SAMPLE_FLUID_PRESERVED": "",
-      "SAMPLE_PINNED": "",
-      "SAMPLE_PRESSED": "",
-      "SAMPLE_SKELETONIZED": "",
-      "SAMPLE_SLIDE_MOUNT": "",
-      "SAMPLE_SURFACE_COATING": "",
-      "SAMPLE_TANNED": "",
-      "SAMPLE_WAX_BLOCK": "",
-      "SAMPLE_OTHER": ""
+      "STORAGE_VACUUM": "Vakuové skladování",
+      "SAMPLE_CRYOPRESERVED": "Kryokonzervovaný vzorek",
+      "SAMPLE_DRIED": "Vysušený vzorek",
+      "SAMPLE_EMBEDDED": "Vložený vzorek",
+      "SAMPLE_FLUID_PRESERVED": "Uchovávaný vzorek tekutiny",
+      "SAMPLE_PINNED": "Přišpendlený vzorek",
+      "SAMPLE_PRESSED": "Lisovaný vzorek",
+      "SAMPLE_SKELETONIZED": "Vzorek kostry",
+      "SAMPLE_SLIDE_MOUNT": "Vzorek na podložním sklíčku",
+      "SAMPLE_SURFACE_COATING": "Vzorek s povrchovou úpravou",
+      "SAMPLE_TANNED": "Vzorek opálený",
+      "SAMPLE_WAX_BLOCK": "Vzorek ve voskovém bloku",
+      "SAMPLE_OTHER": "Vzorek ostatní"
     }
   }
 }
