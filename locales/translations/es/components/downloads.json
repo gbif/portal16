@@ -90,9 +90,9 @@
   },
   "customSqlDownload": {
     "invalidSQL": "SQL inválido",
-    "title": "Crear nueva descarga de SQL",
+    "title": "Crear una nueva descarga SQL",
     "notification": "La forma más sencilla de descargar y explorar datos es a través de la interfaz de usuario de búsqueda de registros biológicos. Pero para consultas y agregaciones complejas, el editor SQL ofrece más libertad.",
-    "occurrenceSearch": "Buscador de registro de presencia",
+    "occurrenceSearch": "Buscador de registros biológicos",
     "taxon": {
       "KINGDOM": "Reino",
       "PHYLUM": "Filo/División",
@@ -116,11 +116,11 @@
       "YES": "Sí",
       "NO": "No"
     },
-    "sqlMachineDescriptionIntro": "La descarga de SQL se generó en función de los parámetros proporcionados por el usuario.",
+    "sqlMachineDescriptionIntro": "La descarga SQL se generó en función de los parámetros proporcionados por el usuario.",
     "occurrenceMeasurements": "Recuento de registros biológicos (siempre incluido)",
     "grid": {
-      "EEA_REFERENCE_GRID": "Cuadrícula de referencia del EEE - solo Europa",
-      "EXTENDED_QUARTER_DEGREE_GRID": "Cuadrícula extendida de un cuarto de grado (QDGC)",
+      "EEA_REFERENCE_GRID": "Grilla de referencia del EEE - solo Europa",
+      "EXTENDED_QUARTER_DEGREE_GRID": "Grilla extendida de un cuarto de grado (QDGC)",
       "ISEA3H_GRID": "Grilla ISEA3H",
       "MILITARY_GRID_REFERENCE_SYSTEM": "Sistemas de referencia de red militar (MGRS)"
     },
