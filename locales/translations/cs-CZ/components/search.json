@@ -1,8 +1,8 @@
 {
   "search": {
     "title": "Hledat",
-    "placeholder": "",
-    "noSearchTermsEntered": "",
+    "placeholder": "Výskyty, druhy, novinky...",
+    "noSearchTermsEntered": "Nebyly zadány žádné hledané výrazy",
     "notSureWhatYouAreLookingFor": "",
     "cannotFindWhatYouAreLookingFor": "",
     "trySpecifyingAType": "",
