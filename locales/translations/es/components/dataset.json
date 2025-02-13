@@ -14,7 +14,7 @@
       "withYear": "Con año",
       "acceptedNames": "Nombres aceptados",
       "synonyms": "Sinónimos",
-      "overlapWithNub": "Superponer con el Backbone de GBIF",
+      "overlapWithNub": "Solapamiento con el árbol taxonómico de GBIF",
       "overlapWithCol": "Superponer con el Catálogo de la Vida"
     },
     "noStatsForMetadata": "Las estadísticas no están disponibles para los metadatos, sólo para los conjuntos de datos",
