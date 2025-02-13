@@ -18,7 +18,7 @@
     "publishingTrends": "",
     "noDataPublishingActivity": "Žádná aktivita zveřejňování dat",
     "noInstitutionsHavePublished": "",
-    "trendsAboutCountry": "",
+    "trendsAboutCountry": "Trendy o {TRANSLATED_COUNTRY}",
     "nFrom": "",
     "nAbout": "",
     "viewAllN": "Zobrazit všech {NUMBER_FORMATTED}",
