@@ -1,6 +1,6 @@
 {
     "health": {
-        "automatedMonitoring": "",
+        "automatedMonitoring": "Automatizované monitorování",
         "systemLoad": "Zatížení systému",
         "messages": "Zprávy",
         "version": "Verze",
