@@ -6,7 +6,7 @@
       "metrics": "Metriky",
       "publishersHomepage": "Domovská stránka"
     },
-    "joinedAgo": "",
+    "joinedAgo": "Připojen {TIME_AGO}",
     "newPublisher": "Nový vydavatel",
     "technicalContact": "Technický kontakt",
     "country": "Země nebo oblast",
