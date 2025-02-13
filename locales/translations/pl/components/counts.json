@@ -19,14 +19,14 @@
         "nContacts": "{NUMBER_FORMATED} {NUMBER, plural, one{kontakt} other{kontakty}}",
         "pRecords": "{NUMBER, plural, one{zapis} few {zapisy} many {zapisów} other{zapisów}}",
         "pOccurrence": "{NUMBER, plural, one{Występowanie} other{występowania}}",
-        "pMaterialSamples": "",
+        "pMaterialSamples": "{NUMBER, plural, one{analizowany materiał} few {analizowane materiały} many {analizowanych materiałów} other{analizowanych materiałów}}",
         "pSpecies": "{NUMBER, plural,one{gatunek} other{gatunki}}",
-        "pInfraspecies": "",
+        "pInfraspecies": "{NUMBER, plural, one{podgatunek} few {podgatunki} many {podgatunków} other{podgatunków}}",
         "pPublishers": "{NUMBER, plural, one{wydawca} other{wydawcy}}",
         "contacts": "{NUMBER, plural,one{kontakt} other{kontakty}}",
-        "nTreatments": "",
+        "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, one{działanie} few {działanie} many {działań} other{działań}}",
         "nAbsent": "",
         "nImages": "{NUMBER_FORMATED} {NUMBER, plural,one{zdjęcie} other{zdjęcia}}",
-        "nMore": ""
+        "nMore": "{NUMBER_FORMATED} {NUMBER, plural, one{więcej} few {więcej} many {więcej} other{więcej}}"
     }
 }
