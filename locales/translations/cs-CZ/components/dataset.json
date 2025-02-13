@@ -77,7 +77,7 @@
     "pNetwork": "",
     "parentEvent": "Nadřazená událost",
     "eventDescription": "Popis události",
-    "siblingEvents": "",
+    "siblingEvents": "Příbuzné události",
     "childEvents": "Podřazená událost",
     "events": "Události",
     "occurrenceCount": "Počet výskytů",
