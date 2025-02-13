@@ -6,7 +6,7 @@
         "ENDANGERED": "Ohrožený",
         "VULNERABLE": "Zranitelný",
         "NEAR_THREATENED": "Téměř ohrožený",
-        "LEAST_CONCERN": "",
+        "LEAST_CONCERN": "Nejmenší znepokojení",
         "DATA_DEFICIENT": "Chybějící data",
         "NOT_EVALUATED": "Není hodnoceno"
     }
