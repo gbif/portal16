@@ -13,7 +13,7 @@
     "description": "Popis",
     "institutionName": "Název instituce",
     "code": "Kód",
-    "alternativeCodes": "",
+    "alternativeCodes": "Alternativní kódy",
     "statusOfCollection": "Stav sbírky",
     "personalCollection": "Osobní sbírka",
     "isPersonalCollection": {
