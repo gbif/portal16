@@ -67,8 +67,8 @@
       "RECORDS_DOCUMENTATION": "Záznamy - dokumentace",
       "RECORDS_DERIVED_DATA": "Záznamy - odvozená data",
       "RECORDS_ASSOCIATED_DATA": "Záznamy - přidružená data",
-      "RECORDS_MAPS": "",
-      "RECORDS_RECORDINGS": ""
+      "RECORDS_MAPS": "Záznamy - mapy",
+      "RECORDS_RECORDINGS": "Záznamy - nahrávky"
     }
   }
 }
