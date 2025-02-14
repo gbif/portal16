@@ -47,7 +47,7 @@
       "metrics": "Metriky"
     },
     "headerTitle": "Instituce",
-    "indexHerbariorumIdentifier": "",
+    "indexHerbariorumIdentifier": "ID rejstříku herbářů",
     "numberSpecimens": "Počet exemplářů",
     "code": "Kód instituce",
     "alternativeCodes": "Alternativní kódy",
@@ -56,7 +56,7 @@
     "description": "Popis",
     "homepage": "Hlavní stránka",
     "foundingDate": "Datum založení",
-    "geographicDescription": "",
+    "geographicDescription": "Zeměpisný popis",
     "taxonomicDescription": "Taxonomický popis",
     "citesPermitNumber": "",
     "disciplines": "Institucionální disciplíny",
