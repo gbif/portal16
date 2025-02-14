@@ -73,32 +73,32 @@
   "grscicollPerson": {
     "title": "Osoba",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Zaměstnanci sbírky",
+      "description": "Zaměstnanci GRSciColl jsou všichni zaměstnanci, kteří se podílejí na práci se sbírkami. Mohou být spojeni s institucí a/nebo s jakýmkoli typem sbírky."
     },
-    "headerTitle": "",
+    "headerTitle": "Zaměstnanci sbírky",
     "firstName": "Jméno",
     "lastName": "Příjmení",
     "fullName": "Celé jméno",
     "position": "Pracovní pozice",
     "affiliations": "Příslušnost",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
-    "affiliateCollections": ""
+    "areaResponsibility": "Oblast působnosti",
+    "researchPursuits": "Výzkumná specializace",
+    "primaryInstitution": "Název primární instituce",
+    "primaryCollection": "Název primární sbírky",
+    "affiliateInstitutions": "Další přidružené instituce",
+    "affiliateCollections": "Další partnerské sbírky"
   },
   "grscicoll": {
-    "title": "",
-    "suggestChange": "",
-    "suggestNewCollection": "",
-    "suggestNewInstitution": "",
+    "title": "GRSciColl",
+    "suggestChange": "Navrhnout změnu",
+    "suggestNewCollection": "Navrhnout novou sbírku",
+    "suggestNewInstitution": "Navrhnout novou instituci",
     "tabs": {
       "about": "O",
       "institutions": "Instituce",
       "collections": "Sbírky",
-      "people": ""
+      "people": "Zaměstnanci"
     },
     "contact": {
       "phone": "Telefonní číslo",
@@ -108,8 +108,8 @@
       "physicalAddress": "Fyzická adresa",
       "contacts": "Kontakty",
       "address": "Adresa",
-      "province": "",
-      "postalCode": "",
+      "province": "Stát/kraj",
+      "postalCode": "PSČ",
       "city": "Město/obec",
       "country": "Země"
     }
