@@ -28,8 +28,8 @@
     "notParticipantDescription": "Tato země není účastníkem GBIF",
     "countryNamingDisclaimer": "Názvy zemí a oblastí vycházejí z normy [ISO 3166-1](https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "",
-      "datasets": "",
+      "occurrences": "{NUMBER, plural, 0 {Výskytů} one {Výskyt} other {Výskytů}}",
+      "datasets": "{NUMBER, plural, 0 {Datových sad} one {Datová sada} other {Datových sad}}",
       "publishers": "",
       "countriesAndAreasContributeData": "Země a oblasti přispívající daty",
       "publishedOccurrences": "Zveřejněné výskyty",
