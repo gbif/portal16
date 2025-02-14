@@ -1,12 +1,12 @@
 {
   "enum": {
     "institutionGovernance": {
-      "ACADEMIC_FEDERAL": "",
-      "ACADEMIC_FOR_PROFIT": "",
-      "ACADEMIC_LOCAL": "",
-      "ACADEMIC_NON_PROFIT": "",
+      "ACADEMIC_FEDERAL": "Věda - federální",
+      "ACADEMIC_FOR_PROFIT": "Věda - zisková akademická činnost",
+      "ACADEMIC_LOCAL": "Věda - místní",
+      "ACADEMIC_NON_PROFIT": "Věda - nezisková akademická činnost",
       "ACADEMIC_STATE": "Akademická půda",
-      "FEDERAL": "",
+      "FEDERAL": "Federální",
       "FOR_PROFIT": "Za účelem zisku",
       "LOCAL": "Lokální",
       "NON_PROFIT": "Neziskový",
