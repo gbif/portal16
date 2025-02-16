@@ -2,12 +2,14 @@
   "downloadFormat": {
     "SIMPLE_AVRO": "Avroاباتشي",
     "SIMPLE_CSV": "بسيط",
+    "CUBE": "التساويات { is }",
     "DWCA": "أرشيف داروين الأساسي",
     "SPECIES_LIST": "قائمة الأنواع",
     "SIMPLE_WITH_VERBATIM_AVRO": "",
     "MAP_OF_LIFE": "",
     "IUCN": "",
     "BIONOMIA": "تصدير البيونوميا (علم العلاقات بين الانسان والبيئة)",
+    "SQL_TSV_ZIP": "التساويات { is }",
     "SIMPLE_PARQUET": ""
   }
 }

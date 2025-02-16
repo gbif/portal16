@@ -50,25 +50,25 @@
     "sinceDate": "З {DATE}",
     "showAllContacts": "Усі",
     "person": {
-      "volunteer": "Архів анотований GBIF",
+      "volunteer": "",
       "name": "Ім’я",
-      "annualBadges": "Архів анотований GBIF",
+      "annualBadges": "",
       "language": "Мова",
       "country": "Країна або територія",
-      "affiliation": "Архів анотований GBIF",
-      "recipient": "Архів анотований GBIF",
-      "areasExpertise": "Архів анотований GBIF",
-      "orcId": "Архів анотований GBIF",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
       "year": "Рік",
       "email": "Електронна пошта"
     },
     "award": {
-      "GRA": "Архів анотований GBIF",
-      "EBBE1ST": "Архів анотований GBIF",
-      "EBBE2ND": "Архів анотований GBIF",
-      "EBBE3RD": "Архів анотований GBIF"
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
     },
-    "prize": "Архів анотований GBIF",
+    "prize": "",
     "year": "Рік"
   }
 }

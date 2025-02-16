@@ -367,8 +367,8 @@
                                     <label for="taxonomy" translate="customSqlDownload.taxonomicDimension">Taxonomic dimension</label><br/>
                                     <div class="m-b-05 discreet" translate="customSqlDownload.help.taxonomicDimension"></div>
                                     <select id="taxonomy"
-                                            ng-change="$ctrl.setHigherCounts()" 
-                                            ng-model="$ctrl.taxonomy" 
+                                            ng-change="$ctrl.setHigherCounts()"
+                                            ng-model="$ctrl.taxonomy"
                                             ng-options="taxon as (('customSqlDownload.taxon.' + taxon) | translate) for taxon in $ctrl.TAXONOMIC_GROUP">
                                         <option value="" translate="customSqlDownload.noneSelected">None selected</option>
                                     </select>
@@ -379,8 +379,8 @@
                                     <!-- Temporal Dropdown -->
                                     <label for="temporal" translate="customSqlDownload.temporalDimension">Temporal dimension</label><br/>
                                     <div class="m-b-05 discreet" translate="customSqlDownload.help.temporalDimension"></div>
-                                    <select id="temporal" 
-                                            ng-model="$ctrl.temporal" 
+                                    <select id="temporal"
+                                            ng-model="$ctrl.temporal"
                                             ng-options="time as (('customSqlDownload.time.' + time) | translate) for time in $ctrl.TEMPORAL_GROUP" required>
                                         <option value="" translate="customSqlDownload.noneSelected">None selected</option>
                                     </select>
@@ -395,8 +395,8 @@
                                             <div>
                                                 <label for="spatial1" translate="customSqlDownload.spatialDimension">Grid</label><br/>
                                                 <div class="m-b-05 discreet" translate="customSqlDownload.help.grid"></div>
-                                                <select id="spatial1" 
-                                                        ng-model="$ctrl.spatial" 
+                                                <select id="spatial1"
+                                                        ng-model="$ctrl.spatial"
                                                         ng-change="$ctrl.setResolutionOptions()"
                                                         ng-options="grid as (('customSqlDownload.grid.' + grid) | translate) for grid in $ctrl.SPATIAL_GROUP" required>
                                                     <option value="" translate="customSqlDownload.noneSelected">None selected</option>
@@ -405,8 +405,8 @@
                                             <div class="m-t-05">
                                                 <label for="spatial2" translate="customSqlDownload.spatialResolution">Spatial resolution</label><br/>
                                                 <div class="m-b-05 discreet" translate="customSqlDownload.help.gridResolution"></div>
-                                                <select ng-disabled="!$ctrl.spatial" 
-                                                        id="spatial2" ng-model="$ctrl.resolution" 
+                                                <select ng-disabled="!$ctrl.spatial"
+                                                        id="spatial2" ng-model="$ctrl.resolution"
                                                         ng-options="location as (('customSqlDownload.resolution.' + $ctrl.spatial + '.' + location) | translate) for location in $ctrl.resolutionOptions[$ctrl.spatial]">
                                                         <option value="" disabled translate="customSqlDownload.noneSelected">None selected</option>
                                                 </select>
@@ -467,7 +467,7 @@
                                 <div class="card__content">
                                     <fieldset>
                                         <legend><label translate="customSqlDownload.coordinateUncertainty">Include minimum coordinate uncertainty</label></legend>
-                                        <div class="m-b-05 discreet" translate="customSqlDownload.help.minCoorindateUncertainty"></div>
+                                        <div class="m-b-05 discreet" translate="customSqlDownload.help.minCoordinateUncertainty"></div>
                                         <div>
                                             <label><input type="radio" ng-model="$ctrl.includeSpatialUncertainty" value="YES"><span class="m-x-05">Yes</span></label>
                                             <label class="m-x-05"><input type="radio" ng-model="$ctrl.includeSpatialUncertainty" value="NO"><span class="m-x-05">No</span></label>
@@ -506,5 +506,3 @@
     </script>
 
 </div>
-
-

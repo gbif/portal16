@@ -49,6 +49,7 @@
     "tableValues": {
       "yes": "✔",
       "yesIfAvailable": "✔ (se disponível)",
+      "yesIfSelected": "",
       "yesLinks": "✔ (links)",
       "no": "✘"
     }

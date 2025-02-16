@@ -258,9 +258,9 @@ async function createSqlDownload(user, query, source) {
     query = query || {};
     expect(query, 'download query').to.be.an('object');
     expect(user.userName, 'user name').to.be.a('string');
-  
+
     let email = user.email;
-  
+
     let url = apiConfig.occurrenceSearchDownload.url;
     if (source) {
       url += '?source=' + encodeURIComponent(source);
@@ -273,7 +273,8 @@ async function createSqlDownload(user, query, source) {
             notificationAddresses: email ? [email] : undefined,
             sendNotification: true,
             format: query.format || 'SQL_TSV_ZIP',
-            sql: query.sql
+            sql: query.sql,
+            machineDescription: query.machineDescription
         },
         userName: user.userName,
         method: 'POST'

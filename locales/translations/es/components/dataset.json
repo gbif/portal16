@@ -2,7 +2,7 @@
   "dataset": {
     "datasetSearchTitle": "Búsqueda de conjunto de datos",
     "longType": {
-      "OCCURRENCE": "Juego de datos de registros biológicos",
+      "OCCURRENCE": "Conjunto de datos de registros biológicos",
       "CHECKLIST": "Conjunto de datos de listas de chequeo",
       "SAMPLING_EVENT": "Evento de muestreo",
       "METADATA": "Conjunto de datos de metadatos"

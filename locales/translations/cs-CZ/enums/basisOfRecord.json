@@ -1,11 +1,11 @@
 {
   "basisOfRecord": {
-    "PRESERVED_SPECIMEN": "",
-    "FOSSIL_SPECIMEN": "",
-    "LIVING_SPECIMEN": "",
+    "PRESERVED_SPECIMEN": "Zachovaný exemplář",
+    "FOSSIL_SPECIMEN": "Fosilní exemplář",
+    "LIVING_SPECIMEN": "Živý exemplář",
     "OBSERVATION": "Pozorování",
     "HUMAN_OBSERVATION": "Pozorování člověkem",
-    "MACHINE_OBSERVATION": "",
+    "MACHINE_OBSERVATION": "Strojové pozorování",
     "MATERIAL_SAMPLE": "Vzorek materiálu",
     "MATERIAL_CITATION": "Citace materiálu",
     "LITERATURE": "Literatura",

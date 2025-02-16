@@ -71,7 +71,7 @@
     "false": "Ne"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "Osoba",
     "search": {
       "title": "",
       "description": ""
@@ -79,9 +79,9 @@
     "headerTitle": "",
     "firstName": "Jméno",
     "lastName": "Příjmení",
-    "fullName": "",
-    "position": "",
-    "affiliations": "",
+    "fullName": "Celé jméno",
+    "position": "Pracovní pozice",
+    "affiliations": "Příslušnost",
     "areaResponsibility": "",
     "researchPursuits": "",
     "primaryInstitution": "",

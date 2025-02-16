@@ -24,6 +24,8 @@
     "payloadTooLarge": "此請求已超過允許大小。請減少並再試一次。聯繫 helpdesk@gbif.org 以取得協助。",
     "readMore": "閱讀更多",
     "share": "分享",
+    "download": "下載",
+    "cancel": "取消",
     "testSiteWarning": "",
     "loginRequiredDueToSpam": "登入以繼續",
     "loginRequiredExplainer": ""

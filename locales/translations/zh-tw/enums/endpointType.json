@@ -14,11 +14,11 @@
     "BIOCASE": "生物典藏品檢索服務",
     "BIOCASE_XML_ARCHIVE": "生物典藏品檢索服務 XML 檔案集",
     "OAI_PMH": "OAI PMH",
-    "COLDP": "GBIF 註記的存檔",
-    "BIOM_1_0": "GBIF 註記的存檔",
-    "BIOM_2_1": "GBIF 註記的存檔",
-    "ACEF": "GBIF 註記的存檔",
-    "TEXT_TREE": "GBIF 註記的存檔",
+    "COLDP": "等於 {is}",
+    "BIOM_1_0": "",
+    "BIOM_2_1": "",
+    "ACEF": "",
+    "TEXT_TREE": "",
     "OTHER": "其它"
   }
 }

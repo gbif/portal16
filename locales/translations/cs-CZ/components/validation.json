@@ -13,32 +13,32 @@
       "DWCA_META_XML_NOT_FOUND": "Soubor Meta.xml nenalezen",
       "DWCA_META_XML_SCHEMA": "Ověření schématu meta.xml selhalo",
       "RECORD_IDENTIFIER_NOT_FOUND": "V souboru nebyl nalezen žádný identifikátor záznamu",
-      "CORE_ROWTYPE_UNDETERMINED": "",
-      "EML_NOT_FOUND": "",
-      "EML_GBIF_SCHEMA": "",
-      "UNKNOWN_ROWTYPE": "",
-      "REQUIRED_TERM_MISSING": "",
+      "CORE_ROWTYPE_UNDETERMINED": "Nepodařilo se najít ani určit žádný typ řádku",
+      "EML_NOT_FOUND": "Nebyl nalezen dokument EML",
+      "EML_GBIF_SCHEMA": "Dokument EML se nevaliduje podle schématu",
+      "UNKNOWN_ROWTYPE": "RowType použitý pro core/extension je neznámý.",
+      "REQUIRED_TERM_MISSING": "Chybí požadovaný výraz pro core/extension",
       "COLUMN_MISMATCH": "",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "",
-      "UNKNOWN_TERM": "",
-      "DUPLICATED_TERM": "",
-      "TITLE_MISSING_OR_TOO_SHORT": "",
+      "UNKNOWN_TERM": "Neznámý termín",
+      "DUPLICATED_TERM": "Duplicitní termín",
+      "TITLE_MISSING_OR_TOO_SHORT": "Název datové sady chybí nebo je příliš krátký.",
       "RESOURCE_CONTACTS_MISSING_OR_INCOMPLETE": "",
       "DESCRIPTION_MISSING_OR_TOO_SHORT": "",
       "LICENSE_MISSING_OR_UNKNOWN": "",
-      "RECORD_NOT_UNIQUELY_IDENTIFIED": "",
-      "UNREADABLE_SECTION_ERROR": "",
-      "UNHANDLED_ERROR": "",
-      "NoIssuesFound": ""
+      "RECORD_NOT_UNIQUELY_IDENTIFIED": "Záznam není jednoznačně identifikován",
+      "UNREADABLE_SECTION_ERROR": "Chyba nečitelné části",
+      "UNHANDLED_ERROR": "Neošetřená chyba",
+      "NoIssuesFound": "Nebyly nalezeny žádné problémy"
     },
     "fileFormat": {
       "title": "Formát souboru",
-      "DWCA": "",
-      "TABULAR": "",
-      "SPREADSHEET": ""
+      "DWCA": "Archiv Darwin Core",
+      "TABULAR": "Soubor s tabulátory (.csv, .tsv)",
+      "SPREADSHEET": "Tabulka (.xlsx)"
     },
     "fileType": {
-      "title": "",
+      "title": "Typ řádku",
       "CORE": {
         "title": "Jádro"
       },
@@ -46,85 +46,85 @@
         "title": "Rozšíření"
       },
       "METADATA": {
-        "description": "",
-        "title": ""
+        "description": "Metadata popisující data v EML (Ecological Metadata Language)",
+        "title": "Metadatový dokument"
       },
       "META_DESCRIPTOR": {
-        "description": "",
-        "title": ""
+        "description": "Sémantická anotace popisující, jak jsou data strukturována (soubory, sloupce atd.)",
+        "title": "Meta deskriptor"
       }
     },
     "fileSize": "Velikost souboru",
-    "fileSizeLimit": "",
+    "fileSizeLimit": "Limit velikosti souboru: 100 MB",
     "receivedMediaType": "Typ média",
     "uniqueIdentifier": "Jedinečný identifikátor",
-    "reportLocation": "",
-    "reportDeletion": "",
-    "reportGenerated": "",
-    "summary": "",
-    "issues": "",
-    "fileHasIssues": "",
-    "fileHasNoIssues": "",
-    "error": "",
+    "reportLocation": "Tato zpráva byla napsána pro",
+    "reportDeletion": "A po měsíci bude smazán. Do té doby se můžete ke zprávě vracet, kdykoli se vám to hodí.",
+    "reportGenerated": "Byla vygenerována",
+    "summary": "Shrnutí ověření",
+    "issues": "Problémy s ověřením",
+    "fileHasIssues": "Validátor zjistil některé problémy:",
+    "fileHasNoIssues": "V souboru nebyly nalezeny žádné problémy",
+    "error": "Chyba",
     "errors": {
-      "401": "",
-      "400": "",
-      "404": "",
-      "413": "",
-      "415": ""
+      "401": "Pro zobrazení této stránky musíte být přihlášeni",
+      "400": "Soubor se nepodařilo zpracovat nebo může chybět, pokud jste zadali URL adresu.",
+      "404": "ID ověřovací úlohy nebylo nalezeno. Pokud se domníváte, že se jedná o chybu, nahlaste ji.",
+      "413": "Soubor je příliš velký na to, aby jej validátor dat mohl zpracovat.",
+      "415": "Nepodporovaný typ souboru. Soubor nelze zpracovat."
     },
-    "backToValidator": "",
+    "backToValidator": "Zahájit nové ověření",
     "termsFrequency": {
       "title": "",
-      "term": "",
+      "term": "Termín",
       "count": "Počet",
       "percentage": "Procentuálně",
       "interpreted": "Interpretováno"
     },
     "interpretedCounts": {
-      "indexed": "",
-      "date": "",
-      "taxon": "",
-      "location": ""
+      "indexed": "Počet indexovaných záznamů",
+      "date": "Počet interpretovaných dat",
+      "taxon": "Počet řádků s interpretovaným taxonem",
+      "location": "Počet interpretovaných souřadnic"
     },
     "interpretedValueCounts": {
-      "title": ""
+      "title": "Počet interpretovaných hodnot"
     },
     "status": {
       "title": "Stav",
       "SUBMITTED": "Odesílání souborů",
-      "FETCHING": "",
-      "ACCEPTED": "",
-      "RUNNING": "",
-      "FINISHED": "",
-      "FAILED": "",
-      "CONTACTING_SERVER": ""
+      "FETCHING": "Načtení souboru",
+      "ACCEPTED": "Ověření zahájeno",
+      "RUNNING": "Ověření probíhá",
+      "FINISHED": "Ověření dokončeno",
+      "FAILED": "Ověření se nezdařilo. Zkontrolujte prosím typ souboru, nebo pokud jste odeslali adresu URL, zkontrolujte, zda soubor v daném umístění existuje.",
+      "CONTACTING_SERVER": "Kontaktování serveru..."
     },
     "jobId": "",
-    "indexeable": "",
-    "notIndexeable": "",
+    "indexeable": "Soubor lze indexovat pomocí GBIF",
+    "notIndexeable": "Soubor nelze indexovat pomocí GBIF",
     "numberOfLines": "",
-    "reportProducedByGbifDataValidator": "",
-    "validationReport": "",
-    "dataValidator": "",
-    "dataValidatorDescription": "",
-    "thisIsAnEarlyAccessVersion": "",
-    "here": "",
-    "coreRowType": "",
+    "reportProducedByGbifDataValidator": "Zpráva vytvořená validátorem dat GBIF",
+    "validationReport": "Zpráva o ověření",
+    "dataValidator": "Validátor dat",
+    "dataValidatorDescription": "Validátor dat GBIF je služba, která umožňuje každému, kdo má k dispozici datovou sadu relevantní pro GBIF, získat zprávu o syntaktické správnosti a platnosti obsahu obsaženého v datové sadě.",
+    "thisIsAnEarlyAccessVersion": "Nahlaste problémy a zpětnou vazbu pomocí",
+    "here": "systému zpětné vazby.",
+    "coreRowType": "Typ základního řádku",
     "submit": "Odeslat",
     "dropHere": "Přetáhněte sem",
     "or": "nebo",
     "selectFile": "Vybrat soubor",
-    "fetchFileFromLocation": "",
-    "started": "",
+    "fetchFileFromLocation": "Načíst soubor z umístění",
+    "started": "spuštěno",
     "tabs": {
-      "newDataValidation": "",
-      "newValidation": "",
+      "newDataValidation": "Nové ověření dat",
+      "newValidation": "Nové ověření",
       "about": "O",
-      "darwinCoreExtensions": "",
+      "darwinCoreExtensions": "Darwin Core rozšíření",
       "metaData": "Metadata",
       "summary": "Shrnutí",
-      "myValidations": ""
+      "myValidations": "Zprávy o ověření"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {

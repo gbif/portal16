@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{registro} other{registros}} descargados",
     "nRecordsDownloaded": "{NUMBER_FORMATED} {NUMBER, plural, one{registro biológico} other{registros biológicos}} en la descarga",
-    "nRowsDownloaded": "Aquí debe colocarse una breve descripción del componente",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "Incluye registros de {NUMBER_FORMATTED} {NUMBER, select, one{conjunto de datos} other{conjuntos de datos}}",
     "fileNotAvailable": "El archivo ya no está disponible para descarga",
     "downloadDeletionWarning": "Esta descarga no se ha citado y es posible eliminarla despues de {DATE}.",
@@ -47,8 +47,8 @@
     "predatesDoi": "Esta descarga es anterior a nuestro uso de DOIs",
     "file": "Archivo",
     "constituentDatasets": "Conjuntos de datos implicados",
-    "constituentOrganizations": "Aquí debe colocarse una breve descripción del componente",
-    "constituentPublishingCountries": "Aquí debe colocarse una breve descripción del componente",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "No hay filtros establecidos",
     "apiUsageDescription": "Para repetir la descarga con los datos de hoy utilizando las API, puede usar la siguiente solicitud.",
     "apiFilterView": "API",
@@ -87,5 +87,118 @@
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "SQL inválido",
+    "title": "Crear nueva descarga de SQL",
+    "notification": "La forma más sencilla de descargar y explorar datos es a través de la interfaz de usuario de búsqueda de registros biológicos. Pero para consultas y agregaciones complejas, el editor SQL ofrece más libertad.",
+    "occurrenceSearch": "Buscador de registro de presencia",
+    "taxon": {
+      "KINGDOM": "Reino",
+      "PHYLUM": "Filo/División",
+      "CLASS": "Clase",
+      "ORDER": "Orden",
+      "FAMILY": "Familia",
+      "GENUS": "Género",
+      "SPECIES": "Especies",
+      "ACCEPTED_TAXON": "Taxón aceptado",
+      "EXACT_TAXON": "Taxón exacto"
+    },
+    "cubeTitle": "Descargar cubo",
+    "cubeDescription": "Marcador de posición de descripción",
+    "readMore": "Leer más",
+    "time": {
+      "YEAR": "Año",
+      "YEARMONTH": "Año y mes",
+      "DATE": "Fecha"
+    },
+    "occurrenceMeasurements": "Recuento de registros biológicos (siempre incluido)",
+    "grid": {
+      "EEA_REFERENCE_GRID": "Cuadrícula de referencia del EEE - solo Europa",
+      "EXTENDED_QUARTER_DEGREE_GRID": "Cuadrícula extendida de un cuarto de grado (QDGC)",
+      "ISEA3H_GRID": "Grilla ISEA3H",
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Sistemas de referencia de red militar (MGRS)"
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "25 m",
+        "100": "100 m",
+        "250": "250 m",
+        "1000": "1 km",
+        "10000": "10 km",
+        "100000": "100 km"
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "Nivel 0",
+        "1": "Nivel 1",
+        "2": "Nivel 2",
+        "3": "Nivel 3",
+        "4": "Nivel 4",
+        "5": "Nivel 5",
+        "6": "Nivel 6"
+      },
+      "ISEA3H_GRID": {
+        "0": "Nivel 0",
+        "1": "Nivel 1",
+        "2": "Nivel 2",
+        "3": "Nivel 3",
+        "4": "Nivel 4",
+        "5": "Nivel 5",
+        "6": "Nivel 6",
+        "7": "Nivel 7",
+        "8": "Nivel 8",
+        "9": "Nivel 9",
+        "10": "Nivel 10",
+        "11": "Nivel 11",
+        "12": "Nivel 12",
+        "13": "Nivel 13",
+        "14": "Nivel 14",
+        "15": "Nivel 15",
+        "16": "Igual a {is}",
+        "17": "Igual a {is}",
+        "18": "Igual a {is}",
+        "19": "Igual a {is}",
+        "20": "Igual a {is}",
+        "21": "Igual a {is}",
+        "22": "Igual a {is}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "Igual a {is}",
+        "1": "Igual a {is}",
+        "10": "Igual a {is}",
+        "100": "Igual a {is}",
+        "1000": "Igual a {is}",
+        "10000": "Igual a {is}"
+      }
+    },
+    "noneSelected": "Igual a {is}",
+    "dimensions": "Igual a {is}",
+    "taxonomicDimension": "Igual a {is}",
+    "temporalDimension": "Igual a {is}",
+    "spatialDimension": "Igual a {is}",
+    "spatialResolution": "Igual a {is}",
+    "randomPoints": "Igual a {is}",
+    "measurements": "Igual a {is}",
+    "countHigherTaxonomy": "Igual a {is}",
+    "coordinateUncertainty": "Igual a {is}",
+    "errorMinimumDimension": "Igual a {is}",
+    "editSql": "Igual a {is}",
+    "temporalUncertainty": "Igual a {is}",
+    "documentation": "Igual a {is}",
+    "help": {
+      "whatIsThis": "Igual a {is}",
+      "dimensions": "Igual a {is}",
+      "taxonomicDimension": "Igual a {is}",
+      "temporalDimension": "Igual a {is}",
+      "grid": "Igual a {is}",
+      "gridResolution": "Igual a {is}",
+      "randomizePoints": "Igual a {is}",
+      "measurements": "Igual a {is}",
+      "occurrenceCount": "Igual a {is}",
+      "higherTaxonomy": "Igual a {is}",
+      "minCoorindateUncertainty": "Igual a {is}",
+      "minTemporalUncertainty": "Igual a {is}",
+      "editSql": "Igual a {is}"
+    }
   }
 }

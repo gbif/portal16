@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "",
     "nRecordsDownloaded": "",
-    "nRowsDownloaded": "Stadt zum Fundort.",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "",
     "fileNotAvailable": "",
     "downloadDeletionWarning": "",
@@ -47,8 +47,8 @@
     "predatesDoi": "",
     "file": "",
     "constituentDatasets": "",
-    "constituentOrganizations": "Stadt zum Fundort.",
-    "constituentPublishingCountries": "Stadt zum Fundort.",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "",
     "apiUsageDescription": "",
     "apiFilterView": "",
@@ -87,5 +87,118 @@
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "",
+    "taxon": {
+      "KINGDOM": "",
+      "PHYLUM": "",
+      "CLASS": "",
+      "ORDER": "",
+      "FAMILY": "",
+      "GENUS": "",
+      "SPECIES": "",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "",
+    "time": {
+      "YEAR": "",
+      "YEARMONTH": "",
+      "DATE": ""
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "Gleich {is}",
+        "17": "Gleich {is}",
+        "18": "Gleich {is}",
+        "19": "Gleich {is}",
+        "20": "Gleich {is}",
+        "21": "Gleich {is}",
+        "22": "Gleich {is}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "Gleich {is}",
+        "1": "Gleich {is}",
+        "10": "Gleich {is}",
+        "100": "Gleich {is}",
+        "1000": "Gleich {is}",
+        "10000": "Gleich {is}"
+      }
+    },
+    "noneSelected": "Gleich {is}",
+    "dimensions": "Gleich {is}",
+    "taxonomicDimension": "Gleich {is}",
+    "temporalDimension": "Gleich {is}",
+    "spatialDimension": "Gleich {is}",
+    "spatialResolution": "Gleich {is}",
+    "randomPoints": "Gleich {is}",
+    "measurements": "Gleich {is}",
+    "countHigherTaxonomy": "Gleich {is}",
+    "coordinateUncertainty": "Gleich {is}",
+    "errorMinimumDimension": "Gleich {is}",
+    "editSql": "Gleich {is}",
+    "temporalUncertainty": "Gleich {is}",
+    "documentation": "Gleich {is}",
+    "help": {
+      "whatIsThis": "Gleich {is}",
+      "dimensions": "Gleich {is}",
+      "taxonomicDimension": "Gleich {is}",
+      "temporalDimension": "Gleich {is}",
+      "grid": "Gleich {is}",
+      "gridResolution": "Gleich {is}",
+      "randomizePoints": "Gleich {is}",
+      "measurements": "Gleich {is}",
+      "occurrenceCount": "Gleich {is}",
+      "higherTaxonomy": "Gleich {is}",
+      "minCoorindateUncertainty": "Gleich {is}",
+      "minTemporalUncertainty": "Gleich {is}",
+      "editSql": "Gleich {is}"
+    }
   }
 }

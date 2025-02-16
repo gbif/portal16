@@ -24,6 +24,8 @@
     "payloadTooLarge": "The request is larger than allowed. Please reduce and try again. Contact helpdesk@gbif.org for assistance.",
     "readMore": "Read more",
     "share": "Share",
+    "download": "Download",
+    "cancel": "Cancel",
     "testSiteWarning": "This is a test site. The production site with full data is available at GBIF.org",
     "loginRequiredDueToSpam": "Please login to proceed.",
     "loginRequiredExplainer": "Due to spam and other disruptive attempts, this action requires that you are logged in using your GBIF.org account. We apologize for the inconvenience and thank you for your understanding."
