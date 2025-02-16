@@ -14,7 +14,7 @@
       "establishmentMeans": "",
       "distributionPlural": "",
       "PRESENT": "",
-      "ABSENT": ""
+      "ABSENT": "Nieobecne"
     },
     "tabs": {
       "overview": "",
@@ -41,9 +41,9 @@
     "as": "",
     "in": "",
     "origin": "Źródło",
-    "issues": "",
+    "issues": "Problemy",
     "citation": "",
-    "remarks": "",
+    "remarks": "Uwagi",
     "term": "",
     "value": "Wartość",
     "classification": "",
