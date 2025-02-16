@@ -1,65 +1,65 @@
 {
     "health": {
-        "automatedMonitoring": "",
-        "systemLoad": "",
-        "messages": "",
-        "version": "",
-        "releaseNotes": "",
+        "automatedMonitoring": "Monitorowanie zautomatyzowane",
+        "systemLoad": "Obciążenie systemu",
+        "messages": "Wiadomości",
+        "version": "Wersja",
+        "releaseNotes": "Informacje o wydaniu",
         "nInQueue": "{NUMBER} w kolejce",
         "status": {
-            "OPERATIONAL": "",
+            "OPERATIONAL": "Sprawna",
             "WARNING": "Niestabilne",
-            "CRITICAL": "",
+            "CRITICAL": "Niedostępne",
             "INFO": "Aktualizacja systemu"
         },
         "components": {
             "OCCURRENCE": {
                 "name": "Występowanie",
-                "tooltip": ""
+                "tooltip": "np. szukanie i przeglądanie wystąpień"
             },
             "SPECIES": {
                 "name": "Gatunek\n",
-                "tooltip": ""
+                "tooltip": "np. szukanie i przeglądanie gatunków, sugestii gatunków"
             },
             "REGISTRY": {
                 "name": "Rejestr",
-                "tooltip": ""
+                "tooltip": "np. zbiór danych, wydawca, instalacja, kraj, członkowie i sieć."
             },
             "IDENTITY": {
-                "name": "",
-                "tooltip": ""
+                "name": "Tożsamość",
+                "tooltip": "Do logowania i wylogowania, łaczenie kont etc."
             },
             "MAPS": {
                 "name": "Mapy",
-                "tooltip": ""
+                "tooltip": "Do wyświetlania obrazów map i uzyskiwania informacji o mapie."
             },
             "CONTENTFUL": {
-                "name": "",
-                "tooltip": ""
+                "name": "System zarządzania treścią (system zewnętrzny)",
+                "tooltip": "np. aktualności i artykuły"
             },
             "IMAGE_CACHE": {
-                "name": "",
-                "tooltip": ""
+                "name": "Pamięć podręczna obrazów",
+                "tooltip": "Odpowiedzialny za większość obrazów na stronie internetowej"
             },
             "GITHUB": {
-                "name": "",
-                "tooltip": ""
+                "name": "Github (system zewnętrzny)",
+                "tooltip": "Opinie, sugestie dotyczące zbiorów danych"
             },
             "CRAWLER": {
-                "name": "",
-                "tooltip": ""
+                "name": "Wczytywanie",
+                "tooltip": "Do aktualizacji zbiorów danych — nowych i starych."
             },
             "RESOURCE_SEARCH": {
-                "name": "",
-                "tooltip": ""
+                "name": "Wyszukiwanie źródeł",
+                "tooltip": "np. do przeszukiwania literatury, aktualności."
             },
             "CLUSTER": {
-                "name": "",
-                "tooltip": ""
+                "name": "Obciążenie systemu",
+                "tooltip": "Zaplecze do obsługi pobierania, przetwarzania i wielu innych czynności."
             },
             "DOWNLOAD": {
                 "name": "Pobrania",
-                "tooltip": ""
+                "tooltip": "Do obsługi zadań pobierania i wysyłania powiadomień użytkownikom"
             }
         }
     }
