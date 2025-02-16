@@ -22,7 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "Nieważny alternatywny identyfikator",
     "BACKBONE_MATCH_NONE": "Nie udało się dopasować do Rdzenia Taksonomicznego GBIF",
     "BACKBONE_MATCH_FUZZY": "Niejasne dopasowanie do Rdzenia Taksonomicznego GBIF",
-    "BACKBONE_MATCH_AGGREGATE": "",
+    "BACKBONE_MATCH_AGGREGATE": "Zgrupowanie dopasowań do szkieletu taksonomicznego GBIF ",
     "ACCEPTED_NAME_MISSING": "Synonim bez przyjętej nazwy",
     "ACCEPTED_NAME_NOT_UNIQUE": "Nieoryginalna przyjęta nazwa",
     "PARENT_NAME_NOT_UNIQUE": "Nieoryginalna nazwa nadrzędna",
