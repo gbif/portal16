@@ -34,9 +34,9 @@
             "HEARING": "tekst źródłowy",
             "TELEVISION_BROADCAST": "transmisja telewizyjna",
             "ENCYCLOPEDIA_ARTICLE": "artykuł w encyklopedii",
-            "CASE": "",
+            "CASE": "przykład",
             "FILM": "film",
-            "BILL": "",
+            "BILL": "postulat",
             "OTHER": "inne (rozwiń proszę w komentarzach)"
         }
     }
