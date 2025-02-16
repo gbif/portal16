@@ -2,7 +2,7 @@
   "collection": {
     "search": {
       "title": "Kolekcje",
-      "description": ""
+      "description": "**Kolekcje instytucjonalne** to te, które zostały formalnie włączone do instytucji i otrzymują pewien poziom wsparcia instytucjonalnego.\n\n**Kolekcje projektowe** to te, które zostały zebrane przez badacza powiązanego z instytucją, która mogła nie zostać formalnie włączona do jej kolekcji. Kolekcje projektowe mogą ostatecznie stać się częścią kolekcji instytucjonalnych lub pozostać pod zarządem i kontrolą poszczególnych badaczy.\n\n**Kolekcje osobiste** są pod kontrolą indywidualnego badacza i nie są formalnie powiązane z instytucją ani do niej włączone. Mogą być własnością osobistą prywatnego kolekcjonera lub w inny sposób osierocone."
     },
     "tabs": {
       "summary": "Podsumowanie",
@@ -31,86 +31,86 @@
     "status": "Status",
     "name": "Nazwa",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Aktywny",
+      "false": "Nieaktywny"
     }
   },
   "institution": {
-    "title": "",
+    "title": "Instytucja",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Instytucje",
+      "description": "**Instytucja** odnosi się do każdej instytucji lub organizacji, która jest właścicielem i zarządza zbiorami naukowymi. Obejmuje to między innymi zielniki, muzea, ogrody zoologiczne, ogrody botaniczne, biobanki. Instytucja może zawierać wiele zbiorów, w takim przypadku należy je wprowadzić indywidualnie w **Kolekcje instytucjonalne/projektowe** i połączyć z instytucją nadrzędną."
     },
     "tabs": {
       "summary": "Podsumowanie",
       "homepage": "Strona główna",
       "metrics": "Metryka"
     },
-    "headerTitle": "",
-    "indexHerbariorumIdentifier": "",
-    "numberSpecimens": "",
-    "code": "",
+    "headerTitle": "Instytucja",
+    "indexHerbariorumIdentifier": "Identyfikator Indeks Herbariorum",
+    "numberSpecimens": "Liczba okazów",
+    "code": "Kod instytucji",
     "alternativeCodes": "Alternatywne kody",
-    "statusOfInstitution": "",
-    "additionalNames": "",
+    "statusOfInstitution": "Status instytucji",
+    "additionalNames": "Dodatkowe nazwy",
     "description": "Opis",
     "homepage": "Strona główna",
-    "foundingDate": "",
-    "geographicDescription": "",
-    "taxonomicDescription": "",
-    "citesPermitNumber": "",
-    "disciplines": "",
-    "institutionalGovernance": "",
-    "type": "",
+    "foundingDate": "Data założenia",
+    "geographicDescription": "Opis geograficzny",
+    "taxonomicDescription": "Opis taksonomiczny",
+    "citesPermitNumber": "Numer pozwolenia CITES",
+    "disciplines": "Dyscypliny naukowe instytucji",
+    "institutionalGovernance": "Sposób zarządzania instytucją",
+    "type": "Rodzaj instytucji",
     "identifiers": "Identyfikatory",
     "isActive": {
-      "true": "",
-      "false": ""
+      "true": "Aktywna",
+      "false": "Nieaktywna"
     },
     "true": "Tak",
     "false": "Nie"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "Osoba",
     "search": {
-      "title": "",
-      "description": ""
+      "title": "Personel kolekcji",
+      "description": "Członkowie personelu GRSciColl to każdy rodzaj personelu zaangażowany w zbiory. Mogą być związani z instytucją i/lub dowolnym rodzajem zbioru."
     },
-    "headerTitle": "",
+    "headerTitle": "Personel kolekcji",
     "firstName": "Imię",
     "lastName": "Nazwisko",
-    "fullName": "",
+    "fullName": "Pełna nazwa",
     "position": "Stanowisko",
-    "affiliations": "",
-    "areaResponsibility": "",
-    "researchPursuits": "",
-    "primaryInstitution": "",
-    "primaryCollection": "",
-    "affiliateInstitutions": "",
-    "affiliateCollections": ""
+    "affiliations": "Afiliacje",
+    "areaResponsibility": "Obszar odpowiedzialności",
+    "researchPursuits": "Specjalność naukowa",
+    "primaryInstitution": "Nazwa instytucji podstawowej",
+    "primaryCollection": "Nazwa kolkcji podstawowej",
+    "affiliateInstitutions": "Dodatkowe instytucje partnerskie",
+    "affiliateCollections": "Dodatkowe kolekcje partnerskie"
   },
   "grscicoll": {
-    "title": "",
-    "suggestChange": "",
-    "suggestNewCollection": "",
-    "suggestNewInstitution": "",
+    "title": "GRSciColl",
+    "suggestChange": "Zaproponuj zmianę",
+    "suggestNewCollection": "Zaproponuj nową kolekcję",
+    "suggestNewInstitution": "Zaproponuj nową instytucję",
     "tabs": {
-      "about": "",
-      "institutions": "",
+      "about": "Informacje",
+      "institutions": "Instytucje",
       "collections": "Kolekcje",
-      "people": ""
+      "people": "Członkowie personelu"
     },
     "contact": {
-      "phone": "",
+      "phone": "Numer telefonu",
       "email": "Adres e-mail",
-      "fax": "",
+      "fax": "Numer faksu",
       "mailingAddress": "Adres korespondencyjny",
-      "physicalAddress": "",
+      "physicalAddress": "Adres pocztowy",
       "contacts": "Kontakty",
       "address": "Adres",
-      "province": "",
-      "postalCode": "",
-      "city": "",
+      "province": "Województwo, powiat",
+      "postalCode": "Kod pocztowy",
+      "city": "Miasto",
       "country": "Kraj"
     }
   }
