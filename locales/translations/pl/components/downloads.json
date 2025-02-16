@@ -61,7 +61,7 @@
       "SUSPENDED": "Zawieszono",
       "RUNNING": "W toku",
       "CANCELLED": "Anulowano",
-      "KILLED": ""
+      "KILLED": "przerwano"
     },
     "predicate": {
       "joinDescriptions": {
@@ -104,7 +104,7 @@
       "ACCEPTED_TAXON": "Przyjęty takson",
       "EXACT_TAXON": "Dokładny takson"
     },
-    "cubeTitle": "",
+    "cubeTitle": "pobierz kostkę",
     "cubeDescription": "Symbol zastępczy opisu",
     "readMore": "Zobacz więcej",
     "time": {
@@ -158,7 +158,7 @@
         "12": "Poziom 12",
         "13": "Poziom 13",
         "14": "Poziom 14",
-        "15": "",
+        "15": "poziom 15",
         "16": "",
         "17": "",
         "18": "",
@@ -201,7 +201,7 @@
       "measurements": "",
       "occurrenceCount": "",
       "higherTaxonomy": "",
-      "minCoordinateUncertainty": "",
+      "minCoordinateUncertainty": "Najniższa zarejestrowana niepewność współrzędnych (w metrach). Przydatne do stwierdzenia precyzji przestrzennej danych.",
       "minTemporalUncertainty": "",
       "editSql": "Najprostszym sposobem na pobieranie i przeglądanie danych to użycie interfejsu użytkownika wyszukiwarki stwierdzeń. Jednak dla złożonych zapytań i zbiorów edytor SQL daje więcej możliwości."
     }
