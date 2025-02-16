@@ -1,18 +1,18 @@
 {
   "directory": {
-    "title": "",
+    "title": "Katalog",
     "group": {
       "executiveCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Komitet wykonawczy",
+        "description": "Komitet Wykonawczy działa w imieniu Zarządu, gdy Zarząd nie obraduje, oraz w obszarach odpowiedzialności przekazanych mu przez Zarząd. Do jego funkcji należy monitorowanie wyników Sekretariatu w zakresie realizacji decyzji podjętych przez Zarząd, w tym wdrażanie Planu Strategicznego i Programu Prac, a także zarządzanie budżetem."
       },
       "scienceCommittee": {
         "title": "Komisja naukowa",
-        "description": ""
+        "description": "Komitet naukowy GBIF jest komitetem doradczym, który nadzoruje rozwój i postęp programu prac GBIF oraz wydaje zalecenia Radzie Nadzorczej, Komitetowi Wykonawczemu i Sekretariatowi. Możesz przeczytać jego regulamin [tutaj.](/document/80877/current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Komisja budżetowa",
+        "description": "Komisja Budżetowa jest komitetem doradczym zajmującym się różnymi kwestiami finansowymi związanymi z administracją funduszami GBIF. Oprócz innych funkcji nadzoruje audyt rocznych sprawozdań finansowych składanych Radzie Nadzorczej i udziela wskazówek dotyczących wyboru firmy audytorskiej GBIF. Komisja wydaje zalecenia Radzie Nadzorczej, Komitetowi Wykonawczemu i Sekretariatowi. Jej zakres obowiązków można znaleźć [tutaj.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
         "title": "Komisja Sterująca Węzłów",
@@ -40,7 +40,7 @@
       }
     },
     "columns": {
-      "role": "",
+      "role": "Funkcja",
       "name": "",
       "participant": "",
       "participationStatus": ""
