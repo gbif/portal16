@@ -52,11 +52,11 @@
       "ORANGE_CLUSTER": "Grupy (pomarańczowy)"
     },
     "tooltips": {
-      "toggleStyle": "",
+      "toggleStyle": "Przełącz styl mapy",
       "searchArea": "Przeszukaj obszar",
       "addRectangleFilter": "Narysuj prostokąt i dodaj jako filtr",
       "addPolygonFilter": "Narysuj obszar i dodaj jako filtr",
-      "removeGeometryFilter": "",
+      "removeGeometryFilter": "Usuń filtr geometrii",
       "zoomIn": "Powiększ",
       "zoomOut": "Pomniejsz"
     },
