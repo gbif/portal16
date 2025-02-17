@@ -16,10 +16,10 @@
     "search": "Buscar",
     "clearFilters": "Quitar filtros",
     "filters": "Filtros",
-    "simple": "Simple",
-    "advanced": "Avanzada",
+    "simple": "Filtros sencillos",
+    "advanced": "Todos los filtros",
     "backbone": "Árbol taxonómico",
-    "allChecklists": "Todas las listas de verificación",
+    "allChecklists": "Todas las listas de chequeo",
     "allResultTypes": "Todos",
     "suggestions": "Sugerencias",
     "header": {
@@ -29,6 +29,6 @@
       "searchResources": "Buscar recursos",
       "searchOccurrences": "Buscar registros de presencia"
     },
-    "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultado} other{resultados}}"
+    "nResults": "{NUMBER_FORMATED} {NUMBER, plural, one{resultado} other{resultados}}"
   }
 }
