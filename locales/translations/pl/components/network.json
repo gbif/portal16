@@ -1,6 +1,6 @@
 {
   "network": {
-    "network": "",
+    "network": "Sieć",
     "tabs": {
       "summary": "Podsumowanie",
       "homepage": "Strona główna",
@@ -9,7 +9,7 @@
       "publishers": "Wydawcy"
     },
     "registeredDate": "Zarejestrowano {DATE}",
-    "nParticipatingDatasets": "",
-    "nParticipatingPublishers": ""
+    "nParticipatingDatasets": "{NUMBER_FORMATED} uczestniczący {NUMBER, plural, one{zbiór danych} other{zbiory danych}}",
+    "nParticipatingPublishers": "{NUMBER_FORMATED} uczestniczący {NUMBER, plural, one{wydawca} other{wydawcy}}"
   }
 }
