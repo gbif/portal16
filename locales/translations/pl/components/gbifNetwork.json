@@ -1,41 +1,41 @@
 {
   "gbifNetwork": {
     "gbifNetwork": "sieć GBIF",
-    "title": "",
+    "title": "Katalog",
     "contact": "Kontakt",
     "voting_participant": {
       "one": "Członek głosujący",
       "other": "Członkowie głosujący"
     },
     "associate_country_participant": {
-      "one": "",
-      "other": ""
+      "one": "Uczestnicy z krajów stowarzyszonych",
+      "other": "Uczestnicy z krajów stowarzyszonych"
     },
     "other_associate_participant": {
-      "one": "",
-      "other": ""
+      "one": "Inni stowarzyszeni członkowie",
+      "other": "Inni stowarzyszeni członkowie"
     },
     "former_participant": {
-      "one": "",
-      "other": ""
+      "one": "Byli członkowie",
+      "other": "Byli członkowie"
     },
     "gbif_affiliate": {
-      "one": "",
-      "other": ""
+      "one": "Afiliowany przy GBIF",
+      "other": "Afiliowani przy GBIF"
     },
     "role": "Rola",
     "group": {},
     "gbif_secretariat": "Sekretariat GBIF",
     "membershipType": "Członkostwo",
     "name": "Imię",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
+    "endorsedDataPublisher": "Zatwierdził {NUMBER_FORMATTED} dane {NUMBER, plural, one{wydawca} other{wydawcy}}",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, one{członek} other{członkowie}}",
+    "dataset": "{NUMBER, plural, one{zbiór danych} other{zbiory danych}}",
     "datasets": "Zbiory danych",
-    "regionalRepresentative": "",
+    "regionalRepresentative": "{NUMBER, plural, one{przedstawiciel} other{przedstawiciele}}",
     "participation": {
-      "nonCountryParticipants": "",
-      "gbifAffiliates": ""
+      "nonCountryParticipants": "Organizacja członkowska",
+      "gbifAffiliates": "Afiliowani przy GBIF"
     },
     "roles": {
       "HEAD_OF_DELEGATION": "Przewodniczący delegacji",
@@ -46,7 +46,7 @@
     "participant": "Uczestnik",
     "pPublishers": "{NUMBER, plural,one{wydawca} other{wydawcy}}",
     "pOccurrence": "{NUMBER, plural, one{Występowanie} other{występowania}}",
-    "occurrenceDatasets": "",
+    "occurrenceDatasets": "Zbiór danych wystąpień",
     "occurrences": "Wystąpienia",
     "occurrencesHostedBy": ""
   }
