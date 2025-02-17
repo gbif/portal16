@@ -1,6 +1,6 @@
 {
     "resourceSearch": {
-        "title": "",
+        "title": "Wyszukiwanie źródeł",
         "upcoming": "",
         "past": "Poprzednie",
         "searchForNewsEventsDocuments": "",
@@ -23,10 +23,10 @@
             "countriesOfCoverage": "",
             "countriesOfResearcher": "",
             "literatureType": "",
-            "contractCountry": "",
+            "contractCountry": "Kraj lub obszar",
             "topics": "",
             "audiences": "",
-            "purposes": "",
+            "purposes": "Cel",
             "relevance": "",
             "language": "Język",
             "year": "",
@@ -39,7 +39,7 @@
             "gbifDerivedDatasetDoi": "",
             "paperDoi": "DOI",
             "litSource": "",
-            "gbifTaxonKey": "",
+            "gbifTaxonKey": "Nazwa naukowa",
             "litPublisher": ""
         },
         "helpText": {

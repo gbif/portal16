@@ -28,11 +28,11 @@
     "gbif_secretariat": "GBIF Sekretariát",
     "membershipType": "Členství",
     "name": "Název",
-    "endorsedDataPublisher": "",
-    "nParticipants": "",
-    "dataset": "",
+    "endorsedDataPublisher": "Podpořil {NUMBER_FORMATTED} {NUMBER, plural, one{vydavatele} few {vydavatele} many {vydavatelů} other{vydavatelů}} dat",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, one{účastník} few {účastníci} many {účastníků} other{účastníků}}",
+    "dataset": "{NUMBER, plural, one{datová sada} few {datové sady} many {datových sad} other{datových sad}}",
     "datasets": "Datové sady",
-    "regionalRepresentative": "",
+    "regionalRepresentative": "{NUMBER, plural, one{zástupce} few {zástupci} many {zástupců} other{zástupců}}",
     "participation": {
       "nonCountryParticipants": "Účastnická organizace",
       "gbifAffiliates": "Přidružení GBIF"
@@ -44,8 +44,8 @@
     "publishers": "Vydavatelé",
     "memberSince": "Členem od",
     "participant": "Účastník",
-    "pPublishers": "",
-    "pOccurrence": "",
+    "pPublishers": "{NUMBER, plural, one{vydavatel} few {vydavatelé} many {vydavatelů} other{vydavatelů}}",
+    "pOccurrence": "{NUMBER, plural, one{výskyt} few {výskyty} many {výskytů} other{výskytů}}",
     "occurrenceDatasets": "Datové sady výskytu",
     "occurrences": "Výskyty",
     "occurrencesHostedBy": ""

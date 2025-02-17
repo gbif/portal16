@@ -7,7 +7,7 @@
     "location": "Poloha",
     "country": "Země nebo oblast",
     "noDatasets": "Nejsou žádné datové sady k zobrazení",
-    "noNewsOrEvents": "",
+    "noNewsOrEvents": "Nejsou žádné novinky ani události",
     "howToLinkDatasets": "Jak propojit datovou sadu s projektem",
     "howToLinkEvents": "Jak přidat události na stránku projektu",
     "when": "Kdy",
@@ -18,8 +18,8 @@
     "fundedBy": "Financován",
     "about": "O",
     "datasets": "datové sady",
-    "gbifWillAttend": "",
+    "gbifWillAttend": "Za účasti sekretariátu GBIF",
     "dataUsedInStudy": "Data uvedená ve studii",
-    "resourceDescription": ""
+    "resourceDescription": "Vyhledávání zdrojů v Global Biodiversity Information Facility. Volný a otevřený přístup k datům o biologické rozmanitosti."
   }
 }

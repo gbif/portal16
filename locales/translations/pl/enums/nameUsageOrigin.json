@@ -5,12 +5,12 @@
     "VERBATIM_PARENT": "Ukryte użycie dosłownej nazwy macierzystej.",
     "VERBATIM_ACCEPTED": "Ukryte użycie dosłownej przyjętej nazwy macierzystej.",
     "VERBATIM_BASIONYM": "Ukryte użycie dosłownego bazonimu/oryginalnej nazwy.",
-    "PROPARTE": "",
-    "AUTONYM": "",
-    "IMPLICIT_NAME": "",
-    "MISSING_ACCEPTED": "",
-    "BASIONYM_PLACEHOLDER": "",
-    "EX_AUTHOR_SYNONYM": "",
-    "OTHER": ""
+    "PROPARTE": "Zduplikowane użycie z pojedynczego rekordu pro parte.",
+    "AUTONYM": "Wygenerowano, brakujący autonim.",
+    "IMPLICIT_NAME": "Wygenerowano brakujący rodzaj lub gatunek dla „osieroconej” nazwy niższego rzędu.",
+    "MISSING_ACCEPTED": "Sztuczne akceptowanie synonimu, jeśli brakuje go w celu zachowania hierarchii taksonomicznej.",
+    "BASIONYM_PLACEHOLDER": "Symbol zastępczy dla brakującego lub domyślnego bazonimu.",
+    "EX_AUTHOR_SYNONYM": "Synonim domniemany oparty na nieważnym byłym autorze. Zobacz artykuł ICN 46: https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
+    "OTHER": "Inne źródło"
   }
 }

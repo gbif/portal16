@@ -66,13 +66,13 @@
             }
         },
         "derivedDataset": {
-            "title": "",
+            "title": "Pochodny zbiór danych",
             "titleField": "Tytuł",
             "sourceUrl": "",
             "originalDownloadDOI": "",
             "registrationDate": "",
-            "datasetKey": "",
-            "occurrenceCount": "",
+            "datasetKey": "Klucz zbioru danych",
+            "occurrenceCount": "Liczba stwierdzeń",
             "submit": "Wyślij",
             "pleaseFill": "",
             "loginToCreate": "",

@@ -39,7 +39,7 @@
             "gbifDerivedDatasetDoi": "",
             "paperDoi": "",
             "litSource": "",
-            "gbifTaxonKey": "",
+            "gbifTaxonKey": "Nome scientifico",
             "litPublisher": ""
         },
         "helpText": {

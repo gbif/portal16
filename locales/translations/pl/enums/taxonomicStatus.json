@@ -1,13 +1,13 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "",
+    "ACCEPTED": "Przyjęty",
     "DOUBTFUL": "Wątpliwy",
     "SYNONYM": "Synonim",
     "HETEROTYPIC_SYNONYM": "Synonim heterotypowy",
-    "HOMOTYPIC_SYNONYM": "",
-    "PROPARTE_SYNONYM": "",
-    "MISAPPLIED": "",
-    "INTERMEDIATE_RANK_SYNONYM": "",
-    "DETERMINATION_SYNONYM": ""
+    "HOMOTYPIC_SYNONYM": "Synonim homotypowy",
+    "PROPARTE_SYNONYM": "Synonim proparte",
+    "MISAPPLIED": "Niepoprawnie zastosowany",
+    "INTERMEDIATE_RANK_SYNONYM": "Synonim pośredniej rangi",
+    "DETERMINATION_SYNONYM": "Synonim oznaczenia"
   }
 }

@@ -112,6 +112,11 @@
       "YEARMONTH": "Année et mois",
       "DATE": "Date "
     },
+    "boolean": {
+      "YES": "Oui",
+      "NO": "Non"
+    },
+    "sqlMachineDescriptionIntro": "",
     "occurrenceMeasurements": "Nombre d'occurrences (toujours inclus)",
     "grid": {
       "EEA_REFERENCE_GRID": "Grille de référence de l'AEE - Europe uniquement",
@@ -196,9 +201,9 @@
       "measurements": "",
       "occurrenceCount": "",
       "higherTaxonomy": "",
-      "minCoorindateUncertainty": "",
+      "minCoordinateUncertainty": "L'incertitude de coordonnées la plus faible enregistrée (en mètres). Utile pour affirmer la précision spatiale des données.",
       "minTemporalUncertainty": "",
-      "editSql": ""
+      "editSql": "Le moyen le plus simple de télécharger et d'explorer des données est d'utiliser l'interface utilisateur de recherche d'occurrences. Mais pour les requêtes et agrégations complexes, l'éditeur SQL offre une plus grande liberté."
     }
   }
 }

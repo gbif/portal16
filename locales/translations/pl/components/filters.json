@@ -6,7 +6,7 @@
         "clear": "Wyczyść",
         "add": "Dodaj",
         "repatriation": {
-            "description": ""
+            "description": "Dane uznaje się za repatriowane, gdy są publikowane przez instytucję w jednym kraju, ale odnoszą się do różnorodności biologicznej występującej w innym kraju"
         },
         "isClustered": {
             "description": "Ta eksperymentalna funkcja podkreślana możliwe duplikaty i/lub powiązane występowania."
@@ -15,7 +15,7 @@
             "description": ""
         },
         "occurrenceStatus": {
-            "description": "",
+            "description": "„Brak” stosuje się do wystąpienia, gdy poszukiwanie taksonu w określonym czasie i miejscu nie wykryło żadnych okazów",
             "options": {
                 "yes": "Obecne",
                 "no": "Nieobecne",
@@ -40,10 +40,10 @@
             "geojson": "GeoJSON",
             "geometry": "Geometria",
             "range": "Zasięg",
-            "noFiltersAdded": "",
+            "noFiltersAdded": "Nie dodano filtrów obszaru",
             "wktPlaceholder": "WKT lub GeoJSON",
-            "invalidTextInput": "",
-            "tooLarge": "",
+            "invalidTextInput": "Nieważny WKT lub GeoJSON",
+            "tooLarge": "Zbyt duża geometria",
             "tooLargeSuggestion": "Spróbuj użyć pola ograniczającego lub lokalnie zainstalowanych filtrów",
             "aboutWktAndGeoJson": "",
             "simplificationWarning": "",

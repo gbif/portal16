@@ -1,12 +1,12 @@
 {
   "publisher": {
-    "searchTitle": "",
+    "searchTitle": "Vyhledávání vydavatele",
     "tabs": {
       "aboutPublisher": "O",
       "metrics": "Metriky",
       "publishersHomepage": "Domovská stránka"
     },
-    "joinedAgo": "",
+    "joinedAgo": "Připojen {TIME_AGO}",
     "newPublisher": "Nový vydavatel",
     "technicalContact": "Technický kontakt",
     "country": "Země nebo oblast",

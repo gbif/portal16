@@ -1,54 +1,54 @@
 {
   "directory": {
-    "title": "",
+    "title": "Katalog",
     "group": {
       "executiveCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Komitet wykonawczy",
+        "description": "Komitet Wykonawczy działa w imieniu Zarządu, gdy Zarząd nie obraduje, oraz w obszarach odpowiedzialności przekazanych mu przez Zarząd. Do jego funkcji należy monitorowanie wyników Sekretariatu w zakresie realizacji decyzji podjętych przez Zarząd, w tym wdrażanie Planu Strategicznego i Programu Prac, a także zarządzanie budżetem."
       },
       "scienceCommittee": {
         "title": "Komisja naukowa",
-        "description": ""
+        "description": "Komitet naukowy GBIF jest komitetem doradczym, który nadzoruje rozwój i postęp programu prac GBIF oraz wydaje zalecenia Radzie Nadzorczej, Komitetowi Wykonawczemu i Sekretariatowi. Możesz przeczytać jego regulamin [tutaj.](/document/80877/current-terms-of-reference-for-the-science-committee)"
       },
       "budgetCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Komisja budżetowa",
+        "description": "Komisja Budżetowa jest komitetem doradczym zajmującym się różnymi kwestiami finansowymi związanymi z administracją funduszami GBIF. Oprócz innych funkcji nadzoruje audyt rocznych sprawozdań finansowych składanych Radzie Nadzorczej i udziela wskazówek dotyczących wyboru firmy audytorskiej GBIF. Komisja wydaje zalecenia Radzie Nadzorczej, Komitetowi Wykonawczemu i Sekretariatowi. Jej zakres obowiązków można znaleźć [tutaj.](/document/80669/terms-of-reference-for-the-gbif-budget-committee)"
       },
       "nsg": {
         "title": "Komisja Sterująca Węzłów",
-        "description": ""
+        "description": "Utworzona w 2011 r. Grupa Sterująca Węzłami (NSG) składa się z przewodniczącego i wiceprzewodniczących [Komitetu Menedżerów Węzłów Członkowskich](/contact-us/directory?group=nodesCommittee), do których dołączają przedstawiciele regionalni z każdego z sześciu regionów GBIF ([Afryka](/the-gbif-network/africa), [Azja](/the-gbif-network/asia), [Europa i Azja Środkowa](/the-gbif-network/europe), [Ameryka Łacińska/Karaiby](/the-gbif-network/latin-america), [Ameryka Północna](/the-gbif-network/north-america) i [Oceania](/the-gbif-network/oceania)). Celem NSG jest formułowanie szczegółowych zaleceń dla odpowiednich organów GBIF w oparciu o opinie przekazane przez węzły członkowskie oraz udzielanie porad dotyczących rocznych programów prac GBIF w zakresie, w jakim odnoszą się one do wysiłków węzłów GBIF."
       },
       "nodesCommittee": {
-        "title": "",
-        "description": ""
+        "title": "Komitet Menedżerów Węzłów",
+        "description": "Komitet Menadżerów Węzów Członkowskich (lub Nodes Committee) to dynamiczna grupa utworzona przez menedżerów węzłów wyznaczonych przez wszystkich uczestników (kraje i organizacje międzynarodowe). W skład komitetu wchodzą trzy stanowiska przewodniczących, ustanowione w drodze głosowania przez Radę Nadzorczą na maksymalnie dwie dwuletnie kadencje. Możesz przeczytać jego regulamin [tutaj](/document/80571/terms-of-reference-for-the-participant-node-managers-committee-nodes)."
       },
       "secretariat": {
         "title": "Sekretariat GBIF",
-        "description": ""
+        "description": "Sekretariat GBIF, zlokalizowany w Muzeum Historii Naturalnej w Kopenhadze w Danii, jest odpowiedzialny za opracowywanie, wykonywanie i raportowanie programu prac GBIF. Zadania Sekretariatu obejmują:\n- obsługę portalu GBIF i powiązanej infrastruktury informatycznej\n- koordynację działań sieci związanych z mobilizacją danych, publikacją i zarządzaniem nimi\n- monitorowanie luk w danych i wykorzystywanie danych pośredniczonych przez GBIF do celów naukowych oraz\n- obsługę centralnych usług komunikacji i współpracy"
       },
       "voting": {
         "title": "Członkowie głosujący",
-        "description": ""
+        "description": "Kraje, które podpisały Porozumienie\"GBIF Memorandum of Understanding\" i zgodziły się wnieść podstawowy wkład finansowy na rzecz podstawowych funduszy GBIF."
       },
       "associateCountries": {
-        "title": "",
-        "description": ""
+        "title": "Uczestnicy z krajów stowarzyszonych",
+        "description": "Kraje, które podpisały Porozumienie \"GBIF Memorandum of Understanding\", ale nie wnoszą wkładu finansowego do podstawowych funduszy GBIF i nie mają prawa głosu w Radzie Nadzorczej GBIF."
       },
       "associateParticipants": {
-        "title": "",
-        "description": ""
+        "title": "Inni stowarzyszeni członkowie",
+        "description": "Organizacje międzyrządowe, organizacje międzynarodowe i inne organizacje o zasięgu międzynarodowym, a także gospodarki, które podpisały porozumienie \"GBIF Memorandum of Understanding\"."
       }
     },
     "columns": {
-      "role": "",
-      "name": "",
-      "participant": "",
-      "participationStatus": ""
+      "role": "Funkcja",
+      "name": "Nazwa",
+      "participant": "Członek",
+      "participationStatus": "Status członka"
     },
-    "details": "",
-    "roles": "",
+    "details": "Szczegóły",
+    "roles": "Funkcje",
     "sinceDate": "Od",
-    "showAllContacts": "",
+    "showAllContacts": "Wszystko",
     "person": {
       "volunteer": "",
       "name": "Imię",

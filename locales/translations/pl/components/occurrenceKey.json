@@ -1,116 +1,116 @@
 {
   "occurrence": {
     "tabs": {
-      "details": "",
+      "details": "Szczegóły",
       "cluster": ""
     },
-    "typeOf": "",
+    "typeOf": "{TYP}{NAZWY}",
     "coordinates": "Współrzędne",
     "unknownDate": "Nieznana data",
-    "absent": "",
-    "issues": "",
+    "absent": "Nieobecne",
+    "issues": "Problemy",
     "dataset": "Zbiór danych",
-    "synced": "",
+    "synced": "Zsynchronizowano",
     "modified": "Modyfikowano",
     "monthAndyear": "Miesiąc i rok",
-    "coordinateUncertainty": "",
+    "coordinateUncertainty": "Niepewność współrzędnych",
     "citation": "Cytowanie",
-    "readFullDescription": "",
-    "showMoreInfo": "",
-    "noTaxonMatch": "",
-    "gbifTaxonInterpretation": "",
+    "readFullDescription": "więcej ",
+    "showMoreInfo": "więcej ",
+    "noTaxonMatch": "żadne",
+    "gbifTaxonInterpretation": "Interoretacja taksonu GBIF",
     "aboutTheDataset": "Informacje o zbiorze danych",
-    "noLocationInformation": "",
+    "noLocationInformation": "Nie opublikowano żadnych informacji o lokalizacji dla tego rekordu",
     "deletedMessage": "Wydawca usunął to stwierdzenie z indeksu GBIF, ale ostatnia wersja jest widoczna poniżej.",
-    "deletedDescription": "",
+    "deletedDescription": "Rekordy, które nie znajdują się już w opublikowanym zestawie danych, są usuwane z indeksu GBIF. Wydawcy mogą czasami mieć powody, aby usunąć poszczególne rekordy lub cały zestaw danych lub przypisać nowe identyfikatory lokalne.",
     "subMenu": {
       "diagnostics": "Diagnostyka",
       "menu": "Menu",
       "showDiagnostics": "Pokaż diagnostykę",
       "hideDiagnostics": "Ukryj diagnostykę",
-      "aboutDarwinCore": "",
-      "raw": ""
+      "aboutDarwinCore": "O Darwin Core",
+      "raw": "Surowe dane"
     },
     "groups": {
       "Record": "stwierdzenie",
       "Occurrence": "Występowanie",
       "Event": "Zdarzenie",
-      "Identification": "",
-      "Taxon": "",
+      "Identification": "Identyfikacja",
+      "Taxon": "Takson",
       "Location": "Lokalizacja",
       "Organism": "Organizm",
-      "MaterialSample": "",
+      "MaterialSample": "Próbka materiału",
       "GeologicalContext": "Kontekst geologiczny",
       "other": "Inne"
     },
-    "term": "",
-    "interpreted": "",
-    "original": "",
-    "remarks": "",
+    "term": "Pojęcie",
+    "interpreted": "Zinterpretowany",
+    "original": "Oryginalne",
+    "remarks": "Uwagi",
     "highlights": {
       "location": "Lokalizacja",
-      "specimenType": "",
+      "specimenType": "Typ okazu",
       "publisher": "Wydawca",
       "reference": "Odwołania",
-      "verbatimName": ""
+      "verbatimName": "Nazwa jak podano"
     },
     "media": {
-      "noIdentifier": "",
+      "noIdentifier": "Nie podano identyfikatora mediów",
       "noPlaybackSupport": "Twoja przeglądarka nie obsługuje formatu wymaganego do odtwarzania tego pliku.",
       "takeMeThere": "Spróbuj wersji na stronie wydawcy",
-      "notWorkingTryPublishers": "",
-      "download": "",
-      "byRightsHolder": "",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "notWorkingTryPublishers": "Odtwarzanie multimediów nie działa prawidłowo?",
+      "download": "Pobierz media",
+      "byRightsHolder": "przez {RIGHTSHOLDER}",
+      "licensedUnder": "licencjonowane na podstawie {{LICENCJA}}",
+      "suggestedCitation": "Sugerowane przypisanie"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "MATERIAL_CITATION": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Zebrane w {kraj}",
+        "FOSSIL_SPECIMEN": "Zebrane w {kraj}",
+        "LIVING_SPECIMEN": "Zebrane w {kraj}",
+        "HUMAN_OBSERVATION": "Zaobserwowane w {kraj}",
+        "MACHINE_OBSERVATION": "Zaobserwowane w {kraj}",
+        "MATERIAL_SAMPLE": "Zebrane w {kraj}",
+        "MATERIAL_CITATION": "Zarejestrowane w {kraj}",
+        "OCCURRENCE": "Zarejestrowane w {kraj}",
+        "OBSERVATION": "Zaobserwowane w {kraj}",
+        "LITERATURE": "Zarejestrowane w {kraj}",
+        "UNKNOWN": "Zarejestrowane w {kraj}"
       },
       "unknownLocation": {
-        "PRESERVED_SPECIMEN": "",
-        "FOSSIL_SPECIMEN": "",
-        "LIVING_SPECIMEN": "",
-        "HUMAN_OBSERVATION": "",
-        "MACHINE_OBSERVATION": "",
-        "MATERIAL_SAMPLE": "",
-        "MATERIAL_CITATION": "",
-        "OCCURRENCE": "",
-        "OBSERVATION": "",
-        "LITERATURE": "",
-        "UNKNOWN": ""
+        "PRESERVED_SPECIMEN": "Zebrane w nieznanej lokalizacji",
+        "FOSSIL_SPECIMEN": "Zebrane w nieznanej lokalizacji",
+        "LIVING_SPECIMEN": "Zebrane w nieznanej lokalizacji",
+        "HUMAN_OBSERVATION": "Zaobserwowane w nieznanej lokalizacji",
+        "MACHINE_OBSERVATION": "Zaobserwowane w nieznanej lokalizacji",
+        "MATERIAL_SAMPLE": "Zebrane w nieznanej lokalizacji",
+        "MATERIAL_CITATION": "Zarejestrowane w nieznanej lokalizacji",
+        "OCCURRENCE": "Zarejestrowane w nieznanej lokalizacji",
+        "OBSERVATION": "Zaobserwowane w nieznanej lokalizacji",
+        "LITERATURE": "Zarejestrowane w nieznanej lokalizacji",
+        "UNKNOWN": "Zarejestrowane w nieznanej lokalizacji"
       },
-      "unknownSpecies": ""
+      "unknownSpecies": "Nieznane gatunki"
     },
     "occurrence": "Występowanie",
-    "inLanguage": "",
-    "sequenced": "",
-    "treatment": "",
+    "inLanguage": "w {język_przetłumaczony}",
+    "sequenced": "Sekwencjonowane",
+    "treatment": "Przetwarzanie",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "Obecny",
+      "relatedOccurrences": "Powiązane stwierdzenia",
+      "similarBecause": "Podobne, ponieważ",
+      "matchedRecord": "Dopasowany rekord",
+      "noMatches": "Brak kandydatur relacji",
+      "explainer": "Jest to funkcja testowa, która podświetla możliwe duplikaty i/lub powiązane wystąpienia."
     }
   },
   "interpretationRemarks": {
     "comments": {
-      "EXCLUDED": "",
-      "AUTHORED": "",
-      "INFERED": ""
+      "EXCLUDED": "Wykluczone",
+      "AUTHORED": "Zmienione",
+      "INFERED": "Wywnioskowane"
     }
   }
 }

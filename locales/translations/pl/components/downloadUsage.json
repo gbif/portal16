@@ -1,32 +1,32 @@
 {
     "downloadUsage": {
-        "title": "",
+        "title": "Powiadom GBIF o użyciu danych o występowaniu w publikacji (lub podobnym)",
         "form": {
             "title": "Tytuł",
-            "titlePlaceholder": "",
+            "titlePlaceholder": "Tytuł/nazwa publikacji/produktu, w którym dane zostały wykorzystane",
             "type": "Typ",
-            "authors": "",
-            "authorsPlaceholder": "",
+            "authors": "Autor/autorzy",
+            "authorsPlaceholder": "Autor/autorzy publikacji/produktu",
             "link": "URL",
-            "linkPlaceholder": "",
+            "linkPlaceholder": "Link/DOI do publikacji/produktu, jeśli jest dostępny online",
             "date": "Data",
             "comments": "Komentarze",
-            "commentsPlaceholder": "",
+            "commentsPlaceholder": "Dodatkowe informacje o publikacji/produkcie (szczególnie, jeśli nie jest to tradycyjny artykuł do czasopisma)",
             "submit": "Wyślij",
-            "saveFailure": "",
-            "saveSuccess": ""
+            "saveFailure": "Podczas zapisywania formularza wystąpił błąd. Proszę spróbować ponownie.",
+            "saveSuccess": "Dziękujemy za informację. Załączymy link do opisanej publikacji/produktu. Proszę pamiętać o cytowaniu pobrania zgodnie z wytycznymi na stronie pobrań. Teraz możesz zamknąć to okno. "
         },
         "types": {
             "JOURNAL_ARTICLE": "artykuł naukowy",
             "BOOK": "książka",
             "BOOK_CHAPTER": "rozdział książki",
             "CONFERENCE_PAPER_PROCEEDINGS": "doniesienie konferencyjne",
-            "PREPRINT_WORKING_PAPER": "",
+            "PREPRINT_WORKING_PAPER": "prepublikacja / praca w toku",
             "REPORT": "raport",
             "WEB_PAGE": "strona internetowa",
-            "THESIS_DISSERTATION": "",
-            "COURSE_TEACHING_MATERIALS": "",
-            "MAGAZINE_ARTICLE": "",
+            "THESIS_DISSERTATION": "praca dyplomowa / rozprawa",
+            "COURSE_TEACHING_MATERIALS": "kurs / materiały dydaktyczne",
+            "MAGAZINE_ARTICLE": "artykuł w czasopiśmie",
             "STATUTE": "statut",
             "PATENT": "patent",
             "NEWSPAPER_ARTICLE": "artykuł w gazecie",
@@ -34,9 +34,9 @@
             "HEARING": "tekst źródłowy",
             "TELEVISION_BROADCAST": "transmisja telewizyjna",
             "ENCYCLOPEDIA_ARTICLE": "artykuł w encyklopedii",
-            "CASE": "",
+            "CASE": "przykład",
             "FILM": "film",
-            "BILL": "",
+            "BILL": "postulat",
             "OTHER": "inne (rozwiń proszę w komentarzach)"
         }
     }

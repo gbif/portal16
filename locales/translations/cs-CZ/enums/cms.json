@@ -32,7 +32,7 @@
       },
       "vocabularyTerms": {
         "articleType": {
-          "Nodes guidance": ""
+          "Nodes guidance": "Pokyny k uzlům"
         },
         "projectGrantType": {
           "REGIONAL": "Regionální granty na mobilizaci dat o biologické rozmanitosti",
@@ -52,12 +52,12 @@
           "GBIF_USED": "GBIF použito",
           "GBIF_CITED": "GBIF citováno",
           "GBIF_DISCUSSED": "GBIF diskutováno",
-          "GBIF_PRIMARY": "",
-          "GBIF_ACKNOWLEDGED": "",
-          "GBIF_PUBLISHED": "",
-          "GBIF_AUTHOR": "",
-          "GBIF_MENTIONED": "",
-          "GBIF_FUNDED": ""
+          "GBIF_PRIMARY": "GBIF primární",
+          "GBIF_ACKNOWLEDGED": "GBIF uznáno",
+          "GBIF_PUBLISHED": "GBIF publikováno",
+          "GBIF_AUTHOR": "GBIF autor",
+          "GBIF_MENTIONED": "GBIF uvedeno",
+          "GBIF_FUNDED": "GBIF financováno"
         },
         "topics": {
           "AGRICULTURE": "Zemědělství",
@@ -67,7 +67,7 @@
           "CLIMATE_CHANGE": "Změna klimatu",
           "CONSERVATION": "Ochrana přírody",
           "DATA_MANAGEMENT": "Správa dat",
-          "DATA_PAPER": "",
+          "DATA_PAPER": "Datový dokument",
           "ECOLOGY": "Ekologie",
           "ECOSYSTEM_SERVICES": "Ekosystémové služby",
           "EVOLUTION": "Evoluce",
@@ -85,9 +85,9 @@
           "CAPACITY_ENHANCEMENT": "Zvyšování kapacity",
           "DATA_ACCESS": "Přístup k datům",
           "DATA_ANALYSIS": "Analýza dat",
-          "DATA_CURATION_QUALITY": "",
-          "DATA_DIGITIZATION": "",
-          "DATA_PUBLISHING": ""
+          "DATA_CURATION_QUALITY": "Správa a kvalita dat",
+          "DATA_DIGITIZATION": "Digitalizace dat",
+          "DATA_PUBLISHING": "Publikování dat"
         },
         "literatureType": {
           "journal": "Článek v odborném časopise",
@@ -109,10 +109,10 @@
           "encyclopedia_article": "Encyklopedický článek",
           "case": "Případ",
           "film": "Film",
-          "bill": ""
+          "bill": "Návrh zákona"
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "Odborníci na znalost biodiverzity",
           "DATA_HOLDERS": "Držitelé dat",
           "DATA_USERS": "Uživatelé dat",
           "DECISION_MAKERS": "Rozhodující",
