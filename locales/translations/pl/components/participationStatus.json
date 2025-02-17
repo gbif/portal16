@@ -2,18 +2,18 @@
     "participationStatus": {
         "longForm": {
             "VOTING": "Członek głosujący",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
+            "ASSOCIATE": "Stowarzyszeni członkowie",
+            "OBSERVER": "Członkowie obserwatorzy",
             "AFFILIATE": "Afiliowany",
-            "FORMER": "",
+            "FORMER": "Byli członkowie",
             "undefined": "Nieznane"
         },
         "description": {
-            "VOTING": "",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
+            "VOTING": "Głosujący członek GBIF z {REGION}",
+            "ASSOCIATE": "Członek stowarzyszony GBIF z {REGION}",
+            "OBSERVER": "Kraj obserwator GBIF z {REGION}",
             "AFFILIATE": "",
-            "FORMER": "",
+            "FORMER": "Były członek głosujący GBIF z {REGION}",
             "undefined": "Nieznane"
         },
         "type": {
