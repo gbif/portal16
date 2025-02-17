@@ -42,7 +42,7 @@
     "noRankedAbove": "Checklista (wykaz taksonów) nie ma taksonów klasyfikowanych powyżej gatunku.",
     "taxonomicOccDistribution": "Dystrybucja taksonomiczna wystąpień",
     "groupByX": "Grupuj według {typ}",
-    "pOtherOrUknown": "",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, plural, one{inne lub nieznane} other{inne lub nieznane}}",
     "unknownRank": "Nieznana {ranga}",
     "vernacularNames": "Nazwy zwyczajowe",
     "majorRanksPlural": {
