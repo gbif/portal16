@@ -1,8 +1,8 @@
 {
     "counts": {
-        "nCitations": "{NUMBER_FORMATED} {NUMBER, select, 1{cita} other{citas}}",
-        "pCitations": "{NUMBER, select, 1{¡cita} other{¡citas}}",
-        "nRecords": "{NUMBER_FORMATED} {NUMBER, select, 1{registro} other{registros}}",
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, plural, one{cita} other{citas}}",
+        "pCitations": "{NUMBER, plural, one{cita} other{citas}}",
+        "nRecords": "{NUMBER_FORMATED} {NUMBER, plural, one{registro} other{registros}}",
         "nResults": "{NUMBER_FORMATED} {NUMBER, select, 1{resultado} other{resultados}}",
         "nCollections": "{NUMBER_FORMATED}{NUMBER, plural, one{colección} other{colecciones}}",
         "nInstitutions": "{NUMBER_FORMATED}{NUMBER, plural, one{institución} other{instituciones}}",
@@ -25,7 +25,7 @@
         "pPublishers": "{NUMBER, select, 1{publicador} other{publicadores}}",
         "contacts": "{NUMBER, select, 1{contacto} other{contactos}}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural, 1{tratamiento} other{tratamientos}}",
-        "nAbsent": "",
+        "nAbsent": "{NUMBER_FORMATED} {NUMBER, plural, one{ausente} other{ausentes}}",
         "nImages": "{NUMBER_FORMATED} con {NUMBER, select, 1{imagen} other{imágenes}}",
         "nMore": "{NUMBER_FORMATED} {NUMBER, plural, one{más} other{más}}"
     }
