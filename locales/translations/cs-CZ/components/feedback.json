@@ -12,7 +12,7 @@
       "contactPerMail": "Buďte v kontaktu s kontaktní osobou pro datovou sadu"
     },
     "bug": {
-      "title": "",
+      "title": "Chyba",
       "example": "Například: Tlačítko vyhledávání nefunguje. Stránka se nenačte. Nemohu to přečíst, protože se sloupce překrývají."
     },
     "idea": {

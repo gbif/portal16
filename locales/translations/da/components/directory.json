@@ -50,25 +50,25 @@
     "sinceDate": "Siden {DATE}",
     "showAllContacts": "Alle",
     "person": {
-      "volunteer": "GBIF annoteret Arkiv",
+      "volunteer": "",
       "name": "Navn",
-      "annualBadges": "GBIF annoteret Arkiv",
+      "annualBadges": "",
       "language": "Sprog",
       "country": "Land eller område",
-      "affiliation": "GBIF annoteret Arkiv",
-      "recipient": "GBIF annoteret Arkiv",
-      "areasExpertise": "GBIF annoteret Arkiv",
-      "orcId": "GBIF annoteret Arkiv",
+      "affiliation": "",
+      "recipient": "",
+      "areasExpertise": "",
+      "orcId": "",
       "year": "",
       "email": "E-mail"
     },
     "award": {
-      "GRA": "GBIF annoteret Arkiv",
-      "EBBE1ST": "GBIF annoteret Arkiv",
-      "EBBE2ND": "GBIF annoteret Arkiv",
-      "EBBE3RD": "GBIF annoteret Arkiv"
+      "GRA": "",
+      "EBBE1ST": "",
+      "EBBE2ND": "",
+      "EBBE3RD": ""
     },
-    "prize": "GBIF annoteret Arkiv",
+    "prize": "",
     "year": ""
   }
 }

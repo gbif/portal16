@@ -2,12 +2,14 @@
   "downloadFormat": {
     "SIMPLE_AVRO": "Apache Avro 數據序列化框架",
     "SIMPLE_CSV": "CSV",
+    "CUBE": "等於 {is}",
     "DWCA": "達爾文核心集檔案",
     "SPECIES_LIST": "物種清單 CSV 檔",
     "SIMPLE_WITH_VERBATIM_AVRO": "Apache Avro 格式（包含解讀過的㯗位及所有原始欄位）",
     "MAP_OF_LIFE": "生命地圖輸出",
     "IUCN": "IUCN 輸出",
     "BIONOMIA": "Bionomia 輸出格式",
+    "SQL_TSV_ZIP": "等於 {is}",
     "SIMPLE_PARQUET": "Simple Parquet（一種 Hadoop 生態圈相容的資料格式）"
   }
 }

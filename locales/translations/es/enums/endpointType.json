@@ -14,11 +14,11 @@
     "BIOCASE": "BioCASe",
     "BIOCASE_XML_ARCHIVE": "Archivo XML BioCASe",
     "OAI_PMH": "OAI PMH",
-    "COLDP": "Aquí debe colocarse una breve descripción del componente",
-    "BIOM_1_0": "Aquí debe colocarse una breve descripción del componente",
-    "BIOM_2_1": "Aquí debe colocarse una breve descripción del componente",
-    "ACEF": "Aquí debe colocarse una breve descripción del componente",
-    "TEXT_TREE": "Aquí debe colocarse una breve descripción del componente",
+    "COLDP": "Igual a {is}",
+    "BIOM_1_0": "",
+    "BIOM_2_1": "",
+    "ACEF": "",
+    "TEXT_TREE": "",
     "OTHER": "Otro"
   }
 }

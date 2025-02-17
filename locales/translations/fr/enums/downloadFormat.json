@@ -2,12 +2,14 @@
   "downloadFormat": {
     "SIMPLE_AVRO": "Apache Avro",
     "SIMPLE_CSV": "CSV",
+    "CUBE": "",
     "DWCA": "Archive Darwin Core",
     "SPECIES_LIST": "Liste des espèces en format CSV",
     "SIMPLE_WITH_VERBATIM_AVRO": "",
     "MAP_OF_LIFE": "",
     "IUCN": "",
     "BIONOMIA": "Export Bionomia",
+    "SQL_TSV_ZIP": "",
     "SIMPLE_PARQUET": "Parquet simple"
   }
 }

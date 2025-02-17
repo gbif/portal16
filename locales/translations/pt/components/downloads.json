@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{ocorrência incluída} other{ocorrências incluídas}} na transferência",
     "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{registo incluido} other{registos incluidos}} na transferência",
-    "nRowsDownloaded": "Uma breve descrição do componente deve ser colocada aqui",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "Inclui registos de {NUMBER_FORMATTED} {NUMBER, plural, one{conjunto de dados} other{conjuntos de dados}}",
     "fileNotAvailable": "Este ficheiro não está mais disponível para transferência",
     "downloadDeletionWarning": "A menos que [o GBIF descubra citações](/literature-tracking) deste download, o arquivo de dados é elegível para exclusão após {DATE}.",
@@ -47,8 +47,8 @@
     "predatesDoi": "Esta transferência é anterior ao nosso uso de DOIs. Por favor contacte-nos se deseja citar esta transferência",
     "file": "Ficheiro",
     "constituentDatasets": "Conjuntos de dados envolvidos",
-    "constituentOrganizations": "Uma breve descrição do componente deve ser colocada aqui",
-    "constituentPublishingCountries": "Uma breve descrição do componente deve ser colocada aqui",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "Filtros não utilizados",
     "apiUsageDescription": "Para repetir a transferência com os dados atuais, pode usar a pesquisa abaixo com o API.",
     "apiFilterView": "API",
@@ -87,5 +87,118 @@
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "Pesquisa de ocorrências",
+    "taxon": {
+      "KINGDOM": "Reino",
+      "PHYLUM": "Filo",
+      "CLASS": "Classe",
+      "ORDER": "Ordem",
+      "FAMILY": "Família",
+      "GENUS": "Género",
+      "SPECIES": "Espécie",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "Obter mais informações",
+    "time": {
+      "YEAR": "Ano",
+      "YEARMONTH": "",
+      "DATE": "Data"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "Iguais {is}",
+        "17": "Iguais {is}",
+        "18": "Iguais {is}",
+        "19": "Iguais {is}",
+        "20": "Iguais {is}",
+        "21": "Iguais {is}",
+        "22": "Iguais {is}"
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "Iguais {is}",
+        "1": "Iguais {is}",
+        "10": "Iguais {is}",
+        "100": "Iguais {is}",
+        "1000": "Iguais {is}",
+        "10000": "Iguais {is}"
+      }
+    },
+    "noneSelected": "Iguais {is}",
+    "dimensions": "Iguais {is}",
+    "taxonomicDimension": "Iguais {is}",
+    "temporalDimension": "Iguais {is}",
+    "spatialDimension": "Iguais {is}",
+    "spatialResolution": "Iguais {is}",
+    "randomPoints": "Iguais {is}",
+    "measurements": "Iguais {is}",
+    "countHigherTaxonomy": "Iguais {is}",
+    "coordinateUncertainty": "Iguais {is}",
+    "errorMinimumDimension": "Iguais {is}",
+    "editSql": "Iguais {is}",
+    "temporalUncertainty": "Iguais {is}",
+    "documentation": "Iguais {is}",
+    "help": {
+      "whatIsThis": "Iguais {is}",
+      "dimensions": "Iguais {is}",
+      "taxonomicDimension": "Iguais {is}",
+      "temporalDimension": "Iguais {is}",
+      "grid": "Iguais {is}",
+      "gridResolution": "Iguais {is}",
+      "randomizePoints": "Iguais {is}",
+      "measurements": "Iguais {is}",
+      "occurrenceCount": "Iguais {is}",
+      "higherTaxonomy": "Iguais {is}",
+      "minCoorindateUncertainty": "Iguais {is}",
+      "minTemporalUncertainty": "Iguais {is}",
+      "editSql": "Iguais {is}"
+    }
   }
 }

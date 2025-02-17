@@ -2,8 +2,8 @@
     "participationStatus": {
         "longForm": {
             "VOTING": "Hlasující účastník",
-            "ASSOCIATE": "",
-            "OBSERVER": "",
+            "ASSOCIATE": "Přidružený účastník",
+            "OBSERVER": "Pozorující účastník",
             "AFFILIATE": "Přidružený partner ",
             "FORMER": "Bývalý účastník",
             "undefined": "Neznámý"

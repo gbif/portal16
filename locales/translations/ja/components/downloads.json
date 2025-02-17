@@ -12,7 +12,7 @@
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{オカレンス} other{オカレンス}} ダウンロード済み",
     "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{レコード} other{レコード}} ダウンロード済み",
-    "nRowsDownloaded": "GBIFがアノーテーションしたアーカイブ",
+    "nRowsDownloaded": "",
     "nConstituentDatasets": "{NUMBER_FORMATTED} {NUMBER, select, one{データセット} other{データセット}} からのレコードを含む",
     "fileNotAvailable": "このファイルはもうダウンロード可能ではありません。",
     "downloadDeletionWarning": "このダウンロードは引用されていないので、 {DATE} より後に削除の対象となります。",
@@ -47,8 +47,8 @@
     "predatesDoi": "このダウンロードはDOIの適用前になされました。もし、このダウンロードを引用したい場合はお問い合わせください。",
     "file": "ファイル",
     "constituentDatasets": "含まれるデータセット",
-    "constituentOrganizations": "GBIFがアノーテーションしたアーカイブ",
-    "constituentPublishingCountries": "GBIFがアノーテーションしたアーカイブ",
+    "constituentOrganizations": "",
+    "constituentPublishingCountries": "",
     "noFiltersApplied": "フィルター無し",
     "apiUsageDescription": "APIを使用して今日のダウンロードを再現するためには、以下のクエリを使用できます。",
     "apiFilterView": "API",
@@ -87,5 +87,118 @@
     "title": "",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
+  },
+  "customSqlDownload": {
+    "invalidSQL": "",
+    "title": "",
+    "notification": "",
+    "occurrenceSearch": "オカレンス検索",
+    "taxon": {
+      "KINGDOM": "界",
+      "PHYLUM": "門",
+      "CLASS": "綱",
+      "ORDER": "目",
+      "FAMILY": "科",
+      "GENUS": "属",
+      "SPECIES": "種",
+      "ACCEPTED_TAXON": "",
+      "EXACT_TAXON": ""
+    },
+    "cubeTitle": "",
+    "cubeDescription": "",
+    "readMore": "もっと読む",
+    "time": {
+      "YEAR": "年",
+      "YEARMONTH": "",
+      "DATE": "日付"
+    },
+    "occurrenceMeasurements": "",
+    "grid": {
+      "EEA_REFERENCE_GRID": "",
+      "EXTENDED_QUARTER_DEGREE_GRID": "",
+      "ISEA3H_GRID": "",
+      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+    },
+    "resolution": {
+      "EEA_REFERENCE_GRID": {
+        "25": "",
+        "100": "",
+        "250": "",
+        "1000": "",
+        "10000": "",
+        "100000": ""
+      },
+      "EXTENDED_QUARTER_DEGREE_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": ""
+      },
+      "ISEA3H_GRID": {
+        "0": "",
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": "",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "",
+        "16": "",
+        "17": "",
+        "18": "",
+        "19": "",
+        "20": "",
+        "21": "",
+        "22": ""
+      },
+      "MILITARY_GRID_REFERENCE_SYSTEM": {
+        "0": "",
+        "1": "",
+        "10": "",
+        "100": "",
+        "1000": "",
+        "10000": ""
+      }
+    },
+    "noneSelected": "",
+    "dimensions": "",
+    "taxonomicDimension": "",
+    "temporalDimension": "",
+    "spatialDimension": "",
+    "spatialResolution": "",
+    "randomPoints": "",
+    "measurements": "",
+    "countHigherTaxonomy": "",
+    "coordinateUncertainty": "",
+    "errorMinimumDimension": "",
+    "editSql": "",
+    "temporalUncertainty": "",
+    "documentation": "",
+    "help": {
+      "whatIsThis": "",
+      "dimensions": "",
+      "taxonomicDimension": "",
+      "temporalDimension": "",
+      "grid": "",
+      "gridResolution": "",
+      "randomizePoints": "",
+      "measurements": "",
+      "occurrenceCount": "",
+      "higherTaxonomy": "",
+      "minCoorindateUncertainty": "",
+      "minTemporalUncertainty": "",
+      "editSql": ""
+    }
   }
 }
