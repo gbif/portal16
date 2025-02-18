@@ -30,7 +30,7 @@
     "counts": {
       "occurrences": "{NUMBER, plural, 0 {Výskytů} one {Výskyt} other {Výskytů}}",
       "datasets": "{NUMBER, plural, 0 {Datových sad} one {Datová sada} other {Datových sad}}",
-      "publishers": "",
+      "publishers": "{NUMBER, plural, one{vydavatel} few {vydavatelé} many {vydavatelů} other{vydavatelů}}",
       "countriesAndAreasContributeData": "Země a oblasti přispívající daty",
       "publishedOccurrences": "Zveřejněné výskyty",
       "publishedDatasets": "Zveřejněné datové sady",

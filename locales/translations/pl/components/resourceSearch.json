@@ -1,49 +1,49 @@
 {
     "resourceSearch": {
         "title": "Wyszukiwanie źródeł",
-        "upcoming": "",
+        "upcoming": "Nadchodzące",
         "past": "Poprzednie",
-        "searchForNewsEventsDocuments": "",
-        "occurrenceSearch": "",
-        "subscribeToCalendar": "",
-        "suggestEvent": "",
-        "citationExplainer": "",
+        "searchForNewsEventsDocuments": "Szukaj aktualności, wydarzeń, dokumentów i wiele więcej. Jeśli szukasz wystąpień gatunków, wypróbuj naszą wyszukiwarkę stwierdzeń.",
+        "occurrenceSearch": "Wyszukiwanie stwierdzeń",
+        "subscribeToCalendar": "Subskrybuj kalendarz",
+        "suggestEvent": "Zasugeruj wydarzenie",
+        "citationExplainer": "Przeczytaj więcej o literaturze, o tym, jak ją odkrywano i jak łączono z danymi widocznymi w GBIF.",
         "types": {
-            "events": "",
+            "events": "Wydarzenia",
             "news": "Aktualności",
             "resources": "Zasoby",
             "projects": "Projekty",
-            "programmes": "",
+            "programmes": "Programy",
             "documents": "Dokumenty",
             "tools": "Narzędzia",
             "dataUse": "Wykorzystanie danych",
             "literature": "Literatura"
         },
         "filters": {
-            "countriesOfCoverage": "",
-            "countriesOfResearcher": "",
-            "literatureType": "",
+            "countriesOfCoverage": "Kraj lub obszar zasięgu",
+            "countriesOfResearcher": "Kraj lub obszar badacza",
+            "literatureType": "Typ bibliografii",
             "contractCountry": "Kraj lub obszar",
-            "topics": "",
-            "audiences": "",
+            "topics": "Temat",
+            "audiences": "Odbiorcy",
             "purposes": "Cel",
-            "relevance": "",
+            "relevance": "Znaczenie",
             "language": "Język",
-            "year": "",
+            "year": "Rok publikacji",
             "gbifDatasetKey": "Zbiór danych",
             "publishingOrganizationKey": "Wydawca",
-            "networkKey": "",
-            "peerReview": "",
+            "networkKey": "Sieć",
+            "peerReview": "Recenzowane",
             "openAccess": "Otwarty dostęp",
-            "gbifDownloadKey": "",
-            "gbifDerivedDatasetDoi": "",
+            "gbifDownloadKey": "Pobierz klucz",
+            "gbifDerivedDatasetDoi": "DOI pochodnego zbioru danych",
             "paperDoi": "DOI",
-            "litSource": "",
+            "litSource": "Czasopismo",
             "gbifTaxonKey": "Nazwa naukowa",
-            "litPublisher": ""
+            "litPublisher": "Wydawca czasopisma"
         },
         "helpText": {
-            "gbifTaxonKey": ""
+            "gbifTaxonKey": "Uwaga: Zastosowanie tego filtra spowoduje wykluczenie artykułów, które nie skupiają się wyraźnie na (a) konkretnym taksonie/taksonach"
         }
     }
 }

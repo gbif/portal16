@@ -27,7 +27,7 @@
     },
     "confirmation": {
       "title": "Gracias",
-      "example": "Tu opinión se ha registrado como un asunto en Github. Si es necesario y si se proporcionan los detalles de contacto, podríamos llegar a contactarte para obtener más información. Puedes seguir el progreso visitando la página de incidencias.",
+      "example": "Su comentario se ha registrado como un incidente en Github. Si es necesario, y si se han facilitado datos de contacto, podríamos ponernos en contacto con usted para obtener más información. Puede seguir el progreso visitando la página de la incidencia.",
       "seeIssue": "Ver incidencia"
     },
     "issues": {
@@ -41,13 +41,13 @@
       "username": "Email o nombre de usuario de GitHub"
     },
     "markdownSupport": "Soporte Markdown",
-    "issueTracking": "Todos los recursos son públicos y están disponibles a través de [Github](https://github.com/gbif/portal-feedback/issues)",
+    "issueTracking": "Todos los incidentes son públicos y están disponibles a través de [Github](https://github.com/gbif/portal-feedback/issues)",
     "failure": "Algo no va bien - el sistema de comentarios no funciona. Por favor, escríbenos vía email o accede a [Github] (https://github.com/gbif/portal-feedback/issues). Disculpa las molestias.",
     "weRecommendX": "Recomendamos el uso de",
     "tellGbif": "Dile a GBIF",
     "submit": "Enviar",
     "seeAllComments": "Ver todo",
     "recommendMail": "Recomendamos enviar un correo a",
-    "pleaseLogin": "Por favor, conéctate para poder dejar un comentario. También puedes usar (https://github.com/gbif/portal-feedback/issues).\n¿Por qué? Desafortunadamente, si no requerimos que los usuarios estén conectado, recibimos numerosos anuncios de spam en nuestro sistema de comentarios."
+    "pleaseLogin": "Inicie sesión para dejar sus comentarios. También puede utilizar [Github](https://github.com/gbif/portal-feedback/issues) o [helpdesk@gbif.org](mailto:helpdesk@gbif.org).\n\n¿Por qué? Lamentablemente, estamos viendo muchos anuncios de spam en nuestro sistema de comentarios si no exigimos a los usuarios que inicien sesión."
   }
 }

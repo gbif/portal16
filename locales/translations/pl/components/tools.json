@@ -1,98 +1,98 @@
 {
     "tools": {
         "tools": "Narzędzia",
-        "categoryFeatured": "",
+        "categoryFeatured": "Wyróżniony",
         "suggestDataset": {
-            "NOT_OPEN": "",
+            "NOT_OPEN": "nie na otwartej licencji",
             "title": "Zaproponuj zbiór danych",
-            "pleaseDescribeTheDataset": "",
+            "pleaseDescribeTheDataset": "Proszę opisać zbiór danych",
             "thankYou": "Dziękujemy",
             "form": {
                 "title": "Tytuł",
-                "link": "",
+                "link": "Link internetowy do danych",
                 "region": "Zasięg geograficzny",
-                "taxon": "",
-                "whyImportant": "",
-                "howWouldYouRateIt": "",
-                "high": "",
-                "medium": "",
-                "low": "",
-                "bibliographicRef": "",
+                "taxon": "Zakres taksonomiczny",
+                "whyImportant": "Dlaczego ten zbiór danych jest istotny?",
+                "howWouldYouRateIt": "Jak oceniasz jego znaczenie?",
+                "high": "Istotne — GBIF nie ma danych w tym obszarze",
+                "medium": "Ważne - GBIF ma mało danych w tym obszarze",
+                "low": "To byłby ładny dodatek do istniejących danych",
+                "bibliographicRef": "Odniesienie bibliograficzne",
                 "type": "Typ zbioru danych",
-                "license": "",
-                "dataHolderContact": "",
-                "publicAlert": "",
-                "yourContact": "",
+                "license": "Informacja o licencji",
+                "dataHolderContact": "Dane kontaktowe właścicieli danych",
+                "publicAlert": "Te szczegóły będą publiczne",
+                "yourContact": "Twoje dane kontaktowe",
                 "comments": "Komentarze",
                 "submit": "Wyślij",
-                "followDiscussionBelow": "",
-                "followIssue": "",
-                "suggestAnother": "",
-                "saveFailure": ""
+                "followDiscussionBelow": "Śledź lub przyłącz się do dalszej dyskusji, klikając poniższy link.",
+                "followIssue": "Zobacz sugestie na github",
+                "suggestAnother": "Zaproponuj inny zbiór danych",
+                "saveFailure": "To nie jest dobre. Nie mogliśmy zapisać Twojej sugestii. Spróbuj ponownie później lub przejdź bezpośrednio do [Github](https://github.com/gbif/data-mobilization/issues), gdzie zarządzane są sugestie"
             }
         },
         "observationTrends": {
-            "drawerTitle": "",
-            "intro": "",
-            "aboutLink": "",
+            "drawerTitle": "Wzgledne trendy obserwacji",
+            "intro": "Pilotaż mający na celu sprawdzenie, czy względne trendy obserwacji gatunków w GBIF dostarczają przydatnych informacji dla badaczy",
+            "aboutLink": "Przeczytaj o tym narzędziu",
             "selectSpecies": "Wybierz gatunek",
-            "noData": "",
-            "selectHigherTaxa": "",
-            "selectArea": "",
+            "noData": "Nie posiadamy danych georeferencjonowanych na temat wybranych gatunków po roku 1900",
+            "selectHigherTaxa": "Wybierz takson wyższej rangi",
+            "selectArea": "Wybierz obszar",
             "hexagon": "Sześciokąt",
-            "draw": "",
+            "draw": "Rysuj",
             "clear": "Wyczyść",
-            "resultIntro": "",
-            "embedIntro": ""
+            "resultIntro": "Zmiana względnej częstotliwości obserwacji dla wybranego obszaru",
+            "embedIntro": "Wszystkie dane dostępne za pośrednictwem {GBIF network}"
         },
         "speciesLookup": {
-            "description": "",
-            "title": ""
+            "description": "Normalizuj nazwy gatunków z pliku CSV względem szkieletu taksonomicznego GBIF. Oczekuje się, że plik będzie miał kolumnę o nazwie 'scientificName' i opcjonalne kolumny 'kingdom' i 'id'.",
+            "title": "Dopasowywanie nazw gatunków"
         },
         "ipt": {
             "description": "Zintegrowany Zestaw Narzędzi Publikowania (IPT) jest darmowym, otwartym oprogramowaniem napisanym w języku Java, używanym do publikowania zbiorów danych o bioróżnorodności przez sieć GBIF. IPT może być również zintegrowany z kontem DataCite lub EZID, aby nadać zbiorom danych numery DOI i przekształcić je w repozytoria danych.",
-            "dontSeeYourIpt": ""
+            "dontSeeYourIpt": "Nie widzisz swojego IPT? Wyślij swoje współrzędne do [GBIF](mailto:helpdesk@gbif.org \"mail do helpdesku GBIF z prośbą o dodanie Twojego IPT do mapy\")."
         },
         "dataRepository": {
-            "title": ""
+            "title": "Repozytorium danych"
         },
         "sequenceId": {
-            "title": ""
+            "title": "Identyfikator sekwencji"
         },
         "machineVision": {
             "tabs": {
                 "demo": "Demo",
-                "statement": ""
+                "statement": "Informacje"
             }
         },
         "derivedDataset": {
             "title": "Pochodny zbiór danych",
             "titleField": "Tytuł",
-            "sourceUrl": "",
-            "originalDownloadDOI": "",
-            "registrationDate": "",
+            "sourceUrl": "Adres URL, pod którym można uzyskać dostęp do pochodnego zestawu danych",
+            "originalDownloadDOI": "DOI oryginalnego pobrania",
+            "registrationDate": "Data rejestracji",
             "datasetKey": "Klucz zbioru danych",
             "occurrenceCount": "Liczba stwierdzeń",
             "submit": "Wyślij",
-            "pleaseFill": "",
-            "loginToCreate": "",
-            "myDatasets": "",
-            "register": "",
-            "about": "",
-            "optionalDescription": "",
-            "registerNew": "",
-            "editDataset": "",
-            "editFailed": "",
-            "registrationFailed": "",
-            "registrationCompleted": "",
-            "editCompleted": "",
-            "newRegistration": "",
-            "goToDataset": "",
-            "yourDerivedDatasets": "",
+            "pleaseFill": "Aby wysłać formularz, proszę wypełnić wszystkie pola obowiązkowe",
+            "loginToCreate": "Zaloguj się, aby utworzyć pochodny zbiór danych",
+            "myDatasets": "Moje pochodne zbiory danych",
+            "register": "zarejestruj się",
+            "about": "informacje",
+            "optionalDescription": "Opis opcjonalny",
+            "registerNew": "Zarejestruj nowy pochodny zbiór danych",
+            "editDataset": "Edytuj pochodny zbiór danych",
+            "editFailed": "Edycja nie powiodła się.",
+            "registrationFailed": "Rejestracja nie powiodła się",
+            "registrationCompleted": "Rejestracja zakończona",
+            "editCompleted": "Edycja zakończona",
+            "newRegistration": "Nowa rejestracja",
+            "goToDataset": "Idź do zbioru danych",
+            "yourDerivedDatasets": "Twoje pochodne zbiory danych",
             "backToEdit": "Powrót do edycji",
-            "mintingDoi": "",
-            "attachCsvLabel": "",
-            "orEnterLabel": ""
+            "mintingDoi": "Tworzenie DOI – nie powinno to zająć dużo czasu.",
+            "attachCsvLabel": "Dołącz [plik CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) z kluczami zestawu danych i liczbą wystąpień",
+            "orEnterLabel": "lub wprowadź klucze zbioru danych/DOI i liczbę wystąpień tutaj"
         },
         "occurrenceSnapshots": {
             "title": ""

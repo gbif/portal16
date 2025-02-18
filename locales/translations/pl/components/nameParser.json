@@ -1,18 +1,18 @@
 {
     "nameParser": {
-        "loadTestNames": "",
-        "parse": "",
+        "loadTestNames": "Załaduj nazwy testowe",
+        "parse": "Analizuj",
         "or": "lub",
         "selectFile": "Wybierz plik",
-        "pasteNamesToParse": "",
-        "about": "",
-        "parser": "",
-        "nameParserTitle": "",
+        "pasteNamesToParse": "Wklej nazwy do przeanalizowania tutaj",
+        "about": "Informacje",
+        "parser": "Parser",
+        "nameParserTitle": "Parser nazw",
         "dropHere": "Upuść tutaj",
-        "excludeUnparsed": "",
-        "generateCsv": "",
-        "parsingNames": "",
-        "nameParserDescription": "",
-        "nameParserRequirements": ""
+        "excludeUnparsed": "Wyklucz nieprzeanalizowane",
+        "generateCsv": "Wygeneruj csv",
+        "parsingNames": "Analizowanie nazw - czekaj",
+        "nameParserDescription": "To prosty formularz HTML do wykorzystania parsera nazw GBIF. Jest napisany w Javie i oparty na wyrażeniach regularnych, aby rozłożyć ciągi nazw na komponenty. Przechowuje tylko części nazw wymagane do zrekonstruowania pełnej trzyczęściowej nazwy z opcjonalnym podrodzajem, ale ignoruje dodatkowe części poniżej gatunku, takie jak podgatunki, odmiany. Więcej szczegółów można znaleźć w naszej [dokumentacji API](/developer/species#parser).",
+        "nameParserRequirements": "Możesz skopiować i wkleić listę nazw, jedną na wiersz, lub przesłać plik tekstowy z nazwą na wiersz. Przesłane pliki muszą być zakodowane jako utf8!"
     }
 }

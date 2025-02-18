@@ -1,11 +1,11 @@
 {
     "installation": {
-        "installation": "",
-        "about": "",
+        "installation": "Instalacja",
+        "about": "Informacje",
         "homepage": "Strona główna",
-        "installationType": "",
-        "hostedBy": "",
-        "registered": "",
-        "endpoints": ""
+        "installationType": "Typ instalacji",
+        "hostedBy": "Hostowana przez",
+        "registered": "Zarejestrowano",
+        "endpoints": "Endpoint"
     }
 }

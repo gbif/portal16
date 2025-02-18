@@ -1,6 +1,6 @@
 {
     "nameParser": {
-        "loadTestNames": "",
+        "loadTestNames": "Načíst testovací názvy",
         "parse": "Analyzovat",
         "or": "nebo",
         "selectFile": "Vybrat soubor",

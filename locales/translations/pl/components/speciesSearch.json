@@ -1,12 +1,12 @@
 {
     "speciesSearch": {
-        "title": "",
-        "youAreCurrentlySearchingInGBIFtaxonomy": "",
-        "SearchAcrossChecklists": "",
-        "freeTextSearchFor": "",
+        "title": "Szukanie gatunków",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "Szukasz gatunków w taksonomii GBIF.",
+        "SearchAcrossChecklists": "Przeszukaj checklisty (wykazy taksonów)",
+        "freeTextSearchFor": "Przeprowadzasz wyszukiwanie swobodnego tekstu dla frazy '{QUERY}'",
         "limitSearchTo": "Ogranicz wyszukiwanie do",
         "limitResultsTo": {
-            "all": "",
+            "all": "Wszystko",
             "scientificNames": "Nazwy naukowe",
             "vernacularNames": "Nazwy zwyczajowe",
             "descriptions": "Opisy"
