@@ -4,7 +4,7 @@
       "RESOURCE_STRUCTURE": "Struktura zasobów",
       "RESOURCE_INTEGRITY": "Integralność zasobów",
       "RECORD_STRUCTURE": "Struktura rekordów",
-      "OCC_INTERPRETATION_BASED": "Interoretacja wystąpień GBIF",
+      "OCC_INTERPRETATION_BASED": "Interpretacja wystąpień GBIF",
       "METADATA_CONTENT": "Zawartość metadanych",
       "CLB_INTERPRETATION_BASED": "Interpretacja taksonów GBIF"
     },
@@ -34,7 +34,7 @@
     "fileFormat": {
       "title": "Format pliku",
       "DWCA": "Darwin Core Archive",
-      "TABULAR": "plik tabelaryczny (.csv, .tsv)",
+      "TABULAR": "Plik tabelaryczny (.csv, .tsv)",
       "SPREADSHEET": "Arkusz kalkulacyjny (.xlsx)"
     },
     "fileType": {
@@ -119,7 +119,7 @@
     "started": "Rozpoczęto",
     "tabs": {
       "newDataValidation": "nowa walidacja danych",
-      "newValidation": "nowa walidacja",
+      "newValidation": "Nowa walidacja",
       "about": "Informacje",
       "darwinCoreExtensions": "Rozszerzenie Darwin Core",
       "metaData": "Metadane",
@@ -130,7 +130,7 @@
       "VALIDATOR_UPLOAD_ARCHIVE": {
         "RUNNING": "Archiwum przesyłane",
         "FINISHED": "Archiwum przesłane",
-        "PENDING": "prześlij archiwum",
+        "PENDING": "Prześlij archiwum",
         "FAILED": "",
         "QUEUED": ""
       },
