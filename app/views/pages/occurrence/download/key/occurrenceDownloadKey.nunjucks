@@ -247,7 +247,7 @@
                             {% endif %}
                         </div>
                         
-                        {% if download.record.request.sql and download.record.request.machineDescription.type %}
+                        {% if download.record.request.sql and download.record.request.machineDescription.type === "CUBE" %}
                         <div class="card__stripe">
                             <div class="card__content">
                                 {$ __('customSqlDownload.sqlMachineDescriptionIntro' ) $}
@@ -318,12 +318,12 @@
                                         </dd>
                                     </div>
                                     {% endif %}
-                                    {% if download.record.request.machineDescription.predicate %}
+                                    {% if download.record.request.machineDescription.parameters.predicate %}
                                     <div>
                                         <dt>Predicate</dt>
                                         <dd >
                                             <div class="predicates">
-                                                {$ predicate.print(download.record.request.machineDescription.predicate, __) $}
+                                                {$ predicate.print(download.record.request.machineDescription.parameters.predicate, __) $}
                                             </div>
                                         </dd>
                                     </div>

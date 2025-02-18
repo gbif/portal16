@@ -478,7 +478,7 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
 
         return $http.post(endpoints.webUtils + '/generate-sql', query)
             .then(function(response) {
-                return response.data.sql;
+                return response.data;
             })
             .catch(function(err) {
                 toastService.error({translate: 'phrases.criticalErrorMsg'});
@@ -489,7 +489,8 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
         event.stopPropagation();
         event.preventDefault();
         // get sql and redirect to sql editor
-        vm.generateSql().then(function(sql) {
+        vm.generateSql().then(function(data) {
+            var sql = data.sql;
             if (!sql) {
                 window.location.href = '/occurrence/download/sql';
             } else {
@@ -501,21 +502,9 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
     };
 
     vm.download = function() {
-        var machineDescription = {
-            type: 'CUBE',
-            parameters: {
-                taxonomy: vm.taxonomy,
-                temporal: vm.temporal,
-                spatial: vm.spatial,
-                resolution: vm.resolution,
-                randomize: vm.randomize,
-                higherGroups: vm.selectedHigherTaxonomyGroups,
-                includeTemporalUncertainty: vm.includeTemporalUncertainty,
-                includeSpatialUncertainty: vm.includeSpatialUncertainty
-            },
-            predicate: vm.predicate
-        };
-        vm.generateSql().then(function(sql) {
+        vm.generateSql().then(function(data) {
+            var sql = data.sql;
+            var machineDescription = data.machineDescription;
             $uibModalInstance.close({
                 format: 'SQL_TSV_ZIP',
                 sql: sql,
