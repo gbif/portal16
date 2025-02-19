@@ -20,9 +20,9 @@
       "example": "Such as: I want links to related genetic sequence data. Show me all the open-access articles."
     },
     "question": {
-      "title": "Helpdesk",
+      "title": "Help desk",
       "example": "Such as: How do you protect data on rare species? Can you help me find all records of this species occurring in international waters?",
-      "description": "All questions are answered by our helpdesk at helpdesk@gbif.org",
+      "description": "All questions are answered by our help desk at helpdesk@gbif.org",
       "comment": "For private enquiries and non technical questions you can reach us at [info@gbif.org](mailto:info@gbif.org) or at [communication@gbif.org](mailto:communication@gbif.org) for press matters."
     },
     "confirmation": {
