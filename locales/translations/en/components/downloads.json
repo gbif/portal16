@@ -18,7 +18,7 @@
     "downloadDeletionWarning": "Unless [GBIF discovers citations](/literature-tracking) of this download, the data file is eligible for deletion after {DATE}.",
     "occurrenceDownload": "Occurrence download",
     "brokenDownload": "Broken download",
-    "contactHelpdesk": "Contact helpdesk",
+    "contactHelpdesk": "Contact help desk\n",
     "cancelled": "Cancelled",
     "cancel": "Cancel",
     "download": "Download",
