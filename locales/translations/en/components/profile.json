@@ -88,7 +88,7 @@
     "passwordChangeInvalid": "Invalid password - if you have forgotten your password, then log out and use the password reset",
     "verficationLinkSent": "An email has been sent to the specified email address containing a link that must be clicked to activate your account.",
     "resetPasswordRequest": "Password reset request",
-    "resetPasswordMessage": "We have sent you a mail with a link to reset your password. If you do not receive the message, please contact the helpdesk",
+    "resetPasswordMessage": "We have sent you a mail with a link to reset your password. If you do not receive the message, please contact the help desk",
     "derivedDatasets": "Derived datasets"
   }
 }
