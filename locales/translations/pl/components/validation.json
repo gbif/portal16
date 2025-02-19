@@ -110,7 +110,7 @@
     "dataValidatorDescription": "Walidator danych GBIF to usługa umożliwiająca każdej osobie dysponującej zbiorem danych będących obiektem zainteresowania GBIF otrzymanie raportu dotyczącego poprawności składniowej i zawartości zebranej w zbiorze danych.",
     "thisIsAnEarlyAccessVersion": "Prosimy o zgłaszanie problemów i opinii za pomocą",
     "here": "system informacji zwrotnej",
-    "coreRowType": "kluczowy typ wiersza",
+    "coreRowType": "Kluczowy typ wiersza",
     "submit": "Wyślij",
     "dropHere": "Upuść tutaj",
     "or": "lub",
@@ -118,7 +118,7 @@
     "fetchFileFromLocation": "Pobierz plik z lokalizacji",
     "started": "Rozpoczęto",
     "tabs": {
-      "newDataValidation": "nowa walidacja danych",
+      "newDataValidation": "Nowa walidacja danych",
       "newValidation": "Nowa walidacja",
       "about": "Informacje",
       "darwinCoreExtensions": "Rozszerzenie Darwin Core",
