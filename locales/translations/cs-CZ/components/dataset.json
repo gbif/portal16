@@ -74,7 +74,7 @@
     "recommended": "Doporučeno",
     "processedOccurrences": "Archiv s poznámkami GBIF",
     "noDescriptionProvided": "Popis není k dispozici",
-    "pNetwork": "",
+    "pNetwork": "{NUMBER, plural, one{Síť} few {Sítě} many {Sítí} other{Sítí}}",
     "parentEvent": "Nadřazená událost",
     "eventDescription": "Popis události",
     "siblingEvents": "Příbuzné události",
