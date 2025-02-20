@@ -34,7 +34,7 @@
     "showOccPer": "Zobrazit počet výskytů na",
     "andBreakdownPer": "A případně je rozdělte na",
     "logarithmic": "Logaritmický",
-    "singleTypeResults": "",
+    "singleTypeResults": "{NUMBER} výskytů kde '{FIELD}' odpovídá:",
     "chooseDimension": "Zvolte dimenze",
     "clickToZoom": "Kliknutím a přetažením v oblasti grafu se přiblížíte",
     "pinchToZoom": "Přibližte graf stisknutím tlačítka",

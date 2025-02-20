@@ -4,7 +4,7 @@
       "RESOURCE_STRUCTURE": "Struktura zasobów",
       "RESOURCE_INTEGRITY": "Integralność zasobów",
       "RECORD_STRUCTURE": "Struktura rekordów",
-      "OCC_INTERPRETATION_BASED": "Interoretacja wystąpień GBIF",
+      "OCC_INTERPRETATION_BASED": "Interpretacja wystąpień GBIF",
       "METADATA_CONTENT": "Zawartość metadanych",
       "CLB_INTERPRETATION_BASED": "Interpretacja taksonów GBIF"
     },
@@ -34,7 +34,7 @@
     "fileFormat": {
       "title": "Format pliku",
       "DWCA": "Darwin Core Archive",
-      "TABULAR": "plik tabelaryczny (.csv, .tsv)",
+      "TABULAR": "Plik tabelaryczny (.csv, .tsv)",
       "SPREADSHEET": "Arkusz kalkulacyjny (.xlsx)"
     },
     "fileType": {
@@ -110,7 +110,7 @@
     "dataValidatorDescription": "Walidator danych GBIF to usługa umożliwiająca każdej osobie dysponującej zbiorem danych będących obiektem zainteresowania GBIF otrzymanie raportu dotyczącego poprawności składniowej i zawartości zebranej w zbiorze danych.",
     "thisIsAnEarlyAccessVersion": "Prosimy o zgłaszanie problemów i opinii za pomocą",
     "here": "system informacji zwrotnej",
-    "coreRowType": "kluczowy typ wiersza",
+    "coreRowType": "Kluczowy typ wiersza",
     "submit": "Wyślij",
     "dropHere": "Upuść tutaj",
     "or": "lub",
@@ -118,8 +118,8 @@
     "fetchFileFromLocation": "Pobierz plik z lokalizacji",
     "started": "Rozpoczęto",
     "tabs": {
-      "newDataValidation": "nowa walidacja danych",
-      "newValidation": "nowa walidacja",
+      "newDataValidation": "Nowa walidacja danych",
+      "newValidation": "Nowa walidacja",
       "about": "Informacje",
       "darwinCoreExtensions": "Rozszerzenie Darwin Core",
       "metaData": "Metadane",
@@ -130,7 +130,7 @@
       "VALIDATOR_UPLOAD_ARCHIVE": {
         "RUNNING": "Archiwum przesyłane",
         "FINISHED": "Archiwum przesłane",
-        "PENDING": "prześlij archiwum",
+        "PENDING": "Prześlij archiwum",
         "FAILED": "",
         "QUEUED": ""
       },
