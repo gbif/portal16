@@ -18,7 +18,7 @@
         "nCountries": "{NUMBER_FORMATED} {NUMBER, plural, one{kraj} other{kraje}}",
         "nContacts": "{NUMBER_FORMATED} {NUMBER, plural, one{kontakt} other{kontakty}}",
         "pRecords": "{NUMBER, plural, one{zapis} few {zapisy} many {zapisów} other{zapisów}}",
-        "pOccurrence": "{NUMBER, plural, one{Występowanie} other{występowania}}",
+        "pOccurrence": "{NUMBER, plural, one{występowanie} other{występowania}}",
         "pMaterialSamples": "{NUMBER, plural, one{analizowany materiał} few {analizowane materiały} many {analizowanych materiałów} other{analizowanych materiałów}}",
         "pSpecies": "{NUMBER, plural,one{gatunek} other{gatunki}}",
         "pInfraspecies": "{NUMBER, plural, one{podgatunek} few {podgatunki} many {podgatunków} other{podgatunków}}",
