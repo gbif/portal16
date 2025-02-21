@@ -4,7 +4,7 @@
       "details": "Szczegóły",
       "cluster": ""
     },
-    "typeOf": "{TYP}{NAZWY}",
+    "typeOf": "{TYPE} {NAME}",
     "coordinates": "Współrzędne",
     "unknownDate": "Nieznana data",
     "absent": "Nieobecne",
@@ -18,7 +18,7 @@
     "readFullDescription": "więcej ",
     "showMoreInfo": "więcej ",
     "noTaxonMatch": "żadne",
-    "gbifTaxonInterpretation": "Interoretacja taksonu GBIF",
+    "gbifTaxonInterpretation": "Interpretacja taksonu GBIF",
     "aboutTheDataset": "Informacje o zbiorze danych",
     "noLocationInformation": "Nie opublikowano żadnych informacji o lokalizacji dla tego rekordu",
     "deletedMessage": "Wydawca usunął to stwierdzenie z indeksu GBIF, ale ostatnia wersja jest widoczna poniżej.",
