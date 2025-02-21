@@ -8,15 +8,15 @@
       "other": "Członkowie głosujący"
     },
     "associate_country_participant": {
-      "one": "Uczestnicy z krajów stowarzyszonych",
+      "one": "Uczestnik z krajów stowarzyszonych",
       "other": "Uczestnicy z krajów stowarzyszonych"
     },
     "other_associate_participant": {
-      "one": "Inni stowarzyszeni członkowie",
+      "one": "Inny stowarzyszony członek",
       "other": "Inni stowarzyszeni członkowie"
     },
     "former_participant": {
-      "one": "Byli członkowie",
+      "one": "Były członek",
       "other": "Byli członkowie"
     },
     "gbif_affiliate": {
@@ -45,7 +45,7 @@
     "memberSince": "Członek od",
     "participant": "Uczestnik",
     "pPublishers": "{NUMBER, plural,one{wydawca} other{wydawcy}}",
-    "pOccurrence": "{NUMBER, plural, one{Występowanie} other{występowania}}",
+    "pOccurrence": "{NUMBER, plural, one{występowanie} other{występowania}}",
     "occurrenceDatasets": "Zbiór danych wystąpień",
     "occurrences": "Wystąpienia",
     "occurrencesHostedBy": ""
