@@ -101,8 +101,8 @@
       "current": "Obecny",
       "relatedOccurrences": "Powiązane stwierdzenia",
       "similarBecause": "Podobne, ponieważ",
-      "matchedRecord": "Dopasowany rekord",
-      "noMatches": "Brak kandydatur relacji",
+      "matchedRecord": "Dopasowany zapis",
+      "noMatches": "Brak kandydatur powiązań",
       "explainer": "Jest to funkcja testowa, która podświetla możliwe duplikaty i/lub powiązane wystąpienia."
     }
   },
