@@ -15,19 +15,19 @@
         "components": {
             "OCCURRENCE": {
                 "name": "Występowanie",
-                "tooltip": "np. szukanie i przeglądanie wystąpień"
+                "tooltip": "Np. szukanie i przeglądanie wystąpień"
             },
             "SPECIES": {
                 "name": "Gatunek\n",
-                "tooltip": "np. szukanie i przeglądanie gatunków, sugestii gatunków"
+                "tooltip": "Np. szukanie i przeglądanie gatunków, sugestii gatunków"
             },
             "REGISTRY": {
                 "name": "Rejestr",
-                "tooltip": "np. zbiór danych, wydawca, instalacja, kraj, członkowie i sieć."
+                "tooltip": "Np. zbiór danych, wydawca, instalacja, kraj, członkowie i sieć."
             },
             "IDENTITY": {
                 "name": "Tożsamość",
-                "tooltip": "Do logowania i wylogowania, łaczenie kont etc."
+                "tooltip": "Do logowania i wylogowania, łączenia kont etc."
             },
             "MAPS": {
                 "name": "Mapy",
@@ -35,7 +35,7 @@
             },
             "CONTENTFUL": {
                 "name": "System zarządzania treścią (system zewnętrzny)",
-                "tooltip": "np. aktualności i artykuły"
+                "tooltip": "Np. aktualności i artykuły"
             },
             "IMAGE_CACHE": {
                 "name": "Pamięć podręczna obrazów",
@@ -51,7 +51,7 @@
             },
             "RESOURCE_SEARCH": {
                 "name": "Wyszukiwanie źródeł",
-                "tooltip": "np. do przeszukiwania literatury, aktualności."
+                "tooltip": "Np. do przeszukiwania literatury, aktualności."
             },
             "CLUSTER": {
                 "name": "Obciążenie systemu",

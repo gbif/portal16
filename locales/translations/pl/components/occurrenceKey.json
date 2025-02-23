@@ -4,7 +4,7 @@
       "details": "Szczegóły",
       "cluster": ""
     },
-    "typeOf": "{TYP}{NAZWY}",
+    "typeOf": "{TYPE} {NAME}",
     "coordinates": "Współrzędne",
     "unknownDate": "Nieznana data",
     "absent": "Nieobecne",
@@ -18,7 +18,7 @@
     "readFullDescription": "więcej ",
     "showMoreInfo": "więcej ",
     "noTaxonMatch": "żadne",
-    "gbifTaxonInterpretation": "Interoretacja taksonu GBIF",
+    "gbifTaxonInterpretation": "Interpretacja taksonu GBIF",
     "aboutTheDataset": "Informacje o zbiorze danych",
     "noLocationInformation": "Nie opublikowano żadnych informacji o lokalizacji dla tego rekordu",
     "deletedMessage": "Wydawca usunął to stwierdzenie z indeksu GBIF, ale ostatnia wersja jest widoczna poniżej.",
@@ -61,22 +61,22 @@
       "notWorkingTryPublishers": "Odtwarzanie multimediów nie działa prawidłowo?",
       "download": "Pobierz media",
       "byRightsHolder": "przez {RIGHTSHOLDER}",
-      "licensedUnder": "licencjonowane na podstawie {{LICENCJA}}",
+      "licensedUnder": "licencjonowane na podstawie {{LICENSE}}",
       "suggestedCitation": "Sugerowane przypisanie"
     },
     "title": {
       "inCountry": {
-        "PRESERVED_SPECIMEN": "Zebrane w {kraj}",
-        "FOSSIL_SPECIMEN": "Zebrane w {kraj}",
-        "LIVING_SPECIMEN": "Zebrane w {kraj}",
-        "HUMAN_OBSERVATION": "Zaobserwowane w {kraj}",
-        "MACHINE_OBSERVATION": "Zaobserwowane w {kraj}",
-        "MATERIAL_SAMPLE": "Zebrane w {kraj}",
-        "MATERIAL_CITATION": "Zarejestrowane w {kraj}",
-        "OCCURRENCE": "Zarejestrowane w {kraj}",
-        "OBSERVATION": "Zaobserwowane w {kraj}",
-        "LITERATURE": "Zarejestrowane w {kraj}",
-        "UNKNOWN": "Zarejestrowane w {kraj}"
+        "PRESERVED_SPECIMEN": "Zebrane w {COUNTRY}",
+        "FOSSIL_SPECIMEN": "Zebrane w {COUNTRY}",
+        "LIVING_SPECIMEN": "Zebrane w {COUNTRY}",
+        "HUMAN_OBSERVATION": "Zaobserwowane w {COUNTRY}",
+        "MACHINE_OBSERVATION": "Zaobserwowane w {COUNTRY}",
+        "MATERIAL_SAMPLE": "Zebrane w {COUNTRY}",
+        "MATERIAL_CITATION": "Zarejestrowane w {COUNTRY}",
+        "OCCURRENCE": "Zarejestrowane w {COUNTRY}",
+        "OBSERVATION": "Zaobserwowane w {COUNTRY}",
+        "LITERATURE": "Zarejestrowane w {COUNTRY}",
+        "UNKNOWN": "Zarejestrowane w {COUNTRY}"
       },
       "unknownLocation": {
         "PRESERVED_SPECIMEN": "Zebrane w nieznanej lokalizacji",
@@ -94,15 +94,15 @@
       "unknownSpecies": "Nieznane gatunki"
     },
     "occurrence": "Występowanie",
-    "inLanguage": "w {język_przetłumaczony}",
+    "inLanguage": "w {LANGUAGE_TRANSLATED}",
     "sequenced": "Sekwencjonowane",
     "treatment": "Przetwarzanie",
     "cluster": {
       "current": "Obecny",
       "relatedOccurrences": "Powiązane stwierdzenia",
       "similarBecause": "Podobne, ponieważ",
-      "matchedRecord": "Dopasowany rekord",
-      "noMatches": "Brak kandydatur relacji",
+      "matchedRecord": "Dopasowany zapis",
+      "noMatches": "Brak kandydatur powiązań",
       "explainer": "Jest to funkcja testowa, która podświetla możliwe duplikaty i/lub powiązane wystąpienia."
     }
   },

@@ -33,7 +33,7 @@
     "underProcessing": "Zpracovává se",
     "citation": "Citace",
     "format": "Formát",
-    "nRecordsAtTime": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{záznam} few {záznamy} many {záznamů} other{záznamů}} v čase stažení",
     "aboutDeletionPolicy": "Přečtěte si více o našich [zásadách mazání](/faq?question=for-how-long-will-does-gbif-store-downloads).",
     "readDatauseAndTerms": "Nezapomeňte si přečíst [smlouvu s uživatelem dat](/terms/data-user) a [pokyny pro citování](/citation-guidelines).",
     "filterApplied": "Použitý filtr {DATE}",
@@ -104,7 +104,7 @@
       "ACCEPTED_TAXON": "Přijatý taxon",
       "EXACT_TAXON": "Přesný taxon"
     },
-    "cubeTitle": "",
+    "cubeTitle": "Stáhnout kostku",
     "cubeDescription": "Zástupce popisu",
     "readMore": "Zobrazit více",
     "time": {
@@ -193,14 +193,14 @@
     "help": {
       "whatIsThis": "",
       "dimensions": "",
-      "taxonomicDimension": "",
+      "taxonomicDimension": "Tato dimenze sdružuje výskyty podle jejich taxonomického zařazení.",
       "temporalDimension": "",
       "grid": "",
       "gridResolution": "",
       "randomizePoints": "",
       "measurements": "",
       "occurrenceCount": "",
-      "higherTaxonomy": "",
+      "higherTaxonomy": "Další vyšší taxonomické zařazení, u nichž by měl být rovněž uveden počet výskytů. Užitečné pro potvrzení zkreslení sběru vzorků.",
       "minCoordinateUncertainty": "Nejnižší zaznamenaná neurčitost souřadnic (v metrech). Slouží k potvrzení prostorové přesnosti dat.",
       "minTemporalUncertainty": "",
       "editSql": "Nejjednodušší způsob stahování a zkoumání dat je prostřednictvím uživatelského rozhraní pro vyhledávání výskytů. Pro složité dotazy a agregace však editor SQL poskytuje větší volnost."

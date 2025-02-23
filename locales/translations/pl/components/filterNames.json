@@ -41,7 +41,7 @@
     "gbifId": "GBIF ID",
     "occurrenceId": "Identyfikator wystąpienia",
     "hasCoordinate": "Ma współrzędne",
-    "repatriated": "repatriowany",
+    "repatriated": "Ponownie wprowadzony ",
     "typeStatus": "Status typu",
     "geometry": "Geometria",
     "decimalLatitude": "Dziesiętna szerokość geograficzna",

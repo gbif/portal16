@@ -9,7 +9,7 @@
       "publishers": "Vydavatelé"
     },
     "registeredDate": "Registrováno {DATE}",
-    "nParticipatingDatasets": "",
+    "nParticipatingDatasets": "{NUMBER_FORMATED} participující {NUMBER, plural, one{datová sada} few {datové sady} many {datových sad} other{datových sad}}",
     "nParticipatingPublishers": ""
   }
 }

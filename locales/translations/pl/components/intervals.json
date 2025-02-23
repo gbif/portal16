@@ -2,8 +2,8 @@
     "intervals": {
         "noFilter": "Brak filtra",
         "elevation": {
-            "equals": "Jest {z}",
-            "between": "Pomiędzy {od} i {do}",
+            "equals": "Jest {from}m",
+            "between": "Pomiędzy {from} i {to}m",
             "lessThanOrEquals": "Poniżej {to}m",
             "greaterThanOrEquals": "Powyżej {od}m",
             "invalid": "Błędny",
@@ -15,16 +15,16 @@
             }
         },
         "depth": {
-            "equals": "Jest {z}",
-            "between": "Pomiędzy {od} i {do}",
-            "lessThanOrEquals": "Powyżej {do}m głębokość",
-            "greaterThanOrEquals": "Głębiej niż {od}m",
+            "equals": "Jest {from}m",
+            "between": "Pomiędzy {from} i {to}m",
+            "lessThanOrEquals": "Powyżej {to}m głębokości",
+            "greaterThanOrEquals": "Głębiej niż {from}m",
             "invalid": "Błędny",
             "select": {
                 "equals": "Jest",
                 "between": "Pomiędzy",
                 "lessThanOrEquals": "Mniej niż",
-                "greaterThanOrEquals": "Głebiej niż"
+                "greaterThanOrEquals": "Głębiej niż"
             }
         },
         "coordinateUncertaintyInMeters": {
@@ -42,9 +42,9 @@
         },
         "year": {
             "equals": "Jest {from}",
-            "between": "Pomiędzy zaczynając {od} i kończąc {na}",
-            "lessThanOrEquals": "Przed końcem {do}",
-            "greaterThanOrEquals": "Po rozpoczęciu {od}",
+            "between": "Pomiędzy zaczynając {from} i kończąc {to}",
+            "lessThanOrEquals": "Przed końcem {to}",
+            "greaterThanOrEquals": "Po rozpoczęciu {from}",
             "invalid": "Błędny",
             "select": {
                 "equals": "Jest",
@@ -55,9 +55,9 @@
         },
         "default": {
             "equals": "Jest {from}",
-            "between": "Pomiędzy {od} i {do}",
-            "lessThanOrEquals": "Mniejszy lub równy {do}",
-            "greaterThanOrEquals": "Większy lub równy {od}",
+            "between": "Pomiędzy {from} i {to}",
+            "lessThanOrEquals": "Mniejszy lub równy {to}",
+            "greaterThanOrEquals": "Większy lub równy {from}",
             "invalid": "Błędny",
             "select": {
                 "equals": "Jest",

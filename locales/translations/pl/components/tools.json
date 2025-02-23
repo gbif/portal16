@@ -3,7 +3,7 @@
         "tools": "Narzędzia",
         "categoryFeatured": "Wyróżniony",
         "suggestDataset": {
-            "NOT_OPEN": "nie na otwartej licencji",
+            "NOT_OPEN": "Nie na otwartej licencji",
             "title": "Zaproponuj zbiór danych",
             "pleaseDescribeTheDataset": "Proszę opisać zbiór danych",
             "thankYou": "Dziękujemy",
@@ -16,7 +16,7 @@
                 "howWouldYouRateIt": "Jak oceniasz jego znaczenie?",
                 "high": "Istotne — GBIF nie ma danych w tym obszarze",
                 "medium": "Ważne - GBIF ma mało danych w tym obszarze",
-                "low": "To byłby ładny dodatek do istniejących danych",
+                "low": "To byłby dobry dodatek do istniejących danych",
                 "bibliographicRef": "Odniesienie bibliograficzne",
                 "type": "Typ zbioru danych",
                 "license": "Informacja o licencji",
@@ -28,11 +28,11 @@
                 "followDiscussionBelow": "Śledź lub przyłącz się do dalszej dyskusji, klikając poniższy link.",
                 "followIssue": "Zobacz sugestie na github",
                 "suggestAnother": "Zaproponuj inny zbiór danych",
-                "saveFailure": "To nie jest dobre. Nie mogliśmy zapisać Twojej sugestii. Spróbuj ponownie później lub przejdź bezpośrednio do [Github](https://github.com/gbif/data-mobilization/issues), gdzie zarządzane są sugestie"
+                "saveFailure": "Niedobrze. Nie mogliśmy zapisać Twojej sugestii. Spróbuj ponownie później lub przejdź bezpośrednio do [Github](https://github.com/gbif/data-mobilization/issues), gdzie zarządzane są sugestie"
             }
         },
         "observationTrends": {
-            "drawerTitle": "Wzgledne trendy obserwacji",
+            "drawerTitle": "Względne trendy obserwacji",
             "intro": "Pilotaż mający na celu sprawdzenie, czy względne trendy obserwacji gatunków w GBIF dostarczają przydatnych informacji dla badaczy",
             "aboutLink": "Przeczytaj o tym narzędziu",
             "selectSpecies": "Wybierz gatunek",
