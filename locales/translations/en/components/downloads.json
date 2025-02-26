@@ -116,7 +116,7 @@
       "YES": "Yes",
       "NO": "No"
     },
-    "sqlMachineDescriptionIntro": "The SQL download was generated based on parameters provided by the user",
+    "sqlMachineDescriptionIntro": "The SQL download was generated based on the following parameters provided by the user:",
     "occurrenceMeasurements": "Occurrence count (always included)",
     "grid": {
       "EEA_REFERENCE_GRID": "EEA reference grid - Europe only",
