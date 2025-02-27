@@ -10,7 +10,7 @@ let env = process.env.NODE_ENV || 'local';
 let defaultLocale = 'en';
 
 // locales = ['en' , 'es', 'da', 'en-IN', 'zh-Hant-TW'],
-let locales = ['en', 'ar', 'zh', 'zh-tw', 'fr', 'ja', 'pt', 'ru', 'uk', 'es'];
+let locales = ['en', 'ar', 'zh', 'zh-tw', 'cs', 'fr', 'ja', 'pt', 'ru', 'uk', 'es'];
 if (env === 'local' || env === 'dev') {
     locales.push('de-MOCK');
     locales.push('ko-MOCK');
@@ -20,7 +20,7 @@ if (env === 'local' || env === 'dev') {
 
 if (env === 'uat' || env === 'local') {
    locales.push('pl');
-   locales.push('cs');
+   locales.push('it');
 }
 
 // specify rtl
@@ -38,6 +38,7 @@ contentfulLocaleMap['cs'] = 'cs';
 contentfulLocaleMap['es'] = 'es';
 contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
+contentfulLocaleMap['it'] = 'it';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['uk'] = 'uk';
 contentfulLocaleMap['pt'] = 'pt';
@@ -56,6 +57,7 @@ translationMap['en'] = 'eng';
 translationMap['es'] = 'spa';
 translationMap['ar'] = 'ara';
 translationMap['fr'] = 'fra';
+translationMap['it'] = 'ita';
 translationMap['ja'] = 'jpn';
 translationMap['ru'] = 'rus';
 translationMap['uk'] = 'ukr';
@@ -84,6 +86,8 @@ vocabularyMap['pl'] = 'pl-PL';
 vocabularyMap['da'] = 'da-DK';
 vocabularyMap['zh'] = 'zh-CN';
 vocabularyMap['zh-tw'] = 'zh-TW';
+vocabularyMap['cs'] = 'cs-CZ';
+vocabularyMap['it'] = 'it-IT';
 
 // Moment occasionally use other names for the languages. Provide them here
 let momentMap = _.keyBy(locales); // default to use the same language codes
@@ -95,7 +99,7 @@ momentMap['zh'] = 'zh-cn';
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';
 momentMap['ar-MOCK'] = 'ar-sa';
-momentMap['cs'] = 'cs';
+momentMap['it'] = 'it';
 
 // what locale to use for numbers
 let numberMap = {};// _.keyBy(locales); // default to use the same language codes
@@ -105,7 +109,7 @@ numberMap['zh-tw'] = 'zh-tw';
 numberMap['de-MOCK'] = 'de-ch';
 numberMap['ko-MOCK'] = 'zh-cn';
 numberMap['ar-MOCK'] = 'en';
-numberMap['cs'] = 'cs';
+numberMap['it'] = 'it';
 
 // If the toLolaeString is using a different format, then provide it. This isn't used much on the site yet, so make sure the places you are using it works as intended
 let jsLocaleMap = _.keyBy(locales);
