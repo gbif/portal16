@@ -66,7 +66,7 @@
         </div>
       </section>
       <section class="m-t-1 ng-cloak" ng-if="!occCustomDownload.inEditMode && occCustomDownload.hasUser && !occCustomDownload.invalidInput">
-        <a href="" ng-click="occCustomDownload.open('SQL_TSV_ZIP')"
+        <a href=""  ng-click="occCustomDownload.open('SQL_TSV_ZIP')"
             class="gb-button gb-button--brand m-t-1" translate="downloadKey.download">Download</a>
         <div class="m-t-2">
           <div translate="customSqlDownload.notification">The easiest way to download and explore data is via the <a href="/occurrence/search">Occurrence search</a>. But for complex queries and aggregations, then the SQL editor provides more freedom.</div>
