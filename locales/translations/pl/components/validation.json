@@ -38,7 +38,7 @@
       "SPREADSHEET": "Arkusz kalkulacyjny (.xlsx)"
     },
     "fileType": {
-      "title": "typ wiersza",
+      "title": "Typ wiersza",
       "CORE": {
         "title": "Rdzeń"
       },
@@ -55,12 +55,12 @@
       }
     },
     "fileSize": "Rozmiar pliku",
-    "fileSizeLimit": "limit rozmiaru pliku: 100 mb",
-    "receivedMediaType": "typ mediów",
+    "fileSizeLimit": "Limit rozmiaru pliku: 100 mb",
+    "receivedMediaType": "Typ mediów",
     "uniqueIdentifier": "Unikalny identyfikator",
     "reportLocation": "Niniejszy raport został napisany, aby",
     "reportDeletion": "I zostanie usunięty po miesiącu. Do tego czasu możesz ponownie przeglądać raport w dogodnym dla siebie czasie.",
-    "reportGenerated": "Zostawł wygenerowany",
+    "reportGenerated": "Został wygenerowany",
     "summary": "Podsumowanie walidacji",
     "issues": "Problem z walidacją",
     "fileHasIssues": "Walidator wykrył następujące problemy:",

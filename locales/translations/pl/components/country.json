@@ -28,7 +28,7 @@
     "notParticipantDescription": "To nie jest kraj członkowski GBIF",
     "countryNamingDisclaimer": "Nazwy krajów i obszarów oparte są na [ISO 3166-1 standard](https://www.iso.org/obp/ui/#search)",
     "counts": {
-      "occurrences": "{LICZBA, mnoga, 0 {Occurrences} jeden {Occurrence} inne {Occurrences}}",
+      "occurrences": "{LICZBA, plural, 0 {Occurrences} jeden {Occurrence} inne {Occurrences}}",
       "datasets": "{LICZBA, mnoga, 0 {Datasets} jeden {Dataset} inne {Datasets}}",
       "publishers": "{LICZBA, mnoga, 0 {Publishers} jeden {Publisher} inne {Publishers}}",
       "countriesAndAreasContributeData": "Kraje i obszary przekazują dane",

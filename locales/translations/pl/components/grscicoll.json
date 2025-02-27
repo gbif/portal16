@@ -74,18 +74,18 @@
     "title": "Osoba",
     "search": {
       "title": "Personel kolekcji",
-      "description": "Członkowie personelu GRSciColl to każdy rodzaj personelu zaangażowany w zbiory. Mogą być związani z instytucją i/lub dowolnym rodzajem zbioru."
+      "description": "Członkowie personelu GRSciColl to każdy rodzaj personelu zajmujący się kolekcjami. Mogą być związani z instytucją i/lub dowolnym rodzajem kolekcji."
     },
     "headerTitle": "Personel kolekcji",
     "firstName": "Imię",
     "lastName": "Nazwisko",
-    "fullName": "Pełna nazwa",
+    "fullName": "Imię i nazwisko",
     "position": "Stanowisko",
     "affiliations": "Afiliacje",
     "areaResponsibility": "Obszar odpowiedzialności",
     "researchPursuits": "Specjalność naukowa",
     "primaryInstitution": "Nazwa instytucji podstawowej",
-    "primaryCollection": "Nazwa kolkcji podstawowej",
+    "primaryCollection": "Nazwa kolekcji podstawowej",
     "affiliateInstitutions": "Dodatkowe instytucje partnerskie",
     "affiliateCollections": "Dodatkowe kolekcje partnerskie"
   },

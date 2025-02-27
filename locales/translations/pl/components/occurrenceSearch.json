@@ -9,7 +9,7 @@
     "download": "Pobierz",
     "searchAllFields": "Przeszukaj wszystkie pola",
     "description": "Wyszukiwanie wystąpień w Światowej Sieci Informacji o Bioróżnorodności. Darmowy i otwarty dostęp do danych o bioróżnorodności.",
-    "nWithCoordinates": "{LICZBA_SFORMATOWANA} ze współrzędnymi",
+    "nWithCoordinates": "{NUMBER_FORMATED} ze współrzędnymi",
     "nWithImages": "{NUMBER_FORMATED} z {NUMBER, plural, one{ilustracja} other{ilustracje}}",
     "failedSearch": "Twoje filtry mogą być nieprawidłowe lub serwery mają problemy. Spróbuj ponownie i zgłoś problem, jeśli będzie się powtarzał",
     "noImages": "Brak stwierdzeń z ilustracjami",

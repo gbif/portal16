@@ -8,8 +8,8 @@
       "introText": "[GBIF-relevant](/faq?question=literature-relevance) literatura wyraźnie skupiona na taksonach"
     },
     "distribution": {
-      "presentIn": "w",
-      "presentInNonCountry": "w",
+      "presentIn": "{status} w {country}",
+      "presentInNonCountry": "{status} w {location}",
       "threatStatus": "Status zagrożenia: {status}",
       "establishmentMeans": "Sposób wprowadzenia: {status}",
       "distributionPlural": "Dystrybucja",
@@ -22,7 +22,7 @@
       "metrics": "Statystyki",
       "referenceTaxon": "Takson odniesienia",
       "literature": "Literatura",
-      "verbatim": "Dosłownie"
+      "verbatim": "Jak podano"
     },
     "invasives": {
       "nInvadedCountries": "Zarejestrowano jak wprowadzono w {NUMBER_FORMATED} {NUMBER, plural, one{kraj lub wyspa} other{kraje lub wyspy}}",
@@ -42,7 +42,7 @@
     "in": "W",
     "origin": "Źródło",
     "issues": "Problemy",
-    "citation": "Cytowanie (w celu cytowania wystąpień zapoznaj się z [wskazówki](/citation-guidelines#occDataDownload))",
+    "citation": "Cytowanie (w celu cytowania wystąpień zapoznaj się ze [wskazówkami](/citation-guidelines#occDataDownload))",
     "remarks": "Uwagi",
     "term": "Pojęcie",
     "value": "Wartość",

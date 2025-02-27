@@ -2,10 +2,10 @@
     "participationStatus": {
         "longForm": {
             "VOTING": "Członek głosujący",
-            "ASSOCIATE": "Stowarzyszeni członkowie",
-            "OBSERVER": "Członkowie obserwatorzy",
+            "ASSOCIATE": "Stowarzyszony członek",
+            "OBSERVER": "Członek obserwator",
             "AFFILIATE": "Afiliowany",
-            "FORMER": "Byli członkowie",
+            "FORMER": "Były członek",
             "undefined": "Nieznane"
         },
         "description": {
