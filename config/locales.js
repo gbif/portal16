@@ -99,7 +99,6 @@ momentMap['zh'] = 'zh-cn';
 momentMap['de-MOCK'] = 'de-ch';
 momentMap['ko-MOCK'] = 'ko';
 momentMap['ar-MOCK'] = 'ar-sa';
-momentMap['it'] = 'it';
 
 // what locale to use for numbers
 let numberMap = {};// _.keyBy(locales); // default to use the same language codes
@@ -109,7 +108,6 @@ numberMap['zh-tw'] = 'zh-tw';
 numberMap['de-MOCK'] = 'de-ch';
 numberMap['ko-MOCK'] = 'zh-cn';
 numberMap['ar-MOCK'] = 'en';
-numberMap['it'] = 'it';
 
 // If the toLolaeString is using a different format, then provide it. This isn't used much on the site yet, so make sure the places you are using it works as intended
 let jsLocaleMap = _.keyBy(locales);
