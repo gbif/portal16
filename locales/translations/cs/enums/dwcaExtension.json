@@ -1,0 +1,29 @@
+{
+  "dwcaExtension": {
+    "http://rs.tdwg.org/dwc/terms/Occurrence": "Výskyt",
+    "http://rs.tdwg.org/ac/terms/Multimedia": "Audubon multimedia",
+    "http://rs.gbif.org/terms/1.0/DNADerivedData": "Data odvozená z DNA",
+    "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "Zesílení",
+    "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "Klonování",
+    "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "GelImage",
+    "http://data.ggbn.org/schemas/ggbn/terms/Loan": "Půjčka",
+    "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "Vzorek materiálu",
+    "http://data.ggbn.org/schemas/ggbn/terms/Permit": "Povolení",
+    "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "Preparace",
+    "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "Konzervace",
+    "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "Rozšířené měření nebo skutečnost",
+    "http://rs.tdwg.org/chrono/terms/ChronometricAge": "Chronometrický věk",
+    "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "Zárodečná plazma: Přírůstek zárodečné plazmy",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "Zárodečná plazma: skóre měření",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "Zárodečná plazma: měrná vlastnost",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "Zárodečná plazma: měrná zkouška",
+    "http://rs.tdwg.org/dwc/terms/Identification": "Identifikace",
+    "http://rs.gbif.org/terms/1.0/Identifier": "Identifikátor",
+    "http://rs.gbif.org/terms/1.0/Image": "Obrázek",
+    "http://rs.tdwg.org/dwc/terms/MeasurementOrFact": "Měření nebo fakt",
+    "http://rs.gbif.org/terms/1.0/Multimedia": "Multimédia",
+    "http://rs.gbif.org/terms/1.0/Reference": "Reference",
+    "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Vztah ke zdroji",
+    "http://eol.org/schema/reference/Reference": "EOL Reference"
+  }
+}
