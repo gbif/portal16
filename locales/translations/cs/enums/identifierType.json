@@ -1,0 +1,23 @@
+{
+  "enum": {
+    "identifierType": {
+      "URL": "URL",
+      "LSID": "LSID",
+      "HANDLER": "HANDLER",
+      "DOI": "DOI",
+      "UUID": "UUID",
+      "FTP": "FTP",
+      "URI": "URI",
+      "UNKNOWN": "Neznámý",
+      "GBIF_PORTAL": "GBIF portál",
+      "GBIF_NODE": "GBIF uzel",
+      "GBIF_PARTICIPANT": "GBIF účastník",
+      "GRBIO_ID": "GRBIO ID",
+      "GRBIO_URI": "GRBIO URI",
+      "GRSCICOLL_URI": "GRSCICOLL URI",
+      "ROR": "ROR",
+      "GRID": "GRID",
+      "GRSCICOLL_ID": "GRSCICOLL ID"
+    }
+  }
+}
