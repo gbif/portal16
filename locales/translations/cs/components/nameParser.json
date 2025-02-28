@@ -1,0 +1,18 @@
+{
+    "nameParser": {
+        "loadTestNames": "Načíst testovací názvy",
+        "parse": "Analyzovat",
+        "or": "nebo",
+        "selectFile": "Vybrat soubor",
+        "pasteNamesToParse": "Načíst testovací názvy",
+        "about": "O",
+        "parser": "Analyzátor",
+        "nameParserTitle": "Analyzátor názvu",
+        "dropHere": "Přetáhněte sem",
+        "excludeUnparsed": "Vyloučit neanalyzované",
+        "generateCsv": "Vytvořit csv",
+        "parsingNames": "Analýza názvů - vydržte",
+        "nameParserDescription": "Jedná se o jednoduchý formulář HTML, který využívá analyzátor názvů GBIF. Analyzátor je napsán v jazyce Java a je založen na regulárních výrazech, které rozkládají řetězce jmen na jednotlivé složky. Zachovává pouze části jména potřebné k rekonstrukci úplného třídílného jména s volitelným podrodem, ale ignoruje další infraspecifické části, jako jsou poddruhy uvedené u odrůd. Podrobnosti naleznete v naší [dokumentaci API](/developer/species#parser).",
+        "nameParserRequirements": "Můžete zkopírovat a vložit seznam jmen, jedno na řádek, nebo nahrát textový soubor se jménem na řádek. Nahrané soubory musí být kódovány jako utf8!"
+    }
+}
