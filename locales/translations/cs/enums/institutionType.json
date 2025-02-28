@@ -1,0 +1,17 @@
+{
+  "enum": {
+    "institutionType": {
+      "BIOMEDICAL_RESEARCH_INSTITUTE": "Biomedicínský výzkumný ústav",
+      "BOTANICAL_GARDEN": "Botanická zahrada",
+      "HERBARIUM": "Herbář",
+      "LIVING_ORGANISM_COLLECTION": "Sbírka živých organismů",
+      "MEDICAL_RESEARCH_INSTITUTE": "Lékařský výzkumný ústav",
+      "MUSEUM": "Museum",
+      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "Soukromý neziskový herbář",
+      "OTHER_INSTITUTIONAL_TYPE": "Jiný typ instituce",
+      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "Biorepozitář výzkumné instituce jiného typu",
+      "UNIVERSITY_COLLEGE": "Univerzitní vysoká škola",
+      "ZOO_AQUARIUM": "Akvárium v zoo"
+    }
+  }
+}
