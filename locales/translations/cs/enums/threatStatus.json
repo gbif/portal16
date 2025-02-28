@@ -1,0 +1,13 @@
+{
+    "threatStatus": {
+        "EXTINCT": "Vyhynulý",
+        "EXTINCT_IN_THE_WILD": "Vyhynulý ve volné přírodě",
+        "CRITICALLY_ENDANGERED": "Kriticky ohrožený",
+        "ENDANGERED": "Ohrožený",
+        "VULNERABLE": "Zranitelný",
+        "NEAR_THREATENED": "Téměř ohrožený",
+        "LEAST_CONCERN": "Nejmenší znepokojení",
+        "DATA_DEFICIENT": "Chybějící data",
+        "NOT_EVALUATED": "Není hodnoceno"
+    }
+}
