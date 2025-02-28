@@ -1,0 +1,116 @@
+{
+  "occurrence": {
+    "tabs": {
+      "details": "",
+      "cluster": ""
+    },
+    "typeOf": "",
+    "coordinates": "",
+    "unknownDate": "",
+    "absent": "",
+    "issues": "",
+    "dataset": "",
+    "synced": "",
+    "modified": "",
+    "monthAndyear": "",
+    "coordinateUncertainty": "",
+    "citation": "",
+    "readFullDescription": "",
+    "showMoreInfo": "",
+    "noTaxonMatch": "",
+    "gbifTaxonInterpretation": "",
+    "aboutTheDataset": "",
+    "noLocationInformation": "",
+    "deletedMessage": "",
+    "deletedDescription": "",
+    "subMenu": {
+      "diagnostics": "",
+      "menu": "",
+      "showDiagnostics": "",
+      "hideDiagnostics": "",
+      "aboutDarwinCore": "",
+      "raw": ""
+    },
+    "groups": {
+      "Record": "",
+      "Occurrence": "",
+      "Event": "",
+      "Identification": "",
+      "Taxon": "",
+      "Location": "",
+      "Organism": "",
+      "MaterialSample": "",
+      "GeologicalContext": "",
+      "other": ""
+    },
+    "term": "",
+    "interpreted": "",
+    "original": "",
+    "remarks": "",
+    "highlights": {
+      "location": "",
+      "specimenType": "",
+      "publisher": "",
+      "reference": "",
+      "verbatimName": ""
+    },
+    "media": {
+      "noIdentifier": "",
+      "noPlaybackSupport": "",
+      "takeMeThere": "",
+      "notWorkingTryPublishers": "",
+      "download": "",
+      "byRightsHolder": "",
+      "licensedUnder": "",
+      "suggestedCitation": ""
+    },
+    "title": {
+      "inCountry": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "MATERIAL_CITATION": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownLocation": {
+        "PRESERVED_SPECIMEN": "",
+        "FOSSIL_SPECIMEN": "",
+        "LIVING_SPECIMEN": "",
+        "HUMAN_OBSERVATION": "",
+        "MACHINE_OBSERVATION": "",
+        "MATERIAL_SAMPLE": "",
+        "MATERIAL_CITATION": "",
+        "OCCURRENCE": "",
+        "OBSERVATION": "",
+        "LITERATURE": "",
+        "UNKNOWN": ""
+      },
+      "unknownSpecies": ""
+    },
+    "occurrence": "",
+    "inLanguage": "",
+    "sequenced": "",
+    "treatment": "",
+    "cluster": {
+      "current": "",
+      "relatedOccurrences": "",
+      "similarBecause": "",
+      "matchedRecord": "",
+      "noMatches": "",
+      "explainer": ""
+    }
+  },
+  "interpretationRemarks": {
+    "comments": {
+      "EXCLUDED": "",
+      "AUTHORED": "",
+      "INFERED": ""
+    }
+  }
+}
