@@ -1,0 +1,43 @@
+{
+    "downloadUsage": {
+        "title": "Oznámení GBIF o použití údajů o výskytu v publikaci (nebo podobném dokumentu)",
+        "form": {
+            "title": "Název",
+            "titlePlaceholder": "Název publikace/produktu, v němž jsou data použita",
+            "type": "Typ",
+            "authors": "Autor (autoři)",
+            "authorsPlaceholder": "Autor (autoři) publikace/produktu",
+            "link": "URL",
+            "linkPlaceholder": "Odkaz/DOI na publikaci/produkt, pokud je k dispozici online",
+            "date": "Datum",
+            "comments": "Komentáře",
+            "commentsPlaceholder": "Další informace o publikaci/produktu (zejména pokud se nejedná o tradiční článek v recenzovaném časopise)",
+            "submit": "Odeslat",
+            "saveFailure": "Při ukládání formuláře došlo k chybě. Zkuste to prosím znovu.",
+            "saveSuccess": "Děkujeme za upozornění. Stažení propojíme s popsanou publikací/produktem. Nezapomeňte prosím stahování citovat podle pokynů uvedených na stránce stahování. Nyní můžete toto vyskakovací okno zavřít."
+        },
+        "types": {
+            "JOURNAL_ARTICLE": "článek v recenzovaném časopise",
+            "BOOK": "kniha",
+            "BOOK_CHAPTER": "kapitola knihy",
+            "CONFERENCE_PAPER_PROCEEDINGS": "sborník z konference",
+            "PREPRINT_WORKING_PAPER": "pracovní dokument / před tiskem",
+            "REPORT": "zpráva",
+            "WEB_PAGE": "webová stránka",
+            "THESIS_DISSERTATION": "diplomová / disertační práce",
+            "COURSE_TEACHING_MATERIALS": "kurz / výukové materiály",
+            "MAGAZINE_ARTICLE": "článek v časopise",
+            "STATUTE": "statut",
+            "PATENT": "patent",
+            "NEWSPAPER_ARTICLE": "novinový článek",
+            "SOFTWARE_COMPUTER_PROGRAM": "software / počítačový program",
+            "HEARING": "slyšení",
+            "TELEVISION_BROADCAST": "televizní vysílání",
+            "ENCYCLOPEDIA_ARTICLE": "encyklopedický článek",
+            "CASE": "případ",
+            "FILM": "film",
+            "BILL": "návrh zákona",
+            "OTHER": "jiné (upřesněte v komentáři níže)"
+        }
+    }
+}

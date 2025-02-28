@@ -1,0 +1,53 @@
+{
+    "filters": {
+        "searchPlaceholder": "Hledat",
+        "noPreference": "Bez preferencí",
+        "invert": "Obráceně",
+        "clear": "Vymazat",
+        "add": "Přidat",
+        "repatriation": {
+            "description": "O repatriaci dat se hovoří tehdy, pokud jsou zveřejněny institucí v jedné zemi, ale týkají se biologické rozmanitosti vyskytující se v jiné zemi."
+        },
+        "isClustered": {
+            "description": "Tato experimentální funkce upozorňuje na možné duplicitní a/nebo související výskyty."
+        },
+        "isSequenced": {
+            "description": ""
+        },
+        "occurrenceStatus": {
+            "description": "\"Nepřítomný\" se použije u záznamu o výskytu, pokud se při průzkumu taxonu v určitém čase a na určitém místě nenajdou žádné exempláře.",
+            "options": {
+                "yes": "Přítomen",
+                "no": "Chybí",
+                "all": "Vše"
+            }
+        },
+        "ternary": {
+            "yes": "Ano",
+            "no": "Ne",
+            "all": "Vše"
+        },
+        "location": {
+            "north": "Sever",
+            "south": "Jih",
+            "west": "Západ",
+            "east": "Východ",
+            "withCoordinates": "Včetně souřadnic",
+            "withoutCoordinates": "Bez souřadnic",
+            "includeFlaggedAsSuspicious": "Zahrnout záznamy, u nichž jsou souřadnice označeny jako podezřelé.",
+            "onlyShowFlagged": "Zobrazit pouze záznamy, které jsou označeny jako podezřelé",
+            "past": "Nedávno použité",
+            "geojson": "GeoJSON",
+            "geometry": "Geometrie",
+            "range": "Rozsah",
+            "noFiltersAdded": "Nebyly přidány žádné filtry oblasti",
+            "wktPlaceholder": "WKT nebo GeoJSON",
+            "invalidTextInput": "Neplatný WKT nebo GeoJSON",
+            "tooLarge": "Geometrie je příliš velká",
+            "tooLargeSuggestion": "Zkuste použít ohraničující rámeček a filtrovat lokálně.",
+            "aboutWktAndGeoJson": "",
+            "simplificationWarning": "",
+            "invalidRange": "Neplatný ohraničující rámeček"
+        }
+    }
+}

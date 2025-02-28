@@ -1,0 +1,33 @@
+{
+  "phrases": {
+    "pleaseCiteAs": "",
+    "copy": "",
+    "contactHelpdesk": "",
+    "defaultPageTitle": "",
+    "defaultPageDescription": "",
+    "deletedOnDate": "",
+    "replacedBy": "",
+    "loading": "",
+    "failed": "",
+    "errorNotAuthorized": "",
+    "partialPage": "",
+    "noInformationFound": "",
+    "noConnection": "",
+    "criticalErrorMsg": "",
+    "nonCriticalErrorMsg": "",
+    "noResultsMessage": "",
+    "noJavascriptEnabled": "",
+    "isSplashScreen": "",
+    "404Text": "",
+    "changeLanguage": "",
+    "noData": "",
+    "payloadTooLarge": "",
+    "readMore": "",
+    "share": "",
+    "download": "",
+    "cancel": "",
+    "testSiteWarning": "",
+    "loginRequiredDueToSpam": "",
+    "loginRequiredExplainer": ""
+  }
+}

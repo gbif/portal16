@@ -1,0 +1,12 @@
+{
+  "extensionEnum": {
+    "DESCRIPTION": "Popis",
+    "DISTRIBUTION": "Rozmístění",
+    "IDENTIFIER": "Identifikátor",
+    "MULTIMEDIA": "Multimédia",
+    "REFERENCE": "Reference",
+    "SPECIES_PROFILE": "Profil druhu",
+    "TYPES_AND_SPECIMEN": "Typy a exempláře",
+    "VERNACULAR_NAME": "Místní název"
+  }
+}

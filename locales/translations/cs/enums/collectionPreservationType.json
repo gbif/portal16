@@ -1,0 +1,28 @@
+{
+  "enum": {
+    "collectionPreservationType": {
+      "STORAGE_OUTDOORS": "Úložiště - venkovní",
+      "STORAGE_INDOORS": "Úložiště - vnitřní",
+      "STORAGE_CONTROLLED_ATMOSPHERE": "Úložiště - řízená atmosféra",
+      "STORAGE_FROZEN_MINUS_20": "Úložiště - zmrazené minus 20",
+      "STORAGE_FROZEN_MINUS_80": "Úložiště - zmrazené minus 80",
+      "STORAGE_FROZEN_BETWEEN_MINUS_132_AND_MINUS_196": "Úložiště -  zmrazené mezi minus 132 a minus 196",
+      "STORAGE_OTHER": "Úložiště - ostatní",
+      "STORAGE_REFRIGERATED": "Úložiště - chlazené",
+      "STORAGE_RECORDED": "Úložiště - zaznamenané",
+      "STORAGE_VACUUM": "Vakuové skladování",
+      "SAMPLE_CRYOPRESERVED": "Kryokonzervovaný vzorek",
+      "SAMPLE_DRIED": "Vysušený vzorek",
+      "SAMPLE_EMBEDDED": "Vložený vzorek",
+      "SAMPLE_FLUID_PRESERVED": "Uchovávaný vzorek tekutiny",
+      "SAMPLE_PINNED": "Přišpendlený vzorek",
+      "SAMPLE_PRESSED": "Lisovaný vzorek",
+      "SAMPLE_SKELETONIZED": "Vzorek kostry",
+      "SAMPLE_SLIDE_MOUNT": "Vzorek na podložním sklíčku",
+      "SAMPLE_SURFACE_COATING": "Vzorek s povrchovou úpravou",
+      "SAMPLE_TANNED": "Vzorek opálený",
+      "SAMPLE_WAX_BLOCK": "Vzorek ve voskovém bloku",
+      "SAMPLE_OTHER": "Vzorek ostatní"
+    }
+  }
+}

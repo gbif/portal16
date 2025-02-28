@@ -1,0 +1,101 @@
+{
+    "tools": {
+        "tools": "Nástroje",
+        "categoryFeatured": "Doporučené",
+        "suggestDataset": {
+            "NOT_OPEN": "Není otevřená licence",
+            "title": "Navrhnout datovou sadu",
+            "pleaseDescribeTheDataset": "Popište prosím datovou sadu",
+            "thankYou": "Děkujeme",
+            "form": {
+                "title": "Název",
+                "link": "Internetový odkaz na data",
+                "region": "Geografické pokrytí",
+                "taxon": "Taxonomický rozsah",
+                "whyImportant": "Proč je tato datová sada důležitá",
+                "howWouldYouRateIt": "Jak byste ohodnotili její důležitost",
+                "high": "Zásadní - GBIF nemá v této oblasti žádné údaje.",
+                "medium": "Důležité - GBIF má v této oblasti málo údajů.",
+                "low": "Byl by to pěkný doplněk ke stávajícím datům",
+                "bibliographicRef": "Bibliografická reference",
+                "type": "Typ datové sady",
+                "license": "Informace o licenci",
+                "dataHolderContact": "Kontaktní údaje držitelů dat",
+                "publicAlert": "Tyto detaily budou veřejné",
+                "yourContact": "Vaše kontaktní údaje",
+                "comments": "Komentáře",
+                "submit": "Odeslat",
+                "followDiscussionBelow": "Sledujte nebo se zapojte do další diskuse na níže uvedeném odkazu.",
+                "followIssue": "Viz návrh na githubu",
+                "suggestAnother": "Navrhnout další datovou sadu",
+                "saveFailure": "To není dobré. Váš návrh jsme nemohli uložit. Zkuste to prosím později nebo přejděte přímo na [Github](https://github.com/gbif/data-mobilization/issues), kde jsou návrhy spravovány."
+            }
+        },
+        "observationTrends": {
+            "drawerTitle": "Relativní trendy pozorování",
+            "intro": "Pilotní projekt s cílem zjistit, zda relativní trendy pozorování druhů v rámci GBIF poskytují užitečné informace pro výzkumné pracovníky.",
+            "aboutLink": "Přečtěte si o tomto nástroji",
+            "selectSpecies": "Vybrat druhy",
+            "noData": "O vybraných druzích po roce 1900 nemáme žádná georeferencovaná data.",
+            "selectHigherTaxa": "Vybrat vyšší taxon",
+            "selectArea": "Vybrat oblast",
+            "hexagon": "Šestiúhelník",
+            "draw": "",
+            "clear": "Vymazat",
+            "resultIntro": "Změna relativní četnosti pozorování pro vybranou oblast",
+            "embedIntro": "Všechna data zprostředkovaná prostřednictvím {GBIF network}"
+        },
+        "speciesLookup": {
+            "description": "Normalizace názvů druhů ze souboru CSV podle páteře GBIF. Očekává se, že soubor bude obsahovat sloupec \"scientificName\" a nepovinné sloupce \"kingdom\" a \"id\".",
+            "title": "Shoda názvů druhů"
+        },
+        "ipt": {
+            "description": "Integrated Publishing Toolkit (IPT) je bezplatný open source softwarový nástroj napsaný v jazyce Java, který se používá k publikování a sdílení souborů dat o biologické rozmanitosti prostřednictvím sítě GBIF. IPT lze také nakonfigurovat s účtem DataCite nebo EZID, aby bylo možné datovým sadám přidělovat DOI a přeměnit jej tak na datový repozitář.",
+            "dontSeeYourIpt": "Nevidíte svůj IPT? Pošlete [GBIF](mailto:helpdesk@gbif.org \"Mail to GBIF Helpdesk requesting IPT be added to map\") své souřadnice."
+        },
+        "dataRepository": {
+            "title": "Úložiště dat"
+        },
+        "sequenceId": {
+            "title": "Sequence ID"
+        },
+        "machineVision": {
+            "tabs": {
+                "demo": "Demo",
+                "statement": "O"
+            }
+        },
+        "derivedDataset": {
+            "title": "Odvozená datová sada",
+            "titleField": "Název",
+            "sourceUrl": "URL adresa, na které je možné získat přístup k odvozenému souboru dat.",
+            "originalDownloadDOI": "",
+            "registrationDate": "Datum registrace",
+            "datasetKey": "Klíč datové sady",
+            "occurrenceCount": "Počet výskytů",
+            "submit": "Odeslat",
+            "pleaseFill": "Pro odeslání formuláře vyplňte všechna povinná pole",
+            "loginToCreate": "Přihlaste se k vytvoření odvozené datové sady",
+            "myDatasets": "Moje odvozené datové sady",
+            "register": "registrovat",
+            "about": "o",
+            "optionalDescription": "Volitelný popis",
+            "registerNew": "Registrovat novou odvozenou datovou sadu",
+            "editDataset": "Upravit odvozenou datovou sadu",
+            "editFailed": "Úprava selhala",
+            "registrationFailed": "Registrace se nezdařila",
+            "registrationCompleted": "Registrace dokončena",
+            "editCompleted": "Úprava dokončena",
+            "newRegistration": "Nová registrace",
+            "goToDataset": "Přejít na datovou sadu",
+            "yourDerivedDatasets": "Vaše odvozené datové sady",
+            "backToEdit": "Zpět na úpravy",
+            "mintingDoi": "Vytváření DOI - to by nemělo trvat dlouho.",
+            "attachCsvLabel": "Připojte [soubor CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) s klíči datového souboru a počty výskytů",
+            "orEnterLabel": "Nebo zadejte klíče datové sady/DOI a počty výskytů zde"
+        },
+        "occurrenceSnapshots": {
+            "title": ""
+        }
+    }
+}

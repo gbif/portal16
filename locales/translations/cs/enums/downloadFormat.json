@@ -1,0 +1,15 @@
+{
+  "downloadFormat": {
+    "SIMPLE_AVRO": "Apache Avro",
+    "SIMPLE_CSV": "Jednoduchý",
+    "CUBE": "",
+    "DWCA": "Archiv Darwin Core",
+    "SPECIES_LIST": "Seznam druhů",
+    "SIMPLE_WITH_VERBATIM_AVRO": "Apache Avro s běžnými interpretovanými poli a všemi doslovnými poli",
+    "MAP_OF_LIFE": "Export Map of Life",
+    "IUCN": "IUCN export",
+    "BIONOMIA": "Bionomia export",
+    "SQL_TSV_ZIP": "",
+    "SIMPLE_PARQUET": "Simple Parquet"
+  }
+}

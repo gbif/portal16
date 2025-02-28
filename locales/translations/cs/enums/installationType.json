@@ -1,0 +1,12 @@
+{
+  "installationType": {
+    "IPT_INSTALLATION": "IPT instalace",
+    "DIGIR_INSTALLATION": "DiGIR instalace",
+    "TAPIR_INSTALLATION": "Tapir instalace",
+    "BIOCASE_INSTALLATION": "Biocase instalace",
+    "HTTP_INSTALLATION": "Http instalace",
+    "SYMBIOTA_INSTALLATION": "Symbiota instalace",
+    "EARTHCAPE_INSTALLATION": "EarthCape",
+    "MDT_INSTALLATION": "Metabarcoding Data Toolkit"
+  }
+}

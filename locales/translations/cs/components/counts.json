@@ -1,0 +1,32 @@
+{
+    "counts": {
+        "nCitations": "{NUMBER_FORMATED} {NUMBER, plural, one{citace} few {citace} many {citací} other{citací}}",
+        "pCitations": "{NUMBER, plural, one{citace} few {citace} many {citací} other{citací}}",
+        "nRecords": "{NUMBER_FORMATED} {NUMBER, plural, one{záznam} few {záznamy} many {záznamů} other{záznamů}}",
+        "nResults": "{NUMBER_FORMATED} {NUMBER, plural, one{výsledek} few {výsledky} many {výsledků} other{výsledků}}",
+        "nCollections": "{NUMBER_FORMATED} {NUMBER, plural, one{sbírka} few {sbírky} many {sbírek} other{sbírek}}",
+        "nInstitutions": "{NUMBER_FORMATED} {NUMBER, plural, one{instituce} few {instituce} many {institucí} other{institucí}}",
+        "nEvents": "",
+        "nInstallations": "{NUMBER_FORMATED} {NUMBER, plural, one{instalace} few {instalace} many {instalací} other{instalací}}",
+        "nOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{výskyt} few {výskyty} many {výskytů} other{výskytů}}",
+        "nOccurrencesHosted": "",
+        "nOccurrencesAbout": "",
+        "nOccurrencesPublished": "",
+        "nEndorsedPublishers": "",
+        "nDatasets": "",
+        "nPublishers": "",
+        "nCountries": "",
+        "nContacts": "",
+        "pRecords": "",
+        "pOccurrence": "",
+        "pMaterialSamples": "",
+        "pSpecies": "",
+        "pInfraspecies": "",
+        "pPublishers": "",
+        "contacts": "",
+        "nTreatments": "",
+        "nAbsent": "",
+        "nImages": "",
+        "nMore": ""
+    }
+}

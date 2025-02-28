@@ -1,0 +1,53 @@
+{
+  "gbifNetwork": {
+    "gbifNetwork": "GBIF síť",
+    "title": "Adresář",
+    "contact": "Kontakt",
+    "voting_participant": {
+      "one": "Hlasující účastník",
+      "other": "Hlasující účastníci"
+    },
+    "associate_country_participant": {
+      "one": "Účastník z přidružené země",
+      "other": "Účastníci z přidružených zemí"
+    },
+    "other_associate_participant": {
+      "one": "Jiný přidružený účastník",
+      "other": "Ostatní přidružení účastníci"
+    },
+    "former_participant": {
+      "one": "Bývalý účastník",
+      "other": "Bývalí účastníci"
+    },
+    "gbif_affiliate": {
+      "one": "Přidružení GBIF",
+      "other": "Přidružení GBIF"
+    },
+    "role": "Role",
+    "group": {},
+    "gbif_secretariat": "GBIF Sekretariát",
+    "membershipType": "Členství",
+    "name": "Název",
+    "endorsedDataPublisher": "Podpořil {NUMBER_FORMATTED} {NUMBER, plural, one{vydavatele} few {vydavatele} many {vydavatelů} other{vydavatelů}} dat",
+    "nParticipants": "{NUMBER_FORMATTED} {NUMBER, plural, one{účastník} few {účastníci} many {účastníků} other{účastníků}}",
+    "dataset": "{NUMBER, plural, one{datová sada} few {datové sady} many {datových sad} other{datových sad}}",
+    "datasets": "Datové sady",
+    "regionalRepresentative": "{NUMBER, plural, one{zástupce} few {zástupci} many {zástupců} other{zástupců}}",
+    "participation": {
+      "nonCountryParticipants": "Účastnická organizace",
+      "gbifAffiliates": "Přidružení GBIF"
+    },
+    "roles": {
+      "HEAD_OF_DELEGATION": "Vedoucí delegace",
+      "NODE_MANAGER": "Správce uzlu"
+    },
+    "publishers": "Vydavatelé",
+    "memberSince": "Členem od",
+    "participant": "Účastník",
+    "pPublishers": "{NUMBER, plural, one{vydavatel} few {vydavatelé} many {vydavatelů} other{vydavatelů}}",
+    "pOccurrence": "{NUMBER, plural, one{výskyt} few {výskyty} many {výskytů} other{výskytů}}",
+    "occurrenceDatasets": "Datové sady výskytu",
+    "occurrences": "Výskyty",
+    "occurrencesHostedBy": ""
+  }
+}

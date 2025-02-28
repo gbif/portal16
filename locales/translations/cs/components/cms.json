@@ -1,0 +1,45 @@
+{
+  "cms": {
+    "project": {
+      "project": "Projekt",
+      "projectId": "ID Projektu",
+      "projectIdentifier": "Identifikátor projektu",
+      "grantType": "Typ grantu",
+      "duration": "Doba trvání",
+      "title": "Název",
+      "start": "Začátek",
+      "end": "Konec",
+      "fundsAllocated": "Přidělené prostředky",
+      "matchingFunds": "Odhad spolufinancování",
+      "funding": "Financování",
+      "coFunding": "Spolufinancování",
+      "fundedBy": "Financován",
+      "coFundedBy": "Spolufinancováno od",
+      "typeOfGrant": "Typ grantu",
+      "projectStart": "Zahájení projektu",
+      "status": "Stav",
+      "programme": "Program",
+      "contractCountry": "Země nebo oblast",
+      "newsAndEvents": "Novinky a události",
+      "call": "Výzva",
+      "projectLead": "Vedoucí projektu",
+      "contactDetalils": "Detaily kontaktu",
+      "partners": "Partneři"
+    },
+    "datause": {
+      "dataViaGbif": "Použité zdroje dat zprostředkované GBIF"
+    },
+    "literature": {
+      "keywords": "Klíčová slova"
+    },
+    "auxiliary": {
+      "subject": "Předmět",
+      "citation": "Citace",
+      "organisingParticipants": "Organizování účastníků"
+    },
+    "document": {
+      "download": "Stáhnout",
+      "readDocument": "Přejít do dokumentu"
+    }
+  }
+}
