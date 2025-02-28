@@ -1,0 +1,36 @@
+{
+  "month": {
+    "1": "Leden",
+    "2": "Únor",
+    "3": "Březen",
+    "4": "Duben",
+    "5": "Květen",
+    "6": "Červen",
+    "7": "Červenec",
+    "8": "Srpen",
+    "9": "Září",
+    "10": "Říjen",
+    "11": "Listopad",
+    "12": "Prosinec"
+  },
+  "day": {
+    "0": "Neděle",
+    "1": "pondělí",
+    "2": "úterý",
+    "3": "středa",
+    "4": "čtvrtek",
+    "5": "pátek",
+    "6": "sobota"
+  },
+  "kingdomKey": {
+    "0": "Nejasné zařazení",
+    "1": "Živočichové",
+    "2": "Archaea",
+    "3": "Bakterie",
+    "4": "",
+    "5": "Houby",
+    "6": "Rostliny",
+    "7": "Prvoci",
+    "8": "Viry"
+  }
+}
