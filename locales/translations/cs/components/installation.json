@@ -1,0 +1,11 @@
+{
+    "installation": {
+        "installation": "Instalace",
+        "about": "O",
+        "homepage": "Domovská stránka",
+        "installationType": "Typ instalace",
+        "hostedBy": "Hostuje",
+        "registered": "Registrováno",
+        "endpoints": "Koncové body"
+    }
+}
