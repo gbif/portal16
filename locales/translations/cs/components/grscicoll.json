@@ -1,0 +1,117 @@
+{
+  "collection": {
+    "search": {
+      "title": "Sbírky",
+      "description": "**Institucionální sbírky** jsou ty, které byly formálně připojeny k instituci a dostávají určitou institucionální podporu.\n\n**Projektové sbírky** jsou sbírky shromážděné výzkumným pracovníkem spojeným s institucí, které nemusí být formálně zařazeny do jejích sbírek. Projektové sbírky se mohou nakonec stát součástí institucionálních sbírek nebo mohou zůstat pod správou a kontrolou jednotlivých badatelů.\n\n**Osobní sbírky** jsou pod kontrolou jednotlivých badatelů a nejsou formálně spojeny s institucí ani do ní nejsou zařazeny. Mohou být osobním majetkem soukromého sběratele nebo jinak osiřelé."
+    },
+    "tabs": {
+      "summary": "Shrnutí",
+      "homepage": "Domovská stránka",
+      "metrics": "Metriky"
+    },
+    "headerTitle": "Sbírka",
+    "description": "Popis",
+    "institutionName": "Název instituce",
+    "code": "Kód",
+    "alternativeCodes": "Alternativní kódy",
+    "statusOfCollection": "Stav sbírky",
+    "personalCollection": "Osobní sbírka",
+    "isPersonalCollection": {
+      "true": "Ano",
+      "false": "Ne"
+    },
+    "accessionStatus": "Stav přírůstku",
+    "contentTypes": "Typ obsahu",
+    "preservationTypes": "Typy konzervace",
+    "homepage": "Hlavní stránka",
+    "apiUrl": "URL pro Webové služby Sbírek",
+    "catalogUrl": "URL pro Katalog / Databázi vzorků Sbírek",
+    "identifiers": "Identifikátory",
+    "collectionMailingAddress": "E-mailová adresa",
+    "status": "Stav",
+    "name": "Jméno",
+    "isActive": {
+      "true": "Aktivní",
+      "false": "Neaktivní"
+    }
+  },
+  "institution": {
+    "title": "Instituce",
+    "search": {
+      "title": "Instituce",
+      "description": "**Instituce** označuje jakoukoli instituci nebo organizaci, která vlastní a spravuje vědecké sbírky. Patří sem mimo jiné herbáře, muzea, zoologické zahrady, botanické zahrady a biobanky. Instituce může obsahovat více sbírek, v takovém případě by měly být tyto sbírky zadány samostatně v položce **Institucionální/projektové sbírky** a propojeny s nadřazenou institucí."
+    },
+    "tabs": {
+      "summary": "Shrnutí",
+      "homepage": "Domovská stránka",
+      "metrics": "Metriky"
+    },
+    "headerTitle": "Instituce",
+    "indexHerbariorumIdentifier": "ID rejstříku herbářů",
+    "numberSpecimens": "Počet exemplářů",
+    "code": "Kód instituce",
+    "alternativeCodes": "Alternativní kódy",
+    "statusOfInstitution": "Status instituce",
+    "additionalNames": "Další jména",
+    "description": "Popis",
+    "homepage": "Hlavní stránka",
+    "foundingDate": "Datum založení",
+    "geographicDescription": "Zeměpisný popis",
+    "taxonomicDescription": "Taxonomický popis",
+    "citesPermitNumber": "",
+    "disciplines": "Institucionální disciplíny",
+    "institutionalGovernance": "Institucionální správa",
+    "type": "Typ instituce",
+    "identifiers": "Identifikátory",
+    "isActive": {
+      "true": "Aktivní",
+      "false": "Neaktivní"
+    },
+    "true": "Ano",
+    "false": "Ne"
+  },
+  "grscicollPerson": {
+    "title": "Osoba",
+    "search": {
+      "title": "Zaměstnanci sbírky",
+      "description": "Zaměstnanci GRSciColl jsou všichni zaměstnanci, kteří se podílejí na práci se sbírkami. Mohou být spojeni s institucí a/nebo s jakýmkoli typem sbírky."
+    },
+    "headerTitle": "Zaměstnanci sbírky",
+    "firstName": "Jméno",
+    "lastName": "Příjmení",
+    "fullName": "Celé jméno",
+    "position": "Pracovní pozice",
+    "affiliations": "Příslušnost",
+    "areaResponsibility": "Oblast působnosti",
+    "researchPursuits": "Výzkumná specializace",
+    "primaryInstitution": "Název primární instituce",
+    "primaryCollection": "Název primární sbírky",
+    "affiliateInstitutions": "Další přidružené instituce",
+    "affiliateCollections": "Další partnerské sbírky"
+  },
+  "grscicoll": {
+    "title": "GRSciColl",
+    "suggestChange": "Navrhnout změnu",
+    "suggestNewCollection": "Navrhnout novou sbírku",
+    "suggestNewInstitution": "Navrhnout novou instituci",
+    "tabs": {
+      "about": "O",
+      "institutions": "Instituce",
+      "collections": "Sbírky",
+      "people": "Zaměstnanci"
+    },
+    "contact": {
+      "phone": "Telefonní číslo",
+      "email": "E-mail",
+      "fax": "Faxové číslo",
+      "mailingAddress": "E-mailová adresa",
+      "physicalAddress": "Fyzická adresa",
+      "contacts": "Kontakty",
+      "address": "Adresa",
+      "province": "Stát/kraj",
+      "postalCode": "PSČ",
+      "city": "Město/obec",
+      "country": "Země"
+    }
+  }
+}
