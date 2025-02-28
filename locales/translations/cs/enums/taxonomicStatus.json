@@ -1,0 +1,13 @@
+{
+  "taxonomicStatus": {
+    "ACCEPTED": "Přijato",
+    "DOUBTFUL": "Pochybný",
+    "SYNONYM": "Synonymum",
+    "HETEROTYPIC_SYNONYM": "Heterotypické synonymum",
+    "HOMOTYPIC_SYNONYM": "Homotypické synonymum",
+    "PROPARTE_SYNONYM": "Proparte synonymum",
+    "MISAPPLIED": "Nesprávné použití",
+    "INTERMEDIATE_RANK_SYNONYM": "Synonymum mezistupně",
+    "DETERMINATION_SYNONYM": "Synonymum určení"
+  }
+}
