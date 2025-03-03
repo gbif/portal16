@@ -18,7 +18,7 @@
       "EML_GBIF_SCHEMA": "Dokument EML se nevaliduje podle schématu",
       "UNKNOWN_ROWTYPE": "RowType použitý pro core/extension je neznámý.",
       "REQUIRED_TERM_MISSING": "Chybí požadovaný výraz pro core/extension",
-      "COLUMN_MISMATCH": "",
+      "COLUMN_MISMATCH": "Nesoulad ve sloupcích",
       "RECORD_REFERENTIAL_INTEGRITY_VIOLATION": "Porušení referenční integrity záznamu",
       "UNKNOWN_TERM": "Neznámý termín",
       "DUPLICATED_TERM": "Duplicitní termín",
@@ -75,7 +75,7 @@
     },
     "backToValidator": "Zahájit nové ověření",
     "termsFrequency": {
-      "title": "",
+      "title": "Četnost termínů",
       "term": "Termín",
       "count": "Počet",
       "percentage": "Procentuálně",
