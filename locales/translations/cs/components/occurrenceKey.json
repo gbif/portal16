@@ -52,7 +52,7 @@
       "specimenType": "Typ vzorku",
       "publisher": "Vydavatel",
       "reference": "Reference",
-      "verbatimName": "Doslovný název"
+      "verbatimName": "Přesný název"
     },
     "media": {
       "noIdentifier": "Identifikátor média není uveden",
