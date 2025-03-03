@@ -22,7 +22,7 @@
       "metrics": "Metriky",
       "referenceTaxon": "Referenční taxon",
       "literature": "Literatura",
-      "verbatim": ""
+      "verbatim": "Přesný"
     },
     "invasives": {
       "nInvadedCountries": "Zaznamenáno jako zavlečené v {NUMBER_FORMATED} {NUMBER, plural, one{zemi nebo ostrově} few {zemích nebo ostrovech} many {zemích nebo ostrovech} other{zemích nebo ostrovech}}",
