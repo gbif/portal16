@@ -73,7 +73,7 @@
     "organismQuantityType": "Typ množství organismu",
     "sampleSizeValue": "Hodnota velikosti vzorku",
     "sampleSizeUnit": "Jednotka velikosti vzorku",
-    "relativeOrganismQuantity": "",
+    "relativeOrganismQuantity": "Relativní množství organismů",
     "collectionKey": "Sbírka",
     "institutionKey": "Instituce",
     "gadmGid": "Administrativní oblasti (gadm.org)",
