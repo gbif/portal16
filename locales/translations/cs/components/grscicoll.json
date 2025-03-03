@@ -58,7 +58,7 @@
     "foundingDate": "Datum založení",
     "geographicDescription": "Zeměpisný popis",
     "taxonomicDescription": "Taxonomický popis",
-    "citesPermitNumber": "",
+    "citesPermitNumber": "číslo povolení CITES",
     "disciplines": "Institucionální disciplíny",
     "institutionalGovernance": "Institucionální správa",
     "type": "Typ instituce",
