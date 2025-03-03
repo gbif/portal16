@@ -2,9 +2,9 @@
   "originEnum": {
     "SOURCE": "Zdroj",
     "DENORMED_CLASSIFICATION": "Denormovaná klasifikace",
-    "VERBATIM_PARENT": "",
-    "VERBATIM_ACCEPTED": "",
-    "VERBATIM_BASIONYM": "Doslovný basionym",
+    "VERBATIM_PARENT": "Přesná nadřazená položka",
+    "VERBATIM_ACCEPTED": "Přesné přijetí",
+    "VERBATIM_BASIONYM": "Přesný basionym",
     "PROPARTE": "Proparte",
     "AUTONYM": "Autonym",
     "IMPLICIT_NAME": "Implicitní název",
