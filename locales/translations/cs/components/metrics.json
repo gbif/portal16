@@ -42,7 +42,7 @@
     "noRankedAbove": "V kontrolním seznamu není žádný taxon zařazen nad druh.",
     "taxonomicOccDistribution": "Taxonomické rozdělení výskytů",
     "groupByX": "Seskupit podle {TYPE}",
-    "pOtherOrUknown": "",
+    "pOtherOrUknown": "{NUMBER_FORMATED} {NUMBER, plural, one{další nebo neznámý} few {další nebo neznámé} many {dalších nebo neznámých} other{dalších nebo neznámých}}",
     "unknownRank": "Neznámé {RANK}",
     "vernacularNames": "Místní názvy",
     "majorRanksPlural": {
