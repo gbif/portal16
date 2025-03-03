@@ -100,7 +100,7 @@
       "FAILED": "Ověření se nezdařilo. Zkontrolujte prosím typ souboru, nebo pokud jste odeslali adresu URL, zkontrolujte, zda soubor v daném umístění existuje.",
       "CONTACTING_SERVER": "Kontaktování serveru..."
     },
-    "jobId": "",
+    "jobId": "Job id",
     "indexeable": "Soubor lze indexovat pomocí GBIF",
     "notIndexeable": "Soubor nelze indexovat pomocí GBIF",
     "numberOfLines": "Počet řádek",
