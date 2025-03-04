@@ -7,7 +7,7 @@
     "location": "Localización",
     "country": "País o área",
     "noDatasets": "No hay conjuntos de datos para mostrar",
-    "noNewsOrEvents": "",
+    "noNewsOrEvents": "No hay noticias o eventos disponibles",
     "howToLinkDatasets": "Cómo vincular un conjunto de datos a un proyecto",
     "howToLinkEvents": "",
     "when": "Cuando",

@@ -10,7 +10,7 @@
     "searchAllFields": "Prohledat všechna pole",
     "description": "Vyhledávání výskytů v Global Biodiversity Information Facility. Volný a otevřený přístup k datům o biologické rozmanitosti.",
     "nWithCoordinates": "{NUMBER_FORMATED} se souřadnicemi",
-    "nWithImages": "",
+    "nWithImages": "{NUMBER_FORMATED} s {NUMBER, plural, one{obrázkem} few {obrázky} many {obrázky} other{obrázky}}",
     "failedSearch": "Vaše filtry mohou být neplatné nebo mají servery problémy. Zkuste to prosím znovu a pokud problém přetrvává, nahlaste ho.",
     "noImages": "Žádné výskyty s fotkami",
     "imageLicenseInfo": "Uvědomte si, že licence vztahující se na snímky se mohou lišit od licencí vztahujících se na záznamy o výskytu",

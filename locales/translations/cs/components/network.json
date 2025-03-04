@@ -10,6 +10,6 @@
     },
     "registeredDate": "Registrováno {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} participující {NUMBER, plural, one{datová sada} few {datové sady} many {datových sad} other{datových sad}}",
-    "nParticipatingPublishers": ""
+    "nParticipatingPublishers": "{NUMBER_FORMATED} participující {NUMBER, plural, one{vydavatel} few {vydavatelé} many {vydavatelů} other{vydavatelů}}"
   }
 }
