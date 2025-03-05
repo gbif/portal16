@@ -110,7 +110,7 @@
     "time": {
       "YEAR": "Year",
       "YEARMONTH": "Year and month",
-      "DATE": "Date"
+      "DATE": "Year, month and day"
     },
     "boolean": {
       "YES": "Yes",
