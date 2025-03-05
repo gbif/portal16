@@ -69,7 +69,7 @@
             "title": "Odvozená datová sada",
             "titleField": "Název",
             "sourceUrl": "URL adresa, na které je možné získat přístup k odvozenému souboru dat.",
-            "originalDownloadDOI": "",
+            "originalDownloadDOI": "DOI originálu ke stažení",
             "registrationDate": "Datum registrace",
             "datasetKey": "Klíč datové sady",
             "occurrenceCount": "Počet výskytů",
