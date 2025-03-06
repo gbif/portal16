@@ -106,6 +106,7 @@
         <div class="horizontal-stripe light-background p-t-05">
             <div class="container--normal">
                 <section>
+                    {% if download.record.status === 'FILE_ERASED' or download.record.status === 'SUCCEEDED' %}
                     <h3 class="card-header">
                         <span translate="phrases.pleaseCiteAs">Please cite as</span>
                     </h3>
@@ -140,6 +141,7 @@
                         </div>
                       </div>
                     </div>
+                    {% endif %}
                     <h3 class="card-header m-t-1">
                         <span translate="downloadKey.filterApplied" translate-values="{DATE: '{$ download.record.created | formatDate(gb.locales.current) $}' }">&nbsp;</span>
                         {% if download.isSimple %}
@@ -213,8 +215,10 @@
                                         <div>
                                             <div dir="auto" ng-bind-html="'downloadKey.readDatauseAndTerms' | translate | md2html"></div>
                                             <div>
-                                            {% if not download.record.doi %}
-                                                <span gb-help="how-and-when-does-gbif-assign-digital-object-identifiers-dois">{$ __('downloadKey.predatesDoi') $}</span>
+                                            {% if download.record.status === 'FILE_ERASED' or download.record.status === 'SUCCEEDED' %}
+                                                {% if not download.record.doi %}
+                                                    <span gb-help="how-and-when-does-gbif-assign-digital-object-identifiers-dois">{$ __('downloadKey.predatesDoi') $}</span>
+                                                {% endif %}
                                             {% endif %}
                                             </div>
                                         </div>
