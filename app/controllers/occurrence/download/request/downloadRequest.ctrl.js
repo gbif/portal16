@@ -1,17 +1,17 @@
 'use strict';
 
 let express = require('express'),
-    router = express.Router(),
-    _ = require('lodash'),
-    request = require('../../../../helpers/request'),
-    apiConfig = require('../../../../models/gbifdata/apiConfig'),
-    validatePredicate = require('../validatePredicate').validatePredicate;
+  router = express.Router(),
+  _ = require('lodash'),
+  request = require('../../../../helpers/request'),
+  apiConfig = require('../../../../models/gbifdata/apiConfig'),
+  validatePredicate = require('../validatePredicate').validatePredicate;
 
-module.exports = function(app) {
-    app.use('/occurrence', router);
+module.exports = function (app) {
+  app.use('/occurrence', router);
 };
 
-router.get('/download/request', function(req, res, next) {
+router.get('/download/request', function (req, res, next) {
   let source = _.get(req, 'query.source');
   const referrer = req.get('Referrer');
   if (referrer) {
@@ -19,7 +19,6 @@ router.get('/download/request', function(req, res, next) {
     // if source name undefined, then overwrite with referrer hostname
     source = source ?? referrerUrl.hostname;
   }
-  
   if (source) {
     res.cookie('downloadSource', source,
       {
@@ -31,39 +30,49 @@ router.get('/download/request', function(req, res, next) {
   } else {
     res.clearCookie('downloadSource');
   }
-  if (req.query.predicateId) {
-    predicateIdRequestHandler({req, res, next, predicateId: req.query.predicateId});
+  if (req.query.variablesId) {
+    predicateIdRequestHandler({ req, res, next, variablesId: req.query.variablesId });
   } else if (req.query.predicate && req.query.predicate !== '') {
-    predicateRequestHandler({req, res, next, predicate: req.query.predicate});
+    predicateRequestHandler({ req, res, next, predicate: req.query.predicate });
   } else {
     return res.render('pages/occurrence/download/custom/custom.nunjucks', {});
   }
 });
 
-async function predicateIdRequestHandler({req, res, next, predicateId}) {
-  // get the predicate from graphql
-  let query = `
+async function predicateIdRequestHandler({ req, res, next, variablesId }) {
+  try {
+    // get the predicate from graphql
+    let query = `
     query($predicate: Predicate){
       occurrenceSearch(predicate: $predicate) {
-        _predicate
+        _downloadPredicate
       }
     }`;
 
   let options = {
     method: 'GET',
     json: true,
-    url: apiConfig.graphQL.url + `?variablesId=${predicateId}&query=${encodeURIComponent(query)}`
+    url: apiConfig.graphQL.url + `?variablesId=${variablesId}&query=${encodeURIComponent(query)}`
   };
   let response = await request(options);
   if (response.statusCode !== 200) {
       throw response;
+    }
+    // use the predicateRequestHandler to show the page
+    let predicateObj = _.get(response.body, 'data.occurrenceSearch._downloadPredicate.predicate');
+    if (!predicateObj) {
+      throw new Error('No predicate found');
+    }
+    predicateRequestHandler({ req, res, next, predicate: JSON.stringify(predicateObj) });
+  } catch (err) {
+    return res.render('pages/occurrence/download/custom/custom.nunjucks', {
+      invalidPredicate: true,
+      predicate: ' '
+    });
   }
-  // use the predicateRequestHandler to show the page
-  let predicateObj = _.get(response.body, 'data.occurrenceSearch._predicate');
-  predicateRequestHandler({req, res, next, predicate: JSON.stringify(predicateObj)});
 }
 
-function predicateRequestHandler({req, res, next, predicate}) {
+function predicateRequestHandler({ req, res, next, predicate }) {
   try {
     let originalPredicate = JSON.parse(predicate);
     originalPredicate = uppercaseKeys(originalPredicate);
@@ -106,10 +115,10 @@ function uppercaseKeys(predicate) {
 }
 
 const types = [
-  {short: 'gte', long: 'greaterThanOrEquals'},
-  {short: 'gt', long: 'greaterThan'},
-  {short: 'lte', long: 'lessThanOrEquals'},
-  {short: 'lt', long: 'lessThan'}
+  { short: 'gte', long: 'greaterThanOrEquals' },
+  { short: 'gt', long: 'greaterThan' },
+  { short: 'lte', long: 'lessThanOrEquals' },
+  { short: 'lt', long: 'lessThan' }
 ];
 
 function convertRangeType(obj) {
@@ -120,9 +129,9 @@ function convertRangeType(obj) {
   } else if (obj.type === 'range') {
     let ps = [];
 
-    types.forEach(function(type) {
+    types.forEach(function (type) {
       const value = obj.value[type.short];
-      if ( typeof value !== 'undefined') {
+      if (typeof value !== 'undefined') {
         ps.push({
           type: type.long,
           key: obj.key,

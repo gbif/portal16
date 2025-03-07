@@ -28,13 +28,19 @@
           <div class="card__stripe rtl-supported">
             <div class="card__content" ng-if="!occCustomDownload.inEditMode">
               <div class="predicates">
-                <div ng-if="!occCustomDownload.predicateLoaded && !occCustomDownload.invalidInput">
+                <div ng-if="!occCustomDownload.predicateLoaded && !occCustomDownload.invalidInput && !occCustomDownload.tooLargeForGet()">
                   <div class="emptyInfo">
                       <h3 translate="phrases.loading"></h3>
                   </div>
                 </div>
                 <div ng-if="!occCustomDownload.invalidInput">
-                  <ng-include src="'/api/occurrence/downloadRequest.html?locale=' + portal.LOCALE + '&' + occCustomDownload.getSerializedQuery()" onload="occCustomDownload.predicateLoaded = true"></ng-include>
+                  <div ng-if="!occCustomDownload.tooLargeForGet()">
+                    <ng-include src="'/api/occurrence/downloadRequest.html?locale=' + portal.LOCALE + '&' + occCustomDownload.getSerializedQuery()" onload="occCustomDownload.predicateLoaded = true"></ng-include>
+                  </div>
+                  <div ng-if="occCustomDownload.tooLargeForGet()">
+                    <pre>
+{{ occCustomDownload.input }}</pre>
+                  </div>
                 </div>
                 <div ng-if="occCustomDownload.invalidInput">
                   <div class="text-error" translate="customDownload.invalidFilter">Invalid filter</div>

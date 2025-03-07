@@ -57,9 +57,14 @@ function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $ht
       }
     }
   };
+  vm.prettify(vm.input);
 
   vm.getSerializedQuery = function() {
     return $httpParamSerializer({predicate: vm.input});
+  };
+
+  vm.tooLargeForGet = function() {
+    return JSON.stringify(vm.input).length > 2000;
   };
 
   // keep track of whether the user is logged in or not
