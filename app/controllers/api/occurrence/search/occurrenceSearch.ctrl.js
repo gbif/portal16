@@ -95,7 +95,7 @@ function occurrenceSearch(query) {
     if (query.offset > offsetThreshold) {
         deferred.reject({
             errorType: 'BAD_REQUEST',
-            message: 'Offset cannot be larger than ' + offsetThreshold
+            message: 'Offset cannot be larger than ' + offsetThreshold + '. This is not the official API, but an unstable endpoint used by GBIF.org. See instead https://techdocs.gbif.org/en/openapi/'
         });
         return deferred.promise;
     }
