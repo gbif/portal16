@@ -41,8 +41,28 @@ router.get('/download/request', function (req, res, next) {
 
 async function predicateIdRequestHandler({ req, res, next, variablesId }) {
   try {
-    // get the predicate from graphql
-    let query = `
+    let predicateObj = await getPredicateFromGraphQLWithFallback(variablesId);
+    predicateRequestHandler({ req, res, next, predicate: JSON.stringify(predicateObj) });
+  } catch (err) {
+    return res.render('pages/occurrence/download/custom/custom.nunjucks', {
+      invalidPredicate: true,
+      predicate: ' '
+    });
+  }
+}
+
+async function getPredicateFromGraphQLWithFallback(variablesId) {
+  //first tried the configed graphql endpoint and if that fails, try the staging endpoint
+  try {
+    return await getPredicateFromGraphQL(variablesId, apiConfig.graphQL.url);
+  }
+  catch (err) {
+    return await getPredicateFromGraphQL(variablesId, 'http://graphql.gbif-staging.org/graphql');
+  }
+}
+
+async function getPredicateFromGraphQL(variablesId, graphqlEndpoint) {
+  let query = `
     query($predicate: Predicate){
       occurrenceSearch(predicate: $predicate) {
         _downloadPredicate
@@ -52,24 +72,18 @@ async function predicateIdRequestHandler({ req, res, next, variablesId }) {
   let options = {
     method: 'GET',
     json: true,
-    url: apiConfig.graphQL.url + `?variablesId=${variablesId}&query=${encodeURIComponent(query)}`
+    url: graphqlEndpoint + `?variablesId=${variablesId}&query=${encodeURIComponent(query)}`
   };
   let response = await request(options);
   if (response.statusCode !== 200) {
-      throw response;
-    }
-    // use the predicateRequestHandler to show the page
-    let predicateObj = _.get(response.body, 'data.occurrenceSearch._downloadPredicate.predicate');
-    if (!predicateObj) {
-      throw new Error('No predicate found');
-    }
-    predicateRequestHandler({ req, res, next, predicate: JSON.stringify(predicateObj) });
-  } catch (err) {
-    return res.render('pages/occurrence/download/custom/custom.nunjucks', {
-      invalidPredicate: true,
-      predicate: ' '
-    });
+    throw response;
   }
+  // use the predicateRequestHandler to show the page
+  let predicateObj = _.get(response.body, 'data.occurrenceSearch._downloadPredicate.predicate');
+  if (!predicateObj) {
+    throw new Error('No predicate found');
+  }
+  return predicateObj;
 }
 
 function predicateRequestHandler({ req, res, next, predicate }) {
