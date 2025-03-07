@@ -38,6 +38,7 @@ router.get('/occurrence/search', function(req, res) {
     delete req.query.locale;
     delete req.query.advanced;
     occurrenceSearch(req.query).then(function(data) {
+        data._warning = 'This is not the official API, but an unstable endpoint used by GBIF.org. See instead https://techdocs.gbif.org/en/openapi/';
         let settings = {
             facets: true,
             query: req.query,
@@ -90,6 +91,14 @@ router.get('/occurrence/search', function(req, res) {
 function occurrenceSearch(query) {
     'use strict';
     let deferred = Q.defer();
+    let offsetThreshold = 3000;
+    if (query.offset > offsetThreshold) {
+        deferred.reject({
+            errorType: 'BAD_REQUEST',
+            message: 'Offset cannot be larger than ' + offsetThreshold
+        });
+        return deferred.promise;
+    }
     helper.getApiData(apiConfig.occurrenceSearch.url + '?' + querystring.stringify(query), function(err, data) {
         if (typeof data.errorType !== 'undefined') {
             deferred.reject(data);
