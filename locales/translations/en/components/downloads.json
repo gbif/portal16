@@ -110,7 +110,7 @@
     "time": {
       "YEAR": "Year",
       "YEARMONTH": "Year and month",
-      "DATE": ""
+      "DATE": "Year, month and day"
     },
     "boolean": {
       "YES": "Yes",
@@ -121,7 +121,7 @@
     "grid": {
       "EEA_REFERENCE_GRID": "EEA reference grid - Europe only",
       "EXTENDED_QUARTER_DEGREE_GRID": "Extended quarter degree grid (QDGC)",
-      "ISEA3H_GRID": "",
+      "ISEA3H_GRID": "ISEA3H hexagonal grid",
       "MILITARY_GRID_REFERENCE_SYSTEM": "Military grid reference systems (MGRS)"
     },
     "resolution": {
@@ -131,17 +131,17 @@
         "250": "250 m",
         "1000": "1 km",
         "10000": "10 km",
-        "50000": "",
+        "50000": "50 km",
         "100000": "100 km"
       },
       "EXTENDED_QUARTER_DEGREE_GRID": {
-        "0": "",
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "6": ""
+        "0": "Level 0, 1° cells, 111 km at Equator",
+        "1": "Level 1, ½° cells, 56 km at Equator",
+        "2": "Level 2, ¼° cells, 28 km at Equator",
+        "3": "Level 3, ⅛° cells, 14 km at Equator",
+        "4": "Level 4, ¹⁄₁₆° cells, 6.9 km at Equator",
+        "5": "Level 5, ¹⁄₃₂° cells, 3.5 km at Equator",
+        "6": "Level 6, ¹⁄₆₄° cells, 1.7 km at Equator"
       },
       "ISEA3H_GRID": {
         "1": "",
