@@ -46,7 +46,7 @@
     "storageDurationTeaser": "Jak dlouho bude GBIF tyto data uchovávat?",
     "predatesDoi": "Tento soubor byl stažen dříve, než jsme začali používat DOI. Pokud si přejete toto stažení citovat, kontaktujte nás, prosím.",
     "file": "Soubor",
-    "constituentDatasets": "Zapojené datové sady",
+    "constituentDatasets": "Zahrnuté datové sady",
     "constituentOrganizations": "",
     "constituentPublishingCountries": "",
     "noFiltersApplied": "Nejsou použity žádné filtry",
