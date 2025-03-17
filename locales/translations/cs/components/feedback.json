@@ -1,6 +1,6 @@
 {
   "feedback": {
-    "leaveFeedback": "Zašlete svůj názor",
+    "leaveFeedback": "Zanechte zpětnou vazbu",
     "intro": {
       "title": "Zpětná vazba a dotazy",
       "example": "Pomozte nám vyřešit případné problémy tím, že vyberete typ zpětné vazby, kterou poskytujete. Pokud je to možné, pošlete prosím zpětnou vazbu v angličtině. Naším cílem je odpovědět do 2 pracovních dnů."
@@ -42,7 +42,7 @@
     },
     "markdownSupport": "Podporuje Markdown",
     "issueTracking": "Všechny problémy jsou veřejné a dostupné prostřednictvím [Github](https://github.com/gbif/portal-feedback/issues)",
-    "failure": "To není dobře - systém zpětné vazby nefunguje. Pošlete nám prosím e-mail nebo jděte přímo na [Github](https://github.com/gbif/portal-feedback/issues). Za potíže se omlouváme.",
+    "failure": "Toto není dobré - systém zpětné vazby nefunguje. Pošlete nám prosím e-mail nebo jděte přímo na [Github](https://github.com/gbif/portal-feedback/issues). Za potíže se omlouváme.",
     "weRecommendX": "Doporučujeme použít [{NAME}]({LINK})",
     "tellGbif": "Nahlašte GBIF",
     "submit": "Odeslat",
