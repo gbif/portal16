@@ -1,6 +1,6 @@
 {
     "sex": {
-        "NONE": "Žádný",
+        "NONE": "Žádné",
         "MALE": "Samčí",
         "FEMALE": "Samičí",
         "HERMAPHRODITE": "Hermafrodit"
