@@ -16,7 +16,7 @@
         "publishingOrg": "Vydavatel",
         "peerReview": "Recenzováno",
         "openAccess": "Otevřený přístup",
-        "gbifDownloadKey": "Stáhnout klíč"
+        "gbifDownloadKey": "Klíč pro stahování"
       },
       "contentType": {
         "event": "Událost",
