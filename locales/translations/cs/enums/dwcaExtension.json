@@ -16,7 +16,7 @@
     "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "Zárodečná plazma: Přírůstek zárodečné plazmy",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "Zárodečná plazma: skóre měření",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "Zárodečná plazma: měrná vlastnost",
-    "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "Zárodečná plazma: měrná zkouška",
+    "http://purl.org/germplasm/germplasmTerm#MeasurementTrial": "Zárodečná plazma: pokus měření",
     "http://rs.tdwg.org/dwc/terms/Identification": "Identifikace",
     "http://rs.gbif.org/terms/1.0/Identifier": "Identifikátor",
     "http://rs.gbif.org/terms/1.0/Image": "Obrázek",

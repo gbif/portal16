@@ -13,7 +13,7 @@
     "select": "Vybrat",
     "custom": "Vlastní",
     "baseMap": "Základní mapa",
-    "binning": "Binning",
+    "binning": "Zobrazení hustoty bodů",
     "year": "Rok",
     "chooseColors": "Barvy",
     "predefined": {

@@ -12,10 +12,10 @@
             "description": "Tato experimentální funkce upozorňuje na možné duplicitní a/nebo související výskyty."
         },
         "isSequenced": {
-            "description": ""
+            "description": "Má buď příponu dat odvozenou z DNA, nebo z přidružené sekvence."
         },
         "occurrenceStatus": {
-            "description": "\"Nepřítomný\" se použije u záznamu o výskytu, pokud se při průzkumu taxonu v určitém čase a na určitém místě nenajdou žádné exempláře.",
+            "description": "\"Chybí\" se použije u záznamu o výskytu, pokud se při průzkumu taxonu v určitém čase a na určitém místě nenajdou žádné exempláře.",
             "options": {
                 "yes": "Přítomen",
                 "no": "Chybí",

@@ -23,11 +23,11 @@
     "allResultTypes": "Vše",
     "suggestions": "Návrhy",
     "header": {
-      "searchDatasets": "Hledat datové sady",
-      "searchPublishers": "Hledat vydavatele",
-      "searchSpecies": "Vyhledat druhy",
-      "searchResources": "Hledat zdroje",
-      "searchOccurrences": "Vyhledat výskyty"
+      "searchDatasets": "Najděte datové sady",
+      "searchPublishers": "Najděte vydavatele",
+      "searchSpecies": "Najděte druhy",
+      "searchResources": "Najděte zdroje",
+      "searchOccurrences": "Najděte výskyty"
     },
     "nResults": "{NUMBER_FORMATED} {NUMBER, plural, one{výsledek} few {výsledky} many {výsledků} other{výsledků}}"
   }
