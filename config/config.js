@@ -61,7 +61,7 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-const localEnvironmentPostFix = '-uat'; // e.g. '-uat';
+const localEnvironmentPostFix = '-dev'; // e.g. '-uat';
 let config = {
     local: {
         env: 'dev',

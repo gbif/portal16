@@ -47,7 +47,8 @@ angular
             sample_size_value: undefined,
             relative_organism_quantity: undefined,
             institution_key: undefined,
-            collection_key: undefined
+            collection_key: undefined,
+            dna_sequence_id: undefined
         };
         // for fields where we want faceting and will always ask for all possible. This is the case for most enums
         var exhaustiveFacetsKeys = [
