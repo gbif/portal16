@@ -364,7 +364,7 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
     setLoginState();
 }
 
-angular.module('portal').controller('SqlCubeController', function($uibModalInstance, $http, endpoints, toastService, OccurrenceFilter) {
+angular.module('portal').controller('SqlCubeController', function($localStorage, $uibModalInstance, $http, endpoints, toastService, OccurrenceFilter) {
     var vm = this;
     var state = OccurrenceFilter.getOccurrenceData();
 
@@ -384,6 +384,7 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
     vm.randomize = 'YES';
     vm.includeTemporalUncertainty = 'YES';
     vm.includeSpatialUncertainty = 'YES';
+    vm.filterOnCoordinateIssues = 'YES';
     vm.taxonomy = 'SPECIES';
     vm.temporal = 'YEAR';
     vm.TAXONOMIC_GROUP = [
@@ -476,6 +477,20 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
             predicate: vm.predicate
         };
 
+        if (vm.filterOnCoordinateIssues === 'YES' && vm.spatial) {
+            query.predicate = {
+                type: 'and',
+                predicates: [
+                    query.predicate,
+                    {
+                        type: 'equals',
+                        key: 'HAS_GEOSPATIAL_ISSUE',
+                        value: 'false'
+                    }
+                ]
+            };
+        }
+
         return $http.post(endpoints.webUtils + '/generate-sql', query)
             .then(function(response) {
                 return response.data;
@@ -494,6 +509,7 @@ angular.module('portal').controller('SqlCubeController', function($uibModalInsta
             if (!sql) {
                 window.location.href = '/occurrence/download/sql';
             } else {
+                $localStorage.temporarySqlDownload = data;
                 window.location.href = '/occurrence/download/sql?sql=' + encodeURIComponent(sql);
             }
         }).catch(function(err) {

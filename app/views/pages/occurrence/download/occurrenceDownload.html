@@ -402,7 +402,7 @@
                                                     <option value="" translate="customSqlDownload.noneSelected">None selected</option>
                                                 </select>
                                             </div>
-                                            <div class="m-t-05">
+                                            <div class="m-t-05" ng-if="$ctrl.spatial">
                                                 <label for="spatial2" translate="customSqlDownload.spatialResolution">Spatial resolution</label><br/>
                                                 <div class="m-b-05 discreet" translate="customSqlDownload.help.gridResolution"></div>
                                                 <select ng-disabled="!$ctrl.spatial" 
@@ -411,13 +411,22 @@
                                                         <option value="" disabled translate="customSqlDownload.noneSelected">None selected</option>
                                                 </select>
                                             </div>
-                                            <div class="m-t-05">
+                                            <div class="m-t-05" ng-if="$ctrl.spatial">
                                                 <fieldset>
                                                     <legend><label translate="customSqlDownload.randomPoints">Randomize Points within Uncertainty Circle</label></legend>
                                                     <div class="m-b-05 discreet" translate="customSqlDownload.help.randomizePoints"></div>
                                                     <div>
                                                         <label><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.randomize" value="YES"><span class="m-x-05">Yes</span></label>
                                                         <label class="m-x-05"><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.randomize" value="NO"><span class="m-x-05">No</span></label>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            <div class="m-t-05" ng-if="$ctrl.spatial">
+                                                <fieldset>
+                                                    <legend><label xtranslate="customSqlDownload.addCoordinateFilter">Add filter to remove records with known coordinate issues</label></legend>
+                                                    <div>
+                                                        <label><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.filterOnCoordinateIssues" value="YES"><span class="m-x-05">Yes</span></label>
+                                                        <label class="m-x-05"><input ng-disabled="!$ctrl.spatial" type="radio" ng-model="$ctrl.filterOnCoordinateIssues" value="NO"><span class="m-x-05">No</span></label>
                                                     </div>
                                                 </fieldset>
                                             </div>

@@ -21,7 +21,7 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceDownloadSqlCtrl($state, $cookies, $scope, AUTH_EVENTS, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX, $location, $rootScope, SqlFormatting) {
+function occurrenceDownloadSqlCtrl($localStorage, $state, $cookies, $scope, AUTH_EVENTS, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX, $location, $rootScope, SqlFormatting) {
   var vm = this;
   vm.stateParams = $state;
   vm.downloadFormats = enums.downloadFormats;
@@ -131,6 +131,12 @@ function occurrenceDownloadSqlCtrl($state, $cookies, $scope, AUTH_EVENTS, $httpP
       var data = {sql: vm.input};
       data.format = format;
       data.notification_address = email;
+
+      // compare sql with cached version
+      var temporarySqlDownload = $localStorage.temporarySqlDownload;
+      if (temporarySqlDownload && temporarySqlDownload.sql === data.sql) {
+        data.machineDescription = temporarySqlDownload.machineDescription;
+      }
       var source = $cookies.get('downloadSource');
       var downloadUrl = endpoints.download + '/sql';
       if (source) {
