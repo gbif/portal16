@@ -184,6 +184,7 @@
     "spatialDimension": "",
     "spatialResolution": "",
     "randomPoints": "",
+    "addCoordinateFilter": "",
     "measurements": "",
     "countHigherTaxonomy": "",
     "coordinateUncertainty": "",
