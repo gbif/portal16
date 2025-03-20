@@ -496,7 +496,7 @@
                             <div class="card__stripe">
                                 <div class="card__content">
                                     <fieldset class="gb-b3-issue-checkboxes">
-                                        <label>
+                                        <label ng-if="!$ctrl.query.has_geospatial_issue">
                                             <input type="checkbox" ng-model="$ctrl.removeRecordsWithGeospatialIssues">
                                             <span translate="customSqlDownload.removeRecordsWithGeospatialIssues">Remove records with known geospatial issues</span>
                                         </label>
@@ -504,15 +504,15 @@
                                             <input type="checkbox" ng-model="$ctrl.removeRecordsTaxonIssues">
                                             <span translate="customSqlDownload.removeRecordsTaxonIssues">Remove records matched to a higher taxon</span>
                                         </label>
-                                        <label>
+                                        <label ng-if="!$ctrl.query.distance_from_centroid_in_meters">
                                             <input type="checkbox" ng-model="$ctrl.removeRecordsAtCentroids">
                                             <span translate="customSqlDownload.removeRecordsAtCentroids">Remove records located at country centroids</span>
                                         </label>
-                                        <label>
+                                        <label ng-if="!$ctrl.query.basis_of_record">
                                             <input type="checkbox" ng-model="$ctrl.removeFossilsAndLiving">
                                             <span translate="customSqlDownload.removeFossilsAndLiving">Remove records that are fossils or living specimens (e.g. at botanical or zoological gardens)</span>
                                         </label>
-                                        <label>
+                                        <label ng-if="!$ctrl.query.occurrence_status">
                                             <input type="checkbox" ng-model="$ctrl.removeAbsenceRecords">
                                             <span translate="customSqlDownload.removeAbsenceRecords">Remove absence records</span>
                                         </label>

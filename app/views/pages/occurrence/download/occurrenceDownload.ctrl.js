@@ -367,6 +367,7 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 angular.module('portal').controller('SqlCubeController', function($localStorage, $uibModalInstance, $http, endpoints, toastService, OccurrenceFilter) {
     var vm = this;
     var state = OccurrenceFilter.getOccurrenceData();
+    vm.query = state.query;
 
     vm.cancel = function() {
         $uibModalInstance.dismiss('cancel');
@@ -489,7 +490,7 @@ angular.module('portal').controller('SqlCubeController', function($localStorage,
             if (query.predicate) {
                 qualityPredicates.push(query.predicate);
             }
-            if (vm.removeRecordsWithGeospatialIssues) {
+            if (vm.removeRecordsWithGeospatialIssues && !state.query.has_geospatial_issue) {
                 qualityPredicates.push({
                     type: 'equals',
                     key: 'HAS_GEOSPATIAL_ISSUE',
@@ -506,14 +507,14 @@ angular.module('portal').controller('SqlCubeController', function($localStorage,
                     }
                 });
             }
-            if (vm.removeRecordsAtCentroids) {
+            if (vm.removeRecordsAtCentroids && !state.query.distance_from_centroid_in_meters) {
                 qualityPredicates.push({
                     type: 'equals',
                     key: 'DISTANCE_FROM_CENTROID_IN_METERS',
                     value: '2000,*'
                 });
             }
-            if (vm.removeFossilsAndLiving) {
+            if (vm.removeFossilsAndLiving && !state.query.basis_of_record) {
                 qualityPredicates.push({
                     type: 'not',
                     predicate: {
@@ -523,7 +524,7 @@ angular.module('portal').controller('SqlCubeController', function($localStorage,
                     }
                 });
             }
-            if (vm.removeAbsenceRecords) {
+            if (vm.removeAbsenceRecords && !state.query.occurrence_status) {
                 qualityPredicates.push({
                     type: 'equals',
                     key: 'OCCURRENCE_STATUS',
