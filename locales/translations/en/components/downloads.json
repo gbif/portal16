@@ -184,6 +184,7 @@
     "spatialDimension": "Spatial dimension",
     "spatialResolution": "Spatial resolution",
     "randomPoints": "Randomize points within uncertainty circle",
+    "addCoordinateFilter": "",
     "measurements": "Measures",
     "countHigherTaxonomy": "Occurrence count at higher taxonomic level",
     "coordinateUncertainty": "Include minimum coordinate uncertainty",
