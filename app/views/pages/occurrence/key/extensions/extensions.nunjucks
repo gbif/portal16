@@ -33,7 +33,7 @@
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
                                                         {% if term == 'http://rs.gbif.org/terms/dna_sequence' or term == 'http://rs.gbif.org/terms/pcr_primer_forward' or term == 'http://rs.gbif.org/terms/pcr_primer_reverse' %}
                                                             <td style="min-width:20em">
-                                                                <sequence seq="{$ extension[term] $}" limit="200"></sequence>
+                                                                <sequence seq="{$ extension[term] $}" limit="200" searchable="{$ term == 'http://rs.gbif.org/terms/dna_sequence' $}"></sequence>
                                                             </td>
                                                         {% elif term == 'http://data.ggbn.org/schemas/ggbn/terms/geneticAccessionNumber' %}
                                                            <td> <a href="https://www.ncbi.nlm.nih.gov/nuccore/{$ extension[term] $}">{$ extension[term] $}</a></td>
@@ -49,7 +49,7 @@
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
                                                         {% if term == 'http://rs.gbif.org/terms/dna_sequence' or term == 'http://rs.gbif.org/terms/pcr_primer_forward' or term == 'http://rs.gbif.org/terms/pcr_primer_reverse' %}
                                                             <td style="min-width:20em">
-                                                                <sequence seq="{$ extension[term] $}" limit="200"></sequence>
+                                                                <sequence seq="{$ extension[term] $}" limit="200" searchable="{$ term == 'http://rs.gbif.org/terms/dna_sequence' $}" ></sequence>
                                                             </td>
                                                         {% elif term == 'http://data.ggbn.org/schemas/ggbn/terms/geneticAccessionNumber' %}
                                                            <td> <a href="https://www.ncbi.nlm.nih.gov/nuccore/{$ extension[term] $}">{$ extension[term] $}</a></td>                                                            
@@ -65,7 +65,7 @@
                                                     {% for term, value in occurrence.usedExtensionFields[name] %}
                                                         {% if term == 'http://rs.gbif.org/terms/dna_sequence' or term == 'http://rs.gbif.org/terms/pcr_primer_forward' or term == 'http://rs.gbif.org/terms/pcr_primer_reverse' %}
                                                             <td style="min-width:20em">
-                                                                <sequence seq="{$ extension[term] $}" limit="200"></sequence>
+                                                                <sequence seq="{$ extension[term] $}" limit="200" searchable="{$ term == 'http://rs.gbif.org/terms/dna_sequence' $}"></sequence>
                                                             </td>
                                                         {% elif term == 'http://data.ggbn.org/schemas/ggbn/terms/geneticAccessionNumber' %}
                                                            <td> <a href="https://www.ncbi.nlm.nih.gov/nuccore/{$ extension[term] $}">{$ extension[term] $}</a></td>

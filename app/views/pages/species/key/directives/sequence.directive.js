@@ -11,14 +11,15 @@ angular
 function sequenceDirective() {
     var directive = {
         restrict: 'E',
-        template: '<div><span style="font-weight: bold" ng-if="vm.marker">DNA, {{vm.marker}}: </span><span class="sequence" ng-bind-html="vm.html">{{vm.sequence}}</span><a class="text-right small shorten__more" ng-if="vm.shorten" href="" ng-click="vm.format(vm.sequence)">...more</a></div>',
+        template: '<div><span style="font-weight: bold" ng-if="vm.marker">DNA, {{vm.marker}}: </span><span class="sequence" ng-bind-html="vm.html">{{vm.sequence}}</span><a class="text-right small shorten__more" ng-if="vm.shorten" href="" ng-click="vm.format(vm.sequence)">...more</a> <a ng-if="vm.searchable" class="gb-icon-search" ui-sref="occurrenceSearchTable(vm.query)" ></a></div>',
         scope: {},
         controller: sequenceCtrl,
         controllerAs: 'vm',
         bindToController: {
             data: '=',
             seq: '@',
-            limit: '='
+            limit: '=',
+            searchable: '='
         }
     };
     return directive;
@@ -29,7 +30,7 @@ function sequenceDirective() {
         vm.sequence = vm.data ? _.get(vm, 'data.extensions["http://rs.gbif.org/terms/1.0/DNADerivedData"][0]["http://rs.gbif.org/terms/dna_sequence"]') : vm.seq;
         vm.marker = _.get(vm, 'data.extensions["http://rs.gbif.org/terms/1.0/DNADerivedData"][0]["https://w3id.org/gensc/terms/MIXS:0000044"]');
         vm.html = ''; 
-
+        vm.query = {dna_sequence: vm.sequence};
         vm.format = function(sequence, limit) {
             if (sequence) {
                 var chars = sequence.split('');

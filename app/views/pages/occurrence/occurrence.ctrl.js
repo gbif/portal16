@@ -1545,6 +1545,17 @@ vm.filters.gbifRegion = {
   }
 };
 
+vm.filters.dna_sequence = {
+  titleTranslation: 'filterNames.dnaSequence',
+  queryKey: 'dna_sequence',
+  filter: OccurrenceFilter,
+  search: {
+    isSearchable: true,
+    suggestEndpoint: suggestEndpoints.dnaSequence,
+    defaultParams: {limit: 50}
+  }
+};
+
 
   vm.toggleAdvanced = function () {
     OccurrenceFilter.updateParam('advanced', vm.occurrenceState.query.advanced);
