@@ -1,5 +1,6 @@
 'use strict';
 var angular = require('angular');
+var _ = require('lodash');
 
 angular
     .module('portal')
@@ -31,7 +32,7 @@ angular
                 });
 
                 promise.then(function(response) {
-                    var number = $filter('localNumber')(getCount(response.data, countType), LOCALE);
+                    var number = $filter('localNumber')(getCount(response.data, countType, url), LOCALE);
                     if (countTranslation) {
                         // Allow async counts to be used in translations
                         $translate(countTranslation, {NUMBER: number, NUMBER_FORMATED: $filter('localNumber')(number)}).then(function(translation) {
@@ -48,7 +49,14 @@ angular
         };
     });
 
-function getCount(data, type) {
+function getCount(data, type, url) {
+    // if the url has a search param called _property, then get that property from the response
+    // first interpret the url
+    var urlParams = new URLSearchParams(url);
+    var property = urlParams.get('_property');
+    if (property) {
+        return _.get(data, property);
+    }
     if (type === 'facet') {
         return data.facets[0].counts.length;
     } else {

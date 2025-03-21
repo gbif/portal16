@@ -367,6 +367,7 @@ function occurrenceDownloadCtrl($state, $scope, AUTH_EVENTS, $q, $http, Occurren
 angular.module('portal').controller('SqlCubeController', function($localStorage, $uibModalInstance, $http, endpoints, toastService, OccurrenceFilter) {
     var vm = this;
     var state = OccurrenceFilter.getOccurrenceData();
+    vm.query = state.query;
 
     vm.cancel = function() {
         $uibModalInstance.dismiss('cancel');
@@ -384,7 +385,6 @@ angular.module('portal').controller('SqlCubeController', function($localStorage,
     vm.randomize = 'YES';
     vm.includeTemporalUncertainty = 'YES';
     vm.includeSpatialUncertainty = 'YES';
-    vm.filterOnCoordinateIssues = 'YES';
     vm.taxonomy = 'SPECIES';
     vm.temporal = 'YEAR';
     vm.TAXONOMIC_GROUP = [
@@ -421,6 +421,12 @@ angular.module('portal').controller('SqlCubeController', function($localStorage,
         'MILITARY_GRID_REFERENCE_SYSTEM'
     ];
     vm.selectedHigherTaxonomyGroups = [];
+
+    vm.removeRecordsWithGeospatialIssues = true;
+    vm.removeRecordsTaxonIssues = true;
+    vm.removeRecordsAtCentroids = true;
+    vm.removeFossilsAndLiving = true;
+    vm.removeAbsenceRecords = true;
 
     var EEA_REFERENCE_GRID_RESOLUTION = [25, 100, 250, 1000, 10000, 50000, 100000];
     var EXTENDED_QUARTER_DEGREE_GRID_RESOLUTION = [0, 1, 2, 3, 4, 5, 6];
@@ -477,17 +483,57 @@ angular.module('portal').controller('SqlCubeController', function($localStorage,
             predicate: vm.predicate
         };
 
-        if (vm.filterOnCoordinateIssues === 'YES' && vm.spatial) {
+        // data quality filters
+        var hasQualityFilter = vm.removeRecordsWithGeospatialIssues || vm.removeRecordsTaxonIssues || vm.removeRecordsAtCentroids || vm.removeFossilsAndLiving || vm.removeAbsenceRecords;
+        if (hasQualityFilter) {
+            var qualityPredicates = [];
+            if (query.predicate) {
+                qualityPredicates.push(query.predicate);
+            }
+            if (vm.removeRecordsWithGeospatialIssues && !state.query.has_geospatial_issue) {
+                qualityPredicates.push({
+                    type: 'equals',
+                    key: 'HAS_GEOSPATIAL_ISSUE',
+                    value: 'false'
+                });
+            }
+            if (vm.removeRecordsTaxonIssues) {
+                qualityPredicates.push({
+                    type: 'not',
+                    predicate: {
+                        type: 'in',
+                        key: 'ISSUE',
+                        values: ['TAXON_MATCH_FUZZY']
+                    }
+                });
+            }
+            if (vm.removeRecordsAtCentroids && !state.query.distance_from_centroid_in_meters) {
+                qualityPredicates.push({
+                    type: 'equals',
+                    key: 'DISTANCE_FROM_CENTROID_IN_METERS',
+                    value: '2000,*'
+                });
+            }
+            if (vm.removeFossilsAndLiving && !state.query.basis_of_record) {
+                qualityPredicates.push({
+                    type: 'not',
+                    predicate: {
+                        type: 'in',
+                        key: 'BASIS_OF_RECORD',
+                        values: ['FOSSIL_SPECIMEN', 'LIVING_SPECIMEN']
+                    }
+                });
+            }
+            if (vm.removeAbsenceRecords && !state.query.occurrence_status) {
+                qualityPredicates.push({
+                    type: 'equals',
+                    key: 'OCCURRENCE_STATUS',
+                    value: 'present'
+                });
+            }
             query.predicate = {
                 type: 'and',
-                predicates: [
-                    query.predicate,
-                    {
-                        type: 'equals',
-                        key: 'HAS_GEOSPATIAL_ISSUE',
-                        value: 'false'
-                    }
-                ]
+                predicates: qualityPredicates
             };
         }
 
