@@ -100,7 +100,7 @@
       "ORDER": "Řád",
       "FAMILY": "Čeleď",
       "GENUS": "Rod",
-      "SPECIES": "Druh",
+      "SPECIES": "Druhy",
       "ACCEPTED_TAXON": "Přijatý taxon",
       "EXACT_TAXON": "Přesný taxon"
     },
@@ -184,6 +184,7 @@
     "spatialDimension": "",
     "spatialResolution": "",
     "randomPoints": "",
+    "addCoordinateFilter": "",
     "measurements": "",
     "countHigherTaxonomy": "",
     "coordinateUncertainty": "",
