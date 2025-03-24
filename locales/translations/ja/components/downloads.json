@@ -192,7 +192,7 @@
     "editSql": "",
     "temporalUncertainty": "",
     "documentation": "",
-    "dataQuality": "",
+    "dataQuality": "データの品質",
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
