@@ -126,6 +126,7 @@ function publisherDatasetTableDirective() {
 
         // summarize counts for datasetCount, occurrenceCount and literatureCount
         vm.summaryCounts = {
+          rowCount: vm.results.length,
           datasetCount: _.sumBy(vm.results, 'datasetCount'),
           occurrenceCount: _.sumBy(vm.results, 'occurrenceCount'),
           literatureCount: _.sumBy(vm.results, 'literatureCount')

@@ -7,7 +7,7 @@
                 <table class="table search-table smaller">
                     <thead>
                         <tr>
-                            <th ng-repeat="col in vm.config.summaryColumns" style="width: 33%;">
+                            <th ng-repeat="col in vm.config.summaryColumns" ng-style="{'width': (100/vm.config.summaryColumns.length) + '%'}">
                                 <span class="inline-block text-nowrap text-end">
                                     <span>{{col.title}}</span>
                                 </span>
@@ -16,7 +16,13 @@
                     </thead>
                     <tbody>
                         <tr style="font-weight: 800;">
-                            <td ng-repeat="col in vm.config.summaryColumns" style="width: 33%;">
+                            <td ng-repeat="col in vm.config.summaryColumns" ng-style="{'width': (100/vm.config.summaryColumns.length) + '%'}">
+                                <span
+                                    class="text-end"
+                                    ng-if="col.type === 'ROWS'"
+                                    >{{vm.summaryCounts.rowCount |
+                                    localNumber}}</span
+                                >
                                 <span
                                     class="text-end"
                                     ng-if="col.type === 'DATASET_COUNT'"
