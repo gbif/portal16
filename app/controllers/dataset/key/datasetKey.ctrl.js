@@ -225,7 +225,7 @@ function getMetaSchema(dataset) {
           '@type': 'Place',
           'geo': {
               '@type': 'GeoShape',
-              'box': `${box.minLatitude} ${box.maxLatitude} ${box.minLongitude} ${box.maxLongitude}`
+              'box': `${box.minLatitude} ${box.minLongitude} ${box.maxLatitude} ${box.maxLongitude}`
           }
       };
     }
