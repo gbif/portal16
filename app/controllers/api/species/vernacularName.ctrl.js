@@ -12,7 +12,7 @@ router.get('/species/:key/vernacularName', function(req, res) {
     let namePromise = vernacularName.getVernacularName(req.params.key, req.headers['accept-language']);
     namePromise.then(function(name) {
         if (name) {
-            res.send(name);
+            return res.send(name);
         }
         res.status(204);
         res.send();
@@ -26,7 +26,7 @@ router.get('/species/:key/vernacularNames', function(req, res) {
     let namePromise = vernacularName.getVernacularNamesProcessed(req.params.key);
     namePromise.then(function(name) {
         if (name) {
-            res.send(name);
+            return res.send(name);
         }
         res.status(204);
         res.send();
