@@ -49,10 +49,46 @@ let path = require('path'),
             'PLAZI': '7ce8aef0-9e92-11dc-8738-b8a03c50a862'
         },
         treatmentPublishers: [ // this is a mess and not in a config file. It has to be used tomorrow morning, so uuids from multiple environments will be added in one array
-          '8d5e227d-ddf8-45f5-953e-e54be3e65ad1', // BHL UAT
-          'ad0aba77-575f-45d4-bdf7-aacbd27e01b2', // BHL prod
-          '7ce8aef0-9e92-11dc-8738-b8a03c50a862', // Plazi in UAT and prod
-          '750a8724-fa66-4c27-b645-bd58ac5ee010' // Biodiversity Data Journal - Pensoft
+            '8d5e227d-ddf8-45f5-953e-e54be3e65ad1', // BHL UAT
+            'ad0aba77-575f-45d4-bdf7-aacbd27e01b2', // BHL prod
+            '7ce8aef0-9e92-11dc-8738-b8a03c50a862', // Plazi in UAT and prod
+            '750a8724-fa66-4c27-b645-bd58ac5ee010', // Biodiversity Data Journal - Pensoft
+            // list of new pensoft publishers
+            '07fa07e6-9d4f-4b82-99fb-1a2055991233', 
+            '1f27e074-e2c0-4cf2-9b78-731e9f789f00', 
+            '24eb42e2-7877-4e58-af67-4aea8a3cd177', 
+            '2a4eddf4-6e01-491c-8e59-c7948dfb943e', 
+            '33da3ffd-26aa-49cf-b30c-15d13186faca', 
+            '3996dc51-9cce-445b-a06f-7aba727bb0d8', 
+            '43999f3b-3220-490b-83f4-954cd43c3f6c', 
+            '45c9a2eb-b8f9-4d9f-a0e3-6ccd898f557b', 
+            '4a99b0fe-19ca-4e28-9682-4ea0e3bec4e0', 
+            '5aaf6f62-72a5-403f-8fae-e8f9cd4a18cd', 
+            '750a8724-fa66-4c27-b645-bd58ac5ee010', 
+            '7597e7d3-b8d6-4ecf-84a3-d731d8b6d290', 
+            '78b5476e-1eb5-4531-9ff1-e1971d43eb4d', 
+            '7ef749d5-b6e5-4e8e-9ff8-62bb9a192ee3', 
+            '9eb1b78c-2c2b-431e-8fd7-492734770611', 
+            'a019af3a-3982-4c10-9a27-2a793d40ed97', 
+            'aa95865f-a32f-46d4-8a10-178d69436a90', 
+            'ac084e47-e95d-4e30-ab94-115d4dec59b2', 
+            'adfff58c-db96-431d-9064-527cf09b0485', 
+            'af62a723-bd15-484a-995e-6fc6720c54f0', 
+            'b0e7edd4-d8b5-4b1c-bb5f-f6484e16c21c', 
+            'b7dc6d5d-49b7-4b55-936a-fb85e33d65e1', 
+            'bb922300-7ddb-11de-a300-90ac77aa923f', 
+            'bd140c06-099b-4b87-821a-2d4bedf53af4', 
+            'd9a8e26f-f479-45f2-9bf3-144c25965646', 
+            'eb49971d-5d73-4534-a87a-81443c0cd66b', 
+            'f6406919-13e5-48e9-9e99-8226df18fa6d', 
+            'fc871c4a-bb5e-4db6-b332-487bc23797f1',
+            '03433ccd-5166-4730-94a9-e06ec25d1a72',
+        ],
+        mediatingPublishers: [
+            '8d5e227d-ddf8-45f5-953e-e54be3e65ad1', // BHL UAT
+            'ad0aba77-575f-45d4-bdf7-aacbd27e01b2', // BHL prod
+            '7ce8aef0-9e92-11dc-8738-b8a03c50a862', // Plazi in UAT and prod
+            '750a8724-fa66-4c27-b645-bd58ac5ee010' // Biodiversity Data Journal - Pensoft
         ]
     },
     elasticContentful = yargs.elasticContentful,
@@ -61,7 +97,7 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-const localEnvironmentPostFix = '-uat'; // e.g. '-uat';
+const localEnvironmentPostFix = ''; // e.g. '-uat';
 let config = {
     local: {
         env: 'dev',
@@ -79,7 +115,7 @@ let config = {
         registryApi: registryApi || `//registry-api.gbif${localEnvironmentPostFix}.org/`,
         sourceArchive: sourceArchive || `//source-archive.gbif${localEnvironmentPostFix}.org/`,
         graphQLApi: graphQLApi || `//graphql.gbif-staging.org/graphql`,
-        webUtils: webUtils || `//graphql.gbif-staging.org/unstable-api`,
+        webUtils: webUtils || `//localhost:4002/unstable-api`,
         tileApi: tileApi || `//api.gbif${localEnvironmentPostFix}.org/v1/map/density/tile.png`,
         basemapTileApi: basemapTileApi || `//tile.gbif${localEnvironmentPostFix}.org`,
         identityApi: identityApi || `//api.gbif${localEnvironmentPostFix}.org/v1/`,
