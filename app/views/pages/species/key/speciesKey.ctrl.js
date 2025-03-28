@@ -118,6 +118,9 @@ function speciesKey2Ctrl(
         });
 
         vm.dataset = Dataset.get({id: resp.datasetKey});
+        vm.dataset.$promise.then(function (dataset) {
+            vm.isMediatedByPublisher = constantKeys.mediatingPublishers.indexOf(dataset.publishingOrganizationKey) > -1;
+        });
         vm.isNub = vm.species.datasetKey === vm.backboneKey;
         if (!vm.isNub) {
             vm.verbatim = SpeciesVerbatim.get({id: vm.key});

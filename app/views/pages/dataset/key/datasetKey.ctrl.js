@@ -108,7 +108,7 @@ function datasetKeyCtrl($scope, $q, $http, $timeout, $state, $stateParams, $sess
 
     vm.dataset.$promise.then(function() {
         Page.setTitle(vm.dataset.title);
-        vm.isMediatedByPublisher = constantKeys.treatmentPublishers.indexOf(vm.dataset.publishingOrganizationKey) > -1;
+        vm.isMediatedByPublisher = constantKeys.mediatingPublishers.indexOf(vm.dataset.publishingOrganizationKey) > -1;
         vm.publisher = Publisher.get({id: vm.dataset.publishingOrganizationKey});
         vm.installation = Installation.get({id: vm.dataset.installationKey});
         vm.installation.$promise.then(function() {

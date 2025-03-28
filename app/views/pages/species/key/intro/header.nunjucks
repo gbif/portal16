@@ -31,7 +31,7 @@
                     <div class="inline-block">
                         <span ><span class="discreet--very">{{'species.in' | translate}}:</span> <a dir="auto" ng-if="!speciesKey2.speciesTreatment.citation" class="inherit" ui-sref="datasetKey({key:speciesKey2.dataset.key})">{{ speciesKey2.dataset.title }}</a> <span class="source" ng-if="speciesKey2.speciesTreatment.citation" ng-bind-html="speciesKey2.speciesTreatment.citation | linky"></span></span>
                     </div>
-                    <div class="inline-block m-t-05" ng-if="speciesKey2.speciesTreatment.$resolved && speciesKey2.hasTreatment">
+                    <div class="inline-block m-t-05" ng-if="speciesKey2.speciesTreatment.$resolved && speciesKey2.dataset.$resolved && speciesKey2.isMediatedByPublisher">
                         <span ><span class="discreet--very"><span >{{'species.mediatedThrough' | translate}}:</span></span> <a dir="auto" class="source" ng-if="speciesKey2.speciesTreatment.publisherHomepage" ng-href="{{speciesKey2.speciesTreatment.publisherHomepage}}">{{speciesKey2.speciesTreatment.publisherTitle}}</a><span ng-if="!speciesKey2.speciesTreatment.publisherHomepage" class="source" >{{speciesKey2.speciesTreatment.publisherTitle}}</span></span>
 
                     </div>
