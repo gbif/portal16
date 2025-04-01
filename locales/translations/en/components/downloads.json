@@ -196,7 +196,7 @@
     "removeRecordsWithGeospatialIssues": "Remove records with geospatial issues",
     "removeRecordsTaxonIssues": "Remove records not confidently matched to a taxon",
     "removeRecordsAtCentroids": "Remove records at country centroids",
-    "removeFossilsAndLiving": "Remove records of fossils and living species., e.g., at botanical gardens and zoos ",
+    "removeFossilsAndLiving": "",
     "removeAbsenceRecords": "Remove absence records",
     "help": {
       "whatIsThis": "This download format allows you to aggregate occurrences by their taxonomic, temporal and/or spatial properties. For example, a data cube can be configured to aggregate occurrences by family, month and grid cell of the European Environment Agency reference grid (three dimensions) and count the number of occurrences (a measure) per combination. The result is a CSV file.\n\nOnce configured, a SQL query will be created to generate the data cube. For more advanced use, it is possible to further customize the requested download by editing the SQL query.",
