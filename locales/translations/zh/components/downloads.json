@@ -122,7 +122,7 @@
       "EEA_REFERENCE_GRID": "",
       "EXTENDED_QUARTER_DEGREE_GRID": "",
       "ISEA3H_GRID": "",
-      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+      "MILITARY_GRID_REFERENCE_SYSTEM": "军事网格参考系统。"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -135,7 +135,7 @@
         "100000": "100 公里"
       },
       "EXTENDED_QUARTER_DEGREE_GRID": {
-        "0": "",
+        "0": "0级，1°方格（单元格），在赤道处为111千米。",
         "1": "",
         "2": "",
         "3": "",
