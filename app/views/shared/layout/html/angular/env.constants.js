@@ -42,7 +42,9 @@ angular
         collectionKey: env.dataApi + 'grscicoll/collection/suggest',
         institutionKey: env.dataApi + 'grscicoll/institution/suggest',
         sex: env.dataApi + 'vocabularies/Sex/concepts',
-        typeStatus: env.dataApi + 'vocabularies/TypeStatus/concepts'
+        typeStatus: env.dataApi + 'vocabularies/TypeStatus/concepts',
+        dnaSequence: env.dataApi + 'occurrence/search/dnaSequence'
+
     }).constant('token', {
     }).constant('BUILD_VERSION',
         gb.buildVersion
