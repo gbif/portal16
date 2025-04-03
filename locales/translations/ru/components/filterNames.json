@@ -114,6 +114,7 @@
     "bed": "Ложе",
     "gbifRegion": "Регион GBIF",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }
