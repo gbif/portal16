@@ -114,6 +114,7 @@
     "bed": "Capa",
     "gbifRegion": "Región GBIF",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }
