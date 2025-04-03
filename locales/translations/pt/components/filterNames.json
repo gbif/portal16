@@ -114,6 +114,7 @@
     "bed": "Cama",
     "gbifRegion": "Região do GBIF",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }
