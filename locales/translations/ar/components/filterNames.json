@@ -114,6 +114,7 @@
     "bed": "سرير",
     "gbifRegion": "منطقة \"جبيف\"",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }
