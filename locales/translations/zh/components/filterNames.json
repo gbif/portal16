@@ -114,6 +114,7 @@
     "bed": "岩床",
     "gbifRegion": "GBIF区域",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }
