@@ -114,6 +114,7 @@
     "bed": "Laag",
     "gbifRegion": "GBIF regio",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }
