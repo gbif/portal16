@@ -114,6 +114,7 @@
     "bed": "層",
     "gbifRegion": "GBIF 地區",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }

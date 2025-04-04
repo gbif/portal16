@@ -114,6 +114,7 @@
     "bed": "Пласт",
     "gbifRegion": "Регіон GBIF",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }

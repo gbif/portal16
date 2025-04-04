@@ -114,6 +114,7 @@
     "bed": "Couche",
     "gbifRegion": "Région GBIF",
     "publishedByGbifRegion": "",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }

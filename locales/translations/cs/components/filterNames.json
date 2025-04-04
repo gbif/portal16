@@ -54,7 +54,7 @@
     "orderKey": "Řád",
     "familyKey": "Čeleď",
     "genusKey": "Rod",
-    "speciesKey": "Druh",
+    "speciesKey": "Druhy",
     "hostingOrg": "Hostitel",
     "establishmentMeans": "Zavedení znamená",
     "countryOrArea": "Země nebo oblast",
@@ -114,6 +114,7 @@
     "bed": "Podloží",
     "gbifRegion": "Region GBIF",
     "publishedByGbifRegion": "Publikováno podle GBIF regionu",
-    "taxonConceptId": ""
+    "taxonConceptId": "",
+    "dnaSequence": ""
   }
 }
