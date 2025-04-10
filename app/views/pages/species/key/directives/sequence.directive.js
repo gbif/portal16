@@ -11,8 +11,9 @@ angular
 function sequenceDirective() {
     var directive = {
         restrict: 'E',
-        template: '<div><span style="font-weight: bold" ng-if="vm.marker">DNA, {{vm.marker}}: </span><span class="sequence" ng-bind-html="vm.html">{{vm.sequence}}</span><a class="text-right small shorten__more" ng-if="vm.shorten" href="" ng-click="vm.format(vm.sequence)">...more</a> <a ng-if="vm.searchable" class="gb-icon-search" ui-sref="occurrenceSearchTable(vm.query)" ></a></div>',
-        scope: {},
+        template: '<div><span style="font-weight: bold" ng-if="vm.marker">DNA, {{vm.marker}}: </span><span class="sequence" ng-bind-html="vm.html">{{vm.sequence}}</span><a class="text-right small shorten__more" ng-if="vm.shorten" href="" ng-click="vm.format(vm.sequence)">...more</a> </div>',
+/*         template: '<div><span style="font-weight: bold" ng-if="vm.marker">DNA, {{vm.marker}}: </span><span class="sequence" ng-bind-html="vm.html">{{vm.sequence}}</span><a class="text-right small shorten__more" ng-if="vm.shorten" href="" ng-click="vm.format(vm.sequence)">...more</a> <a ng-if="vm.searchable" class="gb-icon-search" ui-sref="occurrenceSearchTable(vm.query)" ></a></div>',
+ */ scope: {},
         controller: sequenceCtrl,
         controllerAs: 'vm',
         bindToController: {
