@@ -144,7 +144,7 @@ Directory.applyTranslation = function(contacts, __) {
                 // insert role name
                 if (person.hasOwnProperty('roles')) {
                     person.roles.forEach(function(role) {
-                        role.translatedLabel = __('role.' + role.role);
+                        role.translatedLabel = __('gbifRole.' + role.role);
                     });
                 }
             });
@@ -154,7 +154,7 @@ Directory.applyTranslation = function(contacts, __) {
         contacts.committees.forEach(function(committee) {
             committee.members.forEach(function(member) {
                 member.roles.forEach(function(role) {
-                    role.translatedLabel = __('role.' + role.role);
+                    role.translatedLabel = __('gbifRole.' + role.role);
                 });
             });
         });
