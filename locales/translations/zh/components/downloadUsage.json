@@ -18,8 +18,8 @@
         },
         "types": {
             "JOURNAL_ARTICLE": "",
-            "BOOK": "",
-            "BOOK_CHAPTER": "",
+            "BOOK": "书本",
+            "BOOK_CHAPTER": "书本章节",
             "CONFERENCE_PAPER_PROCEEDINGS": "",
             "PREPRINT_WORKING_PAPER": "打印预览/工作页面",
             "REPORT": "报告",
