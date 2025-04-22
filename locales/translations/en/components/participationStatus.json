@@ -3,7 +3,7 @@
         "longForm": {
             "VOTING": "Voting participant",
             "ASSOCIATE": "Associate participant",
-            "OBSERVER": "Observing participant",
+            "OBSERVER": "Observer",
             "AFFILIATE": "Affiliate",
             "FORMER": "Former participant",
             "undefined": "Unknown"
