@@ -196,7 +196,7 @@
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
-    "removeFossilsAndLiving": "",
+    "removeFossilsAndLiving": "Musi być zdefiniowany",
     "removeAbsenceRecords": "",
     "help": {
       "whatIsThis": "",
