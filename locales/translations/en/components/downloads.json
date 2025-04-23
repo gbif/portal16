@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "EEA reference grid - Europe only",
       "EXTENDED_QUARTER_DEGREE_GRID": "Extended quarter degree grid (QDGC)",
       "ISEA3H_GRID": "ISEA3H hexagonal grid",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "Military grid reference systems (MGRS)"
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Military grid reference systems (MGRS)",
+      "COUNTRY": "Country or area"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
