@@ -402,7 +402,7 @@
                                                     <option value="" translate="customSqlDownload.noneSelected">None selected</option>
                                                 </select>
                                             </div>
-                                            <div class="m-t-05" ng-if="$ctrl.spatial">
+                                            <div class="m-t-05" ng-if="$ctrl.spatial && $ctrl.spatial !== 'COUNTRY'">
                                                 <label for="spatial2" translate="customSqlDownload.spatialResolution">Spatial resolution</label><br/>
                                                 <div class="m-b-05 discreet" translate="customSqlDownload.help.gridResolution"></div>
                                                 <select ng-disabled="!$ctrl.spatial" 

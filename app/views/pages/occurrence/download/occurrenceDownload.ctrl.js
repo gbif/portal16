@@ -418,7 +418,8 @@ angular.module('portal').controller('SqlCubeController', function($localStorage,
         'EEA_REFERENCE_GRID',
         'EXTENDED_QUARTER_DEGREE_GRID',
         'ISEA3H_GRID',
-        'MILITARY_GRID_REFERENCE_SYSTEM'
+        'MILITARY_GRID_REFERENCE_SYSTEM',
+        'COUNTRY'
     ];
     vm.selectedHigherTaxonomyGroups = [];
 
