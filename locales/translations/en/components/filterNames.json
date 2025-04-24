@@ -115,6 +115,6 @@
     "gbifRegion": "GBIF region",
     "publishedByGbifRegion": "Published by GBIF region",
     "taxonConceptId": "Taxon Concept Id",
-    "dnaSequence": ""
+    "dnaSequence": "DNA sequence"
   }
 }
