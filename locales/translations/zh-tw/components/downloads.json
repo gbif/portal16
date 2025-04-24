@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "",
       "EXTENDED_QUARTER_DEGREE_GRID": "",
       "ISEA3H_GRID": "",
-      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+      "MILITARY_GRID_REFERENCE_SYSTEM": "",
+      "COUNTRY": "國家或地區"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -196,7 +197,7 @@
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
-    "removeFossilsAndLiving": "必須定義",
+    "removeFossilsAndLiving": "",
     "removeAbsenceRecords": "",
     "help": {
       "whatIsThis": "",
