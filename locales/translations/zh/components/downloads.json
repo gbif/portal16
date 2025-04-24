@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "EEA参考网格 - 仅限欧洲",
       "EXTENDED_QUARTER_DEGREE_GRID": "扩展的四分之一度网格（QDGC）",
       "ISEA3H_GRID": "ISEA3H六边形网格",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "军事网格参考系统。"
+      "MILITARY_GRID_REFERENCE_SYSTEM": "军事网格参考系统。",
+      "COUNTRY": "国家"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -196,7 +197,7 @@
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
-    "removeFossilsAndLiving": "必须定义",
+    "removeFossilsAndLiving": "",
     "removeAbsenceRecords": "",
     "help": {
       "whatIsThis": "",
