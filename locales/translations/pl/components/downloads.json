@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "Siatka odniesienia EEA - tylko Europa",
       "EXTENDED_QUARTER_DEGREE_GRID": "Komórki siatki ćwierćstopniowej (QDGC)",
       "ISEA3H_GRID": "Siatka ISEA3H",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "Militarne systemy siatek odniesienia (MRGS)"
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Militarne systemy siatek odniesienia (MRGS)",
+      "COUNTRY": "Kraj lub obszar"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -196,7 +197,7 @@
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
-    "removeFossilsAndLiving": "Musi być zdefiniowany",
+    "removeFossilsAndLiving": "",
     "removeAbsenceRecords": "",
     "help": {
       "whatIsThis": "",
