@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "Grille de référence de l'AEE - Europe uniquement",
       "EXTENDED_QUARTER_DEGREE_GRID": "Grille de quart de degré étendue (QDGC)",
       "ISEA3H_GRID": "Grille ISEA3H",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "Systèmes de référence de grille militaire (MGRS)"
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Systèmes de référence de grille militaire (MGRS)",
+      "COUNTRY": "Pays"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -196,7 +197,7 @@
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
-    "removeFossilsAndLiving": "Doit être défini",
+    "removeFossilsAndLiving": "",
     "removeAbsenceRecords": "",
     "help": {
       "whatIsThis": "",
