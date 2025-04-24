@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "",
       "EXTENDED_QUARTER_DEGREE_GRID": "",
       "ISEA3H_GRID": "",
-      "MILITARY_GRID_REFERENCE_SYSTEM": ""
+      "MILITARY_GRID_REFERENCE_SYSTEM": "",
+      "COUNTRY": "国または地域"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
