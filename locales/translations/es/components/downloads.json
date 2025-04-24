@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "Grilla de referencia del EEE - solo Europa",
       "EXTENDED_QUARTER_DEGREE_GRID": "Grilla extendida de un cuarto de grado (QDGC)",
       "ISEA3H_GRID": "Grilla ISEA3H",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "Sistemas de referencia de red militar (MGRS)"
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Sistemas de referencia de red militar (MGRS)",
+      "COUNTRY": "País o área"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -196,7 +197,7 @@
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
-    "removeFossilsAndLiving": "Está documentado",
+    "removeFossilsAndLiving": "",
     "removeAbsenceRecords": "",
     "help": {
       "whatIsThis": "",
