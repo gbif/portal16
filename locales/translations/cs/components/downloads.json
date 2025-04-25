@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "Referenční síť EEA - pouze Evropa",
       "EXTENDED_QUARTER_DEGREE_GRID": "Rozšířená mřížka čtvrt stupně (QDGC)",
       "ISEA3H_GRID": "ISEA3H síť",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "Vojenské referenční systémy (MGRS)"
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Vojenské referenční systémy (MGRS)",
+      "COUNTRY": "Země nebo oblast"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
@@ -196,7 +197,7 @@
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
-    "removeFossilsAndLiving": "Musí být definováno",
+    "removeFossilsAndLiving": "",
     "removeAbsenceRecords": "",
     "help": {
       "whatIsThis": "",

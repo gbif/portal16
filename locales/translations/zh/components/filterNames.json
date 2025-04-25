@@ -115,6 +115,6 @@
     "gbifRegion": "GBIF区域",
     "publishedByGbifRegion": "",
     "taxonConceptId": "",
-    "dnaSequence": "必须定义"
+    "dnaSequence": ""
   }
 }

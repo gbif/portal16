@@ -122,7 +122,8 @@
       "EEA_REFERENCE_GRID": "Справочная сетка ЕАОС - только для Европы",
       "EXTENDED_QUARTER_DEGREE_GRID": "Расширенная сетка QDGC",
       "ISEA3H_GRID": "Сетка Eco-ISEA3H для экологического моделирования видов",
-      "MILITARY_GRID_REFERENCE_SYSTEM": "Сетка MGRS (стандарт геокоординат НАТО для определения местоположения точек на Земле)."
+      "MILITARY_GRID_REFERENCE_SYSTEM": "Сетка MGRS (стандарт геокоординат НАТО для определения местоположения точек на Земле).",
+      "COUNTRY": "Страна (территория)"
     },
     "resolution": {
       "EEA_REFERENCE_GRID": {
