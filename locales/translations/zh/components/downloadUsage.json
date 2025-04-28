@@ -17,10 +17,10 @@
             "saveSuccess": "感谢您通知我们。我们会将下载链接到所描述的出版物/产品。请记住根据下载页面上的说明引用下载内容。您现在可以关闭此弹出窗口。"
         },
         "types": {
-            "JOURNAL_ARTICLE": "",
+            "JOURNAL_ARTICLE": "期刊文章",
             "BOOK": "书本",
             "BOOK_CHAPTER": "书本章节",
-            "CONFERENCE_PAPER_PROCEEDINGS": "",
+            "CONFERENCE_PAPER_PROCEEDINGS": "会议进行",
             "PREPRINT_WORKING_PAPER": "打印预览/工作页面",
             "REPORT": "报告",
             "WEB_PAGE": "网页页面",
@@ -33,11 +33,11 @@
             "SOFTWARE_COMPUTER_PROGRAM": "软件/电脑项目",
             "HEARING": "聆听",
             "TELEVISION_BROADCAST": "电视广播",
-            "ENCYCLOPEDIA_ARTICLE": "",
-            "CASE": "",
-            "FILM": "",
-            "BILL": "",
-            "OTHER": ""
+            "ENCYCLOPEDIA_ARTICLE": "百科全书文章",
+            "CASE": "案例",
+            "FILM": "影片",
+            "BILL": "帐单",
+            "OTHER": "其他（请在下方评论中详细说明）"
         }
     }
 }
