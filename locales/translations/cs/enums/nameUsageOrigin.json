@@ -7,7 +7,7 @@
     "VERBATIM_BASIONYM": "Implicitní použití z přesného basionymu / původního jména.",
     "PROPARTE": "Duplicitní použití z jednoho záznamu pro parte.",
     "AUTONYM": "Vygenerováno, chybí autonym.",
-    "IMPLICIT_NAME": "Generováno, chybějící rod nebo druh pro \"osiřelé\" nižší jméno.",
+    "IMPLICIT_NAME": "Generováno, chybějící rod nebo druh pro \"osiřelý\" nižší název.",
     "MISSING_ACCEPTED": "Umělé použití synonyma, pokud chybí pro zachování taxonomické hierarchie.",
     "BASIONYM_PLACEHOLDER": "Zástupné použití pro chybějící nebo implicitní basionym.",
     "EX_AUTHOR_SYNONYM": "Implicitní synonymum podle nelegitimního bývalého autora. Viz článek 46 ICN: https://www.iapt-taxon.org/nomen/pages/main/art_46.html",
