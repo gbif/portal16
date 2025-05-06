@@ -53,7 +53,7 @@
     "apiUsageDescription": "Para repetir a transferência com os dados atuais, pode usar a pesquisa abaixo com o API.",
     "apiFilterView": "API",
     "humanFilterView": "Humano",
-    "downloadStarted": "A transferência foi iniciada e está atualemente em processamento.",
+    "downloadStarted": "A transferência foi iniciada e está atualmente em processamento.",
     "downloadExpectTime": "Conte com até 3 horas para a transferência completar. A maioria das transferências irá completar nos primeiros 15 minutos.",
     "notificationEmailAddresses": "Um email de notificação com um link do resultado da transferência será enviado para o seguinte endereço, assim que pronto: ",
     "status": {
