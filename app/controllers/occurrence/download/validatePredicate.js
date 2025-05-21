@@ -27,7 +27,8 @@ const schema = Joi.alternatives().try(
     type: Joi.string().valid('equals').required(),
     key: Joi.string().required(),
     value: Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool()).required(),
-    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool()),
+    checklistKey: Joi.string().optional(),
   }),
   Joi.object({
     type: Joi.string().valid('greaterThan').required(),
@@ -59,11 +60,13 @@ const schema = Joi.alternatives().try(
   }),
   Joi.object({
     type: Joi.string().valid('isNotNull').required(),
-    parameter: Joi.string().required()
+    parameter: Joi.string().required(),
+    checklistKey: Joi.string().optional(),
   }),
   Joi.object({
     type: Joi.string().valid('isNull').required(),
-    parameter: Joi.string().required()
+    parameter: Joi.string().required(),
+    checklistKey: Joi.string().optional(),
   }),
   Joi.object({
     type: Joi.string().valid('like').required(),
@@ -75,7 +78,8 @@ const schema = Joi.alternatives().try(
     type: Joi.string().valid('in').required(),
     key: Joi.string().required(),
     values: Joi.array().required().items(Joi.alternatives().try(Joi.string(), Joi.number(), Joi.bool())),
-    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool())
+    matchCase: Joi.alternatives().try(Joi.string(), Joi.bool()),
+    checklistKey: Joi.string().optional(),
   })
 ).id('predicateItem');
 

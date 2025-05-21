@@ -34,6 +34,11 @@
                                        uib-tooltip="{$ __('downloadKey.predicate.joinDescriptions.or') $}"><span dir="auto">{$ option $}</span></li>
                 {% endfor %}
             </ol>
+            {% if p.checklistTitle %}
+            <div class="discreet--very">
+                {$ __('downloadKey.checklist') $}: {$ p.checklistTitle $}
+            </div>
+            {% endif %}
         </div>
     {% elseif p.type == 'isNotNull' %}
         <div class="leaf">

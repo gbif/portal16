@@ -2,7 +2,7 @@ let apiConfig = rootRequire('app/models/gbifdata/apiConfig');
 
 let queryResolver = {
     taxonKey: {
-        type: 'ENDPOINT',
+        type: 'TAXON_ENDPOINT',
         url: apiConfig.taxon.url,
         field: 'scientificName'
     },

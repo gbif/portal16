@@ -27,6 +27,7 @@
     "largeQueryMessage": "Very large filter. See the download for details.",
     "date": "Date",
     "show": "Show",
+    "checklist": "Checklist",
     "license": "License",
     "readMore": "Read more",
     "titleMissing": "Dataset title missing",

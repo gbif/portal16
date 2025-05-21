@@ -3,6 +3,7 @@ let _ = require('lodash'),
     camelCase = require('camelcase'),
     Q = require('q'),
     request = rootRequire('app/helpers/request'),
+    siteConfig = rootRequire('config/config'),
     apiConfig = require('../../../models/gbifdata/apiConfig'),
     validBasisOfRecords = require('../../../models/enums/basic/basisOfRecord.json'),
     authOperations = require('../../auth/gbifAuthRequest'),
@@ -153,6 +154,14 @@ function getSimpleQuery(predicate) {
             return false;
         }
     }
+    // if using any other checklist than the backbone, then we cannot link to it and it isn't considered a simple query
+    let checklistKeys = getAllChecklistKeys(predicate);
+    if (checklistKeys.length > 1) {
+        return false;
+    }
+    if (checklistKeys.length === 1 && checklistKeys[0] !== siteConfig.publicConstantKeys.dataset.backbone) {
+        return false;
+    }
     // serialize query to occurrence site search string
     try {
       let queryString = _.join(_.flattenDeep(attachPredicatesAsParams(predicate)), '&');
@@ -161,6 +170,23 @@ function getSimpleQuery(predicate) {
       return false;
     }
 }
+
+function getAllChecklistKeys(predicate) {
+    let checklistKeys = new Set();
+    if (!predicate) {
+        return [];
+    } else if (predicate.checklistKey) {
+        checklistKeys.add(predicate.checklistKey);
+    } else if (predicate.predicate) {
+        checklistKeys = new Set([...checklistKeys, ...getAllChecklistKeys(predicate.predicate)]);
+    } else if (predicate.predicates) {
+        predicate.predicates.forEach(function(p) {
+            checklistKeys = new Set([...checklistKeys, ...getAllChecklistKeys(p)]);
+        });
+    }
+    return Array.from(checklistKeys);
+}
+
 
 function attachPredicatesAsParams(predicate) {
     let queryList = [];
@@ -211,12 +237,21 @@ function addpredicateResolveTasks(predicate, config, tasks, __mf, locale) {
     if (!predicate) {
         throw new Error('failed to parse predicate');
     } else {
+        if (predicate.checklistKey) {
+            predicate.checklistTitle = _.get(siteConfig, 'checklistMapping.' + predicate.checklistKey + '.title');
+        }
         let camelKey = camelCase(_.get(predicate, 'key', ''));
         let keyResolver = config[camelKey];
         if (keyResolver) {
             if (keyResolver.type == 'ENDPOINT') {
                 // create task
                 addEndpointTask(predicate, keyResolver, tasks, locale);
+            } else if (keyResolver.type == 'TAXON_ENDPOINT') {
+                if (predicate.checklistKey) {
+                    addTaxonEndpointTask(predicate, keyResolver, tasks, locale);
+                } else {
+                    addEndpointTask(predicate, keyResolver, tasks, locale);
+                }
             } else if (keyResolver.type == 'ENUM') {
                 resolveEnum(predicate, keyResolver, __mf);
             }
@@ -278,6 +313,45 @@ function addEndpointTask(predicate, config, tasks, locale) {
     } else {
         let itemPromise = getResource(config.url + predicate.value).then(function(e) {
                 predicate.value = e[config.field];
+                if (config.vocabularyEndpoint) {
+                    predicate.value = getConceptLabel(e, locale);
+                }
+            })
+            .catch(function(err) {
+                predicate.value = predicate.value;
+            });
+        tasks.push(itemPromise);
+    }
+}
+
+function addTaxonEndpointTask(predicate, config, tasks, locale) {
+    let checklistConfig = _.get(siteConfig, 'checklistMapping.' + predicate.checklistKey);
+    if (predicate.type == 'in') {
+        let listPromise = Promise.all(predicate.values.map(function(value) {
+            let url = config.url + value;
+            if (checklistConfig) {
+                url = 'http://api.checklistbank.org/dataset/' + checklistConfig.colDatasetKey + '/taxon/' + encodeURIComponent(value);
+            }
+            return getResource(url);
+        })).then(function(values) {
+            predicate.values = _.map(values, 'label');
+            if (config.vocabularyEndpoint) {
+                predicate.values = values.map(function(value) {
+                    return getConceptLabel(value, locale);
+                });
+            }
+        })
+        .catch(function() {
+            predicate.values = predicate.values;
+        });
+        tasks.push(listPromise);
+    } else {
+        let url = config.url + predicate.value;
+        if (checklistConfig) {
+            url = 'http://api.checklistbank.org/dataset/' + checklistConfig.colDatasetKey + '/taxon/' + encodeURIComponent(predicate.value);
+        }
+        let itemPromise = getResource(url).then(function(e) {
+                predicate.value = e.label;
                 if (config.vocabularyEndpoint) {
                     predicate.value = getConceptLabel(e, locale);
                 }
