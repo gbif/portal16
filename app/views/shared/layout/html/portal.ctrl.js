@@ -61,10 +61,10 @@ function portalCtrl($scope, $rootScope, $sessionStorage, toastService, BUILD_VER
     vm.trustAsHtml = function(htmlCode) {
         return $sce.trustAsHtml(htmlCode);
     };
-    // if (vm.isNotProd && !$sessionStorage.hasShownNotProdWarning) {
-    //     $sessionStorage.hasShownNotProdWarning = true;
-    //     toastService.error({translate: 'phrases.testSiteWarning'});
-    // }
+    if (vm.isNotProd && !$sessionStorage.hasShownNotProdWarning) {
+        $sessionStorage.hasShownNotProdWarning = true;
+        toastService.error({translate: 'phrases.testSiteWarning'});
+    }
 }
 
 module.exports = portalCtrl;
