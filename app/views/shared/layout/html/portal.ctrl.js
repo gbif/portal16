@@ -20,7 +20,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, toastService, BUILD_VER
     vm.mapCapabilities = env.mapCapabilities;
     vm.IS_TOUCH = IS_TOUCH;
     vm.LOCALE = LOCALE;
-    vm.isNotProd = env.env !== 'prod';
+    vm.isNotProd = !env.productionSite;
     vm.getDrawer = Page.drawer;
 
     vm.openHelpdesk = function(type) {
@@ -64,6 +64,7 @@ function portalCtrl($scope, $rootScope, $sessionStorage, toastService, BUILD_VER
     if (vm.isNotProd && !$sessionStorage.hasShownNotProdWarning) {
         $sessionStorage.hasShownNotProdWarning = true;
         toastService.error({translate: 'phrases.testSiteWarning'});
+        // document.getElementById('test-site-warning').style.display = 'block';
     }
 }
 

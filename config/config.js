@@ -100,6 +100,7 @@ let path = require('path'),
 const localEnvironmentPostFix = '-uat'; // e.g. '-uat';
 let config = {
     local: {
+        productionSite: false, 
         env: 'dev',
         healthEnv: 'uat',
         root: rootPath,
@@ -164,6 +165,7 @@ let config = {
     },
 
     dev: {
+        productionSite: false,
         env: env,
         root: rootPath,
         app: {
@@ -225,6 +227,7 @@ let config = {
 
     // Dev2 is for testing the new cluster.  Fallback to dev or fail where appropriate.
     dev2: {
+        productionSite: false,
         env: env,
         root: rootPath,
         app: {
@@ -285,6 +288,7 @@ let config = {
     },
 
     uat: {
+        productionSite: false,
         env: env,
         root: rootPath,
         app: {
@@ -345,6 +349,7 @@ let config = {
     },
 
     uat2: {
+        productionSite: false,
         env: env,
         root: rootPath,
         app: {
@@ -403,6 +408,7 @@ let config = {
     },
 
     staging: {
+        productionSite: false,
         env: env,
         root: rootPath,
         app: {
@@ -462,6 +468,7 @@ let config = {
         }
     },
     prod: {
+        productionSite: true,
         env: env,
         root: rootPath,
         app: {

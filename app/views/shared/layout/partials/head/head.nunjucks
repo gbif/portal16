@@ -105,11 +105,17 @@
     }
 </script>
 
+<style>
+
+.test-site-warning {display: none; font-size: 1.5rem;}
+.test-site-warning {position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(255,255,255);color:#333;z-index:9999;text-align:center}
+.test-site-warning div{position:relative;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);}
+</style>
 <noscript>
     <style>
         body {display: block !important}
         .no-js-enabled {display: block !important}
-        .no-js-enabled {position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(120,181,120,0.99);color:#fff;z-index:9999;text-align:center}
+        .no-js-enabled {position:fixed;top:0;left:0;width:100%;height:100%;background-color:tomato;color:#fff;z-index:9999;text-align:center}
         .no-js-enabled span{position:relative;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);}
     </style>
 </noscript>

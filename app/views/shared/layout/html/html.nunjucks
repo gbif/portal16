@@ -36,6 +36,12 @@ helpdesk@gbif.org
     <div class="no-js-enabled" style="display: none"><span>{$ __('phrases.noJavascriptEnabled') $}</span></div>
     <div class="ie-splash" style="display:none"><span>{$ __('phrases.isSplashScreen') $}</span></div>
 </noscript>
+<div id="test-site-warning" class="test-site-warning">
+    <div>
+        <div style="margin-bottom: 24px">{$ __('phrases.testSiteWarning') $}</div>
+        <button class="gb-button--brand" onclick="document.getElementById('test-site-warning').style.display='none'">Continue to test site</button>
+    </div>
+</div>
 
 {% if not _meta.removeMenu %}
     {% include "../partials/navigation/navigation.nunjucks" %}
