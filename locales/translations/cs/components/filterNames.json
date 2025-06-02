@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Má geoprostorové problémy",
     "basisOfRecord": "Původ záznamu",
     "issue": "Problémy a příznaky",
+    "checklistKey": "Kontrolní seznam",
+    "taxonomicIssue": "{num, plural, one { je ve shluku } few {# jsou ve shlucích} many {# je ve shlucích} other {# je ve shlucích}}",
     "locality": "Lokalita",
     "lastInterpreted": "Poslední interpretace",
     "waterBody": "Vodní plocha",
