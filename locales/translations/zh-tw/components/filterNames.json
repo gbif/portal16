@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "有地理空間資訊問題",
     "basisOfRecord": "紀錄類型",
     "issue": "問題和註記",
+    "checklistKey": "物種名錄",
+    "taxonomicIssue": "{num, plural, one {# 在分群中} other {# 在分群中}}",
     "locality": "地區",
     "lastInterpreted": "最後解譯時間",
     "waterBody": "水體",
