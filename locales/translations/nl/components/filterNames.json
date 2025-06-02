@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "",
     "basisOfRecord": "Basis van record",
     "issue": "",
+    "checklistKey": "",
+    "taxonomicIssue": "Moet worden gedefinieerd",
     "locality": "",
     "lastInterpreted": "Laatst geïnterpreteerd",
     "waterBody": "Waterlichaam",
