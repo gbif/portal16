@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Has geospatial issue",
     "basisOfRecord": "Basis of record",
     "issue": "Issues and flags",
+    "checklistKey": "Checklist",
+    "taxonomicIssue": "",
     "locality": "Locality",
     "lastInterpreted": "Last interpreted",
     "waterBody": "Water body",
