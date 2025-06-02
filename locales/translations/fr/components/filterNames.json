@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Présente un problème géospatial",
     "basisOfRecord": "Base de registre",
     "issue": "Problèmes et drapeaux",
+    "checklistKey": "Liste d'espèces",
+    "taxonomicIssue": "Doit être défini",
     "locality": "Localité",
     "lastInterpreted": "Dernière interprétation",
     "waterBody": "Étendue d'eau",
