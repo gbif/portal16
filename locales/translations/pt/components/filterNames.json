@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Tem problema de localização",
     "basisOfRecord": "Base do registo",
     "issue": "Questões e sinalizadores",
+    "checklistKey": "Checklist",
+    "taxonomicIssue": "{num, plural, one { está no grupo } other {# estão nos grupos}}",
     "locality": "Localidade",
     "lastInterpreted": "Última indexação",
     "waterBody": "Massa de água",
