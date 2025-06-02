@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Har geospatiale problemer",
     "basisOfRecord": "Observationstype",
     "issue": "",
+    "checklistKey": "Tjekliste",
+    "taxonomicIssue": "",
     "locality": "Lokalitet",
     "lastInterpreted": "Sidst fortolket",
     "waterBody": "Vandområde",
