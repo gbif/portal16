@@ -67,6 +67,10 @@ let queryResolver = {
         type: 'ENUM',
         valueTranslation: 'occurrenceIssue.'
     },
+    taxonomicIssue: {
+        type: 'ENUM',
+        valueTranslation: 'occurrenceIssue.'
+    },
     typeStatus: {
         type: 'ENDPOINT',
         url: apiConfig.base.url + 'vocabularies/TypeStatus/concepts/',
