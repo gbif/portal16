@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Має проблеми з геопросторовою прив'язкою",
     "basisOfRecord": "Основа запису",
     "issue": "Проблеми та відмітки",
+    "checklistKey": "Таксономічні списки",
+    "taxonomicIssue": "",
     "locality": "Локація",
     "lastInterpreted": "Остання інтерпретація",
     "waterBody": "Водний об'єкт",
