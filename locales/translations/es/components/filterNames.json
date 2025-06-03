@@ -29,7 +29,7 @@
     "hasGeospatialIssue": "Presenta un problema geoespacial",
     "basisOfRecord": "Base del registro",
     "issue": "Problemas y banderas",
-    "checklistKey": "Lista de especies",
+    "checklistKey": "Lista de chequeo",
     "taxonomicIssue": "{num, plural, one { está en una agrupación } other {# están en una agrupación}}\n",
     "locality": "Localidad",
     "lastInterpreted": "Última interpretación",
