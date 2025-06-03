@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "ذو مشكلة جغرافية مكانية",
     "basisOfRecord": "اساس السجل",
     "issue": "مسائل و رايات",
+    "checklistKey": "قائمة التدقيق",
+    "taxonomicIssue": "",
     "locality": "موقع",
     "lastInterpreted": "آخر تأويل",
     "waterBody": "المسطح المائي",

@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Hat georäumliche Probleme",
     "basisOfRecord": "Basis of record",
     "issue": "Probleme und Flags",
+    "checklistKey": "",
+    "taxonomicIssue": "{num, plural, one { ist im Cluster } other {# sind in Clustern}}",
     "locality": "Fundort",
     "lastInterpreted": "Zuletzt interpretiert",
     "waterBody": "Gewässer",

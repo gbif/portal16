@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "有地理空间问题",
     "basisOfRecord": "记录基础",
     "issue": "问题和标志",
+    "checklistKey": "名录",
+    "taxonomicIssue": "{num, plural, one { 在集群中 } other {# 在集群中}}",
     "locality": "地点",
     "lastInterpreted": "最后解释",
     "waterBody": "水体",

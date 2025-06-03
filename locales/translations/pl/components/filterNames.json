@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "Ma problemy geoprzestrzenne",
     "basisOfRecord": "Podstawa stwierdzenia wystąpienia",
     "issue": "Problemy i komentarze",
+    "checklistKey": "Checklista",
+    "taxonomicIssue": "{num, plural, one { jest w grupie } few {# są w grupie} many {# jest w grupie} other {# są w grupie}}",
     "locality": "Miejscowość",
     "lastInterpreted": "Ostatnio interpretowano",
     "waterBody": "Zbiornik wodny",

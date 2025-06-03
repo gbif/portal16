@@ -29,6 +29,8 @@
     "hasGeospatialIssue": "地理空間情報の解釈に問題があります。",
     "basisOfRecord": "データレコードの種類",
     "issue": "問題とフラグ",
+    "checklistKey": "チェックリスト",
+    "taxonomicIssue": "",
     "locality": "採集地・観測地",
     "lastInterpreted": "最終解釈日",
     "waterBody": "水域",
