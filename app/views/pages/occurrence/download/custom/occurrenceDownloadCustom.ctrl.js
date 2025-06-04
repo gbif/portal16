@@ -43,13 +43,6 @@ function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $ht
   };
 
   vm.prettify = function(str) {
-    // if there is no input, reset the state
-    if (!str || str.length === 0) {
-      vm.invalidInput = false;
-      vm.predicateLoaded = false;
-      vm.inEditMode = true;
-      return;
-    }
     try {
       var jsonInput = JSON.parse(str || vm.input);
       vm.input = JSON.stringify(jsonInput, null, 2);
@@ -64,7 +57,9 @@ function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $ht
       }
     }
   };
-  vm.prettify(vm.input);
+  if (vm.input) {
+    vm.prettify(vm.input);
+  }
 
   vm.getSerializedQuery = function() {
     return $httpParamSerializer({predicate: vm.input});
