@@ -43,13 +43,20 @@ function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $ht
   };
 
   vm.prettify = function(str) {
+    // if there is no input, reset the state
+    if (!str || str.length === 0) {
+      vm.invalidInput = false;
+      vm.predicateLoaded = false;
+      vm.inEditMode = true;
+      return;
+    }
     try {
       var jsonInput = JSON.parse(str || vm.input);
       vm.input = JSON.stringify(jsonInput, null, 2);
       vm.invalidInput = false;
       vm.predicateLoaded = false;
     } catch (err) {
-      if (!str) {
+      if (!str && vm.input && vm.input.length > 0) {
         var transformedInput = vm.input.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
         vm.prettify(transformedInput);
       } else {
