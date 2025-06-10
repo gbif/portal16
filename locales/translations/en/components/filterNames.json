@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "Coordinate uncertainty in metres",
     "hasGeospatialIssue": "Has geospatial issue",
     "basisOfRecord": "Basis of record",
+    "geologicalTime": "",
     "issue": "Issues and flags",
     "checklistKey": "Checklist",
     "taxonomicIssue": "",
