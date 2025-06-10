@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "座標の不確実性（m）",
     "hasGeospatialIssue": "地理空間情報の解釈に問題があります。",
     "basisOfRecord": "データレコードの種類",
+    "geologicalTime": "",
     "issue": "問題とフラグ",
     "checklistKey": "チェックリスト",
     "taxonomicIssue": "",
