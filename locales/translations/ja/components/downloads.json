@@ -27,6 +27,7 @@
     "largeQueryMessage": "非常に大きいフィルターです。詳細についてはダウンロードを参照してください。",
     "date": "日付",
     "show": "表示する",
+    "checklist": "チェックリスト",
     "license": "ライセンス",
     "readMore": "もっと読む",
     "titleMissing": "データセット タイトルが見つかりません",
