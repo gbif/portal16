@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "座標不確定性（公尺）",
     "hasGeospatialIssue": "有地理空間資訊問題",
     "basisOfRecord": "紀錄類型",
+    "geologicalTime": "{num, plural, one {# 在分群中} other {# 在分群中}}",
     "issue": "問題和註記",
     "checklistKey": "物種名錄",
     "taxonomicIssue": "{num, plural, one {# 在分群中} other {# 在分群中}}",
