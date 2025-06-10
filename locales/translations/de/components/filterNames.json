@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "Ungenauigkeit der Koordinaten in Metern",
     "hasGeospatialIssue": "Hat georäumliche Probleme",
     "basisOfRecord": "Basis of record",
+    "geologicalTime": "{num, plural, one { ist im Cluster } other {# sind in Clustern}}",
     "issue": "Probleme und Flags",
     "checklistKey": "",
     "taxonomicIssue": "{num, plural, one { ist im Cluster } other {# sind in Clustern}}",
