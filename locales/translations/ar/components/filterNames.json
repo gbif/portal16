@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": " الإرتياب في الاحداثيات بالأمتار",
     "hasGeospatialIssue": "ذو مشكلة جغرافية مكانية",
     "basisOfRecord": "اساس السجل",
+    "geologicalTime": "",
     "issue": "مسائل و رايات",
     "checklistKey": "قائمة التدقيق",
     "taxonomicIssue": "",

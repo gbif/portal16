@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "",
     "hasGeospatialIssue": "Har geospatiale problemer",
     "basisOfRecord": "Observationstype",
+    "geologicalTime": "",
     "issue": "",
     "checklistKey": "Tjekliste",
     "taxonomicIssue": "",

@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "Niepewność współrzędnych w metrach",
     "hasGeospatialIssue": "Ma problemy geoprzestrzenne",
     "basisOfRecord": "Podstawa stwierdzenia wystąpienia",
+    "geologicalTime": "{num, plural, one { jest w grupie } few {# są w grupie} many {# jest w grupie} other {# są w grupie}}",
     "issue": "Problemy i komentarze",
     "checklistKey": "Checklista",
     "taxonomicIssue": "{num, plural, one { jest w grupie } few {# są w grupie} many {# jest w grupie} other {# są w grupie}}",

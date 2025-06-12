@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "Похибка координат у метрах",
     "hasGeospatialIssue": "Має проблеми з геопросторовою прив'язкою",
     "basisOfRecord": "Основа запису",
+    "geologicalTime": "",
     "issue": "Проблеми та відмітки",
     "checklistKey": "Таксономічні списки",
     "taxonomicIssue": "",

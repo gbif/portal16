@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "坐标不确定度（以米为单位）",
     "hasGeospatialIssue": "有地理空间问题",
     "basisOfRecord": "记录基础",
+    "geologicalTime": "{num, plural, one { 在集群中 } other {# 在集群中}}",
     "issue": "问题和标志",
     "checklistKey": "名录",
     "taxonomicIssue": "{num, plural, one { 在集群中 } other {# 在集群中}}",

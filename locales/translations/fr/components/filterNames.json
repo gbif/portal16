@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "Incertitude des coordonnées en mètres",
     "hasGeospatialIssue": "Présente un problème géospatial",
     "basisOfRecord": "Base de registre",
+    "geologicalTime": "Doit être défini",
     "issue": "Problèmes et drapeaux",
     "checklistKey": "Liste d'espèces",
     "taxonomicIssue": "Doit être défini",

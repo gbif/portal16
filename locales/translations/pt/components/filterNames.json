@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "Incerteza da coordenada em metros",
     "hasGeospatialIssue": "Tem problema de localização",
     "basisOfRecord": "Base do registo",
+    "geologicalTime": "{num, plural, one { está no grupo } other {# estão nos grupos}}",
     "issue": "Questões e sinalizadores",
     "checklistKey": "Checklist",
     "taxonomicIssue": "{num, plural, one { está no grupo } other {# estão nos grupos}}",

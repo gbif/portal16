@@ -28,6 +28,7 @@
     "coordinateUncertaintyInMeters": "Неопределенность координат в метрах",
     "hasGeospatialIssue": "С проблемами в географической привязке",
     "basisOfRecord": "Что является основой записи",
+    "geologicalTime": "",
     "issue": "Автоматически обнаруженные несоответствия",
     "checklistKey": "Чек-лист",
     "taxonomicIssue": "",
