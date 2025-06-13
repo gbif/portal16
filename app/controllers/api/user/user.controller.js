@@ -220,6 +220,7 @@ function cancelDownload(req, res) {
  */
 function logout(req, res) {
     auth.removeTokenCookie(res);
+    auth.setNoCache(res);
     res.send('Logged out');
 }
 
