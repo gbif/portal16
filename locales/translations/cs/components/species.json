@@ -11,7 +11,7 @@
       "presentIn": "{status} v {country}",
       "presentInNonCountry": "{status} v {location}",
       "threatStatus": "Stav ohrožení: {status}",
-      "establishmentMeans": "Zavlečení znamená: {status}",
+      "establishmentMeans": "Způsob zavlečení: {status}",
       "distributionPlural": "Rozmístění",
       "PRESENT": "Přítomen",
       "ABSENT": "Chybí"
