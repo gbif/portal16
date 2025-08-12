@@ -97,7 +97,7 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-const localEnvironmentPostFix = '-uat'; // e.g. '-uat';
+const localEnvironmentPostFix = ''; // e.g. '-uat';
 let config = {
     local: {
         productionSite: false, 
@@ -161,7 +161,8 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
+        },
+        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
     },
 
     dev: {
@@ -222,7 +223,8 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
+        },
+         newGbifOrg: 'https://demo.gbif-dev.org',
     },
 
     // Dev2 is for testing the new cluster.  Fallback to dev or fail where appropriate.
@@ -284,7 +286,8 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
+        },
+         newGbifOrg: 'https://demo.gbif-dev2.org',
     },
 
     uat: {
@@ -345,7 +348,8 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
+        },
+         newGbifOrg: 'https://demo.gbif-test.org',
     },
 
     uat2: {
@@ -404,7 +408,8 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
+        },
+         newGbifOrg: 'https://demo.gbif.org',
     },
 
     staging: {
@@ -465,7 +470,8 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
+        },
+        newGbifOrg: 'https://demo.gbif.org',
     },
     prod: {
         productionSite: true,
@@ -525,7 +531,8 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
+        },
+        newGbifOrg: 'https://demo.gbif.org'
     },
 
     test: {
@@ -583,7 +590,8 @@ let config = {
                 colDatasetKey: '53147'
             }
         }
-    }
+    },
+     newGbifOrg: 'https://demo.gbif-test.org',
 };
 
 module.exports = Object.freeze(config[env]);

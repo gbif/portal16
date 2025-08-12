@@ -8,8 +8,9 @@ angular
     .controller('speciesLookupCtrl', speciesLookupCtrl);
 
 /** @ngInject */
-function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantKeys, suggestEndpoints) {
+function speciesLookupCtrl($http, $scope, hotkeys, SpeciesMatch, Species, constantKeys, suggestEndpoints, env) {
     var vm = this;
+    vm.env = env;
     vm.species = undefined;
     vm.state = {};
     vm.pagination = {

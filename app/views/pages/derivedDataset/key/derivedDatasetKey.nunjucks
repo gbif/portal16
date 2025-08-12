@@ -7,6 +7,7 @@
             doi: '{$ derivedDataset.doi $}',
             citationString: "{$ derivedDataset.citation $}"
         };
+       console.log(gb)
     </script>
     <article  class="wrapper-horizontal-stripes derivedDatasetKey"
               ng-controller="derivedDatasetKeyCtrl as derivedDatasetKey"
@@ -160,7 +161,7 @@
                                     <ul>
                                         {% for dataset in derivedDataset.datasets.results %}
                                             <li>
-                                                <a href="/dataset/{$ dataset.datasetKey $}">
+                                                <a href="{{ derivedDatasetKey.env.newGbifOrg }}/dataset/{$ dataset.datasetKey $}">
                                                     {% if dataset.numberRecords > 0 %}
                                                     <div dir="ltr" class="pull-right">
                                                         <span class="numberBadge {% if dataset.numberRecords >= 1000000 %}numberBadge--millions{% elif dataset.numberRecords >= 1000 %}numberBadge--thousands{% endif %}">{$ dataset.numberRecords | compactInteger $}</span>

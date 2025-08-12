@@ -10,6 +10,7 @@ angular
 /** @ngInject */
 function derivedDatasetCtrl(User, $http, $scope, AUTH_EVENTS, USER_ROLES, $sessionStorage, $stateParams, $state, env) {
     var vm = this;
+    vm.env = env;
     vm.$state = $state;
     vm.uploads;
     vm.localePrefix = gb.locale === 'en' ? '/' : gb.locale + '/';

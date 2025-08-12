@@ -12,7 +12,7 @@ module.exports = function(app) {
     app.use('/', router);
 };
 
-router.get('/', function(req, res, next) {
+/* router.get('/', function(req, res, next) {
     let isPreview = typeof(req.query._preview) !== 'undefined';
     if (isPreview) {
         auth.setNoCache(res);
@@ -52,4 +52,4 @@ router.get('/', function(req, res, next) {
                 }, 'pages/home/home');
             });
     }
-});
+}); */

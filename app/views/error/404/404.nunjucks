@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="m-t-1" ng-init="rootSearch.searchUrlFragment();">
+              {#   <div class="m-t-1" ng-init="rootSearch.searchUrlFragment();">
                     <h4 class="card-header">{$ __('search.search') $}</h4>
                     <form class="search-box" ng-submit="rootSearch.updateSearch()">
                         <input type="text"
@@ -33,8 +33,8 @@
                             <span class="sr-only" translate="search.search"></span>
                         </a>
                     </form>
-                </div>
-                <div class="ng-cloak m-t-1" ng-if="rootSearch.results.resourceHighlights.count > 0 || rootSearch.results.resources.count > 0 || rootSearch.results.datasetUuidMatches.length > 0">
+                </div> #}
+                {# <div class="ng-cloak m-t-1" ng-if="rootSearch.results.resourceHighlights.count > 0 || rootSearch.results.resources.count > 0 || rootSearch.results.datasetUuidMatches.length > 0">
                     <h4 class="card-header">{$ __('search.suggestions') $}</h4>
 
                     <div ng-if="rootSearch.results.resourceHighlights.count > 0">
@@ -69,7 +69,7 @@
                         <div ng-repeat="result in rootSearch.results.datasetUuidMatches">
                             <ng-include src="'/api/template/search/datasetResult.html?v=' +     portal.BUILD_VERSION+'&locale='+rootSearch.locale"></ng-include>
                         </div>
-                    </div>
+                    </div> #}
                     
                 </div>
             </div>

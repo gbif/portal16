@@ -5,14 +5,31 @@ let esFallBackHomePage = require('./esFallBackHomePage.json');
 let resourceSearch = rootRequire('app/controllers/api/resource/search/resourceSearch');
 let fallbackMenu;
 
+const tools = [
+    {"id":"3dzaGtpNq9JbAZmlr6PK4W","title":"Publishing"},
+{"id":"3kBP0icrgjbDEmaNat7U5T","title":"Data validator"},
+{"id":"FLvrz0ikcG6ptz0zmG9ig","title":"Data access and use"},
+{"id":"5lKYpEiKWcEZw236onWC0S","title":"Derived datasets"},
+{"id":"4Sz7SkqEIGjGpHUZ8npNmq","title":"Tools catalogue"},
+{"id":"2MqCiB6EmXD5NcEae5MkqB","title":"GBIF labs"},
+{"id":"60d24DXxTrkL2sjhqx7eWs","title":"Species matching"},
+{"id":"5JRnxf6iuakryCwnDNIzcK","title":"Name parser"},
+{"id":"4SuZULciqn7L21nMxTLhIg","title":"Sequence ID"},
+{"id":"1EgLC1X1aAvDENM7TYL0wY","title":"Relative observation trends"},
+];
+
+const toolsMap = _.keyBy(tools, 'id');
+
+
 function transformEsNavigationElements(mainNavigationElements, navElements) {
     let navIdMap = _.keyBy(navElements.results, 'id');
     let menuBuild = [];
 
-    mainNavigationElements.forEach(function(e) {
+    mainNavigationElements.filter((e) => e.id === "6NBwCayI3rNgZdzgqeMnCX").forEach(function(e) {
         if (!e.id) {
             throw new Error('Invalid navigation element');
         }
+       // console.log('Building menu for element: ' + JSON.stringify(e));
         menuBuild.push(buildElement(e.id, navIdMap));
     });
     return menuBuild;
@@ -30,7 +47,7 @@ function buildElement(key, navIdMap) {
     } else if (navEl.childNavigationElements) {
         item.items = [];
         item.type = 'normal';
-        navEl.childNavigationElements.forEach(function(e, i) {
+        navEl.childNavigationElements.filter(e => !!toolsMap[e.id]).forEach(function(e, i) {
             if (e.id === key) {
                 throw new Error('Circular menu: ' + key);
             }

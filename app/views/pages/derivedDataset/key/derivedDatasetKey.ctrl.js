@@ -8,8 +8,9 @@ angular
     .controller('derivedDatasetKeyCtrl', derivedDatasetKeyCtrl);
 
 /** @ngInject */
-function derivedDatasetKeyCtrl($stateParams, toastService) {
+function derivedDatasetKeyCtrl($stateParams, toastService, env) {
     var vm = this;
+    vm.env = env;
     vm.prefix = $stateParams.prefix;
     vm.suffix = $stateParams.suffix;
     vm.citationString = gb.derivedDataset.citationString;

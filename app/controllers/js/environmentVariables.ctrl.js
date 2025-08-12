@@ -42,7 +42,8 @@ let environment = {
         rtl: localeConfig.localeMappings.rtl,
         vocabulary: localeConfig.localeMappings.vocabulary,
         localNames: localNameMap
-    }
+    },
+    newGbifOrg: config.newGbifOrg,
 };
 
 let constantKeys = config.publicConstantKeys;

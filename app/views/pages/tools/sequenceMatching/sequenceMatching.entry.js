@@ -13,8 +13,9 @@ angular
     .controller('sequenceMatchingCtrl', sequenceMatchingCtrl);
 
 /** @ngInject */
-function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
+function sequenceMatchingCtrl($http, $scope, hotkeys, $location, env) {
     var vm = this;
+    vm.env = env;
     vm.species = undefined;
     var MAX_ERRORS = 25;
     var retries = 3;
@@ -458,7 +459,7 @@ function sequenceMatchingCtrl($http, $scope, hotkeys, $location) {
             var formattedClassification = '';
             for (var i = 0; i < selected.nubMatch.classification.length; i++) {
                 formattedClassification +=
-                    '<a href="/species/' +
+                    '<a href="' + vm.env.newGbifOrg + '/species/' +
                     selected.nubMatch.classification[i].key +
                     '" target="_BLANK">' +
                     selected.nubMatch.classification[i].name +

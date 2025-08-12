@@ -70,11 +70,11 @@
 
                         <td class="table-cell--narrow"
                             ng-repeat="t in ['kingdom', 'phylum', 'class', 'order', 'family', 'genus']">
-                            <a ng-href="../species/{{ species[t + 'Key'] }}" target="_blank">{{ species[t] }}</a>
+                            <a ng-href="{{ speciesLookup.env.newGbifOrg }}/species/{{ species[t + 'Key'] }}" target="_blank">{{ species[t] }}</a>
                         </td>
 
                         <td class="table-cell--widder">
-                            <a ng-href="../species/{{ species.speciesKey }}" target="_blank">{{ species.species }}</a>
+                            <a ng-href="{{ speciesLookup.env.newGbifOrg }}/species/{{ species.speciesKey }}" target="_blank">{{ species.species }}</a>
                         </td>
 
                         <td class="table-cell--widder">

@@ -58,7 +58,7 @@
                         </td>
                         <td class="table-cell--widder" >
                             <div style="width: 30em" layout="row" layout-align="space-between center">
-                            <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
+                            <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="{{ vm.env.newGbifOrg }}/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
                             <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} 
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('its') > -1" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> 
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('coi') > -1 || species.marker.toLowerCase().indexOf('co1') > -1" ng-href="http://bins.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri={{species.scientificName}}" target="_blank"></a> 
