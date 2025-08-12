@@ -124,7 +124,7 @@ function derivedDatasetUploadCtrl(
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
-            vm.error = 'Invalid file format - the file must be a csv file and all rows must have a scientificName column';
+            vm.error = 'Invalid file format - the file must be a csv file';
             return;
         }
         var reader = new FileReader();
@@ -141,7 +141,7 @@ function derivedDatasetUploadCtrl(
                 } else if (result.length == 0) {
                     vm.errorMsg = 'There are no rows in the data.';
                 } else if (result.length > 6000) {
-                    vm.errorMsg = 'Too many rows (maximum 6.000) - try using our APIs instead';
+                    vm.errorMsg = '<span>Too many rows (maximum 6.000) - try using <a href="https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets" target="_blank">our APIs</a> instead</span>';
                 } else {
                 vm.relatedDatasetsFromFile = result.map(function (elm) {
                     return {key: elm.field1, val: elm.field2};
