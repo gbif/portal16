@@ -40,7 +40,7 @@
                          type="file"
                          ngf-model-options="{updateOn: 'change click drop dropUrl paste', allowInvalid: false, debounce: 0}"
                           >
-                          
+                          <span ng-if="derivedDatasetUpload.errorMsg" class="text-error" ng-bind-html="derivedDatasetUpload.errorMsg"></span>
                 </div>
 
 
