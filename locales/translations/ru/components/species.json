@@ -1,24 +1,24 @@
 {
   "treatment": {
     "distribution": "Распространение",
-    "figures": ""
+    "figures": "Рисунки"
   },
   "species": {
     "literature": {
-      "introText": ""
+      "introText": "литература GBIF, сфокусированная на таксоне (/faq?question=literature-relevance)."
     },
     "distribution": {
       "presentIn": "Обитает в {country}",
       "presentInNonCountry": "Обитает в {location}",
       "threatStatus": "Статус охраны: {status}",
-      "establishmentMeans": "",
+      "establishmentMeans": "Способ распределения: {status}",
       "distributionPlural": "Распространение",
-      "PRESENT": "",
+      "PRESENT": "Присутствует",
       "ABSENT": "Отсутствует"
     },
     "tabs": {
       "overview": "Обзор",
-      "treatment": "",
+      "treatment": "Обработка",
       "metrics": "Показатели",
       "referenceTaxon": "Референсный таксон",
       "literature": "Литературные данные",
@@ -30,13 +30,13 @@
       "accordingTo": "Согласно",
       "occurrenceCount": "Находки вида в GBIF",
       "seeAllCountries": "Показать все",
-      "isInvasive": "",
+      "isInvasive": "Свидетельства воздействия",
       "isInvasive_yes": "Да",
       "isInvasive_no": "Нет"
     },
     "treatment": {
       "distribution": "Распространение",
-      "figures": ""
+      "figures": "Рисунки"
     },
     "as": "В качестве",
     "in": "В",
@@ -55,7 +55,7 @@
     "synonyms": "{NUMBER, plural,\n0 {Синонимов}\none {Синоним}\nfew {Синонима}\nmany {Синонимов}\nother {Синонимов}\n}",
     "synonymOf": "Синоним",
     "basionymOf": "Базионим",
-    "homotypicSynonymOf": "",
+    "homotypicSynonymOf": "Гомотипический синоним",
     "immediateChildren": "Нижестоящий таксон",
     "descendants": "Потомки",
     "loadMore": "Еще",
@@ -66,7 +66,7 @@
     "iucnStatus": "Охранный статус",
     "references": "Ссылки",
     "source": "Источник",
-    "typeSpecimens": "",
+    "typeSpecimens": "Типовые образцы",
     "inLanguage": "{language} язык",
     "publishedIn": "Опубликовано в",
     "tradeRestrictions": "Торговые ограничения",
@@ -86,9 +86,9 @@
     "lastCrawled": "Дата последнего обхода {DATE_FORMATTED}",
     "extensions": "Расширения",
     "taxa": "Таксоны",
-    "mediatedThrough": "",
+    "mediatedThrough": "Посредничество через",
     "taxonIdentifiers": "Идентификаторы таксона",
-    "whyDoubtful": "",
+    "whyDoubtful": "Когда таксон считается «сомнительным»",
     "noVerbatimData": ""
   }
 }
