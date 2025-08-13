@@ -65,7 +65,7 @@ async function getPredicateFromGraphQL(variablesId, graphqlEndpoint) {
   let query = `
     query($predicate: Predicate){
       occurrenceSearch(predicate: $predicate) {
-        _downloadPredicate
+        _meta
       }
     }`;
 
@@ -79,7 +79,7 @@ async function getPredicateFromGraphQL(variablesId, graphqlEndpoint) {
     throw response;
   }
   // use the predicateRequestHandler to show the page
-  let predicateObj = _.get(response.body, 'data.occurrenceSearch._downloadPredicate.predicate');
+  let predicateObj = _.get(response.body, 'data.occurrenceSearch._meta.normalizedPredicate.predicate');
   if (!predicateObj) {
     throw new Error('No predicate found');
   }
