@@ -97,7 +97,7 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-const localEnvironmentPostFix = '-uat'; // e.g. '-uat';
+const localEnvironmentPostFix = ''; // e.g. '-uat';
 let config = {
     local: {
         productionSite: false, 
@@ -149,19 +149,16 @@ let config = {
         reactComponents: `//react-components.gbif${localEnvironmentPostFix}.org/lib/gbif-react-components.js`,
         healthUpdateFrequency: 240000,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
+            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
+                title: 'GBIF Backbone',
+                colDatasetKey: '53147'
             },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
-            },
-            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
-                title: 'GBIF Backbone',
-                colDatasetKey: '53147'
             }
-        }
+        },
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
     },
 
     dev: {

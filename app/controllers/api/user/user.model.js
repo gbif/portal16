@@ -247,6 +247,9 @@ async function createPredicateDownload(user, query, source) {
       userName: user.userName,
       method: 'POST'
   };
+  if (query.checklistKey) {
+    options.body.checklistKey = query.checklistKey;
+  }
   let response = await authOperations.authenticatedRequest(options);
   if (response.statusCode !== 201) {
       throw response;

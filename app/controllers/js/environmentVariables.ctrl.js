@@ -31,6 +31,8 @@ let environment = {
     customImageCache: config.dataApi + 'image/cache/',
     mapCapabilities: config.dataApiV2 + 'map/occurrence/density/capabilities.json',
     domain: config.domain,
+    checklistMapping: config.checklistMapping,
+    defaultChecklist: config.defaultChecklist,
     locales: localeConfig.locales,
     unLanguages: unLanguages,
     otherLanguages: _.difference(localeConfig.locales, unLanguages),
