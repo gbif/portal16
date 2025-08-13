@@ -21,8 +21,8 @@
     "gbifTaxonInterpretation": "По таксономии GBIF",
     "aboutTheDataset": "О наборе данных",
     "noLocationInformation": "Для этой записи не опубликована информация о местонахождении",
-    "deletedMessage": "",
-    "deletedDescription": "",
+    "deletedMessage": "Издатель данных удалил эту запись из индекса GBIF, однако последняя версия показана ниже.",
+    "deletedDescription": "Записи, которых больше нет в опубликованном наборе данных, удаляются из индекса GBIF. Иногда у издателей могут возникнуть причины удалить отдельные записи или весь набор данных, а также назначить новые локальные идентификаторы.",
     "subMenu": {
       "diagnostics": "Исходные значения",
       "menu": "Меню",
@@ -56,13 +56,13 @@
     },
     "media": {
       "noIdentifier": "идентификатор медиа-файла отсутствует",
-      "noPlaybackSupport": "",
+      "noPlaybackSupport": "Ваш браузер не поддерживает формат, необходимый для воспроизведения этого медиафайла.",
       "takeMeThere": "Перейдите на сайт организации",
       "notWorkingTryPublishers": "Воспроизведение не работает?",
-      "download": "",
-      "byRightsHolder": "",
-      "licensedUnder": "",
-      "suggestedCitation": ""
+      "download": "Загрузить медиа",
+      "byRightsHolder": "правообладатель {RIGHTSHOLDER}",
+      "licensedUnder": "лицензировано в соответствии с {{LICENSE}}",
+      "suggestedCitation": "Предложенный атрибут"
     },
     "title": {
       "inCountry": {
@@ -95,15 +95,15 @@
     },
     "occurrence": "Находка",
     "inLanguage": "({LANGUAGE_TRANSLATED} язык)",
-    "sequenced": "",
-    "treatment": "",
+    "sequenced": "в последовательности",
+    "treatment": "Обработка",
     "cluster": {
-      "current": "",
-      "relatedOccurrences": "",
-      "similarBecause": "",
-      "matchedRecord": "",
-      "noMatches": "",
-      "explainer": ""
+      "current": "Текущий",
+      "relatedOccurrences": "Сопутствующие находки",
+      "similarBecause": "Причина схожести",
+      "matchedRecord": "Соответствующая запись",
+      "noMatches": "Нет вариантов связи",
+      "explainer": "Это экспериментальная функция, которая выделяет возможные повторяющиеся и/или связанные события."
     }
   },
   "interpretationRemarks": {
