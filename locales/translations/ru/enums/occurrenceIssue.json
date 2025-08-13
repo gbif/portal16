@@ -67,7 +67,7 @@
     "INSTITUTION_MATCH_FUZZY": "Нечеткое соответствие учреждения",
     "COLLECTION_MATCH_FUZZY": "Нечеткое соответствие коллекции ",
     "INSTITUTION_COLLECTION_MISMATCH": "Несоответствие коллекции учреждению",
-    "POSSIBLY_ON_LOAN": "",
-    "DIFFERENT_OWNER_INSTITUTION": ""
+    "POSSIBLY_ON_LOAN": "Возможно, в кредит",
+    "DIFFERENT_OWNER_INSTITUTION": "Другой владелец учреждения"
   }
 }
