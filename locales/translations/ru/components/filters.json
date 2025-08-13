@@ -17,7 +17,7 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
+                "yes": "Присутствует",
                 "no": "Отсутствует",
                 "all": "Все разделы"
             }
