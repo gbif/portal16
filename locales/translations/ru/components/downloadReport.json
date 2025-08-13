@@ -47,11 +47,11 @@
       "tabCsv": "CSV с разделителями табуляции (для использования в Excel и т.д.)"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
+      "yes": "✔",
+      "yesIfAvailable": "✔ (если имеется)",
       "yesIfSelected": "✓ (если выбрано)",
-      "yesLinks": "",
-      "no": ""
+      "yesLinks": "✔ (ссылки)",
+      "no": "✘"
     }
   }
 }
