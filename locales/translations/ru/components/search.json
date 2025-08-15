@@ -18,8 +18,8 @@
     "filters": "Фильтры",
     "simple": "Простой поиск",
     "advanced": "Расширенный",
-    "backbone": "",
-    "allChecklists": "",
+    "backbone": "Таксономическая основа",
+    "allChecklists": "Все контрольные списки",
     "allResultTypes": "Все",
     "suggestions": "Подсказки",
     "header": {
