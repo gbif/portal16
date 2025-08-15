@@ -1,6 +1,6 @@
 {
   "publisher": {
-    "searchTitle": "",
+    "searchTitle": "Поиск издателя",
     "tabs": {
       "aboutPublisher": "Об организациии",
       "metrics": "Показатели",
@@ -14,7 +14,7 @@
     "description": "Описание",
     "endorsedBy": "Одобрена",
     "pendingEndorsementBy": "Ожидает одобрения",
-    "endorsementWithheld": "",
+    "endorsementWithheld": "Одобрение не получено",
     "installations": "Поддерживаемые инсталляции",
     "getDownloadReport": "",
     "contacts": "Контакты",
