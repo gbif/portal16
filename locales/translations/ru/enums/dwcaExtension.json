@@ -1,11 +1,11 @@
 {
   "dwcaExtension": {
     "http://rs.tdwg.org/dwc/terms/Occurrence": "Находка",
-    "http://rs.tdwg.org/ac/terms/Multimedia": "",
-    "http://rs.gbif.org/terms/1.0/DNADerivedData": "",
-    "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "",
-    "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "",
-    "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "",
+    "http://rs.tdwg.org/ac/terms/Multimedia": "Стандарт обмена медиаданными согласно Audubon Core Multimedia Resources Metadata Schema (Audubon Core)",
+    "http://rs.gbif.org/terms/1.0/DNADerivedData": "Данные, полученные на основе ДНК",
+    "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "Усиление",
+    "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "Клонирование",
+    "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "Исследование посредством геля согласно стандарту Global Genome Biodiversity Network (GGBN)",
     "http://data.ggbn.org/schemas/ggbn/terms/Loan": "",
     "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "Образец из коллекции",
     "http://data.ggbn.org/schemas/ggbn/terms/Permit": "",
