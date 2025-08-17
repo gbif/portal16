@@ -1,17 +1,17 @@
 {
   "enum": {
     "institutionGovernance": {
-      "ACADEMIC_FEDERAL": "",
-      "ACADEMIC_FOR_PROFIT": "",
-      "ACADEMIC_LOCAL": "",
-      "ACADEMIC_NON_PROFIT": "",
-      "ACADEMIC_STATE": "",
-      "FEDERAL": "",
-      "FOR_PROFIT": "",
-      "LOCAL": "",
-      "NON_PROFIT": "",
+      "ACADEMIC_FEDERAL": "Академическое федеральное учреждение",
+      "ACADEMIC_FOR_PROFIT": "Академическая коммерческая организация",
+      "ACADEMIC_LOCAL": "Академическая местная организация",
+      "ACADEMIC_NON_PROFIT": "Академическая некоммерческая организация",
+      "ACADEMIC_STATE": "Академическое",
+      "FEDERAL": "Федеральное",
+      "FOR_PROFIT": "Коммерческое",
+      "LOCAL": "Местное",
+      "NON_PROFIT": "Некоммерческое",
       "OTHER": "Другая",
-      "STATE": ""
+      "STATE": "Штат"
     }
   }
 }
