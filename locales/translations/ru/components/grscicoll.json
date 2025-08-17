@@ -13,7 +13,7 @@
     "description": "Описание",
     "institutionName": "Название организации",
     "code": "Акроним",
-    "alternativeCodes": "",
+    "alternativeCodes": "Альтернативные коды",
     "statusOfCollection": "Статус коллекции",
     "personalCollection": "Личная коллекция",
     "isPersonalCollection": {
@@ -47,10 +47,10 @@
       "metrics": "Показатели"
     },
     "headerTitle": "Организация",
-    "indexHerbariorumIdentifier": "",
+    "indexHerbariorumIdentifier": "Индекс Herbariorum гербария nybg.org",
     "numberSpecimens": "",
     "code": "Сокращенное название организации",
-    "alternativeCodes": "",
+    "alternativeCodes": "Альтернативные коды",
     "statusOfInstitution": "Статус организации",
     "additionalNames": "Другие названия",
     "description": "Описание",
@@ -87,30 +87,30 @@
     "primaryInstitution": "Основная организация",
     "primaryCollection": "Основная коллекция",
     "affiliateInstitutions": "Дополнительные организации",
-    "affiliateCollections": ""
+    "affiliateCollections": "Дополнительные организации"
   },
   "grscicoll": {
     "title": "",
-    "suggestChange": "",
+    "suggestChange": "Предложить изменение",
     "suggestNewCollection": "",
     "suggestNewInstitution": "",
     "tabs": {
       "about": "Об организациии",
       "institutions": "Организации",
       "collections": "Коллекции",
-      "people": ""
+      "people": "Сотрудники"
     },
     "contact": {
-      "phone": "",
+      "phone": "Номер телефона",
       "email": "Email",
-      "fax": "",
+      "fax": "Номер факса",
       "mailingAddress": "Почтовый адрес",
-      "physicalAddress": "",
+      "physicalAddress": "Физический адрес",
       "contacts": "Контакты",
       "address": "Адрес (улица, номер дома)",
       "province": "Регион",
-      "postalCode": "",
-      "city": "",
+      "postalCode": "Почтовый индекс",
+      "city": "Город/Поселок",
       "country": "Страна"
     }
   }
