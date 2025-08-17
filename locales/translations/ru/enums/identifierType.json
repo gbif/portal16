@@ -15,9 +15,9 @@
       "GRBIO_ID": "",
       "GRBIO_URI": "",
       "GRSCICOLL_URI": "",
-      "ROR": "",
-      "GRID": "",
-      "GRSCICOLL_ID": ""
+      "ROR": "Индекс ROR",
+      "GRID": "СЕТКА",
+      "GRSCICOLL_ID": "Идентификатор GRSCICOLL"
     }
   }
 }
