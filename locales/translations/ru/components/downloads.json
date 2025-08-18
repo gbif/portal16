@@ -4,14 +4,14 @@
     "derivedDataset": "Производный набор данных",
     "sourceUrl": "Доступ к производному набору данных",
     "headlineDatasets": "Записи из {NUMBER_FORMATED} {NUMBER, plural, one{набор данных} few {наборов данных} many {наборов данных} other{наборы данных}} в производном наборе данных",
-    "headlineOccurrences": "",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{событие} other{события}} в производном наборе данных",
     "title": "Название",
     "description": "Описание",
     "originalDownloadDOI": "Набор данных, полученный в результате загрузки"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{находку} other{находки}} downloaded",
-    "nRecordsDownloaded": "",
+    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{запись} other{записей}} включенных в загрузку",
     "nRowsDownloaded": "",
     "nConstituentDatasets": "Включает записи из  {NUMBER_FORMATTED} {NUMBER, select, one{набора данных} other{наборов данных}}",
     "fileNotAvailable": "Этот файл больше не доступен для скачивания",
