@@ -83,7 +83,7 @@
     "lifeStage": "Стадия жизненного цикла",
     "pathway": "Фильтрация путей",
     "degreeOfEstablishment": "",
-    "dwcaExtension": "",
+    "dwcaExtension": "Расширение DWCA в контексте Darwin Core Archives (DwC-A)",
     "isInCluster": "Имеет связанные записи",
     "iucnRedListCategory": "Категория глобального красного списка IUCN (МСОП)",
     "isSequenced": "",

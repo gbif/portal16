@@ -1,6 +1,6 @@
 {
     "speciesSearch": {
-        "title": "",
+        "title": "Поиск видов",
         "youAreCurrentlySearchingInGBIFtaxonomy": "Вы производите поиск видов в системе таксонов, принятой GBIF.",
         "SearchAcrossChecklists": "Поиск в списках видов (checklists)",
         "freeTextSearchFor": "Вы выполняете свободный текстовый поиск ' {QUERY}'",

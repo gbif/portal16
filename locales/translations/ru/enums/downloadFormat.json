@@ -5,11 +5,11 @@
     "CUBE": "",
     "DWCA": "Архив Darwin Core",
     "SPECIES_LIST": "Список видов в формате CSV",
-    "SIMPLE_WITH_VERBATIM_AVRO": "",
-    "MAP_OF_LIFE": "",
-    "IUCN": "",
-    "BIONOMIA": "",
+    "SIMPLE_WITH_VERBATIM_AVRO": "Apache Avro с общими интерпретируемыми полями и всеми дословными полями",
+    "MAP_OF_LIFE": "Экспорт карты жизни",
+    "IUCN": "Экспорт МСОП",
+    "BIONOMIA": "Экспорт из мировой коллекции Биономия",
     "SQL_TSV_ZIP": "",
-    "SIMPLE_PARQUET": ""
+    "SIMPLE_PARQUET": "формат Simple Parquet"
   }
 }

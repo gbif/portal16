@@ -1,8 +1,8 @@
 {
   "trends": {
-    "exploreGlobalTrends": "",
-    "exploreByCountry": "",
-    "exploreByGbifRegion": "",
+    "exploreGlobalTrends": "Изучите мировые тенденции",
+    "exploreByCountry": "Исследуйте по стране или региону",
+    "exploreByGbifRegion": "Исследуйте по региону",
     "theseChartsIllustrate1": "Диаграммы отображают временную динамику числа доступных записей",
     "noOccRecords": "Число записей о находках",
     "occByKingdomChartText": "Временная динамика (по годам) числа доступных записей с учётом принадлежности к царствам живых организмов. Записи, для которых таксономические сведения не соответствуют доступным справочникам, отнесены в категорию \"Неизвестно\".",
@@ -65,7 +65,7 @@
     "trendsInDataAvailabilityOnTheGbifNetwork": "Тренды в доступности данных в сети GBIF, c 2008 по {{YEAR}}",
     "globalDataTrends": "Глобальные тренды в данных",
     "countryDataTrends": "Тренды в данных с территории {{TRANSLATED_COUNTRY}}",
-    "regionDataTrends": "",
+    "regionDataTrends": "Тенденции данных для  {{TRANSLATED_REGION}}",
     "countryPublishingTrends": "Тренды в публикации данных с территории {{TRANSLATED_COUNTRY}}",
     "analyticsCountry": {
       "fromDescription": "Изменения со временем в данных о видах с территории {{country}} доступны на GBIF.org",
