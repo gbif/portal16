@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "ダウンロードのオプション",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "生データ",
       "interpretedData": "解釈されたデータ",
