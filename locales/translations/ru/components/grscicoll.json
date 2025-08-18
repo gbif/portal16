@@ -48,17 +48,17 @@
     },
     "headerTitle": "Организация",
     "indexHerbariorumIdentifier": "Индекс Herbariorum гербария nybg.org",
-    "numberSpecimens": "",
+    "numberSpecimens": "Число образцов",
     "code": "Сокращенное название организации",
     "alternativeCodes": "Альтернативные коды",
     "statusOfInstitution": "Статус организации",
     "additionalNames": "Другие названия",
     "description": "Описание",
     "homepage": "Домашняя страница",
-    "foundingDate": "",
-    "geographicDescription": "",
-    "taxonomicDescription": "",
-    "citesPermitNumber": "",
+    "foundingDate": "Дата основания",
+    "geographicDescription": "Географическое описание",
+    "taxonomicDescription": "Таксономическое описание",
+    "citesPermitNumber": "Уникальный идентификатор согласно Convention on International Trade in Endangered Species of Wild Fauna and Flora Cites",
     "disciplines": "Направления исследований",
     "institutionalGovernance": "Управление организацией",
     "type": "Тип организации",
@@ -71,7 +71,7 @@
     "false": "Нет"
   },
   "grscicollPerson": {
-    "title": "",
+    "title": "Исполнитель",
     "search": {
       "title": "Штат коллекции",
       "description": "Штат коллекций GRSciColl - это любые сотрудники, связанные с коллекциями. Они могут быть связаны с организацией и(или) коллекцией любого типа."
