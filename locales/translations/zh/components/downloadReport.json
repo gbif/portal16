@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "下载选项",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "原始数据",
       "interpretedData": "解释数据",
