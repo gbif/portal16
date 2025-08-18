@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opciones de descarga",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Datos sin procesar",
       "interpretedData": "",
