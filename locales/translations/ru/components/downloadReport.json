@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "Настройки загрузки",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Необработанные данные",
       "interpretedData": "Интерпретированные данные",

@@ -1,6 +1,6 @@
 {
   "phrases": {
-    "pleaseCiteAs": "",
+    "pleaseCiteAs": "Пожалуйста, используйте эту ссылку в публикациях.",
     "copy": "Копировать",
     "contactHelpdesk": "Связаться со службой поддержки",
     "defaultPageTitle": "GBIF",
@@ -21,13 +21,13 @@
     "404Text": "Данная страница могла существовать ранее, но сейчас мы больше не можем найти ее. Пожалуйста, попробуйте наш [search](/поиск), чтобы найти то, что интересует Вас. В любой момент Вы можете связаться с нашей службой поддержки: [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
     "changeLanguage": "Сменить язык",
     "noData": "Нет данных",
-    "payloadTooLarge": "",
+    "payloadTooLarge": "Запрос превышает допустимый размер. Уменьшите размер и повторите попытку. Обратитесь за помощью по адресу helpdesk@gbif.org.",
     "readMore": "Читать далее",
-    "share": "",
+    "share": "Поделиться",
     "download": "Загрузить",
     "cancel": "Отменить",
     "testSiteWarning": "",
-    "loginRequiredDueToSpam": "",
+    "loginRequiredDueToSpam": "Пожалуйста, войдите в аккаунт, чтобы продолжить",
     "loginRequiredExplainer": ""
   }
 }

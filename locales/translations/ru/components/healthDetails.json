@@ -4,7 +4,7 @@
         "systemLoad": "Загрузка системы",
         "messages": "Сообщения",
         "version": "Версия",
-        "releaseNotes": "",
+        "releaseNotes": "Примечания к выпуску",
         "nInQueue": "{NUMBER} в очереди",
         "status": {
             "OPERATIONAL": "Работает",

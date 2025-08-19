@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opções de transferência",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Dados brutos",
       "interpretedData": "Dados interpretados",
