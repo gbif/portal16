@@ -43,9 +43,16 @@ function getOriginalDarwinCoreArchive(endpoints) {
     });
 }
 function transformBaseResult(dataset) {
+    let bibliographyCap = 10;
     dataset._computedValues = {};
     dataset._computedValues.contributors = contributors.getContributors(dataset.record.contacts);
-    dataset._computedValues.bibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
+    let processedBibliography = bibliography.getBibliography(dataset.record.bibliographicCitations);
+
+    if (processedBibliography.length > bibliographyCap) {
+        dataset._computedValues.bibliographyCapped = true;
+        dataset._computedValues.processedBibliography = processedBibliography.slice(0, bibliographyCap);
+        dataset.record.bibliographicCitations = (dataset.record.bibliographicCitations || []).slice(0, bibliographyCap);
+    }
 
     let projectContacts = _.get(dataset, 'record.project.contacts', false);
     if (projectContacts) {

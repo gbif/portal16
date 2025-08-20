@@ -4,9 +4,9 @@
         <a href="" id="bibliography"></a>
         <div class="anchor-block--tabs" id="bibliographyBlock">
             <h3 translate="dataset.bibliography"></h3>
-            <div class="dataset-key__bibliography__list">
+            <div class="dataset-key__bibliography__list" ng-init="datasetKey.referenceLimit = 10">
                 <ol ng-class="{'no-decimals': datasetKey.dataset.bibliographicCitations.length<2}">
-                    <li ng-repeat="reference in datasetKey.dataset.bibliographicCitations">
+                    <li ng-repeat="reference in datasetKey.dataset.bibliographicCitations | limitTo: datasetKey.referenceLimit">
                         <div dir="auto" ng-bind-html="reference.text"></div>
                         <div>
                             <ul class="inline-bullet-list">
@@ -22,7 +22,10 @@
                         </div>
                     </li>
                 </ol>
-            </div>
+                <button class="gb-button--primary" ng-if="datasetKey.dataset.bibliographicCitations.length > datasetKey.referenceLimit" ng-click="datasetKey.referenceLimit = 10000" translate="phrases.more">Show more</button>
+                <div ng-if="datasetKey.dataset._computedValues.bibliographyCapped && datasetKey.referenceLimit > datasetKey.dataset.bibliographicCitations.length">
+                    <p class="text-warning">Showing first {{datasetKey.dataset.bibliographicCitations.length}}/{{datasetKey.dataset._computedValues.bibliographyCount}} references. Download archive to see all or visit the dataset homepage</p>
+                </div>
         </div>
     </div>
 </section>
