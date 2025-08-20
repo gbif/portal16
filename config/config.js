@@ -207,10 +207,6 @@ let config = {
         reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -268,10 +264,6 @@ let config = {
         reactComponents: '//react-components.gbif-uat.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -330,10 +322,6 @@ let config = {
         reactComponents: '//react-components.gbif-staging.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -391,10 +379,6 @@ let config = {
         reactComponents: '//react-components.gbif.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -448,10 +432,6 @@ let config = {
         reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
