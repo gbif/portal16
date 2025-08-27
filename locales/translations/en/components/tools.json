@@ -92,7 +92,10 @@
             "backToEdit": "Back to edit",
             "mintingDoi": "Minting DOI - this shouldn't take long.",
             "attachCsvLabel": "Attach [CSV file](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) with dataset keys and occurrence counts",
-            "orEnterLabel": "Or enter dataset keys/DOIs and occurrence counts here"
+            "orEnterLabel": "Or enter dataset keys/DOIs and occurrence counts here",
+            "invalidFileFormat": "",
+            "emptyFile": "",
+            "tooManyRows": ""
         },
         "occurrenceSnapshots": {
             "title": "Occurrence snapshots"
