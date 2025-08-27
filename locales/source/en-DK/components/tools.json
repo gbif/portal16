@@ -92,7 +92,10 @@
             "backToEdit": "Back to edit",
             "mintingDoi": "Minting DOI - this shouldn't take long.",
             "attachCsvLabel": "Attach csv with dataset keys and occurrence counts",
-            "orEnterLabel": "Or enter datasets and occurrence counts here"
+            "orEnterLabel": "Or enter datasets and occurrence counts here",
+            "invalidFileFormat": "Invalid file format - the file must be a csv file",
+            "emptyFile": "There are no rows in the data.",
+            "tooManyRows": "Too many rows (maximum 6.000) - try using [our APIs](https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets) instead"
         },
         "occurrenceSnapshots": {
             "title": "Occurrence snapshots"

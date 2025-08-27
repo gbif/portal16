@@ -19,7 +19,8 @@ function derivedDatasetUploadCtrl(
     $timeout,
     $http,
     $stateParams,
-    DerivedDatasetDatasets
+    DerivedDatasetDatasets,
+    $translate
 ) {
     var vm = this;
     vm.isEdit = !!$stateParams.record;
@@ -124,7 +125,7 @@ function derivedDatasetUploadCtrl(
         vm.invalidFileFormat = false;
         if (!isValidFile(file)) {
             vm.invalidFileFormat = true;
-            vm.error = 'Invalid file format - the file must be a csv file';
+            vm.errorMsg = 'tools.derivedDataset.invalidFileFormat'; // 'Invalid file format - the file must be a csv file';
             return;
         }
         var reader = new FileReader();
@@ -139,9 +140,9 @@ function derivedDatasetUploadCtrl(
                 if (_.get(err, 'message')) {
                     vm.errorMsg = err.message;
                 } else if (result.length == 0) {
-                    vm.errorMsg = 'There are no rows in the data.';
+                    vm.errorMsg = 'tools.derivedDataset.emptyFile'; // 'There are no rows in the data.';
                 } else if (result.length > 6000) {
-                    vm.errorMsg = '<span>Too many rows (maximum 6.000) - try using <a href="https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets" target="_blank">our APIs</a> instead</span>';
+                    vm.errorMsg = 'tools.derivedDataset.tooManyRows'; //'<span>Too many rows (maximum 6.000) - try using <a href="https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets" target="_blank">our APIs</a> instead</span>';
                 } else {
                 vm.relatedDatasetsFromFile = result.map(function (elm) {
                     return {key: elm.field1, val: elm.field2};
