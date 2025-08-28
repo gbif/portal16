@@ -92,7 +92,10 @@
             "backToEdit": "",
             "mintingDoi": "",
             "attachCsvLabel": "",
-            "orEnterLabel": ""
+            "orEnterLabel": "",
+            "invalidFileFormat": "",
+            "emptyFile": "",
+            "tooManyRows": ""
         },
         "occurrenceSnapshots": {
             "title": ""
