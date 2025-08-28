@@ -92,7 +92,10 @@
             "backToEdit": "Zpět na úpravy",
             "mintingDoi": "Vytváření DOI - to by nemělo trvat dlouho.",
             "attachCsvLabel": "Připojte [soubor CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) s klíči datového souboru a počty výskytů",
-            "orEnterLabel": "Nebo zadejte klíče datové sady/DOI a počty výskytů zde"
+            "orEnterLabel": "Nebo zadejte klíče datové sady/DOI a počty výskytů zde",
+            "invalidFileFormat": "",
+            "emptyFile": "",
+            "tooManyRows": ""
         },
         "occurrenceSnapshots": {
             "title": ""

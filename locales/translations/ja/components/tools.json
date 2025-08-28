@@ -92,7 +92,10 @@
             "backToEdit": "編集に戻る",
             "mintingDoi": "DOI作成中 - これは長くはかからないはずです。",
             "attachCsvLabel": "データセットキーとオカレンス件数が含まれたCSVを添付",
-            "orEnterLabel": "または、データセットキー/DOIおよびオカレンス件数をここに入力する"
+            "orEnterLabel": "または、データセットキー/DOIおよびオカレンス件数をここに入力する",
+            "invalidFileFormat": "",
+            "emptyFile": "",
+            "tooManyRows": ""
         },
         "occurrenceSnapshots": {
             "title": ""

@@ -92,7 +92,10 @@
             "backToEdit": "返回编辑",
             "mintingDoi": "正在准备DOI——这应该不会花很长时间。",
             "attachCsvLabel": "附带有数据集键和出现次数的CSV文件",
-            "orEnterLabel": "或者在这里输入数据集键/DOIs和发生次数"
+            "orEnterLabel": "或者在这里输入数据集键/DOIs和发生次数",
+            "invalidFileFormat": "",
+            "emptyFile": "",
+            "tooManyRows": ""
         },
         "occurrenceSnapshots": {
             "title": ""
