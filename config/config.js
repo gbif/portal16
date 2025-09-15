@@ -158,7 +158,9 @@ let config = {
                 colDatasetKey: '308651'
             }
         },
-        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
+
     },
 
     dev: {
@@ -216,7 +218,8 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
     },
     uat: {
         productionSite: false,
@@ -273,7 +276,8 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
     },
 
     staging: {
@@ -331,7 +335,8 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
     },
     prod: {
         productionSite: true,
@@ -388,7 +393,7 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-        newGbifOrg: 'https://demo.gbif.org'
+        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
     },
 
     test: {
@@ -442,7 +447,8 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
+        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`
     }
 };
 
