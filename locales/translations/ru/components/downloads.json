@@ -1,28 +1,28 @@
 {
   "derivedDatasetKey": {
-    "nRecordsAtTime": "",
-    "derivedDataset": "",
-    "sourceUrl": "",
-    "headlineDatasets": "",
-    "headlineOccurrences": "",
+    "nRecordsAtTime": "{NUMBER_FORMATED} {NUMBER, plural, one{запись} few {записей} many {записей} other{записи}} этого набора данных",
+    "derivedDataset": "Производный набор данных",
+    "sourceUrl": "Доступ к производному набору данных",
+    "headlineDatasets": "Записи из {NUMBER_FORMATED} {NUMBER, plural, one{набор данных} few {наборов данных} many {наборов данных} other{наборы данных}} в производном наборе данных",
+    "headlineOccurrences": "{NUMBER_FORMATED} {NUMBER, plural, one{событие} other{события}} в производном наборе данных",
     "title": "Название",
     "description": "Описание",
-    "originalDownloadDOI": ""
+    "originalDownloadDOI": "Набор данных, полученный в результате загрузки"
   },
   "downloadKey": {
     "nOccurrencesDownloaded": "{NUMBER_FORMATTED} {NUMBER, select, one{находку} other{находки}} downloaded",
-    "nRecordsDownloaded": "",
+    "nRecordsDownloaded": "{NUMBER_FORMATTED} {NUMBER, plural, one{запись} other{записей}} включенных в загрузку",
     "nRowsDownloaded": "",
     "nConstituentDatasets": "Включает записи из  {NUMBER_FORMATTED} {NUMBER, select, one{набора данных} other{наборов данных}}",
     "fileNotAvailable": "Этот файл больше не доступен для скачивания",
     "downloadDeletionWarning": "Эта загрузка не была упомянута и отмечена для удаления после {DATE}.",
-    "occurrenceDownload": "",
+    "occurrenceDownload": "Загрузка событий",
     "brokenDownload": "Прерванная загрузка",
     "contactHelpdesk": "Связаться со службой поддержки",
     "cancelled": "Отменены",
     "cancel": "Отменить",
     "download": "Загрузить",
-    "records": "",
+    "records": "Записи",
     "occurrences": "Находки",
     "largeQueryMessage": "Результаты применения фильтра выдали очень большой результат. Смотрите загрузки для более подробной информации.",
     "date": "Дата",
@@ -74,20 +74,20 @@
       "or": "ИЛИ",
       "not": "НЕ",
       "isNotNull": "Не пустой",
-      "isNull": ""
+      "isNull": "Не определено"
     }
   },
   "myDownloads": {
-    "title": ""
+    "title": "Мои загрузки"
   },
   "customDownload": {
-    "invalidFilter": "",
-    "seeDocumentation": "",
-    "reformat": "",
-    "invalidJson": "",
-    "title": "",
-    "invalidUrlPredicate": "",
-    "redirectNotice": ""
+    "invalidFilter": "недопустимый фильтр",
+    "seeDocumentation": "Прочтите документацию",
+    "reformat": "Переформатируйте",
+    "invalidJson": "Недопустимый формат JSON",
+    "title": "Создайте новую загрузку",
+    "invalidUrlPredicate": "Недопустимый предикат в URL-адресе",
+    "redirectNotice": "Похоже, что вы были перенаправлены сюда с другого сайта. Для загрузки вам необходимо сначала войти в систему или зарегистрироваться."
   },
   "customSqlDownload": {
     "invalidSQL": "Недопустимый синтаксис SQL",

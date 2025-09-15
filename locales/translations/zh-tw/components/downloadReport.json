@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "下載選項",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "原始資料",
       "interpretedData": "已解釋的資料",

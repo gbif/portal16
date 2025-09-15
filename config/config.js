@@ -149,20 +149,16 @@ let config = {
         reactComponents: `//react-components.gbif${localEnvironmentPostFix}.org/lib/gbif-react-components.js`,
         healthUpdateFrequency: 240000,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
+            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
+                title: 'GBIF Backbone',
+                colDatasetKey: '53147'
             },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
-            },
-            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
-                title: 'GBIF Backbone',
-                colDatasetKey: '53147'
             }
         },
-        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
     },
 
     dev: {
@@ -211,10 +207,6 @@ let config = {
         reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -224,72 +216,8 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-         newGbifOrg: 'https://demo.gbif-dev.org',
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
     },
-
-    // Dev2 is for testing the new cluster.  Fallback to dev or fail where appropriate.
-    dev2: {
-        productionSite: false,
-        env: env,
-        root: rootPath,
-        app: {
-            name: 'portal - dev2'
-        },
-        port: port || 80,
-        serverProtocol: 'http:',
-        apidocs: apidocs,
-        managementToolsSite: '//registry.gbif-dev2.org/',
-        dataApiV2: dataApiV2 || '//api.gbif-dev2.org/v2/',
-        dataApi: dataApi || '//api.gbif-dev2.org/v1/',
-        registryApi: registryApi || `//registry-api.gbif-dev2.org/`,
-        sourceArchive: sourceArchive || `//source-archive.gbif-dev.org/`,
-        graphQLApi: graphQLApi || `//graphql.gbif-dev2.org/graphql`,
-        webUtils: webUtils || `//graphql.gbif-dev2.org/unstable-api`,
-        tileApi: tileApi || '//api.gbif-dev2.org/v1/map/density/tile.png',
-        basemapTileApi: basemapTileApi || '//tile.gbif-dev.org',
-        identityApi: identityApi || '//api.gbif-dev2.org/v1/',
-        analyticsImg: analyticsImg || 'www.gbif-dev.org/sites/default/files/gbif_analytics/',
-        domain: 'https://www.gbif-dev2.org',
-        topDomain: 'gbif-dev2.org',
-        grscicollDomain: `https://grscicoll.hp.gbif-dev.org`,
-        credentials: credentials || '/etc/portal16/credentials',
-        redirects: redirects || '/etc/portal16/redirects',
-        spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
-        verification: verification || '/var/lib/human-verification/images',
-        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
-        registry: registry || 'https://registry.gbif-dev2.org',
-        elk: elk || '//privatelogs2-vh.gbif.org:5601/',
-        publicKibana: publicKibana || '//logs.gbif.org/',
-        kibanaIndex: kibanaIndex || '36e5ccd0-fdb1-11ea-93de-b97c40066ce8',
-        locales: localeConfig.locales,
-        defaultLocale: localeConfig.defaultLocale,
-        contentfulLocaleMap: localeConfig.localeMappings.contentful,
-        publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342,
-        userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
-        graphQL: 'http://graphql.gbif-dev2.org/graphql',
-        reactComponents: '//react-components.gbif-dev2.org/lib/gbif-react-components.js',
-        healthUpdateFrequency: healthUpdateFrequency,
-        checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
-            '7ddf754f-d193-4cc9-b351-99906754a03b': {
-                title: 'Catalogue of Life',
-                colDatasetKey: '308651'
-            },
-            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
-                title: 'GBIF Backbone',
-                colDatasetKey: '53147'
-            }
-        },
-         newGbifOrg: 'https://demo.gbif-dev2.org',
-    },
-
     uat: {
         productionSite: false,
         env: env,
@@ -336,10 +264,6 @@ let config = {
         reactComponents: '//react-components.gbif-uat.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -349,67 +273,7 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-         newGbifOrg: 'https://demo.gbif-test.org',
-    },
-
-    uat2: {
-        productionSite: false,
-        env: env,
-        root: rootPath,
-        app: {
-            name: 'portal - uat2'
-        },
-        port: port || 80,
-        serverProtocol: 'http:',
-        apidocs: apidocs,
-        managementToolsSite: '//registry.gbif.org/',
-        dataApiV2: dataApiV2 || '//api.gbif.org/v2/',
-        dataApi: dataApi || '//api.gbif.org/v1/',
-        sourceArchive: sourceArchive || `//source-archive.gbif.org/`,
-        graphQLApi: graphQLApi || `//graphql.gbif.org/graphql`,
-        tileApi: tileApi || '//api.gbif.org/v1/map/density/tile.png',
-        basemapTileApi: basemapTileApi || '//tile.gbif.org',
-        identityApi: identityApi || '//api.gbif.org/v1/',
-        analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
-        domain: 'https://www.gbif.org',
-        topDomain: 'gbif.org',
-        grscicollDomain: `https://scientific-collections.gbif.org`,
-        credentials: credentials || '/etc/portal16/credentials',
-        redirects: redirects || '/etc/portal16/redirects',
-        spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
-        verification: verification || '/var/lib/human-verification/images',
-        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
-        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
-        registry: registry || 'https://registry.gbif.org',
-        elk: elk || '//private-logs.gbif.org:5601/',
-        publicKibana: publicKibana || '//logs.gbif.org/',
-        kibanaIndex: kibanaIndex || '24993300-fdb1-11ea-93de-b97c40066ce8',
-        locales: localeConfig.locales,
-        defaultLocale: localeConfig.defaultLocale,
-        contentfulLocaleMap: localeConfig.localeMappings.contentful,
-        publicConstantKeys: publicConstantKeys,
-        fbAppId: 1534726343485342,
-        userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org',
-        graphQL: 'http://graphql.gbif.org/graphql',
-        reactComponents: '//react-components.gbif.org/lib/gbif-react-components.js',
-        healthUpdateFrequency: healthUpdateFrequency,
-        checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
-            '7ddf754f-d193-4cc9-b351-99906754a03b': {
-                title: 'Catalogue of Life',
-                colDatasetKey: '308651'
-            },
-            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
-                title: 'GBIF Backbone',
-                colDatasetKey: '53147'
-            }
-        },
-         newGbifOrg: 'https://demo.gbif.org',
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
     },
 
     staging: {
@@ -458,10 +322,6 @@ let config = {
         reactComponents: '//react-components.gbif-staging.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -471,7 +331,7 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-        newGbifOrg: 'https://demo.gbif.org',
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
     },
     prod: {
         productionSite: true,
@@ -519,10 +379,6 @@ let config = {
         reactComponents: '//react-components.gbif.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -577,10 +433,6 @@ let config = {
         reactComponents: '//react-components.gbif-dev.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,
         checklistMapping: {
-            '2d59e5db-57ad-41ff-97d6-11f5fb264527': {
-                title: 'World Register of Marine Species',
-                colDatasetKey: '2011'
-            },
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
@@ -589,9 +441,9 @@ let config = {
                 title: 'GBIF Backbone',
                 colDatasetKey: '53147'
             }
-        }
-    },
-     newGbifOrg: 'https://demo.gbif-test.org',
+        },
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+    }
 };
 
 module.exports = Object.freeze(config[env]);

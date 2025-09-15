@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Rådata",
       "interpretedData": "Fortolket data",

@@ -6,6 +6,9 @@
             <div class="contactsCard card">
                 <contact contact-info="contact" ng-repeat="contact in datasetKey.dataset._computedValues.contributors.all"></contact>
             </div>
+            <div ng-if="datasetKey.dataset._computedValues.contactsCapped">
+                <p class="text-warning">Showing first {{datasetKey.dataset._computedValues.contributors.all.length}}/{{datasetKey.dataset._computedValues.contactsCount}} contacts. Download archive to see all or visit the dataset homepage</p>
+            </div>
         </div>
     </div>
 </section>

@@ -1,6 +1,6 @@
 {
   "dataset": {
-    "datasetSearchTitle": "",
+    "datasetSearchTitle": "Поиск набора данных",
     "longType": {
       "OCCURRENCE": "Набор данных о находках",
       "CHECKLIST": "Таксономический список",
@@ -39,7 +39,7 @@
     "projectId": "ID проекта",
     "studyArea": "Район исследований",
     "publishedBy": "Опубликован",
-    "mediatedBy": "",
+    "mediatedBy": "При посредничестве",
     "description": "Описание",
     "metadataLanguage": "Язык метаданных",
     "dataLanguage": "Язык данных",

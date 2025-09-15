@@ -29,8 +29,8 @@
         },
         "coordinateUncertaintyInMeters": {
             "equals": "Составляет {from}",
-            "between": "",
-            "lessThanOrEquals": "",
+            "between": "От {from} до {to}",
+            "lessThanOrEquals": "Меньше или равно {to}",
             "greaterThanOrEquals": "больше или равно {from}",
             "invalid": "Ошибочный",
             "select": {
@@ -55,8 +55,8 @@
         },
         "default": {
             "equals": "Составляет {from}",
-            "between": "",
-            "lessThanOrEquals": "",
+            "between": "От {from} до {to}",
+            "lessThanOrEquals": "Меньше или равно {to}",
             "greaterThanOrEquals": "больше или равно {from}",
             "invalid": "Ошибочный",
             "select": {

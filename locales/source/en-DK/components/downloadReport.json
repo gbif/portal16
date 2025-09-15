@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "Download options",
+    "chooseChecklist": "Choose checklist",
+    "chooseChecklistDescription": "Select which taxonomic checklist to use for organizing the names in your download",
     "content": {
       "rawData": "Raw data",
       "interpretedData": "Interpreted data",

@@ -13,6 +13,9 @@ let express = require('express'),
     md = require('markdown-it')({html: true, linkify: false, typographer: false, breaks: true}),
     Dataset = require('../../../../models/gbifdata/gbifdata').Dataset;
 
+    let contactCap = 200;
+    let bibCap = 500;
+
 module.exports = function(app) {
     app.use('/api', router);
 };
@@ -68,6 +71,15 @@ async function getDataset(key) {
     dataset._computedValues = {};
     dataset._computedValues.contributors = contributors.getContributors(dataset.contacts);
 
+    
+    if (dataset.contacts.length > contactCap) {
+        dataset._computedValues.contactsCapped = true;
+        dataset._computedValues.contactsCount = dataset.contacts.length;
+        dataset.contacts = dataset.contacts.slice(0, contactCap);
+        dataset._computedValues.contributors.all = dataset._computedValues.contributors.all.slice(0, contactCap);
+        dataset._computedValues.contributors.highlighted = dataset._computedValues.contributors.highlighted.slice(0, contactCap);
+    }
+
     clean(dataset);
 
     let projectContacts = _.get(dataset, 'project.contacts', false);
@@ -80,7 +92,13 @@ async function getDataset(key) {
         dataset._computedValues.taxonomicCoverages = taxonomicCoverage.extendTaxonomicCoverages(taxonomicCoverages);
     }
 
-    dataset._computedValues.bibliography = bibliography.getBibliography(dataset.bibliographicCitations);
+    bibliography.getBibliography(dataset.bibliographicCitations);
+    if (dataset.bibliographicCitations.length > bibCap) {
+        dataset._computedValues.bibliographyCapped = true;
+        dataset._computedValues.bibliographyCount = dataset.bibliographicCitations.length;
+        dataset.bibliographicCitations = dataset.bibliographicCitations.slice(0, bibCap);
+    }
+
 
     // TODO treatment specific hack until API catch up
     if (treatmentPublishers.indexOf(dataset.publishingOrganizationKey) > -1) {

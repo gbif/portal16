@@ -1,17 +1,17 @@
 {
   "enum": {
     "institutionType": {
-      "BIOMEDICAL_RESEARCH_INSTITUTE": "",
-      "BOTANICAL_GARDEN": "",
+      "BIOMEDICAL_RESEARCH_INSTITUTE": "Биомедицинский научно-исследовательский институт",
+      "BOTANICAL_GARDEN": "Ботанический сад",
       "HERBARIUM": "",
-      "LIVING_ORGANISM_COLLECTION": "",
-      "MEDICAL_RESEARCH_INSTITUTE": "",
+      "LIVING_ORGANISM_COLLECTION": "Коллекция живых организмов",
+      "MEDICAL_RESEARCH_INSTITUTE": "Медицинский научно-исследовательский институт",
       "MUSEUM": "",
-      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "",
-      "OTHER_INSTITUTIONAL_TYPE": "",
-      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "",
-      "UNIVERSITY_COLLEGE": "",
-      "ZOO_AQUARIUM": ""
+      "MUSEUM_HERBARIUM_PRIVATE_NON_PROFIT": "Музейный гербарий частная некоммерческая организация",
+      "OTHER_INSTITUTIONAL_TYPE": "Другой тип института",
+      "OTHER_TYPE_RESEARCH_INSTITUTION_BIOREPOSITORY": "Другой тип научно-исследовательского учреждения, биорепозитория",
+      "UNIVERSITY_COLLEGE": "Университетский колледж",
+      "ZOO_AQUARIUM": "Зоопарк-аквариум"
     }
   }
 }

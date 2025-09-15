@@ -16,9 +16,8 @@ angular
 
 /** @ngInject */
 // eslint-disable-next-line max-len
-function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX, $location, $rootScope) {
+function occurrenceDownloadCustomCtrl($cookies, $scope, AUTH_EVENTS, env, $httpParamSerializer, $http, OccurrenceFilter, endpoints, $uibModal, enums, toastService, $sessionStorage, User, DownloadSpeed, URL_PREFIX, $location, $rootScope) {
   var vm = this;
-  vm.stateParams = $state;
   vm.downloadFormats = enums.downloadFormats;
   vm.state = OccurrenceFilter.getOccurrenceData();
   vm.largeDownloadOffset = 1048576; // above this size, it is not possible to handle it in excel
@@ -30,6 +29,17 @@ function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $ht
   vm.invalidInput = false;
   vm.predicateLoaded = false;
   vm.inEditMode = vm.input.length < 4;
+
+  vm.checklistMapping = JSON.parse(JSON.stringify(env.checklistMapping));
+  // select checklistKey from url search param if available and fallback to  env.defaultChecklist
+  vm.selectedChecklist = $location.search().checklistKey || env.defaultChecklist;
+  // if selected checklist doens't exist in mapping , then use default
+  if (!vm.checklistMapping[vm.selectedChecklist]) {
+    vm.selectedChecklist = env.defaultChecklist;
+  }
+  vm.checklistOptions = Object.keys(env.checklistMapping);
+  
+  
   var tabs = ['create', 'about'];
 
   $scope.$on('$includeContentError', function(event, args) {
@@ -119,6 +129,7 @@ function occurrenceDownloadCustomCtrl($state, $cookies, $scope, AUTH_EVENTS, $ht
       var jsonPredicate = JSON.parse(vm.input);
       var data = {predicate: jsonPredicate};
       data.format = format;
+      data.checklistKey = vm.selectedChecklist;
       data.notification_address = email;
       var source = $cookies.get('downloadSource');
       var downloadUrl = endpoints.download + '/predicate';

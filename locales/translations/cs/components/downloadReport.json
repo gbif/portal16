@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "Možnosti stažení",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Nezpracovaná data",
       "interpretedData": "Interpretovaná data",

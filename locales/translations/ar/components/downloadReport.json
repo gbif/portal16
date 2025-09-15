@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "خيارات التنزيل",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "بيانات أولية",
       "interpretedData": "",

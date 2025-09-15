@@ -124,6 +124,10 @@
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result[col]}}</a>
                                 </td>
 
+                                <td dir="auto" class="table-cell--wide" ng-if="occTable.showCol('publisher')">
+                                    <a class="inherit" ui-sref="occurrenceKey({key:result.key})">{{result._publishingOrgKey.title}}</a>
+                                </td>
+
                                 <td dir="auto" class="table-cell--narrow" ng-if="occTable.showCol('locality')">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result.locality}}</a>
                                 </td>
@@ -132,10 +136,6 @@
                                 </td>
                                 <td dir="auto" class="table-cell--narrow" ng-if="occTable.showCol('stateProvince')">
                                     <a ui-sref="occurrenceKey({key:result.key})">{{result.stateProvince}}</a>
-                                </td>
-
-                                <td dir="auto" class="table-cell--wide" ng-if="occTable.showCol('publisher')">
-                                    <a class="inherit" ui-sref="occurrenceKey({key:result.key})">{{result._publishingOrgKey.title}}</a>
                                 </td>
 
                                 <td dir="auto" class="table-cell--narrow" ng-if="occTable.showCol('taxonRank')">

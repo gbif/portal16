@@ -35,6 +35,8 @@
   },
   "downloadOptions": {
     "title": "Download opties",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Ruwe data",
       "interpretedData": "",
