@@ -171,7 +171,9 @@ module.exports = function (app, config) {
     //     req.log.trace({req: req}, "start");
     //     next();
     // });
+    let forwardToNewPortal = require(config.root + '/app/middleware/forwardToNewPortal/forward.js');
 
+     app.use(forwardToNewPortal);
 
     /**
      require all route controllers
@@ -186,7 +188,7 @@ module.exports = function (app, config) {
 
     // add middleware to handle redirects of old urls or shortened menu items
     let redirects = require(config.root + '/app/middleware/redirects/redirects.js');
-    app.use(redirects);
+    app.use(redirects); 
 
     // let apiRequestErrors = require(config.root + '/app/errors/apiRequestErrors.js');
     // app.use(apiRequestErrors);
