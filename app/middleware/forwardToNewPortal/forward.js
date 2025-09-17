@@ -17,7 +17,7 @@ function forward(req, res, next) {
 
     if (redirectTo) {
         
-        res.redirect(302, redirectTo);
+        res.redirect(301, redirectTo);
     } else {
         next();
     }
