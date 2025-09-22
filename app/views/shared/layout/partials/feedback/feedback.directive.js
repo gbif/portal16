@@ -85,6 +85,7 @@ function feedbackDirective(BUILD_VERSION) {
                 height: window.innerHeight,
                 type: vm.selected,
                 form: formData,
+                location: window.location.href,
                 datasetKey: vm.associatedDatasetKey,
                 publishingOrgKey: vm.associatedPublishingOrgKey,
                 publishingCountry: vm.associatedPublishingCountry,
