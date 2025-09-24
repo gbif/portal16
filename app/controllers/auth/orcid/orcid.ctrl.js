@@ -17,7 +17,7 @@ let express = require('express'),
 let scope = '/authenticate';
 
 module.exports = function(app) {
-    app.use('/auth', router);
+    app.use('/auth', auth.noCacheMiddleware(), router);
 };
 
 router.get('/orcid/connect', auth.isAuthenticated(), function(req, res, next) {

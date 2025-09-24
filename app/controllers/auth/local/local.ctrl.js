@@ -8,7 +8,7 @@ let express = require('express'),
     auth = require('../auth.service');
 
 module.exports = function(app) {
-    app.use('/api/auth', router);
+    app.use('/api/auth', auth.noCacheMiddleware(), router);
 };
 
 router.get('/basic', function(req, res, next) {
