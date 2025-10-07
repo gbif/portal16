@@ -63,14 +63,8 @@ function speciesKey2Ctrl(
     var literatureLimit = 25;
     vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
     vm.species = Species.get({id: vm.key});
-    vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key});
+    vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key, limit: 0});
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
-    vm.mappedOccurrences = OccurrenceSearch.query({
-        taxon_key: vm.key,
-        has_coordinate: true,
-        has_geospatial_issue: false,
-        limit: 0
-    });
     vm.images = OccurrenceSearch.query({
         taxon_key: vm.key,
         media_type: 'stillImage',
@@ -314,7 +308,6 @@ function speciesKey2Ctrl(
         }
     };
     vm.species.$promise.catch(vm.criticalErrorHandler);
-    vm.mappedOccurrences.$promise.catch(vm.criticalErrorHandler);
     vm.occurrences.$promise.catch(vm.criticalErrorHandler);
     vm.capabilities.$promise.catch(vm.criticalErrorHandler);
 
