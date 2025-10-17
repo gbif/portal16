@@ -28,6 +28,7 @@ function speciesKey2Ctrl(
     $http,
     DwcExtension,
     OccurrenceSearch,
+    SpeciesOccurrenceMedia,
     SpeciesVernacularName,
     SpeciesSearch,
     SpeciesDescriptions,
@@ -65,11 +66,12 @@ function speciesKey2Ctrl(
     vm.species = Species.get({id: vm.key});
     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key, limit: 0});
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
-    vm.images = OccurrenceSearch.query({
+    /* vm.images = OccurrenceSearch.query({
         taxon_key: vm.key,
         media_type: 'stillImage',
         limit: 20
-    });
+    }); */
+    vm.images = SpeciesOccurrenceMedia.query({id: vm.key, mediaType: 'stillImage', limit: 20, offset: 0});
     
     ResourceSearch.query({gbifTaxonKey: vm.key, contentType: 'literature', limit: literatureLimit, locale: LOCALE}, function(data) {
         vm.literature = data;
