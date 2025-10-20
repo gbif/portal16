@@ -50,7 +50,8 @@ function speciesKey2Ctrl(
     BUILD_VERSION,
     LOCALE,
     $translate,
-    $mdMedia
+    $mdMedia,
+    env
 ) {
     var vm = this;
     vm.$translate = $translate;
@@ -64,7 +65,18 @@ function speciesKey2Ctrl(
     var literatureLimit = 25;
     vm.capabilities = MapCapabilities.get({taxonKey: vm.key});
     vm.species = Species.get({id: vm.key});
-    vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key, limit: 0});
+/*     vm.occurrences = OccurrenceSearch.query({taxon_key: vm.key, limit: 0});
+ */
+   $http
+        .get(env.dataApi + 'occurrence/count', {
+            params: {taxonKey: vm.key}
+        }).then(function (response) {
+            vm.occurrenceCount = response.data;
+        });
+        /* .then(function (response) {
+            return response.data.count;
+        }); */
+
     vm.vernacularName = SpeciesVernacularName.get({id: vm.key});
     /* vm.images = OccurrenceSearch.query({
         taxon_key: vm.key,
@@ -310,8 +322,8 @@ function speciesKey2Ctrl(
         }
     };
     vm.species.$promise.catch(vm.criticalErrorHandler);
-    vm.occurrences.$promise.catch(vm.criticalErrorHandler);
-    vm.capabilities.$promise.catch(vm.criticalErrorHandler);
+/*     vm.occurrences.$promise.catch(vm.criticalErrorHandler);
+ */    vm.capabilities.$promise.catch(vm.criticalErrorHandler);
 
     vm.vernacularName.$promise.catch(vm.nonCriticalErrorHandler);
     // vm.speciesImages.$promise.catch(vm.nonCriticalErrorHandler);
