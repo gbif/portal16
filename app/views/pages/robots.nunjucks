@@ -2,8 +2,8 @@ User-agent: *
 {% if DOMAIN != 'https://www.gbif.org' %}Disallow: /{% else %}
 Disallow: /user/
 Disallow: /*/user/
-Disallow: /search/
-Disallow: /*/search/
+Disallow: /search
+Disallow: /*/search
 Disallow: /occurrence/
 Disallow: /*/occurrence/
 Allow: /occurrence/download/*
