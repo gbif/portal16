@@ -20,6 +20,9 @@ Disallow: /grscicoll/institution/search
 Disallow: /*/grscicoll/institution/search
 Disallow: /grscicoll/person/search
 Disallow: /*/grscicoll/person/search
+Disallow: /resource/search
+Disallow: /*/resource/search
+
 crawl-delay: 0.1
 
 User-agent: Twitterbot
