@@ -27,7 +27,7 @@ router.get('/occurrence/search', function(req, res) {
 
     let userAgent = req.get('user-agent');    
     const isBot = botDetector.isbot(userAgent);
-    if (isBot && !userAgent.startsWith('check_http')) {
+    if (isBot && !userAgent.startsWith('check_http') && userAgent !== 'gbif-statuspage' ) {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
         res.header('Pragma', 'no-cache');
         res.header('Expires', '0');
