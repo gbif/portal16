@@ -111,7 +111,7 @@
         "intl": "^1.1.0",
         "intl-locales-supported": "^1.0.0",
         "is-url": "^1.2.2",
-        "isbot": "^5.1.11",
+        "isbot": "^5.1.31",
         "istanbul": "^0.4.2",
         "jasmine-reporters": "^2.1.1",
         "jasmine-spec-reporter": "^2.4.0",
@@ -15494,9 +15494,9 @@
       }
     },
     "node_modules/isbot": {
-      "version": "5.1.11",
-      "resolved": "https://registry.npmjs.org/isbot/-/isbot-5.1.11.tgz",
-      "integrity": "sha512-Asuou7OsKVbATgXlrlqdeSRw4fYnD6CNcc0IXy1f5m1AImL2S6IP0xRcRRzjGjoARbegvnBnju9kk5z/Itf70Q==",
+      "version": "5.1.31",
+      "resolved": "https://registry.npmjs.org/isbot/-/isbot-5.1.31.tgz",
+      "integrity": "sha512-DPgQshehErHAqSCKDb3rNW03pa2wS/v5evvUqtxt6TTnHRqAG8FdzcSSJs9656pK6Y+NT7K9R4acEYXLHYfpUQ==",
       "engines": {
         "node": ">=18"
       }
@@ -40065,9 +40065,9 @@
       "integrity": "sha1-bplXNnU3LoQaBSDANrQVE9eD554="
     },
     "isbot": {
-      "version": "5.1.11",
-      "resolved": "https://registry.npmjs.org/isbot/-/isbot-5.1.11.tgz",
-      "integrity": "sha512-Asuou7OsKVbATgXlrlqdeSRw4fYnD6CNcc0IXy1f5m1AImL2S6IP0xRcRRzjGjoARbegvnBnju9kk5z/Itf70Q=="
+      "version": "5.1.31",
+      "resolved": "https://registry.npmjs.org/isbot/-/isbot-5.1.31.tgz",
+      "integrity": "sha512-DPgQshehErHAqSCKDb3rNW03pa2wS/v5evvUqtxt6TTnHRqAG8FdzcSSJs9656pK6Y+NT7K9R4acEYXLHYfpUQ=="
     },
     "isemail": {
       "version": "1.2.0",

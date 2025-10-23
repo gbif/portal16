@@ -3,6 +3,7 @@ let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
+    botDetector = require('isbot'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
     gbifData = require('../../../../models/gbifdata/gbifdata');
@@ -23,6 +24,15 @@ router.get('/occurrence/search/cancellation', function(req, res) {
 });
 
 router.get('/occurrence/search', function(req, res) {
+
+    let userAgent = req.get('user-agent');    
+    const isBot = botDetector.isbot(userAgent);
+    if (isBot) {
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+        res.header('Pragma', 'no-cache');
+        res.header('Expires', '0');
+        return res.status(403).send('Not allowed for bots');
+    } 
     // START: track request cancellation frequency
     requestCounter++;
     let cancelRequest = false;

@@ -1,6 +1,7 @@
 'use strict';
 let express = require('express'),
     url = require('url'),
+    botDetector = require('isbot'),
     changeCase = require('change-case'),
     _ = require('lodash'),
     router = express.Router({caseSensitive: true});
@@ -72,6 +73,15 @@ router.get('/occurrence/', function(req, res) {
 });
 
 router.get('/occurrence/search', function(req, res) {
+        let userAgent = req.get('user-agent');    
+
+    const isBot = botDetector.isbot(userAgent);
+            if (isBot) {
+                res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+                res.header('Pragma', 'no-cache');
+                res.header('Expires', '0');
+                return res.status(403).send('Not allowed for bots');
+            } 
     renderSearch(req, res);
 });
 

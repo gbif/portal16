@@ -3,6 +3,7 @@ let express = require('express'),
     router = express.Router(),
     _ = require('lodash'),
     Q = require('q'),
+    botDetector = require('isbot'),
     helper = require('../../../../models/util/util'),
     apiConfig = require('../../../../models/gbifdata/apiConfig'),
     SpeciesOmniSearch = require('../../search/species'),
@@ -15,6 +16,15 @@ module.exports = function(app) {
 };
 
 router.get('/species/search', function(req, res) {
+        // The proxy API is used on speciesKey pages - we dont want to block bots here?
+    /* let userAgent = req.get('user-agent');    
+        const isBot = botDetector.isbot(userAgent);
+        if (isBot) {
+            res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+            res.header('Pragma', 'no-cache');
+            res.header('Expires', '0');
+            return res.status(403).send('Not allowed for bots');
+        }  */
     speciesSearch(req.query).then(function(data) {
         SpeciesOmniSearch.extractHighlights(data);
         data = prune(data, ['descriptions']);
