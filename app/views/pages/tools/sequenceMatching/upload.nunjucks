@@ -6,10 +6,10 @@
           <p>This tool will query taxonomy reference databases for Fungi, Animals, Bacteria and Archaea</p>
           <ul class="sequenceMatcher__list m-b-05">
           <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE general FASTA release for eukaryotes v9.0</a> (a reference database for DNA barcoding of Fungi)</li>
-          <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2024-07-19</a> public data (COI-5P sequences)</li>
+          <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2025-10-17</a> public data (COI-5P sequences)</li>
           <li><strong>16S</strong> sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database r214</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
           <li><strong>18S</strong> sequences will be queried against the <a href="https://pr2-database.org//">PR2 database</a> v5.0.0</li>
-          <li><strong>12S</strong> sequences for Fish will be queried against the <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v3.97 database of 12S sequences</li>
+          <li><strong>12S</strong> sequences for Fish will be queried against the <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v41 database of 12S sequences</li>
         </ul>
         <p>Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
         </div>
@@ -110,7 +110,7 @@
              <div class="small p-r-1" flex="33">
                 
                         <div>
-                            The International Barcode of Life Consortium (2016). International Barcode of Life project (iBOL). Occurrence dataset accessed via GBIF.org on 2023-03-12.
+                            The International Barcode of Life Consortium (2016). International Barcode of Life project (iBOL). Occurrence dataset accessed via GBIF.org on 2025-10-27.
                         </div>
                         <doi link="https://doi.org/10.15468/inygc6"></doi>
                             
