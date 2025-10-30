@@ -83,7 +83,6 @@ function countryShapeMapDirective(BUILD_VERSION) {
                         source.forEachFeature(function(feature) {
                             if (feature.getProperties().countryCode === vm.countryCode) {
                                 countryFeature = feature;
-                                console.log(feature.getProperties().countryCode);
                                 return true;
                             } else {
                                 return false;
