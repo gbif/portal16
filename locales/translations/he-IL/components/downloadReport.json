@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "מימון משותף",
+    "chooseChecklistDescription": "מימון משותף",
     "content": {
       "rawData": "",
       "interpretedData": "",
