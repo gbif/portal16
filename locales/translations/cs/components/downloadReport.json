@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Možnosti stažení",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "Spolufinancování",
+    "chooseChecklistDescription": "Spolufinancování",
     "content": {
       "rawData": "Nezpracovaná data",
       "interpretedData": "Interpretovaná data",
