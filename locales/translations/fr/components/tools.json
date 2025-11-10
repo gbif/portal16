@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Co-financement",
+            "emptyFile": "Co-financement",
+            "tooManyRows": "Co-financement"
         },
         "occurrenceSnapshots": {
             "title": ""
