@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opções de transferência",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "Co-financiamento",
+    "chooseChecklistDescription": "Co-financiamento",
     "content": {
       "rawData": "Dados brutos",
       "interpretedData": "Dados interpretados",
