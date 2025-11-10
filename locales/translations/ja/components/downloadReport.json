@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "ダウンロードのオプション",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "共同資金",
+    "chooseChecklistDescription": "共同資金",
     "content": {
       "rawData": "生データ",
       "interpretedData": "解釈されたデータ",
