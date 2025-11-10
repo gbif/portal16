@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "خيارات التنزيل",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "التمويل المشترك",
+    "chooseChecklistDescription": "التمويل المشترك",
     "content": {
       "rawData": "بيانات أولية",
       "interpretedData": "",
