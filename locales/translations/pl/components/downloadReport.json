@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opcje pobierania",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "Współfinansowanie",
+    "chooseChecklistDescription": "Współfinansowanie",
     "content": {
       "rawData": "Surowe dane",
       "interpretedData": "Dane zinterpretowane",

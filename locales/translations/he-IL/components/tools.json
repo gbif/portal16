@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "מימון משותף",
+            "emptyFile": "מימון משותף",
+            "tooManyRows": "מימון משותף"
         },
         "occurrenceSnapshots": {
             "title": ""

@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Настройки загрузки",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "Совместное финансирование",
+    "chooseChecklistDescription": "Совместное финансирование",
     "content": {
       "rawData": "Необработанные данные",
       "interpretedData": "Интерпретированные данные",
