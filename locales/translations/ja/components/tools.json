@@ -93,9 +93,9 @@
             "mintingDoi": "DOI作成中 - これは長くはかからないはずです。",
             "attachCsvLabel": "データセットキーとオカレンス件数が含まれたCSVを添付",
             "orEnterLabel": "または、データセットキー/DOIおよびオカレンス件数をここに入力する",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "共同資金",
+            "emptyFile": "共同資金",
+            "tooManyRows": "共同資金"
         },
         "occurrenceSnapshots": {
             "title": ""
