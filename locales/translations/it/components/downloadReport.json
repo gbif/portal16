@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "Cofinanziamento",
-    "chooseChecklistDescription": "Cofinanziamento",
+    "chooseChecklist": "Cofinanziato da",
+    "chooseChecklistDescription": "Cofinanziato da",
     "content": {
       "rawData": "",
       "interpretedData": "",

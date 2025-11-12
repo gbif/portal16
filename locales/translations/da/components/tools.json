@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Sam-finansiering",
-            "emptyFile": "Sam-finansiering",
-            "tooManyRows": "Sam-finansiering"
+            "invalidFileFormat": "Samfinansieret af",
+            "emptyFile": "Samfinansieret af",
+            "tooManyRows": "Samfinansieret af"
         },
         "occurrenceSnapshots": {
             "title": ""

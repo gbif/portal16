@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "Sam-finansiering",
-    "chooseChecklistDescription": "Sam-finansiering",
+    "chooseChecklist": "Samfinansieret af",
+    "chooseChecklistDescription": "Samfinansieret af",
     "content": {
       "rawData": "Rådata",
       "interpretedData": "Fortolket data",

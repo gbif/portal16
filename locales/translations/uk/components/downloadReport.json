@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Варіанти завантаження",
-    "chooseChecklist": "Спільне фінансування",
-    "chooseChecklistDescription": "Спільне фінансування",
+    "chooseChecklist": "Фінансується спільно",
+    "chooseChecklistDescription": "Фінансується спільно",
     "content": {
       "rawData": "Первинні дані",
       "interpretedData": "",

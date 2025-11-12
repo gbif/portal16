@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Options de téléchargement",
-    "chooseChecklist": "Co-financement",
-    "chooseChecklistDescription": "Co-financement",
+    "chooseChecklist": "Co-financé par",
+    "chooseChecklistDescription": "Co-financé par",
     "content": {
       "rawData": "Données brutes",
       "interpretedData": "Données interprétées",

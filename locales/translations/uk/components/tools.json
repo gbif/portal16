@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Спільне фінансування",
-            "emptyFile": "Спільне фінансування",
-            "tooManyRows": "Спільне фінансування"
+            "invalidFileFormat": "Фінансується спільно",
+            "emptyFile": "Фінансується спільно",
+            "tooManyRows": "Фінансується спільно"
         },
         "occurrenceSnapshots": {
             "title": ""
