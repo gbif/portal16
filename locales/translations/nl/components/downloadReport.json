@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Download opties",
-    "chooseChecklist": "Cofinanciering",
-    "chooseChecklistDescription": "Cofinanciering",
+    "chooseChecklist": "Co-Gefinancierd door",
+    "chooseChecklistDescription": "Co-Gefinancierd door",
     "content": {
       "rawData": "Ruwe data",
       "interpretedData": "",
