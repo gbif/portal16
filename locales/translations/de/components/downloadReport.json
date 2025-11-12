@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "Co Finanzierung",
-    "chooseChecklistDescription": "Co Finanzierung",
+    "chooseChecklist": "Co finanziert von",
+    "chooseChecklistDescription": "Co finanziert von",
     "content": {
       "rawData": "",
       "interpretedData": "",
