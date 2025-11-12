@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "下载选项",
-    "chooseChecklist": "共同资助方",
-    "chooseChecklistDescription": "共同资助方",
+    "chooseChecklist": "联合资助方：",
+    "chooseChecklistDescription": "联合资助方：",
     "content": {
       "rawData": "原始数据",
       "interpretedData": "解释数据",
