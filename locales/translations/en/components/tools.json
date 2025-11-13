@@ -93,9 +93,9 @@
             "mintingDoi": "Minting DOI - this shouldn't take long.",
             "attachCsvLabel": "Attach [CSV file](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) with dataset keys and occurrence counts",
             "orEnterLabel": "Or enter dataset keys/DOIs and occurrence counts here",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Invalid file format: the file must be a CSV file",
+            "emptyFile": "There are no rows in the data",
+            "tooManyRows": "Too many rows (maximum 6,000)—try using [the API](https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets) instead"
         },
         "occurrenceSnapshots": {
             "title": "Occurrence snapshots"
