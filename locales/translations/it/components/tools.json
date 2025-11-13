@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Cofinanziato da",
-            "emptyFile": "Cofinanziato da",
-            "tooManyRows": "Cofinanziato da"
+            "invalidFileFormat": "Codice di Condotta",
+            "emptyFile": "Codice di Condotta",
+            "tooManyRows": "Codice di Condotta"
         },
         "occurrenceSnapshots": {
             "title": ""
