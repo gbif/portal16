@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "מומן במשותף על ידי",
-    "chooseChecklistDescription": "מומן במשותף על ידי",
+    "chooseChecklist": "Leave a comment - requires a Github account",
+    "chooseChecklistDescription": "Leave a comment - requires a Github account",
     "content": {
       "rawData": "",
       "interpretedData": "",
