@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Настройки загрузки",
-    "chooseChecklist": "Софинансируется",
-    "chooseChecklistDescription": "Софинансируется",
+    "chooseChecklist": "Идентификатор, управляемый поставщиком",
+    "chooseChecklistDescription": "Идентификатор, управляемый поставщиком",
     "content": {
       "rawData": "Необработанные данные",
       "interpretedData": "Интерпретированные данные",
