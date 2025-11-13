@@ -25,9 +25,9 @@
     "estSizeIs": "El tamaño estimado de la descarga es",
     "estDLtimes": "Número de descargas estimadas:",
     "nMbitConn": "Mbit de conexión",
-    "onceDownloaded": "Una vez hayas descargado el archivo, necesitarás otros de espacio libre en el disco para descomprimir los datos.",
+    "onceDownloaded": "Una vez hayas descargado el archivo, necesitarás aproximadamente {SIZE_FORMATTED} de espacio libre en el disco para descomprimir los datos.",
     "datasetHasNumRows": "El conjunto de datos tiene {NUMBER_FORMATTED} filas.",
-    "youWillNotBeAble": "Los datos no podrán visualizarse o analizarse en Excel o aplicaciones similares. Para trabajar con estos datos necesitarás tener conocimientos previos en R, Python o bases de datos Relacionales.",
+    "youWillNotBeAble": "Los datos no podrán visualizarse o analizarse en Excel o aplicaciones similares. Para trabajar con estos datos necesitarás, tener conocimientos previos en R, Python o bases de datos relacionales.",
     "difficultToAnalyse": "Un conjunto de datos de este tamaño es difícil de analizar en tu ordenador convencional. Probablemente necesites acceso a algún tipo de servicio de computación distribuido.",
     "hours": "Horas",
     "minute": "Minuto",
@@ -39,21 +39,21 @@
     "chooseChecklistDescription": "Cofinanciado por",
     "content": {
       "rawData": "Datos sin procesar",
-      "interpretedData": "",
+      "interpretedData": "Datos interpretados",
       "images": "Multimedia",
       "coordinates": "Coordenadas",
       "fileFormat": "Formato",
       "estimatedSize": "Tamaño de datos estimados"
     },
     "fileFormats": {
-      "tabCsv": ""
+      "tabCsv": "CSV delimitado por tabulaciones (para usar en Excel, etc.)"
     },
     "tableValues": {
-      "yes": "",
-      "yesIfAvailable": "",
+      "yes": "✔",
+      "yesIfAvailable": "✔ (si está disponible)",
       "yesIfSelected": "✓ (si está seleccionado)",
-      "yesLinks": "",
-      "no": ""
+      "yesLinks": "✔ (vínculos)",
+      "no": "✘"
     }
   }
 }
