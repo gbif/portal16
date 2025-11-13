@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Leave a comment - requires a Github account",
-            "emptyFile": "Leave a comment - requires a Github account",
-            "tooManyRows": "Leave a comment - requires a Github account"
+            "invalidFileFormat": "Provider managed id",
+            "emptyFile": "Provider managed id",
+            "tooManyRows": "Provider managed id"
         },
         "occurrenceSnapshots": {
             "title": ""
