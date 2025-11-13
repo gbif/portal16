@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opciones de descarga",
-    "chooseChecklist": "Código de Conducta",
-    "chooseChecklistDescription": "Código de Conducta",
+    "chooseChecklist": "ID administrado por el proveedor",
+    "chooseChecklistDescription": "ID administrado por el proveedor",
     "content": {
       "rawData": "Datos sin procesar",
       "interpretedData": "Datos interpretados",
