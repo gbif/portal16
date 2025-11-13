@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Možnosti stažení",
-    "chooseChecklist": "Spolufinancováno",
-    "chooseChecklistDescription": "Spolufinancováno",
+    "chooseChecklist": "Etický Kodex",
+    "chooseChecklistDescription": "Etický Kodex",
     "content": {
       "rawData": "Nezpracovaná data",
       "interpretedData": "Interpretovaná data",
