@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Co finanziert von",
-            "emptyFile": "Co finanziert von",
-            "tooManyRows": "Co finanziert von"
+            "invalidFileFormat": "DWCA-Erweiterung",
+            "emptyFile": "DWCA-Erweiterung",
+            "tooManyRows": "DWCA-Erweiterung"
         },
         "occurrenceSnapshots": {
             "title": ""
