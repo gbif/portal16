@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Co-financiado por",
-            "emptyFile": "Co-financiado por",
-            "tooManyRows": "Co-financiado por"
+            "invalidFileFormat": "Código de Conduta",
+            "emptyFile": "Código de Conduta",
+            "tooManyRows": "Código de Conduta"
         },
         "occurrenceSnapshots": {
             "title": ""
