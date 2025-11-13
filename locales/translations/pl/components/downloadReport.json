@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opcje pobierania",
-    "chooseChecklist": "Współfinansowany przez",
-    "chooseChecklistDescription": "Współfinansowany przez",
+    "chooseChecklist": "Napisz komentarz - wymagane konto Github",
+    "chooseChecklistDescription": "Napisz komentarz - wymagane konto Github",
     "content": {
       "rawData": "Surowe dane",
       "interpretedData": "Dane zinterpretowane",
