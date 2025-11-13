@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "ダウンロードのオプション",
-    "chooseChecklist": "共同出資",
-    "chooseChecklistDescription": "共同出資",
+    "chooseChecklist": "行動規範",
+    "chooseChecklistDescription": "行動規範",
     "content": {
       "rawData": "生データ",
       "interpretedData": "解釈されたデータ",
