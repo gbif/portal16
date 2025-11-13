@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Možnosti stažení",
-    "chooseChecklist": "Etický Kodex",
-    "chooseChecklistDescription": "Etický Kodex",
+    "chooseChecklist": "Id spravované poskytovatelem",
+    "chooseChecklistDescription": "Id spravované poskytovatelem",
     "content": {
       "rawData": "Nezpracovaná data",
       "interpretedData": "Interpretovaná data",
