@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opciones de descarga",
-    "chooseChecklist": "Cofinanciado por",
-    "chooseChecklistDescription": "Cofinanciado por",
+    "chooseChecklist": "Código de Conducta",
+    "chooseChecklistDescription": "Código de Conducta",
     "content": {
       "rawData": "Datos sin procesar",
       "interpretedData": "Datos interpretados",
