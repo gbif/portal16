@@ -93,9 +93,9 @@
             "mintingDoi": "Creando el DOI - esto no debería tardar mucho",
             "attachCsvLabel": "Adjunta [archivo CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) con las claves del conjunto de datos y los recuentos de ocurrencias",
             "orEnterLabel": "O introduce aquí las claves del conjunto de datos/DOI y el número de ocurrencias",
-            "invalidFileFormat": "Código de Conducta",
-            "emptyFile": "Código de Conducta",
-            "tooManyRows": "Código de Conducta"
+            "invalidFileFormat": "ID administrado por el proveedor",
+            "emptyFile": "ID administrado por el proveedor",
+            "tooManyRows": "ID administrado por el proveedor"
         },
         "occurrenceSnapshots": {
             "title": ""
