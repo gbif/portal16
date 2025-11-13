@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "Leave a comment - requires a Github account",
-    "chooseChecklistDescription": "Leave a comment - requires a Github account",
+    "chooseChecklist": "Provider managed id",
+    "chooseChecklistDescription": "Provider managed id",
     "content": {
       "rawData": "",
       "interpretedData": "",
