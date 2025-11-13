@@ -10,6 +10,6 @@
     },
     "registeredDate": "Registrado {DATE}",
     "nParticipatingDatasets": "{NUMBER_FORMATED} {NUMBER, plural, one{conjunto de datos} other{conjuntos de datos}} participando",
-    "nParticipatingPublishers": ""
+    "nParticipatingPublishers": "{NUMBER_FORMATED} participando {NUMBER, plural, one{publicador} other{publicadores}}"
   }
 }
