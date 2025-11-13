@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "מומן במשותף על ידי",
-            "emptyFile": "מומן במשותף על ידי",
-            "tooManyRows": "מומן במשותף על ידי"
+            "invalidFileFormat": "Leave a comment - requires a Github account",
+            "emptyFile": "Leave a comment - requires a Github account",
+            "tooManyRows": "Leave a comment - requires a Github account"
         },
         "occurrenceSnapshots": {
             "title": ""
