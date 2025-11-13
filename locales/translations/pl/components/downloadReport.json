@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opcje pobierania",
-    "chooseChecklist": "Napisz komentarz - wymagane konto Github",
-    "chooseChecklistDescription": "Napisz komentarz - wymagane konto Github",
+    "chooseChecklist": "Identyfikator zarządzany przez dostawcę",
+    "chooseChecklistDescription": "Identyfikator zarządzany przez dostawcę",
     "content": {
       "rawData": "Surowe dane",
       "interpretedData": "Dane zinterpretowane",
