@@ -100,7 +100,7 @@ let path = require('path'),
 const localEnvironmentPostFix = ''; // e.g. '-uat';
 let config = {
     local: {
-        productionSite: false, 
+        productionSite: false,
         env: 'dev',
         healthEnv: 'uat',
         root: rootPath,
@@ -156,6 +156,121 @@ let config = {
             '7ddf754f-d193-4cc9-b351-99906754a03b': {
                 title: 'Catalogue of Life',
                 colDatasetKey: '308651'
+            }
+        },
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+    },
+
+    lab: {
+        productionSite: false,
+        env: env,
+        root: rootPath,
+        app: {
+            name: 'portal - lab'
+        },
+        port: port || 80,
+        serverProtocol: 'http:',
+        apidocs: apidocs,
+        managementToolsSite: '//registry.gbif-lab.org/',
+        dataApiV2: dataApiV2 || '//api.gbif-lab.org/v2/',
+        dataApi: dataApi || '//api.gbif-lab.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif-lab.org/`,
+        sourceArchive: sourceArchive || `//source-archive.gbif-lab.org/`,
+        graphQLApi: graphQLApi || `//graphql.gbif-lab.org/graphql`,
+        webUtils: webUtils || `//graphql.gbif-lab.org/unstable-api`,
+        tileApi: tileApi || '//api.gbif-lab.org/v1/map/density/tile.png',
+        basemapTileApi: basemapTileApi || '//tile.gbif-lab.org',
+        identityApi: identityApi || '//api.gbif-lab.org/v1/',
+        analyticsImg: analyticsImg || 'tools.gbif-lab.org/sites/default/files/gbif_analytics/',
+        domain: 'https://tools.gbif-lab.org',
+        topDomain: 'gbif-lab.org',
+        grscicollDomain: `https://grscicoll.hp.gbif-lab.org`,
+        credentials: credentials || '/etc/portal16/credentials',
+        redirects: redirects || '/etc/portal16/redirects',
+        spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
+        verification: verification || '/var/lib/human-verification/images',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-lab.org:9200/',
+        registry: registry || 'https://registry.gbif-lab.org',
+        elk: elk || '//privatelogs2-vh.gbif.org:5601/',
+        publicKibana: publicKibana || '//logs.gbif.org/',
+        kibanaIndex: kibanaIndex || '36e5ccd0-fdb1-11ea-93de-b97c40066ce8',
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
+        publicConstantKeys: publicConstantKeys,
+        fbAppId: 1534726343485342,
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-lab.org',
+        graphQL: 'http://graphql.gbif-lab.org/graphql',
+        reactComponents: '//react-components.gbif-lab.org/lib/gbif-react-components.js',
+        healthUpdateFrequency: healthUpdateFrequency,
+        checklistMapping: {
+            '7ddf754f-d193-4cc9-b351-99906754a03b': {
+                title: 'Catalogue of Life',
+                colDatasetKey: '308651'
+            },
+            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
+                title: 'GBIF Backbone',
+                colDatasetKey: '53147'
+            }
+        },
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+    },
+    uat: {
+        productionSite: false,
+        env: env,
+        root: rootPath,
+        app: {
+            name: 'portal - uat'
+        },
+        port: port || 80,
+        serverProtocol: 'http:',
+        apidocs: apidocs,
+        managementToolsSite: '//registry.gbif-uat.org/',
+        dataApiV2: dataApiV2 || '//api.gbif-uat.org/v2/',
+        dataApi: dataApi || '//api.gbif-uat.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif-uat.org/`,
+        sourceArchive: sourceArchive || `//source-archive.gbif-uat.org/`,
+        graphQLApi: graphQLApi || `//graphql.gbif-uat.org/graphql`,
+        webUtils: webUtils || `//graphql.gbif-uat.org/unstable-api`,
+        tileApi: tileApi || '//api.gbif-uat.org/v1/map/density/tile.png',
+        basemapTileApi: basemapTileApi || '//tile.gbif-uat.org',
+        identityApi: identityApi || '//api.gbif-uat.org/v1/',
+        analyticsImg: analyticsImg || 'www.gbif-uat.org/sites/default/files/gbif_analytics/',
+        domain: 'https://www.gbif-test.org',
+        topDomain: 'gbif-test.org',
+        grscicollDomain: `https://grscicoll.hp.gbif-test.org`,
+        credentials: credentials || '/etc/portal16/credentials',
+        redirects: redirects || '/etc/portal16/redirects',
+        spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
+        verification: verification || '/var/lib/human-verification/images',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-uat.org:9200/',
+        registry: registry || 'https://registry.gbif-uat.org',
+        elk: elk || '//private-logs.gbif.org:5601/',
+        publicKibana: publicKibana || '//logs.gbif.org/',
+        kibanaIndex: kibanaIndex || '782daf00-fdb1-11ea-93de-b97c40066ce8',
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
+        publicConstantKeys: publicConstantKeys,
+        fbAppId: 1534726343485342,
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-uat.org/graphql',
+        reactComponents: '//react-components.gbif-uat.org/lib/gbif-react-components.js',
+        healthUpdateFrequency: healthUpdateFrequency,
+        checklistMapping: {
+            '7ddf754f-d193-4cc9-b351-99906754a03b': {
+                title: 'Catalogue of Life',
+                colDatasetKey: '308651'
+            },
+            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
+                title: 'GBIF Backbone',
+                colDatasetKey: '53147'
             }
         },
         defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
