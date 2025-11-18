@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "خيارات التنزيل",
-    "chooseChecklist": "التمويل المشترك",
-    "chooseChecklistDescription": "التمويل المشترك",
+    "chooseChecklist": "قواعد السلوك",
+    "chooseChecklistDescription": "قواعد السلوك",
     "content": {
       "rawData": "بيانات أولية",
       "interpretedData": "",

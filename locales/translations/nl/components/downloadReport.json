@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Download opties",
-    "chooseChecklist": "Cofinanciering",
-    "chooseChecklistDescription": "Cofinanciering",
+    "chooseChecklist": "Code of Conduct",
+    "chooseChecklistDescription": "Code of Conduct",
     "content": {
       "rawData": "Ruwe data",
       "interpretedData": "",

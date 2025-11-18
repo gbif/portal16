@@ -93,9 +93,9 @@
             "mintingDoi": "正在准备DOI——这应该不会花很长时间。",
             "attachCsvLabel": "附带有数据集键和出现次数的CSV文件",
             "orEnterLabel": "或者在这里输入数据集键/DOIs和发生次数",
-            "invalidFileFormat": "共同资助方",
-            "emptyFile": "共同资助方",
-            "tooManyRows": "共同资助方"
+            "invalidFileFormat": "发布者管理的ID",
+            "emptyFile": "发布者管理的ID",
+            "tooManyRows": "发布者管理的ID"
         },
         "occurrenceSnapshots": {
             "title": ""

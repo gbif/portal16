@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "Cofinanziamento",
-    "chooseChecklistDescription": "Cofinanziamento",
+    "chooseChecklist": "Codice di Condotta",
+    "chooseChecklistDescription": "Codice di Condotta",
     "content": {
       "rawData": "",
       "interpretedData": "",

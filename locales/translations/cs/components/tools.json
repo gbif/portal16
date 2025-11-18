@@ -93,9 +93,9 @@
             "mintingDoi": "Vytváření DOI - to by nemělo trvat dlouho.",
             "attachCsvLabel": "Připojte [soubor CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) s klíči datového souboru a počty výskytů",
             "orEnterLabel": "Nebo zadejte klíče datové sady/DOI a počty výskytů zde",
-            "invalidFileFormat": "Spolufinancování",
-            "emptyFile": "Spolufinancování",
-            "tooManyRows": "Spolufinancování"
+            "invalidFileFormat": "Id spravované poskytovatelem",
+            "emptyFile": "Id spravované poskytovatelem",
+            "tooManyRows": "Id spravované poskytovatelem"
         },
         "occurrenceSnapshots": {
             "title": ""

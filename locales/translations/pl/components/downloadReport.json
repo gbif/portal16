@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opcje pobierania",
-    "chooseChecklist": "Współfinansowanie",
-    "chooseChecklistDescription": "Współfinansowanie",
+    "chooseChecklist": "Identyfikator zarządzany przez dostawcę",
+    "chooseChecklistDescription": "Identyfikator zarządzany przez dostawcę",
     "content": {
       "rawData": "Surowe dane",
       "interpretedData": "Dane zinterpretowane",

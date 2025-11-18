@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "La licencia no puede ser analizada, no es compatible con GBIF o simplemente falta",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registro no identificado de forma única",
       "UNREADABLE_SECTION_ERROR": "Error de sección ilegible",
-      "UNHANDLED_ERROR": "",
+      "UNHANDLED_ERROR": "Error no controlado",
       "NoIssuesFound": "No se han encontrado problemas"
     },
     "fileFormat": {
@@ -128,8 +128,8 @@
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
+        "RUNNING": "Cargando archivo",
+        "FINISHED": "Archivo cargado",
         "PENDING": "Subir archivo",
         "FAILED": "",
         "QUEUED": ""

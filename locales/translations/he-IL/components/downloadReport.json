@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "מימון משותף",
-    "chooseChecklistDescription": "מימון משותף",
+    "chooseChecklist": "Provider managed id",
+    "chooseChecklistDescription": "Provider managed id",
     "content": {
       "rawData": "",
       "interpretedData": "",

@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Co Finanzierung",
-            "emptyFile": "Co Finanzierung",
-            "tooManyRows": "Co Finanzierung"
+            "invalidFileFormat": "DWCA-Erweiterung",
+            "emptyFile": "DWCA-Erweiterung",
+            "tooManyRows": "DWCA-Erweiterung"
         },
         "occurrenceSnapshots": {
             "title": ""

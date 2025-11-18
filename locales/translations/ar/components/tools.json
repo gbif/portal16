@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "التمويل المشترك",
-            "emptyFile": "التمويل المشترك",
-            "tooManyRows": "التمويل المشترك"
+            "invalidFileFormat": "قواعد السلوك",
+            "emptyFile": "قواعد السلوك",
+            "tooManyRows": "قواعد السلوك"
         },
         "occurrenceSnapshots": {
             "title": ""

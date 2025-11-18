@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Совместное финансирование",
-            "emptyFile": "Совместное финансирование",
-            "tooManyRows": "Совместное финансирование"
+            "invalidFileFormat": "Идентификатор, управляемый поставщиком",
+            "emptyFile": "Идентификатор, управляемый поставщиком",
+            "tooManyRows": "Идентификатор, управляемый поставщиком"
         },
         "occurrenceSnapshots": {
             "title": ""

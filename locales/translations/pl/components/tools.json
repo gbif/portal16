@@ -93,9 +93,9 @@
             "mintingDoi": "Tworzenie DOI – nie powinno to zająć dużo czasu.",
             "attachCsvLabel": "Dołącz [plik CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) z kluczami zestawu danych i liczbą wystąpień",
             "orEnterLabel": "lub wprowadź klucze zbioru danych/DOI i liczbę wystąpień tutaj",
-            "invalidFileFormat": "Współfinansowanie",
-            "emptyFile": "Współfinansowanie",
-            "tooManyRows": "Współfinansowanie"
+            "invalidFileFormat": "Identyfikator zarządzany przez dostawcę",
+            "emptyFile": "Identyfikator zarządzany przez dostawcę",
+            "tooManyRows": "Identyfikator zarządzany przez dostawcę"
         },
         "occurrenceSnapshots": {
             "title": ""

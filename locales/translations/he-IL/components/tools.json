@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "מימון משותף",
-            "emptyFile": "מימון משותף",
-            "tooManyRows": "מימון משותף"
+            "invalidFileFormat": "Provider managed id",
+            "emptyFile": "Provider managed id",
+            "tooManyRows": "Provider managed id"
         },
         "occurrenceSnapshots": {
             "title": ""
