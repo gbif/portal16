@@ -87,14 +87,16 @@
                         <doi link="https://doi.org/10.1093/molbev/msy074"></doi>
 
             </div>
-            <div class="small p-r-1" flex="33">
-                
+
+                <div class="small p-r-1" flex="33">
+                    
                         <div>
                             Rimet, F., Gusev, E., Kahlert, M., Kelly, M., Kulikovskiy, M., Maltsev, Y., Mann, D.G., Pankow, A., Ruggiero, M.V., Sabbe, K., Sayer, C.D., Thackeray, S.J., Vanormelingen, P., Zimmermann, J., Bouchez, A. (2019). Diat.barcode, an open-access curated barcode library for diatoms. Scientific Reports 9: 14939.
                         </div>
-                        <doi link="https://doi.org/10.1038/s41598-019-51500-6"></doi>
-        </div>
+                        <doi link="https://doi.org/10.1038/s41598-019-51500-6"></doi>  
+                            
             </div>
+        </div>
             <div layout="row" class="m-t-1 m-b-1" >
             <div class="small p-r-1" flex="33">
                 
@@ -166,7 +168,8 @@
             
 
         </div>
-        
+                 
+    </div>
     </div>
 
 
