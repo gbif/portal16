@@ -25,7 +25,7 @@
             "orphaned": "Conjunto de datos huérfanos",
             "rescued": "Conjunto de datos huérfano rescatado",
             "adopted": "Conjunto de datos adoptado",
-            "neverIngested": "",
+            "neverIngested": "No se ha cargado previamente",
             "inIngestionQueue": "Está en la cola de carga",
             "addingToQueue": "Añadir a la cola",
             "unableToStart": "No se puede iniciar la carga",

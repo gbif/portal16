@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "DWCA-Erweiterung",
+    "chooseChecklistDescription": "DWCA-Erweiterung",
     "content": {
       "rawData": "",
       "interpretedData": "",

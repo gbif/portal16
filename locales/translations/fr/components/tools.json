@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Id géré par le fournisseur",
+            "emptyFile": "Id géré par le fournisseur",
+            "tooManyRows": "Id géré par le fournisseur"
         },
         "occurrenceSnapshots": {
             "title": ""

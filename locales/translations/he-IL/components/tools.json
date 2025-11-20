@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Provider managed id",
+            "emptyFile": "Provider managed id",
+            "tooManyRows": "Provider managed id"
         },
         "occurrenceSnapshots": {
             "title": ""

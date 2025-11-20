@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "قواعد السلوك",
+            "emptyFile": "قواعد السلوك",
+            "tooManyRows": "قواعد السلوك"
         },
         "occurrenceSnapshots": {
             "title": ""

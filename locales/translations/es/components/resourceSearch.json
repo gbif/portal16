@@ -38,9 +38,9 @@
             "gbifDownloadKey": "Descargar clave",
             "gbifDerivedDatasetDoi": "DOI del conjunto de datos derivado",
             "paperDoi": "DOI",
-            "litSource": "",
+            "litSource": "Revista",
             "gbifTaxonKey": "Nombre científico",
-            "litPublisher": ""
+            "litPublisher": "Publicador de la revista"
         },
         "helpText": {
             "gbifTaxonKey": "Nota: La aplicación de este filtro excluirá los trabajos que no se centren explícitamente en un taxón/taxa específico"

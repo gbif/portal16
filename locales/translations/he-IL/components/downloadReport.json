@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "Provider managed id",
+    "chooseChecklistDescription": "Provider managed id",
     "content": {
       "rawData": "",
       "interpretedData": "",

@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "خيارات التنزيل",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "قواعد السلوك",
+    "chooseChecklistDescription": "قواعد السلوك",
     "content": {
       "rawData": "بيانات أولية",
       "interpretedData": "",

@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Samfinansieret af",
+            "emptyFile": "Samfinansieret af",
+            "tooManyRows": "Samfinansieret af"
         },
         "occurrenceSnapshots": {
             "title": ""
