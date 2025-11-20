@@ -30,6 +30,11 @@
         
                           
         </div>
+        <div ng-if="vm.selectedMarker === 'RBCL'">
+            <p>Your data have been matched against the <a href="https://carrtel-collection.hub.inrae.fr/barcoding-databases/diat.barcode">Diat.barcode database</a> v15.2 database of rbcl sequences</p>
+        
+                          
+        </div>
             <!-- <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="dataset.noDescriptionProvided"></div> -->
         </div>
         <div class="col-xs-12">

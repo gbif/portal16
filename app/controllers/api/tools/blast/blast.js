@@ -43,11 +43,10 @@ async function blastBatch2(seq, verbose = false, signal, cb) {
         timeout: 180000
     }, async (err, res, body) => {
         if (err) {
-            //console.log('BLAST batch job error: ', err);
-            throw err;
+            cb(err);
         } else if (res.statusCode > 299) {
            // console.log('BLAST batch job failed with status code: ', res.statusCode);
-            throw res;
+            cb(res);
         } else {
            try {
         const promises = body.map(async (result) => {

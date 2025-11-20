@@ -65,6 +65,7 @@
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('16s') > -1" ng-href="https://gtdb.ecogenomic.org/tree?r=s__{{species.scientificName}}" target="_blank"></a>
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('12s') > -1" ng-href="http://mitofish.aori.u-tokyo.ac.jp/species/detail/?genus={{species.scientificName.split(' ')[0]}}&species={{species.scientificName.split(' ')[1]}}" target="_blank"></a>
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('18s') > -1" ng-href="https://www.ncbi.nlm.nih.gov/nuccore/{{species.accession}}" target="_blank"></a>
+                            <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('rbcl') > -1" ng-href="https://www.ncbi.nlm.nih.gov/nuccore/{{species.accession}}" target="_blank"></a>
 
                             <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
 

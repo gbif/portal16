@@ -144,7 +144,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://localhost:9001', //'http://blast.gbif-dev.org'
+        blastApi:  'http://blast.gbif-dev.org', //'http://localhost:9001',
         graphQL: `http://graphql.gbif${localEnvironmentPostFix}.org/graphql`,
         reactComponents: `//react-components.gbif${localEnvironmentPostFix}.org/lib/gbif-react-components.js`,
         healthUpdateFrequency: 240000,
@@ -201,7 +201,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-lab.org',
+        blastApi: 'http://blast.gbif-dev.org',
         graphQL: 'http://graphql.gbif-lab.org/graphql',
         reactComponents: '//react-components.gbif-lab.org/lib/gbif-react-components.js',
         healthUpdateFrequency: healthUpdateFrequency,

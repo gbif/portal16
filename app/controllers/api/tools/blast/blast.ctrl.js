@@ -28,7 +28,7 @@ router.post('/blast/batch', cors({origin: '*'}), function(req, res) {
     });
     blast.blastBatch(req.body, _.get(req, 'query.verbose', false), signal, (err, response) => {
         if (err) {
-            res.status(err.statusCode || 503).send(err.body || '');
+            res.sendStatus(err.statusCode || 503);
         } else {
             res.status(200).json(response);
         }
