@@ -5,12 +5,16 @@
                 <ul>
                     <li class="tab tab-right ng-cloak" ng-if="speciesKey2.isNub">
                         <span>
-                            <a ng-if="speciesKey2.occurrences.count > 0" href=""
+                            {# <a ng-if="speciesKey2.occurrences.count > 0" href=""
                                 class="gb-button--brand"
                                 ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrences.count | localNumber }} 
                                 <span class="gb-button--brand__label" translate="counts.pOccurrence" translate-values="{NUMBER: speciesKey2.occurrences.count}"></span>
+                            </a> #}
+                            <a ng-if="speciesKey2.occurrenceCount > 0" href=""
+                                class="gb-button--brand"
+                                ui-sref="occurrenceSearchTable({taxon_key:speciesKey2.species.key})">{{ speciesKey2.occurrenceCount | localNumber }} 
+                                <span class="gb-button--brand__label" translate="counts.pOccurrence" translate-values="{NUMBER: speciesKey2.occurrenceCount}"></span>
                             </a>
-                            <a ng-if="speciesKey2.occurrences.count == 0" ng-href="{{ urlPrefix }}/tools/suggest-dataset" class="gb-button--discreet" translate="species.noOccurencesInGbif"></a>
                         </span>
                     </li>
 
