@@ -5,7 +5,7 @@
   },
   "species": {
     "literature": {
-      "introText": ""
+      "introText": "Literatura [relevante para GBIF] (/faq?question=literature-relevance) que se centra explícitamente en el taxón"
     },
     "distribution": {
       "presentIn": "Presente en {país}",
@@ -88,7 +88,7 @@
     "taxa": "Taxones",
     "mediatedThrough": "Mediado a través",
     "taxonIdentifiers": "Identificadores de taxón",
-    "whyDoubtful": "",
+    "whyDoubtful": "Cuando un taxón es «dudoso»",
     "noVerbatimData": ""
   }
 }

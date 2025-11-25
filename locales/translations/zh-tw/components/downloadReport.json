@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "下載選項",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "提供者管理ID",
+    "chooseChecklistDescription": "提供者管理ID",
     "content": {
       "rawData": "原始資料",
       "interpretedData": "已解釋的資料",

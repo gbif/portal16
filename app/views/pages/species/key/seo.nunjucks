@@ -37,18 +37,6 @@
                             {% endif %}
                         </dl>
                     </section>
-                    {# <section>
-                        {% if species.occurrenceImages and species.occurrenceImages.results.length > 0 %}
-                            {% for occ in species.occurrenceImages.results %}
-                                {% for img in occ.media %}
-                                <div about="{$ img.identifier $}">
-                                    <img src="{$ img.identifier $}">
-                                    <span rel="license">{$ img.license $}</span>
-                                </div>
-                                {% endfor %}
-                            {% endfor %}
-                        {% endif %}
-                    </section> #}
 
                     <section>
                         <h3>Classification</h3>

@@ -15,7 +15,7 @@ let express = require('express'),
     callbackURL = domain + '/auth/github/callback';
 
 module.exports = function(app) {
-    app.use('/auth', router);
+    app.use('/auth', auth.noCacheMiddleware(), router);
 };
 
 router.get('/github/connect', auth.isAuthenticated(), function(req, res, next) {

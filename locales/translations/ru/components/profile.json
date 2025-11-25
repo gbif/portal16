@@ -58,7 +58,7 @@
     "signInAgreement": "Входя в систему, Вы принимаете [terms](/ условия) GBIF и [политику конфиденциальности](/terms/privacy-policy).",
     "country": "Страна",
     "countryRequired": "Необходимо указать страну",
-    "email": "Email",
+    "email": "Адрес электронной почты",
     "emailRequired": "Необходимо указать Email",
     "invalidEmail": "Пожалуйста, введите корректный Email",
     "username": "Имя пользователя",

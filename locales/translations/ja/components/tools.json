@@ -93,9 +93,9 @@
             "mintingDoi": "DOI作成中 - これは長くはかからないはずです。",
             "attachCsvLabel": "データセットキーとオカレンス件数が含まれたCSVを添付",
             "orEnterLabel": "または、データセットキー/DOIおよびオカレンス件数をここに入力する",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "行動規範",
+            "emptyFile": "行動規範",
+            "tooManyRows": "行動規範"
         },
         "occurrenceSnapshots": {
             "title": ""

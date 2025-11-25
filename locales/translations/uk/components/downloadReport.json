@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Варіанти завантаження",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "Етичні норми",
+    "chooseChecklistDescription": "Етичні норми",
     "content": {
       "rawData": "Первинні дані",
       "interpretedData": "",

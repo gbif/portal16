@@ -1,6 +1,6 @@
 {
   "phrases": {
-    "pleaseCiteAs": "",
+    "pleaseCiteAs": "Por favor, utiliza esta cita en tus publicaciones.",
     "copy": "Copiar",
     "more": "Más",
     "contactHelpdesk": "Contacta con el servicio de asistencia",
@@ -24,7 +24,7 @@
     "noData": "Sin datos",
     "payloadTooLarge": "",
     "readMore": "Leer más",
-    "share": "",
+    "share": "Compartir",
     "download": "Descargar",
     "cancel": "Cancelar",
     "testSiteWarning": "",

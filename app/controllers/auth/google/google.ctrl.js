@@ -15,7 +15,7 @@ let express = require('express'),
     callbackURL = domain + '/auth/google/callback';
 
 module.exports = function(app) {
-    app.use('/auth', router);
+    app.use('/auth', auth.noCacheMiddleware(), router);
 };
 
 router.get('/google/connect', auth.isAuthenticated(), function(req, res, next) {

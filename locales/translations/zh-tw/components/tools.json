@@ -93,9 +93,9 @@
             "mintingDoi": "建立 DOI - 這不會花很長時間。",
             "attachCsvLabel": "附加 [CSV 檔案](/faq?question=how-do-i-create-a-csv-file-for-a-driven-dataset&inline=true) 以及資料集檢索和出現次數",
             "orEnterLabel": "或在此輸入資料集檢索/DOI 和出現次數",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "提供者管理ID",
+            "emptyFile": "提供者管理ID",
+            "tooManyRows": "提供者管理ID"
         },
         "occurrenceSnapshots": {
             "title": ""

@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "下载选项",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "发布者管理的ID",
+    "chooseChecklistDescription": "发布者管理的ID",
     "content": {
       "rawData": "原始数据",
       "interpretedData": "解释数据",

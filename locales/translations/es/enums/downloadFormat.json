@@ -5,9 +5,9 @@
     "CUBE": "",
     "DWCA": "Archivo Darwin Core",
     "SPECIES_LIST": "Listas de especies",
-    "SIMPLE_WITH_VERBATIM_AVRO": "",
-    "MAP_OF_LIFE": "",
-    "IUCN": "",
+    "SIMPLE_WITH_VERBATIM_AVRO": "Apache Avro con campos interpretados comunes y todos los campos literales",
+    "MAP_OF_LIFE": "Exportación Map of Life",
+    "IUCN": "Exportación UICN",
     "BIONOMIA": "Exportar Bionomia",
     "SQL_TSV_ZIP": "",
     "SIMPLE_PARQUET": "Parquet simple"

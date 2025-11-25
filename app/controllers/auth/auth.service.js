@@ -25,6 +25,7 @@ module.exports = {
     setTokenCookie: setTokenCookie,
     removeTokenCookie: removeTokenCookie,
     setNoCache: setNoCache,
+    noCacheMiddleware: noCacheMiddleware,
     isHumanEnough: isHumanEnough,
     appendUser: appendUser,
     logUserIn: logUserIn
@@ -48,8 +49,8 @@ function setTokenInHeader(req) {
  */
 function isAuthenticated() {
     return compose()
-    // Validate jwt
-        .use(function(req, res, next) {
+        // Validate jwt
+        .use(function (req, res, next) {
             // // allow access_token to be passed through query parameter as well
             // if (req.query && req.query.hasOwnProperty('access_token')) {
             //    req.headers.authorization = `Bearer ${req.query.access_token}`;
@@ -62,11 +63,11 @@ function isAuthenticated() {
             setTokenInHeader(req);
             validateJwt(req, res, next);
         })
-        .use(function(err, req, res, next) {
+        .use(function (err, req, res, next) {
             if (err.name === 'UnauthorizedError') {
                 setNoCache(res);
                 removeTokenCookie(res);
-                log.info({url: req.url}, 'Invalid user token detected.');
+                log.info({ url: req.url }, 'Invalid user token detected.');
                 res.status(401).send('invalid token...');
             } else if (err) {
                 next(err);
@@ -75,7 +76,7 @@ function isAuthenticated() {
             }
         })
         // Attach user to request
-        .use(function(req, res, next) {
+        .use(function (req, res, next) {
             setNoCache(res);
             User.getByUserName(req.user.userName)
                 .then((user) => {
@@ -85,9 +86,9 @@ function isAuthenticated() {
                     req.user = user;
                     next();
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     res.status(err.statusCode || 403);
-                    res.json({message: 'INVALID'});
+                    res.json({ message: 'INVALID' });
                 });
         });
 }
@@ -97,11 +98,11 @@ function isAuthenticated() {
  */
 function appendUser() {
     return compose()
-    // Attach user to request
-        .use(function(req, res, next) {
+        // Attach user to request
+        .use(function (req, res, next) {
             setNoCache(res);
             setTokenInHeader(req);
-            validateJwt(req, res, function(val) {
+            validateJwt(req, res, function (val) {
                 if (_.isUndefined(val)) {
                     User.getByUserName(req.user.userName)
                         .then((user) => {
@@ -113,7 +114,7 @@ function appendUser() {
                             }
                             next();
                         })
-                        .catch(function(err) {
+                        .catch(function (err) {
                             if (err.statusCode == 204) {
                                 removeTokenCookie(res);
                                 delete req.user;
@@ -140,7 +141,7 @@ function signToken(user, ttl) {
         lastName: user.lastName
     };
     if (user.roles) {
-       tokenContent.roles = JSON.stringify(user.roles);
+        tokenContent.roles = JSON.stringify(user.roles);
     }
     let token = jwt.sign(tokenContent, secret, {
         expiresIn: ttl || (60 * 60 * 24 * 7) // time in seconds - 7 days
@@ -189,6 +190,15 @@ function setNoCache(res) {
     res.header('Expires', '0');
 }
 
+function noCacheMiddleware() {
+    return compose()
+        // Validate jwt
+        .use(function (req, res, next) {
+            setNoCache(res);
+            next();
+        });
+}
+
 
 /**
  * Has client answered a human verification correctly
@@ -197,10 +207,10 @@ function setNoCache(res) {
 function isHumanEnough() {
     return compose()
         // Test that the request has a body with a challengeCode and a correct answer
-        .use(function(req, res, next) {
+        .use(function (req, res, next) {
             let challengeId = _.get(req, 'body.challenge.id');
             let answer = _.get(req, 'body.challenge.answer');
-            verification.verify(challengeId, answer, function(isHumanEnough) {
+            verification.verify(challengeId, answer, function (isHumanEnough) {
                 if (isHumanEnough) {
                     next();
                 } else {

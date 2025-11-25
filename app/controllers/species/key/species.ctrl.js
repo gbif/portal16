@@ -43,7 +43,7 @@ router.get('/species/:key(\\d+)/:ignore', function render(req, res) {
 function renderSpeciesPage(req, res, next) {
     let speciesKey = req.params.key;
     let options = {
-        expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular', 'occurrenceImages', 'parents']
+        expand: ['descriptions', 'dataset', 'synonyms', 'combinations', 'media', 'references', 'homonyms', 'vernacular', 'parents']
     };
 
     Taxon.get(speciesKey, options).then(function(taxon) {

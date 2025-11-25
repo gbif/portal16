@@ -64,8 +64,6 @@
                 </div>
             </div>
                         <wikidata-identifiers key="{{ speciesKey2.key }}"></wikidata-identifiers>
-
-           {# {% include "../partners/partners.nunjucks" %} #}
         </div>
     </div>
 </div>

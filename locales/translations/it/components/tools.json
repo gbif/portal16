@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Codice di Condotta",
+            "emptyFile": "Codice di Condotta",
+            "tooManyRows": "Codice di Condotta"
         },
         "occurrenceSnapshots": {
             "title": ""

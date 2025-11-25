@@ -106,6 +106,15 @@ var angular = require('angular');
                 }
             );
         })
+        .factory('SpeciesOccurrenceMedia', function($resource, env) {
+            return $resource(env.dataApi + 'occurrence/experimental/multimedia/species/:id', null, {
+                    'query': {
+                        method: 'GET',
+                        isArray: false
+                    }
+                }
+            );
+        })
         .factory('SpeciesTreatment', function($resource, env) {
             return $resource('/api/species/:id/treatment', null, {
                     'query': {

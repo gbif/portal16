@@ -2,8 +2,8 @@
     <h4 class="card-header" tx="galleryBar.nOccWithImages" tx-nr="speciesKey2.images.count"></h4>
     <div class="galleryBar">
         <div>
-            <a ng-repeat="occurrence in speciesKey2.images.results" ui-sref="occurrenceKey({key:occurrence.key})" ng-if="occurrence._image" class="galleryBar__img showBroken inherit noUnderline hoverBox">
-                <img ng-src="{{ occurrence._image.identifier | occurrenceImgCache:occurrence.key:'200x' }}" gb-load>
+            <a ng-repeat="img in speciesKey2.images.results" ui-sref="occurrenceKey({key:img.occurrenceKey})" ng-if="img" class="galleryBar__img showBroken inherit noUnderline hoverBox">
+                <img ng-src="{{ img.identifier | occurrenceImgCache:img.occurrenceKey:'200x' }}" gb-load>
             </a>
         </div>
         <a ui-sref="occurrenceSearchGallery({taxon_key:speciesKey2.key})" class="gb-button--brand" ng-if="speciesKey2.images.count > 1" translate="galleryBar.seeAllImages"></a>

@@ -97,10 +97,10 @@ let path = require('path'),
     healthUpdateFrequency = 30000;
 
 // NB endpoints are VERY mixed. Ideally everything should be prod unless we are testing functionality that are developed in sync.
-const localEnvironmentPostFix = ''; // e.g. '-uat';
+const localEnvironmentPostFix = '-test'; // e.g. '-uat';
 let config = {
     local: {
-        productionSite: false, 
+        productionSite: false,
         env: 'dev',
         healthEnv: 'uat',
         root: rootPath,
@@ -144,7 +144,7 @@ let config = {
         publicConstantKeys: publicConstantKeys,
         fbAppId: 1534726343485342,
         userAgent: userAgent,
-        blastApi: 'http://blast.gbif-dev.org', //'http://localhost:9001', //
+        blastApi:  'http://blast.gbif-dev.org', //'http://localhost:9001',
         graphQL: `http://graphql.gbif${localEnvironmentPostFix}.org/graphql`,
         reactComponents: `//react-components.gbif${localEnvironmentPostFix}.org/lib/gbif-react-components.js`,
         healthUpdateFrequency: 240000,
@@ -162,7 +162,63 @@ let config = {
         newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
 
     },
-
+    lab: {
+        productionSite: false,
+        env: env,
+        root: rootPath,
+        app: {
+            name: 'portal - lab'
+        },
+        port: port || 80,
+        serverProtocol: 'http:',
+        apidocs: apidocs,
+        managementToolsSite: '//registry.gbif-lab.org/',
+        dataApiV2: dataApiV2 || '//api.gbif-lab.org/v2/',
+        dataApi: dataApi || '//api.gbif-lab.org/v1/',
+        registryApi: registryApi || `//registry-api.gbif-lab.org/`,
+        sourceArchive: sourceArchive || `//source-archive.gbif-lab.org/`,
+        graphQLApi: graphQLApi || `//graphql.gbif-lab.org/graphql`,
+        webUtils: webUtils || `//graphql.gbif-lab.org/unstable-api`,
+        tileApi: tileApi || '//api.gbif-lab.org/v1/map/density/tile.png',
+        basemapTileApi: basemapTileApi || '//tile.gbif-lab.org',
+        identityApi: identityApi || '//api.gbif-lab.org/v1/',
+        analyticsImg: analyticsImg || 'tools.gbif-lab.org/sites/default/files/gbif_analytics/',
+        domain: 'https://tools.gbif-lab.org',
+        topDomain: 'gbif-lab.org',
+        grscicollDomain: `https://grscicoll.hp.gbif-lab.org`,
+        credentials: credentials || '/etc/portal16/credentials',
+        redirects: redirects || '/etc/portal16/redirects',
+        spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
+        verification: verification || '/var/lib/human-verification/images',
+        contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
+        contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
+        elasticContentful: elasticContentful || 'http://cms-search.gbif-lab.org:9200/',
+        registry: registry || 'https://registry.gbif-lab.org',
+        elk: elk || '//privatelogs2-vh.gbif.org:5601/',
+        publicKibana: publicKibana || '//logs.gbif.org/',
+        kibanaIndex: kibanaIndex || '36e5ccd0-fdb1-11ea-93de-b97c40066ce8',
+        locales: localeConfig.locales,
+        defaultLocale: localeConfig.defaultLocale,
+        contentfulLocaleMap: localeConfig.localeMappings.contentful,
+        publicConstantKeys: publicConstantKeys,
+        fbAppId: 1534726343485342,
+        userAgent: userAgent,
+        blastApi: 'http://blast.gbif-dev.org',
+        graphQL: 'http://graphql.gbif-lab.org/graphql',
+        reactComponents: '//react-components.gbif-lab.org/lib/gbif-react-components.js',
+        healthUpdateFrequency: healthUpdateFrequency,
+        checklistMapping: {
+            '7ddf754f-d193-4cc9-b351-99906754a03b': {
+                title: 'Catalogue of Life',
+                colDatasetKey: '308651'
+            },
+            'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c': {
+                title: 'GBIF Backbone',
+                colDatasetKey: '53147'
+            }
+        },
+        defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'
+    },
     dev: {
         productionSite: false,
         env: env,
@@ -242,9 +298,9 @@ let config = {
         basemapTileApi: basemapTileApi || '//tile.gbif-uat.org',
         identityApi: identityApi || '//api.gbif-uat.org/v1/',
         analyticsImg: analyticsImg || 'www.gbif-uat.org/sites/default/files/gbif_analytics/',
-        domain: 'https://www.gbif-uat.org',
-        topDomain: 'gbif-uat.org',
-        grscicollDomain: `https://grscicoll.hp.gbif-uat.org`,
+        domain: 'https://www.gbif-test.org',
+        topDomain: 'gbif-test.org',
+        grscicollDomain: `https://grscicoll.hp.gbif-test.org`,
         credentials: credentials || '/etc/portal16/credentials',
         redirects: redirects || '/etc/portal16/redirects',
         spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
@@ -414,8 +470,8 @@ let config = {
         basemapTileApi: basemapTileApi || '//tile.gbif.org',
         identityApi: identityApi || '//labs.gbif-uat.org:7003/',
         analyticsImg: analyticsImg || 'www.gbif.org/sites/default/files/gbif_analytics/',
-        domain: 'https://www.gbif-uat.org',
-        topDomain: 'gbif-uat.org',
+        domain: 'https://www.gbif-test.org',
+        topDomain: 'gbif-test.org',
         credentials: credentials || '/etc/portal16/credentials',
         redirects: redirects || '/etc/portal16/redirects',
         spamTerms: spamTerms || ('/etc/portal16/spam.txt'),
