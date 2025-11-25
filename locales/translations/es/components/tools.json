@@ -14,7 +14,7 @@
                 "taxon": "Cobertura taxonómica",
                 "whyImportant": "¿Por qué este conjunto de datos es importante?",
                 "howWouldYouRateIt": "¿Cómo valorarías su importancia?",
-                "high": "Esencial: GBIF no tiene datos en este área",
+                "high": "Esencial: GBIF no tiene datos en esta área",
                 "medium": "Importante: GBIF tiene pocos datos en este área",
                 "low": "Sería un buen complemento de los datos existentes",
                 "bibliographicRef": "Referencia bibliográfica",
