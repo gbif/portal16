@@ -3,34 +3,30 @@
 
     <div layout="row" layout-align="center start" ng-cloak>
         <div class="nameParser__prose" >
-          <p>This tool will query taxonomy reference databases for Fungi, Animals, Bacteria and Archaea</p>
-          <ul class="sequenceMatcher__list m-b-05">
-          <li><strong>ITS</strong> sequences for Fungi will be queried against the <a href="https://unite.ut.ee/repository.php">UNITE general FASTA release for eukaryotes v9.0</a> (a reference database for DNA barcoding of Fungi)</li>
-          <li><strong>COI</strong> sequences for Animals will be queried against a 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2025-10-17</a> public data (COI-5P sequences)</li>
-          <li><strong>16S</strong> sequences for Bacteria and Archaea will be queried against the <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database r214</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
-          <li><strong>18S</strong> sequences will be queried against the <a href="https://pr2-database.org//">PR2 database</a> v5.0.0</li>
-          <li><strong>12S</strong> sequences for Fish will be queried against the <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v41 database of 12S sequences</li>
-          <li><strong>rbcl</strong> sequences for Diatoms will be queried against the <a href="https://carrtel-collection.hub.inrae.fr/barcoding-databases/diat.barcode">Diat.barcode database v 15.2</a></li>
-        </ul>
-        <p>Files can be uploaded in CSV or FASTA format. CSVs are expected to have a columns named 'sequence', 'marker' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
+         
+        <p>Files can be uploaded in FASTA or CSV format. CSVs are expected to have a columns named 'sequence' and an 'id' or 'occurrenceId' column. It is also possible to paste sequences into the text field below (only FASTA format)</p>
         </div>
     </div>
     <div layout="row" layout-align="center start" layout-padding ng-cloak>
     <div class="nameParser__name-paste-form" layout-align="start center">
     <form >
-    <label >Select marker</label>
-    <md-radio-group ng-model="vm.selectedMarker" layout="row">
+    <label >Select database</label>
+    <md-radio-group ng-model="vm.selectedMarker" layout="column" class="m-b-1">
 
-      <md-radio-button class="md-primary" value="ITS" >ITS</md-radio-button>
-      <md-radio-button class="md-primary" value="COI"> COI </md-radio-button>
-      <md-radio-button class="md-primary" value="16S"> 16S </md-radio-button>
-      <md-radio-button class="md-primary" value="18S"> 18S </md-radio-button>
-      <md-radio-button class="md-primary" value="12S"> 12S </md-radio-button>
-      <md-radio-button class="md-primary" value="RBCL"> RBCL </md-radio-button>
+      <md-radio-button class="md-primary" value="ITS" ><strong>ITS</strong> Fungi and other Eukaryotes, UNITE general FASTA release for eukaryotes v9.0 </md-radio-button>
+      <md-radio-button class="md-primary" value="COI"> <strong>COI</strong> Animals, 99% clustered version of the BOLD Public Database v2025-10-17 </md-radio-button>
+      <md-radio-button class="md-primary" value="16S"> <strong>16S</strong> Bacteria and Archaea, Genome Taxonomy Database r214</md-radio-button>
+      <md-radio-button class="md-primary" value="18S"> <strong>18S</strong> Eukaryotes, PR2 database v5.0.0 </md-radio-button>
+      <md-radio-button class="md-primary" value="12S"> <strong>12S</strong> Fish, MitoFish v41 database</md-radio-button>
+      <md-radio-button class="md-primary" value="RBCL"> <strong>rbcl</strong> Diatoms, Diat.barcode database v 15.2 </md-radio-button>
+      <md-radio-button class="md-primary" value="12s_mt12s_eukaryotes_midori2"> <strong>12S</strong> Eukaryotes, Midori2 database</md-radio-button>
+      <md-radio-button class="md-primary" value="16s_mt16s_eukaryotes_midori2"> <strong>16S</strong> Eukaryotes, Midori2 database</md-radio-button>
+      <md-radio-button class="md-primary" value="cytb_eukaryotes_midori2"> <strong>Cytochrome b</strong> Eukaryotes, Midori2 database</md-radio-button>
+
 
     </md-radio-group>
         <md-input-container class="md-block ">
-            <label >Paste sequences here (fasta format, remember to select marker)</label>
+            <label >Paste sequences here (fasta format, remember to select database)</label>
             <textarea class="nameParser__name-paste-area" ng-model="vm.inputList" rows="10" md-select-on-focus></textarea>
         </md-input-container>
         <div class="text-center">
@@ -44,7 +40,7 @@
         </form>
     </div>
         <div>
-            <div layout="column" layout-align="center center">
+            <div layout="column" layout-align="center center" style="margin-top: 370px;">
                 <div class="nameParser__input-file">
                     <input type="file" onchange="angular.element(this).scope().handleFiles(this.files)"/>
                     <a href="" translate="nameParser.selectFile">Select file</a>
@@ -65,6 +61,21 @@
 
     </div>
     <div layout="row" layout-align="center start" ng-cloak>
+     <div class="nameParser__prose" >
+        <h4>Current versions:</h4>
+         <ul class="sequenceMatcher__list m-b-05">
+          <li><strong>ITS</strong> - <a href="https://unite.ut.ee/repository.php">UNITE general FASTA release for eukaryotes v9.0</a> (a reference database for DNA barcoding of Fungi)</li>
+          <li><strong>COI</strong> - 99% clustered version of the <a href="https://doi.org/10.15468/inygc6">BOLD Public Database v2025-10-17</a> public data (COI-5P sequences)</li>
+          <li><strong>16S</strong> - <a href="https://gtdb.ecogenomic.org/downloads">Genome Taxonomy Database r214</a> 16S rRNA gene sequences identified within the set of representative genomes</li>
+          <li><strong>18S</strong> - <a href="https://pr2-database.org//">PR2 database</a> v5.0.0</li>
+          <li><strong>12S</strong> - <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v41 database of 12S sequences</li>
+          <li><strong>rbcl</strong> - <a href="https://carrtel-collection.hub.inrae.fr/barcoding-databases/diat.barcode">Diat.barcode database v 15.2</a></li>
+         <li><strong>12S, 16S and Cytochrome b</strong> - <a href="https://www.reference-midori.info/index.html">Midori2 database version GB268</a></li>
+        </ul> 
+    </div>  
+    </div>  
+    <div layout="row" layout-align="center start" ng-cloak>
+     
     <div class="nameParser__prose">
     <h4>References</h4>
         <div layout="row" >
@@ -135,10 +146,10 @@
          <div layout="row" class="m-t-1 m-b-1" >
             <div class="small p-r-1" flex="33">
                 
-                        <div>
-                            Parks DH., Chuvochina M, Chaumeil P, Rinke C, Mussig AJ, Hugenholtz P (2020). A complete domain-to-species taxonomy for Bacteria and Archaea. Nature Biotechnology volume 38, pages 1079–1086
-                        </div>
-                        <doi link="https://doi.org/10.1038/s41587-020-0501-8"></doi>
+                <div>
+                     Leray, M., Knowlton, N., & Machida, R. J. (2022). MIDORI2: A collection of quality controlled, preformatted, and regularly updated reference databases for taxonomic assignment of eukaryotic mitochondrial sequences. Environmental DNA, 4, 894–907.
+                </div>
+                <doi link="https://doi.org/10.1002/edn3.303"></doi>
                      
 
 

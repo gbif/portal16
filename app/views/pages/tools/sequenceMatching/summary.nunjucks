@@ -32,8 +32,19 @@
         </div>
         <div ng-if="vm.selectedMarker === 'RBCL'">
             <p>Your data have been matched against the <a href="https://carrtel-collection.hub.inrae.fr/barcoding-databases/diat.barcode">Diat.barcode database</a> v15.2 database of rbcl sequences</p>
-        
-                          
+                               
+        </div>
+        <div ng-if="vm.selectedMarker === '12s_mt12s_eukaryotes_midori2'">
+            <p>Your data have been matched against the <a href="https://www.reference-midori.info/index.html">Midori2 database version GB268</a> of 12S sequences</p>
+                               
+        </div>
+        <div ng-if="vm.selectedMarker === '16s_mt16s_eukaryotes_midori2'">
+            <p>Your data have been matched against the <a href="https://www.reference-midori.info/index.html">Midori2 database version GB268</a> of 16S sequences</p>
+                               
+        </div>
+        <div ng-if="vm.selectedMarker === 'cytb_eukaryotes_midori2'">
+            <p>Your data have been matched against the <a href="https://www.reference-midori.info/index.html">Midori2 database version GB268</a> of cytb sequences</p>
+                               
         </div>
             <!-- <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="dataset.noDescriptionProvided"></div> -->
         </div>
