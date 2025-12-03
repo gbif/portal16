@@ -21,7 +21,7 @@
             "BOOK": "книга",
             "BOOK_CHAPTER": "глава книги",
             "CONFERENCE_PAPER_PROCEEDINGS": "доклад / материалы конференции",
-            "PREPRINT_WORKING_PAPER": "",
+            "PREPRINT_WORKING_PAPER": "Препринт /рабочая статья",
             "REPORT": "отчет",
             "WEB_PAGE": "веб-страница",
             "THESIS_DISSERTATION": "дипломная работа / диссертация",
@@ -29,15 +29,15 @@
             "MAGAZINE_ARTICLE": "журнальная статья",
             "STATUTE": "законодательный акт",
             "PATENT": "патент",
-            "NEWSPAPER_ARTICLE": "",
-            "SOFTWARE_COMPUTER_PROGRAM": "",
-            "HEARING": "",
-            "TELEVISION_BROADCAST": "",
-            "ENCYCLOPEDIA_ARTICLE": "",
-            "CASE": "",
-            "FILM": "",
-            "BILL": "",
-            "OTHER": ""
+            "NEWSPAPER_ARTICLE": "Статья в издании",
+            "SOFTWARE_COMPUTER_PROGRAM": "Компьютерная программа",
+            "HEARING": "Тип файла hearing",
+            "TELEVISION_BROADCAST": "телевизионная трансляция",
+            "ENCYCLOPEDIA_ARTICLE": "статья в энциклопедии",
+            "CASE": "Тип файла загрузки CASE",
+            "FILM": "Пленка",
+            "BILL": "законопроект",
+            "OTHER": "другое (пожалуйста, укажите в комментарии)"
         }
     }
 }

@@ -37,7 +37,7 @@
             "openAccess": "В открытом доступе",
             "gbifDownloadKey": "Ключ для получения файла",
             "gbifDerivedDatasetDoi": "Производный набор данных DOI",
-            "paperDoi": "",
+            "paperDoi": "DOI",
             "litSource": "Журнал",
             "gbifTaxonKey": "Латинское название",
             "litPublisher": "Издательство"

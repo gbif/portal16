@@ -9,7 +9,7 @@
         "nEvents": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {описаний или сборов}\none {описание или сбор}\nfew {описания или сбора}\nmany {описаний или сборов}\nother {описаний или сборов}\n}",
         "nInstallations": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {инсталляций}\none {инсталляция}\nfew {инсталляции}\nmany {инсталляций}\nother {инсталляций}\n}",
         "nOccurrences": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
-        "nOccurrencesHosted": "",
+        "nOccurrencesHosted": "{NUMBER_FORMATED} {NUMBER, plural, one{hosted occurrence} few {hosted occurrences} many {hosted occurrences} other{hosted occurrences}}",
         "nOccurrencesAbout": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n} о",
         "nOccurrencesPublished": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {опубликованных находок}\none {опубликованная находка}\nfew {опубликованных находки}\nmany {опубликованных находок}\nother {опубликованных находок}\n}",
         "nEndorsedPublishers": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {одобренных организаций}\none {одобренная организация}\nfew {одобренных организации}\nmany {одобренных организаций}\nother {одобренных организации}\n}",
@@ -19,14 +19,14 @@
         "nContacts": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {контактов}\none {контакт}\nfew {контакта}\nmany {контактов}\nother {контактов}\n}",
         "pRecords": "{NUMBER, plural,\n0 {записей}\none {запись}\nfew {записи}\nmany {записей}\nother {записей}\n}",
         "pOccurrence": "{NUMBER, plural,\n0 {находок}\none {находка}\nfew {находки}\nmany {находок}\nother {находок}\n}",
-        "pMaterialSamples": "",
+        "pMaterialSamples": "{NUMBER, plural, one{material examined} few {materials examined} many {materials examined} other{materials examined}}",
         "pSpecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {видов}\none {вид}\nfew {вида}\nmany {видов}\nother {видов}\n}",
         "pInfraspecies": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидовых таксонов}\none {подвидовой таксон}\nfew {подвидовых таксона}\nmany {подвидовых таксонов}\nother {подвидовых таксонов}\n}",
         "pPublishers": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {организаций}\none {организация}\nfew {организации}\nmany {организаций}\nother {организаций}\n}",
         "contacts": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {контактов}\none {контакт}\nfew {контакта}\nmany {контактов}\nother {контактов}\n}",
         "nTreatments": "{NUMBER_FORMATED} {NUMBER, plural,\n0 {подвидов}\none {подвид}\nfew {подвида}\nmany {подвидов}\nother {подвидов}\n}",
         "nAbsent": "",
-        "nImages": "",
-        "nMore": ""
+        "nImages": "{NUMBER_FORMATED} {NUMBER, plural, one{image} few {images} many {images} other{images}}",
+        "nMore": "{NUMBER_FORMATED} {NUMBER, plural, one{more} few {more} many {more} other{more}}"
     }
 }
