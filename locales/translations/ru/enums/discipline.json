@@ -90,14 +90,14 @@
       "HEALTH_EPIDEMIOLOGY_PUBLIC_HEALTH": "Здравоохранение, эпидемиология и общественное здоровье",
       "HEALTH_GENETICS_GENOMICS": "Здравоохранение, генетика,  геномика",
       "HEALTH_MICROBIOLOGY_BACTERIOLOGY_VIROLOGY": "Здравоохранение, микробиология, бактериология, вирусология",
-      "HEALTH_NEUROSCIENCES_AND_NEUROBIOLOGY": "",
-      "HEALTH_NUTRITION_SCIENCES": "",
-      "HEALTH_PATHOLOGY_HUMAN": "",
-      "HEALTH_PHARMACEUTICAL_MEDICINAL_SCIENCES": "",
-      "HEALTH_PHARMACOLOGY_HUMAN_AND_ANIMAL": "",
-      "HEALTH_TOXICOLOGY": "",
-      "HEALTH_VETERINARY_SCIENCES": "",
-      "MATERIAL": ""
+      "HEALTH_NEUROSCIENCES_AND_NEUROBIOLOGY": "Здравоохранение,  нейронауки и нейробиология",
+      "HEALTH_NUTRITION_SCIENCES": "Науки нутрициологии",
+      "HEALTH_PATHOLOGY_HUMAN": "Здоровье человека, патологии",
+      "HEALTH_PHARMACEUTICAL_MEDICINAL_SCIENCES": "Здравоохранение, фармацевтика, медицина",
+      "HEALTH_PHARMACOLOGY_HUMAN_AND_ANIMAL": "Здравоохранение, фармакология человека и животных",
+      "HEALTH_TOXICOLOGY": "Здравоохранение, токсикология",
+      "HEALTH_VETERINARY_SCIENCES": "Здравоохранение, ветеринария",
+      "MATERIAL": "Материал"
     }
   }
 }
