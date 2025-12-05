@@ -247,7 +247,7 @@ let config = {
         verification: verification || '/var/lib/human-verification/images',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif-dev.org:9200/',
+        elasticContentful: elasticContentful || 'http://c6n9.gbif-test.org:31920',
         registry: registry || 'https://registry.gbif-dev.org',
         elk: elk || '//privatelogs2-vh.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
