@@ -90,9 +90,9 @@
     "affiliateCollections": "Дополнительные организации"
   },
   "grscicoll": {
-    "title": "",
+    "title": "Заголовок GRSciColl",
     "suggestChange": "Предложить изменение",
-    "suggestNewCollection": "",
+    "suggestNewCollection": "Предложить новую коллекцию",
     "suggestNewInstitution": "",
     "tabs": {
       "about": "Об организациии",
