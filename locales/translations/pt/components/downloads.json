@@ -81,16 +81,16 @@
     "title": "Minhas transferências"
   },
   "customDownload": {
-    "invalidFilter": "",
-    "seeDocumentation": "",
-    "reformat": "",
+    "invalidFilter": "filtro inválido",
+    "seeDocumentation": "Leia a documentação",
+    "reformat": "Reformatar",
     "invalidJson": "",
-    "title": "",
+    "title": "Crie novo download",
     "invalidUrlPredicate": "",
     "redirectNotice": ""
   },
   "customSqlDownload": {
-    "invalidSQL": "",
+    "invalidSQL": "SQL inválido",
     "title": "",
     "notification": "",
     "occurrenceSearch": "Pesquisa de ocorrências",
@@ -102,10 +102,10 @@
       "FAMILY": "Família",
       "GENUS": "Género",
       "SPECIES": "Espécie",
-      "ACCEPTED_TAXON": "",
+      "ACCEPTED_TAXON": "Táxon aceite",
       "EXACT_TAXON": "Táxon exato"
     },
-    "cubeTitle": "",
+    "cubeTitle": "Baixar cubo",
     "cubeDescription": "",
     "readMore": "Obter mais informações",
     "time": {
