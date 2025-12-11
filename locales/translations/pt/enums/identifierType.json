@@ -1,22 +1,22 @@
 {
   "enum": {
     "identifierType": {
-      "URL": "",
-      "LSID": "",
-      "HANDLER": "",
-      "DOI": "",
-      "UUID": "",
-      "FTP": "",
-      "URI": "",
+      "URL": "URL",
+      "LSID": "LSID",
+      "HANDLER": "HANDLER",
+      "DOI": "DOI",
+      "UUID": "UUID",
+      "FTP": "FTP",
+      "URI": "URI",
       "UNKNOWN": "Desconhecido",
-      "GBIF_PORTAL": "",
-      "GBIF_NODE": "",
-      "GBIF_PARTICIPANT": "",
-      "GRBIO_ID": "",
-      "GRBIO_URI": "",
+      "GBIF_PORTAL": "Portal GBIF",
+      "GBIF_NODE": "Nó GBIF",
+      "GBIF_PARTICIPANT": "Participante GBIF",
+      "GRBIO_ID": "ID GRBIO ",
+      "GRBIO_URI": "URI GRBIO",
       "GRSCICOLL_URI": "GRSCICOLL URI",
-      "ROR": "",
-      "GRID": "",
+      "ROR": "ROR",
+      "GRID": "GRID",
       "GRSCICOLL_ID": "GRSCICOLL ID"
     }
   }

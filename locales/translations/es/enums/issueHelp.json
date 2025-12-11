@@ -65,7 +65,7 @@
     "COUNTRY_MISMATCH": "El país interpretado para dwc:country y dwc:countryCode se contradicen.",
     "UNKNOWN_ROWTYPE": "El rowType utilizado para el núcleo/extensión es desconocido",
     "BIB_REFERENCE_INVALID": "Al menos un registro de extensión de referencia bibliográfica adjunto al uso de este nombre no es válido.",
-    "CHAINED_SYNOYM": "",
+    "CHAINED_SYNOYM": "Si un sinónimo apunta a otro sinónimo como taxón aceptado, la cadena se resuelve",
     "ELEVATION_MIN_MAX_SWAPPED": "Establecer si se suministra mínimo > elevación máxima",
     "MULTIMEDIA_DATE_INVALID": "",
     "PARENT_NAME_USAGE_ID_INVALID": "(falta descripción)",
