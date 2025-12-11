@@ -2,7 +2,7 @@
   "dwcaExtension": {
     "http://rs.tdwg.org/dwc/terms/Occurrence": "Ocorrência",
     "http://rs.tdwg.org/ac/terms/Multimedia": "Multimédia Audubon",
-    "http://rs.gbif.org/terms/1.0/DNADerivedData": "",
+    "http://rs.gbif.org/terms/1.0/DNADerivedData": "Dados derivados de ADN",
     "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "Amplificação",
     "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "Clonagem",
     "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "GelImage",
@@ -12,7 +12,7 @@
     "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "Preparação",
     "http://data.ggbn.org/schemas/ggbn/terms/Preservation": "Preservação",
     "http://rs.iobis.org/obis/terms/ExtendedMeasurementOrFact": "Medição ou facto estendido",
-    "http://rs.tdwg.org/chrono/terms/ChronometricAge": "",
+    "http://rs.tdwg.org/chrono/terms/ChronometricAge": "Idade cronométrica",
     "http://purl.org/germplasm/germplasmTerm#GermplasmAccession": "Germoplasma: acessão germoplasma",
     "http://purl.org/germplasm/germplasmTerm#MeasurementScore": "Germoplasma: Valor da medição",
     "http://purl.org/germplasm/germplasmTerm#MeasurementTrait": "Germoplasma: Característica da medição",
@@ -24,6 +24,6 @@
     "http://rs.gbif.org/terms/1.0/Multimedia": "Multimédia",
     "http://rs.gbif.org/terms/1.0/Reference": "Referência",
     "http://rs.tdwg.org/dwc/terms/ResourceRelationship": "Relação de recursos",
-    "http://eol.org/schema/reference/Reference": ""
+    "http://eol.org/schema/reference/Reference": "Referência EOL"
   }
 }
