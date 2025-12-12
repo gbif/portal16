@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "A licença não pode ser processada, não é suportada pelo GBIF ou está em falta",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Registo não identificado de forma única",
       "UNREADABLE_SECTION_ERROR": "Erro de seção ilegível",
-      "UNHANDLED_ERROR": "",
+      "UNHANDLED_ERROR": "Erro não tratado",
       "NoIssuesFound": "Não há problemas encontrados"
     },
     "fileFormat": {
@@ -54,7 +54,7 @@
         "title": "Meta Descrição"
       }
     },
-    "fileSize": "",
+    "fileSize": "Tamanho do ficheiro",
     "fileSizeLimit": "Limite de tamanho do ficheiro: 100 mb",
     "receivedMediaType": "Tipo de média",
     "uniqueIdentifier": "Identificador único",
@@ -67,7 +67,7 @@
     "fileHasNoIssues": "Nenhum problema encontrado no ficheiro",
     "error": "Erro",
     "errors": {
-      "401": "",
+      "401": "Deve estar conectado para ver esta página.",
       "400": "O ficheiro não pode ser processado, ou pode estar perdido se forneceste um URL.",
       "404": "A ID do trabalho de validação não foi encontrada. Se acreditas ser um erro, por favor relate-o.",
       "413": "O ficheiro é muito grande, para ser processado pelo validador de dados.",
@@ -82,7 +82,7 @@
       "interpreted": "Interpretado"
     },
     "interpretedCounts": {
-      "indexed": "",
+      "indexed": "Número de registos indexados",
       "date": "Número de datas interpretadas",
       "taxon": "Número de linhas com táxon interpretado",
       "location": "Número de coordenadas interpretadas"
@@ -124,13 +124,13 @@
       "darwinCoreExtensions": "Extensões Darwin Core",
       "metaData": "Metadados",
       "summary": "Sumário",
-      "myValidations": ""
+      "myValidations": "Relatórios de validação"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
+        "RUNNING": "Carregando arquivo",
+        "FINISHED": "Arquivo carregado",
+        "PENDING": "Carregue arquivo",
         "FAILED": "",
         "QUEUED": ""
       },

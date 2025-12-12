@@ -90,9 +90,9 @@
             "goToDataset": "Перейти к набору данных",
             "yourDerivedDatasets": "Ваши производные наборы данных",
             "backToEdit": "Вернуться к редактированию",
-            "mintingDoi": "",
-            "attachCsvLabel": "",
-            "orEnterLabel": "",
+            "mintingDoi": "Minting DOI - не должен иметь такую длину",
+            "attachCsvLabel": "Присоединить [CSV file](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) к ключам набора данных и к числу событий",
+            "orEnterLabel": "Или ввести ключи набора данных /DOI и число событий здесь",
             "invalidFileFormat": "Идентификатор, управляемый поставщиком",
             "emptyFile": "Идентификатор, управляемый поставщиком",
             "tooManyRows": "Идентификатор, управляемый поставщиком"

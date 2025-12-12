@@ -46,6 +46,18 @@
             <p>Your data have been matched against the <a href="https://www.reference-midori.info/index.html">Midori2 database version GB268</a> of cytb sequences</p>
                                
         </div>
+        <div ng-if="vm.selectedMarker === '12s_nbdl'">
+            <p>Your data have been matched against the <a href="https://nbdl.csiro.au/">National Biodiversity Data Library, Australia </a>, 12S sequences</p>
+                               
+        </div>
+        <div ng-if="vm.selectedMarker === '16s_nbdl'">
+            <p>Your data have been matched against the <a href="https://nbdl.csiro.au/">National Biodiversity Data Library, Australia </a>, 16S sequences</p>
+                               
+        </div>
+        <div ng-if="vm.selectedMarker === 'coi_nbdl'">
+            <p>Your data have been matched against the <a href="https://nbdl.csiro.au/">National Biodiversity Data Library, Australia </a>, COI sequences</p>
+                               
+        </div>
             <!-- <div class="discreet-comment" ng-if="!datasetKey.dataset.description" translate="dataset.noDescriptionProvided"></div> -->
         </div>
         <div class="col-xs-12">

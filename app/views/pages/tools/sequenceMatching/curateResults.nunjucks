@@ -61,12 +61,13 @@
                             <a ng-if="species.nubMatch && species.nubMatch.usage" ng-href="{{ vm.env.newGbifOrg }}/species/{{species.nubMatch.usage.key}}" ng-bind-html="species.nubMatch.usage.formattedName" target="_BLANK"></a>
                             <span ng-if="!(species.nubMatch && species.nubMatch.usage) && species.matchType && species.matchType !== 'BLAST_NO_MATCH'">{{species.scientificName}} 
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('its') > -1" ng-href="https://dx.doi.org/10.15156/BIO/{{species.scientificName}}" target="_blank"></a> 
-                            <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('coi') > -1 || species.marker.toLowerCase().indexOf('co1') > -1" ng-href="http://bins.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri={{species.scientificName}}" target="_blank"></a> 
+                            <a class="gb-icon-link" ng-if="species.marker.toLowerCase() === 'coi' || species.marker.toLowerCase() === 'co1'" ng-href="http://bins.boldsystems.org/index.php/Public_BarcodeCluster?clusteruri={{species.scientificName}}" target="_blank"></a> 
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase() === '16s'" ng-href="https://gtdb.ecogenomic.org/tree?r=s__{{species.scientificName}}" target="_blank"></a>
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase() === '12s'" ng-href="http://mitofish.aori.u-tokyo.ac.jp/species/detail/?genus={{species.scientificName.split(' ')[0]}}&species={{species.scientificName.split(' ')[1]}}" target="_blank"></a>
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('18s') > -1" ng-href="https://www.ncbi.nlm.nih.gov/nuccore/{{species.accession}}" target="_blank"></a>
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('rbcl') > -1" ng-href="https://www.ncbi.nlm.nih.gov/nuccore/{{species.accession}}" target="_blank"></a>
                             <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('midori2') > -1" ng-href="https://www.ncbi.nlm.nih.gov/nuccore/{{species.accession}}" target="_blank"></a>
+                            <a class="gb-icon-link" ng-if="species.marker.toLowerCase().indexOf('_nbdl') > -1" ng-href="https://nbdl.csiro.au/specimen/{{species.accession}}" target="_blank"></a>
                             
 
                             <span class="discreet" ng-if="species.matchType !== 'BLAST_NO_MATCH'">(not in GBIF taxonomy)</span></span>
