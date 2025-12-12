@@ -22,7 +22,7 @@
     "ALT_IDENTIFIER_INVALID": "Identificadores alternativos inválidos",
     "BACKBONE_MATCH_NONE": "Não houve correspondência com o backbone do GBIF",
     "BACKBONE_MATCH_FUZZY": "Não corresponde totalmente com o backbone do GBIF",
-    "BACKBONE_MATCH_AGGREGATE": "",
+    "BACKBONE_MATCH_AGGREGATE": "GBIF backbone coincide com agregado",
     "ACCEPTED_NAME_MISSING": "Sinónimo em falta de um nome aceito",
     "ACCEPTED_NAME_NOT_UNIQUE": "Existe mais de um nome aceito",
     "PARENT_NAME_NOT_UNIQUE": "Existe mais de um nome de pai aceito",

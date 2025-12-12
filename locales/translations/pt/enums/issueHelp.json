@@ -96,6 +96,6 @@
     "VERNACULAR_NAME_INVALID": "Pelo menos um extensão de registo nome comum anexado a este uso de nome é inválido.",
     "DESCRIPTION_INVALID": "Pelo menos uma extensão de registo de descrição anexada a este uso de nome é inválida.",
     "REFERENCES_URI_INVALID": "Um uri inválido foi dado em dc:references.",
-    "UNHANDLED_ERROR": ""
+    "UNHANDLED_ERROR": "Um erro não tratado ocorreu"
   }
 }

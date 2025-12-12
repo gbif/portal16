@@ -6,7 +6,7 @@
     "http://data.ggbn.org/schemas/ggbn/terms/Amplification": "Усиление",
     "http://data.ggbn.org/schemas/ggbn/terms/Cloning": "Клонирование",
     "http://data.ggbn.org/schemas/ggbn/terms/GelImage": "Исследование посредством геля согласно стандарту Global Genome Biodiversity Network (GGBN)",
-    "http://data.ggbn.org/schemas/ggbn/terms/Loan": "",
+    "http://data.ggbn.org/schemas/ggbn/terms/Loan": "Расширение файла  (Нагрузка Loan)",
     "http://data.ggbn.org/schemas/ggbn/terms/MaterialSample": "Образец из коллекции",
     "http://data.ggbn.org/schemas/ggbn/terms/Permit": "Разрешение",
     "http://data.ggbn.org/schemas/ggbn/terms/Preparation": "Препарирование",
