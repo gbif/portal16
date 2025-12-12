@@ -10,7 +10,52 @@
     <div layout="row" layout-align="center start" layout-padding ng-cloak>
     <div class="nameParser__name-paste-form" layout-align="start center">
     <form >
-    <label >Select database</label>
+
+         <md-input-container>
+                                    <label >Select database</label>
+                                    <md-select ng-model="vm.selectedMarker"  class="md-no-underline">
+                                        <md-option value="ITS">
+                                           <strong>ITS</strong> Fungi and other Eukaryotes, UNITE general FASTA release for eukaryotes v9.0 
+                                        </md-option>
+                                        <md-option value="COI">
+                                           <strong>COI</strong> Animals, 99% clustered version of the BOLD Public Database v2025-10-17
+                                        </md-option>
+                                        <md-option value="16S">
+                                          <strong>16S</strong> Bacteria and Archaea, Genome Taxonomy Database r214
+                                        </md-option>
+                                        <md-option value="18S">
+                                          <strong>18S</strong> Eukaryotes, PR2 database v5.0.0
+                                        </md-option>
+                                        <md-option value="12S">
+                                          <strong>12S</strong> Fish, MitoFish v41 database
+                                        </md-option>
+                                         <md-option value="RBCL">
+                                          <strong>rbcl</strong> Diatoms, Diat.barcode database v 15.2 
+                                        </md-option>
+                                         <md-option value="12s_mt12s_eukaryotes_midori2">
+                                          <strong>12S</strong> Eukaryotes, Midori2 database
+                                        </md-option>
+                                        <md-option value="16s_mt16s_eukaryotes_midori2">
+                                          <strong>16S</strong> Eukaryotes, Midori2 database
+                                        </md-option>
+                                        <md-option value="cytb_eukaryotes_midori2">
+                                          <strong>Cytochrome b</strong> Eukaryotes, Midori2 database
+                                        </md-option>
+                                        <md-option value="12s_nbdl">
+                                          <strong>12S</strong> National Biodiversity Data Library, Australia
+                                        </md-option>
+                                        <md-option value="16s_nbdl">
+                                          <strong>16S</strong> National Biodiversity Data Library, Australia
+                                        </md-option>
+                                        <md-option value="coi_nbdl">
+                                          <strong>COI</strong> National Biodiversity Data Library, Australia
+                                        </md-option>
+                                        <md-option value="cytb_nbdl">
+                                          <strong>Cytochrome b</strong> National Biodiversity Data Library, Australia
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+{#     <label >Select database</label>
     <md-radio-group ng-model="vm.selectedMarker" layout="column" class="m-b-1">
 
       <md-radio-button class="md-primary" value="ITS" ><strong>ITS</strong> Fungi and other Eukaryotes, UNITE general FASTA release for eukaryotes v9.0 </md-radio-button>
@@ -22,9 +67,15 @@
       <md-radio-button class="md-primary" value="12s_mt12s_eukaryotes_midori2"> <strong>12S</strong> Eukaryotes, Midori2 database</md-radio-button>
       <md-radio-button class="md-primary" value="16s_mt16s_eukaryotes_midori2"> <strong>16S</strong> Eukaryotes, Midori2 database</md-radio-button>
       <md-radio-button class="md-primary" value="cytb_eukaryotes_midori2"> <strong>Cytochrome b</strong> Eukaryotes, Midori2 database</md-radio-button>
+      <md-radio-button class="md-primary" value="12s_nbdl"> <strong>12S</strong> National Biodiversity Data Library, Australia</md-radio-button>
+      <md-radio-button class="md-primary" value="16s_nbdl"> <strong>16S</strong> National Biodiversity Data Library, Australia</md-radio-button>
+      <md-radio-button class="md-primary" value="coi_nbdl"> <strong>COI</strong> National Biodiversity Data Library, Australia</md-radio-button>
+      <md-radio-button class="md-primary" value="cytb_nbdl"> <strong>Cytochrome b</strong> National Biodiversity Data Library, Australia</md-radio-button>
 
 
-    </md-radio-group>
+
+
+    </md-radio-group>  #}
         <md-input-container class="md-block ">
             <label >Paste sequences here (fasta format, remember to select database)</label>
             <textarea class="nameParser__name-paste-area" ng-model="vm.inputList" rows="10" md-select-on-focus></textarea>
@@ -40,7 +91,7 @@
         </form>
     </div>
         <div>
-            <div layout="column" layout-align="center center" style="margin-top: 370px;">
+            <div layout="column" layout-align="center center" style="margin-top: 66px;">
                 <div class="nameParser__input-file">
                     <input type="file" onchange="angular.element(this).scope().handleFiles(this.files)"/>
                     <a href="" translate="nameParser.selectFile">Select file</a>
@@ -71,6 +122,7 @@
           <li><strong>12S</strong> - <a href="http://mitofish.aori.u-tokyo.ac.jp/">MitoFish</a> v41 database of 12S sequences</li>
           <li><strong>rbcl</strong> - <a href="https://carrtel-collection.hub.inrae.fr/barcoding-databases/diat.barcode">Diat.barcode database v 15.2</a></li>
          <li><strong>12S, 16S and Cytochrome b</strong> - <a href="https://www.reference-midori.info/index.html">Midori2 database version GB268</a></li>
+         <li><strong>COI, 12S, 16S and Cytochrome b</strong> - <a href="https://nbdl.csiro.au/">National Biodiversity Data Library, Australia</a></li>
         </ul> 
     </div>  
     </div>  
@@ -134,9 +186,9 @@
             <div class="small p-r-1" flex="33">
                 
                         <div>
-                            Guillou, L., Bachar, D., Audic, S., Bass, D., Berney, C., Bittner, L., Boutte, C. et al. 2013. The Protist Ribosomal Reference database (PR2): a catalog of unicellular eukaryote Small Sub-Unit rRNA sequences with curated taxonomy. Nucleic Acids Res. 41:D597–604.
+                            Daniel Vaulot, Javier del Campo, Mahwash Jamy, Fabien Burki, Laure Guillou, Luciana Santoferrara, Maximilian Ganser, Andrea de Oliveira da Rocha Franco, Kenneth Mertens, Haifeng Gu, Se Hyeon Jang, Pavel Škaloud, Manon Dünn, Megan Gross, Алексей Селюк, Miguel Mendez Sandin, Sebastian Metz, Richard Dorrell, & AnnaMaria Fiore-Donno. (2023). pr2database/pr2database: PR2 version 5.0.0 (v5.0.0). Zenodo.
                         </div>
-                        <doi link="https://doi.org/10.1093/nar/gks1160"></doi>
+                        <doi link="https://doi.org/10.5281/zenodo.7805244"></doi>
 
             </div>
 
@@ -167,10 +219,13 @@
 
              <div class="small p-r-1" flex="33">
                 
-                        <div>
-                            Daniel Vaulot, Javier del Campo, Mahwash Jamy, Fabien Burki, Laure Guillou, Luciana Santoferrara, Maximilian Ganser, Andrea de Oliveira da Rocha Franco, Kenneth Mertens, Haifeng Gu, Se Hyeon Jang, Pavel Škaloud, Manon Dünn, Megan Gross, Алексей Селюк, Miguel Mendez Sandin, Sebastian Metz, Richard Dorrell, & AnnaMaria Fiore-Donno. (2023). pr2database/pr2database: PR2 version 5.0.0 (v5.0.0). Zenodo.
-                        </div>
-                        <doi link="https://doi.org/10.5281/zenodo.7805244"></doi>
+                        <div> 
+                        Sequences obtained from the CSIRO National Biodiversity DNA Library (2025) derived from specimens held in CSIRO National Research Collections Australia, Australian Museum, Museums Victoria, Queensland Museum. Data accessed on 12-12-2025 under a Creative Commons Attribution-Noncommercial 4.0 Licence.                      
+                          </div>
+                        <doi link="https://doi.org/10.25919/bgd6-z122"></doi>
+                        <doi link="https://doi.org/10.25919/9aeh-jz33"></doi>
+                        <doi link="https://doi.org/10.25919/zyvq-cd68"></doi>
+                        <doi link="https://doi.org/10.25919/xh6r-bw15"></doi>
 
             </div>
 
