@@ -13,6 +13,7 @@ module.exports = function (app) {
 
 // mirror trafic to load test demo site
 router.get('/load-test/mirror', function (req, res) {
+    authService.setNoCache(res);
     // return immediately if not around peak office hours UTC
     const currentHour = new Date().getUTCHours();
     if (currentHour < 9 || currentHour > 16) {
@@ -45,6 +46,7 @@ router.get('/load-test/mirror', function (req, res) {
 });
 
 router.get('/load-test/enable', authService.isAuthenticated(), function (req, res, next) {
+    authService.setNoCache(res);
     if (!req.user.email.endsWith('@gbif.org')) {
         next();
     } else {
@@ -53,6 +55,7 @@ router.get('/load-test/enable', authService.isAuthenticated(), function (req, re
     }
 });
 router.get('/load-test/disable', authService.isAuthenticated(), function (req, res, next) {
+    authService.setNoCache(res);
     if (!req.user.email.endsWith('@gbif.org')) {
         next();
     } else {
