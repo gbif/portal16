@@ -69,7 +69,7 @@ function isOfficeHours() {
     if (currentDay === 0 || currentDay === 6) {
         return false;
     }
-    return currentHour >= 9 && currentHour <= 16;
+    return currentHour >= 9 && currentHour <= 18;
 }
 
 /**

@@ -1,11 +1,11 @@
-const request = rootRequire('app/helpers/request');
+const request = require('request');
 const log = require('../../../../config/log');
-const apiConfig = require('../../../models/gbifdata/apiConfig');
+const baseConfig = rootRequire('config/config');
 
 function graphqlRequest(query, variables) {
   try {
     let options = {
-      url: apiConfig.graphQL.url,
+      url: 'https:' + baseConfig.graphQLApi,
       method: 'POST',
       json: true,
       body: {
@@ -13,17 +13,23 @@ function graphqlRequest(query, variables) {
         variables: variables
       }
     };
-    return request(options)
-      .then((response) => {
-        if (response.errors) {
-          return Promise.reject(new Error('GraphQL request failed: ' + JSON.stringify(response.errors)));
-        }
-        return response.data;
-      }).catch((err) => {
-        log.error('load test graphql request failed: ' + err.message);
-      });
+    return request(options, function (error, response, body) {
+      if (error) {
+        log.error('Load test request to GraphQL failed: ' + error.message);
+        return;
+      }
+      if (response.statusCode !== 200) {
+        log.error('Load test request to GraphQL failed with status code: ' + response.statusCode);
+        return;
+      }
+      if (body.errors) {
+        log.error('Load test request to GraphQL returned errors: ' + JSON.stringify(body.errors));
+        return;
+      }
+    });
   } catch (err) {
     // silently ignore if the whole thing failed
+    console.error(err);
   }
 }
 
