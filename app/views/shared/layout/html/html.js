@@ -1,9 +1,9 @@
 require('./polyfills/polyfills'); // TODO these polyfills are really only there for IE. perhaps move them into a test and seperate file to include for legacy browsers like IE and safari?
 
 // Create a global GBIF Object
-(function(global) {
+(function (global) {
     var gb = global.gb || {},
-        util = {VERSION: '0.0.1'};
+        util = { VERSION: '0.0.1' };
     gb.util = util;
     global.gb = gb;
 })(window);
@@ -61,7 +61,7 @@ require('moment/locale/de-ch');
 require('moment/locale/ko');
 require('moment/locale/ar-sa');
 
-(function() {
+(function () {
     'use strict';
     angular
         .module('portal', [
@@ -95,8 +95,8 @@ angular
     .config(mdConfig);
 
 /** @ngInject */
-function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $window, termsVersion) { // $log
-    $rootScope.$on('$stateChangeStart', function(e) {
+function runBlock($translate, $http, $cookies, LOCALE, $rootScope, $location, $window, termsVersion) { // $log
+    $rootScope.$on('$stateChangeStart', function (e) {
         if (window.gb.state > 399) {
             e.preventDefault();
         }
@@ -109,25 +109,25 @@ function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $
 
     // Test that the user has read the latest terms and accepted them
     if (termsValue) {
-      // the cookie looks like: version__choice e.g. dec2018__accepted
-      var cookieParts = termsValue.split('__');
-      var cookieVersion = cookieParts[0];
+        // the cookie looks like: version__choice e.g. dec2018__accepted
+        var cookieParts = termsValue.split('__');
+        var cookieVersion = cookieParts[0];
 
-      // if the version in the cookie match the current version of the terms, then we might be able to attach analytics
-      if (cookieVersion === termsVersion) {
-        termsIsLatest = true;
-      }
+        // if the version in the cookie match the current version of the terms, then we might be able to attach analytics
+        if (cookieVersion === termsVersion) {
+            termsIsLatest = true;
+        }
 
-      // extract the users choice (accepted | rejected)
-      var userDecision = cookieParts[1];
-      if (userDecision) {
-        hasAcceptedTerms = userDecision === 'accepted';
-      } else {
-        hasAcceptedTerms = true; // if nothing is stored in the cookie, then assume accepted as this was the previous cookie format
-      }
+        // extract the users choice (accepted | rejected)
+        var userDecision = cookieParts[1];
+        if (userDecision) {
+            hasAcceptedTerms = userDecision === 'accepted';
+        } else {
+            hasAcceptedTerms = true; // if nothing is stored in the cookie, then assume accepted as this was the previous cookie format
+        }
     }
 
-    $rootScope.$on('$stateChangeSuccess', function() {
+    $rootScope.$on('$stateChangeSuccess', function () {
         document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
 }
@@ -146,15 +146,15 @@ function runBlock( $translate, $http, $cookies, LOCALE, $rootScope, $location, $
 function configBlock($sceDelegateProvider, $localStorageProvider, $sessionStorageProvider, toastrConfig, $compileProvider) {
     $localStorageProvider.setKeyPrefix('gbif.');
     $sessionStorageProvider.setKeyPrefix('gbif.');
-    
+
     $sceDelegateProvider.resourceUrlWhitelist([
-      // Allow same origin resource loads.
-      'self',
-      // Allow loading from our assets domain. **.
-      'https://*.vimeo.com/**',
-      'https://vimeo.com/**'
+        // Allow same origin resource loads.
+        'self',
+        // Allow loading from our assets domain. **.
+        'https://*.vimeo.com/**',
+        'https://vimeo.com/**'
     ]);
-    
+
     // localStorageServiceProvider
     //     .setPrefix('gbif')
     //     .setStorageType('localStorage')
@@ -278,7 +278,7 @@ function mdConfig($mdThemingProvider, $mdGestureProvider) {
         .primaryPalette('customPrimary')
         .accentPalette('customAccent')
         .warnPalette('customWarn');
-      //  .backgroundPalette('customBackground')
+    //  .backgroundPalette('customBackground')
 }
 
 require('./portal.ctrl');
@@ -487,3 +487,34 @@ if (isIE) {
     document.body.className += 'IE IE' + isIE;
 }
 
+function onUrlChange(callback) {
+    // Handle popstate events (back/forward buttons)
+    window.addEventListener('popstate', () => {
+        callback(window.location.href);
+    });
+
+    // Intercept pushState
+    const originalPushState = history.pushState;
+    history.pushState = function (...args) {
+        originalPushState.apply(this, args);
+        callback(window.location.href);
+    };
+
+    // Intercept replaceState
+    const originalReplaceState = history.replaceState;
+    history.replaceState = function (...args) {
+        originalReplaceState.apply(this, args);
+        callback(window.location.href);
+    };
+}
+
+function mirrorTraffic(url) {
+    fetch(`/api/load-test/mirror?url=${encodeURIComponent(url)}`).catch(err => {
+        // ignore errors
+    });
+}
+// Register the URL change handler
+onUrlChange(mirrorTraffic);
+
+// on first load
+mirrorTraffic(window.location.href);
