@@ -32,7 +32,7 @@ router.get('/load-test/mirror', function (req, res) {
     const cleanedUrl = url.replace(domainPattern, '');
 
     // Fire and forget - don't wait for response
-    const newSiteUrl = `https://demo.gbif.org${cleanedUrl}`;
+    const newSiteUrl = `http://demo.gbif.org${cleanedUrl}`;
 
     let options = {
         url: newSiteUrl,
