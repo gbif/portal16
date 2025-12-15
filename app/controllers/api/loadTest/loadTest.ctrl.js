@@ -64,6 +64,11 @@ function triggerCustomLoaders(url, query) {
  */
 function isOfficeHours() {
     const currentHour = new Date().getUTCHours();
+    // only monday to friday 9-16 UTC
+    const currentDay = new Date().getUTCDay();
+    if (currentDay === 0 || currentDay === 6) {
+        return false;
+    }
     return currentHour >= 9 && currentHour <= 16;
 }
 
