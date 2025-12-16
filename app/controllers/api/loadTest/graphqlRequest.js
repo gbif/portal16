@@ -29,7 +29,6 @@ function graphqlRequest(query, variables) {
     });
   } catch (err) {
     // silently ignore if the whole thing failed
-    console.error(err);
   }
 }
 
