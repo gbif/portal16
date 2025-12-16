@@ -19,11 +19,11 @@ function graphqlRequest(query, variables) {
         return;
       }
       if (response.statusCode !== 200) {
-        log.error('Load test request to GraphQL failed with status code: ' + response.statusCode, { graphqlBody: JSON.stringify(query, variables) });
+        log.error('Load test request to GraphQL failed with status code: ' + response.statusCode, {query, variables});
         return;
       }
       if (body.errors) {
-        log.error('Load test request to GraphQL returned errors: ' + JSON.stringify(body.errors), { graphqlBody: JSON.stringify(query, variables) });
+        log.error('Load test request to GraphQL returned errors: ' + JSON.stringify(body.errors), {query, variables});
         return;
       }
     });
