@@ -69,7 +69,7 @@ function isOfficeHours() {
     if (currentDay === 0 || currentDay === 6) {
         return false;
     }
-    return currentHour >= 9 && currentHour <= 18;
+    return currentHour >= 6 && currentHour <= 18;
 }
 
 /**
@@ -86,13 +86,13 @@ router.get('/load-test/mirror', function (req, res) {
     
     // Return early if not in office hours
     if (!isOfficeHours()) {
-        res.json({ status: 'ok' });
+        res.json({ status: 'temporary disabled' });
         return;
     }
 
     // Return early if load testing is disabled
     if (!isLoadTestEnabled()) {
-        res.json({ status: 'ok' });
+        res.json({ status: 'not enabled' });
         return;
     }
 
