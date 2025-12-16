@@ -15,15 +15,15 @@ function graphqlRequest(query, variables) {
     };
     return request(options, function (error, response, body) {
       if (error) {
-        log.error('Load test request to GraphQL failed: ' + error.message, {query, variables});
+        log.error('Load test request to GraphQL failed: ' + error.message, { query, variables });
         return;
       }
       if (response.statusCode !== 200) {
-        log.error('Load test request to GraphQL failed with status code: ' + response.statusCode, {query, variables});
+        log.error('Load test request to GraphQL failed with status code: ' + response.statusCode, { graphqlBody: JSON.stringify(query, variables) });
         return;
       }
       if (body.errors) {
-        log.error('Load test request to GraphQL returned errors: ' + JSON.stringify(body.errors), {query, variables});
+        log.error('Load test request to GraphQL returned errors: ' + JSON.stringify(body.errors), { graphqlBody: JSON.stringify(query, variables) });
         return;
       }
     });
