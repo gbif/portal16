@@ -275,7 +275,7 @@ let config = {
             }
         },
         defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
-        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
+        newGbifOrg: `https://demo.gbif-dev.org`,
     },
     uat: {
         productionSite: false,
@@ -333,7 +333,7 @@ let config = {
             }
         },
         defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
-        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
+        newGbifOrg: `https://demo.gbif-test.org`,
     },
 
     staging: {
@@ -392,7 +392,7 @@ let config = {
             }
         },
         defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
-        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
+        newGbifOrg: `https://demo.gbif-staging.org`,
     },
     prod: {
         productionSite: true,
@@ -449,7 +449,7 @@ let config = {
                 colDatasetKey: '53147'
             }
         },
-        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`,
+        newGbifOrg: `https://demo.gbif.org`,
     },
 
     test: {
@@ -504,7 +504,7 @@ let config = {
             }
         },
         defaultChecklist: 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c',
-        newGbifOrg: `https://demo.gbif${localEnvironmentPostFix}.org`
+        newGbifOrg: `https://demo.gbif-test.org`
     }
 };
 
