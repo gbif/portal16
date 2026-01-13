@@ -18,6 +18,7 @@ function datasetTableCtrl(hotkeys, DatasetFilter, env, $httpParamSerializer, BUI
     var vm = this, offset;
     vm.state = DatasetFilter.getState();
     vm.tileApi = env.tileApi;
+    vm.dataApi = env.dataApi;
     vm.BUILD_VERSION = BUILD_VERSION;
     vm.featuredDataSets = {
         nodes: []
