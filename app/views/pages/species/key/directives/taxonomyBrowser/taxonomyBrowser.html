@@ -7,7 +7,7 @@
                 <li ng-repeat="tax in vm.parents" class="taxonomyBrowser__parent">
                     <a href="" class="gb-icon-more2 inherit noUnderline taxonomyBrowser__action"
                        ng-if="$index==0 && vm.rootOptions.results.length > 1" ng-click="vm.showRoot()"></a>
-                    <a class="taxonomyBrowser__parent noUnderline inherit" ng-click="vm.gotoSpecies(tax.key)"  href="">
+                    <a class="taxonomyBrowser__parent noUnderline inherit" ng-click="vm.gotoSpecies(tax.key)" href="{$ gb.locales.urlPrefix $}/species/{$ tax.key $}">
                         <div class="taxonomyBrowser__term taxonomyBrowser__rank"
                              translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                         <div class="taxonomyBrowser__description">
@@ -22,7 +22,7 @@
                 <a href="" class="gb-icon-more2 inherit noUnderline taxonomyBrowser__action"
                    ng-if="vm.parents.length == 0 && vm.rootOptions.results.length > 1" ng-click="vm.showRoot()"></a>
                 <a ng-click="vm.gotoSpecies(vm.acceptedTaxon.key)" ng-if="vm.acceptedTaxon"
-                   class="taxonomyBrowser__accepted inherit ">
+                   class="taxonomyBrowser__accepted inherit " href="{$ gb.locales.urlPrefix $}/species/{$ vm.acceptedTaxon.key $}>
                     <div class="taxonomyBrowser__subheadline" translate="species.acceptedName"></div>
                     <span class="taxonomyBrowser__term"
                           translate="taxonRank.{{ vm.acceptedTaxon.rank || 'UNRANKED'}}"></span>
@@ -44,7 +44,7 @@
                                     <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
                                         <span class="synonymSymbol">≡</span>
                                         <div>
-                                            <a ng-click="vm.gotoSpecies(tax.key)" href="" class="inherit">
+                                            <a ng-click="vm.gotoSpecies(tax.key)" href="{$ gb.locales.urlPrefix $}/species/{$ tax.key $}" class="inherit">
                                                 <span dir="auto" ng-bind-html="tax._parsedName || tax.scientificName"
                                                       class="sciname"></span>
                                             </a>
@@ -71,7 +71,7 @@
                                 <div class="taxonomyBrowser__description taxonomyBrowser__synonym">
                                     <span class="synonymSymbol">{{tax.taxonomicStatus == "HOMOTYPIC_SYNONYM" ? '≡' : '='}}</span>
                                     <div>
-                                        <a ng-click="vm.gotoSpecies(tax.key)" href=""  class="inherit">
+                                        <a ng-click="vm.gotoSpecies(tax.key)" href="{$ gb.locales.urlPrefix $}/species/{$ tax.key $}" class="inherit">
                                             <span dir="auto" ng-bind-html="tax._parsedName || tax.scientificName"
                                                   class="sciname"></span>
                                         </a>
@@ -88,7 +88,7 @@
             <div class="taxonomyBrowser__headline" translate="species.immediateChildren"></div>
             <ul>
                 <li class="" ng-repeat="tax in vm.classifiedChildren">
-                    <a class="taxonomyBrowser__child noUnderline inherit" ng-click="vm.gotoSpecies(tax.key)" href="">
+                    <a class="taxonomyBrowser__child noUnderline inherit" ng-click="vm.gotoSpecies(tax.key)" href="{$ gb.locales.urlPrefix $}/species/{$ tax.key $}">
                         <div class="taxonomyBrowser__term" translate="taxonRank.{{ tax.rank || 'UNRANKED'}}"></div>
                         <div class="taxonomyBrowser__description">
                             <span dir="auto" ng-bind-html="tax._parsedName || tax.scientificName" class="sciname"></span>
