@@ -419,7 +419,7 @@ let config = {
         verification: verification || '/var/lib/human-verification/images',
         contentfulApi: contentfulApi || 'https://cdn.contentful.com/',
         contentfulPreviewApi: contentfulPreviewApi || 'https://preview.contentful.com/',
-        elasticContentful: elasticContentful || 'http://cms-search.gbif.org:9200/',
+        elasticContentful: elasticContentful || 'http://core-search-1.gbif.org:31857/',
         registry: registry || 'https://registry.gbif.org',
         elk: elk || '//private-logs.gbif.org:5601/',
         publicKibana: publicKibana || '//logs.gbif.org/',
