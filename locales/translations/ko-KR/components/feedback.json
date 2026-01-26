@@ -1,0 +1,53 @@
+{
+  "feedback": {
+    "leaveFeedback": "",
+    "intro": {
+      "title": "",
+      "example": ""
+    },
+    "data content": {
+      "title": "",
+      "example": "",
+      "annotate": "",
+      "contactPerMail": ""
+    },
+    "bug": {
+      "title": "",
+      "example": ""
+    },
+    "idea": {
+      "title": "",
+      "example": ""
+    },
+    "question": {
+      "title": "",
+      "example": "",
+      "description": "",
+      "comment": ""
+    },
+    "confirmation": {
+      "title": "",
+      "example": "",
+      "seeIssue": ""
+    },
+    "issues": {
+      "title": "",
+      "description": "",
+      "create": ""
+    },
+    "placeholders": {
+      "summary": "",
+      "description": "",
+      "username": ""
+    },
+    "markdownSupport": "",
+    "issueTracking": "",
+    "failure": "",
+    "weRecommendX": "",
+    "tellGbif": "",
+    "submit": "",
+    "seeAllComments": "",
+    "recommendMail": "",
+    "pleaseLogin": ""
+  }
+}

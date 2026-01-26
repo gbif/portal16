@@ -1,0 +1,24 @@
+{
+  "endpointType": {
+    "EML": "",
+    "FEED": "",
+    "WFS": "",
+    "WMS": "",
+    "TCS_RDF": "",
+    "TCS_XML": "",
+    "DWC_ARCHIVE": "",
+    "DIGIR": "",
+    "CAMTRAP_DP": "",
+    "DIGIR_MANIS": "",
+    "TAPIR": "",
+    "BIOCASE": "",
+    "BIOCASE_XML_ARCHIVE": "",
+    "OAI_PMH": "",
+    "COLDP": "",
+    "BIOM_1_0": "",
+    "BIOM_2_1": "",
+    "ACEF": "",
+    "TEXT_TREE": "",
+    "OTHER": ""
+  }
+}
