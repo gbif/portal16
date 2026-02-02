@@ -28,7 +28,7 @@
       "LICENSE_MISSING_OR_UNKNOWN": "La licence ne peut pas être analysée, n’est pas pris en charge par le GBIF ou est simplement absente",
       "RECORD_NOT_UNIQUELY_IDENTIFIED": "Enregistrement non-identifié de manière unique",
       "UNREADABLE_SECTION_ERROR": "Erreur de section non-lisible",
-      "UNHANDLED_ERROR": "",
+      "UNHANDLED_ERROR": "Erreur inattendue",
       "NoIssuesFound": "Aucun problème trouvé"
     },
     "fileFormat": {
@@ -54,7 +54,7 @@
         "title": "Descripteur de Meta"
       }
     },
-    "fileSize": "",
+    "fileSize": "Taille du fichier",
     "fileSizeLimit": "Taille maximale du fichier : 100 Mo",
     "receivedMediaType": "Type de média",
     "uniqueIdentifier": "Identifiant unique",
@@ -82,7 +82,7 @@
       "interpreted": "Interprété"
     },
     "interpretedCounts": {
-      "indexed": "",
+      "indexed": "Nombre d'enregistrements indexés",
       "date": "Nombre de dates interprétées",
       "taxon": "Nombre de lignes avec des taxons interprétés",
       "location": "Nombre de coordonnées interprétées"
@@ -124,11 +124,11 @@
       "darwinCoreExtensions": "Extensions Darwin Core",
       "metaData": "Métadonnées",
       "summary": "Résumé",
-      "myValidations": ""
+      "myValidations": "Rapports de validation"
     },
     "steps": {
       "VALIDATOR_UPLOAD_ARCHIVE": {
-        "RUNNING": "",
+        "RUNNING": "Téléversement de l'archive",
         "FINISHED": "",
         "PENDING": "",
         "FAILED": "",
