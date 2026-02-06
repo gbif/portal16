@@ -5,7 +5,8 @@
       "OCCURRENCE": "Conjunto de datos de registros biológicos",
       "CHECKLIST": "Conjunto de datos de listas de chequeo",
       "SAMPLING_EVENT": "Evento de muestreo",
-      "METADATA": "Conjunto de datos de metadatos"
+      "METADATA": "Conjunto de datos de metadatos",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Registros de presencia",
@@ -23,6 +24,7 @@
     "constituentOf": "Forma parte de",
     "dataset": "Conjunto de datos",
     "taxonomy": "Taxonomía",
+    "phylotree": "Filogenias",
     "project": "Proyecto",
     "metrics": "Estadísticas",
     "constituents": "Partes de",
