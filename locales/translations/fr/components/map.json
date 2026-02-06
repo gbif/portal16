@@ -53,12 +53,12 @@
     },
     "tooltips": {
       "toggleStyle": "",
-      "searchArea": "",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
-      "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "searchArea": "Zone de recherche",
+      "addRectangleFilter": "Dessiner un rectangle et l'ajouter aux filtres",
+      "addPolygonFilter": "Dessiner une surface et l'ajouter aux filtres",
+      "removeGeometryFilter": "Retirer le filtre géométrique",
+      "zoomIn": "Zoom avant",
+      "zoomOut": "Zoom arrière"
     },
     "errors": {
       "413": "Le fichier de géométrie est trop volumineux pour être traités par les données API."
