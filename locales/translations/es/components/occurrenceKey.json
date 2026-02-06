@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "Detalles",
-      "cluster": ""
+      "cluster": "",
+      "phylotree": "Filogenias"
     },
     "typeOf": "",
     "coordinates": "Coordenadas",
@@ -41,6 +42,8 @@
       "Organism": "Organismo",
       "MaterialSample": "Muestra de material",
       "GeologicalContext": "Contexto geológico",
+      "MaterialEntity": "",
+      "Provenance": "Procedencia",
       "other": "Otro"
     },
     "term": "Término",
