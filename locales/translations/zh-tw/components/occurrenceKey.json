@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "詳細資料",
-      "cluster": ""
+      "cluster": "",
+      "phylotree": "等於 {is}"
     },
     "typeOf": "{NAME} 的 {TYPE}",
     "coordinates": "座標",
@@ -41,6 +42,8 @@
       "Organism": "生物體",
       "MaterialSample": "材料樣本",
       "GeologicalContext": "地理背景",
+      "MaterialEntity": "",
+      "Provenance": "出處註解",
       "other": "其它"
     },
     "term": "名稱",
