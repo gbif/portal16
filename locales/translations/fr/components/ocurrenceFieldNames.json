@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "créateur du nom scientifique",
     "undefined": "Champ inconnu",
     "coordinatesTextual": "Cet enregistrement est publié sans coordonnées, mais il inclus une description textuelle de la localisation.",
-    "coordinatesMissing": "Coordonnées absentes"
+    "coordinatesMissing": "Coordonnées absentes",
+    "eventType": "Type d'évènement",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "Sous-tribu",
+    "superfamily": "Super-famille",
+    "tribe": "Tribu",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }
