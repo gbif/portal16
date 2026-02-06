@@ -20,8 +20,8 @@
       "GRSCICOLL_ID": "GRSCICOLL ID",
       "IH_IRN": "",
       "CITES": "CITES",
-      "SYMBIOTA_UUID": "",
-      "WIKIDATA": "",
+      "SYMBIOTA_UUID": "Symbiota UUID",
+      "WIKIDATA": "Wikidata",
       "NCBI_BIOCOLLECTION": ""
     }
   }
