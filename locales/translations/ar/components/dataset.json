@@ -5,7 +5,8 @@
       "OCCURRENCE": "مجموعة بيانات التكرار",
       "CHECKLIST": "مجموعة بيانات القائمة المرجعية",
       "SAMPLING_EVENT": "حدث أخذ العينات",
-      "METADATA": "مجموعة البيانات الوصفية"
+      "METADATA": "مجموعة البيانات الوصفية",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "التكرارات",
@@ -23,6 +24,7 @@
     "constituentOf": "مكون من",
     "dataset": "مجموعة البيانات",
     "taxonomy": "التصنيف",
+    "phylotree": "التساويات { is }",
     "project": "مشروع",
     "metrics": "المقاييس",
     "constituents": "مكونات",
