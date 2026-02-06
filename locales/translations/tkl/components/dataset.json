@@ -5,7 +5,8 @@
       "OCCURRENCE": "",
       "CHECKLIST": "",
       "SAMPLING_EVENT": "",
-      "METADATA": ""
+      "METADATA": "",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "",
@@ -23,6 +24,7 @@
     "constituentOf": "",
     "dataset": "",
     "taxonomy": "",
+    "phylotree": "",
     "project": "",
     "metrics": "",
     "constituents": "",
