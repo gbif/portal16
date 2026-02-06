@@ -39,6 +39,8 @@
           "SMALL": "Petite subvention",
           "NATIONAL": "Subvention nationale",
           "DATA_USE": "",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "Non spécifié"
         },
         "projectStatus": {
