@@ -68,6 +68,14 @@
     "COLLECTION_MATCH_FUZZY": "Нечеткое соответствие коллекции ",
     "INSTITUTION_COLLECTION_MISMATCH": "Несоответствие коллекции учреждению",
     "POSSIBLY_ON_LOAN": "Возможно, в кредит",
-    "DIFFERENT_OWNER_INSTITUTION": "Другой владелец учреждения"
+    "DIFFERENT_OWNER_INSTITUTION": "Другой владелец учреждения",
+    "TAXON_MATCH_SCIENTIFIC_NAME_ID_IGNORED": "Идентификатор совпадения научного названия таксона игнорируется",
+    "TAXON_MATCH_TAXON_CONCEPT_ID_IGNORED": "Совпадение таксона с идентификатором концепции таксона игнорируется",
+    "TAXON_MATCH_TAXON_ID_IGNORED": "Совпадение таксона с идентификатором таксона игнорируется",
+    "SCIENTIFIC_NAME_ID_NOT_FOUND": "Идентификатор научного названия таксона не найден",
+    "TAXON_CONCEPT_ID_NOT_FOUND": "Идентификатор концепции таксона не найден",
+    "TAXON_ID_NOT_FOUND": "Идентификатор таксона не найден",
+    "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Научное название и идентификатор не соответствуют друг другу",
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Нет однозначного совпадения названия и идентификатора таксона."
   }
 }
