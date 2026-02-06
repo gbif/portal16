@@ -68,6 +68,14 @@
     "COLLECTION_MATCH_FUZZY": "Collection match fuzzy",
     "INSTITUTION_COLLECTION_MISMATCH": "Institution collection mismatch",
     "POSSIBLY_ON_LOAN": "Possibly on loan",
-    "DIFFERENT_OWNER_INSTITUTION": "Different owner institution"
+    "DIFFERENT_OWNER_INSTITUTION": "Different owner institution",
+    "TAXON_MATCH_SCIENTIFIC_NAME_ID_IGNORED": "Taxon match scientific name ID ignored",
+    "TAXON_MATCH_TAXON_CONCEPT_ID_IGNORED": "Taxon match taxon concept ID ignored",
+    "TAXON_MATCH_TAXON_ID_IGNORED": "Taxon match taxon ID ignored",
+    "SCIENTIFIC_NAME_ID_NOT_FOUND": "Scientific name ID not found",
+    "TAXON_CONCEPT_ID_NOT_FOUND": "Taxon concept ID not found",
+    "TAXON_ID_NOT_FOUND": "Taxon ID not found",
+    "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Scientific name and ID inconsistent",
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Taxon match name and ID ambiguous"
   }
 }
