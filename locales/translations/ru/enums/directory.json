@@ -1,0 +1,35 @@
+{
+  "directoryAreaExpertise": {
+    "AGRICULTURE_AND_FOOD_SECURITY": "",
+    "BUSINESS_SECTOR": "",
+    "CITIZEN_SCIENCE": "Гражданская наука",
+    "CLIMATE_CHANGE": "Изменение климата",
+    "COLLECTIONS_MANAGEMENT": "",
+    "CONSERVATION": "Охрана природы",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "",
+    "DATA_MANAGEMENT": "Управление данными",
+    "DATA_MOBILIZATION": "Мобилизация данных",
+    "DATA_PAPERS": "Статьи о данных",
+    "DATA_PUBLISHING": "Публикация данных",
+    "DATA_USE": "Использование данных",
+    "DNA_BARCODING_AND_METAGENOMICS": "",
+    "FRESHWATER_ECOLOGY": "",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "",
+    "IMPACT_ASSESSMENTS": "",
+    "INVASIVE_ALIEN_SPECIES": "Инвазионный чужеродный вид",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "",
+    "MACHINE_OBSERVATIONS": "",
+    "MARINE_ECOLOGY": "",
+    "SOIL_BIODIVERSITY": "",
+    "THREATENED_SPECIES": "Потенциально уязвимые виды"
+  },
+  "directoryCertificationLevel": {
+    "BASIC": "",
+    "ADVANCED": "Расширенный"
+  },
+  "directoryCertificationTitle": {
+    "BIODIVERSITY_DATA_MOBILIZATION": "",
+    "BIODIVERSITY_DATA_USE": "",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
+  }
+}
