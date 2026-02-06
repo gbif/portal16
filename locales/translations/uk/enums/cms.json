@@ -39,6 +39,8 @@
           "SMALL": "Маленький грант",
           "NATIONAL": "Національний грант",
           "DATA_USE": "",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "Не вказано"
         },
         "projectStatus": {
