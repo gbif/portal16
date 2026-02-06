@@ -1,0 +1,35 @@
+{
+  "directoryAreaExpertise": {
+    "AGRICULTURE_AND_FOOD_SECURITY": "",
+    "BUSINESS_SECTOR": "",
+    "CITIZEN_SCIENCE": "إشراك المواطن في العلم",
+    "CLIMATE_CHANGE": "التغير المناخي",
+    "COLLECTIONS_MANAGEMENT": "",
+    "CONSERVATION": "الحفظ",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "",
+    "DATA_MANAGEMENT": "إدارة البيانات",
+    "DATA_MOBILIZATION": "تحريك البيانات",
+    "DATA_PAPERS": "أوراق علمية عن البيانات",
+    "DATA_PUBLISHING": "نشر البيانات",
+    "DATA_USE": "استعمال البيانات",
+    "DNA_BARCODING_AND_METAGENOMICS": "",
+    "FRESHWATER_ECOLOGY": "",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "",
+    "IMPACT_ASSESSMENTS": "",
+    "INVASIVE_ALIEN_SPECIES": "الأنواع الغريبة الغازية",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "",
+    "MACHINE_OBSERVATIONS": "",
+    "MARINE_ECOLOGY": "",
+    "SOIL_BIODIVERSITY": "",
+    "THREATENED_SPECIES": "انواع مهددة"
+  },
+  "directoryCertificationLevel": {
+    "BASIC": "",
+    "ADVANCED": "متقدم"
+  },
+  "directoryCertificationTitle": {
+    "BIODIVERSITY_DATA_MOBILIZATION": "",
+    "BIODIVERSITY_DATA_USE": "",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
+  }
+}
