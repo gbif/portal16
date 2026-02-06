@@ -1,6 +1,6 @@
 {
     "sex": {
-        "NONE":"None",
+        "NONE": "None",
         "MALE": "Male",
         "FEMALE": "Female",
         "HERMAPHRODITE": "Hermaphrodite"
