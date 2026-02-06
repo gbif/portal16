@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "Автор латинского названия",
     "undefined": "Неизвестное поле",
     "coordinatesTextual": "Эта запись опубликована без координат, но она содержит текстовое описание местонахождения.",
-    "coordinatesMissing": "Координаты отсутствуют"
+    "coordinatesMissing": "Координаты отсутствуют",
+    "eventType": "Тип события",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "Подтриба",
+    "superfamily": "Надсемейство",
+    "tribe": "Триба",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }
