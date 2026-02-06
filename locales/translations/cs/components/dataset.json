@@ -5,7 +5,8 @@
       "OCCURRENCE": "Datová sada o výskytu",
       "CHECKLIST": "Datová sada kontrolního seznamu",
       "SAMPLING_EVENT": "Událost odběru vzorku",
-      "METADATA": "Datová sada metadat"
+      "METADATA": "Datová sada metadat",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Výskyty",
@@ -23,6 +24,7 @@
     "constituentOf": "Součást",
     "dataset": "Datová sada",
     "taxonomy": "Taxonomie",
+    "phylotree": "Rovná se {from}",
     "project": "Projekt",
     "metrics": "Metriky",
     "constituents": "Součásti",
