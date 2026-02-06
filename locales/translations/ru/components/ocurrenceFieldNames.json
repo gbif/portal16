@@ -262,12 +262,12 @@
     "coordinatesTextual": "Эта запись опубликована без координат, но она содержит текстовое описание местонахождения.",
     "coordinatesMissing": "Координаты отсутствуют",
     "eventType": "Тип события",
-    "caste": "",
-    "vitality": "",
+    "caste": "Социальное положение",
+    "vitality": "Жизнеспособность ",
     "subtribe": "Подтриба",
     "superfamily": "Надсемейство",
     "tribe": "Триба",
-    "verbatimLabel": "",
-    "isSequenced": ""
+    "verbatimLabel": "Название по первоисточнику",
+    "isSequenced": "Упорядочены"
   }
 }
