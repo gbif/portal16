@@ -1,0 +1,35 @@
+{
+  "directoryAreaExpertise": {
+    "AGRICULTURE_AND_FOOD_SECURITY": "",
+    "BUSINESS_SECTOR": "",
+    "CITIZEN_SCIENCE": "Burgerwetenschap",
+    "CLIMATE_CHANGE": "Klimaatverandering",
+    "COLLECTIONS_MANAGEMENT": "",
+    "CONSERVATION": "",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "",
+    "DATA_MANAGEMENT": "Gegevensbeheer",
+    "DATA_MOBILIZATION": "Mobiliseren van gegevens",
+    "DATA_PAPERS": "Data papers",
+    "DATA_PUBLISHING": "",
+    "DATA_USE": "Data gebruik",
+    "DNA_BARCODING_AND_METAGENOMICS": "",
+    "FRESHWATER_ECOLOGY": "",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "",
+    "IMPACT_ASSESSMENTS": "",
+    "INVASIVE_ALIEN_SPECIES": "Invasieve uitheemsesoorten",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "",
+    "MACHINE_OBSERVATIONS": "",
+    "MARINE_ECOLOGY": "",
+    "SOIL_BIODIVERSITY": "",
+    "THREATENED_SPECIES": "Bedreigde soorten"
+  },
+  "directoryCertificationLevel": {
+    "BASIC": "",
+    "ADVANCED": "Alle Filters"
+  },
+  "directoryCertificationTitle": {
+    "BIODIVERSITY_DATA_MOBILIZATION": "",
+    "BIODIVERSITY_DATA_USE": "",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
+  }
+}
