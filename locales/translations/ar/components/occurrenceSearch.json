@@ -29,6 +29,8 @@
     "errorUserThrottled": "تم تعليق إذن الدخول الخاص بك بشكل مؤقت.",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "عنوان URL لتساؤلك تجاوز 2000 محرف وقد لا يعمل بشكل صحيح في كافة المتصفحات. لأجل التساؤلات الكبيرة و/أو المعقدة، يرجى النظر في استخدام API للتنزيل.",
     "didYouMean": "يتطابق بحثك مع {RANK}: '{NAME}'. هل ترغب في الحد من بحثك على هذه الوحدة التصنيفية فقط؟",
     "clickToUseAcceptedTaxon": ""
