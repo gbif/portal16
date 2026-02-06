@@ -29,6 +29,8 @@
     "errorUserThrottled": "Votre accès a été restreint temporairement.",
     "polygonSimplifiedToFewerDecimals": "Le polygone a été simplifié : nombre de décimales réduit",
     "polygonSimplifiedToFewerPoints": "Le polygone a été simplifié : nombre de points réduit",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "L'URL de votre requête dépasse 2 000 caractères et pourrait ne pas fonctionner correctement dans tous les navigateurs. Pour des requêtes grandes et/ou compliquées, veuillez envisager d'utiliser l'API de téléchargement.",
     "didYouMean": "Votre recherche correspond à {RANK, select,\nClasse {une}\nFamille {une}\nEspèce {une}\nother {un}\n} {RANK}: '{NAME}'. Voulez-vous limiter votre recherche à ce taxon seulement ?",
     "clickToUseAcceptedTaxon": "Cliquez pour rechercher par le nom accepté du taxon. Vous verrez probablement plus de données car cela inclut aussi tous les usages de synonymes."
