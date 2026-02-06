@@ -29,6 +29,8 @@
     "errorUserThrottled": "您的存取暫時被停用",
     "polygonSimplifiedToFewerDecimals": "多邊形已被簡化：減少了小數位數",
     "polygonSimplifiedToFewerPoints": "多邊形已被簡化：減少了點位",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "您查詢條件的網址超過 2000 個字元，可能無法在所有瀏覽器中正常運作。針對大量或複雜的查詢，請考慮使用下載 API。",
     "didYouMean": "您的查詢範圍與 {RANK}：'{NAME}' 相符。您想將查詢範圍限制在此分類群嗎？",
     "clickToUseAcceptedTaxon": "點擊以分類群有效名搜尋。結果將因包含同物異名而有更多資料。"
