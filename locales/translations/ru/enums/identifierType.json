@@ -17,7 +17,12 @@
       "GRSCICOLL_URI": "URI GRSCICOLL",
       "ROR": "Индекс ROR",
       "GRID": "СЕТКА",
-      "GRSCICOLL_ID": "Идентификатор GRSCICOLL"
+      "GRSCICOLL_ID": "Идентификатор GRSCICOLL",
+      "IH_IRN": "",
+      "CITES": "Номер по Конвенции CITES",
+      "SYMBIOTA_UUID": "",
+      "WIKIDATA": "",
+      "NCBI_BIOCOLLECTION": ""
     }
   }
 }
