@@ -39,6 +39,8 @@
           "SMALL": "機構生物多樣性資料流通獎助",
           "NATIONAL": "國家生物多樣性資料流通獎助",
           "DATA_USE": "資料使用獎助",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "未指定"
         },
         "projectStatus": {
