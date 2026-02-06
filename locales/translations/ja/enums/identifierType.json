@@ -17,7 +17,12 @@
       "GRSCICOLL_URI": "GRSCICOLL URI",
       "ROR": "",
       "GRID": "",
-      "GRSCICOLL_ID": "GRSCICOLL ID"
+      "GRSCICOLL_ID": "GRSCICOLL ID",
+      "IH_IRN": "",
+      "CITES": "",
+      "SYMBIOTA_UUID": "",
+      "WIKIDATA": "",
+      "NCBI_BIOCOLLECTION": ""
     }
   }
 }
