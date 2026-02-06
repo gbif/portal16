@@ -5,7 +5,8 @@
       "OCCURRENCE": "Conjunto de dados de ocorrência",
       "CHECKLIST": "Conjuntos de dados de checklists",
       "SAMPLING_EVENT": "Evento de colheita",
-      "METADATA": "Conjunto de dados de metadados"
+      "METADATA": "Conjunto de dados de metadados",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Ocorrências",
@@ -23,6 +24,7 @@
     "constituentOf": "Partes de",
     "dataset": "Conjunto de dados",
     "taxonomy": "Taxonomia",
+    "phylotree": "Iguais {is}",
     "project": "Projeto",
     "metrics": "Métricas",
     "constituents": "Partes de",
