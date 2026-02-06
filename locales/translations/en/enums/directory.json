@@ -1,0 +1,35 @@
+{
+  "directoryAreaExpertise": {
+    "AGRICULTURE_AND_FOOD_SECURITY": "Agriculture and food security",
+    "BUSINESS_SECTOR": "Business sector",
+    "CITIZEN_SCIENCE": "Citizen science",
+    "CLIMATE_CHANGE": "Climate change",
+    "COLLECTIONS_MANAGEMENT": "Collections management",
+    "CONSERVATION": "Conservation",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "Data analysis and visualization statistical modeling",
+    "DATA_MANAGEMENT": "Data management",
+    "DATA_MOBILIZATION": "Data mobilization",
+    "DATA_PAPERS": "Data papers",
+    "DATA_PUBLISHING": "Data publishing",
+    "DATA_USE": "Data use",
+    "DNA_BARCODING_AND_METAGENOMICS": "Dna barcoding and metagenomics",
+    "FRESHWATER_ECOLOGY": "Freshwater ecology",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "Human health and one health",
+    "IMPACT_ASSESSMENTS": "Impact assessments",
+    "INVASIVE_ALIEN_SPECIES": "Invasive alien species",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "Long term monitoring systematic survey data",
+    "MACHINE_OBSERVATIONS": "Machine observations",
+    "MARINE_ECOLOGY": "Marine ecology",
+    "SOIL_BIODIVERSITY": "Soil biodiversity",
+    "THREATENED_SPECIES": "Threatened species"
+  },
+  "directoryCertificationLevel": {
+    "BASIC": "Basic",
+    "ADVANCED": "All filters"
+  },
+  "directoryCertificationTitle": {
+    "BIODIVERSITY_DATA_MOBILIZATION": "Biodiversity data mobilization",
+    "BIODIVERSITY_DATA_USE": "Biodiversity data use",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": "Biodiversity data publishing support"
+  }
+}
