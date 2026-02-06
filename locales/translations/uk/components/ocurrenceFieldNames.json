@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "Авторство наукової назви",
     "undefined": "Невідоме поле",
     "coordinatesTextual": "Цей запис опубліковано без координат, але він включає текстовий опис його розташування.",
-    "coordinatesMissing": "Координати відсутні"
+    "coordinatesMissing": "Координати відсутні",
+    "eventType": "",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "Підтриба",
+    "superfamily": "Надродина",
+    "tribe": "Триба",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }
