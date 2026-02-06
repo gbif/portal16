@@ -5,7 +5,8 @@
       "OCCURRENCE": "Jeu de données d'occurrences",
       "CHECKLIST": "Liste taxonomique",
       "SAMPLING_EVENT": "Événement d'échantillonnage",
-      "METADATA": "Jeu de métadonnées"
+      "METADATA": "Jeu de métadonnées",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Occurrences",
@@ -23,6 +24,7 @@
     "constituentOf": "Fait partie de",
     "dataset": "Ensemble de données",
     "taxonomy": "Taxonomie",
+    "phylotree": "",
     "project": "Projet",
     "metrics": "Statistiques",
     "constituents": "Font partie de",
