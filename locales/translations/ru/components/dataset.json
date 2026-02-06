@@ -5,7 +5,8 @@
       "OCCURRENCE": "Набор данных о находках",
       "CHECKLIST": "Таксономический список",
       "SAMPLING_EVENT": "Описания, учеты или сборы",
-      "METADATA": "Набор метаданных"
+      "METADATA": "Набор метаданных",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "{NUMBER, plural,\n0 {Находок}\none {Находка}\nfew {Находки}\nmany {Находок}\nother {Находок}\n}",
@@ -23,6 +24,7 @@
     "constituentOf": "Базовые наборы данных",
     "dataset": "Набор данных",
     "taxonomy": "Таксономия",
+    "phylotree": "Филогении",
     "project": "Проект",
     "metrics": "Показатели",
     "constituents": "Базовые наборы данных",
