@@ -21,6 +21,7 @@
       "CLASSIC": "Classic points",
       "STREETS": "Streets",
       "GLACIER": "Glacier",
+      "GREEN": "Green points",
       "CUSTOM": "Custom"
     },
     "basemap": {
