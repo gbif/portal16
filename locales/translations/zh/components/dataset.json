@@ -5,7 +5,8 @@
       "OCCURRENCE": "出现记录数据集",
       "CHECKLIST": "物种名录数据集",
       "SAMPLING_EVENT": "采样事件",
-      "METADATA": "元数据数据集"
+      "METADATA": "元数据数据集",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "出现记录",
@@ -23,6 +24,7 @@
     "constituentOf": "的组成",
     "dataset": "数据集",
     "taxonomy": "分类",
+    "phylotree": "等于 {is}",
     "project": "项目",
     "metrics": "指标",
     "constituents": "的组成",
