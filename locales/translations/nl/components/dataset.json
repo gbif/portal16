@@ -5,7 +5,8 @@
       "OCCURRENCE": "",
       "CHECKLIST": "Checklistdataset",
       "SAMPLING_EVENT": "",
-      "METADATA": "Metadatadataset"
+      "METADATA": "Metadatadataset",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "",
@@ -23,6 +24,7 @@
     "constituentOf": "Onderdeel van",
     "dataset": "Dataset",
     "taxonomy": "Taxonomie",
+    "phylotree": "Gelijk aan {is}",
     "project": "Project",
     "metrics": "Metrieken",
     "constituents": "",
