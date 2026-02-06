@@ -21,6 +21,7 @@
       "CLASSIC": "经典点状",
       "STREETS": "街道",
       "GLACIER": "冰川",
+      "GREEN": "发表评论-需要一个Github帐户",
       "CUSTOM": "自定义"
     },
     "basemap": {
