@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "Подробнее",
-      "cluster": ""
+      "cluster": "",
+      "phylotree": "Филогении"
     },
     "typeOf": "{TYPE} из {NAME}",
     "coordinates": "Координаты",
@@ -41,6 +42,8 @@
       "Organism": "Организм",
       "MaterialSample": "Образец из коллекции",
       "GeologicalContext": "Геологические контекст",
+      "MaterialEntity": "",
+      "Provenance": "Происхождение",
       "other": "Прочее"
     },
     "term": "Термин Darwin Core",
