@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "",
     "undefined": "Onbekende veld",
     "coordinatesTextual": "",
-    "coordinatesMissing": "Coördinaten ontbreken"
+    "coordinatesMissing": "Coördinaten ontbreken",
+    "eventType": "",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "",
+    "superfamily": "",
+    "tribe": "",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }
