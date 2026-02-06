@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "Детальна інформація",
-      "cluster": ""
+      "cluster": "",
+      "phylotree": ""
     },
     "typeOf": "{TYPE} з {NAME}",
     "coordinates": "Координати",
@@ -41,6 +42,8 @@
       "Organism": "Організм",
       "MaterialSample": "Матеріальний зразок",
       "GeologicalContext": "Геологічний контекст",
+      "MaterialEntity": "",
+      "Provenance": "Походження",
       "other": "Інше"
     },
     "term": "Термін",
