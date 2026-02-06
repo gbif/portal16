@@ -29,7 +29,7 @@
     "errorUserThrottled": "Your access has been temporarily restricted.",
     "polygonSimplifiedToFewerDecimals": "The polygon has been simplified: number of decimals reduced",
     "polygonSimplifiedToFewerPoints": "The polygon has been simplified: number of points reduced",
-    "simplificationCausedSelfIntersection": "Looks like the simplification caused the geoemtry to self intersect. You should correct this before continuing.",
+    "simplificationCausedSelfIntersection": "Looks like the simplification caused the geometry to self-intersect. You should correct this before continuing.",
     "geometryCollectionNotSupported": "Geometry collections are not supported",
     "largeQueryLengthWarning": "The URL of your query exceeds 2,000 characters and may not work properly in all browsers. For large and/or complicated queries, please consider using the download API.",
     "didYouMean": "Your search matches a {RANK}: '{NAME}'. Do you wish to limit your search to this taxon only?",
