@@ -42,7 +42,7 @@
       "Organism": "Организм",
       "MaterialSample": "Образец из коллекции",
       "GeologicalContext": "Геологические контекст",
-      "MaterialEntity": "",
+      "MaterialEntity": "Сущность материала",
       "Provenance": "Происхождение",
       "other": "Прочее"
     },
