@@ -21,6 +21,7 @@
       "CLASSIC": "Puntos clásicos",
       "STREETS": "Calles",
       "GLACIER": "Glaciar",
+      "GREEN": "Deja un comentario - requiere una cuenta de Github",
       "CUSTOM": "Personalizar"
     },
     "basemap": {
