@@ -34,7 +34,7 @@
     "CONTINENT_DERIVED_FROM_COORDINATES": "The interpreted continent is based on the coordinates, not the verbatim string information.",
     "ACCEPTED_NAME_MISSING": "Synonym lacking an accepted name",
     "ORIGINAL_NAME_USAGE_ID_INVALID": "The value for dwc:originalNameUsageID could not be resolved",
-    "MULTIMEDIA_INVALID": "At least one multimedia extension record attached to this name usage is invalid. This covers multimedia coming in through various extensions including Audubon core, Simple images or multimedia or EOL media. ",
+    "MULTIMEDIA_INVALID": "At least one multimedia extension record attached to this name usage is invalid. This covers multimedia coming in through various extensions including Audiovisual Core, Simple images or multimedia or EOL media. ",
     "ORIGINAL_NAME_NOT_UNIQUE": "Record has a verbatim original name (basionym) which is not unique and refers to several records.",
     "TYPE_STATUS_INVALID": "The given type status is impossible to interpret or seriously different from the recommended vocabulary.",
     "CORE_ROWTYPE_UNDETERMINED": "No rowType could be found or determined",
