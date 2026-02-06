@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "学名作者",
     "undefined": "未知字段",
     "coordinatesTextual": "这条记录有包含地点的文字描述，但没有坐标。",
-    "coordinatesMissing": "缺少坐标"
+    "coordinatesMissing": "缺少坐标",
+    "eventType": "",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "亚族",
+    "superfamily": "超科",
+    "tribe": "族",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }
