@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "詳細",
-      "cluster": "クラスター"
+      "cluster": "クラスター",
+      "phylotree": ""
     },
     "typeOf": "{NAME} の {TYPE}",
     "coordinates": "座標",
@@ -41,6 +42,8 @@
       "Organism": "生物",
       "MaterialSample": "試料",
       "GeologicalContext": "地質学的背景",
+      "MaterialEntity": "",
+      "Provenance": "原産",
       "other": "その他"
     },
     "term": "用語",
