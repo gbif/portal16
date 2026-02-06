@@ -5,7 +5,8 @@
       "OCCURRENCE": "Occurrence dataset",
       "CHECKLIST": "Checklist dataset",
       "SAMPLING_EVENT": "Sampling event",
-      "METADATA": "Metadata dataset"
+      "METADATA": "Metadata dataset",
+      "MATERIAL_ENTITY": "Material entity"
     },
     "metricHighlights": {
       "occurrences": "Occurrences",
@@ -23,6 +24,7 @@
     "constituentOf": "Constituent of",
     "dataset": "Dataset",
     "taxonomy": "Taxonomy",
+    "phylotree": "Phylogenies",
     "project": "Project",
     "metrics": "Metrics",
     "constituents": "Constituents",
