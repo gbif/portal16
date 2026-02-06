@@ -5,7 +5,8 @@
       "OCCURRENCE": "Vorkommen-Datensatz",
       "CHECKLIST": "Checklisten-Datensatz",
       "SAMPLING_EVENT": "Probennahme-Ereignis",
-      "METADATA": "Metadaten-Datensatz"
+      "METADATA": "Metadaten-Datensatz",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Vorkommen",
@@ -23,6 +24,7 @@
     "constituentOf": "Bestandteil von",
     "dataset": "Datensatz",
     "taxonomy": "Taxonomie",
+    "phylotree": "Gleich {is}",
     "project": "Projekt",
     "metrics": "Kennzahlen",
     "constituents": "Bestandteile",
