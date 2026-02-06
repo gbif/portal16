@@ -39,8 +39,8 @@
           "SMALL": "Subvención pequeña",
           "NATIONAL": "Subvención nacional",
           "DATA_USE": "",
-          "INSTITUTIONAL": "",
-          "MULTI_INSTITUTIONAL": "",
+          "INSTITUTIONAL": "Fondos institucionales para la movilización de datos sobre biodiversidad",
+          "MULTI_INSTITUTIONAL": "Fondos multi-institucionales para la movilización de datos sobre biodiversidad ",
           "undefined": "Sin especificar"
         },
         "projectStatus": {
