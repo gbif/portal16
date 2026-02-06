@@ -5,7 +5,8 @@
       "OCCURRENCE": "Observationsdatasæt",
       "CHECKLIST": "Checklistedatasæt",
       "SAMPLING_EVENT": "Sampling event",
-      "METADATA": "Metadata datasæt"
+      "METADATA": "Metadata datasæt",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Observationer",
@@ -23,6 +24,7 @@
     "constituentOf": "Bestanddel af",
     "dataset": "Datasæt",
     "taxonomy": "Taksonomi",
+    "phylotree": "",
     "project": "Projekt",
     "metrics": "Grafer",
     "constituents": "Konstituenter",
