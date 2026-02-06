@@ -68,6 +68,14 @@
     "COLLECTION_MATCH_FUZZY": "收藏品匹配模糊",
     "INSTITUTION_COLLECTION_MISMATCH": "机构收藏品不匹配",
     "POSSIBLY_ON_LOAN": "可能租借",
-    "DIFFERENT_OWNER_INSTITUTION": "不同的所有者机构"
+    "DIFFERENT_OWNER_INSTITUTION": "不同的所有者机构",
+    "TAXON_MATCH_SCIENTIFIC_NAME_ID_IGNORED": "分类单元匹配学名ID已被忽略。\n",
+    "TAXON_MATCH_TAXON_CONCEPT_ID_IGNORED": "分类单元匹配分类单元概念ID已被忽略。\n",
+    "TAXON_MATCH_TAXON_ID_IGNORED": "分类单元匹配分类单元ID被忽略",
+    "SCIENTIFIC_NAME_ID_NOT_FOUND": "学名ID未找到",
+    "TAXON_CONCEPT_ID_NOT_FOUND": "分类单元概念ID未找到。\n",
+    "TAXON_ID_NOT_FOUND": "未找到分类单元ID",
+    "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "学名和ID不一致",
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "分类单元匹配名称和ID不明确"
   }
 }
