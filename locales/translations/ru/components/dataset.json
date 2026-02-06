@@ -6,7 +6,7 @@
       "CHECKLIST": "Таксономический список",
       "SAMPLING_EVENT": "Описания, учеты или сборы",
       "METADATA": "Набор метаданных",
-      "MATERIAL_ENTITY": ""
+      "MATERIAL_ENTITY": "Сущность материала"
     },
     "metricHighlights": {
       "occurrences": "{NUMBER, plural,\n0 {Находок}\none {Находка}\nfew {Находки}\nmany {Находок}\nother {Находок}\n}",
