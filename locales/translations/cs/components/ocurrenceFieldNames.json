@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "Autorství vědeckého názvu",
     "undefined": "Neznámé pole",
     "coordinatesTextual": "Tento záznam je zveřejněn bez souřadnic, ale obsahuje textový popis jeho umístění.",
-    "coordinatesMissing": "Chybí souřadnice"
+    "coordinatesMissing": "Chybí souřadnice",
+    "eventType": "Typ události",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "Podkmen",
+    "superfamily": "Nadčeleď",
+    "tribe": "Kmen",
+    "verbatimLabel": "",
+    "isSequenced": "Je sekvenováno"
   }
 }
