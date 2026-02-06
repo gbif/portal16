@@ -21,6 +21,7 @@
       "CLASSIC": "Klasické body",
       "STREETS": "Ulice",
       "GLACIER": "Ledovec",
+      "GREEN": "Zanechat komentář – vyžaduje účet Github",
       "CUSTOM": "Vlastní"
     },
     "basemap": {
