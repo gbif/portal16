@@ -1,35 +1,35 @@
 {
   "directoryAreaExpertise": {
-    "AGRICULTURE_AND_FOOD_SECURITY": "",
-    "BUSINESS_SECTOR": "",
+    "AGRICULTURE_AND_FOOD_SECURITY": "Сельское хозяйство и продовольственная безопасность",
+    "BUSINESS_SECTOR": "Бизнес-сектор",
     "CITIZEN_SCIENCE": "Гражданская наука",
     "CLIMATE_CHANGE": "Изменение климата",
-    "COLLECTIONS_MANAGEMENT": "",
+    "COLLECTIONS_MANAGEMENT": "Управление коллекциями",
     "CONSERVATION": "Охрана природы",
-    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "Анализ данных и визуальное статистическое моделирование",
     "DATA_MANAGEMENT": "Управление данными",
     "DATA_MOBILIZATION": "Мобилизация данных",
     "DATA_PAPERS": "Статьи о данных",
     "DATA_PUBLISHING": "Публикация данных",
     "DATA_USE": "Использование данных",
-    "DNA_BARCODING_AND_METAGENOMICS": "",
-    "FRESHWATER_ECOLOGY": "",
-    "HUMAN_HEALTH_AND_ONE_HEALTH": "",
-    "IMPACT_ASSESSMENTS": "",
+    "DNA_BARCODING_AND_METAGENOMICS": "Баркоды DNA и метагеномика",
+    "FRESHWATER_ECOLOGY": "Экология чистой воды",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "Здоровье всего человечества и отдельного человека",
+    "IMPACT_ASSESSMENTS": "Оценки воздействия",
     "INVASIVE_ALIEN_SPECIES": "Инвазионный чужеродный вид",
-    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "",
-    "MACHINE_OBSERVATIONS": "",
-    "MARINE_ECOLOGY": "",
-    "SOIL_BIODIVERSITY": "",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "Данные обзоров длительного мониторинга",
+    "MACHINE_OBSERVATIONS": "Машинные наблюдения",
+    "MARINE_ECOLOGY": "Морская экология",
+    "SOIL_BIODIVERSITY": "Биоразнообразие почвы",
     "THREATENED_SPECIES": "Потенциально уязвимые виды"
   },
   "directoryCertificationLevel": {
-    "BASIC": "",
+    "BASIC": "Основное",
     "ADVANCED": "Расширенный"
   },
   "directoryCertificationTitle": {
-    "BIODIVERSITY_DATA_MOBILIZATION": "",
-    "BIODIVERSITY_DATA_USE": "",
-    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
+    "BIODIVERSITY_DATA_MOBILIZATION": "Мобилизация данных о биоразнообразии",
+    "BIODIVERSITY_DATA_USE": "Использование данных о биоразнообразии",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": "Поддержка публикации данных о биоразнообразии"
   }
 }
