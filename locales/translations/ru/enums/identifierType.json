@@ -18,11 +18,11 @@
       "ROR": "Индекс ROR",
       "GRID": "СЕТКА",
       "GRSCICOLL_ID": "Идентификатор GRSCICOLL",
-      "IH_IRN": "",
+      "IH_IRN": "Тип идентификатора IH IRN",
       "CITES": "Номер по Конвенции CITES",
-      "SYMBIOTA_UUID": "",
-      "WIKIDATA": "",
-      "NCBI_BIOCOLLECTION": ""
+      "SYMBIOTA_UUID": "Симбиота UUID",
+      "WIKIDATA": "Данные из Википедии",
+      "NCBI_BIOCOLLECTION": "Биоколлекция NCBI"
     }
   }
 }
