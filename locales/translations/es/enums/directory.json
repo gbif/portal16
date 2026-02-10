@@ -24,12 +24,12 @@
     "THREATENED_SPECIES": "Especies amenazadas"
   },
   "directoryCertificationLevel": {
-    "BASIC": "",
+    "BASIC": "Básico",
     "ADVANCED": "Todos los filtros"
   },
   "directoryCertificationTitle": {
-    "BIODIVERSITY_DATA_MOBILIZATION": "",
-    "BIODIVERSITY_DATA_USE": "",
-    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
+    "BIODIVERSITY_DATA_MOBILIZATION": "Movilización de datos sobre biodiversidad",
+    "BIODIVERSITY_DATA_USE": "Uso de datos de biodiversidad",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": "Apoyo a la publicación de datos sobre biodiversidad"
   }
 }
