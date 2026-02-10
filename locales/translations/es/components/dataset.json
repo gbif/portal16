@@ -6,7 +6,7 @@
       "CHECKLIST": "Conjunto de datos de listas de chequeo",
       "SAMPLING_EVENT": "Evento de muestreo",
       "METADATA": "Conjunto de datos de metadatos",
-      "MATERIAL_ENTITY": ""
+      "MATERIAL_ENTITY": "Entidad material"
     },
     "metricHighlights": {
       "occurrences": "Registros de presencia",
