@@ -262,12 +262,12 @@
     "coordinatesTextual": "Este registro está publicado sin coordinadas pero incluye una descripción textual de su ubicación.",
     "coordinatesMissing": "Faltan las coordenadas",
     "eventType": "Tipo de evento",
-    "caste": "",
-    "vitality": "",
+    "caste": "Casta",
+    "vitality": "Vitalidad",
     "subtribe": "Subtribu",
     "superfamily": "Superfamilia",
     "tribe": "Tribu",
-    "verbatimLabel": "",
-    "isSequenced": ""
+    "verbatimLabel": "Etiqueta original",
+    "isSequenced": "Está secuenciado"
   }
 }
