@@ -42,7 +42,7 @@
       "Organism": "Organismo",
       "MaterialSample": "Muestra de material",
       "GeologicalContext": "Contexto geológico",
-      "MaterialEntity": "",
+      "MaterialEntity": "Entidad material",
       "Provenance": "Procedencia",
       "other": "Otro"
     },
