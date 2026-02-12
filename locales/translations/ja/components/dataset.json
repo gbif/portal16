@@ -5,7 +5,8 @@
       "OCCURRENCE": "オカレンスデータセット",
       "CHECKLIST": "チェックリスト データセット",
       "SAMPLING_EVENT": "サンプリング イベント",
-      "METADATA": "メタデータのデータセット"
+      "METADATA": "メタデータのデータセット",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "オカレンス",
@@ -23,6 +24,7 @@
     "constituentOf": "構成要素",
     "dataset": "データセット",
     "taxonomy": "分類",
+    "phylotree": "",
     "project": "プロジェクト",
     "metrics": "メトリクス",
     "constituents": "構成要素",

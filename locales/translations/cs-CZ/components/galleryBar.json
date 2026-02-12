@@ -1,6 +1,0 @@
-{
-    "galleryBar": {
-        "seeAllImages": "Prohlédnout galerii",
-        "nOccWithImages": "{NUMBER_FORMATED} {NUMBER, plural, one{výskyt} few {výskyty} many {výskytů} other{výskytů}} s obrázky"
-    }
-}

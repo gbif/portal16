@@ -5,7 +5,8 @@
       "OCCURRENCE": "Набір даних про знахідки",
       "CHECKLIST": "Набор даних - таксономічний список",
       "SAMPLING_EVENT": "Описи, обліки або збори",
-      "METADATA": "Набір метаданих"
+      "METADATA": "Набір метаданих",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Знахідки",
@@ -23,6 +24,7 @@
     "constituentOf": "Складається з",
     "dataset": "Набір даних",
     "taxonomy": "Таксономія",
+    "phylotree": "",
     "project": "Проєкт",
     "metrics": "Показники",
     "constituents": "Складові",

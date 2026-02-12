@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "Autor do nome científico",
     "undefined": "Campo desconhecido",
     "coordinatesTextual": "Este registo é publicado sem coordenadas, mas inclui uma descrição textual da localização.",
-    "coordinatesMissing": "Faltam as coordenadas"
+    "coordinatesMissing": "Faltam as coordenadas",
+    "eventType": "",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "Subtribo",
+    "superfamily": "Superfamília",
+    "tribe": "Tribo",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }

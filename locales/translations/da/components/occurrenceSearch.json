@@ -29,6 +29,8 @@
     "errorUserThrottled": "",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "Din søgnings URL overstiger 2.000 karakterer og vil derfor muligvis ikke fungere i alle browsere. Til store og/eller komplicerede søgninger kan det anbefales, at du anvender download API'et.",
     "didYouMean": "Din søgning matcher {RANK, select, Kingdom {et}, other {en}} {RANK}: '{NAME}'. Vil du begrænse din søgning til denne takson?",
     "clickToUseAcceptedTaxon": ""

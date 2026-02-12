@@ -29,6 +29,8 @@
     "errorUserThrottled": "您的访问权限暂时被限制。",
     "polygonSimplifiedToFewerDecimals": "多边形被简化了：小数的数目减少了",
     "polygonSimplifiedToFewerPoints": "多边形已被简化：点数减少",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "您查询的 URL 超过 2 000 个字符，可能无法在所有浏览器中正常使用。对于较大和/或复杂的查询，请考虑使用下载API。",
     "didYouMean": "您的搜索与{分类等级}：“ {名称}”相匹配。 您是否希望只在这个分类单元内进行搜索？",
     "clickToUseAcceptedTaxon": "单击此处可按接受的分类单元名称进行搜索。您可能会看到更多的数据，因为这包括所有同义词用法的数据。"

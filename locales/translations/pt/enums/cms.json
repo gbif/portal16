@@ -39,6 +39,8 @@
           "SMALL": "Subvenção institucional de mobilização de dados de biodiversidade",
           "NATIONAL": "Subvenção nacional de mobilização de dados de biodiversidade",
           "DATA_USE": "Subvenção de uso de dados",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "Não especificado"
         },
         "projectStatus": {

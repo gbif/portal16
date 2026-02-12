@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "Autorstwo nazwy naukowej",
     "undefined": "Pole nieznane",
     "coordinatesTextual": "Ten rekord został opublikowany bez współrzędnych geograficznych, ale zawiera tekstowy opis lokalizacji.",
-    "coordinatesMissing": "Brakujące współrzędne"
+    "coordinatesMissing": "Brakujące współrzędne",
+    "eventType": "",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "Podplemię",
+    "superfamily": "Nadrodzina",
+    "tribe": "Plemię",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }

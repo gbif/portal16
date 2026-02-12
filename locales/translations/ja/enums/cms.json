@@ -39,6 +39,8 @@
           "SMALL": "小規模の生物多様性データ収集のための助成金",
           "NATIONAL": "国の生物多様性データ収集のための助成金",
           "DATA_USE": "",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "情報なし"
         },
         "projectStatus": {

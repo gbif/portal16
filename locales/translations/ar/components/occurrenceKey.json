@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "تفاصيل",
-      "cluster": ""
+      "cluster": "",
+      "phylotree": "التساويات { is }"
     },
     "typeOf": "{TYPE} من {NAME}",
     "coordinates": "احداثيات",
@@ -41,6 +42,8 @@
       "Organism": "المتعضي",
       "MaterialSample": "عينة مادية",
       "GeologicalContext": "السياق الجيولوجي",
+      "MaterialEntity": "",
+      "Provenance": "منشأ",
       "other": "أخرى"
     },
     "term": "مصطلح",

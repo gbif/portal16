@@ -260,6 +260,14 @@
     "scientificNameAuthorship": "",
     "undefined": "",
     "coordinatesTextual": "",
-    "coordinatesMissing": ""
+    "coordinatesMissing": "",
+    "eventType": "",
+    "caste": "",
+    "vitality": "",
+    "subtribe": "",
+    "superfamily": "",
+    "tribe": "",
+    "verbatimLabel": "",
+    "isSequenced": ""
   }
 }

@@ -29,6 +29,8 @@
     "errorUserThrottled": "Ваш доступ був тимчасово обмежений.",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "URL вашого запиту перевищує 2000 символів, і може працювати некоректно у всіх браузерах. У разі великих і/або складних запитів розгляньте можливість завантаження через API.",
     "didYouMean": "Ваш пошуковий запит збігається з наступним таксоном: {RANK}: '{NAME}'. Бажаєте обмежити пошук до цього таксону?",
     "clickToUseAcceptedTaxon": ""

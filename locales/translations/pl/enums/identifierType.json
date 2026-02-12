@@ -17,7 +17,12 @@
       "GRSCICOLL_URI": "URI CRSCICOLL",
       "ROR": "ROR",
       "GRID": "GRID",
-      "GRSCICOLL_ID": "Identyfikator GRSCICOLL"
+      "GRSCICOLL_ID": "Identyfikator GRSCICOLL",
+      "IH_IRN": "",
+      "CITES": "Konwencja waszyngtońska (CITES)",
+      "SYMBIOTA_UUID": "",
+      "WIKIDATA": "",
+      "NCBI_BIOCOLLECTION": ""
     }
   }
 }

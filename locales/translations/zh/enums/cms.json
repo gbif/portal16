@@ -39,6 +39,8 @@
           "SMALL": "小额经费",
           "NATIONAL": "国家基金",
           "DATA_USE": "数据使用授权",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "未指定的"
         },
         "projectStatus": {

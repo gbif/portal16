@@ -17,7 +17,12 @@
       "GRSCICOLL_URI": "科學蒐藏統一資源標識符",
       "ROR": "ROR",
       "GRID": "網格",
-      "GRSCICOLL_ID": "科學蒐藏統一資源識別碼"
+      "GRSCICOLL_ID": "科學蒐藏統一資源識別碼",
+      "IH_IRN": "",
+      "CITES": "",
+      "SYMBIOTA_UUID": "",
+      "WIKIDATA": "",
+      "NCBI_BIOCOLLECTION": ""
     }
   }
 }

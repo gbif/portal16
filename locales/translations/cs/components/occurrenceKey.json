@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "Detaily",
-      "cluster": ""
+      "cluster": "",
+      "phylotree": "Rovná se {from}"
     },
     "typeOf": "{TYPE} z {NAME}",
     "coordinates": "Souřadnice",
@@ -41,6 +42,8 @@
       "Organism": "Organismus",
       "MaterialSample": "Vzorek materiálu",
       "GeologicalContext": "Geologická souvislost",
+      "MaterialEntity": "",
+      "Provenance": "Původ",
       "other": "Jiné"
     },
     "term": "Termín",

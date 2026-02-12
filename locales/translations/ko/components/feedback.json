@@ -1,0 +1,53 @@
+{
+  "feedback": {
+    "leaveFeedback": "",
+    "intro": {
+      "title": "",
+      "example": ""
+    },
+    "data content": {
+      "title": "",
+      "example": "",
+      "annotate": "",
+      "contactPerMail": ""
+    },
+    "bug": {
+      "title": "",
+      "example": ""
+    },
+    "idea": {
+      "title": "",
+      "example": ""
+    },
+    "question": {
+      "title": "",
+      "example": "",
+      "description": "",
+      "comment": ""
+    },
+    "confirmation": {
+      "title": "",
+      "example": "",
+      "seeIssue": ""
+    },
+    "issues": {
+      "title": "",
+      "description": "",
+      "create": ""
+    },
+    "placeholders": {
+      "summary": "",
+      "description": "",
+      "username": ""
+    },
+    "markdownSupport": "",
+    "issueTracking": "",
+    "failure": "",
+    "weRecommendX": "",
+    "tellGbif": "",
+    "submit": "",
+    "seeAllComments": "",
+    "recommendMail": "",
+    "pleaseLogin": "피드백을 남기려면 로그인 해주세요. 대안으로 [Github](https://github.com/gbif/portal-feedback/issues) 또는 [helpdesk.@gbif.org](mailto:helpdesk@gbif.org)를 이용해주세요.\n\n로그인을 요구하지 않으면 피드백 시스템에 다량의 스팸 광고가 발생하여 로그인을 요구합니다."
+  }
+}

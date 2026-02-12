@@ -39,6 +39,8 @@
           "SMALL": "منحة صغيرة",
           "NATIONAL": "منحة وطنية",
           "DATA_USE": "",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "غيرمخصص"
         },
         "projectStatus": {

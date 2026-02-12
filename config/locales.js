@@ -20,6 +20,7 @@ if (env === 'local' || env === 'dev') {
 
 if (env === 'uat' || env === 'local') {
    locales.push('it');
+   locales.push('ko');
 }
 
 // specify rtl
@@ -38,6 +39,7 @@ contentfulLocaleMap['es'] = 'es';
 contentfulLocaleMap['ar'] = 'ar';
 contentfulLocaleMap['fr'] = 'fr';
 contentfulLocaleMap['it'] = 'it';
+contentfulLocaleMap['ko'] = 'ko';
 contentfulLocaleMap['ru'] = 'ru';
 contentfulLocaleMap['uk'] = 'uk';
 contentfulLocaleMap['pt'] = 'pt';
@@ -58,6 +60,7 @@ translationMap['ar'] = 'ara';
 translationMap['fr'] = 'fra';
 translationMap['it'] = 'ita';
 translationMap['ja'] = 'jpn';
+translationMap['ko'] = 'kor';
 translationMap['ru'] = 'rus';
 translationMap['uk'] = 'ukr';
 translationMap['pt'] = 'por';
@@ -75,18 +78,19 @@ translationMap['ar-MOCK'] = 'ara';
 // https://api.gbif.org/v1/vocabularyLanguage
 let vocabularyMap = _.keyBy(locales); // assume that it is the same locale name used
 // overwrites
+vocabularyMap['cs'] = 'cs-CZ';
+vocabularyMap['da'] = 'da-DK';
 vocabularyMap['es'] = 'es-ES';
 vocabularyMap['fr'] = 'fr-FR';
+vocabularyMap['it'] = 'it-IT';
 vocabularyMap['jp'] = 'ja-JP';
+vocabularyMap['ko'] = 'ko-KR';
+vocabularyMap['pl'] = 'pl-PL';
+vocabularyMap['pt'] = 'pt-PT';
 vocabularyMap['ru'] = 'ru-RU';
 vocabularyMap['uk'] = 'uk-UA';
-vocabularyMap['pt'] = 'pt-PT';
-vocabularyMap['pl'] = 'pl-PL';
-vocabularyMap['da'] = 'da-DK';
 vocabularyMap['zh'] = 'zh-CN';
 vocabularyMap['zh-tw'] = 'zh-TW';
-vocabularyMap['cs'] = 'cs-CZ';
-vocabularyMap['it'] = 'it-IT';
 
 // Moment occasionally use other names for the languages. Provide them here
 let momentMap = _.keyBy(locales); // default to use the same language codes

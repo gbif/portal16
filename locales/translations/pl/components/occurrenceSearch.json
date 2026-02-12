@@ -29,6 +29,8 @@
     "errorUserThrottled": "Twój dostęp został tymczasowo ograniczony.",
     "polygonSimplifiedToFewerDecimals": "Wielokąt został uproszczony: zmniejszono liczbę miejsc po przecinku",
     "polygonSimplifiedToFewerPoints": "Wielokąt został uproszczony: zmniejszono liczbę punktów",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "Adres URL zapytania przekracza 2000 znaków i może nie działać prawidłowo we wszystkich przeglądarkach. W przypadku dużych i/lub skomplikowanych zapytań rozważ użycie interfejsu pobierania API.",
     "didYouMean": "Twoje wyszukiwanie pasuje do {RANK}: '{NAME}'. Czy chcesz ograniczyć wyszukiwanie tylko do tego taksonu?",
     "clickToUseAcceptedTaxon": "Kliknij, aby wyszukać według zaakceptowanej nazwy taksonu. Prawdopodobnie zobaczysz więcej danych, ponieważ obejmuje to dane dla wszystkich synonimów."

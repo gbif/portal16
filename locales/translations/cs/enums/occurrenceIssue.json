@@ -68,6 +68,14 @@
     "COLLECTION_MATCH_FUZZY": "Shoda sbírek neurčitá",
     "INSTITUTION_COLLECTION_MISMATCH": "Sbírka instituce v nesouladu",
     "POSSIBLY_ON_LOAN": "Možné zapůjčení",
-    "DIFFERENT_OWNER_INSTITUTION": "Jiný vlastník instituce"
+    "DIFFERENT_OWNER_INSTITUTION": "Jiný vlastník instituce",
+    "TAXON_MATCH_SCIENTIFIC_NAME_ID_IGNORED": "Shoda taxonu s vědeckým názvem ID ignorováno",
+    "TAXON_MATCH_TAXON_CONCEPT_ID_IGNORED": "Taxon odpovídá, concept ID ignorován",
+    "TAXON_MATCH_TAXON_ID_IGNORED": "Taxon odpovídá, taxon ID ignorován",
+    "SCIENTIFIC_NAME_ID_NOT_FOUND": "ID vědeckého názvu nenalezeno",
+    "TAXON_CONCEPT_ID_NOT_FOUND": "Taxon concept ID nenalezen",
+    "TAXON_ID_NOT_FOUND": "Taxon ID nenalezen",
+    "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Vědecký název a ID nejsou konzistentní",
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Shoda názvu a ID taxonu je nejednoznačná"
   }
 }

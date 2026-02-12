@@ -5,7 +5,8 @@
       "OCCURRENCE": "Zbiór danych wystąpień",
       "CHECKLIST": "Zbiór danych dotyczących wykazów gatunków",
       "SAMPLING_EVENT": "Próbkowanie",
-      "METADATA": "Zbiór metadanych"
+      "METADATA": "Zbiór metadanych",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "Wystąpienia",
@@ -23,6 +24,7 @@
     "constituentOf": "Element",
     "dataset": "Zbiór danych",
     "taxonomy": "Taksonomia",
+    "phylotree": "",
     "project": "Projekt",
     "metrics": "Metryka",
     "constituents": "Elementy składowe",

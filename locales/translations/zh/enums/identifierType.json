@@ -17,7 +17,12 @@
       "GRSCICOLL_URI": "全球科学收藏登记 通用资源识别号",
       "ROR": "注册表的资源",
       "GRID": "全球资源信息的数据库",
-      "GRSCICOLL_ID": "全球科学收藏登记 识别"
+      "GRSCICOLL_ID": "全球科学收藏登记 识别",
+      "IH_IRN": "",
+      "CITES": "引用",
+      "SYMBIOTA_UUID": "",
+      "WIKIDATA": "",
+      "NCBI_BIOCOLLECTION": ""
     }
   }
 }

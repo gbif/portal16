@@ -29,6 +29,8 @@
     "errorUserThrottled": "",
     "polygonSimplifiedToFewerDecimals": "",
     "polygonSimplifiedToFewerPoints": "",
+    "simplificationCausedSelfIntersection": "",
+    "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "",
     "didYouMean": "",
     "clickToUseAcceptedTaxon": ""

@@ -1,0 +1,35 @@
+{
+  "directoryAreaExpertise": {
+    "AGRICULTURE_AND_FOOD_SECURITY": "Agricultura y seguridad alimentaria",
+    "BUSINESS_SECTOR": "Sector empresarial",
+    "CITIZEN_SCIENCE": "Ciencia ciudadana",
+    "CLIMATE_CHANGE": "Cambio climático",
+    "COLLECTIONS_MANAGEMENT": "Gestión de colecciones",
+    "CONSERVATION": "Conservación",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "Análisis de datos y visualización de modelados estadísticos",
+    "DATA_MANAGEMENT": "Gestión de datos",
+    "DATA_MOBILIZATION": "Movilización de (los) datos ",
+    "DATA_PAPERS": "Artículos de datos",
+    "DATA_PUBLISHING": "Publicación de datos",
+    "DATA_USE": "Uso de datos",
+    "DNA_BARCODING_AND_METAGENOMICS": "Códigos de barras de ADN y metagenómica",
+    "FRESHWATER_ECOLOGY": "Ecología de agua dulce",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "Salud humana y Una Salud",
+    "IMPACT_ASSESSMENTS": "Evaluaciones de impacto",
+    "INVASIVE_ALIEN_SPECIES": "Especies invasoras exóticas",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "Datos de encuestas sistemáticas de seguimiento a largo plazo",
+    "MACHINE_OBSERVATIONS": "Observaciones de máquinas",
+    "MARINE_ECOLOGY": "Ecología marina",
+    "SOIL_BIODIVERSITY": "Biodiversidad edáfica",
+    "THREATENED_SPECIES": "Especies amenazadas"
+  },
+  "directoryCertificationLevel": {
+    "BASIC": "Básico",
+    "ADVANCED": "Todos los filtros"
+  },
+  "directoryCertificationTitle": {
+    "BIODIVERSITY_DATA_MOBILIZATION": "Movilización de datos sobre biodiversidad",
+    "BIODIVERSITY_DATA_USE": "Uso de datos de biodiversidad",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": "Apoyo a la publicación de datos sobre biodiversidad"
+  }
+}

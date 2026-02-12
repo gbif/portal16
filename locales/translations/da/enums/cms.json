@@ -39,6 +39,8 @@
           "SMALL": "Småt tilskud",
           "NATIONAL": "Nationalt tilskud",
           "DATA_USE": "",
+          "INSTITUTIONAL": "",
+          "MULTI_INSTITUTIONAL": "",
           "undefined": "Ikke specificeret"
         },
         "projectStatus": {

@@ -1,0 +1,35 @@
+{
+  "directoryAreaExpertise": {
+    "AGRICULTURE_AND_FOOD_SECURITY": "",
+    "BUSINESS_SECTOR": "",
+    "CITIZEN_SCIENCE": "公民科學",
+    "CLIMATE_CHANGE": "氣候變遷",
+    "COLLECTIONS_MANAGEMENT": "",
+    "CONSERVATION": "保育",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "",
+    "DATA_MANAGEMENT": "資料管理",
+    "DATA_MOBILIZATION": "資料流通",
+    "DATA_PAPERS": "資料論文",
+    "DATA_PUBLISHING": "資料發布",
+    "DATA_USE": "資料使用",
+    "DNA_BARCODING_AND_METAGENOMICS": "",
+    "FRESHWATER_ECOLOGY": "",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "",
+    "IMPACT_ASSESSMENTS": "",
+    "INVASIVE_ALIEN_SPECIES": "外來入侵物種",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "",
+    "MACHINE_OBSERVATIONS": "",
+    "MARINE_ECOLOGY": "",
+    "SOIL_BIODIVERSITY": "",
+    "THREATENED_SPECIES": "受脅物種"
+  },
+  "directoryCertificationLevel": {
+    "BASIC": "",
+    "ADVANCED": "進階選項"
+  },
+  "directoryCertificationTitle": {
+    "BIODIVERSITY_DATA_MOBILIZATION": "",
+    "BIODIVERSITY_DATA_USE": "",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
+  }
+}

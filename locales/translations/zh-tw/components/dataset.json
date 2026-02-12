@@ -5,7 +5,8 @@
       "OCCURRENCE": "出現紀錄資料集",
       "CHECKLIST": "物種名錄資料集",
       "SAMPLING_EVENT": "調查活動",
-      "METADATA": "詮釋資料集"
+      "METADATA": "詮釋資料集",
+      "MATERIAL_ENTITY": ""
     },
     "metricHighlights": {
       "occurrences": "出現紀錄",
@@ -23,6 +24,7 @@
     "constituentOf": "組成自",
     "dataset": "資料集",
     "taxonomy": "分類學",
+    "phylotree": "等於 {is}",
     "project": "專案",
     "metrics": "指標",
     "constituents": "組成",

@@ -2,7 +2,8 @@
   "occurrence": {
     "tabs": {
       "details": "",
-      "cluster": ""
+      "cluster": "",
+      "phylotree": "Gleich {is}"
     },
     "typeOf": "",
     "coordinates": "",
@@ -41,6 +42,8 @@
       "Organism": "",
       "MaterialSample": "",
       "GeologicalContext": "",
+      "MaterialEntity": "",
+      "Provenance": "",
       "other": ""
     },
     "term": "",
