@@ -12,6 +12,12 @@ Disallow: /species/search
 Disallow: /*/species/search
 Disallow: /dataset/search
 Disallow: /*/dataset/search
+Disallow: /dataset/*/event
+Disallow: /*/dataset/*/event
+Disallow: /dataset/*/activity
+Disallow: /*/dataset/*/activity
+Disallow: /dataset/*/metrics
+Disallow: /*/dataset/*/metrics
 Disallow: /publisher/search
 Disallow: /*/publisher/search
 Disallow: /grscicoll/collection/search

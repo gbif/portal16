@@ -4,7 +4,7 @@
             <ng-include src="'/templates/components/loader/loader.html'" ng-if="!datasetTable.hasData()"></ng-include>
             <div ng-if="datasetTable.hasData()">
                 <div class="m-b-05" style="text-align: right;">
-                  <a ng-href="https://api.gbif.org/v1/dataset/search/export?format=TSV&{{ datasetTable.getSerializedQuery() }}" class="gb-button--discreet">Download as TSV</a>
+                  <a ng-href="{{ datasetTable.dataApi }}dataset/search/export?format=TSV&{{ datasetTable.getSerializedQuery() }}" class="gb-button--discreet">Download as TSV</a>
                 </div>
                 <div ng-repeat="result in datasetTable.state.data.results">
                     <ng-include src="'/api/template/search/datasetResult.html?v=' + datasetTable.BUILD_VERSION"></ng-include>

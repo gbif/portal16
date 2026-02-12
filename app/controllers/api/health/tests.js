@@ -13,13 +13,11 @@ switch (config.healthEnv || config.env) {
         // crawlHostName = 'devcrawler1-vh.gbif.org';
         // varnishIndexName = 'dev-varnish-*';
         // publicCrawlIndexName = 'dev-crawl-*';
-        downloadKey = '0000561-200203081234651';
         break;
     case 'uat':
         // crawlHostName = 'uatcrawler1-vh.gbif.org';
         // varnishIndexName = 'uat-varnish-*';
         // publicCrawlIndexName = 'uat-crawl-*';
-        downloadKey = '0000222-130906152512535';
         break;
     default:
         break;
