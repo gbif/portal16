@@ -1,12 +1,12 @@
 {
   "map": {
     "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
+    "noOccurrencesWithCoordinates": "좌표를 가진 출현값 없음",
+    "clickToSearchArea": "영역을 검색하기 위해서는 클릭하세요",
+    "generatedDateAgo": "{DATE_AGO}에 생성됨",
+    "anyYear": "임의 연도",
+    "exploreArea": "영역 탐색",
+    "explore": "탐색",
     "style": "",
     "filters": "",
     "projection": "",
