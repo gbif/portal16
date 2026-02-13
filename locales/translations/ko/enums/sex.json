@@ -1,8 +1,8 @@
 {
     "sex": {
-        "NONE": "",
-        "MALE": "",
-        "FEMALE": "",
-        "HERMAPHRODITE": ""
+        "NONE": "없음",
+        "MALE": "웅성",
+        "FEMALE": "자성",
+        "HERMAPHRODITE": "자웅동체"
     }
 }
