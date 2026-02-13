@@ -1,12 +1,12 @@
 {
   "region": {
-    "GLOBAL": "",
-    "AFRICA": "",
+    "GLOBAL": "전세계",
+    "AFRICA": "아프리카",
     "ASIA": "아시아",
-    "EUROPE": "",
-    "LATIN_AMERICA": "",
-    "NORTH_AMERICA": "",
-    "OCEANIA": "",
-    "ANTARCTICA": ""
+    "EUROPE": "유럽 및 중앙아시아",
+    "LATIN_AMERICA": "중남미",
+    "NORTH_AMERICA": "북미",
+    "OCEANIA": "오세아니아",
+    "ANTARCTICA": "남극"
   }
 }
