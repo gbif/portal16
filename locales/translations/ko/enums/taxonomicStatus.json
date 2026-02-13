@@ -1,8 +1,8 @@
 {
   "taxonomicStatus": {
-    "ACCEPTED": "",
-    "DOUBTFUL": "",
-    "SYNONYM": "",
+    "ACCEPTED": "승인됨",
+    "DOUBTFUL": "의심됨",
+    "SYNONYM": "이명",
     "HETEROTYPIC_SYNONYM": "",
     "HOMOTYPIC_SYNONYM": "",
     "PROPARTE_SYNONYM": "",
