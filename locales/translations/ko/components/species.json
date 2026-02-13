@@ -1,7 +1,7 @@
 {
   "treatment": {
-    "distribution": "",
-    "figures": ""
+    "distribution": "분포",
+    "figures": "그림"
   },
   "species": {
     "literature": {
@@ -12,9 +12,9 @@
       "presentInNonCountry": "",
       "threatStatus": "",
       "establishmentMeans": "",
-      "distributionPlural": "",
-      "PRESENT": "",
-      "ABSENT": ""
+      "distributionPlural": "분포",
+      "PRESENT": "존재",
+      "ABSENT": "부재"
     },
     "tabs": {
       "overview": "",
@@ -36,7 +36,7 @@
     },
     "treatment": {
       "distribution": "",
-      "figures": ""
+      "figures": "그림"
     },
     "as": "",
     "in": "",
