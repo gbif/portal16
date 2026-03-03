@@ -30,7 +30,7 @@
     <meta property="og:description" content="{$ __('phrases.defaultPageDescription') $}" />
 {% endif %}
 {% if _meta.image %}
-    <meta property="og:image" content="http:{$ _meta.imageCache $}1200x627/{$ _meta.image | encodeURI $}" />
+    <meta property="og:image" content="https:{$ _meta.imageCache $}1200x627/{$ _meta.image | encodeURI $}" />
 {% endif %}
 
 {% if _meta.noIndex %}
@@ -140,13 +140,13 @@
 {% endif %}
 
 <script>
-console.log(`%c 
+console.log(`%c
  ,_,
 (O,O)
 (   )  Powered by GBIF
 -"-"-
 
-All GBIF mediated data is freely available through our APIs. 
+All GBIF mediated data is freely available through our APIs.
 https://www.gbif.org/developer/summary
 
 All GBIF source code is open source.
