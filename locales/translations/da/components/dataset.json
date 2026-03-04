@@ -74,7 +74,7 @@
     "annotatedEml": "GBIF annoteret metadata",
     "license": "Licens",
     "recommended": "Anbefalet",
-    "processedOccurrences": "GBIF annoteret Arkiv",
+    "processedOccurrences": "",
     "noDescriptionProvided": "Ingen beskrivelse tilgængelig",
     "pNetwork": "{NUMBER, select, 1{Netværk} other{Netværk}}",
     "parentEvent": "Overordnet event",
