@@ -74,7 +74,7 @@
     "annotatedEml": "GBIF 註記的詮釋資料",
     "license": "授權",
     "recommended": "推薦",
-    "processedOccurrences": "GBIF 註記的存檔",
+    "processedOccurrences": "",
     "noDescriptionProvided": "沒有說明資訊",
     "pNetwork": "{NUMBER, select, 1{網絡} other{網絡}}",
     "parentEvent": "母事件",
