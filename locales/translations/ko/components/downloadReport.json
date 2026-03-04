@@ -41,8 +41,8 @@
       "rawData": "",
       "interpretedData": "",
       "images": "",
-      "coordinates": "",
-      "fileFormat": "",
+      "coordinates": "좌표",
+      "fileFormat": "포맷",
       "estimatedSize": ""
     },
     "fileFormats": {
