@@ -10,10 +10,10 @@
         "audiences": "",
         "purposes": "",
         "relevance": "",
-        "language": "",
-        "year": "",
+        "language": "언어",
+        "year": "연",
         "datasetKey": "",
-        "publishingOrg": "",
+        "publishingOrg": "발행자",
         "peerReview": "",
         "openAccess": "",
         "gbifDownloadKey": ""
