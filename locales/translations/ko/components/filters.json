@@ -18,14 +18,14 @@
             "description": "",
             "options": {
                 "yes": "존재",
-                "no": "",
+                "no": "부재",
                 "all": ""
             }
         },
         "ternary": {
             "yes": "",
             "no": "",
-            "all": ""
+            "all": "모두"
         },
         "location": {
             "north": "",
