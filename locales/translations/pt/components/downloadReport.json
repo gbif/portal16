@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opções de transferência",
-    "chooseChecklist": "Código de Conduta",
-    "chooseChecklistDescription": "Código de Conduta",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Dados brutos",
       "interpretedData": "Dados interpretados",
