@@ -48,18 +48,18 @@
     "details": "",
     "roles": "",
     "sinceDate": "",
-    "showAllContacts": "",
+    "showAllContacts": "모두",
     "person": {
       "volunteer": "",
       "name": "",
       "annualBadges": "",
-      "language": "",
+      "language": "언어",
       "country": "",
       "affiliation": "",
       "recipient": "",
       "areasExpertise": "",
       "orcId": "",
-      "year": "",
+      "year": "연",
       "email": ""
     },
     "award": {
@@ -69,6 +69,6 @@
       "EBBE3RD": ""
     },
     "prize": "",
-    "year": ""
+    "year": "연"
   }
 }
