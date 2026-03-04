@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "ダウンロードのオプション",
-    "chooseChecklist": "行動規範",
-    "chooseChecklistDescription": "行動規範",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "生データ",
       "interpretedData": "解釈されたデータ",
