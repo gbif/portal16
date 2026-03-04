@@ -74,7 +74,7 @@
     "annotatedEml": "Метаданные аннотированные GBIF",
     "license": "Лицензия",
     "recommended": "рекомендуется",
-    "processedOccurrences": "Архив, аннотированный GBIF",
+    "processedOccurrences": "",
     "noDescriptionProvided": "Описание недоступно",
     "pNetwork": "{NUMBER, plural,\n0 {записей}\none {запись}\nfew {записи}\nmany {записей}\nother {записей}\n}",
     "parentEvent": "Родительское описание, учет или сбор",
