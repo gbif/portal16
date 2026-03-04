@@ -74,7 +74,7 @@
     "annotatedEml": "GBIFがアノーテーションしたメタデータ",
     "license": "ライセンス",
     "recommended": "推奨",
-    "processedOccurrences": "GBIFがアノーテーションしたアーカイブ",
+    "processedOccurrences": "",
     "noDescriptionProvided": "説明はありません。",
     "pNetwork": "{NUMBER, plural, one{ネットワーク} other{ネットワーク}}",
     "parentEvent": "親イベント",
