@@ -74,7 +74,7 @@
     "annotatedEml": "Métadonnées annotées par GBIF",
     "license": "Licence",
     "recommended": "Recommandé",
-    "processedOccurrences": "Archive annotée par GBIF",
+    "processedOccurrences": "",
     "noDescriptionProvided": "Aucune description disponible",
     "pNetwork": "{NUMBER, select, 1{Réseau} other{Réseaux}}",
     "parentEvent": "Evénement principal",

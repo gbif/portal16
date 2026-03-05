@@ -1,13 +1,13 @@
 {
     "threatStatus": {
-        "EXTINCT": "",
-        "EXTINCT_IN_THE_WILD": "",
-        "CRITICALLY_ENDANGERED": "",
-        "ENDANGERED": "",
-        "VULNERABLE": "",
-        "NEAR_THREATENED": "",
-        "LEAST_CONCERN": "",
-        "DATA_DEFICIENT": "",
-        "NOT_EVALUATED": ""
+        "EXTINCT": "절멸",
+        "EXTINCT_IN_THE_WILD": "야생절멸",
+        "CRITICALLY_ENDANGERED": "위급",
+        "ENDANGERED": "위기",
+        "VULNERABLE": "취약",
+        "NEAR_THREATENED": "준위협",
+        "LEAST_CONCERN": "관심대상",
+        "DATA_DEFICIENT": "정보부족",
+        "NOT_EVALUATED": "미평가"
     }
 }

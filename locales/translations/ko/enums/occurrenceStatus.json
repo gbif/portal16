@@ -1,6 +1,6 @@
 {
   "occurrenceStatus": {
-    "PRESENT": "",
-    "ABSENT": ""
+    "PRESENT": "존재",
+    "ABSENT": "부재"
   }
 }

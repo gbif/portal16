@@ -1,68 +1,68 @@
 {
   "map": {
-    "nGeoreferencedRecords": "",
-    "noOccurrencesWithCoordinates": "",
-    "clickToSearchArea": "",
-    "generatedDateAgo": "",
-    "anyYear": "",
-    "exploreArea": "",
-    "explore": "",
-    "style": "",
-    "filters": "",
-    "projection": "",
-    "select": "",
-    "custom": "",
-    "baseMap": "",
-    "binning": "",
-    "year": "",
-    "chooseColors": "",
+    "nGeoreferencedRecords": "{NUMBER_FORMATED}{NUMBER, plural,one{지리참조 기록} other{지리참조 기록}}",
+    "noOccurrencesWithCoordinates": "좌표를 가진 출현값 없음",
+    "clickToSearchArea": "영역을 검색하기 위해서는 클릭하세요",
+    "generatedDateAgo": "{DATE_AGO}에 생성됨",
+    "anyYear": "임의 연도",
+    "exploreArea": "영역 탐색",
+    "explore": "탐색",
+    "style": "스타일",
+    "filters": "필터",
+    "projection": "투영",
+    "select": "선택",
+    "custom": "사용자 정의",
+    "baseMap": "베이스맵",
+    "binning": "비닝",
+    "year": "연도",
+    "chooseColors": "색상",
     "predefined": {
-      "CLASSIC_HEX": "",
-      "CLASSIC": "",
-      "STREETS": "",
-      "GLACIER": "",
-      "GREEN": "",
-      "CUSTOM": ""
+      "CLASSIC_HEX": "기본 육각형",
+      "CLASSIC": "기본 점",
+      "STREETS": "도로",
+      "GLACIER": "빙하 그래디언트",
+      "GREEN": "녹색 점",
+      "CUSTOM": "사용자 정의"
     },
     "basemap": {
-      "CLASSIC": "",
-      "LIGHT": "",
-      "LIGHT_DETAILS": "",
-      "DARK": "",
-      "DARK_DETAILS": "",
-      "OSM": ""
+      "CLASSIC": "마젠타",
+      "LIGHT": "밝게(라벨 없음)",
+      "LIGHT_DETAILS": "밝게",
+      "DARK": "어둡게(라벨 없음)",
+      "DARK_DETAILS": "어둡게",
+      "OSM": "도로"
     },
     "bin": {
-      "PIXEL": "",
-      "SMALL_HEX": "",
-      "LARGE_HEX": "",
-      "SMALL_SQUARE": "",
-      "LARGE_SQUARE": ""
+      "PIXEL": "점",
+      "SMALL_HEX": "소형 육각형",
+      "LARGE_HEX": "육각형",
+      "SMALL_SQUARE": "소형 사각형",
+      "LARGE_SQUARE": "사각형"
     },
     "colors": {
-      "CLASSIC": "",
-      "FIRE": "",
-      "GLACIER": "",
-      "GREEN_POINT": "",
-      "PURPLE_YELLOW": "",
-      "PURPLE_HEAT": "",
-      "BLUE_HEAT": "",
-      "ORANGE_HEAT": "",
-      "GREEN": "",
-      "BLUE_CLUSTER": "",
-      "ORANGE_CLUSTER": ""
+      "CLASSIC": "기본",
+      "FIRE": "불꽃 그래디언트",
+      "GLACIER": "빙하 그래디언트",
+      "GREEN_POINT": "초록",
+      "PURPLE_YELLOW": "보라-노랑",
+      "PURPLE_HEAT": "보라색 히트",
+      "BLUE_HEAT": "파란색 히트",
+      "ORANGE_HEAT": "주황색 히트",
+      "GREEN": "초록",
+      "BLUE_CLUSTER": "파란색 클러스터",
+      "ORANGE_CLUSTER": "주황색 클러스터"
     },
     "tooltips": {
-      "toggleStyle": "",
-      "searchArea": "",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
-      "removeGeometryFilter": "",
-      "zoomIn": "",
-      "zoomOut": ""
+      "toggleStyle": "지도 스타일 전환",
+      "searchArea": "영역 검색",
+      "addRectangleFilter": "사각형 그리고 필터로 추가",
+      "addPolygonFilter": "영역 그리고 필터로 추가",
+      "removeGeometryFilter": "기하 필터 삭제",
+      "zoomIn": "확대",
+      "zoomOut": "축소"
     },
     "errors": {
-      "413": ""
+      "413": "기하학 파일이 데이터 API로 처리되기에 너무 큽니다."
     }
   }
 }

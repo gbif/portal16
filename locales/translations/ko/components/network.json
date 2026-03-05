@@ -2,10 +2,10 @@
   "network": {
     "network": "",
     "tabs": {
-      "summary": "",
+      "summary": "요약",
       "homepage": "",
       "metrics": "",
-      "datasets": "",
+      "datasets": "데이터셋",
       "publishers": ""
     },
     "registeredDate": "",

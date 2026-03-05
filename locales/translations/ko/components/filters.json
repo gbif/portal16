@@ -17,15 +17,15 @@
         "occurrenceStatus": {
             "description": "",
             "options": {
-                "yes": "",
-                "no": "",
+                "yes": "존재",
+                "no": "부재",
                 "all": ""
             }
         },
         "ternary": {
             "yes": "",
             "no": "",
-            "all": ""
+            "all": "모두"
         },
         "location": {
             "north": "",

@@ -1,15 +1,15 @@
 {
     "speciesSearch": {
-        "title": "",
-        "youAreCurrentlySearchingInGBIFtaxonomy": "",
-        "SearchAcrossChecklists": "",
-        "freeTextSearchFor": "",
+        "title": "종 검색",
+        "youAreCurrentlySearchingInGBIFtaxonomy": "당신은 GBIF 분류에서 종을 검색하고 있습니다",
+        "SearchAcrossChecklists": "체크리스트에 걸쳐 검색",
+        "freeTextSearchFor": "당신은 {QUERY}에 대해 무료 텍스트 검색을 하고 있습니다",
         "limitSearchTo": "",
         "limitResultsTo": {
-            "all": "",
-            "scientificNames": "",
+            "all": "모두",
+            "scientificNames": "학명",
             "vernacularNames": "",
-            "descriptions": ""
+            "descriptions": "설명"
         }
     }
 }

@@ -2,7 +2,7 @@
   "gbifNetwork": {
     "gbifNetwork": "",
     "title": "",
-    "contact": "",
+    "contact": "연락처",
     "voting_participant": {
       "one": "",
       "other": ""
@@ -31,7 +31,7 @@
     "endorsedDataPublisher": "",
     "nParticipants": "",
     "dataset": "",
-    "datasets": "",
+    "datasets": "데이터셋",
     "regionalRepresentative": "",
     "participation": {
       "nonCountryParticipants": "",

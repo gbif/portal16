@@ -1,29 +1,29 @@
 {
     "homepage": {
         "counts": {
-            "occurrences": "",
-            "datasets": "",
-            "publishers": "",
-            "literature": ""
+            "occurrences": "출현 기록",
+            "datasets": "데이터셋",
+            "publishers": "발행 기관",
+            "literature": "데이터를 이용한 동료평가 논문"
         },
-        "aboutGbifCountry": "",
-        "summary": "",
-        "whatIsGbif": "",
+        "aboutGbifCountry": "GBIF {COUNTRY} 소개",
+        "summary": "생물다양성 데이터에 대한 무료 및 오픈액세스",
+        "whatIsGbif": "GBIF란?",
         "featureTypes": {
-            "event": "",
-            "news": "",
-            "resource": "",
-            "dataUse": "",
-            "project": "",
-            "programme": "",
-            "document": "",
-            "tool": "",
-            "literature": "",
-            "treatment": "",
-            "blog": "",
-            "guidance": "",
-            "data": "",
-            "video": ""
+            "event": "이벤트",
+            "news": "뉴스",
+            "resource": "자원",
+            "dataUse": "데이터 사용",
+            "project": "프로젝트",
+            "programme": "프로그램",
+            "document": "문서",
+            "tool": "도구",
+            "literature": "문헌",
+            "treatment": "분류학",
+            "blog": "블로그",
+            "guidance": "안내",
+            "data": "데이터",
+            "video": "비디오"
         }
     }
 }

@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Opcje pobierania",
-    "chooseChecklist": "Identyfikator zarządzany przez dostawcę",
-    "chooseChecklistDescription": "Identyfikator zarządzany przez dostawcę",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Surowe dane",
       "interpretedData": "Dane zinterpretowane",

@@ -93,9 +93,9 @@
             "mintingDoi": "",
             "attachCsvLabel": "",
             "orEnterLabel": "",
-            "invalidFileFormat": "Етичні норми",
-            "emptyFile": "Етичні норми",
-            "tooManyRows": "Етичні норми"
+            "invalidFileFormat": "",
+            "emptyFile": "",
+            "tooManyRows": ""
         },
         "occurrenceSnapshots": {
             "title": ""

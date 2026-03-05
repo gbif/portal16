@@ -4,7 +4,7 @@
         "form": {
             "title": "",
             "titlePlaceholder": "",
-            "type": "",
+            "type": "유형",
             "authors": "",
             "authorsPlaceholder": "",
             "link": "",

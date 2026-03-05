@@ -83,7 +83,7 @@
     "lifeStage": "Lebensstadium",
     "pathway": "Verbringungsweg",
     "degreeOfEstablishment": "Grad der Etablierung",
-    "dwcaExtension": "DWCA-Erweiterung",
+    "dwcaExtension": "",
     "isInCluster": "Ist Teil eines Clusters",
     "iucnRedListCategory": "Kategorie in der Roten Liste gefährdeter Arten",
     "isSequenced": "",

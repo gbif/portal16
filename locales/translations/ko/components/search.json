@@ -9,7 +9,7 @@
     "everything": "",
     "occurrences": "",
     "species": "",
-    "datasets": "",
+    "datasets": "데이터셋",
     "resources": "",
     "publishers": "",
     "participants": "",
@@ -20,7 +20,7 @@
     "advanced": "",
     "backbone": "",
     "allChecklists": "",
-    "allResultTypes": "",
+    "allResultTypes": "모두",
     "suggestions": "",
     "header": {
       "searchDatasets": "",

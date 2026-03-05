@@ -1,53 +1,53 @@
 {
   "feedback": {
-    "leaveFeedback": "",
+    "leaveFeedback": "피드백 남기기",
     "intro": {
-      "title": "",
-      "example": ""
+      "title": "피드백과 질문",
+      "example": "당신이 제공하는 피드백의 유형을 선택하여 문제를 해결하는 데 도움을 주세요. 피드백은 가능하다면 영어로 제출 부탁드립니다. 우리는 근무일 기준 2일 이내 응답하는 것을 목표로 합니다."
     },
     "data content": {
-      "title": "",
-      "example": "",
-      "annotate": "",
-      "contactPerMail": ""
+      "title": "콘텐츠",
+      "example": "예: 이 페이지에 오타가 있습니다. 이 종은 존재하지 않습니다. 이 위치가 의심스럽습니다. 이 단체의 새로운 URL은 ...입니다.",
+      "annotate": "이 발행기관은 피드백을 처리하기 위한 웹사이트를 운영하고 있습니다. 해당 사이트를 사용하기를 권장드립니다.",
+      "contactPerMail": "데이터셋 연락처로 연락하기"
     },
     "bug": {
-      "title": "",
-      "example": ""
+      "title": "버그",
+      "example": "예: 검색버튼이 작동하지 않습니다. 페이지가 열리지 않습니다. 열이 중복되어 읽을 수가 없습니다."
     },
     "idea": {
-      "title": "",
-      "example": ""
+      "title": "아이디어",
+      "example": "예: 관련된 유전자 시퀀스 데이터로 연결되었으면 좋겠습니다. 모든 오픈액세스 논문을 보여주세요."
     },
     "question": {
-      "title": "",
-      "example": "",
-      "description": "",
-      "comment": ""
+      "title": "헬프데스크",
+      "example": "예. 희귀종에 대한 데이터를 어떻게 보호하나요? 이 종에 대해 국제수역에서 출현한 모든 기록을 찾는 데 도움을 줄 수 있나요?",
+      "description": "모든 질문은 헬프데스크 helpdesk@gbif.org를 통해 답변됩니다.",
+      "comment": "개인 문의 및 기술과 관련 없는 문의의 경우 [info@gbif.org](mailto:info@gbif.org)로, 언론 관련 문의는 [communication@gbif.org](mailto:communication@gbif.org)로 연락 부탁드립니다."
     },
     "confirmation": {
-      "title": "",
-      "example": "",
-      "seeIssue": ""
+      "title": "감사합니다",
+      "example": "당신의 피드백이 Github에 문제로 등록되었습니다. 연락처 상세정보가 제공되었고 필요한 경우, 추가적인 정보 제공을 위해 연락할 수 있습니다. 문제 페이지를 방문하시면 과정을 추적할 수 있습니다.",
+      "seeIssue": "문제 보기"
     },
     "issues": {
-      "title": "",
-      "description": "",
-      "create": ""
+      "title": "콘텐츠 문제",
+      "description": "다른 사용자에 의해 제기된 콘텐츠 문제",
+      "create": "피드백 남기기"
     },
     "placeholders": {
-      "summary": "",
-      "description": "",
-      "username": ""
+      "summary": "요약",
+      "description": "세부 설명. 분류학적 의견의 경우 참고문헌을 제공해주세요. 가능하다면 피드백을 영어로 제출 부탁드립니다.",
+      "username": "당신의 이메일 혹은 Github 사용자이름 (공개)"
     },
-    "markdownSupport": "",
-    "issueTracking": "",
-    "failure": "",
-    "weRecommendX": "",
-    "tellGbif": "",
-    "submit": "",
-    "seeAllComments": "",
-    "recommendMail": "",
+    "markdownSupport": "마크다운 지원",
+    "issueTracking": "모든 문제는 공개되며 [Github]를 통해 접근 가능합니다.\n(https://github.com/gbif/portal-feedback/issues)",
+    "failure": "문제가 있습니다 - 피드백 시스템이 작동하지 않습니다. 저희에게 메일을 보내시거나 [Github](https://github.com/gbif/portal-feedback/issues)에 바로 남겨주세요. 문제 발생에 사과드립니다.",
+    "weRecommendX": "[{NAME}]({LINK}) 사용을 권장합니다.",
+    "tellGbif": "GBIF에 말하기",
+    "submit": "제출",
+    "seeAllComments": "모두 보기",
+    "recommendMail": "이메일 보내기를 권장합니다",
     "pleaseLogin": "피드백을 남기려면 로그인 해주세요. 대안으로 [Github](https://github.com/gbif/portal-feedback/issues) 또는 [helpdesk.@gbif.org](mailto:helpdesk@gbif.org)를 이용해주세요.\n\n로그인을 요구하지 않으면 피드백 시스템에 다량의 스팸 광고가 발생하여 로그인을 요구합니다."
   }
 }

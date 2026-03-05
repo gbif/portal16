@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "Možnosti stažení",
-    "chooseChecklist": "Id spravované poskytovatelem",
-    "chooseChecklistDescription": "Id spravované poskytovatelem",
+    "chooseChecklist": "",
+    "chooseChecklistDescription": "",
     "content": {
       "rawData": "Nezpracovaná data",
       "interpretedData": "Interpretovaná data",

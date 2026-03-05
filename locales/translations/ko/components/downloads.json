@@ -33,7 +33,7 @@
     "titleMissing": "",
     "underProcessing": "",
     "citation": "",
-    "format": "",
+    "format": "포맷",
     "nRecordsAtTime": "",
     "aboutDeletionPolicy": "",
     "readDatauseAndTerms": "",
@@ -109,7 +109,7 @@
     "cubeDescription": "",
     "readMore": "",
     "time": {
-      "YEAR": "",
+      "YEAR": "연",
       "YEARMONTH": "",
       "DATE": ""
     },

@@ -21,7 +21,7 @@
       "CLASSIC": "Klassisk punkt",
       "STREETS": "Gader",
       "GLACIER": "Gletcher",
-      "GREEN": "Samfinansieret af",
+      "GREEN": "",
       "CUSTOM": "Brugerdefineret"
     },
     "basemap": {
