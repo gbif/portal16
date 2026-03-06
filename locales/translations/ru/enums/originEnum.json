@@ -9,7 +9,7 @@
     "AUTONYM": "Автоним",
     "IMPLICIT_NAME": "Неявное назвние",
     "MISSING_ACCEPTED": "Не указано валидное название",
-    "BASIONYM_PLACEHOLDER": "Заполнитель базионима",
+    "BASIONYM_PLACEHOLDER": "",
     "EX_AUTHOR_SYNONYM": "Синоним автора со статусом ex author",
     "OTHER": "Другое"
   }
