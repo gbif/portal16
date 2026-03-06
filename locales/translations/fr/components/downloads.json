@@ -106,7 +106,7 @@
       "EXACT_TAXON": "Taxon exact"
     },
     "cubeTitle": "Télécharger le cube",
-    "cubeDescription": "Espace réservé à la description",
+    "cubeDescription": "",
     "readMore": "En savoir plus",
     "time": {
       "YEAR": "Année",
