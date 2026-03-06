@@ -131,46 +131,46 @@
         "RUNNING": "Cargando archivo",
         "FINISHED": "Archivo cargado",
         "PENDING": "Subir archivo",
-        "FAILED": "",
-        "QUEUED": ""
+        "FAILED": "No se pudo cargar",
+        "QUEUED": "Carga en cola"
       },
       "VALIDATOR_VALIDATE_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Verificando el formato del archivo",
+        "FINISHED": "Formato del archivo verificado",
+        "PENDING": "Verificar el formato del archivo",
+        "FAILED": "No se ha podido verificar el formato del archivo.",
+        "QUEUED": "Verificación de archivo en cola"
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Extrayendo los datos",
+        "FINISHED": "Datos extraídos",
+        "PENDING": "Extraer datos",
+        "FAILED": "Extracción fallida",
+        "QUEUED": "Extracción en cola"
       },
       "VALIDATOR_VERBATIM_TO_INTERPRETED": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Interpretando los datos",
+        "FINISHED": "Datos interrpretados",
+        "PENDING": "Interpretar datos",
+        "FAILED": "Interpretación de datos fallida",
+        "QUEUED": "Interpretación de datos en cola"
       },
       "VALIDATOR_INTERPRETED_TO_INDEX": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Indexando para previsualizaciones",
+        "FINISHED": "Indexado para previsualizaciones",
+        "PENDING": "Indexar para previsualizaciones",
+        "FAILED": "Indexación para previsualizaciones fallida",
+        "QUEUED": "Indexación para previsualizaciones en cola"
       },
       "VALIDATOR_COLLECT_METRICS": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "Generando resumen",
+        "FINISHED": "Resúmenes generados",
+        "PENDING": "Generar resumen",
+        "FAILED": "Generación de resumen fallida",
+        "QUEUED": "Generación de resumen en cola"
       }
     },
-    "validatingFile": "",
-    "fileName": ""
+    "validatingFile": "validando",
+    "fileName": "Nombre del archivo"
   }
 }
