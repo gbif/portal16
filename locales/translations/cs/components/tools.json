@@ -93,9 +93,9 @@
             "mintingDoi": "Vytváření DOI - to by nemělo trvat dlouho.",
             "attachCsvLabel": "Připojte [soubor CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) s klíči datového souboru a počty výskytů",
             "orEnterLabel": "Nebo zadejte klíče datové sady/DOI a počty výskytů zde",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Neplatný formát souboru: soubor musí být ve formátu CSV.",
+            "emptyFile": "V datech nejsou žádné řádky.",
+            "tooManyRows": "Příliš mnoho řádků (maximálně 6 000) – zkuste místo toho použít [API](https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets)"
         },
         "occurrenceSnapshots": {
             "title": ""
