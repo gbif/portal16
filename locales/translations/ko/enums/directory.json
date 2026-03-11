@@ -1,35 +1,35 @@
 {
   "directoryAreaExpertise": {
-    "AGRICULTURE_AND_FOOD_SECURITY": "",
-    "BUSINESS_SECTOR": "",
-    "CITIZEN_SCIENCE": "",
-    "CLIMATE_CHANGE": "",
+    "AGRICULTURE_AND_FOOD_SECURITY": "농업 및 식량안보",
+    "BUSINESS_SECTOR": "기업 부문",
+    "CITIZEN_SCIENCE": "시민 과학",
+    "CLIMATE_CHANGE": "기후변화",
     "COLLECTIONS_MANAGEMENT": "",
-    "CONSERVATION": "",
-    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "",
-    "DATA_MANAGEMENT": "",
+    "CONSERVATION": "보전",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "데이터 분석 및 시각화 통계 모델링",
+    "DATA_MANAGEMENT": "데이터 관리",
     "DATA_MOBILIZATION": "",
     "DATA_PAPERS": "",
-    "DATA_PUBLISHING": "",
-    "DATA_USE": "",
-    "DNA_BARCODING_AND_METAGENOMICS": "",
-    "FRESHWATER_ECOLOGY": "",
+    "DATA_PUBLISHING": "데이터 출판",
+    "DATA_USE": "데이터 사용",
+    "DNA_BARCODING_AND_METAGENOMICS": "DNA 바코딩 및 매타지노믹스",
+    "FRESHWATER_ECOLOGY": "민물 생태학",
     "HUMAN_HEALTH_AND_ONE_HEALTH": "",
-    "IMPACT_ASSESSMENTS": "",
-    "INVASIVE_ALIEN_SPECIES": "",
+    "IMPACT_ASSESSMENTS": "영향력 평가",
+    "INVASIVE_ALIEN_SPECIES": "침입외래종",
     "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "",
     "MACHINE_OBSERVATIONS": "",
-    "MARINE_ECOLOGY": "",
-    "SOIL_BIODIVERSITY": "",
+    "MARINE_ECOLOGY": "해양 생태학",
+    "SOIL_BIODIVERSITY": "토양 생물다양성",
     "THREATENED_SPECIES": ""
   },
   "directoryCertificationLevel": {
     "BASIC": "",
-    "ADVANCED": ""
+    "ADVANCED": "모든 필터"
   },
   "directoryCertificationTitle": {
     "BIODIVERSITY_DATA_MOBILIZATION": "",
-    "BIODIVERSITY_DATA_USE": "",
+    "BIODIVERSITY_DATA_USE": "생물다양성 데이터 사용",
     "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
   }
 }
