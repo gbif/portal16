@@ -42,7 +42,7 @@
       "Organism": "Organismus",
       "MaterialSample": "Vzorek materiálu",
       "GeologicalContext": "Geologická souvislost",
-      "MaterialEntity": "",
+      "MaterialEntity": "Entita materiálu",
       "Provenance": "Původ",
       "other": "Jiné"
     },
