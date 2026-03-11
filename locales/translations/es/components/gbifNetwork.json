@@ -48,6 +48,6 @@
     "pOccurrence": "{NUMBER, select, 1{registro} other{registros}}",
     "occurrenceDatasets": "Conjunto de datos de registros",
     "occurrences": "Registros",
-    "occurrencesHostedBy": ""
+    "occurrencesHostedBy": "Registros alojados"
   }
 }
