@@ -50,23 +50,23 @@
     "sinceDate": "Desde {DATE}",
     "showAllContacts": "Todos",
     "person": {
-      "volunteer": "",
+      "volunteer": "Voluntario",
       "name": "Nombre",
-      "annualBadges": "",
+      "annualBadges": "Insignias anuales",
       "language": "Idioma",
       "country": "País o área",
-      "affiliation": "",
+      "affiliation": "Afiliación",
       "recipient": "",
-      "areasExpertise": "",
-      "orcId": "",
+      "areasExpertise": "Área de especialización",
+      "orcId": "ID de ORCiD",
       "year": "Año",
       "email": "Correo electrónico"
     },
     "award": {
-      "GRA": "",
-      "EBBE1ST": "",
-      "EBBE2ND": "",
-      "EBBE3RD": ""
+      "GRA": "Premio Investigadores Graduados GBIF",
+      "EBBE1ST": "1er premio",
+      "EBBE2ND": "2ndo premio",
+      "EBBE3RD": "3er premio"
     },
     "prize": "",
     "year": "Año"
