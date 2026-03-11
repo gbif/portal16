@@ -50,25 +50,25 @@
     "sinceDate": "Od {DATE}",
     "showAllContacts": "Vše",
     "person": {
-      "volunteer": "",
+      "volunteer": "Dobrovolník",
       "name": "Jméno",
-      "annualBadges": "",
+      "annualBadges": "Roční odznaky",
       "language": "Jazyk",
       "country": "Země nebo oblast",
       "affiliation": "",
       "recipient": "",
       "areasExpertise": "",
-      "orcId": "",
+      "orcId": "ORCID iD",
       "year": "Rok",
       "email": "E-mail"
     },
     "award": {
       "GRA": "",
-      "EBBE1ST": "",
-      "EBBE2ND": "",
-      "EBBE3RD": ""
+      "EBBE1ST": "1. cena",
+      "EBBE2ND": "2. cena",
+      "EBBE3RD": "3. cena"
     },
-    "prize": "",
+    "prize": "Ocenění",
     "year": "Rok"
   }
 }
