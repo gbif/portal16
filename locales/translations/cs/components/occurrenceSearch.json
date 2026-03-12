@@ -29,7 +29,7 @@
     "errorUserThrottled": "Váš přístup byl dočasně omezen.",
     "polygonSimplifiedToFewerDecimals": "Mnohoúhelník byl zjednodušen: počet desetinných míst snížen",
     "polygonSimplifiedToFewerPoints": "Polygon byl zjednodušen: počet bodů byl snížen.",
-    "simplificationCausedSelfIntersection": "",
+    "simplificationCausedSelfIntersection": "Zdá se, že zjednodušení způsobilo, že se geometrie sama protíná. Před pokračováním byste to měli opravit.",
     "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "URL adresa vašeho dotazu přesahuje 2000 znaků a nemusí správně fungovat ve všech prohlížečích. V případě rozsáhlých a/nebo složitých dotazů zvažte použití rozhraní API pro stahování.",
     "didYouMean": "Vaše hledání odpovídá {RANK}: '{NAME}'. Chcete omezit vyhledávání pouze na tento taxon?",

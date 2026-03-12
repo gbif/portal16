@@ -53,11 +53,11 @@
       "ORANGE_CLUSTER": "Agrupación naranja"
     },
     "tooltips": {
-      "toggleStyle": "",
+      "toggleStyle": "Cambiar estilo del mapa",
       "searchArea": "Área de búsqueda",
-      "addRectangleFilter": "",
-      "addPolygonFilter": "",
-      "removeGeometryFilter": "",
+      "addRectangleFilter": "Dibujar un rectángulo y añadirlo como filtro.",
+      "addPolygonFilter": "Dibujar área y añadirla como filtro",
+      "removeGeometryFilter": "Eliminar filtro geométrico",
       "zoomIn": "Acercar",
       "zoomOut": "Alejar"
     },

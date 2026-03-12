@@ -46,7 +46,7 @@
             "tooLarge": "Geometrie je příliš velká",
             "tooLargeSuggestion": "Zkuste použít ohraničující rámeček a filtrovat lokálně.",
             "aboutWktAndGeoJson": "",
-            "simplificationWarning": "",
+            "simplificationWarning": "Můžeme se pokusit geometrii zjednodušit, ale to může vést k vlastnímu protínání nebo jinak neplatným geometriím. V takovém případě je třeba geometrii opravit ručně nebo zjednodušit původní geometrii.",
             "invalidRange": "Neplatný ohraničující rámeček"
         }
     }

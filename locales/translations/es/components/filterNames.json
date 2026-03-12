@@ -8,7 +8,7 @@
     "continent": "Continente",
     "taxonKey": "Nombre científico",
     "elevation": "Elevación",
-    "distanceFromCentroidInMeters": "",
+    "distanceFromCentroidInMeters": "Distancia desde el centroide en metros",
     "collectionCode": "Código de la colección",
     "recordNumber": "Número de registro",
     "datasetKey": "Conjunto de datos",
@@ -20,7 +20,7 @@
     "recordedById": "Registrado por ID",
     "identifiedBy": "Identificado por",
     "identifiedById": "Identificado por ID",
-    "geoDistance": "",
+    "geoDistance": "Distancia desde el punto",
     "eventDate": "Fecha del Evento",
     "eventId": "ID del evento",
     "samplingProtocol": "Protocolo de muestreo",
@@ -83,7 +83,7 @@
     "lifeStage": "Etapa de vida",
     "pathway": "",
     "degreeOfEstablishment": "Grado de establecimiento",
-    "dwcaExtension": "",
+    "dwcaExtension": "Extensión DWCA",
     "isInCluster": "Está en cluster",
     "iucnRedListCategory": "Categoría en la Lista Roja de la UICN",
     "isSequenced": "",
@@ -116,8 +116,8 @@
     "member": "Miembro",
     "bed": "Capa",
     "gbifRegion": "Región GBIF",
-    "publishedByGbifRegion": "",
+    "publishedByGbifRegion": "Publicado por la región GBIF",
     "taxonConceptId": "",
-    "dnaSequence": ""
+    "dnaSequence": "Secuencia de ADN"
   }
 }

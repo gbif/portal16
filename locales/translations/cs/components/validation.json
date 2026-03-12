@@ -131,8 +131,8 @@
         "RUNNING": "Nahrávání archivu",
         "FINISHED": "Archiv nahrán",
         "PENDING": "Nahrát archiv",
-        "FAILED": "",
-        "QUEUED": ""
+        "FAILED": "Nahrávání selhalo",
+        "QUEUED": "Nahrávání je ve frontě"
       },
       "VALIDATOR_VALIDATE_ARCHIVE": {
         "RUNNING": "",
@@ -171,6 +171,6 @@
       }
     },
     "validatingFile": "",
-    "fileName": ""
+    "fileName": "Název souboru"
   }
 }
