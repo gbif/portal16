@@ -55,9 +55,9 @@
       "annualBadges": "Roční odznaky",
       "language": "Jazyk",
       "country": "Země nebo oblast",
-      "affiliation": "",
-      "recipient": "",
-      "areasExpertise": "",
+      "affiliation": "Příslušnost",
+      "recipient": "Příjemce",
+      "areasExpertise": "Oblast expertizy",
       "orcId": "ORCID iD",
       "year": "Rok",
       "email": "E-mail"
