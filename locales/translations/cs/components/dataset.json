@@ -6,7 +6,7 @@
       "CHECKLIST": "Datová sada kontrolního seznamu",
       "SAMPLING_EVENT": "Událost odběru vzorku",
       "METADATA": "Datová sada metadat",
-      "MATERIAL_ENTITY": ""
+      "MATERIAL_ENTITY": "Entita materiálu"
     },
     "metricHighlights": {
       "occurrences": "Výskyty",

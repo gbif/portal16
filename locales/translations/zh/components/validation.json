@@ -131,28 +131,28 @@
         "RUNNING": "上传档案",
         "FINISHED": "已上传的档案",
         "PENDING": "上载档案",
-        "FAILED": "",
-        "QUEUED": ""
+        "FAILED": "上传失败",
+        "QUEUED": "上传排队中"
       },
       "VALIDATOR_VALIDATE_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "验证归档格式",
+        "FINISHED": "归档格式已验证",
+        "PENDING": "验证归档格式",
+        "FAILED": "验证归档格式失败",
+        "QUEUED": "归档验证已排队"
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "提取数据",
+        "FINISHED": "数据已提取",
+        "PENDING": "提取数据",
+        "FAILED": "提取失败",
+        "QUEUED": "提取任务已排队"
       },
       "VALIDATOR_VERBATIM_TO_INTERPRETED": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
+        "RUNNING": "数据解析",
+        "FINISHED": "数据已解析",
+        "PENDING": "数据解析",
+        "FAILED": "数据解析失败",
         "QUEUED": ""
       },
       "VALIDATOR_INTERPRETED_TO_INDEX": {

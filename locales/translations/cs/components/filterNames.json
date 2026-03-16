@@ -118,6 +118,6 @@
     "gbifRegion": "Region GBIF",
     "publishedByGbifRegion": "Publikováno podle GBIF regionu",
     "taxonConceptId": "",
-    "dnaSequence": ""
+    "dnaSequence": "DNA sekvence"
   }
 }

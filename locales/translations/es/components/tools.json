@@ -93,9 +93,9 @@
             "mintingDoi": "Creando el DOI - esto no debería tardar mucho",
             "attachCsvLabel": "Adjunta [archivo CSV](/faq?question=how-do-i-create-a-csv-file-for-a-derived-dataset&inline=true) con las claves del conjunto de datos y los recuentos de ocurrencias",
             "orEnterLabel": "O introduce aquí las claves del conjunto de datos/DOI y el número de ocurrencias",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "Formato de archivo no válido: el archivo debe ser un archivo CSV.",
+            "emptyFile": "No hay filas en los datos.",
+            "tooManyRows": "Demasiadas filas (máximo 6000): intente utilizar [la API](https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets) en su lugar."
         },
         "occurrenceSnapshots": {
             "title": ""

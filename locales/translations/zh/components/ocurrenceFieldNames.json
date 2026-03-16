@@ -261,13 +261,13 @@
     "undefined": "未知字段",
     "coordinatesTextual": "这条记录有包含地点的文字描述，但没有坐标。",
     "coordinatesMissing": "缺少坐标",
-    "eventType": "",
-    "caste": "",
-    "vitality": "",
+    "eventType": "事件类型",
+    "caste": "品级",
+    "vitality": "状态",
     "subtribe": "亚族",
     "superfamily": "超科",
     "tribe": "族",
-    "verbatimLabel": "",
-    "isSequenced": ""
+    "verbatimLabel": "原始标签",
+    "isSequenced": "测序"
   }
 }
