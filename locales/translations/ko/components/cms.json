@@ -12,7 +12,7 @@
       "fundsAllocated": "",
       "matchingFunds": "",
       "funding": "",
-      "coFunding": "",
+      "coFunding": "공동자금",
       "fundedBy": "",
       "coFundedBy": "",
       "typeOfGrant": "",
@@ -34,7 +34,7 @@
     },
     "auxiliary": {
       "subject": "주제",
-      "citation": "",
+      "citation": "인용",
       "organisingParticipants": ""
     },
     "document": {
