@@ -54,14 +54,14 @@
     "REVIEWER": "",
     "JURY": "",
     "AWARD_WINNER": "",
-    "HEAD_OF_DELEGATION": "",
+    "HEAD_OF_DELEGATION": "대표단장",
     "TEMPORARY_HEAD_OF_DELEGATION": "",
     "ADDITIONAL_DELEGATE": "",
     "TEMPORARY_DELEGATE": "",
     "GB_INVITEE": "",
     "ALTERNATE_HEAD_OF_DELEGATION": "",
     "HEAD_OF_DELEGATION_ADMINISTRATIVE_CONTACT": "",
-    "NODE_MANAGER": "",
-    "NODE_STAFF": ""
+    "NODE_MANAGER": "노드 관리자",
+    "NODE_STAFF": "노드 스태프"
   }
 }
