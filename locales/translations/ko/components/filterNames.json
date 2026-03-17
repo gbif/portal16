@@ -11,7 +11,7 @@
     "distanceFromCentroidInMeters": "",
     "collectionCode": "모음집 코드",
     "recordNumber": "기록 번호",
-    "datasetKey": "",
+    "datasetKey": "데이터셋",
     "datasetName": "데이터셋 이름",
     "datasetId": "데이터셋 ID",
     "protocol": "",
