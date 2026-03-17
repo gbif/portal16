@@ -25,7 +25,7 @@
     },
     "role": "",
     "group": {},
-    "gbif_secretariat": "",
+    "gbif_secretariat": "GBIF 사무국",
     "membershipType": "",
     "name": "",
     "endorsedDataPublisher": "",
@@ -38,8 +38,8 @@
       "gbifAffiliates": ""
     },
     "roles": {
-      "HEAD_OF_DELEGATION": "",
-      "NODE_MANAGER": ""
+      "HEAD_OF_DELEGATION": "대표단장",
+      "NODE_MANAGER": "노드 관리자"
     },
     "publishers": "",
     "memberSince": "",
