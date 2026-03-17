@@ -8,8 +8,8 @@
     "CONSERVATION": "보전",
     "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "데이터 분석 및 시각화 통계 모델링",
     "DATA_MANAGEMENT": "데이터 관리",
-    "DATA_MOBILIZATION": "",
-    "DATA_PAPERS": "",
+    "DATA_MOBILIZATION": "데이터 유동화",
+    "DATA_PAPERS": "데이터 문서",
     "DATA_PUBLISHING": "데이터 출판",
     "DATA_USE": "데이터 사용",
     "DNA_BARCODING_AND_METAGENOMICS": "DNA 바코딩 및 매타지노믹스",
@@ -21,7 +21,7 @@
     "MACHINE_OBSERVATIONS": "",
     "MARINE_ECOLOGY": "해양 생태학",
     "SOIL_BIODIVERSITY": "토양 생물다양성",
-    "THREATENED_SPECIES": ""
+    "THREATENED_SPECIES": "멸종위기종"
   },
   "directoryCertificationLevel": {
     "BASIC": "",
