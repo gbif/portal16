@@ -1,9 +1,9 @@
 {
   "datasetType": {
-    "OCCURRENCE": "",
+    "OCCURRENCE": "출현",
     "CHECKLIST": "",
     "SAMPLING_EVENT": "",
-    "METADATA": "",
+    "METADATA": "메타데이터",
     "undefined": ""
   },
   "datasetSubtype": {

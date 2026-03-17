@@ -12,10 +12,10 @@
         "relevance": "",
         "language": "언어",
         "year": "연",
-        "datasetKey": "",
+        "datasetKey": "데이터셋",
         "publishingOrg": "발행자",
         "peerReview": "",
-        "openAccess": "",
+        "openAccess": "오픈 액세스",
         "gbifDownloadKey": ""
       },
       "contentType": {
@@ -68,7 +68,7 @@
           "CITIZEN_SCIENCE": "",
           "CLIMATE_CHANGE": "",
           "CONSERVATION": "",
-          "DATA_MANAGEMENT": "",
+          "DATA_MANAGEMENT": "데이터 관리",
           "DATA_PAPER": "",
           "ECOLOGY": "",
           "ECOSYSTEM_SERVICES": "",
@@ -84,7 +84,7 @@
           "TAXONOMY": ""
         },
         "purposes": {
-          "CAPACITY_ENHANCEMENT": "",
+          "CAPACITY_ENHANCEMENT": "능력 향상",
           "DATA_ACCESS": "",
           "DATA_ANALYSIS": "",
           "DATA_CURATION_QUALITY": "",
@@ -114,12 +114,12 @@
           "bill": ""
         },
         "audiences": {
-          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "",
+          "BIODIVERSITY_KNOWLEDGE_EXPERTS": "생물다양성 지식 전문가",
           "DATA_HOLDERS": "",
-          "DATA_USERS": "",
+          "DATA_USERS": "데이터 사용자",
           "DECISION_MAKERS": "",
-          "GBIF_NETWORK": "",
-          "PUBLIC_STAKEHOLDERS": ""
+          "GBIF_NETWORK": "GBIF 네트워크",
+          "PUBLIC_STAKEHOLDERS": "공공 이해관계자"
         }
       }
     }
