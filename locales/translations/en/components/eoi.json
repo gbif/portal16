@@ -25,7 +25,7 @@
     "endorsingNode": "Endorsing node",
     "pleaseCheckSuggestionBelow": "To support publishers and review data quality all publishers are associated with a GBIF node. Please check the suggestion below, and correct it if needed:",
     "helpMeWithEndorsement": "Help me with endorsement",
-    "marineDataPublishers": "Marine data publishers: request endorsement for OBIS (Ocean Biogeographic Information System) related data",
+    "marineDataPublishers": "Marine data publishers: request endorsement for OBIS (Ocean Biodiversity Information System) related data",
     "suggested": "Suggested",
     "orSelectAnotherAssOrg": "If endorsement through the country node suggested above is not the right option, please check this list of associated participants for multinational or thematic networks:",
     "clickToSelect": "Click to select",
