@@ -194,7 +194,7 @@
     "editSql": "",
     "temporalUncertainty": "",
     "documentation": "",
-    "dataQuality": "",
+    "dataQuality": "Datenqualität",
     "removeRecordsWithGeospatialIssues": "",
     "removeRecordsTaxonIssues": "",
     "removeRecordsAtCentroids": "",
