@@ -1,9 +1,9 @@
 {
   "datasetType": {
-    "OCCURRENCE": "",
+    "OCCURRENCE": "Vorkommen",
     "CHECKLIST": "",
     "SAMPLING_EVENT": "Probennahme-Ereignis",
-    "METADATA": "",
+    "METADATA": "Metadaten",
     "undefined": "Unbekannt"
   },
   "datasetSubtype": {
