@@ -48,6 +48,6 @@
     "pOccurrence": "{NUMBER, plural, one{výskyt} few {výskyty} many {výskytů} other{výskytů}}",
     "occurrenceDatasets": "Datové sady výskytu",
     "occurrences": "Výskyty",
-    "occurrencesHostedBy": ""
+    "occurrencesHostedBy": "Hostované výskyty"
   }
 }
