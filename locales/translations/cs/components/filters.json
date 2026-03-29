@@ -45,7 +45,7 @@
             "invalidTextInput": "Neplatný WKT nebo GeoJSON",
             "tooLarge": "Geometrie je příliš velká",
             "tooLargeSuggestion": "Zkuste použít ohraničující rámeček a filtrovat lokálně.",
-            "aboutWktAndGeoJson": "",
+            "aboutWktAndGeoJson": "Podporován je pouze formát WKT, ale pokusíme se převést jakýkoli soubor GeoJSON na formát WKT. Pokud máte velký soubor GeoJSON nebo soubor Shape file, můžete jej zjednodušit pomocí nástroje [MapShaper](http://mapshaper.org/) a převést na formát WKT pomocí nástroje [geojson.io](http://geojson.io/). Všimněte si, že akceptovanými typy WKT jsou pouze POINT, LINERING, LINEARRING, POLYGON a MULTIPOLYGON.",
             "simplificationWarning": "Můžeme se pokusit geometrii zjednodušit, ale to může vést k vlastnímu protínání nebo jinak neplatným geometriím. V takovém případě je třeba geometrii opravit ručně nebo zjednodušit původní geometrii.",
             "invalidRange": "Neplatný ohraničující rámeček"
         }
