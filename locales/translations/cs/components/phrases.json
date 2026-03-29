@@ -27,8 +27,8 @@
     "share": "Sdílet",
     "download": "Stáhnout",
     "cancel": "Zrušit",
-    "testSiteWarning": "",
+    "testSiteWarning": "Toto je testovací web. Produkční web s kompletními údaji je k dispozici na GBIF.org.",
     "loginRequiredDueToSpam": "Pro pokračování se prosím přihlaste.",
-    "loginRequiredExplainer": ""
+    "loginRequiredExplainer": "Vzhledem ke spamu a dalším rušivým akcím je nutné, abyste byli v této akci přihlášeni pomocí svého účtu GBIF.org. Omlouváme se za nepříjemnosti a děkujeme za pochopení."
   }
 }
