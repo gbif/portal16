@@ -2,7 +2,7 @@
   "occurrence": {
     "tabs": {
       "details": "Detaily",
-      "cluster": "",
+      "cluster": "Související záznamy",
       "phylotree": "Rovná se {from}"
     },
     "typeOf": "{TYPE} z {NAME}",

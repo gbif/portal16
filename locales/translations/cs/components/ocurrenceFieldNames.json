@@ -262,12 +262,12 @@
     "coordinatesTextual": "Tento záznam je zveřejněn bez souřadnic, ale obsahuje textový popis jeho umístění.",
     "coordinatesMissing": "Chybí souřadnice",
     "eventType": "Typ události",
-    "caste": "",
-    "vitality": "",
+    "caste": "Kasta",
+    "vitality": "Vitalita",
     "subtribe": "Podkmen",
     "superfamily": "Nadčeleď",
     "tribe": "Kmen",
-    "verbatimLabel": "",
+    "verbatimLabel": "Přesný štítek",
     "isSequenced": "Je sekvenováno"
   }
 }
