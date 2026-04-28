@@ -77,7 +77,7 @@
     "processedOccurrences": "",
     "noDescriptionProvided": "",
     "pNetwork": "",
-    "parentEvent": "",
+    "parentEvent": "상위 이벤트",
     "eventDescription": "",
     "siblingEvents": "",
     "childEvents": "",
