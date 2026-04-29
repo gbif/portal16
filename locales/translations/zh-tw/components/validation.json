@@ -131,15 +131,15 @@
         "RUNNING": "歸檔上傳中",
         "FINISHED": "歸檔已上傳",
         "PENDING": "上傳歸檔",
-        "FAILED": "",
-        "QUEUED": ""
+        "FAILED": "上傳失敗",
+        "QUEUED": "等待上傳"
       },
       "VALIDATOR_VALIDATE_ARCHIVE": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "正在驗證存檔格式",
+        "FINISHED": "存檔格式已驗證",
+        "PENDING": "驗證存檔格式",
+        "FAILED": "無法驗證存檔格式",
+        "QUEUED": "等待驗證存檔"
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "擷取資料",
@@ -171,6 +171,6 @@
       }
     },
     "validatingFile": "",
-    "fileName": ""
+    "fileName": "檔案名稱"
   }
 }
