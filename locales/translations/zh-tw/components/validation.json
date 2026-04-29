@@ -142,18 +142,18 @@
         "QUEUED": ""
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "擷取資料",
+        "FINISHED": "資料已擷取",
+        "PENDING": "擷取資料",
+        "FAILED": "擷取失敗",
+        "QUEUED": "等待擷取"
       },
       "VALIDATOR_VERBATIM_TO_INTERPRETED": {
-        "RUNNING": "",
-        "FINISHED": "",
-        "PENDING": "",
-        "FAILED": "",
-        "QUEUED": ""
+        "RUNNING": "正在解讀資料",
+        "FINISHED": "資料已解讀",
+        "PENDING": "解讀資料",
+        "FAILED": "資料解讀失敗",
+        "QUEUED": "等待解讀資料"
       },
       "VALIDATOR_INTERPRETED_TO_INDEX": {
         "RUNNING": "",

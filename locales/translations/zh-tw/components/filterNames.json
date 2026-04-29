@@ -86,7 +86,7 @@
     "dwcaExtension": "",
     "isInCluster": "在（資料）叢集上",
     "iucnRedListCategory": "IUCN 全球紅皮書類別",
-    "isSequenced": "",
+    "isSequenced": "已定序",
     "fieldNumber": "樣區事件編碼",
     "preparations": "準備",
     "sex": "性別",
@@ -118,6 +118,6 @@
     "gbifRegion": "GBIF 地區",
     "publishedByGbifRegion": "",
     "taxonConceptId": "",
-    "dnaSequence": ""
+    "dnaSequence": "DNA 序列"
   }
 }
