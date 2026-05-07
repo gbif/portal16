@@ -110,19 +110,19 @@ let tests = [
         message: 'Expect 401 when requesting login'
     },
     {
-        url: apiConfig.mapCapabilities.url + '?taxonKey=1&cachebust={NOW}',
+        url: apiConfig.mapCapabilities.url + '?taxonKey=2435099&cachebust={NOW}',
         component: 'MAPS',
         type: 'NUMBER_ABOVE',
         key: 'total',
         val: 100,
         message:
-            'Map capabilities for taxonKey 1 should return a json with a total above 100'
+            'Map capabilities for taxonKey 2435099 should return a json with a total above 100'
     },
     {
         url:
-            apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png?cachebust={NOW}',
+            apiConfig.mapOccurrenceDensity.url + '0/0/0@1x.png?taxonKey=2435099&cachebust={NOW}',
         component: 'MAPS',
-        message: 'Map occurrence density requests should return 200'
+        message: 'Map occurrence density for taxonKey 2435099 requests should return 200'
     },
     {
         url:
