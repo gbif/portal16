@@ -8,7 +8,7 @@
     "charts": "Metrics",
     "download": "Download",
     "searchAllFields": "Search all fields",
-    "description": "Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data.",
+    "description": "Search for occurrences in GBIF. Free and Open Access to Biodiversity Data.",
     "nWithCoordinates": "{NUMBER_FORMATED} with coordinates",
     "nWithImages": "{NUMBER_FORMATED} with {NUMBER, plural, one{image} other{images}}",
     "failedSearch": "Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues",
