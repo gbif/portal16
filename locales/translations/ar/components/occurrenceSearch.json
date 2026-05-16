@@ -27,12 +27,12 @@
     "yesCorrectSuggestion": "نعم",
     "noWrongSuggestion": "لا",
     "errorUserThrottled": "تم تعليق إذن الدخول الخاص بك بشكل مؤقت.",
-    "polygonSimplifiedToFewerDecimals": "",
-    "polygonSimplifiedToFewerPoints": "",
+    "polygonSimplifiedToFewerDecimals": "تم تبسيط المضلّع: تقليل تعداد المنازل العشرية",
+    "polygonSimplifiedToFewerPoints": "تم تبسيط المضلّع: تقليل تعداد النقاط",
     "simplificationCausedSelfIntersection": "",
     "geometryCollectionNotSupported": "",
     "largeQueryLengthWarning": "عنوان URL لتساؤلك تجاوز 2000 محرف وقد لا يعمل بشكل صحيح في كافة المتصفحات. لأجل التساؤلات الكبيرة و/أو المعقدة، يرجى النظر في استخدام API للتنزيل.",
     "didYouMean": "يتطابق بحثك مع {RANK}: '{NAME}'. هل ترغب في الحد من بحثك على هذه الوحدة التصنيفية فقط؟",
-    "clickToUseAcceptedTaxon": ""
+    "clickToUseAcceptedTaxon": "انقر للبحث باستخدام الاسم المقبول للوحدة التصنيفية. من المرجح أن ترى المزيد من البيانات لأن هذا يشمل بيانات جميع استخدامات المرادفات."
   }
 }
