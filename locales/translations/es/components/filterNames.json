@@ -81,12 +81,12 @@
     "institutionKey": "Institución",
     "gadmGid": "GID GADM ",
     "lifeStage": "Etapa de vida",
-    "pathway": "",
+    "pathway": "Ruta",
     "degreeOfEstablishment": "Grado de establecimiento",
     "dwcaExtension": "Extensión DWCA",
     "isInCluster": "Está en cluster",
     "iucnRedListCategory": "Categoría en la Lista Roja de la UICN",
-    "isSequenced": "",
+    "isSequenced": "Está secuenciado",
     "fieldNumber": "Número de campo",
     "preparations": "Preparaciones",
     "sex": "Sexo",
@@ -117,7 +117,7 @@
     "bed": "Capa",
     "gbifRegion": "Región GBIF",
     "publishedByGbifRegion": "Publicado por la región GBIF",
-    "taxonConceptId": "",
+    "taxonConceptId": "Identificador de Concepto de Taxón",
     "dnaSequence": "Secuencia de ADN"
   }
 }
