@@ -39,11 +39,11 @@
     "chooseChecklistDescription": "",
     "content": {
       "rawData": "بيانات أولية",
-      "interpretedData": "",
+      "interpretedData": "البيانات التفسيرية",
       "images": "وسائط متعددة",
       "coordinates": "احداثيات",
       "fileFormat": "صيغة",
-      "estimatedSize": ""
+      "estimatedSize": "الحجم التقديري للبيانات"
     },
     "fileFormats": {
       "tabCsv": ""
