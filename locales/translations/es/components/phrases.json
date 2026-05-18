@@ -22,12 +22,12 @@
     "404Text": "Esta página ha podido existir pero ya no podemos encontrarla.\nPor favor, intenta nuestra (/búsqueda) para encontrar los que estás buscando. Además, estaremos encantados de atenderte en [helpdesk@gbif.org](mailto:helpdesk@gbif.org).",
     "changeLanguage": "Cambiar idioma",
     "noData": "Sin datos",
-    "payloadTooLarge": "",
+    "payloadTooLarge": "La solicitud supera el límite permitido. Redúzcala e inténtelo de nuevo. Para obtener ayuda, póngase en contacto con helpdesk@gbif.org.",
     "readMore": "Leer más",
     "share": "Compartir",
     "download": "Descargar",
     "cancel": "Cancelar",
-    "testSiteWarning": "",
+    "testSiteWarning": "Este es un sitio de prueba. El sitio de producción con todos los datos está disponible en GBIF.org.",
     "loginRequiredDueToSpam": "Por favor, inicia sesión para acceder a esta página.",
     "loginRequiredExplainer": ""
   }
