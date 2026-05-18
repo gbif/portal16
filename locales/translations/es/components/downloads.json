@@ -106,7 +106,7 @@
       "EXACT_TAXON": "Taxón exacto"
     },
     "cubeTitle": "Descargar cubo",
-    "cubeDescription": "",
+    "cubeDescription": "Marcador de posición de descripción",
     "readMore": "Leer más",
     "time": {
       "YEAR": "Año",
@@ -161,7 +161,7 @@
         "13": "Nivel 13",
         "14": "Nivel 14",
         "15": "Nivel 15",
-        "16": "",
+        "16": "Nivel 16 (430 467 212 celdas de 1.18 km²)",
         "17": "Nivel 17 (1 291 401 632 celdas de 0.394 km²)",
         "18": "Nivel 18 (3 874 204 892 celdas de 0.131 km²)",
         "19": "Nivel 19 (11 622 614 672 celdas de 0.043 9 km²)",
