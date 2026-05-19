@@ -1,7 +1,7 @@
 {
   "originEnum": {
     "SOURCE": "Fuente",
-    "DENORMED_CLASSIFICATION": "",
+    "DENORMED_CLASSIFICATION": "Clasificación denormada",
     "VERBATIM_PARENT": "Parental orginal",
     "VERBATIM_ACCEPTED": "Original aceptado",
     "VERBATIM_BASIONYM": "Basiónimo original",

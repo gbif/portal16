@@ -98,7 +98,7 @@
             "tooManyRows": "Demasiadas filas (máximo 6000): intente utilizar [la API](https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets) en su lugar."
         },
         "occurrenceSnapshots": {
-            "title": ""
+            "title": "Estado del registro biológico"
         }
     }
 }

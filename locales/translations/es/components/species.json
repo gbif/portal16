@@ -89,6 +89,6 @@
     "mediatedThrough": "Mediado a través",
     "taxonIdentifiers": "Identificadores de taxón",
     "whyDoubtful": "Cuando un taxón es «dudoso»",
-    "noVerbatimData": ""
+    "noVerbatimData": "No se dispone de datos originales para este taxón\n"
   }
 }

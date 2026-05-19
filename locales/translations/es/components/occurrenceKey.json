@@ -2,10 +2,10 @@
   "occurrence": {
     "tabs": {
       "details": "Detalles",
-      "cluster": "",
+      "cluster": "Registros relacionados",
       "phylotree": "Filogenias"
     },
-    "typeOf": "",
+    "typeOf": "{TYPE} de {NAME}",
     "coordinates": "Coordenadas",
     "unknownDate": "Fecha desconocida",
     "absent": "Ausente",
@@ -22,7 +22,7 @@
     "gbifTaxonInterpretation": "Interpretacion de los taxones de GBIF",
     "aboutTheDataset": "Sobre el conjunto de datos",
     "noLocationInformation": "No hay información de la ubicación publicada en este registro",
-    "deletedMessage": "",
+    "deletedMessage": "El editor de datos ha eliminado este registro del índice GBIF, pero la última versión se muestra a continuación.",
     "deletedDescription": "Los registros que ya no están en un conjunto de datos publicado y fueron eliminados del catálogo de GBIF. Los publicadores  pueden a veces tener razones para eliminar algunos registros, un conjunto de datos completo o asignar nuevos identificadores locales.",
     "subMenu": {
       "diagnostics": "Diagnósticos",
@@ -61,7 +61,7 @@
       "noIdentifier": "No se ha proporcionado ningún identificador multimedia",
       "noPlaybackSupport": "Su navegador no soporta el formato necesario para reproducir este medio.",
       "takeMeThere": "Prueba la versión en el sitio del publicador",
-      "notWorkingTryPublishers": "",
+      "notWorkingTryPublishers": "¿La reproducción multimedia no funciona como se esperaba?",
       "download": "Descargar media",
       "byRightsHolder": "por {RIGHTSHOLDER}",
       "licensedUnder": "bajo una licencia {{LICENSE}}",
@@ -98,14 +98,14 @@
     },
     "occurrence": "Registro",
     "inLanguage": "En ",
-    "sequenced": "",
+    "sequenced": "Secuenciado",
     "treatment": "Tratamiento",
     "cluster": {
       "current": "Actual",
       "relatedOccurrences": "Registros asociados",
       "similarBecause": "Similar porque",
-      "matchedRecord": "",
-      "noMatches": "",
+      "matchedRecord": "Registro coincidente",
+      "noMatches": "Sin relaciones con candidatos",
       "explainer": "Esta característica experimental resalta posibles registros biológicos duplicados o relacionados."
     }
   },

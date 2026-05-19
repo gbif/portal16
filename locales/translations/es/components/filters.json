@@ -12,7 +12,7 @@
             "description": "Esta característica experimental resalta posibles registros biológicos duplicados o relacionados."
         },
         "isSequenced": {
-            "description": ""
+            "description": "Contiene extensiones de datos derivadas de ADN o associatedSequences."
         },
         "occurrenceStatus": {
             "description": "'Ausente' se aplica a un registro biológico cuando una consulta de un taxón, en un momento y lugar específico, no encuentra especímenes",
@@ -45,8 +45,8 @@
             "invalidTextInput": "WKT o GeoJSON incorrectos",
             "tooLarge": "Geometría demasiado grande",
             "tooLargeSuggestion": "Intenta usar un cuadro delimitador y filtrar localmente",
-            "aboutWktAndGeoJson": "",
-            "simplificationWarning": "",
+            "aboutWktAndGeoJson": "Solo se admite WKT, pero intentaremos convertir cualquier archivo GeoJSON a WKT. Si tiene un archivo GeoJSON grande o un archivo Shape, puede simplificarlo con [MapShaper](http://mapshaper.org/) y convertirlo a WKT con [geojson.io](http://geojson.io/). Tenga en cuenta que solo se aceptan los tipos WKT POINT, LINESTRING, LINEARRING, POLYGON y MULTIPOLYGON.",
+            "simplificationWarning": "Podemos intentar simplificar la geometría, pero esto podría generar autointersecciones u otras geometrías no válidas. En ese caso, deberá corregir la geometría manualmente o simplificar la geometría inicial.",
             "invalidRange": "Cuadro delimitador inválido"
         }
     }
