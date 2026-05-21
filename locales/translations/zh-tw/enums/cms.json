@@ -39,8 +39,8 @@
           "SMALL": "機構生物多樣性資料流通獎助",
           "NATIONAL": "國家生物多樣性資料流通獎助",
           "DATA_USE": "資料使用獎助",
-          "INSTITUTIONAL": "",
-          "MULTI_INSTITUTIONAL": "",
+          "INSTITUTIONAL": "機構生物多樣性資料流通獎助",
+          "MULTI_INSTITUTIONAL": "多機構生物多樣性資料流通獎助",
           "undefined": "未指定"
         },
         "projectStatus": {
@@ -79,7 +79,7 @@
           "MARINE": "海洋",
           "PHYLOGENETICS": "系統發育",
           "SPECIES_DISTRIBUTIONS": "物種分布",
-          "INFRASTRUCTURE": "",
+          "INFRASTRUCTURE": "基礎設施",
           "DNA": "去氧核醣核酸",
           "TAXONOMY": "分類學"
         },
@@ -97,7 +97,7 @@
           "generic": "一般",
           "book_section": "書籍章節",
           "conference_proceedings": "會議進行",
-          "working_paper": "工作文件",
+          "working_paper": "預印本",
           "report": "報告",
           "web_page": "網頁",
           "thesis": "論文",
@@ -106,12 +106,12 @@
           "patent": "專利",
           "newspaper_article": "新聞報導",
           "computer_program": "電腦程式設計",
-          "hearing": "聽覺",
+          "hearing": "公聽會",
           "television_broadcast": "新聞播報",
           "encyclopedia_article": "生物百科文章",
           "case": "案例",
           "film": "影片",
-          "bill": "帳單"
+          "bill": "草案"
         },
         "audiences": {
           "BIODIVERSITY_KNOWLEDGE_EXPERTS": "生物多樣性知識專家",
