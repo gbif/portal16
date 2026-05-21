@@ -92,7 +92,7 @@
   "customSqlDownload": {
     "invalidSQL": "",
     "title": "",
-    "notification": "",
+    "notification": "下載和瀏覽資料最簡單的方法是透過出現紀錄搜尋的使用者介面。但對於複雜的查詢和匯總操作，SQL 編輯器提供了更大的靈活性。",
     "occurrenceSearch": "出現紀錄搜尋",
     "taxon": {
       "KINGDOM": "界",
@@ -214,7 +214,7 @@
       "higherTaxonomy": "其他較高分類群排序的物種出現紀錄次數也應包含在內。這有助於判斷抽樣偏差。",
       "minCoordinateUncertainty": "記錄到的最低座標不確定性 (以公尺為單位)。可用於評估資料的空間精度。",
       "minTemporalUncertainty": "記錄到的最低時間不確定性 (以秒為單位)。可用於評估資料的時間精度。",
-      "editSql": "下載和瀏覽資料最簡單的方法是透過出現紀錄搜尋的使用者介面。但對於複雜的查詢和總集操作，SQL 編輯器提供了更大的靈活性。"
+      "editSql": "下載和瀏覽資料最簡單的方法是透過出現紀錄搜尋的使用者介面。但對於複雜的查詢和匯總操作，SQL 編輯器提供了更大的靈活性。"
     }
   }
 }
