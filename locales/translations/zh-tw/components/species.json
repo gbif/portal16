@@ -89,6 +89,6 @@
     "mediatedThrough": "經由",
     "taxonIdentifiers": "分類群辨識碼",
     "whyDoubtful": "當分類群有疑點",
-    "noVerbatimData": ""
+    "noVerbatimData": "無該分類群的逐字資料。"
   }
 }
