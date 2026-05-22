@@ -12,7 +12,7 @@
             "description": "這個實驗中的功能標註可能重覆或相關的物種出現紀錄。"
         },
         "isSequenced": {
-            "description": ""
+            "description": "具有DNA衍生資料集或相關序列"
         },
         "occurrenceStatus": {
             "description": "當一針對特定分類群在給定時間及地點的調查沒有產生任何標本，即標示為「未出現」。",
@@ -45,8 +45,8 @@
             "invalidTextInput": "無效的 WKT 或 GeoJSON 格式",
             "tooLarge": "幾何形狀過大",
             "tooLargeSuggestion": "嘗試使用定界框，然後進行區域篩選。",
-            "aboutWktAndGeoJson": "",
-            "simplificationWarning": "",
+            "aboutWktAndGeoJson": "目前僅支援 WKT 格式，但我們會嘗試將任何 GeoJSON 檔案轉換為 WKT 格式。如果您有一個較大的 GeoJSON 文件，可以使用 [MapShaper](http://mapshaper.org/) 對其進行簡化，然後使用 [geojson.io](http://geojson.io/) 將其轉換為 WKT 格式。請注意，WKT 格式僅接受 POINT、LINESTRING、LINEARRING、POLYGON 和 MULTIPOLYGON 這幾種類型。",
+            "simplificationWarning": "我們可以嘗試簡化幾何圖形，但這可能會導致自相交或其他無效幾何圖形。在這種情況下，您需要手動修正幾何圖形或簡化初始幾何圖形。",
             "invalidRange": "無效的定界框"
         }
     }
