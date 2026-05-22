@@ -50,9 +50,9 @@
     "sinceDate": "始自 {DATE}",
     "showAllContacts": "全部",
     "person": {
-      "volunteer": "",
+      "volunteer": "志工",
       "name": "名稱",
-      "annualBadges": "",
+      "annualBadges": "年度徽章",
       "language": "語言",
       "country": "國家或地區",
       "affiliation": "",
