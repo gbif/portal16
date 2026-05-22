@@ -148,8 +148,7 @@ let tests = [
     },
     {
         url:
-            'http://www.' +
-            config.topDomain +
+            config.domain +
             '/api/resource/search?contentType=literature&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
@@ -160,8 +159,7 @@ let tests = [
     },
     {
         url:
-            'http://www.' +
-            config.topDomain +
+            config.domain +
             '/api/resource/search?contentType=dataUse&cachebust={NOW}',
         component: 'RESOURCE_SEARCH',
         type: 'NUMBER_ABOVE',
