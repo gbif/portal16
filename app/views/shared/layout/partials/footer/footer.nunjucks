@@ -49,7 +49,8 @@
         </div>
         <div class="horizontal-stripe site-footer__bottom">
             <div class="container--normal text-center">
-                <img src="/img/full_logo_white.svg">
+                {# <img src="/img/full_logo_white.svg"> #}
+                <img src="/img/full_logo_white_25.svg">
             </div>
         </div>
     </footer>
