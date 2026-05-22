@@ -3,7 +3,8 @@
      ng-class="{'mobileMenu--active': nav.mobileMenuActive, 'mainMenu--firstLevelActive': nav.activeMenu, hasOffset: nav.scrollOffset > 0}"
      ng-controller="navCtrl as nav">
     <div class="stickyNav__container">
-        <a ng-href="{$ gb.locales.urlPrefix $}/" id="block-logo" class="gbif-logo">
+        <a ng-href="https://gbif.link/25" id="block-logo" class="gbif-logo">
+        {# <a ng-href="{$ gb.locales.urlPrefix $}/" id="block-logo" class="gbif-logo"> #}
             {# <svg viewBox="90 239.1 539.7 523.9" xmlns="http://www.w3.org/2000/svg">
                 <path class="gbif-logo-svg"
                       d="M325.5,495.4c0-89.7,43.8-167.4,174.2-167.4C499.6,417.9,440.5,495.4,325.5,495.4"/>
