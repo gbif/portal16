@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "下載選項",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "選擇分類群目錄",
+    "chooseChecklistDescription": "選擇用於整理下載檔案中分類群名稱的分類清單",
     "content": {
       "rawData": "原始資料",
       "interpretedData": "已解釋的資料",
@@ -51,7 +51,7 @@
     "tableValues": {
       "yes": "✔",
       "yesIfAvailable": "✔ (若可用)",
-      "yesIfSelected": "",
+      "yesIfSelected": "✓ (若已選)",
       "yesLinks": "✔ (連結)",
       "no": "X"
     }
