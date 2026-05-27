@@ -8,7 +8,7 @@
     "continent": "大陸",
     "taxonKey": "學名",
     "elevation": "海拔",
-    "distanceFromCentroidInMeters": "",
+    "distanceFromCentroidInMeters": "距中心的距離 (公尺)",
     "collectionCode": "蒐藏編碼",
     "recordNumber": "紀錄編號",
     "datasetKey": "資料集",
@@ -20,7 +20,7 @@
     "recordedById": "記錄者識別碼",
     "identifiedBy": "鑑定者",
     "identifiedById": "鑑定者識別碼",
-    "geoDistance": "",
+    "geoDistance": "距點的距離",
     "eventDate": "事件日期",
     "eventId": "事件識別碼",
     "samplingProtocol": "取樣程序",
@@ -83,7 +83,7 @@
     "lifeStage": "生活史階段",
     "pathway": "路徑",
     "degreeOfEstablishment": "設立程度",
-    "dwcaExtension": "",
+    "dwcaExtension": "達爾文延伸集 (DWCA)",
     "isInCluster": "在（資料）叢集上",
     "iucnRedListCategory": "IUCN 全球紅皮書類別",
     "isSequenced": "已定序",
@@ -116,8 +116,8 @@
     "member": "段",
     "bed": "層",
     "gbifRegion": "GBIF 地區",
-    "publishedByGbifRegion": "",
-    "taxonConceptId": "",
+    "publishedByGbifRegion": "由 GBIF 區域發布",
+    "taxonConceptId": "分類群概念ID",
     "dnaSequence": "DNA 序列"
   }
 }

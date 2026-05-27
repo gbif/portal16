@@ -1,35 +1,35 @@
 {
   "directoryAreaExpertise": {
-    "AGRICULTURE_AND_FOOD_SECURITY": "",
-    "BUSINESS_SECTOR": "",
+    "AGRICULTURE_AND_FOOD_SECURITY": "農產品與食物安全",
+    "BUSINESS_SECTOR": "商業部門",
     "CITIZEN_SCIENCE": "公民科學",
     "CLIMATE_CHANGE": "氣候變遷",
-    "COLLECTIONS_MANAGEMENT": "",
+    "COLLECTIONS_MANAGEMENT": "館藏品管理",
     "CONSERVATION": "保育",
-    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "",
+    "DATA_ANALYSIS_AND_VISUALIZATION_STATISTICAL_MODELING": "資料分析與視覺化統計模式",
     "DATA_MANAGEMENT": "資料管理",
     "DATA_MOBILIZATION": "資料流通",
     "DATA_PAPERS": "資料論文",
     "DATA_PUBLISHING": "資料發布",
     "DATA_USE": "資料使用",
-    "DNA_BARCODING_AND_METAGENOMICS": "",
-    "FRESHWATER_ECOLOGY": "",
-    "HUMAN_HEALTH_AND_ONE_HEALTH": "",
-    "IMPACT_ASSESSMENTS": "",
+    "DNA_BARCODING_AND_METAGENOMICS": "DNA 條碼與總體基因體學",
+    "FRESHWATER_ECOLOGY": "淡水生態學",
+    "HUMAN_HEALTH_AND_ONE_HEALTH": "人類健康與整體健康",
+    "IMPACT_ASSESSMENTS": "影響評估",
     "INVASIVE_ALIEN_SPECIES": "外來入侵物種",
-    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "",
-    "MACHINE_OBSERVATIONS": "",
-    "MARINE_ECOLOGY": "",
-    "SOIL_BIODIVERSITY": "",
+    "LONG_TERM_MONITORING_SYSTEMATIC_SURVEY_DATA": "長期監測系統調查資料",
+    "MACHINE_OBSERVATIONS": "機器觀察",
+    "MARINE_ECOLOGY": "海洋生態學",
+    "SOIL_BIODIVERSITY": "土壤生物多樣性",
     "THREATENED_SPECIES": "受脅物種"
   },
   "directoryCertificationLevel": {
-    "BASIC": "",
+    "BASIC": "基礎",
     "ADVANCED": "進階選項"
   },
   "directoryCertificationTitle": {
-    "BIODIVERSITY_DATA_MOBILIZATION": "",
-    "BIODIVERSITY_DATA_USE": "",
-    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": ""
+    "BIODIVERSITY_DATA_MOBILIZATION": "生物多樣性資料流通",
+    "BIODIVERSITY_DATA_USE": "生物多樣性資料使用",
+    "BIODIVERSITY_DATA_PUBLISHING_SUPPORT": "生物多樣性資料發布支援"
   }
 }

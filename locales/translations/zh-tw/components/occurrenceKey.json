@@ -2,7 +2,7 @@
   "occurrence": {
     "tabs": {
       "details": "詳細資料",
-      "cluster": "",
+      "cluster": "相關記錄",
       "phylotree": "等於 {is}"
     },
     "typeOf": "{NAME} 的 {TYPE}",
@@ -42,7 +42,7 @@
       "Organism": "生物體",
       "MaterialSample": "材料樣本",
       "GeologicalContext": "地理背景",
-      "MaterialEntity": "",
+      "MaterialEntity": "材料實體",
       "Provenance": "出處註解",
       "other": "其它"
     },
