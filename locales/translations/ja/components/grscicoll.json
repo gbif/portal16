@@ -101,16 +101,16 @@
       "people": ""
     },
     "contact": {
-      "phone": "",
+      "phone": "電話番号",
       "email": "Eメール",
-      "fax": "",
+      "fax": "FAX番号",
       "mailingAddress": "住所",
-      "physicalAddress": "",
+      "physicalAddress": "住所",
       "contacts": "問い合わせ先",
       "address": "住所",
-      "province": "",
-      "postalCode": "",
-      "city": "",
+      "province": "都道府県",
+      "postalCode": "郵便番号",
+      "city": "市町村名",
       "country": "国"
     }
   }
