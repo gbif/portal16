@@ -27,8 +27,8 @@
     "share": "分享",
     "download": "下載",
     "cancel": "取消",
-    "testSiteWarning": "",
+    "testSiteWarning": "這是測試區。包含完整資料的正式網站可在 GBIF.org 上存取。",
     "loginRequiredDueToSpam": "登入以繼續",
-    "loginRequiredExplainer": ""
+    "loginRequiredExplainer": "由於垃圾郵件和其他干擾行為，此操作需要您使用 GBIF.org 帳號登入。造成不便，我們深表歉意，並感謝您的體諒。"
   }
 }
