@@ -93,12 +93,12 @@
             "mintingDoi": "建立 DOI - 這不會花很長時間。",
             "attachCsvLabel": "附加 [CSV 檔案](/faq?question=how-do-i-create-a-csv-file-for-a-driven-dataset&inline=true) 以及資料集檢索和出現次數",
             "orEnterLabel": "或在此輸入資料集檢索/DOI 和出現次數",
-            "invalidFileFormat": "",
-            "emptyFile": "",
-            "tooManyRows": ""
+            "invalidFileFormat": "無效的檔案格式: 必須為CSV檔案",
+            "emptyFile": "資料中沒有行內容",
+            "tooManyRows": "太多行內容 (最多6,000)。請嘗試使用此API https://techdocs.gbif.org/en/openapi/v1/registry#/Derived%20datasets"
         },
         "occurrenceSnapshots": {
-            "title": ""
+            "title": "出現紀錄快照"
         }
     }
 }
