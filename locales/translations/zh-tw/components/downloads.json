@@ -171,16 +171,16 @@
       },
       "MILITARY_GRID_REFERENCE_SYSTEM": {
         "0": "",
-        "1": "",
-        "10": "",
-        "100": "",
-        "1000": "",
-        "10000": "",
-        "100000": ""
+        "1": "1 公尺",
+        "10": "10 公尺",
+        "100": "100 公尺",
+        "1000": "1 公里",
+        "10000": "10 公里",
+        "100000": "100 公里"
       }
     },
-    "noneSelected": "",
-    "dimensions": "",
+    "noneSelected": "未選擇",
+    "dimensions": "維度",
     "taxonomicDimension": "",
     "temporalDimension": "",
     "spatialDimension": "",

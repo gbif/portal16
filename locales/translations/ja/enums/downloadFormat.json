@@ -9,7 +9,7 @@
     "MAP_OF_LIFE": "マップオブライフのエクスポート",
     "IUCN": "IUCNのエクスポート",
     "BIONOMIA": "Bionomiaへエクスポート",
-    "SQL_TSV_ZIP": "",
+    "SQL_TSV_ZIP": "SQL TSV zip",
     "SIMPLE_PARQUET": "シンプルなパケット"
   }
 }
