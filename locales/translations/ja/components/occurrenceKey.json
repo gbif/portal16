@@ -3,7 +3,7 @@
     "tabs": {
       "details": "詳細",
       "cluster": "クラスター",
-      "phylotree": ""
+      "phylotree": "系統発生"
     },
     "typeOf": "{NAME} の {TYPE}",
     "coordinates": "座標",
