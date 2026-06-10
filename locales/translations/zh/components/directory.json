@@ -50,25 +50,25 @@
     "sinceDate": "{DATE} 以来",
     "showAllContacts": "全部",
     "person": {
-      "volunteer": "",
+      "volunteer": "志愿者",
       "name": "名字",
-      "annualBadges": "",
+      "annualBadges": "年度徽章",
       "language": "语言",
       "country": "国家",
-      "affiliation": "",
-      "recipient": "",
-      "areasExpertise": "",
-      "orcId": "",
+      "affiliation": "所属机构",
+      "recipient": "获得者",
+      "areasExpertise": "专业领域",
+      "orcId": "ORCID iD",
       "year": "年份",
       "email": "电子邮件"
     },
     "award": {
-      "GRA": "",
-      "EBBE1ST": "",
-      "EBBE2ND": "",
-      "EBBE3RD": ""
+      "GRA": "GBIF研究生研究员奖",
+      "EBBE1ST": "一等奖",
+      "EBBE2ND": "二等奖",
+      "EBBE3RD": "三等奖"
     },
-    "prize": "",
+    "prize": "奖",
     "year": "年份"
   }
 }
