@@ -118,6 +118,6 @@
     "gbifRegion": "GBIF区域",
     "publishedByGbifRegion": "",
     "taxonConceptId": "",
-    "dnaSequence": ""
+    "dnaSequence": "DNA序列"
   }
 }
