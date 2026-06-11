@@ -46,7 +46,7 @@
             "tooLarge": "几何太大了",
             "tooLargeSuggestion": "尝试使用边界框, 然后在本地进行筛选",
             "aboutWktAndGeoJson": "",
-            "simplificationWarning": "",
+            "simplificationWarning": "我们可以尝试简化几何体，但这可能会导致自相交或其他无效的几何形状。在这种情况下，您需要手动修正几何形状或简化初始几何形状。",
             "invalidRange": "无效的边界框"
         }
     }

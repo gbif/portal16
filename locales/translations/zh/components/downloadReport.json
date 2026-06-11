@@ -35,8 +35,8 @@
   },
   "downloadOptions": {
     "title": "下载选项",
-    "chooseChecklist": "",
-    "chooseChecklistDescription": "",
+    "chooseChecklist": "选择清单",
+    "chooseChecklistDescription": "选择用于组织您下载的分类学清单",
     "content": {
       "rawData": "原始数据",
       "interpretedData": "解释数据",

@@ -39,8 +39,8 @@
           "SMALL": "小额经费",
           "NATIONAL": "国家基金",
           "DATA_USE": "数据使用授权",
-          "INSTITUTIONAL": "",
-          "MULTI_INSTITUTIONAL": "",
+          "INSTITUTIONAL": "机构生物多样性数据调动资金",
+          "MULTI_INSTITUTIONAL": "多机构生物多样性数据调动资金",
           "undefined": "未指定的"
         },
         "projectStatus": {
