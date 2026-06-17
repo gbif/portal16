@@ -11,7 +11,7 @@
     "description": "Search for occurrences in GBIF. Free and Open Access to Biodiversity Data.",
     "nWithCoordinates": "{NUMBER_FORMATED} with coordinates",
     "nWithImages": "{NUMBER_FORMATED} with {NUMBER, plural, one{image} other{images}}",
-    "failedSearch": "Your filters might be invalid or the servers having issues. Please try again and report the issue if it continues",
+    "failedSearch": "Your filters might be invalid or the server is having issues. Please try again and report the problem if it continues.",
     "noImages": "No occurrences with images",
     "imageLicenseInfo": "Be aware that licences applied to images may differ from those applied to occurrence records",
     "combinedMediaTypeInfo": "Note that the 'Media type' filter for video or audio does not work while in gallery view",
