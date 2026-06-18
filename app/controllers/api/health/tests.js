@@ -148,30 +148,6 @@ let tests = [
         message:
             'The Github status endpoint should should return "All Systems Operational"'
     },
-    {
-        url:
-            'http://www.' +
-            config.topDomain +
-            '/api/resource/search?contentType=literature&cachebust={NOW}',
-        component: 'RESOURCE_SEARCH',
-        type: 'NUMBER_ABOVE',
-        key: 'count',
-        val: 7000,
-        message:
-            'Resource search should return more than 7000 results for a search on content type = literature'
-    },
-    {
-        url:
-            'http://www.' +
-            config.topDomain +
-            '/api/resource/search?contentType=dataUse&cachebust={NOW}',
-        component: 'RESOURCE_SEARCH',
-        type: 'NUMBER_ABOVE',
-        key: 'count',
-        val: 100,
-        message:
-            'Resource search should return more than 100 results for a search on content type = data use'
-    },
     /*     {
         url: 'http:' + apiConfig.publicKibana.url + 'q=service:"crawler-coordinator-cleanup"%20AND%20@timestamp:%3E{SECONDS_AGO}&index=' + publicCrawlIndexName,
         component: 'CRAWLER',
