@@ -55,11 +55,11 @@ function notificationsDirective(BUILD_VERSION) {
                 vm.isActive = false;
             }
         }
-        updateNotifications($sessionStorage.notifications);
+        // updateNotifications($sessionStorage.notifications);
 
-        $scope.$on(NOTIFICATIONS.CHANGED, function(event, notifications) {
-            updateNotifications(notifications);
-        });
+        // $scope.$on(NOTIFICATIONS.CHANGED, function(event, notifications) {
+        //     updateNotifications(notifications);
+        // });
     }
 }
 
