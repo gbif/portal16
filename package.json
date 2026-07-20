@@ -122,7 +122,7 @@
     "joi": "^17.3.0",
     "js-base64": "^2.4.3",
     "json2md": "^1.5.8",
-    "jsonwebtoken": "^7.4.0",
+    "jsonwebtoken": "^9.0.0",
     "karma": "^4.3.0",
     "karma-browserify": "^8.1.0",
     "karma-chrome-launcher": "^1.0.1",
