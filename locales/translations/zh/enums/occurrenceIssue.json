@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "分类单元概念ID未找到。\n",
     "TAXON_ID_NOT_FOUND": "未找到分类单元ID",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "学名和ID不一致",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "分类单元匹配名称和ID不明确"
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "分类单元匹配名称和ID不明确",
+    "SUSPECTED_TYPE": ""
   }
 }

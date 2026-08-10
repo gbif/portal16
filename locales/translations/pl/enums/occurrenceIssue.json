@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "ID zakresu taksonu nieodnalezione",
     "TAXON_ID_NOT_FOUND": "ID taksonu nieodnalezione",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Nazwa naukowa i ID niespójne",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Nazwa dopasowanie i ID taksonu niejasne"
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Nazwa dopasowanie i ID taksonu niejasne",
+    "SUSPECTED_TYPE": ""
   }
 }
