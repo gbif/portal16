@@ -139,7 +139,8 @@
         "FINISHED": "存檔格式已驗證",
         "PENDING": "驗證存檔格式",
         "FAILED": "無法驗證存檔格式",
-        "QUEUED": "等待驗證存檔"
+        "QUEUED": "等待驗證存檔",
+        "WAITING_FOR_CHECKLISTBANK": ""
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "擷取資料",

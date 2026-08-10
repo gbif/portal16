@@ -139,7 +139,8 @@
         "FINISHED": "Archive format verified",
         "PENDING": "Verify archive format",
         "FAILED": "Failed to verify archive format",
-        "QUEUED": "Archive verification queued"
+        "QUEUED": "Archive verification queued",
+        "WAITING_FOR_CHECKLISTBANK": "Waiting for ChecklistBank"
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "Extracting data",

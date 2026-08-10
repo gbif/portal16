@@ -139,7 +139,8 @@
         "FINISHED": "Formato del archivo verificado",
         "PENDING": "Verificar el formato del archivo",
         "FAILED": "No se ha podido verificar el formato del archivo.",
-        "QUEUED": "Verificación de archivo en cola"
+        "QUEUED": "Verificación de archivo en cola",
+        "WAITING_FOR_CHECKLISTBANK": ""
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "Extrayendo los datos",
