@@ -155,7 +155,7 @@
         "FAILED": "資料解讀失敗",
         "QUEUED": "等待解讀資料"
       },
-      "VALIDATOR_INTERPRETED_TO_INDEX": {
+      "VALIDATOR_VERBATIM_TO_IDENTIFIER": {
         "RUNNING": "",
         "FINISHED": "",
         "PENDING": "",

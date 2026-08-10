@@ -155,7 +155,7 @@
         "FAILED": "数据解析失败",
         "QUEUED": ""
       },
-      "VALIDATOR_INTERPRETED_TO_INDEX": {
+      "VALIDATOR_VERBATIM_TO_IDENTIFIER": {
         "RUNNING": "",
         "FINISHED": "",
         "PENDING": "",

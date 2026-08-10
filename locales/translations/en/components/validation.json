@@ -155,12 +155,12 @@
         "FAILED": "Data interpretation failed",
         "QUEUED": "Data interpretation queued"
       },
-      "VALIDATOR_INTERPRETED_TO_INDEX": {
-        "RUNNING": "Indexing for previews",
-        "FINISHED": "Indexed for previews",
-        "PENDING": "Index for previews",
-        "FAILED": "Indexing for previews failed",
-        "QUEUED": "Indexing for previews queued"
+      "VALIDATOR_VERBATIM_TO_IDENTIFIER": {
+        "RUNNING": "Checking identifiers",
+        "FINISHED": "Identifiers checked",
+        "PENDING": "Check identifiers",
+        "FAILED": "Identifier check failed",
+        "QUEUED": "Identifier check queued"
       },
       "VALIDATOR_COLLECT_METRICS": {
         "RUNNING": "Generating summary",
