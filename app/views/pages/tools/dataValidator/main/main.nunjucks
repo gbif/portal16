@@ -1,4 +1,4 @@
-<div class="submenu-wrapper white-background ng-cloak" id="submenuWrapper" ng-if="vm.jobStatus==='QUEUED' || vm.jobStatus==='FINISHED' || vm.jobStatus==='FAILED' || (vm.jobStatus==='RUNNING' && vm.validationResults)">
+<div class="submenu-wrapper white-background ng-cloak" id="submenuWrapper" ng-if="vm.jobStatus==='QUEUED' || vm.jobStatus==='WAITING_FOR_CHECKLISTBANK' || vm.jobStatus==='FINISHED' || vm.jobStatus==='FAILED' || (vm.jobStatus==='RUNNING' && vm.validationResults)">
     <div id="validationResults">
         <section class="horizontal-stripe--paddingless white-background">
             <div class="container--desktop">
@@ -53,9 +53,9 @@
                                                     <dt translate="validation.fileType.title"></dt>
                                                     <dd class="dataValidator__clickable-links">
                                                         <a ng-click="resultPerResource.showDescription = (resultPerResource.showDescription === undefined) ? true : !resultPerResource.showDescription">{{ (vm.dwcextensions[resultPerResource.rowType]) ? vm.dwcextensions[resultPerResource.rowType].title : resultPerResource.rowType}}</a> <a ng-if="vm.dwcextensions[resultPerResource.rowType].url" ng-href="{{vm.dwcextensions[resultPerResource.rowType].url}}"><span class="gb-icon-link" /></a>
-                    
-                                                        <div class="discreet--very small" ng-show="resultPerResource.showDescription">{{ vm.dwcextensions[resultPerResource.rowType].description }} 
-                                                        
+
+                                                        <div class="discreet--very small" ng-show="resultPerResource.showDescription">{{ vm.dwcextensions[resultPerResource.rowType].description }}
+
                                                         </div>
 
                                                     </dd>
@@ -80,7 +80,7 @@
                                                         {{ resultPerResource.indexedCount | localNumber:gb.locale }}
                                                     </dd>
                                                 </div>
-{# 
+{#
                                                 <div class="col-xs-6" ng-if="resultPerResource.interpretedValueCounts['gbif:taxonKey']">
                                                     <dt translate="validation.interpretedCounts.taxon"></dt>
                                                     <dd>

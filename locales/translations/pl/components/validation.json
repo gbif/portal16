@@ -139,7 +139,8 @@
         "FINISHED": "",
         "PENDING": "",
         "FAILED": "",
-        "QUEUED": ""
+        "QUEUED": "",
+        "WAITING_FOR_CHECKLISTBANK": ""
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "",
@@ -155,7 +156,7 @@
         "FAILED": "",
         "QUEUED": ""
       },
-      "VALIDATOR_INTERPRETED_TO_INDEX": {
+      "VALIDATOR_VERBATIM_TO_IDENTIFIER": {
         "RUNNING": "",
         "FINISHED": "",
         "PENDING": "",
