@@ -40,9 +40,9 @@ function dataValidatorKeyCtrl($http, $scope, User, AUTH_EVENTS, $stateParams, $s
         vm.isLoggedIn = !!user;
             vm.hasApi401Error = false;
             vm.hasError = false;
-            vm.getValidationResults(vm.jobid);       
+            vm.getValidationResults(vm.jobid);
     }
-   
+
     $scope.$on(AUTH_EVENTS.LOGIN_SUCCESS, function() {
         updateAccess();
     });
@@ -75,7 +75,7 @@ function dataValidatorKeyCtrl($http, $scope, User, AUTH_EVENTS, $stateParams, $s
         vm.getToken().finally(function() {
             var conf = {
                 method: 'GET',
-                url: vm.dataApi + 'validation/' + jobid + '?nonse=' + Math.random()      
+                url: vm.dataApi + 'validation/' + jobid + '?nonse=' + Math.random()
             };
             if (vm.token) {
                 conf.headers = {'Authorization': 'Bearer ' + vm.token};
@@ -122,7 +122,7 @@ function dataValidatorKeyCtrl($http, $scope, User, AUTH_EVENTS, $stateParams, $s
         vm.jobStatus = data.status;
         vm.steps = _.get(data, 'metrics.stepTypes', []);
 
-        if ((data.status === 'DOWNLOADING' || data.status === 'QUEUED' || data.status === 'RUNNING' || data.status === 'SUBMITTED' || data.status === 'ACCEPTED' || data.status === 'NOT_FOUND') && data.key) {
+        if ((data.status === 'DOWNLOADING' || data.status === 'QUEUED' || data.status === 'WAITING_FOR_CHECKLISTBANK' || data.status === 'RUNNING' || data.status === 'SUBMITTED' || data.status === 'ACCEPTED' || data.status === 'NOT_FOUND') && data.key) {
             /* currently the validator webservice may return 404 and then after a few attempts it will return 200
                 We give it 5 attempts before throwing 404
 
@@ -145,7 +145,7 @@ function dataValidatorKeyCtrl($http, $scope, User, AUTH_EVENTS, $stateParams, $s
                         if (data.status === 'NOT_FOUND' && vm.retries404 > 0) {
                             vm.jobStatus = 'CONTACTING_SERVER';
                         }
-                        if (data.status === 'DOWNLOADING' || data.status === 'QUEUED' || data.status === 'RUNNING' || data.status === 'SUBMITTED' && data.result) {
+                        if (data.status === 'DOWNLOADING' || data.status === 'QUEUED' || data.status === 'WAITING_FOR_CHECKLISTBANK' || data.status === 'RUNNING' || data.status === 'SUBMITTED' && data.result) {
                             vm.dwcextensions.$promise.then(function() {
                                 handleValidationResult(data);
                             });
@@ -194,7 +194,7 @@ function dataValidatorKeyCtrl($http, $scope, User, AUTH_EVENTS, $stateParams, $s
             } else if (Number(_.get(responseData, 'fileSize')) >= 100000 ) {
                 vm.fileSize = ((Number(_.get(responseData, 'fileSize')) / 1000000).toFixed(1)) + ' mb';
             }
-        }        
+        }
         data.files.sort(function(a, b) {
             if (a.fileType === 'CORE' && b.fileType !== 'CORE') {
                 return -1;

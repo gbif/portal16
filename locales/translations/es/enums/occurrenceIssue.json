@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "No se ha encontrado el ID del concepto del taxón",
     "TAXON_ID_NOT_FOUND": "No se ha encontrado el ID del taxón",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Nombre científico e ID inconsistentes",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "El nombre del taxón e ID son ambiguos"
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "El nombre del taxón e ID son ambiguos",
+    "SUSPECTED_TYPE": ""
   }
 }

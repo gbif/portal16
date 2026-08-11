@@ -139,7 +139,8 @@
         "FINISHED": "Formato del archivo verificado",
         "PENDING": "Verificar el formato del archivo",
         "FAILED": "No se ha podido verificar el formato del archivo.",
-        "QUEUED": "Verificación de archivo en cola"
+        "QUEUED": "Verificación de archivo en cola",
+        "WAITING_FOR_CHECKLISTBANK": ""
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "Extrayendo los datos",
@@ -155,12 +156,12 @@
         "FAILED": "Interpretación de datos fallida",
         "QUEUED": "Interpretación de datos en cola"
       },
-      "VALIDATOR_INTERPRETED_TO_INDEX": {
-        "RUNNING": "Indexando para previsualizaciones",
-        "FINISHED": "Indexado para previsualizaciones",
-        "PENDING": "Indexar para previsualizaciones",
-        "FAILED": "Indexación para previsualizaciones fallida",
-        "QUEUED": "Indexación para previsualizaciones en cola"
+      "VALIDATOR_VERBATIM_TO_IDENTIFIER": {
+        "RUNNING": "Comprobando identificadores",
+        "FINISHED": "Identificadores comprobados",
+        "PENDING": "Comprobar identificadores",
+        "FAILED": "La comprobación de identificadores ha fallado",
+        "QUEUED": "Comprobación de identificadores en cola"
       },
       "VALIDATOR_COLLECT_METRICS": {
         "RUNNING": "Generando resumen",

@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "找不到分類群概念ID",
     "TAXON_ID_NOT_FOUND": "找不到分類群ID",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "學名與ID不一致",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "分類群與名稱吻合，ID不明確"
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "分類群與名稱吻合，ID不明確",
+    "SUSPECTED_TYPE": ""
   }
 }
