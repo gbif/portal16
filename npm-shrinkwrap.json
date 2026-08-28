@@ -155,7 +155,7 @@
         "octonode": "^0.7.6",
         "ol": "6.14.1",
         "p-limit": "^3.1.0",
-        "passport": "^0.3.2",
+        "passport": "^0.6.0",
         "passport-facebook": "^3.0.0",
         "passport-github2": "^0.1.11",
         "passport-google-oauth20": "^2.0.0",
@@ -20349,15 +20349,20 @@
       }
     },
     "node_modules/passport": {
-      "version": "0.3.2",
-      "resolved": "https://registry.npmjs.org/passport/-/passport-0.3.2.tgz",
-      "integrity": "sha1-ndAJ+RXo/glbASSgG4+C2gdRAQI=",
+      "version": "0.6.0",
+      "resolved": "https://registry.npmjs.org/passport/-/passport-0.6.0.tgz",
+      "integrity": "sha512-0fe+p3ZnrWRW74fe8+SvCyf4a3Pb2/h7gFkQ8yTJpAO50gDzlfjZUZTO1k5Eg9kUct22OxHLqDZoKUWRHOh9ug==",
       "dependencies": {
         "passport-strategy": "1.x.x",
-        "pause": "0.0.1"
+        "pause": "0.0.1",
+        "utils-merge": "^1.0.1"
       },
       "engines": {
         "node": ">= 0.4.0"
+      },
+      "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/jaredhanson"
       }
     },
     "node_modules/passport-facebook": {
@@ -20430,6 +20435,14 @@
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/passport-strategy/-/passport-strategy-1.0.0.tgz",
       "integrity": "sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=",
+      "engines": {
+        "node": ">= 0.4.0"
+      }
+    },
+    "node_modules/passport/node_modules/utils-merge": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz",
+      "integrity": "sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==",
       "engines": {
         "node": ">= 0.4.0"
       }
@@ -44075,12 +44088,20 @@
       "integrity": "sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ="
     },
     "passport": {
-      "version": "0.3.2",
-      "resolved": "https://registry.npmjs.org/passport/-/passport-0.3.2.tgz",
-      "integrity": "sha1-ndAJ+RXo/glbASSgG4+C2gdRAQI=",
+      "version": "0.6.0",
+      "resolved": "https://registry.npmjs.org/passport/-/passport-0.6.0.tgz",
+      "integrity": "sha512-0fe+p3ZnrWRW74fe8+SvCyf4a3Pb2/h7gFkQ8yTJpAO50gDzlfjZUZTO1k5Eg9kUct22OxHLqDZoKUWRHOh9ug==",
       "requires": {
         "passport-strategy": "1.x.x",
-        "pause": "0.0.1"
+        "pause": "0.0.1",
+        "utils-merge": "^1.0.1"
+      },
+      "dependencies": {
+        "utils-merge": {
+          "version": "1.0.1",
+          "resolved": "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz",
+          "integrity": "sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA=="
+        }
       }
     },
     "passport-facebook": {
