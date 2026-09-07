@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "Taxon concept ID nenalezen",
     "TAXON_ID_NOT_FOUND": "Taxon ID nenalezen",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Vědecký název a ID nejsou konzistentní",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Shoda názvu a ID taxonu je nejednoznačná"
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Shoda názvu a ID taxonu je nejednoznačná",
+    "SUSPECTED_TYPE": ""
   }
 }

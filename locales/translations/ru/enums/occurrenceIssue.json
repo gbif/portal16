@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "Идентификатор концепции таксона не найден",
     "TAXON_ID_NOT_FOUND": "Идентификатор таксона не найден",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Научное название и идентификатор не соответствуют друг другу",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Нет однозначного совпадения названия и идентификатора таксона."
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Нет однозначного совпадения названия и идентификатора таксона.",
+    "SUSPECTED_TYPE": ""
   }
 }

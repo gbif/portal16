@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "ID du concept taxonomique introuvable",
     "TAXON_ID_NOT_FOUND": "ID de taxon introuvable",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Nom scientifique et ID incohérents",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Correspondance taxonomique du nom et ID ambigus"
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Correspondance taxonomique du nom et ID ambigus",
+    "SUSPECTED_TYPE": ""
   }
 }

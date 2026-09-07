@@ -139,7 +139,8 @@
         "FINISHED": "归档格式已验证",
         "PENDING": "验证归档格式",
         "FAILED": "验证归档格式失败",
-        "QUEUED": "归档验证已排队"
+        "QUEUED": "归档验证已排队",
+        "WAITING_FOR_CHECKLISTBANK": ""
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "提取数据",
@@ -155,7 +156,7 @@
         "FAILED": "数据解析失败",
         "QUEUED": ""
       },
-      "VALIDATOR_INTERPRETED_TO_INDEX": {
+      "VALIDATOR_VERBATIM_TO_IDENTIFIER": {
         "RUNNING": "",
         "FINISHED": "",
         "PENDING": "",

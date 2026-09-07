@@ -76,6 +76,7 @@
     "TAXON_CONCEPT_ID_NOT_FOUND": "Taxon concept ID not found",
     "TAXON_ID_NOT_FOUND": "Taxon ID not found",
     "SCIENTIFIC_NAME_AND_ID_INCONSISTENT": "Scientific name and ID inconsistent",
-    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Taxon match name and ID ambiguous"
+    "TAXON_MATCH_NAME_AND_ID_AMBIGUOUS": "Taxon match name and ID ambiguous",
+    "SUSPECTED_TYPE": "Suspected type"
   }
 }

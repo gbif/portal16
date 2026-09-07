@@ -139,7 +139,8 @@
         "FINISHED": "存檔格式已驗證",
         "PENDING": "驗證存檔格式",
         "FAILED": "無法驗證存檔格式",
-        "QUEUED": "等待驗證存檔"
+        "QUEUED": "等待驗證存檔",
+        "WAITING_FOR_CHECKLISTBANK": ""
       },
       "VALIDATOR_DWCA_TO_VERBATIM": {
         "RUNNING": "擷取資料",
@@ -155,7 +156,7 @@
         "FAILED": "資料解讀失敗",
         "QUEUED": "等待解讀資料"
       },
-      "VALIDATOR_INTERPRETED_TO_INDEX": {
+      "VALIDATOR_VERBATIM_TO_IDENTIFIER": {
         "RUNNING": "",
         "FINISHED": "",
         "PENDING": "",
